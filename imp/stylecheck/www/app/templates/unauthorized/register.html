@@ -1,0 +1,47 @@
+<ion-view>
+    <ion-content padding="15">
+        <h2>{{dict.register}}</h2>
+        <div class="content-wrapper center">
+            <button class="button button-block button-facebook button-positive icon icon-left ion-social-facebook" ng-click="facebookLogin('register')">{{dict.registerWithFacebook}}</button>
+            <div class="row padding-top padding-bottom">
+                <div class="col display-flex align-center"><hr></div>
+                <div class="col col-20">
+                    <div class="text-center uppercase stable">{{dict.or}}</div>
+                </div>
+                <div class="col display-flex align-center"><hr></div>
+            </div>
+            <form name="register.form" id="register.form" ng-submit="register.form.$valid && registration()">
+                <div>
+                    <label class="item item-input">
+                        <input type="email" ng-model="auth.email" placeholder="{{dict.email}}" ng-change="comparePasswords()" required>
+                    </label>
+                    <label class="item item-input">
+                        <input type="password" ng-model="auth.password" placeholder="{{dict.password}} ({{dict.passwordMinLength}})" ng-change="comparePasswords()" required>
+                    </label>
+                    <label class="item item-input">
+                        <input type="password" ng-model="auth.repeatPassword" placeholder="{{dict.repeatPassword}}" ng-pattern="/^\S{6,}/" ng-change="comparePasswords()" required>
+                    </label>
+                    <div class="display-flex align-center">
+                        <div class="item item-checkbox uppercase" >
+                            <label class="checkbox checkbox-assertive">
+                                <input type="checkbox" ng-model="termsAccepted" name="termsAccepted" ng-change="comparePasswords()" required>
+                            </label>
+                        </div>
+                        <div class="dark uppercase small">{{dict.confirmTermsAndConditions.part1}} <a class="bold" ng-click="showModal('tas')">{{dict.confirmTermsAndConditions.terms}}</a> {{dict.confirmTermsAndConditions.part2}} <a class="bold" ng-click="showModal('privacy')">{{dict.confirmTermsAndConditions.dataPrivacyStatement}}</a> {{dict.confirmTermsAndConditions.part3}}</div>
+                    </div>
+                </div>
+                <button type="submit" ng-disabled="register.form.$invalid" style="visibility: hidden; height: 0; width: 0;"></button>
+            </form>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light hide-on-keyboard-open">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="button button-block button-outline button-dark" ng-click="goTo('overview')">{{dict.cancel}}</button>
+            </div>
+            <div class="col">
+                <button form="register.form" type="submit" class="button button-block button-outline button-assertive" ng-disabled="register.form.$invalid">{{dict.register}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,51 @@
+<div class="modal custom-modal">
+    <ion-header-bar class="bar bar-stable">
+        <button class="button button-clear button-primary"
+                ng-click="cancelCreateCustom()">{{ 'CANCEL_SM' | translate }}
+        </button>
+        <h1 class="title counter-title title-center">{{ totalSelected + ' ' + ('OF' | translate) + ' ' +
+            allExercises.length }}</h1>
+        <button class="button button-clear button-primary bold orange-text"
+                ng-click="saveCustom()">{{ 'SAVE' | translate }}
+        </button>
+    </ion-header-bar>
+    <autocomplete ng-model="result" attr-placeholder="{{ 'SEARCH_FOR' | translate }}" data="allExercises" on-type=""
+                  on-select="searchSelect" attr-class="fixed-search" attr-input-id="exercise-search"></autocomplete>
+    <ion-content class="padding under-search" delegate-handle="createScroll">
+        <div class="button-bar padding">
+            <a class="button button-stable" ng-click="resetCustom()">{{ 'RESET' | translate }}</a>
+            <a class="button button-stable" ng-click="previewCustom()">{{ 'PREVIEW' | translate }}</a>
+        </div>
+        <ion-list>
+            <div ng-repeat="exerciseCat in exerciseCategories track by $index" id="{{ 'cat' + $index}}">
+                <div class="item item-divider nexercise-orange">
+                    <h3>{{ exerciseCat.longName | translate }}</h3>
+
+                    <p class="all-button"
+                       ng-click="toggleAll(exerciseCat.shortName, $index)">{{ 'ALL' | translate }}</p>
+                </div>
+                <div ng-repeat="exerciseEl in exerciseCat.exercises track by $index">
+                    <ion-checkbox class="item-text-wrap item-checkbox-right item-thumbnail-left"
+                                  name="selectedExercises[]" value="{{ exerciseEl.name | translate }}"
+                                  ng-model="currentSelection[exerciseEl.name]"
+                                  id="{{ allExercises.indexOf((exerciseEl.name | translate)) }}"
+                                  ng-change="mathSelected(currentSelection[exerciseEl.name])"
+                                  ng-class="{'low-impact' : exerciseEl.classification == 'lowImpact'}">
+                        <div class="item-image">
+                            <img ng-src="img/thumbnails/{{ exerciseEl.image }}" ng-if="!exerciseEl.unlocked"/>
+                            <img ng-src="{{ deviceBasePath }}exercises/keyframe-middle/{{ exerciseEl.image }}"
+                                 ng-if="exerciseEl.unlocked"/>
+                        </div>
+                        <h3>{{ exerciseEl.name | translate }}</h3>
+                        <p class="classification" ng-if="exerciseEl.classification == 'lowImpact'" translate>
+                            LOWIMPACT</p>
+                    </ion-checkbox>
+                </div>
+            </div>
+        </ion-list>
+        <div class="button-bar padding-bottom padding-top">
+            <a class="button button-stable" ng-click="resetCustom()">{{ 'RESET' | translate }}</a>
+            <a class="button button-stable" ng-click="previewCustom()">{{ 'PREVIEW' | translate }}</a>
+        </div>
+    </ion-content>
+</div>

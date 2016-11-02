@@ -1,0 +1,25 @@
+<div class="sandox-token page">
+	<ion-content>
+		<button ui-sref="welcome.start" class="button button-block button-dark">back to START PAGE</button>
+		
+		<style type="text/css">
+			.sandox-token {
+				background: #e3deca;
+			}
+		</style>
+
+		<hr />
+		<p style="text-align: center;">{{ idsession }}</p>
+		<hr />
+		<p style="text-align: center;">{{ display }}</p>
+		<hr />
+
+		<button class="button button-block button-assertive" ng-click="login()">Login (READ permission)</button>
+
+		<button class="button button-block button-balanced" ng-click="escalate()">GET PUBLISH PERMISSION</button>
+
+		<button class="button button-block button-positive" ng-click="publish()">PUBLISH TO FEED</button>
+
+		<button class="button button-block button-royal" ng-click="smartPublish()">SMART PUBLISH</button>
+	</ion-content>
+</div>

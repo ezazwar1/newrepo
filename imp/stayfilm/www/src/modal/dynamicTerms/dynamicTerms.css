@@ -1,0 +1,100 @@
+/* line 5, dynamicTerms.scss */
+.modal-dynamic-terms .big-button-footer {
+  padding: 10px 20px 17px;
+  background: #fff;
+  border: 0;
+}
+/* line 11, dynamicTerms.scss */
+.modal-dynamic-terms .big-button-footer .agree {
+  background: #12ad60;
+}
+/* line 16, dynamicTerms.scss */
+.modal-dynamic-terms .pre-loader {
+  text-align: center;
+}
+/* line 20, dynamicTerms.scss */
+.modal-dynamic-terms .white-close-bar {
+  background: #fff;
+}
+/* line 23, dynamicTerms.scss */
+.modal-dynamic-terms .white-close-bar .button-clear {
+  margin-left: auto;
+}
+/* line 25, dynamicTerms.scss */
+.modal-dynamic-terms .white-close-bar .button-clear img {
+  height: 20px;
+}
+/* line 31, dynamicTerms.scss */
+.modal-dynamic-terms .terms {
+  padding: 20px;
+}
+/* line 34, dynamicTerms.scss */
+.modal-dynamic-terms .terms img {
+  margin: 0 auto 20px;
+  display: block;
+}
+/* line 39, dynamicTerms.scss */
+.modal-dynamic-terms .terms h1 {
+  font-family: HelveticaNeueBLK, sans-serif;
+  font-size: 12px;
+  color: #af252b;
+  text-transform: uppercase;
+  margin: 10px 0;
+  letter-spacing: 2px;
+}
+/* line 48, dynamicTerms.scss */
+.modal-dynamic-terms .terms > ol {
+  list-style: decimal outside;
+}
+/* line 51, dynamicTerms.scss */
+.modal-dynamic-terms .terms > ol > li {
+  margin-left: 65px;
+  margin-bottom: 30px;
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 50px;
+  color: #c6c5c5;
+}
+/* line 58, dynamicTerms.scss */
+.modal-dynamic-terms .terms > ol > li h2 {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 35px;
+  color: #c6c5c5;
+  margin-left: -23px;
+}
+/* line 65, dynamicTerms.scss */
+.modal-dynamic-terms .terms > ol > li > ol {
+  margin-left: -65px;
+  list-style: upper-roman inside;
+}
+/* line 69, dynamicTerms.scss */
+.modal-dynamic-terms .terms > ol > li > ol li {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 14px;
+  color: #7a7a7a;
+  margin-bottom: 20px;
+}
+/* line 75, dynamicTerms.scss */
+.modal-dynamic-terms .terms > ol > li > ol li h3 {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #7a7a7a;
+}
+/* line 87, dynamicTerms.scss */
+.modal-dynamic-terms .terms.privacy-terms > ol {
+  list-style-position: inside;
+}
+/* line 90, dynamicTerms.scss */
+.modal-dynamic-terms .terms.privacy-terms > ol > li {
+  margin-left: 0;
+  font-size: 25px;
+}
+/* line 94, dynamicTerms.scss */
+.modal-dynamic-terms .terms.privacy-terms > ol > li h2 {
+  margin-left: 0;
+  font-size: 16px;
+}
+/* line 99, dynamicTerms.scss */
+.modal-dynamic-terms .terms.privacy-terms > ol > li > ol {
+  margin-left: 0;
+}

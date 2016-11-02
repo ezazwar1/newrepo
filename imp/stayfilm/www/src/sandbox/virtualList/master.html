@@ -1,0 +1,33 @@
+
+            <ion-view title="Home">
+              
+              <ion-header-bar class="bar-subheader item-input-inset">
+                <label class="item-input-wrapper">
+                  <i class="icon ion-ios7-search placeholder-icon"></i>
+                  <input type="search" placeholder="Search" ng-model="filter">
+                    </label>
+                  </ion-header-bar>
+
+                <ion-nav-buttons side="right">
+                  <a class="button" ng-click="scrollBottom()">
+                    Scroll To Bottom
+                  </a>
+                </ion-nav-buttons>
+
+
+
+                <ion-content>
+                  <div class="list">
+                    <a class="item my-item item-thumbnail-left"
+                       collection-repeat="pet in pets | filter:filter"
+                       collection-item-height="90"
+                       collection-item-width="'100%'"
+                       ui-sref="detail({petsId: pet.id })">
+                      <img ng-src="http://placekitten.com/60/{{55 + ($index % 10)}}">
+                        <h2>{{pet.firstName}}</h2>
+                        <p>{{pet.id}}</p>
+
+                        </a>
+                      </div>
+                    </ion-content>
+                  </ion-view>

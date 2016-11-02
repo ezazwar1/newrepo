@@ -1,0 +1,101 @@
+<div ng-controller="WatchModalController" class="modal modal-watch">
+	<ion-header-bar class="user-header-bar" no-tap-scroll="true">
+		<a class="user-thumb" ng-click="goToFriend(movie.user)">
+			<img src="default-profile.png" ng-src="{{ movie.user.photo }}">
+		</a>
+		<div class="username" >
+			<a ng-click="goToFriend(movie.user)">{{ movie.user.fullName }}</a>
+		</div>
+		<div class="buttons">
+			<button ng-click="closeModalOrBack()"><img src="images/ico-close.png"></button>
+		</div>
+	</ion-header-bar>
+
+	<ion-content ng-class="{'has-comment-footer': isLogged}" delegate-handle="commentScroll">
+		<div class="jwplayer-container">
+			<jwplayer movie="movie"></jwplayer>
+		</div>
+
+		<div class="movie-actions" ng-if="isLogged">
+			<button class="like-button" ng-disabled="likingMovie" ng-class="{'liked': movie.liked, 'swingAnim': likingMovie}" ng-click="likeMovie()">
+				<img ng-if="!movie.liked" src="images/watch/icon_coroa_grey.png" class="crown">
+				<img ng-if="!movie.liked" src="images/watch/iconYES.png" class="yes">
+
+				<img ng-if="movie.liked" src="images/watch/icon_coroa_red.png" class="crown">
+				<img ng-if="movie.liked" src="images/watch/iconYES_RED.png" class="yes">
+			</button>
+
+			<button class="share-button" ng-click="share()">
+				<img src="images/ico-share.png">
+				<span translate>Compartilhar</span>
+			</button>
+
+			<!--<button class="shared share-button" ng-if="movie.shared">-->
+				<!--<img src="images/ico-share.png">-->
+				<!--<span translate>Compartilhado</span>-->
+			<!--</button>-->
+		</div>
+
+		<h2 class="movie-title">{{ movie.title }}</h2>
+
+		<div class="movie-status">
+			<div class="movie-icons">
+				<div class="yes"><span>{{ movie.likeCount }}</span> <img src="images/watch/iconYES.png"></div>
+				<div class="comments"><span>{{ movie.commentCount }}</span> <img src="images/watch/iconCOMENT.png"></div>
+				<div class="views"><span>{{ movie.viewCount }}</span> <img src="images/watch/iconVIEW.png"></div>
+			</div>
+			<div class="created"><span>{{ movie.prettyCreated }}</span></div>
+		</div>
+
+		<div class="movie-synopsis">
+			{{ movie.synopsis }}
+		</div>
+
+		<div class="secondary-actions clearfix">
+			<button ng-click="saveToDevice()" ng-if="canSaveToDevice"><span translate>Download</span></button>
+			<button ng-click="configMovie()"><span translate>Configurações</span></button>
+		</div>
+
+		<ion-list class="comment-list">
+			<ion-item ng-repeat="item in commentList track by $index" item="item" class="comment-item">
+				<div class="row">
+					<div class="col avatar">
+						<img ng-click="goToFriend(item.user)" src="default-profile.png" ng-src="{{ item.user.photo }}" width="40" height="40" />
+					</div>
+					<div class="col content">
+						<div class="comment-info">
+							<div class="name">
+								<a ng-click="goToFriend(item.user)">{{ item.user.fullName }}</a>
+								<ion-spinner ng-if="item.status == 'PENDING'"></ion-spinner>
+								<span ng-if="item.status != 'PENDING'" class="status" ng-class="{'ion-checkmark': item.status == 'OK', 'ion-alert-circled': item.status == 'FAIL'}"></span>
+							</div>
+							<div class="comment-date">{{ item.prettyCommentCreated }}</div>
+						</div>
+						<div class="comment-body">
+							<span class="comment" ng-bind-html="item.comment"></span>
+						</div>
+					</div>
+				</div>
+				<ion-option-button class="button-assertive" ng-click="deleteComment($index, item.idMovieCommentCore)">
+					<span class="ion-trash-a" style="font-size: 30px;"></span>
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+	<ion-footer-bar class="comment-footer" ng-if="isLogged">
+		<div class="user-avatar">
+			<img src="default-profile.png" ng-src="{{ userPhoto || 'default-profile.png' }}" width="40" height="40" />
+		</div>
+
+		<div class="toggle-comment" ng-if="!showCommentInput" ng-click="toggleCommentInput()"></span><span translate>Deixe seu comentário</span></div>
+		
+		<form ng-if="showCommentInput">
+			<div class="item item-input-inset input-wrapper">
+				<label class="item-input-wrapper">
+					<input type="text" placeholder="{{ 'Deixe seu comentário' | translate }}" ng-model="comment.input" class="comment-input">
+				</label>
+				<button type="submit" class="button button-small ion-android-send" ng-click="postComment(comment.input)"></button>
+			</div>
+		</form>
+	</ion-footer-bar>
+</div>

@@ -1,0 +1,40 @@
+<ion-content class="has-header height-100" scroll="false">
+<div class="button-bar bar-dark">
+   <button class="button" ></button>       
+</div>
+  <div class="main-page">
+    <div class="map-content" ng-class="{'sheet-open': isJobSheetOpen}" ng-click="closeJobSheet()">
+      <div id="map" class="map"></div>
+    </div>
+
+    <div class="job-sheet" ng-class="{'open-customer': isJobSheetOpen}" style="background-color: white">
+
+      <div class="sheet-content">
+        <div class="job-info" ng-click="toggleJobSheet()" style="background-color: white">
+          <div class="picture" style="padding-left: 10px;padding-top: 10px">
+            <img ng-show="job.hired_staff.staff.picture_small_url" ng-src="{{ job.workplace.picture_small_url  }}" alt=""/>
+            <img ng-show="!job.hired_staff.staff.picture_small_url" src="img/ninja-70x70.png" alt=""/>
+          </div>
+          <div class="details" style="text-align: center; width: calc(100%- 90px);position: absolute; top: 10px;left: 60px;color:#7d7d7d">
+            <div class="title" style="text-align: center;>">{{job.workplace.name}}</div>
+            <div class="address">{{job.workplaceAddress()}}</div>
+            <div class="rating">
+              <angular-ratings class="rating-stars" ng-model="job.workplace.stats_rating" readonly></angular-ratings>
+            </div>
+          </div>
+          <div style="text-align: center; width: calc(100%- 90px);position: absolute; top: 15px;right: 40px;color:#7d7d7d">
+            <button class="button-clear ops" style="float: right">
+              <i ng-class="{'ion-ios7-arrow-down': isJobSheetOpen, 'ion-ios7-arrow-up': !isJobSheetOpen}"></i>
+            </button>
+          </div>
+
+          <div class="buttons" ng-class="{'ng-hide': !isJobSheetOpen}" style="padding-top: 20px;padding-left: 20px;padding-right: 20px;">
+ 
+          <button class="button button-block button-balanced" ng-click="startJob()" style="border-radius:0">Clock On</button>
+          <a class="button button-light button-block" ng-click="trackCalledCustomer()" style="border-radius:0">Contact Customer</a>
+          <button class="button button-light button-block" ng-click="cancelJob()" style="border-radius:0">Cancel Shift</button>
+        </div>
+        </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,103 @@
+<ion-view view-title="{{ title }}">
+	<ion-content >
+		
+		<ion-item class="item-detail-holder">
+			
+			<div class="image-wrapper box">
+				<div class="row">
+					<div class="col image-content-wrapper" ng-click="goToSingleProduct({{ item.singleProduct }})"> 
+						<img image-lazy-loader="photo" image-lazy-src="{{ item.itemImage }}" />
+				    </div>
+				</div>
+				<div class="row item-text-wrap" ng-show="!item.hasProduct">
+					<div class="col product-wrapper single">
+						<div class="row">
+
+							<div class="col catalog">
+								<div class="info-wrapper">
+									<div class="name">{{ item.singleProduct.productName }}</div>
+									<div class="original-price">
+										<span>{{ item.singleProduct.productCurrency }}</span>
+										<span>{{ item.singleProduct.productPrice }}</span>
+									</div>
+									<div class="promo-price">
+										<span>{{ item.singleProduct.productPromoPrice }}</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="row item-text-wrap" ng-show="item.hasProduct">
+					<div class="col product-wrapper">
+						<div class="product-title">
+							Matching Items <span ng-show="item.isDisplayMoreProduct">|</span> <button ng-show="item.isDisplayMoreProduct" class="btn-link-red" ng-click="goToProductViewMore('{{ item.itemId }}')">View All</button>
+						</div>
+						<div class="row">
+
+							<div class="col catalog" ng-repeat="sp in item.similarProducts">
+								<div class="preview-wrapper" ng-click="goToProduct('{{ sp.productUrl }}','{{ sp.productId }}','{{ sp.productName }}')">
+									<img class="product-img" preload-image default-image="{{ sp.productPH }}" ng-src="{{ sp.productImage }}" />
+								</div>
+								<div class="info-wrapper">
+									<div class="name">{{ sp.productName }}</div>
+									<div class="original-price" ng-show="!sp.displayPromo">
+										<span>{{ sp.productCurrency }}</span>
+										<span>{{ sp.productPrice }}</span>
+									</div>
+									<div class="original-price strike" ng-show="sp.displayPromo">
+										<span>{{ sp.productCurrency }}</span>
+										<span>{{ sp.productPrice }}</span>
+									</div>
+									<div class="promo-price" ng-show="sp.displayPromo">
+										<span>{{ sp.productPromoPrice }}</span>
+									</div>
+									<div class="suggested-size" ng-show="sp.displayRecomemdedSize">
+										<span>Suggested size {{ sp.recomemdedSize }}</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col actions-wrapper">
+						<div class="button-wrapper">
+							<button class="btn-save" ng-click="saveStyle('{{ item.itemId }}')">
+								<span class="ion-android-favorite-outline" ng-show="!item.itemIsSaved"></span> <span class="ion-android-favorite" ng-show="item.itemIsSaved"></span> Save
+							</button>
+							<button class="btn-save" ng-click="shareItem('{{ item.itemId }}')">
+								<span class="ion-ios-redo-outline"></span> Share
+							</button>
+						</div>
+
+						<div class="edit" ng-show="item.isSavedItem">
+							<button class="btn-save" ng-click="editItem('{{ item.itemId }}')"><span class="ion-edit"></span></button>
+						</div>
+						<div class="report">
+							<button class="btn-save" ng-click="reportItem('{{ item.itemId }}')"><span class="ion-ios-more-outline"></span></button>
+						</div>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="description item-text-wrap" ng-bind-html="trustAsHtml(item.itemDescription) | hrefToJS">
+						</div>
+					</div>
+				</div>
+				<div class="row" ng-show="item.isShowSaved">
+					<div class="col saved-wrapper">
+						<span class="total-liked">{{ item.itemSavedCount }}</span> people saved this
+					</div>
+				</div>
+
+			</div>
+
+		</ion-item>
+
+	</ion-content>
+</ion-view>
+

@@ -1,0 +1,12 @@
+<ion-content class="onboarding" data-scroll="false" has-bouncing="false" ng-style="panels[activePanel].style">
+    <div class="padded">
+        <p class="text-center"><img src="img/stohke-logo-transparent.png" alt="" class="about-logo"></p>
+    </div>
+    <div class="content-middle">
+        <h2 class="title-font text-center" ng-bind-html="panels[activePanel].text"></h2>
+    </div>
+    <div class="content-bottom onboarding-buttons">
+        <button class="button button-block button-positive" type="button" ng-click="signIn()">Sign in with Facebook</button>
+        <button class="button button-block button-clear button-stable" ng-click="skip()">Skip for now</button>
+    </div>
+</ion-content>

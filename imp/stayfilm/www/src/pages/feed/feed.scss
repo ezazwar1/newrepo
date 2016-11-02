@@ -1,0 +1,47 @@
+@import "variables";
+
+.feed {
+
+	.scroll-refresher {
+		top: -10px;
+	}
+
+	.empty-list {
+		button {
+			color: $stayfilmColor;
+		}
+	}
+}
+
+.page-feed {
+	.bar-header {
+		padding: 0;
+
+		.logo-title {
+			margin: 5px auto 0;
+		}
+
+		.button {
+			overflow: hidden;
+			width: 50px;
+			height: 50px;
+
+			img {
+				height: 56px;
+				position: relative;
+				top: -6px;
+				left: -6px;
+			}
+
+			.activated {
+				
+			}
+		}
+
+		.title + .button:last-child {
+			top: 0;
+			right: 5px;
+			bottom: 0;
+		}
+	}
+}

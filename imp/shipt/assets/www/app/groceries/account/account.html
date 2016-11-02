@@ -1,0 +1,91 @@
+<ion-view title="Account">
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div class="large-padding">
+            <ion-list class="large-padding">
+                <div class=" history-list-separator">
+                    <span style="padding:22px;"  class="faded padding">
+                         Your Info
+                    </span>
+                </div>
+                <div class="item wrap">
+                    <div class="text-center padding" ng-if="loadingIndicator">
+                        <ion-spinner ></ion-spinner>
+                    </div>
+                    <div class="wrap text-center" ng-if="!loadingIndicator">
+                        <h2>
+                            {{customerInfo.name}}
+                        </h2>
+                        <p role="text" aria-label="{{customerInfo.phone | tel}}">
+                            <span class="icon ion-ios-telephone-outline" aria-hidden="true"> {{customerInfo.phone | tel}}</span>
+                        </p>
+                        <p role="text" aria-label="{{customerInfo.email}}">
+                            <span class="icon ion-ios-email-outline" aria-hidden="true"> {{customerInfo.email}}</span>
+                        </p>
+                        <a  ng-click="editAccount()" class="text-positive">
+                            Edit
+                        </a>
+                    </div>
+                </div>
+
+                <div ng-if="showSubscribeButton()"   class="text-center padding">
+                    <a href="/signup#/choosePlan/{{customerInfo.email}}" class="button button-positive">
+                        Become a Shipt Member
+                        <i class="icon ion-ios-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div ng-if="!showSubscribeButton()"  class=" history-list-separator">
+                <span style="padding:22px;"  class="faded padding">
+
+                </span>
+                </div>
+                <ion-item class="item item-icon-left item-icon-right" ng-if="!showSubscribeButton()" href="#/app/addressList" role="button"  aria-label="Addresses">
+                    <i class="icon ion-ios-home-outline text-positive" aria-hidden="true" aria-label="address icon"></i>
+                    <span>
+                        Addresses
+                    </span>
+                    <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                </ion-item>
+                <ion-item ng-if="!showSubscribeButton()" href="#/app/cardList" class="item item-icon-left item-icon-right" role="button"  aria-label="Payment">
+                    <i class="icon ion-card  text-positive" aria-hidden="true" aria-label="payment icon"></i>
+                    <span>
+                        Payment
+                    </span>
+                    <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                </ion-item>
+                <ion-item ng-if="!showSubscribeButton()" href="#/app/orders" class="item item-icon-left item-icon-right" role="button" aria-label="Your Orders">
+                    <i class="icon ion-ios-albums-outline text-positive" aria-hidden="true" aria-label="orders icon"></i>
+                    <span>
+                        Your Orders
+                    </span>
+                    <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                </ion-item>
+                <div ng-if="vm.plan || !vm.planLoaded" class="history-list-separator">
+                    <span style="padding:22px;"  class="faded padding">
+                        Your Plan
+                    </span>
+                </div>
+                <ion-item ng-if="vm.plan" class="item text-center" ng-click="vm.subscriptionClick()">
+                    <span class="wrap">
+                        {{vm.plan.plan.name}}
+                    </span>
+                </ion-item>
+                <ion-item ng-if="!vm.plan && !vm.planLoaded" class="item text-center">
+                    <span class="wrap">
+                        Loading...
+                    </span>
+                </ion-item>
+            </ion-list>
+            <br/>
+            <div class="text-center">
+                <button ng-click="signoutClick()" id="grocery_account_signout" class="button button-positive button-clear">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

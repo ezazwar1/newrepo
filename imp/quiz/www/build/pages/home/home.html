@@ -1,0 +1,20 @@
+<ion-navbar *navbar primary>
+  <ion-title>Ionic 2 Quiz</ion-title>
+
+  <ion-buttons end>
+    <button (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="home">
+  <h1>Start to learn</h1>
+
+  <ion-card class="large-thumbnail" *ngFor="#category of categories" (click)="chooseMode(category.id)">
+    <ion-item [ngStyle]="{'background-image': 'url(' + category.image + ')'}">
+      <h2>{{category.name}}</h2>
+      <p>{{category.excerpt}}</p>
+    </ion-item>
+  </ion-card>
+</ion-content>

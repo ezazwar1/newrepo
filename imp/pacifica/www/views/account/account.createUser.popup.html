@@ -1,0 +1,40 @@
+<ion-modal-view class="touchpoint popoverr new-account">
+
+  <ion-content class="filter-popover"> 
+  	<div class="box">
+
+      <a href="javascript:;" ng-click="closePopup()" class="go-back">X</a>
+      <form name="createUserForm" id="createUserForm" ng-submit="createUser()" >
+      <label class="item item-input">
+        <input type="text" placeholder="{{ 'NICKNAME' | translate }}" ng-model="signUpData.name" tabindex="1" name="name" id="createUserName">
+      </label>
+      <label class="item item-input">
+        <input type="email" placeholder="{{ 'EMAIL' | translate }}" ng-model="signUpData.email" tabindex="3" name="email" id="createUserEmail">
+      </label>
+      <label class="item item-input password">
+        <input type="password" placeholder="{{ 'PASSWORD' | translate }}" ng-model="signUpData.password" tabindex="4" name="password" id="createUserPassword">
+      <span>{{ 'EIGHT_CHARACTERS' | translate }}</span></label>
+      <label class="item item-input" ng-show="referralMode">
+        <input type="text" placeholder="{{ 'REFERRAL_CODE' | translate }}" ng-model="signUpData.referralCode" tabindex="5" name="referralCode" id="referralCode">
+      </label>
+      <input type="submit" style="visibility:hidden; display: block; padding: 0; margin: 0; height:0; line-height: 0; width: 0;" ng-disabled="loading"> <!-- Needs to be there for the submit to work. -->
+      </form>
+      <div style="padding-left: 15px; margin-bottom: 12px;" class="error" ng-show="loginError">
+        {{errorMessage}}
+      </div>
+      <div class="policy">
+      <strong>{{ 'LOGIN_ACCOUNT_SECURE' | translate }}</strong><br>
+      <span ng-bind-html="getLoginTosHTML()"></span>
+      </div>
+    </div>
+    <div class="buttons-wrapper">
+    <div class="error" ng-show="suggestedEmail" style="margin-bottom: 10px;">
+        {{ 'DID_YOU_MEAN' | translate}}: <strong>{{suggestedEmail}}</strong>?
+    </div>
+    <button class="button button-default" ng-click="createUser(false)" ng-show="!suggestedEmail">{{ 'LOGIN_JOIN_NOW' | translate }}</button>
+    <button class="button button-default suggest-correction" ng-click="useSuggestedEmail()" ng-show="suggestedEmail">{{ 'USE' | translate }} {{suggestedEmail}}</button>
+    <button class="button button-default light-button suggest-correction" ng-click="createUser(true)" ng-show="suggestedEmail">{{ 'NO_USE' | translate }} {{signUpData.email}}</button>
+  </div>
+
+  </ion-content>
+</ion-modal-view>

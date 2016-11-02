@@ -1,0 +1,29 @@
+@import "base";
+
+.opening-bg {
+	background-color: $main-blue-color;
+}
+
+div.list-clear {
+	height: 100%;
+	margin-top: 50%;
+	background-color: transparent;
+	text-align: center;
+
+	div.logo {
+		width: 100%;
+		margin: 0 auto;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	p.description {
+		display: block;
+		font-size: 0.9em;
+		color: #fff;
+		margin-bottom: 40px;
+	}
+}

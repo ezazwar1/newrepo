@@ -1,0 +1,31 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Account Creation!</span>
+    <span class="welzen-popup__contents">In order to purchase a Welzen product, we need you to first create an account so we can better assist you in case you need technical support. If you already have an account, please tap the "Sign In" button</span>
+    <a  class="welzen-popup__cta" ng-click='togglePopUpActive()'>OK, GOT IT!</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+<ion-view class="bg-welzen signup" view-title="Sign Up">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Sign Up</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+    <form novalidate>
+      <welzen-input placeholder="Full Name" type="text" ng-model="user.fullname" required></welzen-input>
+      <welzen-input placeholder="Email" type="email" ng-model="user.email" required></welzen-input>
+      <welzen-input placeholder="Password" type="password" ng-model="user.password" required  ng-keyup="analyzeEnterCreate($event,user)"></welzen-input>
+    </form>
+    <a class="footer__terms" ui-sref="terms">by clicking you agree to the terms &amp; conditions</a>
+    <a class="button button-block button-calm cta footer__cta" ng-click="create(user);">Sign Up</a>
+    <!--<a class="button button-block button-clear" href='#/login'>Already a member? Sign In</a>-->
+  </div>
+    </ion-content>
+</ion-view>

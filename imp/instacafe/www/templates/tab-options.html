@@ -1,0 +1,30 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>Options</ion-nav-title>
+<ion-content>
+    <h3 class="list-title">SOCIAL</h3>
+    <ion-list>
+        <ion-item class="item-text-wrap item-icon-right" ng-click="socialShare()">
+            Share
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+        <ion-item class="item-text-wrap item-icon-right" ng-click="leaveReview()">
+            Leave a Review
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+    </ion-list>
+    <h3 class="list-title">SUPPORT</h3>
+    <ion-list>
+        <ion-item class="item-text-wrap item-icon-right" ng-click="openFeedback()">
+            Feedback
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+    </ion-list>
+    <h3 class="list-title">ABOUT</h3>
+    <ion-list>
+        <ion-item class="item-text-wrap">
+            Version
+            <span class="item-note">{{ ::appVersion }}</span>
+        </ion-item>
+    </ion-list>
+</ion-content>
+</ion-view>

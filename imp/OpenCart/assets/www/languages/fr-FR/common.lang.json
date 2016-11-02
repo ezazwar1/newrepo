@@ -1,0 +1,9 @@
+﻿{
+    "welcome_title": "i2cs application mobile pour WooCommerce",
+    "welcome_connecting": "Connexion à i2CS ...",
+    "welcome_connected": "Connecté! app Loading ..",
+    "welcome_logging_in": "Loggin dans ...",
+    "welcome_loading_store": "Toutes les bonnes .. loading magasin ...",
+    "welcome_retrying": "Ooops .. magasin de chargement ...",
+    "welcome_error": "Oops! Quelque-chose s'est mal passé.."
+}

@@ -1,0 +1,47 @@
+<ion-view cache-view="false" class="bar-triby modal-add-image-caption">
+  <!-- Header -->
+  <div class="bar bar-triby bar-header disable-user-behavior">
+    <div class="buttons buttons-left">
+      <span class="left-buttons">
+        <button class="button button-icon ion-chevron-left client-positive" ng-click="resetPost({fromModal: true});modalImage.hide();">Cancel</button>
+      </span>
+    </div>
+    <div class="title title-center header-item">Add Caption</div>
+    <div class="buttons buttons-right">
+      <span class="right-buttons">
+        <button class="button button-icon" style="color:#2695f9" ng-click="sendPost()">Post</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <ion-content style="border:none; background-color: #2b2b2b;" >
+    <div class="list" ng-if="!post.video">
+      <div class="item item-image" style="margin: 50px 0; border:none;">
+        <img style="width:100%; height:60%;" ng-src="{{post.image}}">
+      </div>
+    </div>
+
+    <video ng-if="post.video" width="100%" height = "auto;" style="min-height: 300px;" controls="true" poster={{post.thumb}}>
+      <source ng-src={{post.video}} type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </ion-content>
+
+  <ion-footer-bar keyboard-attach class="bar bar-footer bar-stable comment_footer_wrapper">
+    <form name="sendMessageForm" ng-if="modalImage.isShown()" >
+      <div class="list list-feed bottom_top-border">
+        <div class="item item-send-text">
+          <div class="row">
+            <div style="margin-left: 10px;" class="col col-80 col-center comment_input_box">
+              <textarea msd-elastic class="inputForm" focus-me="modalImage.isShown()" ng-model="post.message" placeholder="Add Caption" ></textarea>
+            </div>
+            <div class="col col-15 col-center comment_send_box" ng-click="sendPost(post.message, true)">
+              <span class="send-msg-btn">Post</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ion-footer-bar>
+</ion-view>

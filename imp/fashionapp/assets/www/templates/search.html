@@ -1,0 +1,92 @@
+<ion-view>
+    <ion-content has-bouncing="true" class="news search-list" delegate-handle=" 'scrollSearch' ">
+        <div class="content-scroll">
+            <div class="top">
+                <h1> <span>{{ tag.slice(0,16) }}</span></h1>
+            </div>
+            <div class="product-infos element">
+                <div class="loading-icon pull-center" ng-if="items == null"><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></div>
+
+                <div class="loading-icon pull-center" ng-if="(items.feeds.length + items.brands.length + items.stores.length + items.collections.length + items.products.length + items.profiles.length) == 0"><em>No result found.</em></div>
+
+                <div class="full-list" id="listFeed" ng-if="items.feeds.length > 0">
+                    <h2><span>Trends</span></h2>
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items.feeds.slice(0,2)" ng-click="goId(item.element_type, item.id)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__thumbnail + ')' }"></div>
+                        <p>{{ item.title }} <br> <small>{{ item.category.title }}</small></p>
+                    </div>
+                    <div class="row">
+                        <button class="button button-block more-item" ng-click="seeMoreSearch('feed')" ng-show="items.feeds.length > 3" type="submit">See all</button>
+                    </div>
+                </div>
+                <div class="full-list" id="listBrand" ng-if="items.brands.length > 0">
+                    <h2><span>Designers</span></h2>
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items.brands.slice(0,2)" ng-click="goBrand(item.id)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__thumbnail + ')' }"></div>
+                        <p>
+                            {{ item.company_name }} <br>
+                            <small>
+                                {{ item.title_category }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <button class="button button-block more-item" ng-click="seeMoreSearch('brand')" ng-show="items.brands.length > 3" type="submit">See all </button>
+                    </div>
+                </div>
+                <div class="full-list" id="listCollection" ng-if="items.collections.length > 0">
+                    <h2><span>Collections</span></h2>
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items.collections.slice(0,2)" ng-click="goCollection(item.id)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__thumbnail + ')' }"></div>
+                         <p>
+                            {{ item.title }} <br>
+                            <small>{{ item.category.name }}</small>
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <button class="button button-block more-item" ng-click="seeMoreSearch('collection')" ng-show="items.collections.length > 3" type="submit">See all</button>
+                    </div>
+                </div>
+                <div class="full-list" id="listProduct" ng-if="items.products.length > 0">
+                    <h2><span>Products</span></h2>
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items.products.slice(0,2)"  ng-click="goProduct(item.id)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__thumbnail + ')' }"></div>
+                        <p>{{ item.title.slice(0,16) }}</p>
+                    </div>
+
+                    <div class="row">
+                        <button class="button button-block more-item" ng-click="seeMoreSearch('product')" ng-show="items.products.length > 3" type="submit">See all</button>
+                    </div>
+                </div>
+
+                <div class="full-list" id="listStore" ng-if="items.profiles.length > 0">
+                    <h2><span>Members</span></h2>
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items.profiles.slice(0,2)"  ng-click="goProfile(item.id)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__thumbnail + ')' }">
+                            <img class="avatar" src="{{ item.img_avatar__thumbnail }}">
+                        </div>
+                        <p>
+                            {{ item.first_name }} {{ item.last_name }} <br>
+                            <small>
+                                {{ item.profession.name }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <button class="button button-block more-item" ng-click="seeMoreSearch('user')" ng-show="items.profiles.length > 3" type="submit">See all </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

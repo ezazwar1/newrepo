@@ -1,0 +1,32 @@
+<ion-modal-view class="map map-modal">
+    <ion-header-bar class="bar bar-header bar-positive">
+        <button class="button button-clear" ng-click="closeMapModal()">Close</button>
+        <h1 class="title">Map</h1>
+    </ion-header-bar>
+    <ion-content data-tap-disabled="true">
+        <gm-map gm-map-id="'google-map'"
+                gm-center="center"
+                gm-zoom="zoom"
+                gm-map-options="options.map"
+                class="nearby-map"
+                ng-if="center"
+                gm-on-zoom-changed="loadMore()"
+                gm-on-drag="dragHandler()">
+            <gm-markers gm-objects="cafes"
+                        gm-id="object.id"
+                        gm-position="{ lat: object.point.coordinates[0], lng: object.point.coordinates[1] }"
+                        gm-on-mousedown="selectCafe(object, marker)">
+            </gm-markers>
+        </gm-map>
+    </ion-content>
+    <div class="item item-avatar item-icon-right map-result"
+         ng-hide="!cafeShow"
+         ng-if="cafe"
+         ui-sref="tab.home-cafe-detail({ cafeId:cafe.id })"
+         ng-click="closeMapModal()">
+        <img ng-src="{{ cafe.images[0] }}" default-src="img/default.png" >
+        <h2 class="cafe-name">{{ cafe.name }}</h2>
+        <p class="cafe-address">{{ cafe.address }}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+    </div>
+</ion-modal-view>

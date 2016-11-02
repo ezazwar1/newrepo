@@ -1,0 +1,82 @@
+<!-- <div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <div class="welzen-popup__header">
+      <div class="welzen-popup__header__icon"><img src="img/ico-pack.png"></div>
+      <span class="welzen-popup__header__title">The Stress Pack</span>
+    </div>
+    <span class="welzen-popup__contents">Unlock access to the full Stress pack, all of the series, the coaching and the guided meditations. That’s a whole lot of mindfulness! Enjoy!</span>
+    <div class="welzen-popup__separator"></div>
+    <span class="welzen-popup__footer">This content requires a premium subscription</span>
+    <a  class="welzen-popup__info-box" ng-click='togglePopUpActive()' href="#/unlock/upgrade">
+      <div class="welzen-popup__info-box__details">
+        <span class="welzen-popup__info-box__details--title">Stress Pack</span>
+        <span class="welzen-popup__info-box__details--brief">30 Day Unlimited Access</span>
+      </div>
+      <span class="welzen-popup__info-box__price">$2.99</span>
+    </a>
+  </div>
+</div> -->
+
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Unlock Welzen</span>
+    <span class="welzen-popup__contents">Receive access to all of Welzen’s premium Mindfulness tools. Deepen your practice with our category series, single meditations and fun coaching sessions.</span>
+    <div class="welzen-popup__separator"></div>
+    <span class="welzen-popup__footer">This content requires a premium subscription</span>
+    <a  class="welzen-popup__cta" ng-click='togglePopUpActive()' ui-sref="unlock">Subscribe</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+<ion-view class="bg-welzen meditation-lists" view-title="Manage Stress">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack()"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Manage {{category.name}}</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+
+      <a class="info-box--calm--live-style-pack" ng-click='togglePopUpActive()' ng-show="!isPremium();">
+        <div class="rounded-icon rounded-icon--pinky-play"><img src="img/ico-pack.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">{{category.name}} Pack</span>
+          <span class="info-box__brief">Purchase all the {{category.name}} tools</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" ng-click="series()" ng-if="seriesMedias.length != 0">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/btn-play-series.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">{{category.name}} Series</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--no-border" ng-click="coaching()" ng-if="mindMedias.length != 0">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/btn-play-coaching.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">{{category.name}} Coaching</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <h1 class="title">Single Meditations</h1>
+
+
+      <a class="info-box--transparent info-box--transparent"  ng-repeat="meditation in meditations" ui-sref="single-meditation-detail({meditation: meditation})">
+        <div class="rounded-icon rounded-icon--medium"><img ng-src="{{meditation.new_icon}}"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">{{meditation.title}}</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

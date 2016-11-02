@@ -1,0 +1,97 @@
+<ion-view title="{{ 'PROFILE.TITLE' | translate }}">
+
+    <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header no-border">
+        <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh('profile')">
+        </ion-refresher>
+        <div ng-if="me">
+		<div class="img-cover item item-image profile-bg">
+            <img class="img-responsive" ng-src="{{ me.image_url }}" height="200">
+            <div class="row bot-btns">
+              <div class="col text-right">
+        		<button ng-click="changeProfilePic()" class="button button-profile-pic button-light btn-sm button-round">
+                    <ion-spinner class="spinner-positive" ng-show="loading" icon="dots"></ion-spinner>
+
+                    <i ng-hide="loading || !me.image_url" class="wf positive ion-edit"></i>
+                    <i ng-show="!me.image_url && !loading" class="wf positive ion-plus"></i>
+                </button>
+              </div>
+            </div>
+        </div>
+
+        <div class="big-padding">
+        	<label class="item item-input on-light">
+                <input ng-model="me.first_name" name="name" type="text" placeholder="{{ 'PROFILE.NAME' | translate }}" class="dark-plc">
+            </label>
+            <label class="item item-input on-light">
+                <input ng-model="me.last_name" name="surname" type="text" placeholder="{{ 'PROFILE.SURNAME' | translate }}">
+            </label>
+            <label class="item item-input on-light margin-top-10">
+                <textarea ng-model="me.description" name="bio" placeholder="{{ 'PROFILE.BIO' | translate }}" class="dark-plc description-textarea" msd-elastic maxlength="500"></textarea>
+            </label>
+            <label class="item item-input on-light">
+                <input ng-model="me.city" type="text" name="city" placeholder="{{ 'PROFILE.CITY' | translate }}">
+            </label>
+
+            <div class="select-box on-light bottom-spacer-40">
+                <select ng-model="me.region" ng-init="me.region" name="region" class="light">
+                    <option value="" default disabled selected>{{ 'PROFILE.COUNTRY_PLACEHOLDER' | translate }}</option>
+                    <option ng-repeat= "region in regions" value="{{region.code}}" ng-selected="region.code==me.region">{{region.name}}</option>
+                </select>
+            </div>
+
+            <div class="row circle-icons">
+            	<div class="col text-center">
+            		<a href="" ng-class="{'round-outline-icon' : !me.gender}" ng-click="openSexModal()" class="round-icon">
+                        <i ng-class="{'ion-male': (me.gender == 'Male'), 'ion-female' : (me.gender == 'Female'), 'wf-unisex': !me.gender }" class="wf wf-2x"></i>
+                    </a>
+					<h5 ng-if="me.gender" class="dark" translate="{{ 'PROFILE.TXT_' + (me.gender | uppercase) }}">{{ me.gender}}</h5>
+                    <h5 ng-if="!me.gender" class="dark" translate="UNIT.SEX">Sex</h5>
+            	</div>
+
+            	<div class="col text-center">
+            		<a href="" ng-class="{ 'round-outline-icon' : !me.birth_date }" ng-click="openAgeModal()" class="round-icon">
+                        <i class="wf wf-age wf-2x"></i>
+                    </a>
+					<h5 ng-if="me.birth_date" class="dark">{{ me.birth_date | amDifference : null : 'year' | abs }} {{ 'PROFILE.YO' | translate }}</h5>
+                    <h5 ng-if="!me.birth_date" class="dark" translate="UNIT.AGE">Age</h5>
+            	</div>
+
+            	<div class="col text-center">
+            		<a href="" ng-class="{ 'round-outline-icon' : !me.weight.value }" ng-click="openWeightModal()" class="round-icon">
+                        <i class="wf wf-weight wf-2x"></i>
+                    </a>
+                    <h5 ng-if="me.weight.value" class="dark">{{ me.weight.value }} {{ me.weight.units }}</h5>
+                    <h5 ng-if="!me.weight.value" class="dark" translate="UNIT.WEIGHT">Weight</h5>
+            	</div>
+
+            	<div class="col text-center">
+            		<a href="" ng-class="{ 'round-outline-icon' : !me.height.value }" ng-click="openWeightModal()" class="round-icon">
+                        <i class="wf wf-scale wf-2x"></i>
+                    </a>
+                    <h5 ng-if="me.height.value" class="dark">{{ me.height.value }} {{ me.height.units }}</h5>
+                    <h5 ng-if="!me.height.value" class="dark" translate="UNIT.HEIGHT">Height</h5>
+            	</div>
+            </div>
+            <p class="dark text-center" ng-hide="completed"><em translate="PROFILE.FILLALL_REWARD"> Fill all your info to gain 20 points and discover your BMI index</em> </p>
+        </div>
+
+        <div ng-show="showBMI" class="bmi-box bg-dark big-padding text-center">
+
+                <p translate="PROFILE.BMI">BMI</p>
+                <h3>{{ bmi.bmi | number }}%</h3>
+                <p class="desc">{{ bmi.msg }}</p>
+        </div>
+      </div>
+    </ion-content>
+
+    <ion-footer-bar class="bar-positive floating-footer floating-footer-button" ng-hide="keyboardOpen" ng-show="dataChanged > 0 && !keyboardOpen" >
+        <button ng-click="saveChanges()" class="button button-big-sticky button-full floating-footer-button" translate="ACTION.SAVE">Save</button>
+    </ion-footer-bar>
+</ion-view>

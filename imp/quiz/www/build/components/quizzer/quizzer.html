@@ -1,0 +1,27 @@
+<!--
+  Generated template for the Quizzer component.
+
+  See https://angular.io/docs/ts/latest/api/core/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+<div class="quizzer">
+  <div class="quiz-area" *ngIf="inProgress">
+    <count-down *ngIf="!!timed" [end]="timer" (timer)="updateTimer($event)" (onTick)="onTick($event)" (onEnd)="onEnd($event)" ></count-down>
+    <div padding>
+  		<p>{{title}}</p>
+  	</div>
+    <img *ngIf="!!image" src="{{image}}" alt="{{title}}" />
+    <ion-list radio-group [(ngModel)]="ans" (change)="checkAnswer()" inset>
+      <ion-list-header>
+        Options
+      </ion-list-header>
+      <ion-item *ngFor="#option of options; #i = index">
+        <ion-label [attr.right]="isRight(option) ? '' : null" [attr.wrong]="isWrong(option) ? '' : null">{{option}}</ion-label>
+        <ion-radio
+          value="{{i}}"
+          [attr.right]="isRight(option) ? '' : null" [attr.wrong]="isWrong(option) ? '' : null"
+          [disabled]="!answerMode"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>

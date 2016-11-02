@@ -1,0 +1,81 @@
+<ion-view title="Details" >
+
+  <ion-nav-buttons side="left">
+	 <img class="menu-icon" src="img/menu.png" menu-toggle="left"></img>
+  </ion-nav-buttons>
+  
+  <ion-nav-buttons side="right">   
+   
+		
+  </ion-nav-buttons>
+
+<style>
+.text-center {
+    text-align: left;
+}
+.icon.ion-ios-star.ionic_rating_icon_on {
+    color: white !important;
+}
+.icon.ion-ios-star.ionic_rating_icon_off {
+    color: rgb(162, 162, 162) !important;
+}
+.button.button-positive {
+    border-color: transparent;
+	background: #33d29c;
+	color: #fff;
+	font-size: 14px;
+	min-height: 35px;
+	line-height: 35px;
+}
+a{
+	text-decoration:none;
+}
+</style>
+
+
+
+  <ion-content style="background-color: rgb(125, 97, 244);">
+	<div class="hotel-img">
+		<img src="img/hotel-detail.jpg"></img>
+	</div>
+	<div class="hotel-description row">
+		<div style="padding: 5px 5px 0px;" class="col col-75">
+			<h5>Soho Grand Hotel</h5>
+			<h4>20 W 23th Street, New York ,NY</h4>
+			<ionic-ratings ratingsobj='ratingsObject'></ionic-ratings>
+			<p>493 Ratings</p>
+		</div>
+		<div class="col col-25">
+			<div class="box">
+				<h6>9.5</h6>
+				<h3>HOTEL <br />CLASS</h3>
+			</div>
+		</div>
+	</div>
+	<div class="hotel-detail">
+		<h5>DETAILS</h5>
+		<p>Lorem Ipsum is simply dummy text of the printing</p>
+	</div>
+	<center><div class="row hotel-facility">
+		<div class="col">
+			<img src="img/swiming.png"></img><p>SWIM</p>
+		</div>
+		<div class="col">
+			<img src="img/wifi.png"></img><p>WIFI</p>
+		</div>
+		<div class="col">
+			<img src="img/dining.png"></img><p>DINING</p>
+		</div>
+		<div class="col">
+			<img src="img/gym.png"></img><p>GYM</p>
+		</div>
+		<div class="col">
+			<img src="img/more.png"></img>
+		</div>
+	</div></center>
+
+  </ion-content>
+	<a style="position: absolute;bottom:0px;width: 100%;" href=""><button class="button button-full button-positive">
+			  SEARCH
+	</button></a>
+</ion-view>

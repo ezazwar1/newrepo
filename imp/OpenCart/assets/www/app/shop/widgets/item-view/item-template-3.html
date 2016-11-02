@@ -1,0 +1,30 @@
+﻿<div class="product-image-wrapper" ng-click="showoverlay = !showoverlay">
+    <div ng-if="showoverlay">
+        <div class="row">
+            <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-50 button button-full button-positive button-outline">
+                <i class="icon ion-ios-eye-outline"></i>  {{ 'shop.item_view_button' | i18n }}
+            </a>
+            <button analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-50 button button-full button-clear button-outline" ng-click="addToWishlist(item.product_id)">
+                <i class="icon ion-ios-heart-outline"></i> {{ 'shop.item_add_to_wishlist_button' | i18n }}
+            </button>
+        </div>
+    </div>
+    <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
+</div>
+<div ng-click="showoverlay = !showoverlay">
+    <h2 ng-bind-html="item.name"></h2>
+    <p class="product-description" ng-bind-html="item.description"></p>
+    <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>
+    <div class="row">
+        <div class="col item-price-view">
+            <span ng-if="item.special">{{::item.special}}</span>
+            <span ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+            <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
+                <i class="icon ion-iphone"></i> {{::item.mobile_special}}
+            </span>
+        </div>
+        <div class="col item-ratings">
+            <ionic-ratings class="text-right" ratingsobj="{rating : item.rating, readOnly : true, minRating : 0}"></ionic-ratings>
+        </div>
+    </div>
+</div>

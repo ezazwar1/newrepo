@@ -1,0 +1,39 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="videoModal.hide()">Cancel</button>
+        </div>
+        <h1 class="title">Add Video</h1>
+    </ion-header-bar>
+    <ion-content>
+        <form name="addVideo">
+            <ion-list>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Video Host
+                    </div>
+                    <select ng-model="videoType">
+                        <option value="Youtube" selected>Youtube</option>
+                        <option value="Vimeo">Vimeo</option>
+                    </select>
+                </label>
+
+                <ion-item class="item-input" ng-if="videoType">
+                    <span class="input-label">{{videoType}} Video</span>
+                    <input type="text" name="videoId" placeholder="Url or ID" data-ng-model="$parent.$parent.$parent.videoId" maxlength="150" required ng-change="checkType($parent.$parent.$parent.videoId)" ng-blur="checkType($parent.$parent.$parent.videoId)" ng-model-options="{ debounce: 800 }">
+                </ion-item>
+                <ion-item class="item-input" ng-if="videoType">
+                    <span class="input-label">Caption</span>
+                    <input type="text" name="videoCaption" placeholder="" data-ng-model="$parent.$parent.$parent.videoCaption" maxlength="150">
+                </ion-item>
+
+            </ion-list>
+            <br>
+            <button class="button button-block button-stable button-clear tighter" ng-click="visitVideoHost(videoType)">Tap to open <u>{{videoType}}</u> and find a video.</button>
+            <a class="button button-block button-clear button-calm button-small no-pad" ng-click="openExternalUrl('www.stohke.com/app/help')">Need help?</a>
+            <br>
+            <button class="button button-block button-positive" ng-click="previewVideo(videoType, videoId)" ng-disabled="!addVideo.$valid">Preview</button>
+            <button type="button" class="button button-block button-balanced" ng-click="saveVideo(videoType, videoId, videoCaption)" ng-disabled="addVideo.$invalid">Save</button>
+        </form>
+    </ion-content>
+</ion-modal-view>

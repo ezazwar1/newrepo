@@ -1,0 +1,14 @@
+<ion-modal-view>
+  <div class="bar bar-subheader" on-drag="drag_close_modal($event)" on-release="drag_release()" style="margin-top: -34px">
+      <h1 class="title no-left" style="/*line-height: 0px*/">{{wc.warning.warnType}}</h1>
+      <div class="buttons">
+      <button class="button button-clear" ng-click="w_info_close()">
+        <span class="ion-ios-close-outline" style="font-size: 26px; margin-top: -29px; position: absolute; right: 1px;"></span>
+      </button>
+    </div>
+  </div>
+
+  <ion-content class="container">
+    <p>{{vm.warning.textArea1}}</p>
+  </ion-content>
+</ion-modal-view>

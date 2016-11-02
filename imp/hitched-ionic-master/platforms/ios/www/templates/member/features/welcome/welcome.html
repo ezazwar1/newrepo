@@ -1,0 +1,43 @@
+<div id="WelcomeCtrl">
+    <div class="col-md-12">
+        <div class="alert alert-success" style="display:none;">
+            <strong>
+                <span class="glyphicon glyphicon-send"></span>Success!</strong>
+        </div>
+        <div class="alert alert-danger" style="display:none;">
+            <span class="glyphicon glyphicon-alert"></span>
+            <strong>Error!</strong>
+        </div>
+    </div>
+
+    <!-- WELCOME -->
+    <div>
+        <div class="page-header text-center">  
+            Ready to get Hitched?!
+            <p class="text-muted">
+                Continue setting up your personalized wedding app!
+            </p>
+        </div>
+         <form class="form" name="form">
+            <section class="content">
+                <div class="row">      
+                    <div ng-repeat="item in features | filter: { idx: '!0' }" class="col-lg-6 col-xs-6">
+                        <div class="small-box {{item.class}}">
+                            <div class="inner">
+                                <h3>{{item.title}}</h3>
+                                <p>{{item.info}}</p>
+                            </div>
+                            <span class="icon octicon {{item.octicon}}"></span>
+                            <a ng-click="selectFeature(item.template, item.idx)" class="small-box-footer">
+                                <span class="glyphicon glyphicon-plus"></span>{{item.button}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+
+   
+
+</div>

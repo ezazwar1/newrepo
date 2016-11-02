@@ -1,0 +1,13 @@
+<ion-modal-view class="touchpoint text-thought popoverr mood-note">
+
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeTextThoughtModal()" class="go-back">X</a>
+
+    <div class="box" ng-controller='TextThoughtsReviewCtrl'>
+
+      <div ng-bind-html="thoughtHTML" class="thought-highlight-box"></div>
+  
+    </div>
+
+  </ion-content>
+</ion-modal-view>

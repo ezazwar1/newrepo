@@ -1,0 +1,26 @@
+<ion-modal-view class="touchpoint popoverr email">
+
+  <ion-content class="filter-popover">
+
+    <div class="box">
+
+      <h1>{{ 'ENTER_NICKNAME' | translate}}</h1>
+    
+       
+        <input type="text" placeholder="{{ 'NICKNAME' | translate }}" ng-model="originalNickname" name="nickname" id="updateUserNickname">
+     
+
+      <p ng-if="nicknameError" class="error">
+        {{nicknameError}}
+      </p>
+      <div class="clearfix">
+      <button ng-click="closeNicknameModal()" class="button-start">
+        {{ 'CANCEL' | translate }}
+      </button>
+      <button ng-click="updateNickname()" class="button-start">
+        {{ 'UPDATE_NICKNAME' | translate }}
+      </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

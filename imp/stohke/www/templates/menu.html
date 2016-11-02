@@ -1,0 +1,87 @@
+<ion-side-menus enable-menu-with-back-views="true" delegate-handle="mainmenu">
+    <ion-side-menu-content delegate-handle="maincontent">
+        <ion-nav-bar class="bar-dark">
+            <ion-nav-back-button></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+        <button class="button button-icon ion-navicon" menu-toggle="left" ng-hide="hideMenu || $exposeAside.active"></button>
+    </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="main-content"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" expose-aside-when="{{exposeAsideWhen}}">
+        <ion-header-bar class="bar-dark">
+            <div class="user-link" ng-if="userInfo.isAuth">
+                <a ui-sref="app.profile" data-menu-close>
+                    <img class="user-profile-image round" ng-src="{{userInfo.data.UrlPic}}" alt="">
+                    <h3 class="">{{userInfo.data.UserName}}
+                        <small>Manage profile</small>
+                    </h3>
+                </a>
+            </div>
+            <div class="sign-in-link" ng-if="!userInfo.isAuth">
+                <h3>
+                    <a ng-click="login()"><i class="ion-person accent"></i> Sign in</a>
+                </h3>
+            </div>
+        </ion-header-bar>
+        <ion-content class="side-menu">
+            <ion-list>
+
+                <ion-item class="item item-dark" ng-class="{true: 'active'}[currentPage.indexOf('/explore/search') > -1]">
+                    <i class="ion-search accent search-icon"></i>
+                    <input type="text" placeholder="search" class="search-field" data-ng-model="$parent.$parent.$parent.query" data-ng-keypress="onKey($event, this)" ng-focus="onFocus($event)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+                </ion-item>
+
+                <ion-item class="item item-divider item-dark" >
+                    <strong>Explore</strong>
+                </ion-item>
+                <ion-list class="item-sub-list">
+                    <ion-item class="item item-dark" ng-class="{true: 'active'}[currentPage === '/home']" data-menu-close href="#/home">Home</ion-item>
+                    <ion-item class="item item-dark" ng-class="{true: 'active'}[currentPage === '/explore/category/featured' || currentPage === '/explore']" data-menu-close href="#/explore/category/featured">Featured</ion-item>
+
+                    <ion-item ng-repeat="sport in sports" ng-class="{true: 'active'}[currentPage === '/explore/category/{{sport}}']" data-menu-close href="#/explore/category/{{sport}}" class="item item-dark">{{sport}}</ion-item>
+                </ion-list>
+                <ion-item nav-clear class="item item-dark item-divider"></ion-item>
+
+                <ion-list class="item-sub-list">
+                    <ion-item ng-repeat="sport in categories" ng-class="{true: 'active'}[currentPage === '/explore/category/{{sport}}']" data-menu-close href="#/explore/category/{{sport}}" class="item item-dark">{{sport}}</ion-item>
+                    
+                </ion-list>
+                <!-- <ion-item nav-clear class="item item-divider item-dark">
+                    <strong>Discover</strong>
+                </ion-item>
+                <ion-list class="item-sub-list">
+                    <ion-item class="item item-dark item-complex" ng-class="{true: 'active'}[currentPage === '/discover/featured']"  menu-close href="#/discover/featured">Featured Media</ion-item>
+                    <ion-item class="item item-dark item-complex" ng-class="{true: 'active'}[currentPage === '/discover/random']"  menu-close href="#/discover/random" ng-show="userInfo.isAuth">Random Media</ion-item>
+                </ion-list> -->
+                <ion-item nav-clear class="item item-dark item-divider">
+                    <strong>Stohke</strong>
+                </ion-item>
+                <ion-list class="item-sub-list">
+                    <ion-item class="item item-dark item-complex" ng-class="{true: 'active'}[currentPage === '/about']">
+                        <a class="item-content" data-menu-close href="#/about">About</a>
+                    </ion-item>
+                    <ion-item class="item item-dark item-complex">
+                        <a class="item-content" ng-click="openExternalLink('http://blog.stohke.com')">News</a>
+                    </ion-item>
+                    <ion-item class="item item-dark item-complex">
+                        <a class="item-content" ng-click="openExternalLink('https://squareup.com/market/stohke-inc')">Store</a>
+                    </ion-item>
+                </ion-list>
+                <ion-item nav-clear class="item item-dark item-divider">
+                    <strong></strong>
+                </ion-item>
+                <ion-list class="item-sub-list">
+                    <ion-item class="item item-dark item-complex">
+                        <a class="item-content" data-menu-close ng-click="logout()" ng-show="userInfo.isAuth">Log out</a>
+                    </ion-item>
+                </ion-list>
+                <ion-list class="item-sub-list">
+                    <ion-item class="item item-dark item-complex">
+                        <a class="item-content" data-menu-close ng-click="updateApp()" ng-show="updateAvailable">Install Update</a>
+                    </ion-item>
+                </ion-list>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

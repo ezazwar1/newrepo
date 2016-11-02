@@ -1,0 +1,12 @@
+/* line 7, watchModal-jellybean.scss */
+.platform-android4_1 .modal-watch .comment-footer form .input-wrapper, .platform-android4_2 .modal-watch .comment-footer form .input-wrapper, .platform-android4_3 .modal-watch .comment-footer form .input-wrapper, .platform-ios6 .modal-watch .comment-footer form .input-wrapper {
+  width: 78%;
+}
+/* line 14, watchModal-jellybean.scss */
+.platform-android4_1 .modal-watch .comment-footer .toggle-comment, .platform-android4_2 .modal-watch .comment-footer .toggle-comment, .platform-android4_3 .modal-watch .comment-footer .toggle-comment, .platform-ios6 .modal-watch .comment-footer .toggle-comment {
+  width: 70%;
+}
+/* line 22, watchModal-jellybean.scss */
+.platform-android4_1 .modal-watch .user-header-bar .user-thumb, .platform-android4_2 .modal-watch .user-header-bar .user-thumb, .platform-android4_3 .modal-watch .user-header-bar .user-thumb, .platform-ios6 .modal-watch .user-header-bar .user-thumb {
+  width: 30px;
+}

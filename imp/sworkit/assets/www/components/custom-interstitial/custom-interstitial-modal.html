@@ -1,0 +1,39 @@
+<ion-modal-view class="modal slide-in-up ng-enter active ng-enter-active custom-interstitial"
+                ng-style="{'background-color' : customInterstitialData.backgroundColor}">
+    <ion-header-bar class="bar bar-header disable-user-behavior"
+                    style="background-color: transparent;border: none;background-image: none;">
+        <h1 class="title ng-binding" style="left: 50px; right: 50px;color: white;"></h1>
+        <div class="buttons">
+            <button class="button button-icon icon ion-ios-close-empty" on-tap="closeModal()"
+                    style="color: white;font-size: 18px;"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="scroll-content ionic-scroll">
+        <div class="scroll" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+            <div class="custom-interstitial-content">
+                <div class="padding-top" ng-bind-html="customInterstitialData.header">
+                </div>
+                <div ng-if="customInterstitialData.showCountDownTimer" count-down end-time="liveSubscriptionPurchases.dateUntilChange"></div>
+                <div ng-bind-html="customInterstitialData.body" style="margin: 0px auto;">
+                </div>
+                <div class="center padding-top padding-bottom">
+                    <button ng-if="customInterstitialData.action === 'openPremium'" on-tap="showPremiumModal()"
+                            class="button button-large no-border new-button margin-15 ng-binding disable-user-behavior"
+                            ng-style="customInterstitialData.buttonStyle">
+                        {{customInterstitialData.ctaButtonText}}
+                    </button>
+
+                    <button ng-if="customInterstitialData.action === 'openInAppBrowser'" on-tap="openInAppBrowser()"
+                            class="button button-large no-border new-button margin-15 ng-binding disable-user-behavior"
+                            ng-style="customInterstitialData.buttonStyle">
+                        {{customInterstitialData.ctaButtonText}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-bar scroll-bar-v">
+            <div class="scroll-bar-indicator scroll-bar-fade-out"
+                 style="transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div>
+        </div>
+    </ion-content>
+</ion-modal-view>

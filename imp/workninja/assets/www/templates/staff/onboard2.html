@@ -1,0 +1,37 @@
+<ion-content class="onboard_content" scroll="false">
+    <div class="onboard_page details-modal">
+
+        <div class="onboard_title">
+            Let's start by getting <br/>your profile setup
+        </div>
+        <div class="onboard_descript" style="padding-top:3%;">
+            Show off your awesomeness with a professional looking profile pic and headline
+        </div>
+
+        
+        <div class="venue" ng-click="editProfilePicture()">
+            <div class="image ng-hide" ng-show="staff.picture_thumb_url === null" style="margin-top:55px">
+                <img src="img/onboard-staff-02.png" width="30%" style="max-width: 270px;">
+            </div>
+            <div class="image ng-hide" ng-show="staff.picture_thumb_url !== null">
+                <img src="img/placeholder.png" ng-src="{{ staff.picture_thumb_url }}" width="45%" style="max-width: 270px;">
+                <img src="img/onboard_plus_sign.png" width="10%" style="position:absolute; left:45%;margin-top:50px;">
+            </div>
+        </div>
+        <!-- <div class="about" >
+            <textarea rows="3" placeholder="A one liner to describe yourself" ng-model="staff.profile.about"></textarea>
+        </div> -->
+        <form>
+        <div class="details_content about">
+                <div class="form-group">
+                    <input placeholder="A one liner to describe yourself" ng-model="staff.profile.about" class="form-control ng-pristine ng-invalid ng-invalid-required" ></input>
+                </div>
+        </div>
+        </form>
+    <div class="onboard_btndiv">      
+        <button class="button button-onboard-balanced button-block" ng-click="updateProfile()">DONE</button>
+    </div>
+
+</ion-content>
+
+

@@ -1,0 +1,60 @@
+<ion-view>
+    <div class="feed">
+        <div id="backBrand" class="async full" ng-style="{ 'background-image': 'url(' + brand.image__large + ')' }"></div>
+        <div id="titleBrand" class="head" ng-click="toggleButton()">
+            <h1>
+                <small><hr class="line"/> {{ brand.country.name }}</small> <br>
+                <b>{{ brand.title.slice(0,38) }}</b>
+            </h1>
+        </div>
+        <ion-content has-bouncing="true" id="contentBrand" delegate-handle=" 'scrollBrand' " class="news" on-scroll="off('Brand')">
+            <div class="content-scroll">
+                <h1>
+                    <span>
+                        <img class="avatarBrand" ng-src="{{ brand.image_avatar__medium }}">
+                        <small><hr class="line"></hr> {{ brand.country.name }}</small><br>
+                        <b>{{ brand.title.slice(0,38) }}</b>
+                    </span>
+                </h1>
+                <div class="product-infos element">
+                    <div class="social row">
+                        <div class="col">
+                            <span class="bts bts-collection"></span>
+                            {{ collections.length }}
+                        </div>
+                        <div class="col">
+                        </div>
+                        <div class="col">
+                            {{ brand.likes_count }}
+                            <span class="bts bts-seen"></span>
+                        </div>
+                    </div>
+                    <hr class="outline"></hr>
+                    <ul class="bts-tabs">
+                        <li><span></span></li>
+                        <li class="active"><span>Description</span></li>
+                        <li><span></span></li>
+                    </ul>
+                    <div class="excerpt row" >
+                        <div class="col">
+                            {{ brand.about.slice(0,150) + ' ...' }}
+                            <br>
+                            <span ng-click="up('excerptElement')" class="more">Read More &gt;</span>
+                        </div>
+                    </div>
+                    <h2><span>Collections</span></h2>
+                    <div class="full-list">
+                        <div class="full-list-item collection" ng-repeat="collection in collections" ng-click="goCollection(collection.id)">
+                            <div class="back" style="background-image:url('{{ collection.image__thumbnail}}');"></div>
+                            <p>
+                                {{ collection.title }} <br/>
+                                <span class="bts bts-cintre"></span>{{ collection.count_product}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

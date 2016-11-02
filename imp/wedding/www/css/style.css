@@ -1,0 +1,723 @@
+/* Empty. Add your own CSS if you like */
+
+
+/* latin-ext */
+@font-face {
+  font-family: 'Cantora One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cantora One'), local('CantoraOne-Regular'), url('../fonts/CantoraOne.ttf') format('truetype');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cantora One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cantora One'), local('CantoraOne-Regular'), url('../fonts/CantoraOne.ttf') format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+.loading {
+	background-color: transparent !important;
+}
+.button-positive {
+	background-color: #4DBA82 !important;
+	border: 0px !important;
+}
+
+.slider-pager .slider-pager-page {
+	color: #fff;
+}
+
+.bar-wedivite {
+	background-color: #4DBA82;
+	color: #fff;
+	font-family: helvetica;
+	border: 0px !important;
+	margin-bottom: 0px;
+}
+
+.bar-wedivite .button {
+	color: #fff;
+}
+
+.bar-wedivite .title {
+	font-weight: 200;
+	font-size: 20px;
+}
+
+.ionic-refresher-content, .pull-to-refresh, .view-guest-list, .view-song-list {
+	/*background-color: #5B5B5B !important;*/
+	
+}
+.ionic-refresher-content, .pull-to-refresh {
+	color: #333 !important;
+	font-weight: 200 !important;
+}
+.icon-pulling .ion-ios7-arrow-down:before {
+	content: "\f442" !important;
+}
+.icon-refreshing .ion-loading-d:before {
+	content: "\f443" !important;
+	color: #AE5447;
+}
+.scroll-refresher {
+	top: -65px;
+}
+
+.swipe-helper {
+	position: absolute;
+	top: 185px;
+	z-index: 9;
+	right: 10px;
+}
+.swipe-helper img {
+	width: 150px;
+}
+
+.swiperhelper:after {
+	content: url('../img/swipeme.png');
+	z-index: 9;
+	display: block;
+	position: absolute;
+	right: 10px;
+	margin-top: -60px;
+}
+.swiperhelper2:after {
+	content: url('../img/swipeme.png');
+	z-index: 9;
+	display: block;
+	position: absolute;
+	right: 10px;
+	margin-top: -35px;
+}
+  /*<div class="swipe-helper">
+    <img src="../img/swipeme.png">
+  </div>*/
+
+@media only screen and (min-width: 768px) {
+	 .ion-navicon {
+	 	display: none !important;
+	 }
+}
+
+.no-items {
+	font-family: helvetica;
+	font-size: 20px;
+	margin-top: 20%;
+	text-align: center;
+}
+
+.badge-wedivite {
+	background-color: #4DBA82;
+	color: #fff;
+}
+
+/*
+	Home View
+	=======================
+ */
+.view-home {
+	background-image: url('../img/home-back.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-top: -10px;
+	background-position-y: -40px;
+	border: 0px !important;
+}
+.view-home h1 {
+	font-size: 70px;
+	letter-spacing: -5px;
+	/* Smooth text */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	font-family: 'Cantora One', sans-serif;
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	margin-top: 28%;
+	width: 100%;
+}
+.view-home h1 small {
+	letter-spacing: -1px;
+	font-family: helvetica;
+	font-size: 19px;
+	margin-left: 5px;
+	font-weight: 200;
+}
+
+.view-home .row {
+	text-align: center;
+	font-family: helvetica;
+	font-weight: 200;
+	color: #2C3A33;
+}
+.view-home .row h2 {
+	font-weight: 400;
+	color: #2C3A33;	
+	font-size: 42px;
+	letter-spacing: -3px;
+}
+.view-home .row span {
+	font-size: 16px;
+	letter-spacing: 0px;
+	margin-top: -15px;
+	display: block;
+}
+.home-stats {
+	/*margin-top: 36%;*/
+	/*height: 300px;*/
+	height: 300px;
+	display: block;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+.view-home a {
+	text-decoration: none;
+	color: #2C3A33;
+}
+
+
+.view-header {
+	height: 190px;
+	width: 100%;
+	display: block;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.view-header h1 {
+	font-weight: 300;
+	font-size: 34px;
+	font-family: helvetica;
+	top: 140px;
+	display: block;
+	position:absolute;
+	color: #AFAEAE;
+	left: 15px;
+	letter-spacing: -1px;
+}
+.view-header .hash {
+	color: #37BA85;
+}
+.view-header .first {
+	color: #fff;
+}
+.view-header .view-count {
+	font-weight: 200;
+	font-size: 16px;
+	font-family: helvetica;
+	padding: 5px;
+	top: 160px;
+	display: block;
+	position:absolute;
+	color: #FFFFFF;
+	background-color: #030303;
+	right: 0px;
+}
+/*
+	Guest List View
+	=======================
+ */
+.view-guest-list .view-header {
+	background-image: url('../img/guest-list-header.png');
+}
+.add-guest-plus {
+	position: absolute;
+	right: 0;
+	margin-top: -12px;
+	padding-right: 10px;
+}
+
+.truncateInviter {
+  width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: -35px;
+}
+
+
+/*	
+	Song List View
+	=======================	
+*/
+.view-song-list .view-header {
+	background-image: url('../img/song-list-header.png');
+}
+.view-song-list .item-thumbnail-left img {
+	/*width: 60px;
+	height: 60px;*/
+}
+
+
+
+/*	
+	Guest Book View
+	=======================	
+*/
+.view-guest-book .view-header {
+	background-image: url('../img/guest-book-header.png');
+}
+
+/*	
+	Edit invitations View
+	=======================	
+*/
+.view-edit-invitation {
+	background-image: url('../img/edit-back.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: 0px !important;
+	text-align: center;
+}
+.view-edit-invitation h3 {
+	font-size: 18px;
+	/* Smooth text */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	font-family: helvetica;
+	font-weight: 800;
+	color: #fff;
+	width: 100%;
+	margin-bottom: 5px;
+	text-align: left;
+}
+.view-edit-invitation p {
+	font-size: 18px;
+	/* Smooth text */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	font-family: helvetica;
+	font-weight: 200;
+	text-align: left;
+	margin-top: 5px;
+	color: #fff;
+	width: 100%;	
+}
+.view-edit-invitation .icon {
+	color: #fff;
+	font-size: 90px;
+	margin-top: 55%;
+	display: block;
+
+}
+.view-edit-invitation .edit-text {
+	position: absolute;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+/*	
+	Invite Guests View
+	=======================	
+*/
+.view-invite-guests {
+	background-image: url('../img/invite-guests-back.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+.more-invite-options {
+	text-decoration: none;
+	font-size: 18px;
+	color: #37BA85;
+	font-weight: 200;
+	letter-spacing: 0px;
+	display: block;
+	margin-top: 40px;
+}
+.view-invite-guests .row .col a i {
+	font-size: 40px;
+	color: #37BA85;
+	display: block;
+	margin-bottom: 5px;
+	text-decoration: none;
+}
+.view-invite-guests .row .col a {
+	color: #4A4A4A;
+	font-size: 15px;
+	text-decoration: none;
+	font-weight: 400;
+}
+.view-invite-guests .row {
+	margin-top: 30px;
+}
+
+/*	
+	Wedding Album View
+	=======================	
+*/
+.photo-view .pane {
+	background-color: #333 !important;
+}
+.photo-view .slider {
+	height: 100%;
+}
+.loadingImg {
+	min-height: 95px;
+	background-color: #eee;
+	display: block;
+}
+.bigPhoto {
+	max-width: 100%;
+	max-height: 100%;
+	/*transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;*/
+}
+.turned {
+	margin-left: -31%;
+}
+.footerPhoto button {
+	width: 50%;
+	border:0px;
+	background-color:transparent;
+	font-size: 24px;
+	color: #fff;
+}
+.footerPhoto {
+	background-color: #333;
+}
+.photo-tools {
+	position: fixed;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	bottom: 5px;
+}
+.current img {
+	transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+}
+.view-wedding-album .view-header {
+	background-image: url('../img/wedding-album-header.png');
+}
+
+.view-wedding-album .photos img {
+	width: 100%;
+}
+.view-wedding-album .photos .col,
+.view-wedding-album .photos .col-50,
+.view-wedding-album .photos {
+	margin: 0px;
+	padding: 0px;
+}
+.view-wedding-album .photos .col,
+.view-wedding-album .photos {
+	height: 80px;
+}
+.view-wedding-album .album-photos {
+	width: 100%;
+}
+.view-wedding-album .album-photos div {
+	width: 25%;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	margin: 1px;
+	margin-top: -4px;
+}
+.view-wedding-album .album-photos img {
+	width: 100%;
+	display: inline-block;
+margin: 0;
+	padding: 0;
+
+}
+
+
+
+.is-loading {
+  background-color: #eee;
+  background-image: url('../img/imgloader.gif');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+.is-big-loading {
+  background-color: #333;
+  background-image: url('../img/imgloaderbig.gif');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+
+
+#swipebox-close {
+  top: 15px !important;
+}
+
+/*
+	 Onboarding Views
+	 =======================
+ */
+
+.view-onboarding {
+	height: 90%;
+	width: 100%;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #333;
+}
+.view-onboarding .bar-footer {
+	height: 10%;
+}
+.view-onboarding .slider,
+.view-onboarding .scroll {
+	height: 101%;
+}
+.onboarder-two, .onboarder-one, .onboarder-three, .onboarder-four {
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 200;
+}
+.onboarding-text {
+	text-shadow: 0px 0px 10px #000;
+}
+
+.onboarder-two img, .onboarder-one img, .onboarder-three img, .onboarder-four img {
+	width: 25%;
+	margin-top: 30%;
+}
+.onboarder-two h1, .onboarder-one h1, .onboarder-three h1, .onboarder-four h1 {
+	color: #fff;
+	font-weight: 200;
+	font-size: 34px;
+	margin-bottom: 15px;
+}
+.onboarder-one {
+	background-color: #4DBA82;
+	background-image: url('../img/onboarding-one-back.png');
+	background-size: cover;
+	height: 100%;
+}
+.onboarder-two {
+	background-image: url('../img/onboarding-two-back.png');
+	background-size: cover;
+	height: 100%;
+}
+.onboarder-three {
+	background-image: url('../img/onboarding-three-back.png');
+	background-size: cover;
+	height: 100%;
+}
+.onboarder-four {
+	background-image: url('../img/onboarding-four-back.png');
+	background-size: cover;
+	height: 100%;
+}
+.bar-login {
+	background-color: #D8D8D8;
+	padding: 0px;
+	height: 10%;
+}
+.bar-login .buttons {
+	width: 50%;
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+}
+.bar-login button {
+	width: 100%;
+	height: 100%;
+	background-color: #D8D8D8;
+	font-size: 21px !important;
+	border: 0;
+	/* Smooth text */
+	-webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale !important;
+	font-weight: 200 !important;
+}
+.border-login {
+	border-right: 1px solid #000 !important;
+}
+.onboarder-one h1 {
+	text-align: center;
+	color: #fff;
+	padding-top: 20%;
+	font-weight: 400;
+	font-size: 50px;
+	letter-spacing: -2px;
+	font-family: helvetica;
+}
+.onboarder-one p {
+	text-align: center;
+	color: #fff;
+	font-size: 19px;
+	font-weight: 200;
+	margin-top: 5%;
+	letter-spacing: 0px;
+}
+
+
+.view-login {
+	background-color: rgba(0,0,0,0.8);
+}
+.view-login .bar, .view-login .item  {
+	background-color: transparent;
+	color: #fff;
+}
+.view-login .come-here {
+	display: none;
+	color: #fff !important;
+	font-size: 20px;
+	text-align: center;
+	font-weight: 200;
+	width: 100%;
+}
+.bar-header {
+	border: 0px !important;
+	border-bottom-color: transparent !important;
+	background-image: none;
+	border-bottom: none;
+}
+.has-header, .list {
+	padding: 0px !important;
+}
+.view-login .item {
+	border-width: 0px !important;
+}
+.view-login hr {
+	background-color: #fff;
+	color: #fff;
+	border-width: 0px;
+	border-bottom: 1px solid #fff;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+.view-login .item span {
+	color: #fff;
+}
+.view-login .item input {
+	color: #fff;
+	font-size: 21px;
+	padding-left: 20px;
+	/* Smooth text */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 200;
+	line-height: 1.15;
+}
+.view-login .ion-close {
+	color: #fff;
+	padding: 10px;
+}
+.button-wedivite {
+	background-color: #37BA85;
+	color: #fff;
+	font-size: 20px;
+	border: 0px;
+}
+.view-login h1 {
+	text-align: center;
+	color: #fff;
+	/*padding-top: 15%;*/
+	font-weight: 200;
+	font-size: 40px;
+	letter-spacing: -2px;
+	font-family: helvetica;
+	padding-bottom: 8%;
+}
+
+.forgot-password {
+	text-align: center;
+	width: 100%;
+	display: block;
+	text-decoration: none;
+	color: #eee !important;
+	margin-top: -15px;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s ease-in-out infinite;
+  -moz-animation: rotating 2s ease-in-out infinite;
+  -ms-animation: rotating 2s ease-in-out infinite;
+  -o-animation: rotating 2s ease-in-out infinite;
+  animation: rotating 2s ease-in-out infinite;
+}
+.add-guest:before {
+	font-size: 22px !important;
+}
+
+
+
+
+
+
+.view-rateus, .view-rateus .has-header, .view-rateus .bar, .view-rateus label {
+	background-color: #44BA85;
+	text-align: center;
+	border: 0px;
+}
+.view-rateus h3 {
+	color: #fff;
+	/* Smooth text */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 19px;
+}
+.view-rateus .buttons .button {
+	color: #fff;
+}
+.view-rateus i {
+	color: #fff;
+	font-size: 35px;
+	text-align: center;
+}
+.view-rateus label p {
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+}
+.view-rateus .starButton {
+	background-color: transparent !important;
+	border: 0px;
+}

@@ -1,0 +1,70 @@
+<ion-view view-title="{{ title }}" hide-back-button="true">
+	<ion-nav-bar class="search-bar-wrapper">
+		<ion-nav-buttons >
+			
+		</ion-nav-buttons>  
+	</ion-nav-bar>
+
+    <ion-pane>
+        <ion-tabs class="tabs-top search-tabs-top" delegate-handle="search-tab">
+
+            <!-- THEME -->
+            <ion-tab title="COLLECTIONS" ui-sref="tab.search-contest">
+                <ion-nav-view name="tab-search-contest">
+                    <ion-content class="search-people-tab-wrapper">
+                        
+                        <div class="loader-wrapper" ng-show="contestLoader">
+					      <ion-spinner class="spinner-android"></ion-spinner>
+					    </div>
+
+                        <ion-item ng-repeat="p in contests" ng-click="goToDetail('{{ p.contestId }}','{{ p.contestName }}')">
+					      <div class="img-wrapper">
+					        <img ng-src="{{ p.merchantLogo }}">
+					      </div>
+					      <div class="item-label profile">
+					        {{ p.contestName }}
+					      </div>
+					    </ion-item>
+
+					    <div class="no-data-wrapper" ng-show="displayEmptyContest">
+					      <div class="title">
+					        No records found
+					      </div>
+					    </div> 
+
+                    </ion-content>
+                </ion-nav-view>
+            </ion-tab>
+
+            <!-- THEME -->
+            <ion-tab title="PEOPLE" ui-sref="tab.search-people">
+                <ion-nav-view name="tab-search-people">
+                    <ion-content class="search-people-tab-wrapper">
+                        <div class="loader-wrapper" ng-show="peopleLoader">
+					      <ion-spinner class="spinner-android"></ion-spinner>
+					    </div>
+
+                        <ion-item ng-repeat="p in peoples" ng-click="goToProfile('{{ p.userId }}','{{ p.fullName }}')">
+					      <div class="img-wrapper">
+					        <img ng-src="{{ p.profileImg }}">
+					      </div>
+					      <div class="item-label profile">
+					        {{ p.fullName }}
+					      </div>
+					    </ion-item>
+
+					    <div class="no-data-wrapper" ng-show="displayEmptyPeople">
+					      <div class="title">
+					        No records found
+					      </div>
+					    </div>
+
+                    </ion-content>
+                </ion-nav-view>
+            </ion-tab>
+
+        </ion-tabs>
+
+    </ion-pane>
+
+</ion-view>

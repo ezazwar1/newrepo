@@ -1,0 +1,86 @@
+<ion-view title="{{dict.theCheckout}}">
+    <ion-header-bar class="bar-subheader bar-light bar-checkout">
+        <button class="button button-dark button-clear button-checkout-back icon ion-ios7-arrow-left" ng-click="goBack()"></button>
+        <h1 class="title">{{dict.overview}}</h1>
+    </ion-header-bar>
+    <ion-content class="has-cart-footer">
+        <form name="orderForm" class="orderForm" id="orderForm" ng-submit="orderForm.$valid && buy()">
+            <input type="hidden" ng-model="agreements['payment[method]']">
+            <div class="card transparent" ng-if="order.agreements.length">
+                <ul class="list">
+                    <li class="item item-radio agreements transparent" ng-repeat="agreement in order.agreements">
+                        <input type="checkbox" ng-model="agreements[agreement.code]" ng-true-value="{{agreement.agreement_id}}" ng-true-value="'false'" ng-change="test=agreements[agreement.code]">
+                        <div class="item-content">
+                            <i class="icon circle"></i>
+                            <div class="label"><a ng-click="showAgreement($index)" ng-bind-html="agreement.label"></a></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </form>
+
+        <div class="card address transparent font-light" ng-show="order.shipping.saved_shipping">
+            <p class="uppercase bold">{{dict.shippingAddress}}</p>
+            <p ng-bind-html="order.shipping.saved_shipping"></p>
+        </div>
+
+        <div class="card address transparent font-light" ng-show="order.billing.saved_billing">
+            <p class="uppercase bold">{{dict.billingAddress}}</p>
+            <p ng-bind-html="order.billing.saved_billing"></p>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="card transparent font-light" ng-show="order.payment">
+            <p class="uppercase bold">{{dict.paymentMethod}}</p>
+            <p>{{order.payment.label}}</p>
+        </div>
+
+        <div class="card transparent" ng-show="order.products">
+                <p class="uppercase bold">{{dict.article}}</p>
+                <div ng-show="order.products.length">
+                    <div class="list cart-list">
+                        <div class="item item-thumbnail-left transparent" ng-repeat="product in order.products">
+                            <img ng-src="{{product.icon}}">
+                            <div class="price-container">
+                                <div>
+                                    <div class="price">
+                                        {{product.price['@attributes'].price_currency}}
+                                        {{product.price['@attributes'].regular}}
+                                    </div>
+                                </div>
+                            </div>
+                            <h2>{{product.name}}</h2>
+                            <p ng-repeat="option in product.options">{{option['@attributes'].label}}: {{option['@attributes'].text}}</p>
+                            <p>{{dict.amount}}: {{product.qty}}</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="cart-footer transparent">
+        <div class="cart-info" ng-show="order.totals">
+            <div class="row total">
+                <div class="col col-33"><h2>{{dict.total}}</h2></div>
+                <div class="col text-right"><h2>{{order.totals.grand_total.formated_value}}</h2></div>
+            </div>
+            <button form="orderForm" class="button button-large button-block button-clear button-dark button-checkout" ng-disabled="orderForm.$invalid">
+                <div class="circle"><i class="icon ion-ios7-arrow-right light"></i></div>
+                {{dict.buy}}
+            </button>
+        </div>
+    </ion-footer-bar>
+    <script id="agreement.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="transparent">
+                <button class="button button-clear button-dark icon ion-ios7-close-empty" ng-click="closeModal()"></button>
+            </ion-header-bar>
+            <ion-content>
+                <div class="card transparent">
+                    <p ng-bind-html="agreement.content"></p>
+                </div>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>

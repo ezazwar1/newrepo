@@ -1,0 +1,28 @@
+  <ion-content class="onboard_content" scroll="true">
+    <div class="onboard_page details-modal">
+
+      <div class="onboard_title">
+          Let's start by getting <br/> your details
+      </div>
+      <div class="onboard_descript">
+        This way ninja's know who to call and look for <br/>when they arrive at your venue
+      </div>
+      <form>
+      <div class="details_content">
+                <div class="form-group">
+                    <input placeholder="FIRST NAME" ng-model="user.first_name" class="form-control ng-pristine ng-invalid ng-invalid-required" ></input>
+                </div>
+                <div class="form-group">
+                    <input placeholder="LAST NAME" ng-model="user.last_name" class="form-control ng-pristine ng-invalid ng-invalid-required" ></input>
+                </div>
+                <div class="form-group">
+                    <input placeholder="MOBILE" ng-model="user.mobile" class="form-control ng-pristine ng-invalid ng-invalid-required" ></input>
+                </div>
+       </div>
+       </form>
+       <div class="onboard_btndiv2">
+          <button class="button button-onboard-balanced button-block" ng-click="updateNameMobile()">NEXT</button>
+      </div>
+    </div>
+      
+  </ion-content>

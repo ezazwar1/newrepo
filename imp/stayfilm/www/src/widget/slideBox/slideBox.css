@@ -1,0 +1,4 @@
+/* line 5, slideBox.scss */
+.sf-slide-box .sf-slide.selected {
+  display: block;
+}

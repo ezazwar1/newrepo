@@ -1,0 +1,16 @@
+<div class="modal searching-for-ninjas-modal" ng-controller="SearchingForNinjasModalController">
+  <div class="sonar">
+    <div wn-pulse class="pulse" style="top:{{ pulseTop }}%;left:{{ pulseLeft }}%">
+      <div class="ring">
+      </div>
+      <div class="core"></div>
+    </div>
+  </div>
+  <div class="messages">
+    <div class="message">Requesting Ninjas...</div>
+    <div class="message-line" style="-webkit-animation-duration:{{ lineDuration }}s"></div>
+  </div>
+  <div class="buttons">
+    <button class="button button-clear" ng-click="rejectJob()"><i class="ion-ios7-close-outline"></i></button>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<ion-view view-title="Your Orders" ng-controller="AccountOrdersController as viewModel">
+    <ion-nav-buttons side="right">
+
+    </ion-nav-buttons>
+    <ion-content class="has-header stable-content darker-content" has-bouncing="true" >
+        <ion-refresher  pulling-text="Pull to refresh..."
+                        on-refresh="viewModel.doRefresh()"
+                        pulling-icon="ion-ios-arrow-down">
+        </ion-refresher>
+        <offline-message></offline-message>
+        <div class="padding" ng-if="!viewModel.loadingSpinner">
+        </div>
+        <div class="text-center padding" ng-if="viewModel.loadingSpinner">
+            <ion-spinner>
+            </ion-spinner>
+        </div>
+        <div class="list large-padding">
+            <ion-item ng-repeat="order in viewModel.orders | orderBy:'-id'"
+                      style="padding: 4px;"
+                      ng-class="order.status == 'cancelled' ? 'item-canceled-order':''"
+                      ng-click="viewModel.clickOrder(order)"
+                      class="item order-history-item">
+                <div class="row">
+                    <div class="col  col-67"
+                         role="button"
+                         aria-label="Order on {{viewModel.getDisplayDate(order.created_at)}}, {{order.status}}">
+                        <h3>
+                            {{viewModel.getDisplayDate(order.created_at)}}
+                        </h3>
+                        <p>
+                            Order Status: {{order.status | capitalize}}
+                        </p>
+                    </div>
+                    <div class="col text-right"
+                         role="button"
+                         aria-label="Order had {{order.item_count}} Items">
+                        <p>
+                            {{order.item_count}} Items
+                        </p>
+                        <p ng-if="order.total">
+                            {{order.total | currency}}
+                        </p>
+                        <p>
+                            <rating ng-if="viewModel.showRating(order)" readonly="true" ng-model="order.rating.rating" max="5"></rating>
+                        </p>
+                        <p stop-event="click" class="text-positive" ng-if="!viewModel.showRating(order) && order.status == 'delivered'">
+                            Rate Shopper
+                        </p>
+                    </div>
+                </div>
+
+            </ion-item>
+        </div>
+
+    </ion-content>
+</ion-view>

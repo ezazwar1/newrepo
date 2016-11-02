@@ -1,0 +1,70 @@
+<ion-view  cache-view="false" view-title="Привет, {{account.firstname}}">
+  <ion-nav-bar class="bar-light coll">
+      <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+
+    <div class="list">
+
+  <div class="item item-divider">
+    Личная информация
+  </div>
+
+  <a class="item" href="#">
+    {{account.firstname}}
+    <span class="item-note">
+    Имя
+    </span>
+  </a>
+  <a class="item" href="#">
+    {{account.lastname}}
+    <span class="item-note">
+    Фамилия
+    </span>
+  </a>
+  <a class="item" href="#">
+    {{account.email}}
+    <span class="item-note">
+    Email
+    </span>
+  </a>
+  <a class="item" href="#">
+    {{account.telephone}}
+    <span class="item-note">
+    Телефон
+    </span>
+  </a>
+  <div class="item item-divider">
+
+  </div>
+  <a class="item item-icon-left item-icon-right" href="#/tab/cart">
+            <i class="icon ion-android-cart"></i>
+            Корзина <span style="margin-right:15px;"class="badge badge-dark">{{cartItems}}</span>
+            <i class="icon ion-arrow-right-c"></i>
+  </a>
+  <a class="item item-icon-left item-icon-right" href="#/tab/wishlist">
+            <i class="icon ion-android-favorite"></i>
+            Закладки <span style="margin-right:15px;"class="badge badge-dark">{{wishilistItems}}</span>
+            <i class="icon ion-arrow-right-c"></i>
+  </a>
+  <a class="item item-icon-left item-icon-right" href="#/tab/card">
+            <i class="icon ion-card"></i>
+            Дисконтная карта
+            <i class="icon ion-arrow-right-c"></i>
+          </a>
+          <a class="item item-icon-left item-icon-right" href="#/tab/customer/adresses">
+                    <i class="icon ion-map"></i>
+                    Адреса доставки
+                    <i class="icon ion-arrow-right-c"></i>
+                  </a>
+  <a class="item item-icon-left item-icon-right" href="#/tab/customer/orderHistory">
+            <i class="icon ion-bag"></i>
+            История покупок
+            <i class="icon ion-arrow-right-c"></i>
+          </a>
+</div>
+    <div>
+      <button ng-click="logout()" class="button button-block button-stable">Выйти</button>
+   </div>
+  </ion-content>
+</ion-view>

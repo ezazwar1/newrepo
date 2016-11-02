@@ -1,0 +1,50 @@
+<ion-view view-title="Shopping Cart">
+<ion-nav-bar class="bar-stable">
+	<ion-nav-buttons side="left">
+	<button ng-click="$ionicGoBack()" class="button back-button button-icon button-clear header-item ion-android-arrow-back"></button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+
+ <div class="checkoutBar" ng-if="cartProducts!=''">
+	<div class="bar bar-footer">
+		<div class="row">
+			<div class="col">
+				<p>{{cartItems}} Items {{cartTotal}}</p>
+				<p ><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{cartTotal}}</p>
+			</div>
+			<div class="col"><div class="chckout" ng-click="deliveryAddress()">Checkout <i class="ion-chevron-right"></i></div></div>
+		</div>
+	</div>
+</div>
+  <ion-content scroll="false" overflow-scroll="true" class="shoppingCart" >
+
+	<ion-content direction="y" class="cartSubContent"  scroll="true"   lazy-scroll>
+	<div class="list products" >
+		<div class="item item-thumbnail-left" ng-repeat="tmpObj in cartProducts">
+		  <img ng-src="{{tmpObj.product_image!=null ? tmpObj.product_image : 'img/no-image.jpg' }}" ng-click="showProductDetail(tmpObj.id,cat_id,cat_Name)">
+		  <h2>{{tmpObj.product_name | lowercase}}</h2>
+		  <h3>{{tmpObj.manufacturer}}</h3>
+		  <h3 ng-if="tmpObj.product_model">Product Code : {{tmpObj.product_model}}</h3>
+			<div class="row">
+				<div class="col col-10">
+					<span class="saleprice" ng-bind-html="tmpObj.total"></span>
+				</div>
+				<div class="col col-90">
+					  <a class="ion-ios-minus-outline" ng-click="updateQty(tmpObj,'less');"></a>
+					  <label>{{tmpObj.purchaseQuantity}}</label>
+					  <a class="ion-ios-plus-outline" ng-click="updateQty(tmpObj,'add');"></a>
+					  <a class="deleteIcon ion-ios-trash-outline" style="margin-left:20px;" ng-click="removeProduct(tmpObj);"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="emptycart" ng-if="cartProducts==''">
+			<i class="ion-ios-cart"></i>
+			<p>There are no items in your cart. Enjoy great shopping experience with us!</p>
+			<a ng-href="#/app/dashboard" class="button commonButton">Start Shopping</a>
+	</div>
+	</ion-content>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+      <h1 class="title">How to manage your profile</h1>
+
+    </ion-header-bar>
+    <ion-content>
+        <ion-slide-box class="slider-modded">
+            <ion-slide>
+                <div class="text-center">
+                    <img src="img/profile-tute-1.jpg" alt="" class="tutorial-image">
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="text-center">
+                    <img src="img/profile-tute-2.jpg" alt="" class="tutorial-image">
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="text-center">
+                    <img src="img/profile-tute-3.jpg" alt="" class="tutorial-image">
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+
+        <div class="padded">
+            <ion-checkbox class="item-dark" ng-model="$parent.$parent.$parent.dontShowTutorial">Don't show again</ion-checkbox>
+            <a class="button button-dark button-block" ng-click="tutorialModal.hide()">Got it!</a>
+        </div>
+    </ion-content>
+  </ion-modal-view>

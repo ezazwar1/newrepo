@@ -1,0 +1,29 @@
+<div class="page-share-step page">
+	<div class="bar bar-header">
+		<button class="button button-clear" ng-click="discard(movie)" translate>descartar</button>
+
+		<div class="title" translate>
+			ver
+		</div>
+	</div>
+
+	<ion-content class="has-header">
+		<div class="jwplayer-container">
+			<jwplayer movie="movie"></jwplayer>
+		</div>
+
+		<h2>&nbsp;</h2>
+
+		<div class="padding-sf">
+			<button ng-click="publishAndShareInMessenger()" class="share-button">
+				<img src="images/facebook-share-icon.svg" width="29" height="29" /><span translate>Enviar</span>
+			</button>
+		</div>
+
+		<div class="padding-sf">
+			<button ng-click="produce()" class="produce-again kana-button">
+				<img src="images/button_Remake.png" /><span translate>Produzir novamente</span>
+			</button>
+		</div>
+	</ion-content>
+</div>

@@ -1,0 +1,155 @@
+<ion-modal-view class="modal-view auth-view auth-outer premium-view">
+    <ion-header-bar>
+        <button class="button button-icon icon ion-ios-close-empty" ng-click="closePremiumModal()"></button>
+        <h1 class="title modal-title" ng-if="!isActiveSubscription">{{'PREMIUMBEN' | translate}}</h1>
+        <h1 class="title modal-title" ng-if="isActiveSubscription">{{'SWPREMIUM' | translate}}</h1>
+    </ion-header-bar>
+    <ion-footer-bar class="purchase-bar" ng-if="!isActiveSubscription">
+        <button class="button button-outline purchase-button" ng-click="attemptPurchaseMonthly()">
+            {{monthlyPremiumPrice}} / {{'MONTH' | translate}}
+        </button>
+        <button class="button button-outline purchase-button annual-button" ng-click="attemptPurchaseAnnual()">
+            {{annualPremiumPrice}} / {{'YEAR' | translate}}
+        </button>
+        <h4>{{textAboveButtons}}</h4>
+    </ion-footer-bar>
+    <ion-content class="has-header width-control full-length">
+        <div ng-if="isActiveSubscription" class="subscription-info">
+            <div class="category-header">
+                <h3 class="header-span">
+                    <span>{{'WELCOMETO' | translate}}</span>
+                    <br>
+                    <strong>{{'SWPREMIUM' | translate}}</strong>
+                </h3>
+            </div>
+            <div class="features-list premium-buttons" style="padding-bottom:28px;">
+                <button class="button button-block premium-blue condense uppercase white-text no-border new-button margin-15 uppercase ng-binding"
+                        ng-click="openFitnessFAQ()">
+                    {{'TRAINFAQ' | translate}}
+                </button>
+                <button class="button button-block premium-blue condense uppercase white-text no-border new-button margin-15 uppercase ng-binding"
+                        ng-click="askTrainer()">
+                    {{'MESSAGETRAIN' | translate}}
+                </button>
+            </div>
+            <div class="features-list premium-list">
+                <div class="premium-feature additional-features">
+                    {{'OTHER_PREM' | translate}}
+                </div>
+                <div class="premium-feature" ng-if="currentLanguage == 'EN'" ng-class="{'primary-feature': userInterest == 'web-app'}">
+                    <h3 class="feature-title">Sworkit Web App</h3>
+                    <p class="feature-description">Take Sworkit to the big screen with exclusive access to our Web App at app.sworkit.com<br>
+                        <a class="video-preview-link" ng-click="showWebAppVideo()"><i
+                                class="icon ion-social-youtube-outline"></i> Preview Web App</a>
+                    </p>
+                </div>
+                <div class="premium-feature">
+                    <h3 class="feature-title">{{'EXCLUSIVE' | translate}}</h3>
+                    <p class="feature-description">{{'EXCLUSIVE_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'low-impact'}">
+                    <h3 class="feature-title">{{'LOWIMPACTEXER' | translate}}</h3>
+                    <p class="feature-description">{{'LOWIMPACT_DESC' | translate}}<br>
+                        <a class="video-preview-link" ng-click="showLowImpactVideos()"><i
+                                class="icon ion-social-youtube-outline"></i> {{'PREVIEWEXERC' | translate}}</a>
+                    </p>
+                </div>
+                <div class="premium-feature">
+                    <h3 class="feature-title">{{'UNLIMITEDCUST' | translate}}</h3>
+                    <p class="feature-description">{{'UNLIMITEDCUST_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature">
+                    <h3 class="feature-title">{{'CUSTOMINT' | translate}}</h3>
+                    <p class="feature-description">{{'CUSTOMINT_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature">
+                    <h3 class="feature-title">{{'ADFREE' | translate}}</h3>
+                    <p class="feature-description">{{'ADFREE_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'trainer'}">
+                    <h3 class="feature-title">{{'ASKTRAINER' | translate}}</h3>
+                    <p class="feature-description">{{'ASK_DESC' | translate}}</p>
+                </div>
+            </div>
+            <div class="features-list">
+                <div class="premium-padding">
+                    <div class="center">
+                        <a class="button"
+                           ng-click="restorePurchases()">{{'RESTORE_PURCHASES'
+                            | translate}}</a>
+                    </div>
+                    <div class="card" ng-if="isLegacyPro">
+                        <p class="feature-description">{{'LEGACY_DESC' | translate}}:</p>
+                        <p class="feature-sub">{{'LEGACY_FEAT' | translate}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!isActiveSubscription" class="subscription-info">
+            <div class="category-header">
+                <h3 class="header-span">
+                    "{{premiumQuote}}"
+                </h3>
+            </div>
+            <div class="features-list premium-list">
+                <div class="premium-feature additional-features"
+                     ng-class="{'hide-other-text': userInterest == 'general' || userInterest == 'discover' || userInterest == 'onboarding'}">
+                    {{'OTHER_PREM' | translate}}
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'exclusive'}">
+                    <h3 class="feature-title">{{'EXCLUSIVE' | translate}}</h3>
+                    <p class="feature-description">{{'EXCLUSIVE_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'trainer'}">
+                    <h3 class="feature-title">{{'ASKTRAINER' | translate}}</h3>
+                    <p class="feature-description">{{'ASK_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'low-impact'}">
+                    <h3 class="feature-title">{{'LOWIMPACTEXER' | translate}}</h3>
+                    <p class="feature-description">{{'LOWIMPACT_DESC' | translate}}<br>
+                        <a class="video-preview-link" ng-click="showLowImpactVideos()"><i
+                                class="icon ion-social-youtube-outline"></i> {{'PREVIEWEXERC' | translate}}</a>
+                    </p>
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'custom'}">
+                    <h3 class="feature-title">{{'UNLIMITEDCUST' | translate}}</h3>
+                    <p class="feature-description">{{'UNLIMITEDCUST_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'intervals'}">
+                    <h3 class="feature-title">{{'CUSTOMINT' | translate}}</h3>
+                    <p class="feature-description">{{'CUSTOMINT_DESC' | translate}}</p>
+                </div>
+                <div class="premium-feature" ng-if="currentLanguage == 'EN'" ng-class="{'primary-feature': userInterest == 'web-app'}">
+                    <h3 class="feature-title">Sworkit Web App</h3>
+                    <p class="feature-description">Take Sworkit to the big screen with exclusive access to our Web App at app.sworkit.com<br>
+                        <a class="video-preview-link" ng-click="showWebAppVideo()"><i
+                                class="icon ion-social-youtube-outline"></i> Preview Web App</a>
+                    </p>
+                </div>
+                <div class="premium-feature" ng-class="{'primary-feature': userInterest == 'ad-free'}">
+                    <h3 class="feature-title">{{'ADFREE' | translate}}</h3>
+                    <p class="feature-description">{{'ADFREE_DESC' | translate}}</p>
+                </div>
+            </div>
+            <div class="features-list">
+                <div class="premium-padding">
+                    <h3 class="feature-title" style="color:#6BBBCE">{{'USERS_SAYING' | translate}}</h3>
+                    <p class="feature-description">"{{'PREMIUM_Q2' | translate}}, {{'PREMIUM_Q2_2' |
+                        translate}}"</p>
+                    <p class="feature-description">"{{'PREMIUM_Q1' | translate}}"</p>
+                    <p class="feature-description">"{{'PREMIUM_Q4' | translate}}"</p>
+                    <p class="feature-description">"{{'PREMIUM_Q5' | translate}}"</p>
+                    <div class="center">
+                        <a class="button button-energized button-stable"
+                           ng-click="restorePurchases()">{{'RESTORE_PURCHASES'
+                            | translate}}</a>
+                    </div>
+                    <div class="card" ng-if="isLegacyPro">
+                        <p class="feature-description">{{'LEGACY_DESC' | translate}}:</p>
+                        <p class="feature-sub">{{'LEGACY_FEAT' | translate}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

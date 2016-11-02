@@ -1,0 +1,10 @@
+<a id="{{category.entity_id}}" class="item item-category item-icon-right" ng-class="{energized: activeCategory === category.entity_id, 'padding-bottom no-border': $last}" ng-click="category.level === '2' ? showCategory($event, category.entity_id, category.level) : goToCategory(category.entity_id) ">
+    {{category.label}}
+    <i class="icon ion-ios7-arrow-right ng-hide" ng-click="showCategory($event, category.entity_id)" ng-show="category.children && !visibleCategories[category.entity_id]"></i>
+    <i class="icon ion-ios7-arrow-down ng-hide" ng-click="showCategory($event, category.entity_id)" ng-show="category.children && visibleCategories[category.entity_id]"></i>
+</a>
+<ul class="list submenu" ng-if="category.children" ng-show="visibleCategories[category.entity_id]">
+    <li ng-repeat="category in category.children">
+        <ng-include src="'app/templates/base/partials/categoryListEntry.html'"></ng-include>
+    </li>
+</ul>

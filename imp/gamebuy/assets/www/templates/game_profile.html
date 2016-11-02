@@ -1,0 +1,280 @@
+<ion-view title="">
+    <ion-nav-buttons side="right">
+        <button ng-click="showConfirm_delete()" ng-if="data.game.collect_as!=null"
+                class="button-link ion-trash-a icon-header button--top-bar-right"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="padding" scroll="true" padding="false">
+        <div class="game-profile_headgroup">
+            <h4 class="game-profile_title">{{data.game.title}}</h4>
+            <h5 class="game-profile_platform">{{data.game.platform}}</h5>
+        </div>
+
+        <div class="game-profile_cover"  ng-class="{'game-profile_cover-sell': data.sell}">
+
+            <div class="game-profile_thumbnail">
+                <img class="game-profile_thumbnail-image" ng-src="{{data.game.picture}}">
+            </div>
+
+            <div class="game-profile_detail">
+
+                <div class="game-profile_price" ng-if="data.sell">
+                    Price:
+                    <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                    <span class="price-highlight">{{data.game.price_sell}}</span> {{ data.game.price_unit }}
+                </div>
+
+                <div class="game-profile_game-format" ng-if="data.sell && data.game.collect_format!='console'">
+                    Format: {{data.collect_format_message}}
+                </div>
+
+                <div class="game-profile_collection-data" ng-if="data.sell">
+                    <div class="data_box-collection-data">
+                        {{data.game.view_count}} Views
+                    </div>
+                    <div class="data_box-collection-data">
+                        {{data.game.watch_count}} Watching
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="game-profile_section">
+
+            <div class="game-profile_description"
+                 ng-class="{'game-profile_description-empty': !data.game.collection_description}" ng-if="data.sell">
+                <p class="game-profile_description_content">
+                    {{data.game.collection_description}}
+                </p>
+            </div>
+
+            <p class="game-profile_status" ng-if="data.had">It is in your collection</p>
+
+            <p class="game-profile_status" ng-if="data.wished">It is in your wish list</p>
+
+        </div>
+
+        <div class="game-profile_section button-multi" ng-if="data.sell">
+            <button class="button button-primary button-multi_item ion-edit" ng-click="show_action_popup('NewtoSell')">
+                Edit
+            </button>
+            <button class="button button-primary button-multi_item ion-clipboard" ng-click="post_on_classifieds()">
+                Post on {{data.classifieds_name}}
+            </button>
+        </div>
+
+        <div class="game-profile_section">
+            <div class="game-actions_wrapper">
+                <div class="game-actions_group" ng-click="show_action_popup('NewtoSell')" ng-disabled="data.sell">
+                    <img src="img/icons/icon-top-sold.svg" alt="Top wish GBG icon">
+
+                    <h2 class="game-actions_title">Sell It</h2>
+                </div>
+                <div class="game-actions_group" ng-click="showAlert(2)" ng-disabled="data.wished">
+                    <img src="img/icons/icon-top-wish.svg" alt="Top wish GBG icon">
+
+                    <h2 class="game-actions_title">Want It</h2>
+                </div>
+                <div class="game-actions_group" ng-click="showAlert(3)" ng-disabled="data.had">
+                    <img src="img/icons/icon-top-owned.svg" alt="Top wish GBG icon">
+
+                    <h2 class="game-actions_title">Have It</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-profile_section game-profile_section--popularity">
+            <h5 class="game-profile_sub-title">Popularity</h5>
+
+            <div class="gamer_data">
+                <a class="data_box-game-profile" ng-click="goto_gamers_list_by_tab(data.game.game_id, 1)">
+                    <p class="data_num">
+                        {{data.game.sellercount}} <i class="ion-person"></i>
+                    </p>
+                    <p class="data_text">selling</p>
+                </a>
+                <a class="data_box-game-profile" ng-click="goto_gamers_list_by_tab(data.game.game_id, 2)">
+                    <p class="data_num">
+                        {{data.game.buyercount}} <i class="ion-person"></i>
+                    </p>
+                    <p class="data_text">want</p>
+                </a>
+                <a class="data_box-game-profile" ng-click="goto_gamers_list_by_tab(data.game.game_id, 3)">
+                    <p class="data_num">
+                        {{data.game.ownercount}} <i class="ion-person"></i>
+                    </p>
+                    <p class="data_text">have</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="game-profile_section">
+            <h5 class="game-profile_sub-title">Price Comparison</h5>
+
+            <!-- Canada Begin -->
+            <div class="data_table" ng-if="data.country_for_price=='Canada' || data.country_for_price=='all'">
+                <div class="data_table_header">
+                    <div class="data_table_cell"></div>
+                    <div class="data_table_cell">
+                        New
+                    </div>
+                    <div class="data_table_cell">
+                        Used
+                    </div>
+                </div>
+                <div class="data_table_row">
+                    <div class="data_table_cell">
+                        <img class="data_table_img" src="img/logos/amazon-ca-logo.png" alt=""/>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.amazonca_new_price != null" ng-click="goto_partner_link('amazonca')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.amazonca_new_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.amazonca_new_price == null">
+                            -
+                        </a>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.amazonca_used_price != null" ng-click="goto_partner_link('amazonca')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.amazonca_used_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.amazonca_used_price == null">
+                            -
+                        </a>
+                    </div>
+                </div>
+                <div class="data_table_row">
+                    <div class="data_table_cell">
+                        <img class="data_table_img" src="img/logos/bestbuy-logo.png" alt=""/>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.bestbuyca_new_price != null" ng-click="goto_partner_link('bestbuycanew')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.bestbuyca_new_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.bestbuyca_new_price == null">
+                            -
+                        </a>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.bestbuyca_used_price != null" ng-click="goto_partner_link('bestbuycaused')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.bestbuyca_used_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.bestbuyca_used_price == null">
+                            -
+                        </a>
+                    </div>
+                </div>
+                <div class="data_table_row">
+                    <div class="data_table_cell">
+                        <img class="data_table_img" src="img/logos/eb-games-logo.png" alt=""/>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.ebgames_new_price != null" ng-click="goto_partner_link('ebgames')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.ebgames_new_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.ebgames_new_price == null">
+                            -
+                        </a>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.ebgames_used_price != null" ng-click="goto_partner_link('ebgames')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.ebgames_used_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.ebgames_used_price == null">
+                            -
+                        </a>
+                    </div>
+                </div>
+            </div><!-- Canada End -->
+
+            <!-- US Begin -->
+            <div class="data_table" ng-if="data.country_for_price=='US' || data.country_for_price=='all'">
+                <div class="data_table_header">
+                    <div class="data_table_cell"></div>
+                    <div class="data_table_cell">
+                        New
+                    </div>
+                    <div class="data_table_cell">
+                        Used
+                    </div>
+                </div>
+                <div class="data_table_row">
+                    <div class="data_table_cell">
+                        <img class="data_table_img" src="img/logos/amazon-us-logo.png" alt=""/>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.amazon_new_price != null" ng-click="goto_partner_link('amazon')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.amazon_new_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.amazon_new_price == null">
+                            -
+                        </a>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.amazon_used_price != null" ng-click="goto_partner_link('amazon')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.amazon_used_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.amazon_used_price == null">
+                            -
+                        </a>
+                    </div>
+                </div>
+                <div class="data_table_row">
+                    <div class="data_table_cell">
+                        <img class="data_table_img" src="img/logos/bestbuy-logo.png" alt=""/>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.bestbuy_new_price != null" ng-click="goto_partner_link('bestbuynew')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.bestbuy_new_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.bestbuy_new_price == null">
+                            -
+                        </a>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.bestbuy_used_price != null" ng-click="goto_partner_link('bestbuyused')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.bestbuy_used_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.bestbuy_used_price == null">
+                            -
+                        </a>
+                    </div>
+                </div>
+                <div class="data_table_row">
+                    <div class="data_table_cell">
+                        <img class="data_table_img" src="img/logos/gamestop-logo.png" alt=""/>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.gamestop_new_price != null" ng-click="goto_partner_link('gamestop')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.gamestop_new_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.gamestop_new_price == null">
+                            -
+                        </a>
+                    </div>
+                    <div class="data_table_cell">
+                        <a class="data_table_price" ng-if="data.game.gamestop_used_price != null" ng-click="goto_partner_link('gamestop')">
+                            <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            {{ data.game.gamestop_used_price }}
+                        </a>
+                        <a class="data_table_price data_table_no-price" ng-if="data.game.gamestop_used_price == null">
+                            -
+                        </a>
+                    </div>
+                </div>
+            </div><!-- US End -->
+        </div>
+    </ion-content>
+</ion-view>

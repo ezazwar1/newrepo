@@ -1,0 +1,146 @@
+<ion-view cache-view="false">
+  <ion-nav-title>{{::triby.name}}</ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon ion-chevron-left client-positive" ng-click="goTo('app/main/home')">Groups</button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button ng-if="::triby.admin_users.indexOf(currentAuthData.id) > -1" class="button button-icon client-positive" ng-click="addPeople()">Add People</button>
+  </ion-nav-buttons>
+  <ion-content align="center" style="border:none; background-color: #2b2b2b;"  delegate-handle="scroll" id="feedContent">
+
+    <ion-refresher id="feedRefresher"
+      pulling-text="Pull to refresh..."
+      ng-if="isMoreLoadingAllowed"
+      on-refresh="loadMorePosts()">
+    </ion-refresher>
+
+    <div id="feedBox" class="news_feed_content_wrapper">
+      <div class="list list-feed" id="post_{{::post._id}}" ng-repeat="post in triby.posts | orderBy:'date':false track by post._id">
+        <div ng-if="::post.pic" class="news_feed_img_box">
+            <img image-loaded data-just-posted-image={{::post.justPostedImage}} ng-click="openModal(post)" class="news_feed_post_image" style="border-radius:0;" ng-src="{{::post.pic}}" />
+        </div>
+
+
+        <div class="news_feed_img_box video" data-tap-disable="true" ng-if="::post.video&&post.thumb">
+          <img image-loaded data-just-posted-image={{::post.justPostedImage}} class="news_feed_post_image" style="border-radius:0;" ng-src="{{::post.thumb}}"/>
+          <p class="video-control">
+            <button ng-click="playVideo(post.video, $event)">
+              <i class="ion-play"></i>
+            </button>
+
+            <video style="height:0.00001px; width:0.00001px;" controls="true">
+              <source ng-src="{{::post.video}}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </p>
+        </div>
+
+        <!--<div on-hold="showPostContextMenu($event, post._id)" class="item item-text">-->
+        <div class="item item-text">
+          <div class="">
+            <div class="col-center feed-img " ng-click="goPersonalChat(post.createdBy)">
+                <img ng-src="{{::post.createdBy.pic || 'img/default_avatar.jpg'}}" />
+              <span class="feed-text-name-block" ng-bind="::getName(post)" ></span>
+            </div>
+            <div  class="col feed-text-name col-center">
+              <span class="feed-text-name-content" parse-html-once="escapeHTML(post.content) | processHTML"></span>
+            </div>
+            <div id="date_{{::post._id}}" class="col col-33 feed-text-date">
+              {{::post.date | customDate}}
+            </div>
+            <span  ng-if="::post.createdBy._id == currentAuthData.id || triby.admin_users.indexOf(currentAuthData.id) > -1">
+              <i class="ion-android-more-horizontal" ng-click="showPostContextMenu($event, post._id)"></i>
+            </span>
+          </div>
+        </div>
+        <div class="item item-icons">
+          <div class="news_feed_icon_wrapper can-activate">
+            <div class="left_chat_icon">
+              <div class="heart text-12-gray" on-hold="showHearts(post)" ng-click="setHeart(post)">
+                <a href="javascript:void 0">
+                  <img id="heartImg_{{::post._id}}" ng-src={{::getHeartImgSrc(post.hearts)}} />
+                </a>
+                <span id="heartsSpan_{{::post._id}}" class="text-heart" ng-bind="::post.hearts.length == 0 ? '' : post.hearts.length"></span>
+              </div>
+              <div class="hand-down text-12-gray" on-hold="showDislikes(post)" ng-click="setDislike(post)">
+                <a href="javascript:void 0">
+                  <img id="dislikeImg_{{::post._id}}" ng-src={{::getDislikeImgSrc(post.dislikes)}} />
+                </a>
+                <span id="dislikesSpan_{{::post._id}}" ng-bind="::post.dislikes.length == 0 ? '' : post.dislikes.length"></span>
+              </div>
+            </div>
+            <div class="right_chat_icon">
+              <a ui-sref="app.comments({post_id: post._id, triby: {name: triby.name, _id: triby._id}})">
+                <div class="comments_area text-12-gray">
+                  <img id="imgComment_{{::post._id}}" ng-src={{::getImgSrc(post)}} />
+                  <span>
+                    Comments
+                    <span class="text-comment" id="comCount_{{::post._id}}" ng-bind="::post.comments_count == 0 ? '' : post.comments_count"></span>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  <div class="load-new-posts ng-hide" id="loadNewPosts">
+    <button class="button client-positive" ng-click="loadNewPosts()">Load New Posts</button>
+  </div>
+
+  <ion-footer-bar id="mIFooter" keyboard-attach class="bar bar-footer bar-stable comment_footer_wrapper accelerated" id="feedFooter">
+    <ion-tabs class="tabs-icon-bottom tabs-color-active-positive bottom-nav" ng-hide="input.showPostInput">
+      <ion-tab icon-off="ion-images" hidden="true" icon-on="ion-images" ui-sref="app.news_feed">
+
+      </ion-tab>
+     <!-- mural Tab -->
+      <ion-tab title="Gallery" icon-off="ion-images" icon-on="ion-images" ui-sref="app.mural({triby_id: triby._id, triby_name:triby.name})">
+        <ion-nav-view animation="none" name="tab-notification"></ion-nav-view>
+      </ion-tab>
+      <!-- Share Media from gallery Tab -->
+      <ion-tab title="Share Media" icon-off="ion-ios-camera" icon-on="ion-ios-camera" ng-click="showMediaPopover($event)">
+      </ion-tab>
+      <!-- write post Tab -->
+      <ion-tab title="Write Post" icon-off="ion-edit" icon-on="ion-edit" ng-click="showPostInput()">
+      </ion-tab>
+      <!-- Setting Tab -->
+      <ion-tab title="Group Info" icon-off="ion-android-more-horizontal" icon-on="ion-android-more-horizontal" ui-sref="app.info({triby_id: triby._id, triby_name: triby.name})">
+
+      </ion-tab>
+    </ion-tabs>
+    <form name="sendMessageForm" ng-show="input.showPostInput">
+      <div class="post-input list list-feed bottom_top-border">
+        <div class="item item-send-text">
+          <div class="row">
+            <div class="col col-75 col-center comment_input_box">
+              <!--<textarea msd-elastic class="inputForm" id="postInput" focus-me="input.showPostInput" ng-model="post.message" placeholder="Say Something..."></textarea>-->
+
+              <textarea constant-focus focus-me="input.showPostInput" id="comment-add-textarea" name="comment"
+                        class="inputForm" placeholder="Say Something..."></textarea>
+            </div>
+
+
+            <div class="col col-15 col-center comment_send_box ng-hide" send-btn action="initInputWatcher" no-animate
+                 id="sendBtn" ng-click="sendPost()">
+              <span class="send-msg-btn">Send</span>
+            </div>
+            <div class="col col-15 col-center" no-animate id="cameraBtn"
+                 ng-click="hidePostInput($event)">
+              <span class="send-msg-btn cancel">Cancel</span>
+            </div>
+
+
+            <!--<div class="col col-15 col-center comment_send_box" no-animate ng-show="post.message" ng-click="sendPost()">-->
+              <!--<span class="send-msg-btn">Post</span>-->
+            <!--</div>-->
+            <!--<div class="col col-15 col-center" no-animate ng-hide="post.message" ng-click="hidePostInput()">-->
+              <!--<span class="send-msg-btn cancel">Cancel</span>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </form>
+  </ion-footer-bar>
+</ion-view>

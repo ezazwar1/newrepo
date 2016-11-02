@@ -1,0 +1,11 @@
+{
+  "ApiEndpoint": {
+    "authurl": "/api/v1/sessions.json",
+    "apiurl": "",
+    "photoUploadUrl": "https://shipt-admin-staging.herokuapp.com/api/v1/photos.json"
+  },
+  "IonicAppConfig" : {
+    "ionic_app_id": "",
+    "ionic_api_key": ""
+  }
+}

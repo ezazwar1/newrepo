@@ -1,0 +1,115 @@
+<div class="card-wf" ui-sref="app.challenge({id : data.id})"
+ng-class="{
+	'in-pg-wf' : (data.joined == '1' && data.coming_soon == '0' && data.completed == '0' && data.active == '1'),
+	'soon-wf' : ( data.coming_soon == '1'),
+	'done-wf' : (data.completed == '1') || (data.completed == '0' && data.active == '0' && data.joined == '1')
+}">
+			<div class="img-holder img-wrap">
+				<div class="card-wf-overylay positive-overlay" ng-show="data.coming_soon == '1'"></div>
+				<div class="card-wf-overylay darker-overlay" ng-show="data.joined == '1'"></div>
+				<img class="img-responsive" height="160" preload-image ng-src="{{ data.cover_url || data.image_url }}" default-image="img/placeholder-broken.svg" alt="{{ data.title }}">
+				<div class="row top-btns">
+					<div class="col text-left">
+						{{ data.merchant }}
+					</div>
+					<div class="col text-right">
+						<i ng-show="data.global == '1'" class="wf wf-globe"></i>
+					</div>
+				</div>
+				<!-- coming soon -->
+				<div class="m-box padding-top" ng-if="data.coming_soon == '1'">
+					<h1 class="light" translate="CHALLENGE.SOON">Soon</h1>
+				</div>
+
+				<!-- completed state -->
+				<div class="m-box text-center" ng-if="data.completed == '1' && data.coming_soon == '0'">
+					<i class="wf wf-premium-two wf-5x positive"></i>
+				</div>
+
+				<div class="m-box text-center" ng-if="data.completed == '0' && data.active == '0' && data.joined == '1' && data.coming_soon == '0'">
+					<i class="wf wf-fail wf-5x positive"></i>
+				</div>
+
+
+				<!-- joined and active state  -->
+				<div class="m-box" ng-if="data.joined == '1' && data.active == '1' && data.completed == '0'">
+					<div>
+						<timer end-time="data.end_date">
+							<ul class="countdown">
+								<li>
+									<p class="days_ref" translate="UNIT.DAYS">days</p>
+									<span class="days">{{ddays}}</span>
+								</li>
+								<li>
+									<p class="hours_ref" translate="UNIT.HOURS">hours</p>
+									<span class="hours">{{hhours}}</span>
+								</li>
+								<li>
+									<p class="minutes_ref" translate="UNIT.MINUTES">minutes</p>
+									<span class="minutes">{{mminutes}}</span>
+								</li>
+								<li>
+									<p class="seconds_ref" translate="UNIT.SECONDS">seconds</p>
+									<span class="seconds">{{sseconds}}</span>
+								</li>
+							</ul>
+						</timer>
+					</div>
+				</div>
+				<div class="row bot-btns bottom-top-gradient pad-top-5">
+					<div ng-show="data.joined == '0' && data.coming_soon == '0'" class="col text-left">
+						<i class="wf wf-accept"></i> {{ 'ACTION.ACCEPT' | translate }}
+					</div>
+					<div ng-show="data.joined == '1'" class="col text-left">
+						<i class="wf wf-bar-chart"></i> {{ data.user_ranking | number }}º
+					</div>
+
+					<div class="col text-right">
+						<i class="wf wf-people"></i> {{ data.participants | number }}
+					</div>
+				</div>
+			</div>
+
+			<div class="card-footer-wf">
+				<div class="row">
+					<div class="col">
+						<h4 class="card-title-wf">{{ data.title }}</h4>
+					</div>
+				</div>
+
+				<div class="row positive" ng-show="data.joined == '0' || data.coming_soon == '1'">
+					<div class="col text-left">
+						<span ng-if="data.coming_soon == '1'">
+							{{ 'ACTION.START' | translate }}
+							<span am-time-ago="data.start_date"></span>
+						</span>
+						<span ng-if="data.coming_soon == '0' && data.joined == '0'">
+							{{ 'ACTION.ENDS' | translate }}
+							<span am-time-ago="data.end_date"></span>
+						</span>
+					</div>
+					<div class="col text-right row-no-padding" ng-show="data.joined == '0'">
+						<i class="wf" ng-class="{'wf-coins' : data.goal_unit == 'points', 'wf-calorie' : data.goal_unit == 'kcal', 'wf-distance' : data.goal_unit == 'distance', 'wf-time' : data.goal_unit == 'duration'}"></i> <span class="positive"> {{ data.goal }} {{unit}}</span>
+
+					</div>
+				</div>
+
+				<div ng-show="data.joined == '1'">
+					<div class="row positive">
+						<div class="col col-center">
+							<wf-meter color="positive-bg" value="data.goal_current" limit="data.goal"></wf-meter>
+						</div>
+					</div>
+					<div class="row positive">
+						<div class="col text-left dark">
+							<i class="wf"
+								ng-class="{'wf-coins' : data.goal_unit == 'points', 'wf-calorie' : data.goal_unit == 'kcal', 'wf-distance' : data.goal_unit == 'distance', 'wf-time' : data.goal_unit == 'duration'}"></i> <span>{{ data.goal_current | number:0}} {{ unit}}</span>
+						</div>
+						<div class="col text-right row-no-padding">
+							<i class="wf" ng-class="{'wf-coins' : data.goal_unit == 'points', 'wf-calorie' : data.goal_unit == 'kcal', 'wf-distance' : data.goal_unit == 'distance', 'wf-time' : data.goal_unit == 'duration'}"></i> <span class="positive">{{ data.goal | number:0 }} {{ unit}}</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>

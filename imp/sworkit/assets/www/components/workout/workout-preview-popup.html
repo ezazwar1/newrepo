@@ -1,0 +1,18 @@
+<ion-list class="exercise-list">
+    <div ng-repeat="exerciseEl in previewSelectedWorkout.workout track by $index">
+        <ion-item class="item-text-wrap item-checkbox-right item-thumbnail-left"
+                  ng-class="{'low-impact' : userExercises[exerciseEl].classification == 'lowImpact', 'modified-item-padding' : !userExercises[exerciseEl] || allExercises[exerciseEl].classification == 'lowImpact' }">
+            <div class="item-image">
+                <img ng-src="img/thumbnails/{{ userExercises[exerciseEl].image }}" ng-if="userExercises[exerciseEl] && !userExercises[exerciseEl].unlocked"/>
+                <img ng-src="{{ deviceBasePath }}exercises/keyframe-middle/{{ userExercises[exerciseEl].image }}"
+                     ng-if="userExercises[exerciseEl] && userExercises[exerciseEl].unlocked"/>
+                <img ng-src="https://s3.amazonaws.com/m.sworkit.com/assets/exercises/thumbnails/{{ allExercises[exerciseEl].image }}" ng-if="!userExercises[exerciseEl]" err-src="img/exercise-silhouette.png"/>
+            </div>
+            <h3>{{ allExercises[exerciseEl].name | translate }}</h3>
+            <p class="classification" ng-if="!userExercises[exerciseEl] && allExercises[exerciseEl].classification !== 'lowImpact'" style="color: #66BBCE" translate>
+                {{'ACCT_REQ' | translate}}</p>
+            <p class="classification" ng-if="allExercises[exerciseEl].classification == 'lowImpact'" style="color: #66BBCE">
+                {{'LOWIMPACT' | translate}} - {{'PRO_ONLY' | translate}}</p>
+        </ion-item>
+    </div>
+</ion-list>

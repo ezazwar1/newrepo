@@ -1,0 +1,35 @@
+<ion-view>
+    <ion-content padding="15">
+        <h2>{{dict.ratingSettings}}</h2>
+        <form id="form.filterSettings" name="form.filterSettings" ng-submit="form.filterSettings.$valid && save()">
+            <div class="content-wrapper center">
+                <div class="uppercase">{{dict.gender}}</div>
+                <div ng-if="userPrefs.ratingGender" class="button-block-wrapper">
+                    <button type="button" class="button button-block" ng-click="userPrefs.ratingGender = 'female'; form.filterSettings.$setDirty()" ng-class="{'button-assertive': userPrefs.ratingGender === 'female', 'button-outline button-dark': userPrefs.ratingGender === 'male' || userPrefs.ratingGender === 'both' || !userPrefs.ratingGender}">{{dict.female}}</button>
+                    <button type="button" class="button button-block" ng-click="userPrefs.ratingGender = 'male'; form.filterSettings.$setDirty()" ng-class="{'button-assertive': userPrefs.ratingGender === 'male', 'button-outline button-dark': userPrefs.ratingGender === 'female' || userPrefs.ratingGender === 'both' || !userPrefs.ratingGender}">{{dict.male}}</button>
+                    <button type="button" class="button button-block" ng-click="userPrefs.ratingGender = 'both'; form.filterSettings.$setDirty()" ng-class="{'button-assertive': userPrefs.ratingGender === 'both', 'button-outline button-dark': userPrefs.ratingGender === 'male' || userPrefs.ratingGender === 'female' || !userPrefs.ratingGender}">{{dict.both}}</button>
+                </div>
+                <br>
+                <div class="uppercase margin-top margin-bottom">{{dict.ageFromTo}}: <span class="assertive bold">{{ages[0]}} - {{ages[1]}}</span></div>
+                <div ng-if="ages" class="display-flex align-center">
+                    <span>14</span>
+                    <div class="flex-1 padding-right padding-left jslider-wrapper">
+                        <input ng-model="slider.value" type="text" id="ageSlider" slider options="slider.options" ng-change="getValue()" />
+                    </div>
+                    <span>60+</span>
+                </div>
+                <p ng-if="showHint" class="stable uppercase small margin-top">{{dict.filterSettingsInfo}}</p>
+            </div>
+        </form>
+    </ion-content>
+    <ion-footer-bar class="bar-light hide-on-keyboard-open">
+        <div class="row">
+            <div class="col">
+                <button form="form.filterSettings" type="submit" class="button button-outline button-assertive center">
+                    <span ng-if="!showHint">{{dict.save}}</span>
+                    <span ng-if="showHint">{{dict.continue}}</span>
+                </button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

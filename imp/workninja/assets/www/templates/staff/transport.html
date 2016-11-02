@@ -1,0 +1,27 @@
+<ion-view title="Transport">
+  <ion-content class="has-header ninja-padding">
+    <div class="list">
+      <label class="item item-radio item-icon-left">
+        <input type="radio" name="transport"
+               ng-model="staff.profile.mode_of_transport"
+               value="{{ Staff.TRANSPORT_WALKING }}"/>
+        <div class="item-content">
+          <i class="icon fa fa-male"></i>
+          <span class="item-title">Walking</span>
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+
+      <label class="item item-radio item-icon-left">
+        <input type="radio" name="transport"
+               ng-model="staff.profile.mode_of_transport"
+               value="{{ Staff.TRANSPORT_DRIVING }}"/>
+        <div class="item-content">
+          <i class="icon fa fa-car"></i>
+          <span class="item-title">Driving</span>
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>

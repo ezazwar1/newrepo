@@ -1,0 +1,30 @@
+<ion-view class="bg-welzen corporate-connect" view-title="Already Connected">
+
+  <ion-header-bar align-title="center" class="header">
+    <h1 class="title">Already Connected!</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+
+      <a class="info-box--transparent--medium-padding" ng-click='togglePopUpActive()'>
+        <div class="corporate-icon"><img src="img/corporate-icon.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__brief">Connected with...</span>
+          <span class="info-box__title">Wild Fox Consulting LLC.</span>
+        </div>
+      </a>
+
+      <h1 class="title">Disconnect?</h1>
+      <p class="paragraph">Your connection with Wild Fox Consulting LLC. will automaticly disconnect at the end of the yearly billing cycle.</p>
+      <p class="paragraph">If you’d like to disconnect your account from Wild Fox Consulting LLC at any time, you can do so by clicking the disconnect button.</p>
+
+
+
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bg-clear footer" keyboard-attach>
+    <a class="button button-block button-calm cta footer__cta" href='#/corporate'>Disconnect</a>
+  </ion-footer-bar>
+</ion-view>

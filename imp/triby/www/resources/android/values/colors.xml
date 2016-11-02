@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="record_video_button_circle">#f53333</color>
+    <color name="record_video_button_circle_pressed">#88f53333</color>
+
+    <color name="record_video_button_white_circle">#ffffff</color>
+    <color name="record_video_button_white_circle_pressed">#ffffffff</color>
+
+    <color name="record_video_buttons_panel_background">#77000000</color>
+</resources>

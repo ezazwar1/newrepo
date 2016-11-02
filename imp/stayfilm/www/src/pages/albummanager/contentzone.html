@@ -1,0 +1,69 @@
+<div class="contentzone-page page">
+	<div class="bar bar-header">
+		<button class="button button-clear btn-close" ng-click="goTo('main.home.feed');">
+			<img src="images/ico-close.png">
+		</button>
+		<div class="title">
+			<span translate>conteúdo do filme</span>
+		</div>
+		<button class="button button-clear btn-save" ng-click="save()">
+			<span translate>salvar</span>
+		</button>
+	</div>
+	<div class="media-header has-header" ng-class="{'retracted': retract}">
+		<div ng-if=" ! retract" class="instructions-text">
+			<span translate>Este é todo conteúdo que será usado para produzir seu filme. Você pode modificar, fazer upload ou escolher das redes sociais.</span>
+		</div>
+
+		<div class="progress-bar">
+			<div class="progress-info" style="width: {{ totalProgress || 0 }}%;"></div>
+		</div>
+
+		<div class="media-buttons">
+			<button class="btn-upload" ng-click="chooseMedias()"><span translate>upload</span></button>
+			<button class="btn-sourcezone" ng-click="goToContentZone()"><span translate>rede social</span></button>
+			<button class="btn-clearall" ng-click="clearAll()"><span translate>limpar tudo</span></button>
+		</div>
+	</div>
+
+	<input type="file" id="btn-upload" multiple accept="image/*|video/*" style="display:none" onchange="angular.element(this).scope().handleFiles(this.files)">
+
+	<ion-content class="media-list" ng-class="{'retract': retract}"  on-scroll="scrolling()">
+		<div class="grid-item"
+			  collection-repeat="media in mediaList"
+			  collection-item-width="getItemWidth(media)"
+			  collection-item-height="getItemHeight(media)" ng-click="zoomImg(media)">
+
+			<div ng-if="media.uri">
+				<div class="grid-item-inner" ng-style="{ width: getItemWidth(media) + 'px', height: getItemHeight(media) + 'px', 'background-image': 'url(' +  media.thumbnail + ')' }">
+
+				</div>
+
+				<div class="status">
+					<button class="btn-remove" ng-click="removeMedia(media); $event.stopPropagation();">
+						<img src="images/ico-trash-white.png">
+					</button>
+				</div>
+
+				<div class="upload-status">
+					<ion-spinner ng-if="media.status === 'UPLOADING'"></ion-spinner>
+					<span ng-if="media.status !== 'UPLOADING'" ng-class="{'uploaded': media.status === 'UPLOADED', 'ion-upload': media.status === 'PENDING', 'ion-alert-circled': media.status === 'FAIL' }"></span>
+				</div>
+			</div>
+			<div ng-if=" ! media.uri" class="media-counter" ng-style="{ width: getItemWidth(media) + 'px' }">
+				<div class="media-count">{{mediaList.length - 1}}</div>
+				<div class="media-instructions">
+					<span class="media-count-text" translate>medias</span>
+					<span class="instructions" translate>Use os botões do topo para gerenciar o conteúdo do seu filme</span>
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+
+	<ion-footer-bar class="big-button-footer">
+		<!-- (mediaList.length - 1) because of the footer in the collection-repeat that add one element to the list -->
+		<button ng-if="mediaList.length - 1 >= minUploadPhoto" ng-click="makeIt()" class="make-it kana-button"><img src="images/albummanager/button_makefilm_active.png" /><span translate>produzir filme</span></button>
+		<button ng-if="mediaList.length - 1 < minUploadPhoto" class="make-it inactive kana-button"><img src="images/albummanager/button_makefilm_inactive.png" /><span translate>produzir filme</span></button>
+	</ion-footer-bar>
+</div>

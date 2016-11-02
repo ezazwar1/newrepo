@@ -1,0 +1,27 @@
+<ion-view cache-view="false" view-title="Sign Up" ng-controller="UserCtrlConfirm">
+  <ion-content scroll="true">
+    <div class="singup_second_step_wrapper">
+      <div class="signup_second_step_title">
+        A text message with your code has been sent to
+      </div>
+      <div class="check_number">
+        <span class="confirm_no">{{mobilenumber}}</span>
+      </div>
+      <div class="signup_second_step_form">
+        <form ng-submit="confirm()">
+          <div class="enter_code_box">
+            <input type="tel" class="enter_code" placeholder="Enter Code" ng-model="formData.code">
+          </div>
+          <div class="ok_button_box">
+            <input type="submit" class="ok_step_button" value="Next" />
+          </div>
+        </form>
+      </div>
+      <div class="signup_second_step_title" ng-if="isWaitingTimeGone">
+        Still no message?<br />
+        Recheck phone number and <br />
+        <a ui-sref="signup_step1">Try again</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

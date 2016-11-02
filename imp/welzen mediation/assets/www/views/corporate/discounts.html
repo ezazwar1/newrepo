@@ -1,0 +1,46 @@
+<ion-view class="bg-welzen corporate-connect" view-title="Corporate Connect Discounts">
+
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Corporate Connect</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+
+      <a class="info-box--transparent--medium-padding" ng-click='togglePopUpActive()'>
+        <div class="corporate-icon"><img src="img/corporate-icon.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__brief">Connecting with...</span>
+          <span class="info-box__title">Wild Fox Consulting LLC.</span>
+        </div>
+      </a>
+
+      <div class="info-box--purple-clear--not-top">
+        <div class="info-box__contents">
+          <span class="info-box__brief">Below are the offers and discounts from Wild Fox Consulting LLC. Select the type of access that you’d like to have to Welzen.</span>
+        </div>
+      </div>
+
+      <a class="info-box--calm" href="#corporate/step1">
+        <div class="info-box__contents">
+          <span class="info-box__title">Yearly $7.49/month*</span>
+          <span class="info-box__brief">Payment of $99.99 every 12 months. <br />Recurring billing. Cancel anytime</span>
+        </div>
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--clear" href="#corporate/step1">
+        <div class="info-box__contents">
+          <span class="info-box__title">$100 Off Forever Access</span>
+          <span class="info-box__brief">One time payment of $299.99</span>
+          <span class="info-box__brief">Unlimited access to Welzen forever.</span>
+        </div>
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+
+    </div>
+  </ion-content>
+
+</ion-view>

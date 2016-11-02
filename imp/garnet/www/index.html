@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src http://*.instagram.com https://*.instagram.com http://*.facebook.com https://*.facebook.com http://*.facebook.net https://*.facebook.net http://localhost:35729 'self' 'unsafe-inline' 'unsafe-eval'">
+    <title>Garnet Room</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- inject:app-styles:css --><link rel="stylesheet" href="styles/main-0ea3f68d56.css"><!-- endinject -->
+    <!-- uncomment if using your own iconfont -->
+    <!-- <link rel="stylesheet" href="styles/own-icons.css"> -->
+</head>
+<body ng-app="GarnetRoom" class="platform-android platform-cordova platform-webview">
+  <div id="fb-root"></div>
+
+  <ion-nav-view></ion-nav-view>
+  <div id="toast" ng-click="_hideToast()" style="bottom: {{_keyboardHeight}}px"></div>
+  <div id="iosRenderFix" style="bottom: {{_keyboardHeight}}px"></div>
+
+  <!-- inject:vendor:js --><script src="vendor-d3da4fd707.js"></script><!-- endinject -->
+  <!-- inject:app:js --><script src="scripts/app-5b6aa99c68.js"></script><!-- endinject -->
+
+  <script src="cordova.js"></script>
+</body>
+</html>

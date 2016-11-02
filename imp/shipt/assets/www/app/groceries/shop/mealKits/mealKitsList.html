@@ -1,0 +1,32 @@
+<ion-view title="Meal Kits" ng-controller="mealKitsController as vm">
+    <ion-nav-buttons side="right">
+        <button  class="button button-icon icon ion-ios-cart-outline" ng-click="vm.goToCart()"><span ng-if="vm.cartCount() > 0" class="badge badge-assertive cart-count if-bounce">{{vm.cartCount()}}</span></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="vm.doRefresh()"
+                pulling-icon="ion-ios-arrow-down">
+        </ion-refresher>
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div class="large-padding">
+            <ion-list class="meal-kit-list">
+                <ion-item ng-repeat="mealKit in vm.mealKits"
+                          ng-click="vm.mealKitClick(mealKit)"
+                          class="item item-image meal-kit">
+                    <img src="{{ mealKit.title_image }}">
+                    <div class="padding">
+                        <h2 class="wrap dark">
+                            {{mealKit.title}}
+                        </h2>
+                        <p class="wrap faded">
+                            {{mealKit.serves_text}}
+                        </p>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+
+    </ion-content>
+</ion-view>

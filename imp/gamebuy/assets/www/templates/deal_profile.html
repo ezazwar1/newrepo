@@ -1,0 +1,88 @@
+<ion-view title="{{data.deal.collection.title}}">
+    <ion-content class="padding" scroll="true" padding="false">
+
+        <div class="deal-profile_section deal-profile_section-game">
+            <div class="deal-profile_summary clearfix">
+                <img class="deal-profile_game-cover" ng-src="{{data.deal.collection.cover_pic}}">
+
+                <div class="deal-profile_game-brief">
+                    <p class="deal-profile_title">{{data.deal.collection.title}}</p>
+
+                    <p class="deal-profile_platform" ng-if="data.deal.collection.platform != 'console'">{{data.deal.collection.platform}} | {{data.deal.collect_format_message}}</p>
+                    <p class="deal-profile_platform" ng-if="data.deal.collection.platform == 'console'">{{data.deal.collection.platform}}</p>
+
+                    <p class="deal-profile_price">
+                        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                        {{data.deal.listing_price}} {{ data.deal.price_unit }}
+                    </p>
+                </div>
+            </div>
+            <div ng-class="{'game-profile_description-empty': !data.deal.collection.collection_description}">
+                <p class="game-profile_description_content">
+                    {{data.deal.collection.collection_description}}
+                </p>
+            </div>
+        </div>
+
+        <div class="deal-profile_section">
+            <h4 class="deal-profile_section-title">Transaction Progress</h4>
+
+            <div class="deal-profile_status status-{{data.deal.status}}">
+                <div class="status_bar">
+                    <span class="bar_inner bar_length">
+                        <span class="bar_cover"></span>
+                    </span>
+                </div>
+                <div class="status_steps">
+                    <span class="steps-name steps-request">Offer</span>
+                    <span class="steps-name steps-accept">Accepted</span>
+                    <span class="steps-name steps-receive">Delivered</span>
+                    <span class="steps-name steps-reject">Seller Rejected</span>
+                    <span class="steps-name buyer-withdraw">Buyer Withdraw</span>
+                    <span class="steps-name seller-cancel">Seller Cancel</span>
+                    <span class="steps-name buyer-cancel">Buyer Cancel</span>
+                </div>
+            </div>
+            <div class="button-multi">
+                <button class="button button-primary button-multi_item-uneven" ng-disabled="data.firstbuttondisable || data.temp_button_disable"
+                        ng-click="deal_terminate_activity_router()">{{data.terminate_button}}
+                </button>
+                <button class="button button-primary button-multi_item-uneven" ng-disabled="data.secondbuttondisable || data.temp_button_disable"
+                        ng-click="deal_proceeed_activity_router()">{{data.proceed_button}}
+                </button>
+            </div>
+        </div>
+
+        <div class="gamer-profile deal-profile_section">
+            <div class="gamer-profile_avatar">
+                <img class="image-left gamer_avatar-list" ng-src={{data.gamer_profile_pic_link}}>
+            </div>
+            <div class="gamer-profile_brief">
+                <p class="gamer-profile_name">{{data.partner_role}}: {{data.partner.name}}</p>
+
+                <p class="gamer-profile_city ion-location">{{data.partner.city}} {{data.deal.miles}}</p>
+
+                <div class="button-multi">
+                    <button class="button button-primary button-multi_item ion-person"
+                            ng-click="goto_gamer_profile_by_tab(data.partner.gamer_id)">Profile
+                    </button>
+                    <button class="button button-primary button-multi_item ion-chatbubbles"
+                            ng-click="goto_chat_thread_add(data.partner.gamer_id)">Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="deal-profile_section">
+            <h4 class="deal-profile_section-title">Transaction history</h4>
+            <ion-list>
+                <ion-item class="deal-profile_history-list"
+                          ng-repeat="deal_history in data.deal.deal_history | orderBy:'action_on':reverse">
+                    <p class="deal-profile_history-item">{{deal_history.history_message}} on {{deal_history.action_on |
+                        date:'MM/dd/yyyy HH:mm'}}</p>
+                </ion-item>
+            </ion-list>
+        </div>
+
+    </ion-content>
+</ion-view>

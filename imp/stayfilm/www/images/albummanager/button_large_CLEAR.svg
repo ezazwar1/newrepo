@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 213 212" enable-background="new 0 0 213 212" xml:space="preserve">
+<g>
+	<rect y="0" fill="#C3CBD1" width="213" height="212"/>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="87.9826" y1="97.8711" x2="207.5558" y2="217.4442">
+		<stop  offset="0.2936" style="stop-color:#AAB2BA;stop-opacity:0.5771"/>
+		<stop  offset="0.634" style="stop-color:#C3CBD1;stop-opacity:0"/>
+	</linearGradient>
+	<path fill="url(#SVGID_1_)" d="M213,185l-83.2-83.2c-0.5-0.9-1.5-1.4-2.6-1.4H86.8c-1.7,0-3,1.4-3,3s1.4,3,3,3h3l6.4,37.5
+		c0,0.2,0.2,0.5,0.3,0.6l67.6,67.5H213V185z"/>
+	<g>
+		<path fill="#FFFFFF" d="M116.8,144.7H97.2c-0.5,0-0.9-0.4-1-0.8l-6.9-40.4c-0.1-0.3,0-0.6,0.2-0.8c0.2-0.2,0.5-0.4,0.8-0.4h33.4
+			c0.3,0,0.6,0.1,0.8,0.4c0.2,0.2,0.3,0.5,0.2,0.8l-6.9,40.4C117.7,144.4,117.3,144.7,116.8,144.7z M98.1,142.7h17.9l6.5-38.4h-31
+			L98.1,142.7z"/>
+		<path fill="#FFFFFF" d="M127.2,106.4H86.8c-1.7,0-3-1.4-3-3c0-1.7,1.4-3,3-3h40.4c1.7,0,3,1.4,3,3
+			C130.2,105,128.9,106.4,127.2,106.4z"/>
+		<path fill="#FFFFFF" d="M107,110.5l-5.1-5.1l-2.9,0l-5.1,5.1l-2.8-2.8l1.2,7.3l1.6-1.6l5.1,5.1l-5.1,5.1l0.4,3.3l4.7,4.7l-3.3,3.3
+			l0.4,2.4l4.3-4.3l5.1,5.1l-5.1,5.1l-4-4l0.6,3.4l1,1h4.9l4.1-4.1l4.1,4.1h4.9l1-1l0.6-3.4l-4,4l-5.1-5.1l5.1-5.1l4.3,4.3l0.4-2.4
+			l-3.3-3.3l4.7-4.7l0.4-3.3l-5.1-5.1l5.1-5.1l1.6,1.6l1.2-7.3l-2.8,2.8l-5.1-5.1l-2.9,0L107,110.5z M112.1,118.5l-5.1,5.1l-5.1-5.1
+			l5.1-5.1L112.1,118.5z M95.3,112l5.1-5.1l5.1,5.1l-5.1,5.1L95.3,112z M95.3,125.1l5.1-5.1l5.1,5.1l-5.1,5.1L95.3,125.1z
+			 M107,136.7l-5.1-5.1l5.1-5.1l5.1,5.1L107,136.7z M118.7,125.1l-5.1,5.1l-5.1-5.1l5.1-5.1L118.7,125.1z M118.7,112l-5.1,5.1
+			l-5.1-5.1l5.1-5.1L118.7,112z"/>
+	</g>
+</g>
+</svg>

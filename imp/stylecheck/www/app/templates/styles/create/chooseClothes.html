@@ -1,0 +1,44 @@
+<ion-view cache-view="false">
+    <ion-content padding="true">
+        <div class="uppercase">{{dict.category}}</div>
+        <div class="content-wrapper center">
+            <div class="row gender-selection margin-bottom">
+                <input type="hidden" ng-model="newStyle.tags[newStyle.activeTag].gender" required>
+                <div class="col margin-right">
+                    <button type="button" class="button button-block" ng-click="chooseGender('female')" ng-class="{'button-assertive': newStyle.tags[newStyle.activeTag].gender === 'female', 'button-outline button-dark': newStyle.tags[newStyle.activeTag].gender === 'male' || !newStyle.tags[newStyle.activeTag].gender}">{{dict.women}}</button>
+                </div>
+                <div class="col margin-left">
+                    <button type="button" class="button button-block" ng-click="chooseGender('male')" ng-class="{'button-assertive': newStyle.tags[newStyle.activeTag].gender === 'male', 'button-outline button-dark': newStyle.tags[newStyle.activeTag].gender === 'female' || !newStyle.tags[newStyle.activeTag].gender}">{{dict.men}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="list clothes-list">
+            <label class="item stable" ng-repeat="(key, value) in clothes" ng-if="!clothes[key].gender || clothes[key].gender === newStyle.tags[newStyle.activeTag].gender" ng-class="{'stable': newStyle.tags[newStyle.activeTag].category !== key, 'dark': newStyle.tags[newStyle.activeTag].category === key}" ng-click="chooseCat(key)">
+                <div class="item-content text-center">
+                    {{dict.clothes.categories[newStyle.tags[newStyle.activeTag].gender][key]}}
+                </div>
+                <i class="icon icon-clothes icon-{{newStyle.tags[newStyle.activeTag].gender}}-{{key}} text-center"></i>
+                <input type="radio" name="category" ng-model="newStyle.tags[newStyle.activeTag].category" ng-value="key">
+            </label>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="app/templates/modalChooseCloth.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar align-title="left">
+            <h1 class="title uppercase bold">{{dict.chooseClothes}}</h1>
+            <button class="button button-clear button-dark icon icon-close" ng-click="closeModal('Cloth')"></button>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list">
+                <label class="item item-radio" ng-repeat="(key, value) in subcategories" ng-if="value === true || value === newStyle.tags[newStyle.activeTag].gender">
+                    <input type="radio" name="name" ng-model="newStyle.tags[newStyle.activeTag].name" ng-value="key" ng-change="chooseSub(key)">
+                    <div class="item-content">
+                        {{dict.clothes.subcategories[newStyle.tags[newStyle.activeTag].category][key].display}}
+                    </div>
+                    <i class="radio-icon icon icon-check assertive"></i>
+                </label>
+            </div>
+        </ion-content>
+    </ion-modal-view>
+</script>

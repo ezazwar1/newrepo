@@ -1,0 +1,15 @@
+<ion-view ng-controller="BulletinsCtrl as vm" view-title="Severe Weather" ng-init="vm.getSWBulletins()">
+	<ion-content class="container has-header">
+		<ul class="list-group" ng-if="vm.bulletins">
+			<li class="list-group-item" ng-repeat="item in vm.bulletins">
+				<h4>{{item.bulletinType}}</h4>
+				<sup>{{item.currdate}}, {{item.issuedAt}}</sup>
+				<sup>{{item.forecaster}}</sup>
+				<p>{{item.textArea1}}</p>
+				<p>{{item.textArea2}}</p>
+				<p>{{item.textArea3}}</p>
+				<p>{{item.textArea4}}</p>
+			</li>
+		</ul>
+	</ion-content>
+</ion-view>

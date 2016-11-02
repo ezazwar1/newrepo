@@ -1,0 +1,48 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+	   <!--<button ng-click="viewCart();" ng-if="isCartIconVisible" class="button cart-button button-fab button-fab-bottom-right">
+			<div class="cartIcon">{{cartItems}}</div>
+    </button>-->
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="expanded-alter">
+       <img ng-src="img/profile-picture.jpg"  class="avatar motion spin fade"  >
+       <a ng-click="cattoggle()"  class="button button-icon  icon {{isCategory ? 'ion-gear-a':'ion-grid'}} setting-button"></a>
+	   <div class="menu-bottom">sales@opensorucetechnologies.com</div>
+    </ion-header-bar>
+    <ion-content class="has-expanded-header sidemenu">
+      <ion-list ng-show="!isCategory" class="animate-show firstcontent common-content">
+        <ion-item menu-close href="#/app/dashboard">
+          <img src="img/sideMenu/home.png">Home
+        </ion-item>
+        <ion-item menu-close href="#/app/profile">
+          <img src="img/sideMenu/profile.png">Profile
+        </ion-item>
+        <ion-item menu-close href="#/app/changepassword">
+          <img src="img/sideMenu/changepassword.png">Change Password
+        </ion-item>
+        <ion-item menu-close href="#/app/orders">
+          <img src="img/sideMenu/orders.png">Orders
+        </ion-item>
+        <ion-item menu-close href="#" ng-click="userModal(1,'show');">
+          <img src="img/sideMenu/login.png"><span>Login</span>
+        </ion-item>
+      </ion-list>
+      <ion-list ng-show="isCategory" class="animate-show second-content common-content">
+        <ion-item menu-close href="#/app/dashboard"><img src="img/sideMenu/home.png">Home</ion-item>
+           
+        <div sir-accordion collection="menuAccordionArray" config="accordionConfig"></div>
+   </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

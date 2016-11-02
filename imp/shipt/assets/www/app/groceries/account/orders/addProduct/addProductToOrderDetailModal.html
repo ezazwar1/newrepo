@@ -1,0 +1,99 @@
+<div class="buttons" id="">
+    <div class="modal simple-modal product-detail-modal">
+        <div class="product-detail-on-sale-banner corner-ribbon sale top-left" ng-if="viewModel.productDetailProduct.on_sale">On Sale</div>
+        <ion-header-bar class="bar-stable">
+            <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="viewModel.closeProductDetail()"><i class="icon ion-ios-close-empty"></i></button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="has-header" has-bouncing="true" >
+            <img ng-src='{{viewModel.productDetailProduct.images[0].url}}'
+                 ng-if="viewModel.productDetailProduct.images.length > 0"
+                 ng-click="openImageModal(viewModel.productDetailProduct)"
+                 class="img-center detail-img"
+                 onerror="this.src='img/item404.gif'" />
+
+            <img ng-src='img/itemNoImage.gif'
+                 class="img-center detail-img"
+                 ng-if="viewModel.productDetailProduct.images.length < 1" />
+
+            <div class="text-center wrap padding">
+                <h2>{{viewModel.productDetailProduct.brand_name}} {{viewModel.productDetailProduct.name}} <br/></h2>
+
+                <h4 ng-if="viewModel.productDetailProduct.product_type != 'custom'">{{viewModel.productDetailProduct.description}}</h4>
+
+                <div ng-if="viewModel.productDetailProduct.product_type != 'by weight'">
+                    <h4 class="product-name">
+                        <small>{{viewModel.productDetailProduct.size}}</small>
+                        <span ng-class="viewModel.productDetailProduct.on_sale ? 'strike-through':''">{{viewModel.productDetailProduct.price | currency}} </span>
+                        <span class="positive" ng-if="viewModel.productDetailProduct.on_sale">{{viewModel.productDetailProduct.sale_price | currency}} </span>
+                    </h4>
+                </div>
+                <div ng-if="viewModel.productDetailProduct.product_type == 'by weight'">
+                    <h4 class="product-name">
+                        {{viewModel.productDetailProduct.price | currency}}
+                        <small>{{viewModel.productDetailProduct.size}}</small>
+                    </h4>
+                </div>
+
+                <div class="padding">
+                    <button class="button  button-outline button-assertive"
+                            ng-class="productInCart(viewModel.productDetailProduct) ? '':'disabled'"
+                            ng-click="removeItemProductToOrder(viewModel.productDetailProduct)">
+                        <i class="icon ion-ios-minus-outline" > </i>
+                    </button>
+                    <button class="button  button-outline button-dark disabled">
+                        <span ng-if="productInCart(viewModel.productDetailProduct)">
+                            <span ng-if="viewModel.productDetailProduct.product_type == 'by weight'">
+                                {{orderLineCountForProduct(viewModel.productDetailProduct) | number:1}} in order
+                            </span>
+                            <span ng-if="viewModel.productDetailProduct.product_type != 'by weight'">
+                                {{orderLineCountForProduct(viewModel.productDetailProduct) | number:0}} in order
+                            </span>
+                        </span>
+                        <span ng-if="!productInCart(viewModel.productDetailProduct)">
+                            not in order
+                        </span>
+                    </button>
+                    <button class="button button-positive button-outline"
+                            ng-click="addItemProductToOrder(viewModel.productDetailProduct)">
+                        <i class="icon ion-ios-plus-outline" > </i>
+                    </button>
+                    <!--<button class="button button-positive button-outline"-->
+                            <!--ng-if="!productInCart(viewModel.productDetailProduct)"-->
+                            <!--ng-click="addItemProductToOrder(viewModel.productDetailProduct)">-->
+                        <!--<i class="icon ion-ios-plus-outline" > </i> Add Product To Order-->
+                    <!--</button>-->
+                    <!--<button class="button button-assertive button-outline"-->
+                            <!--ng-if="productInCart(viewModel.productDetailProduct)"-->
+                            <!--ng-click="removeItemProductToOrder(viewModel.productDetailProduct)">-->
+                        <!--<i class="icon ion-ios-minus-outline" > </i> Remove From Order-->
+                    <!--</button>-->
+                </div>
+
+                <div class="padding wrap" ng-if="viewModel.productDetailProduct.product_type != 'custom'"">
+                    <h4>Categories:</h4>
+                    <span ng-repeat="category in viewModel.productDetailProduct.categories">
+                        <span class="badge category-badge badge-positive">
+                            {{category.name}}
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <br/>
+        </ion-content>
+    </div>
+
+    <script id="image-modal.html" type="text/ng-template">
+        <div class="modal image-modal transparent"
+             ng-click="closeImageModal()">
+            <ion-slide-box on-slide-changed="imageSlideChanged()"
+                           show-pager="false">
+                <ion-slide>
+                    <img class="fullscreen-image" image-lazy-src="{{imageModalImageUrl}}" image-lazy-loader="dots">
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </script>
+</div>

@@ -1,0 +1,22 @@
+
+<ion-view>
+    <div class="page-layout">
+        <ion-content has-bouncing="true">
+            <ion-list>
+                <ion-item ng-repeat="productType in productTypes">
+                    {{ productType.title }}
+                    <ion-list>
+                        <ion-item ng-repeat="productTypeChildren1 in productType.children">
+                            {{ productTypeChildren1.title }}
+                            <ion-list>
+                                <ion-item ng-repeat="productTypeChildren2 in productTypeChildren1.children">
+                                    {{ productTypeChildren2.title }}
+                                </ion-item>
+                            </ion-list>
+                        </ion-item>
+                    </ion-list>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </div>
+</ion-view>

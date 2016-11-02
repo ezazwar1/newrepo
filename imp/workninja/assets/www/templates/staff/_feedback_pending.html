@@ -1,0 +1,35 @@
+<ion-content class="has-header height-100 ninja-padding" scroll="false">
+  <div class="receipt-page">
+    <div class="receipt">
+      <div class="wave-t"></div>
+
+      <div class="legend"><span>{{ job.billing_ended_at_timezone }}</span></div>
+      <div class="billable-summary">
+        <div class="hours">{{ job.receipt_duration }}</div>
+        <div class="hours-title">hours</div>
+      </div>
+
+      <div class="legend"><span>Shift Summary</span></div>
+      <div class="job-summary">
+        <div class="picture">
+          <img src="img/placeholder.png" ng-src="{{ job.workplace.picture_small_url }}" alt=""/>
+        </div>
+        <div class="details">
+          <div class="title">{{ job.workplace.name }}</div>
+          <div class="address">{{ job.workplaceAddress() }}</div>
+        </div>
+      </div>
+      <div class="wave-b"></div>
+    </div>
+
+    <div class="receipt-footer">
+      <div class="rating" ng-click="provideFeedback()">
+        <angular-ratings class="rating-stars" readonly></angular-ratings>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer-bar class="bar-stable ninja-footer-bar">
+  <button class="button button-block button-balanced button-uppercase button-square" ng-click="provideFeedback()">Provide Feedback</button>
+</ion-footer-bar>

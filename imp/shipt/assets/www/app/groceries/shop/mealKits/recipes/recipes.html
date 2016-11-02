@@ -1,0 +1,25 @@
+<ion-view title="Recipes" ng-controller="recipesController as viewModel">
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="viewModel.doRefresh()"
+                pulling-icon="ion-ios-arrow-down">
+        </ion-refresher>
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div class="text-center padding" style="margin-top:20px;" >
+            <h1 class="faded">
+                <i class="icon ion-fork">
+                </i>
+            </h1>
+            <h2 class="faded">
+                No Recipes
+            </h2>
+            <p class="faded">
+                Recipes will be shown here once you have ordered a meal kit.
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

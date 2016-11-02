@@ -1,0 +1,50 @@
+<div ng-controller="ShareModalController" class="modal modal-share">
+
+	<ion-header-bar class="share-header" no-tap-scroll="true">
+		<h1 class="title" translate>Compartilhar no Stayfilm</h1>
+		<div class="buttons">
+			<button ng-click="modal.hide()">
+				<img class="share-close" src="images/ico-close.png">
+			</button>
+		</div>
+	</ion-header-bar>
+
+	<ion-content class="share-content">
+		<div class="share-wrapper">
+
+			<div ng-if="movie.shared" class="already-shared">
+				<span translate>
+					Você já compartilhou este filme na Stayfilm, mas pode compartilhar em outras redes.
+				</span>
+			</div>
+
+			<div class="user-textarea">
+				<div class="avatar">
+					<img src="default-profile.png" ng-src="{{ me.photo }}" />
+				</div>
+				<div class="description">
+					<textarea placeholder="{{ 'Escreva sobre seu filme' | translate }}" ng-model="data.message" maxlength="100"></textarea>
+				</div>
+			</div>
+
+			<h2 translate>Também nas redes sociais</h2>
+			<div class="copy-url">
+				<input type="text" value="{{ movieUrl }}" id="text-copy" onclick="this.focus();this.select()">
+			</div>
+			<div class="network-list clearfix">
+				<ion-toggle class="network-toggle" ng-repeat="network in networks" ng-if="network !== 'whatsapp'"  ng-model="data.selectedNetworks[network]" ng-change="toggleNetwork(network)">
+					<img ng-src="images/moviemaker/switch_{{network}}.png" class="network-icon" ng-if="data.integratedNetworks[network]" />
+					<img ng-src="images/moviemaker/switch_{{network}}_inactive.png" class="network-icon" ng-if=" ! data.integratedNetworks[network]" />
+				</ion-toggle>
+				<ion-toggle class="network-toggle" ng-model="data.shareInWhatsapp" ng-if="whatsappActive">
+					<img ng-src="images/moviemaker/switch_whatsapp.png" class="network-icon" />
+				</ion-toggle>
+			</div>
+		</div>
+	</ion-content>
+	<ion-footer-bar class="big-button-footer">
+		<div class="action-button">
+			<button ng-click="shareMovie()" ng-class="{'btn-disabled': ! hasNetworkSelected()}" class="kana-button"><img src="images/kana-check.png" /><span translate>Compartilhar</span></button>
+		</div>
+	</ion-footer-bar>
+</div>

@@ -1,0 +1,1 @@
+var ctrl=angular.module("helpCtrl",[]);ctrl.controller("HelpCtrl",["$scope","$state","$http","$stateParams","AccountService",function(t,r,a,n){window.StatusBar&&StatusBar.styleDefault(),t.$on("$destroy",function(){window.StatusBar&&StatusBar.styleLightContent()}),t.intro=!1,n.intro&&(t.intro=n.intro)}]);

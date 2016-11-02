@@ -1,0 +1,52 @@
+<ion-view title="Survey" hide-nav-bar="true">
+    <ion-content>
+        <div class="survey_sell survey_wrapper">
+
+            <button class="button button-link survey_skip" ng-click="skip_sell()">
+                Skip
+            </button>
+
+            <div class="survey_main">
+                <h2 class="survey_title">Select games you want to sell</h2>
+
+                <div class="survey_group-wrapper">
+                    <div class="survey_group" ng-repeat="game in data.sell_games">
+                        <div class="survey_box" ng-class="{'survey_box-active': data.select_sellgames.indexOf(game.game_id + '+' + game.price_sell + '+' + game.collect_format)!=-1}" ng-click="click_router(game.game_id, game.price_sell, game.collect_format)">
+                            <div class="survey_game-thumbnail">
+                                <img src="{{ game.picture }}"/>
+                            </div>
+                            <h4 class="survey_game-title">{{ game.title }}</h4>
+                            <h5 class="survey_price">
+                                <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                                <span class="price-highlight">{{game.price_sell}}</span>
+                                {{data.price_unit}}
+                            </h5>
+                            <!-- <p ng-if="data.select_sellgames.indexOf(game.game_id + '+' + game.price_sell + '+' + game.collect_format)!=-1">{{ data.display_format }}</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="survey_footer">
+                <div class="survey_nav">
+                    <ul class="survey_nav-list">
+                        <li class="survey_nav-item"></li>
+                        <li class="survey_nav-item"></li>
+                        <li class="survey_nav-item survey_nav-item-active"></li>
+                    </ul>
+                </div>
+                <div class="button-multi">
+                    <button class="button button-primary button-multi_item ion-ios-arrow-left"
+                            ng-click="back_to_wish()">
+                        Previous Step
+                    </button>
+                    <button class="button button-primary button-multi_item"
+                            ng-click="sellgames_submit()">
+                        Start GBG
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

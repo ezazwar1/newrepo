@@ -1,0 +1,51 @@
+<ion-view view-title="Select Address">
+<ion-nav-bar class="bar-stable">
+	<ion-nav-buttons side="left">
+	<button ng-click="$ionicGoBack()" class="button back-button button-icon button-clear header-item ion-android-arrow-back"></button>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+	<button class="button button-small button-clear ion-plus" style="color:#fff;" ng-click="addAddress();"></button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+
+<!-- <div class="checkoutBar" ng-if="cartProducts!=''"> -->
+<div class="checkoutBar">
+	<div class="bar bar-footer">
+		<div class="row">
+			<div class="col">
+				<div class="centerAlign" ><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{cartTotal}}</div>
+			</div>
+			<div class="col"><div class="chckout" ng-click="shippingOptions()">Continue <i class="ion-chevron-right"></i></div></div>
+		</div>
+	</div>
+</div>
+  <ion-content class="shoppingCart" scroll="false" overflow-scroll="true" >
+		<div style="border-bottom:#ccc 1px solid;padding-bottom:20px;">
+		<div class="cartStatus" >
+			<span class="first active"><i class="ion-checkmark"></i> <label>Address</label></span>
+			<span class="second "><i class="ion-checkmark"></i> <label>Options</label></span>
+			<span class="third"><i class="ion-checkmark"></i> <label>Order</label></span>
+		</div>
+		</div>
+		 <ion-slide-box slide-tabs-scrollable="false"  show-pager="false" ion-slide-tabs>
+			 <ion-slide ion-slide-tab-label="Shipping" >
+				<ion-content direction="y" class="subContent" scroll="true">
+					<div class="deliveryBox" style="border:0px;margin-top:0px;">
+					<div class="list deliveryAddress" >
+						 <div  class="item rmovePadding" ng-repeat="shipObj in shipAddresses">
+						      <div class="row">
+						       <div class="col col-10" ><i class="icon ion-trash-a"  ng-click="removeShipAddress(shipObj.address_id);"></i></div>
+						         <div class="col col-90">
+								<ion-radio ng-model="shippingAddress" name="shppingAddress" ng-value="'{{shipObj.address_id}}'" ng-click="selectShipAddress(shipObj.address_id);"  >{{shipObj.address_1}} <label></label></ion-radio></div>
+								</div>
+						  </div>
+						 <p ng-if="!shipAddresses" class="addressError">No Shipping Address Found</p>
+					</div>
+				</div>
+				 </ion-content>
+			</ion-slide>
+		</ion-slide-box>
+
+
+  </ion-content>
+</ion-view>

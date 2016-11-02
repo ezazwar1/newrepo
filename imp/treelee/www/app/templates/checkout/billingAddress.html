@@ -1,0 +1,117 @@
+<ion-view title="{{dict.theCheckout}}">
+    <ion-header-bar class="bar-subheader bar-light bar-checkout">
+        <button class="button button-dark button-clear button-checkout-back icon ion-ios7-arrow-left" ng-click="goBack()"></button>
+        <h1 class="title">{{dict.billingAddress}}</h1>
+    </ion-header-bar>
+    <ion-content class="has-checkout-footer">
+        <div class="card transparent">
+            <p ng-if="addressInfo" ng-class="loginInfo.class">{{addressInfo.msg}}</p>
+            <form id="billingForm" name="billingForm" ng-class="{'form-invalid': submitted}" ng-submit="billingForm.$valid && saveBilling()">
+                <div class="list">
+                    <div ng-repeat="field in billingFields" ng-init="fieldIndex = $index" ng-if="(field['@attributes'].id !== 'region' || showRegionTextField) && (field['@attributes'].id !== 'region_id' || (regions && regions.length > 0))">
+                        <ng-form name="userFieldForm">
+                            <label class="label">{{field['@attributes'].label}} <span ng-if="field['@attributes'].required === 'true'">*</span></label>
+                            <label class="item item-input" ng-class="{'input-invalid': userFieldForm.name.$error.required}" ng-if="field['@attributes'].type !== 'select' && field['@attributes'].type !== 'checkbox' && field['@attributes'].type !== 'radio' && (field['@attributes'].id !== 'region' || showRegionTextField)">
+                                <input
+                                        type="{{field['@attributes'].type}}"
+                                        name="name"
+                                        ng-model="billing[field['@attributes'].name]"
+                                        ng-required="field['@attributes'].required === 'true'"
+                                        value="{{field['@attributes'].value}}">
+                            </label>
+                            <select
+                                    ng-if="field['@attributes'].type === 'select' && field['@attributes'].id !== 'region_id'"
+                                    ng-model="billing[field['@attributes'].name]"
+                                    ng-required="field['@attributes'].required === 'true'"
+                                    ng-init="checkRelation(fieldIndex, billing[field['@attributes'].name], 1)"
+                                    ng-change="checkRelation(fieldIndex, billing[field['@attributes'].name])"
+                                    >
+                                <option value="">{{dict.pleaseChoose}}</option>
+                                <option ng-repeat="option in field.values" ng-selected="(billing[field['@attributes'].name] && billing[field['@attributes'].name] === option.value) || option.selected === '1'" value="{{option.value}}">
+                                    {{option.label}}
+                                </option>
+                            </select>
+
+                            <select
+                                    ng-if="field['@attributes'].id === 'region_id' && regions && regions.length > 0"
+                                    ng-model="billing[field['@attributes'].name]"
+                                    ng-required="field['@attributes'].required === 'true'"
+                                    ng-options="option.value as option.label for option in regions"
+                            >
+                            </select>
+                        </ng-form>
+                    </div>
+                    <div class="item item-radio transparent" ng-show="billingFields">
+                        <input type="checkbox" ng-model="billing['billing[use_for_shipping]']" ng-true-value="1" ng-false-value="0">
+                        <div class="item-content">
+                            <i class="icon circle"></i>
+                            <div class="label">{{dict.useForShipping}}</div>
+                        </div>
+                    </div>
+                    <!-- other address -->
+                    <div class="item item-radio transparent" ng-show="loggedIn && billing['billing[entity_id]'] && additionalAdresses" ng-click="showModal(0)"> <!--check if another address exists-->
+                        <input type="checkbox" ng-model="address.change" ng-true-value="1" ng-false-value="0">
+                        <div class="item-content">
+                            <i class="icon circle"></i>
+                            <div class="label">{{dict.changeAddress}}</div>
+                        </div>
+                    </div>
+                    <!-- new address -->
+                    <div class="item item-radio transparent" ng-show="loggedIn && billing['billing[entity_id]']" ng-click="newAddress()">
+                        <input type="checkbox" ng-model="address.new" ng-true-value="1" ng-false-value="0">
+                        <div class="item-content">
+                            <i class="icon circle"></i>
+                            <div class="label">{{dict.newAddress}}</div>
+                        </div>
+                    </div>
+                    <!-- delete address -->
+                    <div class="item item-radio transparent" ng-show="loggedIn && billing['billing[entity_id]']" ng-click="deleteAddress()">
+                        <input type="checkbox" ng-model="address.delete" ng-true-value="1" ng-false-value="0">
+                        <div class="item-content">
+                            <i class="icon circle"></i>
+                            <div class="label">{{dict.deleteAddress}}</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br><p ng-show="billingFields">* {{dict.mandatoryField}}</p>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="checkout-footer transparent">
+        <button ng-if="billing['billing[use_for_shipping]'] == 1" form="billingForm" class="button button-large button-block button-clear button-dark button-checkout" ng-click="setSubmit()" ng-disabled="billingForm.$invalid">
+            <div class="circle"><i class="icon ion-ios7-arrow-right light"></i></div>
+            {{dict.shippingMethod}}
+        </button>
+        <button ng-if="billing['billing[use_for_shipping]'] == 0" form="billingForm" class="button button-large button-block button-clear button-dark button-checkout" ng-click="setSubmit()" ng-disabled="billingForm.$invalid">
+            <div class="circle"><i class="icon ion-ios7-arrow-right light"></i></div>
+            {{dict.shippingAddress}}
+        </button>
+    </ion-footer-bar>
+</ion-view>
+<script id="chooseAddress.html" type="text/ng-template">
+    <div class="modal">
+        <ion-header-bar class="transparent">
+            <button class="button button-clear button-light icon icon-close" ng-click="closeModal(0)"></button>
+            <h1 class="title light">{{dict.savedAddresses}}</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div class="filter-container">
+                <!--<label class="item item-radio transparent" ng-click="setAddress()">
+                    <input type="radio" ng-model="billing" ng-value="billing">
+                    <div class="item-content">
+                        <i class="icon circle"></i>
+                        <div class="label">{{billing['billing[firstname]']}} {{billing['billing[lastname]']}}<br>{{billing['billing[street][]']}}<br>{{billing['billing[postcode]']}} {{billing['billing[city]']}}<br>{{billing['billing[telephone]']}}</div>
+                    </div>
+                </label>-->
+                <label class="item item-radio transparent" ng-repeat="value in additionalAdresses" ng-click="setAddress()">
+                    <input type="radio" ng-model="changeAddress.id" ng-value="value.entity_id">
+                    <div class="item-content">
+                        <i class="icon circle"></i>
+                        <div class="label">{{value.firstname}} {{value.lastname}}<br>{{value.street}}<br>{{value.postcode}} {{value.city}}<br>{{value.telephone}}</div>
+                    </div>
+                </label>
+            </div>
+        </ion-content>
+    </div>
+</script>
+

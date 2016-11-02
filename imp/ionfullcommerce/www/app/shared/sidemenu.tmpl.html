@@ -1,0 +1,72 @@
+<ion-side-menus enable-menu-with-back-views="false">
+	<!--Drawer Changes-->
+	<ion-nav-bar align-title="center" class="bar-calm c-bar eCommerce-bar ">
+		<ion-nav-back-button class="button-icon icon ion-ios-arrow-back">
+		</ion-nav-back-button>
+
+		<ion-nav-buttons side="right">
+			<a href="#/app/cart" class="button cart-img">
+				<i class="icon ion-ios-cart"></i>
+				<span class="item-count">5</span>
+			</a>
+		</ion-nav-buttons>
+
+	</ion-nav-bar>
+	<ion-pane drawer-menu-content>
+		<ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+	</ion-pane>
+
+	<!--Drawer Changes-->
+	<drawer side="left" canDrag="true">
+		<ion-content class="header-menu menu-outer">
+			<div class="customer-profile">
+				<div class="avatar">
+					<img src="./img/avatar.png" alt="">
+				</div>
+				<div class="displayname">
+					<a  href="">Mark Adesina</a>
+					
+				</div>
+				<div class="editprofile">
+					<a href="">Edit Profile</a>
+				</div>
+			</div>
+			<div class="eCommerce-menu-item">
+				<a menu-and-drawer-close href="#/app/store" class="item item-icon-left">
+					<i class="icon ion-android-cart"></i>
+					SHOP
+				</a>
+				<a menu-and-drawer-close href="#/app/orders" class="item item-icon-left">
+					<i class="icon ion-android-clipboard"></i>
+					ORDERS
+				</a>
+				<a menu-and-drawer-close href="" class="item item-icon-left">
+					<i class="icon ion-ios-star"></i>
+					WHISHLIST
+				</a>
+				<a menu-and-drawer-close href="#/app/category" class="item item-icon-left">
+					<i class="icon ion-ios-copy"></i>
+					CATEGORIES
+				</a>
+
+				<a menu-and-drawer-close href="" class="item item-icon-left">
+					<i class="icon ion-gear-b"></i>
+					SETTINGS
+				</a>
+			</div>
+
+		</div>
+
+
+
+	</ion-content>
+</drawer>
+
+<!-- <ion-side-menu side="right">
+	<ion-content>
+		<ion-list>
+			<ion-item href="#">Test</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-side-menu> -->
+</ion-side-menus>

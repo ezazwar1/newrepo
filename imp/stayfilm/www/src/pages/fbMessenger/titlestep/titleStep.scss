@@ -1,0 +1,158 @@
+@import 'variables';
+
+.moviemaker-titlestep {
+	.bar-header {
+		background: #eeebea;
+		color: #98a6b1;
+		height: 50px !important;
+		border-bottom: 2px solid #e1e4e8;
+
+		.title {
+			font-family: HelveticaNeueLT, sans-serif;
+		}
+
+		button.button {
+			color: #63c199;
+			width: auto;
+			height: 44px;
+			padding: 0 20px;
+			font-family: HelveticaNeueMD, sans-serif;
+		}
+	}
+
+	.movie-title {
+		margin:20px;
+	}
+
+	.missing-permission {
+		padding:10px;
+		background: red;
+		button {
+			color: white;
+		}
+	}
+
+	.choose-style {
+		padding: 20px 0;
+		font-family: HelveticaNeueLT, sans-serif;
+		font-size: 20px;
+		text-align: center;
+		color: #508093;
+		white-space: nowrap;
+
+		.sep {
+			display: inline-block;
+			border: 1px solid #508093;
+			width: 4%;
+			margin: 5px 4%;
+		}
+	}
+
+	.genre-list {
+		margin-top: 10px;
+
+		.genre-item {
+			position: relative;
+			padding: 0;
+			overflow: hidden;
+			margin: 0;
+			padding-bottom: 21.6%;
+
+			@include transition(all .1s ease);
+
+			&.selected {
+				img {
+					opacity: 0.5;
+				}
+
+				.selection {
+					display: block;
+					border-width: 10px;
+				}
+			}
+
+			.selection {
+				position: absolute;
+				border: 0px solid #58bb72; // start value for transition
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 10;
+				display: none;
+			}
+
+			img {
+				position: absolute;
+				display: block;
+				width: 100%;
+				z-index: 1;
+			}
+
+			.genre-name {
+				position: absolute;
+				font-size: 6vmin;
+				color: #666;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				z-index: 0;
+			}
+
+			.icon {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				height: 20px;
+				right: 15px;
+				color: #fff;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.big-button-footer {
+		margin: 0 20px;
+  		padding: 20px 0;
+
+		.kana-button {
+			position: relative;
+			background: #fff;
+			border: 2px solid #60a9c1;
+			margin: 15px 0;
+			color: #60a9c1;
+			border-radius: 7px;
+			font-family: HelveticaNeueROMAN, sans-serif;
+			font-size: 18px;
+
+			img {
+				left: auto;
+				right: 0;
+			}
+		}
+
+		.selected {
+			background-color: #58bb72;
+			color: #fff;
+		}
+
+		.go-to-messenger {
+			position: relative;
+			background: #238dfc;
+			margin-top: 20px;
+			border-radius: 7px;
+			color: #fff;
+			font-family: HelveticaNeueROMAN, sans-serif;
+			font-size: 20px;
+			padding: 5px;
+
+			.ion-chevron-left {
+				color: #fff;
+				position: absolute;
+				left: 12px;
+				top: 2px;
+			}
+		}
+	}
+}

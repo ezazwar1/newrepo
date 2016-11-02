@@ -1,0 +1,23 @@
+
+<ion-view title="{{ 'GROUPS.TITLE' | translate }}">
+	<div class="bar bar-header item-input-inset search-bar-top">
+		<label class="item-input-wrapper">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" ng-model="search.name" class="dark-plc" placeholder="{{ searchPlaceholder }}" ng-change="(search.name.length > 2 || search.name == '') && updateInterface()">
+		</label>
+		<button ng-click="search.name = ''" ng-show="search.name.length > 0" class="button button-clear">
+			<i class="ion-android-close"></i>
+		</button>
+	</div>
+    <ion-tabs class="tabs-positive tabs-top tabs-striped tabs-background-dark bg-white tabs-headerSearch">
+
+			<ion-tab title="{{ 'UNIT.ALL' | translate }}" ui-sref="app.entities.all">
+					<ion-nav-view name="entities-all"></ion-nav-view>
+			</ion-tab>
+
+        <ion-tab title="{{ 'UNIT.MINE' | translate }}" ui-sref="app.entities.mine">
+            <ion-nav-view name="entities-mine"></ion-nav-view>
+        </ion-tab>
+
+    </ion-tabs>
+</ion-view>

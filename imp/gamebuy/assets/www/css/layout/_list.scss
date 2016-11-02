@@ -1,0 +1,357 @@
+
+
+
+// rewrite the ionic list setting
+.item-content {
+    white-space: normal;
+
+    .item-complex & {
+        // color: $baseFontColor;
+        background-color: $baseBgColor;
+        padding: 0;
+        position: relative;
+        display: block;
+        
+        &.activated,
+        &:active, &:focus {
+            background-color: $listBgColor;
+        }
+    }
+
+    .item-complex.activated & {
+        background-color: $listBgColor;
+        @include animation;
+    }
+}
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #GAME LIST
+    * List with left-and-right layout. The game cover thumbnail is at left, and related info is at right.
+\*------------------------------------*/
+
+.game-list {
+    @extend %list-activated-background;
+    padding: $vSpaceSmall 10px;
+    margin-top: 1px;
+    border-top: 1px solid $dividerColor; // Bring border-top back because the collection-repeat ionic directive. So the divider could show.
+    border-bottom: 1px solid $dividerColor;
+    border-left: none;
+    border-right: none;
+    min-height: 100px;
+
+    &:first-child {
+        border-top: 0; // Hide the border top for the first child in the list.
+    }
+
+    // For mygames list. Sync the animation time
+    .item-content {
+        @include animation($property: background-color);
+    }
+
+    &.deals-list_btm {
+        border-bottom: none;
+    }
+}
+
+// For a different HTML mockup. The ion-item creates an <a> tag inside of it with a class name .item-content
+.game-list-with-a {
+    .item-content {
+        @extend %list-activated-background;
+        padding: $vSpaceSmall 10px;
+        margin-top: 1px;
+        border-top: none;
+        border-bottom: 1px solid $dividerColor;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+
+
+// Image of the left side
+.game-list-thumbnail {
+    width: $innerBoxWidth;
+    float: left;
+    margin-right: $innerBoxGutter;
+    position: relative;
+    min-height: 60px;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    // In search result it doesn't need a min-height, as the list doesn't have location and other additional info in the box. No more vertical space is needed. The list height could be flexible.
+    .search-result & {
+        min-height: inherit;
+    }
+}
+
+// The list info on the right side
+.game-list_game-info {
+    width: 100% - $innerBoxWidth - $innerBoxGutter;
+    float: left;
+}
+
+.game-list_game-title {
+    .item & {
+        @extend %title;
+    }
+
+    .deals-list & {
+        padding-right: 35px;
+    }
+}
+
+.game-list_game-platform {
+    .item & {
+        @extend %subtitle;
+        text-transform: uppercase;
+    }
+}
+
+.game-list_trade-type {
+    .item & {
+        @extend %subtitle;
+        position: absolute;
+        right: 0;
+    }
+
+    .deals-list-highlight & {
+        right: 8px;
+    }
+}
+
+.game-list_game-deal {
+    .item & {
+        @include fontRegular;
+        position: absolute;
+        bottom: 6px; // align with the location data at the right side
+    }
+}
+
+.game-list_game-price {
+    @extend %icon-attached;
+    @extend %highlight-note;
+}
+
+.game-list_game-distance {
+    .item & {
+        @extend %icon-attached;
+        @extend %highlight-note;
+        text-align: right;
+        position: absolute;
+        right: $colGutter;
+        bottom: 0;
+        
+        // Hack ionic setting for p:last-child, margin-bottom: 0
+        &:last-child {
+            margin-bottom: 6px;
+        }
+    }
+}
+
+
+
+
+.game-list_deal-tag {
+    // position: relative;
+    // display: block;
+    // text-align: left;
+    // // color: $baseFontColor;
+    // // vertical-align: middle;
+    // margin: 6px 0 2px 0;
+    // // padding-left: 20px;
+    // // line-height: $lineheightBase;
+
+    @extend %icon-attached;
+    @include fontRegular;
+    font-size: $fontSizeSmall;
+    color: $baseLinkColor;
+}
+
+.game-list_tag-sell {
+    @extend %icon-attached;
+    @include fontRegular;
+    font-size: $fontSizeSmall;
+    color: $baseLinkColor;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #GAMER LIST
+    * List with left-and-right layout. The gamer display image  is at left, and related info is at right.
+\*------------------------------------*/
+
+.gamer-list {
+    @extend %list-with-gamer-pic;
+    @extend %list-activated-background;
+    border: none;
+    border-bottom: 1px solid $dividerColor;
+    margin: 0; // show border bottom. Rewrite the margin -1px in .item
+}
+
+// For a different HTML mockup. The ion-item creates an <a> tag inside of it with a class name .item-content
+.gamer-list-with-a {
+
+    // In chats tab, the padding should be part of the click area.
+    .chats_wrapper & {
+        border: none;
+        border-bottom: 1px solid $dividerColor;
+        margin: 0; // show border bottom. Rewrite the margin -1px in .item
+    }
+
+    .item-content {
+        @extend %list-with-gamer-pic;
+        @extend %list-activated-background;
+        padding: 4px 10px; // add padding here instead of .gamer-list-with a so it will keep the full-width highlight background
+    }
+
+    &.activated {
+        border-color: $listBgColor;
+    }
+}
+
+.gamer-list_thumbnail {
+    @extend %list-thumbnail;
+    position: relative;
+    height: 52px; // Magic number for 52px clip-path setting in gamer-list_thumbnail-clip. It fixes the circle clip-path for a rectangular.
+
+    .chats_wrapper & {
+        position: relative; // The unread chats bubble's position will show properly
+    }
+
+    .gamer-list-notification & {
+        @include flexParentLayout;
+        @include justifyContent(center);
+        @include alignItems(center);
+    }
+}
+
+.gamer-list_thumbnail-clip {
+    // center the image inside of the container whatever the shape of the image
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @include circleClip ($width: 52px);
+}
+
+.gamer-list_gamer-info {
+    width: 100% - $innerBoxWidth - $innerBoxGutter;
+    float: left;
+}
+
+.gamer-list_gamer-name {
+    @extend %list-gamer-name;
+}
+
+.gamer-list_distance {
+	@extend %list-distance;
+    @extend %icon-attached;
+
+	.item & {
+        @extend %highlight-note;
+        @extend %icon-attached;
+        position: absolute;
+        right: $colGutter;
+        bottom: $vSpaceSmall;
+    }
+}
+
+.gamer-list_data-count {
+    .item & {
+        @extend %highlight-note;
+        position: absolute;
+        bottom: 6px;
+    }
+}
+
+.gamer-list_format {
+    .item & {
+        @extend %title;
+        position: absolute;
+        top: 8px;
+        right: 10px;
+    }
+}
+
+
+
+
+.gamer-list_thumbnail-icon {
+    font-size: 2.125rem;
+    color: $baseLinkColor;
+    position: relative;
+}
+
+.gamer-list-notification {
+    border-bottom: 1px solid $dividerColor;
+    border-top: none;
+    margin-bottom: 0; // show bottom border. The original setting is -1px
+    padding: 4px 10px;
+    @include flexParentLayout;
+    @include alignItems(center);
+
+    &.activated {
+        background-color: $listBgColor;
+        border-color: $listBgColor;
+    }
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    #SETTING LIST
+    * List buttons only. It's a button list.
+\*------------------------------------*/
+
+.setting-group {
+    margin-bottom: 25px;
+    padding: 0 10px;
+    border-top: 1px solid $dividerColor;
+    border-bottom: 1px solid $dividerColor;
+
+    &:first-child {
+        border-top: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

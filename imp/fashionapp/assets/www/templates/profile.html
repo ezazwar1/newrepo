@@ -1,0 +1,125 @@
+<ion-view class="black">
+    <div class="feed">
+        <div id="backBrand" class="async full" ng-style="{ 'background-image': 'url(' + user.image__large + ')' }"></div>
+        <div id="titleBrand" class="head" ng-click="toggleButton()">
+            <h1>
+                <small><hr class="line"> {{ user.city }} - {{ user.country.name }}</small> <br>
+                <b>{{user.title}}</b>
+            </h1>
+        </div>
+        <ion-content has-bouncing="true" id="contentBrand" delegate-handle=" 'scrollBrand' " class="news" on-scroll="off('Brand')">
+            <div class="content-scroll">
+                <h1>
+                    <span>
+                        <em class="avatarBrand profile special" ng-style="{ 'background-image': 'url(' + user.img_avatar__medium + ')' }"></em>
+                        <small><hr class="line"> {{ user.city }} - {{ user.country.name }}</small> <br>
+                        <b>{{user.title}}</b>
+                    </span>
+                </h1>
+                <div class="product-infos element">
+                    <div class="socials-profile">
+                        <strong>{{ user.likes_count }}</strong> Follower(s)
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                        <strong>{{ user.followings.count }}</strong> Following(s)
+                    </div>
+                    <hr class="outline"></hr>
+                    <div class="presentation" ng-if="user.about.length > 0">
+                        <ul class="bts-tabs">
+                            <li><span></span></li>
+                            <li class="active"><span>Description</span></li>
+                            <li><span></span></li>
+                        </ul>
+                        <div class="excerpt row" >
+                            <div class="col">
+                                {{ user.about.slice(0,150) + ' ...' }}
+                                <br>
+                                <span ng-click="up('excerptElement')" class="more">Read More &gt;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="profile-items">
+                        <ul class="bts-tabs">
+                            <li id="tab2" class="active" ng-click="selectTab('2')"><span>Seen</span></li>
+                            <li id="tab1" ng-click="selectTab('1')"><span>Boards</span></li>
+                            <li id="tab3" ng-click="selectTab('3')"><span>Designers</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tab-content hide" id="zone1">
+                            <div class="full-list">
+                                <div class="full-list-item board" ng-repeat="board in user.boards"
+                                    ng-click="goId(board.id)">
+                                    <div class="back" ng-style=
+                                        "{ 'background-image': 'url(' + board.image__thumbnail + ')' }"></div>
+                                    <p>{{ board.title }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="zone2">
+                            <div class="full-list">
+                                <div class="full-list-item {{like.element_type}}" ng-repeat="like in user.likes track by $index"
+                                    ng-click="goId(like.element_type,like.id)">
+                                    <div class="back" ng-style=
+                                        "{ 'background-image': 'url(' + like.image__medium + ')' }">
+                                        <img class="avatar" src="{{ like.img_avatar__thumbnail }}" ng-if="like.element_type == 'profile'">
+                                    </div>
+                                    <p ng-if="like.element_type == 'product'">{{ like.name }}</p>
+
+                                    <p ng-if="like.element_type == 'profile'">
+                                        {{ like.first_name }} {{ like.last_name }} <br>
+                                        <small>
+                                            {{ like.profession.name }} <br>
+                                            {{ like.city }} - {{ like.country.name }}
+                                        </small>
+                                    </p>
+                                    <p ng-if="like.element_type == 'news'">{{ like.title }} <br> <small>{{ like.category.title }}</small></p>
+                                    <p ng-if="like.element_type == 'collection'">
+                                        {{ like.title }} <br>
+                                        <small>{{ like.category.name }}</small>
+                                    </p>
+                                    <p ng-if="like.element_type == 'brand'">
+                                        {{ like.company_name }} <br>
+                                        <small>
+                                            {{ like.title_category }} <br>
+                                            {{ like.city }} - {{ like.country.name }}
+                                        </small>
+                                    </p>
+                                </div>
+                                <div class="full-list-item more" ng-if="user.likes.length == (offset + max)" ng-click="moreItem()">
+                                    <strong>+</strong>
+                                </div>
+                                <div class="full-list-item more" ng-show="isLoading">
+                                    <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content hide" id="zone3">
+                            <div class="full-list">
+                                <div class="full-list-item brand" ng-repeat="brand in user.brands track by $index"
+                                    ng-click="goId(brand.element_type,brand.id)">
+                                    <div class="back" ng-style=
+                                        "{ 'background-image': 'url(' + brand.image__medium + ')' }">
+                                    </div>
+                                    <p ng-if="brand.element_type == 'brand'">
+                                        {{ brand.company_name }} <br>
+                                        <small>
+                                            {{ brand.title_category }} <br>
+                                            {{ brand.city }} - {{ brand.country.name }}
+                                        </small>
+                                    </p>
+                                </div>
+                                <div class="full-list-item more" ng-if="user.brands.length == (offset + max)" ng-click="moreItem()">
+                                    <strong>+</strong>
+                                </div>
+                                <div class="full-list-item more" ng-show="isLoading">
+                                    <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

@@ -1,0 +1,132 @@
+<ion-view hide-back-button="true" class="web-shopping-cart" view-title="Cart">
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content"  has-bouncing="true" >
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+
+        <div class="text-center price-changed-announcement" ng-if="anyItemsWithSalePriceChanged()">
+             Some sales have expired and prices for items in your cart have changed.
+        </div>
+
+        <div class="text-center padding" style="margin-top:20px;" ng-if="showNoCartItemsMessage()">
+            <h2 class="faded">
+                Shopping Cart Empty
+            </h2>
+        </div>
+
+        <div class="row responsive-md main-cart-area">
+            <div class="col col-67">
+                <div class="cart-items-area">
+                    <div class="">
+                        <div ng-if="cartItems.length > 0" class="item item-divider text-center light shopping-cart-divider"
+                             style="margin-bottom: 10px; border-radius: 5px; border:none; background-color: {{store.background_color}}"
+                             tabindex="0">
+                            {{store.name}}: {{cartItems.length}} items in cart
+                        </div>
+                        <div class="item item-thumbnail-left item-button-right cart-list-item"
+                             ng-repeat="cartItem in cartItems | orderBy:'product.name':false">
+                            <img class="img-products-list" ng-click="clickCartItem(cartItem)" ng-src="{{cartItem.product.images[0].url}}"
+                                    aria-label="{{cartItem.product.brand_name}} {{cartItem.product.name}} {{cartItem.product.size}} "/>
+                            <div class="price text-center">
+                                <p class="price">
+                                    <span ng-if="!cartItem.product.on_sale"
+                                        ng-class="cartItem.product.on_sale ? 'strike-through faded':''" tabindex="0">{{getPrice(cartItem.product)}} </span>
+                                    <span class="positive" ng-if="cartItem.product.on_sale" tabindex="0">{{getSalePrice(cartItem.product)}} </span>
+                                    <small class="" ng-if="cartItem.product.isCustom" tabindex="0">(Special Request)</small>
+                                </p>
+                            </div>
+                            <div class="amt-buttons">
+                                <button class="button button-positive amt sub"
+                                        stop-event="click"
+                                        ng-click="removeProduct(cartItem.product)"
+                                        aria-label="remove one">
+                                    <i class="icon ion-ios-minus-empty" aria-hidden="true"></i>
+                                </button>
+                                <span stop-event="click"
+                                        class="button button-price"
+                                        aria-label="{{inCartCount(cartItem)}}{{inShoppingCartText(cartItem.product, cartItem.qty)}}"
+                                        tabindex="0">
+                                    {{inCartCount(cartItem)}}{{inShoppingCartText(cartItem.product, cartItem.qty)}}
+                                </span>
+                                <button class="button button-positive amt add"
+                                        stop-event="click"
+                                        ng-click="addProduct(cartItem.product)"
+                                        aria-label="add one">
+                                    <i class="icon ion-ios-plus-empty" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <div class="col col-50 cart-item-name">
+                                    <p class="wrap product-name" ng-click="clickCartItem(cartItem)" aria-hidden="true">
+                                        {{cartItem.product.brand_name}} {{cartItem.product.name}}
+                                    </p>
+                                    <div class="grid-product-info">
+                                        <p ng-if="product.product_type == 'normal'">
+                                            {{cartItem.product.size}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cart-item-note-area">
+                                <div ng-if="cartItem.showEditNote" class="edit-note-area">
+                                    <textarea class="text-are-note-item" stop-event="click" name="name" rows="2" cols="17" ng-model="cartItem.editNoteText"></textarea>
+                                    <button ng-click="saveEditNoteArea(cartItem)" class="button button-small button-positive">
+                                        Save Note
+                                    </button>
+                                    <button ng-click="cancelEditNoteArea(cartItem)" class="button button-small button-stable">
+                                        Cancel
+                                    </button>
+                                </div>
+                                <div ng-if="!cartItem.showEditNote" class="display-note-area" ng-class="cartItem.note ? 'note':''">
+                                    <div class="note" ng-show="cartItem.note" >
+                                        <span ng-click="editAddNote(cartItem)" class="note-text">{{cartItem.note}}</span>
+                                    </div>
+                                    <button class="button button-small button-clear button-positive" ng-click="editAddNote(cartItem)">
+                                        {{cartItem.note ? 'Edit' : 'Add'}} Note
+                                    </button>
+                                </div>
+                            </div>
+                            <div ng-if="saleHasExpiredSinceUpdate(cartItem)" class="sale-expired-notice" tabindex="0">
+                                Sale Has Expired
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="cartItems.length > 0" class="col text-right"><a class="empty-cart" ng-click="clearCart(true)" tabindex="0">Empty Cart</a></div>
+            </div>
+
+            <div class="col">
+                <div class="sub-total-area">
+                    <div class="padding text-center item-wrap">
+                        <p ng-if="store.delivery_fee_message && cartItems.length > 0" class="text-positive" tabindex="0">
+                            {{store.delivery_fee_message}}
+                        </p>
+                        <p ng-if="!store.delivery_fee_message && cartItems.length > 0 && total < 35" class="text-positive" tabindex="0">
+                            Spend $35 for free delivery.
+                        </p>
+                        <div class="row" tabindex="0" aria-label="Subtotal is {{total | currency}}">
+                            <div class="col text-left">
+                                Subtotal
+                            </div>
+                            <div class="col text-right">
+                                {{total | currency}}
+                            </div>
+                        </div>
+                        <div class="checkout-button">
+                            <p>Ready to place your order?</p>
+                            <button class="button button-block button-positive" ng-disabled="cartItems.length < 1" ng-click="completeOrder()">
+                                Checkout
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

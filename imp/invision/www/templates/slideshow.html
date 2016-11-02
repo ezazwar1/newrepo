@@ -1,0 +1,21 @@
+<ion-view view-title=" ">
+	<ion-nav-buttons side="right">
+		<button class="button" data-ng-click="slideshowCtrl.skipIntro()">
+			Skip Intro
+		</button>
+	</ion-nav-buttons>
+
+	<ion-content scroll="false">
+		<ion-slide-box on-slide-changed="slideHasChanged($index)" class="slideshow">
+			<ion-slide>
+				<div class="box"><h1>1 of 3</h1><i class="icon ion-iphone demo-icon"></i></div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box"><h1>2 of 3</h1><i class="icon ion-iphone demo-icon"></i></div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box"><h1>3 of 3</h1><i class="icon ion-iphone demo-icon"></i></div>
+			</ion-slide>
+		</ion-slide-box>
+	</ion-content>
+</ion-view>

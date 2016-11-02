@@ -1,0 +1,88 @@
+<div class="modal rating-modal fullscreen-modal" ng-controller="LastOrderRatingModalController as viewModel" >
+    <ion-header-bar class="bar-light">
+        <div class="buttons" ng-if="viewModel.rateMode">
+            <button class="button button-clear" aria-label="back to show tip" ng-click="viewModel.tipMode = true; viewModel.rateMode=false;"><i class="icon ion-ios-arrow-back"></i></button>
+        </div>
+        <h1 class="title">
+        </h1>
+        <div class="buttons">
+            <button class="button button-clear" aria-label="view receipt" ng-click="viewModel.viewOrderClick()">
+                Receipt
+                <!-- <i class="icon ion-ios-paper-outline"></i> -->
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content has-bouncing="true" >
+
+        <div class="large-padding">
+            <div class="padding text-center" style="padding: 40px 39px; padding-bottom: 0px;">
+                <div class="shopper-img" style="border: 1px solid lightgrey;background-image: url({{rateOrder.driver.image_url ? rateOrder.driver.image_url:'img/itemNoImage.gif'}})"></div>
+                <h4 class="dark" ng-bind-html="viewModel.getRatingTextTitle()">
+                </h4>
+            </div>
+
+            <div class="padding" style="padding-top: 0;" ng-if="viewModel.rateMode">
+                <div class="text-center">
+                    <rating ng-model="viewModel.rating.rating" max="5"></rating>
+                </div>
+                <p class="faded text-center padding" ng-show="!viewModel.rating.rating">
+                    Rate your shopper anonymously.
+                </p>
+            </div>
+
+            <div class="text-center" ng-if="viewModel.showTipping()">
+                <h5 class="faded">
+                    Tipping Available Until {{viewModel.tipUntilTimeString()}}
+                </h5>
+                <div class="text-center">
+                    <div class="button-bar">
+                        <a class="button button-positive tip-button "
+                            role="button" aria-label="tip {{tipOption.text}}"
+                           style="border-color:lightgrey;max-width:{{tipOption.amount > 0 ? '52px':'60px'}};min-width:49px;"
+                           ng-repeat="tipOption in viewModel.tipOptions"
+                           ng-click="viewModel.selectTipOption(tipOption)"
+                           ng-class="tipOption == viewModel.tipOption ? '':'button-outline dark'">
+                            {{tipOption.text}}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center" ng-if="viewModel.otherAmount">
+                    <div class="list ">
+                        <label class="item item-input">
+                            <span class="input-label">Other Tip Amount</span>
+                            <input class="other-amount-input"
+                                   ui-money-mask
+                                   type="tel"
+                                   ng-model="viewModel.otherTipAmount"
+                                   placeholder="$ 0.00">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="bad-rating-reasons padding" ng-if="viewModel.rateMode && viewModel.rating.rating && viewModel.rating.rating <= 5">
+                <div class="ask-text padding text-center faded">
+                    Anything else to share?
+                </div>
+                <div class="row">
+                    <a class="col col-50 text-center item-reason"
+                         ng-click="viewModel.clickReason(reason)"
+                         role="button" aria-label="{{reason.name}}"
+                         ng-class="reason.value ? 'item-reason-true' : 'item-reason-false'"
+                         ng-repeat="reason in viewModel.getBadRatingReasons()">
+                        {{reason.name}}
+                    </a>
+                </div>
+                <div class="padding text-center">
+                    <h5 class="faded">Feedback is anonymously shared with shoppers.</h5>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="wrap footer-button-bar bar-stable">
+        <button ng-click="viewModel.saveChanges()"
+                class="button button-positive button-full">
+            {{viewModel.tipMode ? 'Next' : 'Submit'}}
+        </button>
+    </ion-footer-bar>
+</div>

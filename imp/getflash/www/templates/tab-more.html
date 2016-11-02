@@ -1,0 +1,126 @@
+<ion-view view-title="{{ title }}">
+
+  <ion-content class="more-wrapper" ng-show="noLoggedInView">
+    <div class="title">
+      <span>Account</span>
+    </div>
+    <ion-item ng-click="goToProfile()">
+      <div class="img-wrapper">
+        <img ng-src="{{ profilePic }}">
+      </div>
+      <div class="item-label profile">
+        Profile
+      </div>
+      <div class="item-right profile">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item>    
+    <ion-item ng-click="goToRewards()">
+      <div class="item-icon">
+        <span class="ion-cube"></span>
+      </div>
+      <div class="item-label">
+        Rewards
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item>
+    <ion-item ng-click="goToNotification()">
+      <div class="item-icon">
+        <span class="ion-ios-bell"></span>
+      </div>
+      <div class="item-label">
+        Notifications
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item>
+    <div class="title">
+      <span>Settings</span>
+    </div>
+    <ion-item ng-click="goToSettings()">
+      <div class="item-icon">
+        <span class="ion-gear-b"></span>
+      </div>
+      <div class="item-label">
+        Push Notifications
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item> 
+    <ion-item ng-click="goToChangePassword()">
+      <div class="item-icon">
+        <span class="ion-edit"></span>
+      </div>
+      <div class="item-label">
+        Change password
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item> 
+    <div class="title">
+      <span>Rules</span>
+    </div>
+    <ion-item ng-click="goToChallengeRules()">
+      <div class="item-icon">
+        <span class="ion-clipboard"></span>
+      </div>
+      <div class="item-label">
+        Contest Rules
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item> 
+    <div class="title">
+      <span>Logout</span>
+    </div>
+    <ion-item ng-click="doLogout()">
+      <div class="item-icon">
+        <span class="ion-log-out"></span>
+      </div>
+      <div class="item-label">
+        Logout
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item> 
+  </ion-content>
+
+  <ion-content class="more-wrapper" ng-show="!noLoggedInView">
+    <div class="title">
+      <span>Login</span>
+    </div>
+    <ion-item ng-click="goToLogin()">
+      <div class="item-icon">
+        <span class="ion-log-in"></span>
+      </div>
+      <div class="item-label">
+        Login
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item> 
+    <div class="title">
+      <span>Rules</span>
+    </div>
+    <ion-item ng-click="goToChallengeRules()">
+      <div class="item-icon">
+        <span class="ion-clipboard"></span>
+      </div>
+      <div class="item-label">
+        Challenge rules
+      </div>
+      <div class="item-right">
+        <span class="ion-chevron-right"></span>
+      </div>
+    </ion-item>
+  </ion-content>
+
+</ion-view>

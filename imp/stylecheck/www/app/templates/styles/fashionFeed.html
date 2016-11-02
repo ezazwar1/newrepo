@@ -1,0 +1,31 @@
+<ion-view>
+    <ion-content delegate-handle="feedScroller">
+        <ion-refresher
+                pulling-text="{{dict.pullToRefresh}}"
+                on-refresh="getFeeds(true)"
+                spinner="crescent">
+        </ion-refresher>
+        <p class="margin-top padding text-center" ng-if="loaded && feeds.entries.length === 0 && favs">{{dict.noStylesOfFavsInFeed}}</p>
+        <p class="margin-top padding text-center" ng-if="loaded && feeds.entries.length === 0 && !favs">{{dict.noStylesInFeed}}</p>
+        <ion-list class="list style-list">
+            <ion-item class="item style" ng-click="showDetail(feed._id)" collection-repeat="feed in feeds.entries track by feed._id" item-height="sizes.styleContainer.height" item-width="sizes.styleContainer.width" ng-class="{'border': ($index % 2) === 0}">
+                <div ng-if="feed.imagePath" class="image imageonload hide-image" imageonload image-src="{{feed.imagePath}}" style="background-image: url({{feed.imagePath}});"></div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+            on-infinite="getFeeds()"
+            ng-if="entered && (!feeds.pager.page || feeds.pager.page < feeds.pager.pages)"
+            spinner="crescent">
+        </ion-infinite-scroll>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="row fashion-feed-buttons">
+            <div class="col display-flex align-center" ng-click="favs = false; getFeeds(true)">
+                <div class="label text-center uppercase" ng-class="{active: !favs}">{{dict.fashionFeed}}</div>
+            </div>
+            <div class="col display-flex align-center" ng-click="favs = true; getFeeds(true)">
+                <div class="label text-center uppercase" ng-class="{active: favs}">{{dict.myFriends}}</div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,23 @@
+/* line 4, sandbox.scss */
+.sandbox .line.ng-enter {
+  -webkit-animation: fadeIn 60s;
+  -moz-animation: fadeIn 60s;
+  animation: fadeIn 60s;
+}
+/* line 8, sandbox.scss */
+.sandbox .line.ng-move {
+  -webkit-animation: swing 3s;
+  -moz-animation: swing 3s;
+  animation: swing 3s;
+}
+/* line 12, sandbox.scss */
+.sandbox .line.ng-leave {
+  -webkit-animation: swing 30s 0 infinite;
+  -moz-animation: swing 30s 0 infinite;
+  animation: swing 30s 0 infinite;
+}
+/* line 16, sandbox.scss */
+.sandbox .my-item {
+  left: 0;
+  right: 0;
+}

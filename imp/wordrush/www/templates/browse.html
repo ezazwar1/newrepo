@@ -1,0 +1,126 @@
+<ion-view view-title="Browse">
+    <ion-content class="allview" scroll="false">
+
+        <!--  <div class="example-container" id="example-clock-container" style="position: relative;">
+        
+    </div> -->
+        <div class="innerviewjey gamearea center">
+            <div>
+                <div class="row zeropaddingbottom">
+                    <div class="col col-33">
+                        <span class="score padding-left">{{bestscore}}</span>
+                    </div>
+                    <div class="col col-33 col-offset-33 bestscore">
+                        <span class="score padding-right">{{currentscore}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-33">
+                        <span class="scorelabel padding-left">Best</span>
+                    </div>
+                    <div class="col col-33 col-offset-33 bestscorelabel">
+                        <span class="scorelabel padding-right">Score</span>
+                    </div>
+                </div>
+                <div class="container">
+                    <!-- <h1>Word Rush</h1> -->
+                    <div class="row">
+                        <div class="col">
+                            <button class="button  resultletters" ng-style='{"background-color":(selectedletters[0].selected?"#ffc900":"#444")}' ng-click=selectedletterclicked(selectedletters[0])>
+                                {{selectedletters[0].letter}}
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="button resultletters" ng-style='{"background-color":(selectedletters[1].selected?"#ffc900":"#444")}' ng-click=selectedletterclicked(selectedletters[1])>
+                                {{selectedletters[1].letter}}
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="button  resultletters" ng-style='{"background-color":(selectedletters[2].selected?"#ffc900":"#444")}' ng-click=selectedletterclicked(selectedletters[2])>
+                                {{selectedletters[2].letter}}
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="button  resultletters" ng-style='{"background-color":(selectedletters[3].selected?"#ffc900":"#444")}' ng-click=selectedletterclicked(selectedletters[3])>
+                                {{selectedletters[3].letter}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="progress ng-cloak" ng-style="getStyle()">
+                            <div class="row" ng-show="showletters">
+                                <div class="col innerletters">
+                                    <button class="button button-calm innerlettersbutton" ng-style='{"background-color":(letters[0].selected?"#f8f8f8":"#11c1f3"),"color":(letters[0].selected?"#000000":"#ffffff")}' ng-click=letterclicked(letters[0])>
+                                        {{letters[0].letter}}
+                                    </button>
+                                </div>
+                                <div class="col innerletters">
+                                    <button class="button button-calm innerlettersbutton" ng-style='{"background-color":(letters[1].selected?"#f8f8f8":"#11c1f3"),"color":(letters[1].selected?"#000000":"#ffffff")}' ng-click=letterclicked(letters[1])>
+                                        {{letters[1].letter}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row" ng-show="showletters">
+                                <div class="col innerletters">
+                                    <button class="button button-calm innerlettersbutton" ng-style='{"background-color":(letters[2].selected?"#f8f8f8":"#11c1f3"),"color":(letters[2].selected?"#000000":"#ffffff")}' ng-click=letterclicked(letters[2])>
+                                        {{letters[2].letter}}
+                                    </button>
+                                </div>
+                                <div class="col innerletters">
+                                    <button class="button button-calm innerlettersbutton" ng-style='{"background-color":(letters[3].selected?"#f8f8f8":"#11c1f3"),"color":(letters[3].selected?"#000000":"#ffffff")}' ng-click=letterclicked(letters[3])>
+                                        {{letters[3].letter}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div ng-show="showwrong">
+                                <img ng-src="img/wrong.png" alt="Wrong!" height="100px" width="100px">
+                            </div>
+                            <div ng-show="showright">
+                                <img ng-src="img/right.png" alt="Correct!" height="100px" width="120px">
+                            </div>
+                        </div>
+                        <div class="round-progress" ng-class="seconds <= 15 ? 'animated infinite fadeIn' : '' " round-progress max="max" current="seconds" color="{{ getColor() }}" bgcolor="{{ bgColor }}" radius="{{ radius }}" semi="false" rounded="rounded" stroke="{{ stroke }}"
+                        clockwise="clockwise" responsive="responsive" animation="{{ currentAnimation }}" offset="{{ offset }}">
+
+                            <svg>
+                                <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="5%" stop-color="green" />
+                                    <stop offset="95%" stop-color="gold" />
+                                </linearGradient>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <i class="icon ion-volume-high exit-icon" ng-show="musicOn" ng-click=toggleMusic()></i>
+                            <i class="icon ion-volume-mute exit-icon" ng-show="!musicOn" ng-click=toggleMusic()></i>
+                        </div>
+                        <div class="col">
+                            <i class="icon ion-shuffle exit-icon" ng-click=shuffleWordLetters()></i>
+                        </div>
+                        <div class="col">
+                            <i class="icon ion-android-exit exit-icon" ng-click=goHome()></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+    <script id="break.html" type="text/ng-template">
+        <div class="break padding">
+            <span>Give your eyes some rest</span>
+        </div>
+        <div class="break padding-bottom">
+            <span>Come back in</span>
+        </div>
+        <div class="break padding-bottom">
+            <span class="countDown" ng-bind="countDown"></span><span class="padding-left">seconds</span>
+        </div>      
+    </script>
+    <script id="meaning.html" type="text/ng-template">
+        <div class="break padding">
+            <span style="font-style: italic;">{{currentWord.def}}</span>
+        </div>      
+    </script>
+</ion-view>

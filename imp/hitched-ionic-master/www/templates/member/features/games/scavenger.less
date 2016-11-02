@@ -1,0 +1,68 @@
+#ScavengerCtrl {
+    .help-block {
+        color: red;
+        margin-bottom: 5px;
+    }
+    .form-group {
+        margin-bottom: 5px;
+    }
+    .addItem {
+        .input-group {
+            width: 100%;
+            input {
+                width: 100%;
+            }
+        }
+        .addItemBtn {
+            text-align: center;
+            padding-top: 15px;
+        }
+    }
+    .addClue {
+        display: inline-block;
+        button {
+            margin-top: 20px;
+            height: 20px;
+            width: 20px;
+            font-size: 10px;
+            padding: 1px;
+        }
+    }
+    .scavengerHuntSave {
+        text-align: right;
+    }
+    .scavenger-list {
+        li {
+            list-style: none;
+        }
+        .scavenger-sublist {
+            padding-left: 0px;
+            .list-header {
+                font-weight: bold;
+                font-size: 15px;
+                .list-header-info {
+                    font-weight: bold;
+                    font-size: 12px;
+                    color: #555;
+                }
+                .octicon {
+                    margin: 0px 5px;
+                    cursor: pointer;
+                    color: #555;
+                    &.octicon-pencil {
+                        margin-left: -40px;
+                    }
+                    &.octicon-trashcan {
+                        margin-left: -5px;
+                    }
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+            li {
+                list-style: none;
+            }
+        }
+    }
+}

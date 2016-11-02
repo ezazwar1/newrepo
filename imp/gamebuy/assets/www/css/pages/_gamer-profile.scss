@@ -1,0 +1,337 @@
+
+/*------------------------------------*\
+    #ME
+        * Gamer profile
+\*------------------------------------*/
+
+.me-profile-wrapper {
+    .platform-ios & {
+        padding-top: 30px;
+    }
+}
+
+.gamer-profile {
+    padding: 8px 0 8px;
+    @include clearfix;
+}
+
+.gamer-profile_avatar {
+    width: 66px;
+    height: 66px; // Same as the height of image inside of it
+    float: left;
+    position: relative;
+}
+
+
+// Gamer Profile and Me
+.avatar-clip-collection-profile { 
+    @include circleClip ($width: 100px);
+}
+
+
+// Gamer list in Gamer Profile and Me
+.gamer_avatar-list { 
+    margin: auto;
+    display: block;
+
+    // center the image inside of the container whatever the shape of the image
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @include circleClip ($width: 66px);
+}
+
+.gamer-profile_brief {
+    width: calc(100% - 74px - 12px);
+    float: left;
+    margin-left: 12px;
+    padding-right: 14px; // save space for right arrow
+}
+
+.gamer-profile_brief--icon-right {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        right: 0;
+        font-size: 1.5rem;
+        top: 50%;
+        @include translate(0, -50%);
+    }
+}
+
+.gamer-profile_side {
+    float: right;
+    width: 120px;
+}
+
+.gamer-profile_data {
+    @include flexParentLayout;
+    @include justifyContent;
+    width: 80%;
+    margin: $vSpaceTight auto $vSpaceBase;
+
+    .data_num {
+        margin-bottom: 2px;
+    }
+}
+
+.gamer-profile_name {
+    @extend %title;
+    margin: 2px 0 0 0;
+}
+
+.gamer-profile_city {
+    @extend %highlight-note;
+    @extend %icon-attached;
+    margin-bottom: 4px;
+    margin-top: 2px;
+}
+
+.gamer-profile_main {
+    margin-bottom: 8px;
+    @include clearfix;
+}
+
+.gamer-profile_description {
+    @extend %title;
+    margin-top: 4px;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    #ME
+        * Comment/review list
+\*------------------------------------*/
+
+.review_box {
+    @extend %list-activated-background;
+    // Rewrite the "item" border-color
+    border-color: $dividerColor;
+    border-top: 1px solid $dividerColor;
+    padding-bottom: 8px;
+}
+
+.review_user {
+    margin-bottom: 6px;
+    position: relative;
+    @include clearfix;
+}
+
+.review_avatar {
+    float: left;
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.review_avatar-clip {
+    // center the image inside of the container whatever the shape of the image
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @include circleClip ($width: 24px);
+}
+
+.review_name {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    @include translate (8px, -50%);
+
+    .item & {
+        @include typography (
+                $fontSize: $fontSizeBase,
+                $lineHeight: $lineheightBase,
+                $color: $baseLinkColor);
+    }
+}
+
+.review_content {
+    .item & {
+        font-size: $fontSizeBase;
+    }
+}
+
+.review_time {
+    .item & {
+        @extend %subtitle;
+        text-align: right;
+    }
+}
+
+.review_rate {
+    margin-bottom: 4px;
+    @include clearfix;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #ME
+        * Like list
+\*------------------------------------*/
+
+.like-list {
+    @extend %list-activated-background;
+    border: none;
+    height: 86px;  // Magic number for 66px clip-path setting in like list. It fixes the circle clip-path for a rectangular.
+    position: relative;
+
+    .gamer_avatar-list {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #ME
+        * Wallet
+\*------------------------------------*/
+
+.wallet_section {
+    position: relative;
+    padding: $vSpaceSection 0;
+    border-bottom: 1px solid $dividerColor;
+    @include clearfix;
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.wallet_section-title {
+    @extend %title;
+    text-align: center;
+    margin: 0 0 $vSpaceBase 0;
+}
+
+.wallet_coins {
+    @extend %data-show;
+    @include justifyContent($var: center);
+    margin: 20px 0 0;
+}
+
+.wallet_credit {
+    margin-top: 30px;
+}
+
+.wallet_coins-notes {
+    @extend %subtitle;
+    position: relative;
+    margin-top: 4px;
+    margin-bottom: 0;
+    padding-left: 12px;
+}
+
+.wallet_security-notes {
+    @extend %subtitle;
+    @extend %icon-attached;
+    position: relative;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.wallet_stripe {
+    display: block;
+    width: 120px;
+    margin: 0 auto;
+}
+
+// reduce the space between the coins dropdown menu and the buy button
+.form-group-last {
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #ME
+        * Edit profile
+\*------------------------------------*/
+
+.edit-profile_photo {
+    margin: 0 0 25px;  // same as the form-group margin
+    text-align: center;
+}
+
+.edit-profile_photo-preview {
+
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 12px;
+    position: relative;
+
+    img {
+        display: block;
+
+        // center the image inside of the container whatever the shape of the image
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        @include circleClip ($width: 132px);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

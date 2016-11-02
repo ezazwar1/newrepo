@@ -1,0 +1,161 @@
+@import "base";
+
+p.today {
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+div.feed-card {
+	min-height: 100%;
+
+	div.profile-pic {
+		display: inline-block;
+		border-radius: 50%;
+		width: 40px;
+		height: 40px;
+		background-color: #d3d3d3;
+		position: absolute;
+		top: 10px;
+		left: 20px;
+		background: no-repeat;
+    	background-size: contain;
+	}
+
+	p.username {
+		display: inline-block;
+		font-size: 0.95em;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		position: absolute;
+		top: 13px;
+		left: 70px;
+		color: #000;
+		font-weight: bold;
+	}
+
+	p.time {
+		display: inline-block;
+		font-size: 0.7em;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+		position: absolute;
+		top: 28px;
+		left: 70px;
+		color: $off-text-color;
+	}
+
+	p.ago {
+		position: absolute;
+		top: 20px;
+		margin: 0;
+		padding: 0;
+		right: 20px;
+		color: $off-text-color;
+		font-size: 0.8em;
+	}
+
+	div.content {
+		width: 100%;
+		min-height: 150px;
+		overflow: hidden;
+		display: table;
+		table-layout: fixed;
+
+		h3.status {
+			margin: 0;
+			padding: 0 10px;
+			font-size: 1.1em;
+			display: table-cell; 
+			font-weight: normal;
+			vertical-align: middle;
+			text-align: center;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+	}
+
+	div.content-img {
+		width: 100%;
+		min-height: 580px;
+		overflow: hidden;
+		display: table;
+		table-layout: fixed;
+
+		div.img {
+			width: 100%;
+			height: 500px;
+			background-size: cover;
+			background-position: center top;
+		}
+
+		div.caption {
+			width: 100%;
+			min-height: 80px;
+			overflow: hidden;
+			display: table;
+			table-layout: fixed;
+
+			h3.caption {
+				margin: 0;
+				padding: 0 10px;
+				padding-top: 20px;
+				font-size: 1.0em;
+				color: $off-text-color;
+				font-weight: normal;
+				vertical-align: middle;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+		}
+
+	}
+
+	div.no-caption {
+		min-height: 520px;
+	}
+
+	div.share {
+		display: block;
+		position: absolute;
+		width: 40%;
+		height: 30px;
+		background-color: #E67E22;
+		right: 10px;
+		bottom: 10px;
+		color: #fff;
+		font-weight: bold;
+		font-size: 0.9em;
+		text-align: center;
+		line-height: 30px;
+		border-radius: 5px;
+  		box-shadow: inset 0px 1px 0px #F39C12, 0px 3px 0px 0px #CC701E, 0px 5px 3px #999;
+	}
+
+	div.share:active {
+		background-color: #CC701E;
+		color: #000;
+		font-weight: normal;
+	}
+
+}
+
+div.feed-card-header {
+	min-height: 60px;
+}
+
+div.feed-card-footer {
+	border: none;
+	background-color: #fff;
+	min-height:	40px;
+}
+
+div.clear {
+	width: 100%;
+	height: 20px;
+}

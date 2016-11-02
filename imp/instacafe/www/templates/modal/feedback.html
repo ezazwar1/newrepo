@@ -1,0 +1,15 @@
+<ion-modal-view class="feedback-modal">
+    <ion-header-bar class="bar bar-header bar-positive">
+        <button class="button button-clear" ng-click="closeFeedback()">Cancel</button>
+        <h1 class="title">Feedback</h1>
+        <button class="button button-clear" ng-disabled="!formData.message" ng-click="submit(formData)">Send</button>
+    </ion-header-bar>
+    <ion-content scroll="false">
+        <ion-list>
+        <p class="feedback-text">Briefly explain what you want, or what could improve.</p>
+        <label class="item item-input">
+            <textarea id="message" ng-model="formData.message"></textarea>
+        </label>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,73 @@
+<ion-modal-view>
+
+    <ion-content class="allview" scroll="false">
+        <div class="gamearea center innerviewjey">
+            <div>
+                <div class="missedwordcontainer">
+                    <h2>You could have made</h2>
+                    <div class="row">
+                        <div class="col animated bounce">
+                            <button class="button button-balanced  resultletters">
+                                {{currentWord.word[0]}}
+                            </button>
+                        </div>
+                        <div class="col animated swing">
+                            <button class="button  button-balanced resultletters">
+                                {{currentWord.word[1]}}
+                            </button>
+                        </div>
+                        <div class="col animated tada">
+                            <button class="button  button-balanced resultletters">
+                                {{currentWord.word[2]}}
+                            </button>
+                        </div>
+                        <div class="col animated wobble">
+                            <button class="button  button-balanced resultletters">
+                                {{currentWord.word[3]}}
+                            </button>
+                        </div>
+                        <div class="col animated infinite pulse">
+                           <i class="icon ion-ios-book meaning-icon" ng-click=showMeaning()></i>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 10px">You Scored</h3>
+                </div>
+                <div class="gameovercontainer">
+                    
+                    <div class="progress-wrapper padding-vertical">
+                        <div class="progress ng-cloak" ng-style="getGameOverStyle()">
+                            <span class="gameScore">{{currentscore}}</span>
+                        </div>
+                        <div class="round-progress" round-progress max="max" current="max" color="#01DF01" bgcolor="{{ bgColor }}" radius="{{ radius }}" semi="isSemi" rounded="rounded" stroke="{{ stroke }}" clockwise="clockwise" responsive="responsive" animation="{{ currentAnimation }}"
+                        offset="{{ offset }}">
+
+                        </div>
+                    </div>
+                    <div class="animated infinite pulse">
+                        <i class="icon ion-play  playagain-icon" ng-click=playAgain()></i>
+                    </div>
+                    <div class="padding-top row">
+                        <div class="col">
+                            <i class="icon ion-podium  exit-icon" ng-click=showRank()></i>
+                        </div>
+                        <div class="col">
+                            <i class="icon ion-android-exit exit-icon" ng-click=exitGame()></i> 
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="myBannerLocation1"></div>
+       <!-- 
+        <div id="startappContainer"></div>
+         <script type="text/javascript"> 
+        // Required parameters. 
+        var publisherId = '102448712'; 
+        var productId ='203583634'; 
+        var width = 320; 
+        var height = 480;  
+    </script>
+    <script type="text/javascript" src="js/startapp.js"></script> -->
+    </ion-content>
+</ion-modal-view>

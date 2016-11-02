@@ -1,0 +1,37 @@
+<ion-view title="{{ 'THOUGHTS_RECORD_TITLE' | translate }}" class="popoverr">
+
+	<ion-nav-buttons side="right">
+    <a href="javascript:;" ng-click="showRecordHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back"></div>  
+	
+	<ion-content class="rethink step1">
+
+
+		<h1>
+		  {{ 'THOUGHTS_RECORD_HEADER' | translate }}
+		</h1>
+		<p>
+			<span>{{ 'THOUGHTS_RECORD_QUESTIONS' | translate }}</span>
+		</p>
+		<div class="bar bar-footer">
+		<div class="record-button-wrapper">
+			<div ng-if="!recording" class="{{!canRecord() ? 'disabled' : ''}}">
+				<a ng-click="recordAudio()" class="record"></a>
+			</div>
+
+			<div ng-if="recording">
+				<a ng-click="stopRecording()" class="pause"></a>
+			</div>
+
+			<div ng-if="finishedRecording" ng-click="resetRecording()" class="reset-btn">{{ 'RESET' | translate }}</div>
+			<div ng-if="finishedRecording" ng-click="nextStep()" class="next-btn">{{ 'NEXT' | translate }}</div>
+			<div class="hint {{!canRecord() ? 'warn' : ''}}" ng-if="recording || finishedRecording">{{getElapsedTime()}}</div>
+			<div class="hint" ng-if="!recording && !finishedRecording">{{ 'THOUGHTS_RECORD_PROMPT' | translate }}</div>
+		</div>	
+		</div>
+		
+	</ion-content>
+	<div class="top-videos-bar-fake"></div>
+</ion-view>

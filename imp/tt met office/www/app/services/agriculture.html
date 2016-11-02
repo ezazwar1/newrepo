@@ -1,0 +1,80 @@
+<ion-view view-title="Agriculture" ng-controller="ServicesCtrl as ac" id="agri">
+
+    <ion-content scroll="true" class="has-header climate-container text-left" ng-class="{'has-tabs-top': $root.isAndroid}">
+        <ion-slide-box on-slide-changed="slideHasChanged_c($index)" ng-init="disableSwipe()">
+            <ion-slide ng-init="ac.agrotrini()">
+                <div class="container">
+                    <div class="text-left">
+                        <h4 class=""><strong>Trinidad Agromet <br>{{ac.atrin.Month}} {{ac.atrin.Day}} {{ac.atrin.year}}</strong></h4>
+                    </div>
+                </div>
+
+               <!--  <div class="card wide ">
+                    <div class="item item-divider text-left headings">
+                        <p class="">Summary</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span class="em-txt"><p>{{ac.atrin.textarea14}}</p></span>
+                        <span class="em-txt"><p>{{ac.atrin.textarea15}}</p></span>
+                        <span class="em-txt"><p>{{ac.atrin.textarea16}}</p></span>
+                    </div>
+                </div> -->
+                <div class="container">
+                    <div ng-if="!image_agro_trin" style="height: 100%">
+                        <ion-spinner style="display: block; margin: 0 auto;" class="dark" icon="lines"></ion-spinner>
+                    </div>
+                    <div class="trin_i1"></div>
+                </div>
+                <!-- <div class="card wide ">
+                    <div class="item item-divider text-left headings wrap">
+                        <p class=" wrap">Preliminary Rainfall and Temperature Outlook</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span class="em-txt"><p>{{ac.sum.prt}}</p></span>
+                    </div>
+                    <br><br><br>
+                </div> -->
+            </ion-slide >
+
+            <!-- Tobago -->
+            <ion-slide ng-init="ac.agrotbg()">
+                <div class="container">
+                    <div class="text-left">
+                        <h4 class=""><strong>Tobago Agromet <br>{{ac.atbg.Month}} {{ac.atbg.Day}} {{ac.atbg.year}}</strong></h4>
+                    </div>
+                </div>
+
+                <!-- <div class="card wide ">
+                    <div class="item item-divider text-left headings">
+                        <p class="">Summary</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span class="em-txt"><p>{{ac.atrin.textarea14}}</p></span>
+                        <span class="em-txt"><p>{{ac.atrin.textarea15}}</p></span>
+                        <span class="em-txt"><p>{{ac.atrin.textarea16}}</p></span>
+                    </div>
+                </div> -->
+                 <div class="container">
+                    <div ng-if="!image_agro_bago" style="height: 100%">
+                        <ion-spinner style="display: block; margin: 0 auto;" class="dark" icon="lines"></ion-spinner>
+                    </div>
+                    <div class="bago_i1"></div>
+                    <!-- <div class="image" style="background-image: url(' {{image_agro_bago}} '); height: 200px; margin-top: 0px; "></div> -->
+                </div>
+                <!-- <div class="card wide ">
+                    <div class="item item-divider text-left headings wrap">
+                        <p class=" wrap">Preliminary Rainfall and Temperature Outlook</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span class="em-txt"><p>{{ac.atrin.prt}}</p></span>
+                    </div>
+                    <br><br><br>
+                </div> -->
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <ion-tabs class="tabs-color-active-positive" ng-class="{'tabs-themed': $root.isAndroid}">
+        <ion-tab title="Trinidad" on-select="slide(0)"></ion-tab>
+        <ion-tab title="Tobago" on-select="slide(1)"></ion-tab>
+    </ion-tabs>
+</ion-view>

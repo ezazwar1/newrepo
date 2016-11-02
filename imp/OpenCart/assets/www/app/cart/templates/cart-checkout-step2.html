@@ -1,0 +1,29 @@
+<ion-view view-title="{{ 'cart.title_delivery_payment' | i18n }}" cache-view="false">
+    <ion-nav-buttons side="right">
+        <a class="button button-positive" ng-click="openLoginModal()"><i class="icon ion-ios-person-outline"></i></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <form name="forms.checkoutForm" novalidate>
+                <div class="item item-divider" i18n="cart.delivery_method"></div>
+                <ion-radio ng-repeat="method in shippingMethods" name="shipping_method" ng-change="shippingMethodChanged()" ng-model="paymentAndShipping.shipping_method" ng-value="'{{method.code}}'" ng-required="true">{{method.main_title}} - {{method.text}}</ion-radio>
+
+                <div class="item item-divider" i18n="cart.payment_method"></div>
+                <ion-radio ng-repeat="method in paymentMethods" name="payment_method" ng-change="paymentMethodChanged()" ng-model="paymentAndShipping.payment_method" ng-value="'{{method.code}}'" ng-required="true">{{method.title}}</ion-radio>
+                
+                <div class="item item-divider" i18n="cart.comments_section"></div>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.comments"></span>
+                    <textarea data-i18n-attr="{placeholder: 'cart.comments'}" ng-model="paymentAndShipping.comment" name="comment"></textarea>
+                </label>
+            </form>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer-bar align-title="left" ng-class="{'bar-assertive':forms.checkoutForm.$invalid, 'bar-positive':forms.checkoutForm.$valid}">
+        <h2 class="title">{{total_amount}}</h2>
+        <div class="buttons">
+            <a class="button" ng-click="loadInvoice()" i18n="cart.button_next"></a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

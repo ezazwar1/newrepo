@@ -1,0 +1,23 @@
+<ion-modal-view class="touchpoint popoverr new-post">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeCreatePostModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'COMMUNITY_POST_TITLE' | translate}}</h1>
+      <p class="no-indent"><strong>{{group.name}}</strong><br>{{group.description}}</p>
+      <p class="no-indent" style="position: relative;">
+        <textarea placeholder="{{ 'COMMUNITY_POST_PLACEHOLDER' | translate }}" id="communityPostText" ng-model="communityPostData.postText"></textarea>
+
+        <span class="char-count" style="{{ getCommunityPostRemainingCharacters() < 20 ? 'color:red' : ''}}">{{getCommunityPostRemainingCharacters()}}</span>
+      </p>
+      <p ng-if="communityError" class="error">{{communityError}}</p>
+      <p class="light no-indent">{{ 'COMMUNITY_POST_WARNING' | translate}}</p>
+      <div class="clearfix">
+        <button ng-click="createCommunityPost()" class="button-start">
+          {{ 'CREATE_POST' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

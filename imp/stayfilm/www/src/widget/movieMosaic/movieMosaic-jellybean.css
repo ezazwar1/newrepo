@@ -1,0 +1,32 @@
+/* line 6, movieMosaic-jellybean.scss */
+.platform-android4_1 .sf-movie-mosaic .mm-header .user-thumb, .platform-android4_2 .sf-movie-mosaic .mm-header .user-thumb, .platform-android4_3 .sf-movie-mosaic .mm-header .user-thumb {
+  width: 30px;
+}
+/* line 12, movieMosaic-jellybean.scss */
+.platform-android4_1 .sf-movie-mosaic .mm-header div.name, .platform-android4_2 .sf-movie-mosaic .mm-header div.name, .platform-android4_3 .sf-movie-mosaic .mm-header div.name, .platform-ios6 .sf-movie-mosaic .mm-header div.name {
+  width: 100px;
+}
+@media (min-width: 250px) {
+  /* line 12, movieMosaic-jellybean.scss */
+  .platform-android4_1 .sf-movie-mosaic .mm-header div.name, .platform-android4_2 .sf-movie-mosaic .mm-header div.name, .platform-android4_3 .sf-movie-mosaic .mm-header div.name, .platform-ios6 .sf-movie-mosaic .mm-header div.name {
+    width: 165px;
+  }
+}
+@media (min-width: 321px) {
+  /* line 12, movieMosaic-jellybean.scss */
+  .platform-android4_1 .sf-movie-mosaic .mm-header div.name, .platform-android4_2 .sf-movie-mosaic .mm-header div.name, .platform-android4_3 .sf-movie-mosaic .mm-header div.name, .platform-ios6 .sf-movie-mosaic .mm-header div.name {
+    width: 250px;
+  }
+}
+@media (min-width: 500px) {
+  /* line 12, movieMosaic-jellybean.scss */
+  .platform-android4_1 .sf-movie-mosaic .mm-header div.name, .platform-android4_2 .sf-movie-mosaic .mm-header div.name, .platform-android4_3 .sf-movie-mosaic .mm-header div.name, .platform-ios6 .sf-movie-mosaic .mm-header div.name {
+    width: 300px;
+  }
+}
+/* line 31, movieMosaic-jellybean.scss */
+.platform-android4_1 .sf-movie-mosaic .mm-header div.created, .platform-android4_2 .sf-movie-mosaic .mm-header div.created, .platform-android4_3 .sf-movie-mosaic .mm-header div.created {
+  width: 75px;
+  position: absolute;
+  right: 5px;
+}

@@ -1,0 +1,47 @@
+<ion-view view-title="Welcome" hide-nav-bar="true">
+  <ion-content scroll="false" class="view-onboarding">
+    <ion-slide-box on-slide-changed="console.log('slidechange')">
+  <ion-slide>
+    <div class="onboarder-one">
+    	<h1 class=" animated tada"><B>wed</B>ivite</h1>
+    	<P>Connect with your wedding guests<BR>
+			In a way they will never forget</P>
+    </div>
+  </ion-slide>
+  <ion-slide>
+    <div class="onboarder-two">
+    	<img src="img/onboarding-design.png">
+    	<h1>Design</h1>
+    	<p class="onboarding-text">Find the perfect colors and<BR>
+			features for your wedding invitation</p>
+    </div>
+  </ion-slide>
+  <ion-slide>
+    <div class="onboarder-three">
+		<img src="img/onboarding-invite.png">
+    	<h1>Invite</h1>
+    	<p class="onboarding-text">Engage your wedding guests<BR>
+			with an innovative & friendly<BR>
+			wedding invitation</p>
+    </div>
+  </ion-slide>
+  <ion-slide>
+    <div class="onboarder-four">
+		<img src="img/onboarding-manage.png">
+    	<h1>Manage</h1>
+    	<p class="onboarding-text">Manage your guest list, song list<BR>
+			and photo album together<BR>
+			with your guests</p>
+    </div>
+  </ion-slide>
+</ion-slide-box>
+  </ion-content>
+  <ion-footer-bar  class="bar-login">
+  <div class="buttons">
+    <button class="button border-login" ng-click="goToURL('http://app.wedivite.com/register?utm_source=app&utm_campaign=app&utm_medium=registerFromApp','Register')">I'm new</button>
+  </div>
+  <div class="buttons">
+    <button class="button" ng-click="login()">Log in</button>
+  </div>
+</ion-footer-bar>
+</ion-view>

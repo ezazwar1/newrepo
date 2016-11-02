@@ -1,0 +1,17 @@
+<ion-view view-title="AWS" ng-controller="AWSCtrl as a">
+
+        <ion-nav-buttons side="right">
+            <button ng-click="centerOnMe()" class="button button-icon button-light icon ">
+                <i class="settings-icon ion-navigate"></i>
+            </button>
+        </ion-nav-buttons>
+    <!-- </ion-nav-bar> -->
+    <ion-content class="has-header containerr " id="map-holder" scroll="false" data-tap-disabled="true">
+        <!-- <map on-create="mapCreated(map)" id="map"></map> -->
+        <ng-map zoom="9" center="[{{lat}}, {{lng}}]" style="height: 100%" street-view-control="false">
+            <marker ng-repeat="city in cities" position="{{city.pos}}" on-click="$root.ace(city.city)" animation="Animation.DROP">
+                <!-- <div><i class="icon ion-radio-waves" style="color: red; font-size: 34px; "></i></div> -->
+            </marker>
+        </ng-map>
+    </ion-content>
+</ion-view>

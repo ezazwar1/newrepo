@@ -1,0 +1,68 @@
+<ion-side-menus drag-content="false">
+
+  <ion-side-menu-content  drag-content="false">
+  
+	<ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <ion-nav-back-button class="button-clear" style="color: #FFF;">
+        <i class="icon ion-ios-arrow-back"></i>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+	
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content>
+<style>
+.bar-stable.nav-title-slide-ios7.bar.bar-header {
+    background-color: #7d61f4;
+	border: none;
+}
+.bar.bar-stable .title {
+    color: #FFF;
+}
+.item-content {
+    background-color: rgba(255, 255, 255, 0)  !important;
+}
+.item.item-complex {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: white;
+    border: none !important;
+    font-size: 12px;
+}
+</style>
+  
+  
+  
+ <ion-side-menu  drag-content="false">
+   <!-- <ion-header-bar class="bar-stable" style="background-color: #5E87B0; color: #FFFFFF;">
+      <h1 class="title" style="color: #FFFFFF;">Menu</h1>
+    </ion-header-bar>   -->
+    <ion-content style="background-image: url(img/bgmenu.jpg);background-size: 125% 100%;">
+
+       <ion-list>
+		<center><div class="profile">
+			<img src="img/profile.png"></img>
+		</div></center>
+
+		<ion-item nav-clear menu-close href="#/app/home" style="padding: 0px 10px;z-index:999;">
+          <img src="img/destination.png" style="margin-right: 10px;height: 18px; margin-bottom: -4px;">Popular Destination 
+        </ion-item>
+		
+		 <ion-item nav-clear menu-close href="#/app/productlist" style="padding: 0px 10px; z-index:999;">
+          <img src="img/booking.png" style="margin-right: 10px;height:18px; margin-bottom: -4px;">Booking History 
+        </ion-item>
+		
+		<ion-item nav-clear menu-close href="#/app/subcatagory" style="padding: 0px 10px;  z-index:999;">
+          <img src="img/view.png" style="margin-right: 10px;height:18px; margin-bottom: -4px;">Recent Viewed <ion-badge style="margin-left: 34px;background-color: rgb(243, 70, 100);border-radius: 19px;padding: 4px;font-size: 10px;" item-right>260</ion-badge>
+        </ion-item>
+
+		<ion-item nav-clear menu-close href="#/app/cart" style="padding: 0px 10px;  z-index:999;">
+          <img src="img/support.png" style="margin-right: 10px;height:18px; margin-bottom: -4px;">Support
+        </ion-item>
+		
+		<ion-item nav-clear menu-close href="#/login" style="padding: 0px 10px; ">
+          <img src="img/setting.png" style="margin-right: 10px;height:18px;margin-bottom: -4px;">Setting
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

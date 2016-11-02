@@ -1,0 +1,9 @@
+<div class="page-appinvite page" ng-style="{'background-image': appInviteImg }" ng-controller="AppInviteController">
+	<ion-content class="appinvite-body" scroll="false">
+		<button class="close" ng-click="closeModal()"><img src="images/appinvite/button_close.svg"></button>
+		<h1 class="horizontal"><img src="images/appinvite/title_horizontal_{{lang}}.svg"></h1>
+		<h1 class="vertical"><img src="images/appinvite/title_vertical_{{lang}}.svg"></h1>
+		<button class="action invite-friends" ng-click="appInvite()" translate>convidar amigos</button>
+		<button class="action" ng-click="closeModal()" translate>não obrigado</button>
+	</ion-content>
+</div>

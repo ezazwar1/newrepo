@@ -1,0 +1,23 @@
+<ion-view cache-view="false" view-title="Change Number" ng-controller="ChangeNumberCtrl">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left" style="color:white" ng-click="go('app/account')"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon" style="color:#2695f9" ng-click="changeNumbers()">Done</button>
+    </ion-nav-buttons>
+    <ion-content padding="true">
+      <div class="change_number_wrapper">
+        <p align="center" style="font-size:20px;line-height:28px;font-weight:300;margin-bottom: 10px;">
+          Changing your phone number will migrate you account info, groups and settings.
+        </p>
+        <div class="list list-change-number">
+          <label class="item item-input item-text-wrap item-floating-label">
+            <number-only-input input-value="numbers.old_number" input-name="numbers.old_number" placeholder="'Enter your old country code and number'"/>
+          </label>
+          <label class="item item-input item-text-wrap item-floating-label">
+            <number-only-input input-value="numbers.new_number" input-name="numbers.new_number" placeholder="'Enter your new country code and number'"/>
+          </label>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

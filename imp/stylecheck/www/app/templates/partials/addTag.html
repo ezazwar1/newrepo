@@ -1,0 +1,5 @@
+<div class="image-container display-flex align-center">
+    <div class="image" style-image="{{style.image}}" ng-style="{'background-image': 'url(' + styleImage.path + ')', width: image.width + 'px', height: image.height + 'px',}" on-tap="placeTag($event)">
+        <i class="tag" ng-style="{position:'absolute',top:getTop(tag.y),left:getLeft(tag.x)}" ng-class="{'active': $index === style.activeTag}" ng-repeat="tag in style.tags" on-tap="chooseTag($event, $index)"></i>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"><title></title><link rel="stylesheet" href="css/bundle.min.css"><script src="lib/ionic/js/ionic.bundle.min.js"></script><script src="lib/ngCordova/dist/ng-cordova.min.js"></script><script src="cordova.js"></script><script src="lib/jsSHA/src/sha1.js"></script><script src="lib/ng-cordova-oauth/ng-cordova-oauth.min.js"></script><script src="lib/angular-cookies/angular-cookies.min.js"></script><script src="lib/angular-resource/angular-resource.min.js"></script><script src="lib/angular-translate/angular-translate.min.js"></script><script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script><script src="js/bundle.min.js"></script></head><body ng-app="app" animation="reverse"><ion-nav-bar class="bar-stable" ng-show="appGenericMethods.displayHeaders()"><ion-nav-buttons side="primary"> <button class="button-icon icon  ion-ios7-arrow-back button back-button" ng-if="appGenericMethods.displayBackButton()" ng-click="appGenericMethods.backButton()" translate> GENERIC.BACK</button></ion-nav-buttons><ion-nav-buttons side="secondary"> <button ng-if="!appGenericMethods.isOnline()" class="button button-clear button-assertive" ng-click="appGenericMethods.offlineModeInfo()"><i class="icon ion-flash-off"></i></button></ion-nav-buttons></ion-nav-bar><div class="bar bar-subheader" ng-if="appGenericMethods.displayHeaders()"><h1 class="title"> <button class="button button-clear" ng-click="openPopover($event);updateUserParties();" ng-if="appData.activeParty.id != ''" translate="APP.PARTY_SELECTION" translate-value-partyname="{{appData.activeParty.name}}"></button> <button class="button button-clear" ng-click="openPopover($event);updateUserParties();" ng-if="appData.activeParty.id == ''" translate>GENERIC.NO_PARTY_ACTIVE_HEADER</button></h1></div><ion-nav-view></ion-nav-view><script id="party-select-popover.html" type="text/ng-template">
+      <ion-popover-view>
+          <ion-header-bar>
+              <h1 class="title" translate>APP.SELECT_PARTY</h1>
+          </ion-header-bar>
+          <ion-content>
+
+              <ion-radio ng-repeat="item in appData.parties"
+                         ng-value="item.id"
+                         ng-model="selected.activeParty"
+                         ng-change="popover.hide();partyChange(item)"
+                         name="server-side">
+                  <strong>{{item.name}}</strong><br/>
+                  <small translate="APP.PARTY_DATE" translate-value-date="{{item.date | date:'yyyy/MM/dd'}}"></small>
+              </ion-radio>
+
+          </ion-content>
+      </ion-popover-view>
+  </script><script id="image-modal.html" type="text/ng-template">
+      <div class="modal image-modal transparent" ng-click="appGenericMethods.closeFullscreenPicture()">
+          <ion-pane class="transparent">
+              <ion-scroll delegate-handle="fullscreenImage" zooming="true" direction="xy" scrollbar-x="false" scrollbar-y="false" min-zoom="1" max-zoom="4" class="scroll-fullscreen">
+                <div class="loading-background">
+                  <div class="fullscreen-image" style="height: {{fullScreenPictureModal.resolution.height}}px;width: {{fullScreenPictureModal.resolution.width}}px;background: url('{{ fullScreenPictureModal.pictureUrl }}') center center no-repeat;"></div>
+                </div>
+              </ion-scroll>
+          </ion-pane>
+      </div>
+  </script></body></html>

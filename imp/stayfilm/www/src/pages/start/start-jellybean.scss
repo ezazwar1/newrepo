@@ -1,0 +1,93 @@
+@import "variables";
+
+.page-start {
+	.contents {
+		.snap-frame {
+			&.frame-a {
+				.main-logo {
+					.logo {
+						.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+							@include transform(scaleY(1.2));
+						}
+					}
+				}
+
+				.main-heading {
+					.upgrade {
+						.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+							@include transform(scaleY(10) translateY(-10%));
+						}
+					}
+				}
+			}
+
+			&.frame-b, &.frame-c, &.frame-d {
+				.logo {
+					.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+						@include transform(scaleX(1.7) scaleY(1.5));
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-height: 479px) {
+	.page-start {
+		.contents {
+			.snap-frame {
+				.logo {
+					.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+						@include transform(scale(1));
+					}
+				}
+
+				&.frame-a {
+					.main-logo {
+						.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+							@include transform(scaleY(.7));
+						}
+					}
+
+					.main-heading {
+						.upgrade {
+							.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+								@include transform(scaleY(5) scaleX(.5) translateY(5%));
+							}
+						}
+					}
+
+					.logo {
+						.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+							@include transform(translateY(15%) scaleY(.42));
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (height: 752px) {
+	.page-start {
+		.contents {
+			.snap-frame {
+				&.frame-a {
+					.main-heading {
+						.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+							@include transform(scale(.7));
+						}
+					}
+				}
+
+				&.frame-b, &.frame-c, &.frame-d {
+					.logo {
+						.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+							@include transform(scaleX(1.3) scaleY(1.1));
+						}
+					}
+				}
+			}
+		}
+	}
+}

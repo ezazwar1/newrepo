@@ -1,0 +1,15 @@
+<ion-nav-view name="detail"></ion-nav-view>
+<script id="filterPopover.html" type="text/ng-template">
+    <ion-popover-view>
+        <ion-content scroll="true">
+            <label class="item item-radio" ng-repeat="category in categories">
+                <input type="checkbox" name="group" ng-model="selectedCategories" ng-click="setCategory($index)">
+                <div class="item-content">{{dict.categories[category]}}</div>
+                <i class="radio-icon icon icon-check assertive"></i>
+            </label>
+            <div class="padding">
+                <button class="button button-block button-outline button-assertive" ng-click="filter()">{{dict.resume}}</button>
+            </div>
+        </ion-content>
+    </ion-popover-view>
+</script>

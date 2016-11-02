@@ -1,0 +1,27 @@
+<ion-content class="onboard_content onboard-slide-animation" scroll="false" ng-swipe-right="onboard_nextSlide()" ng-swipe-left="onboard_prevSlide()">
+    <div class="onboard_top_close">
+        <button class="button button-icon icon ion-ios7-close-empty" ng-click="goOnboard(6)"></button>
+    </div>
+    <div class="onboard_page" style="height:100%;">
+
+        <div ng-repeat="onboard_slide in onboard_slides"  class="onboard_slide_title" ng-hide="!isCurrentSlideIndex($index)" >
+            <pre style="padding:10px 15px 4% 4%;text-align:center;font-family: 'proxima_nova_rgregular';">{{onboard_slide.description}}</pre>
+        </div>
+        <nav class="nav">
+            <div class="wrapper">
+                <ul class="dots">
+                    <li class="dot" ng-repeat="onboard_slide in onboard_slides">
+                        <a ng-class="{'active':isCurrentSlideIndex($index)}"
+                           ng-click="setCurrentSlideIndex($index);">{{onboard_slide.description}}</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container onboard_slider">
+            <img ng-repeat="onboard_slide in onboard_slides" class="onboard_slide_img nonDraggableImage"
+                 ng-hide="!isCurrentSlideIndex($index)" ng-src="{{onboard_slide.image}}">
+        </div>
+
+    </div>
+
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-view title="Search Result">
+    <ion-content scroll="true" padding="false">
+
+        <div class="intro" ng-if="data.searchresults_placeholderpic_flag">
+            <img class="intro_graphic" src="img/graphics/controllers/ps-move.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.SearchResultCtrl_message}}</p>
+            <button class="button button-primary ion-plus" ng-click="show_game_missing_add_popup()">Help Us</button>
+        </div>
+
+        <ion-list>
+            <ion-item class="item game-list-with-a search-result" ui-sref="tab.search_game_profile({ game_id: game.id, collect_as: game.collect_as, tab_name: 'search'})" ng-repeat="game in data.games">
+                <div class="game-list-thumbnail">
+                    <img ng-src="{{game.picture}}">
+                </div>
+                <div class="game-list_game-info">
+                    <h2 class="game-list_game-title">{{game.title}} </h2>
+                    <p class="game-list_game-platform">{{game.platform}}</p>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-infinite-scroll
+            ng-if="data.there_is_more"
+            on-infinite="load_more()"
+            distance="0%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

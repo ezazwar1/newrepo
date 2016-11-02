@@ -1,0 +1,3 @@
+﻿<select ng-model="language" name="language" required>
+    <option value="{{::lan.language_id}}" ng-selected="lan.language_id == language" ng-repeat="lan in languages">{{::lan.name}}</option>
+</select>

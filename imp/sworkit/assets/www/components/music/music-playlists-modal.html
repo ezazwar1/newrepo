@@ -1,0 +1,20 @@
+<ion-modal-view class="music-modal">
+    <ion-header-bar class="bar bar-header disable-user-behavior">
+        <h1 class="title">Sworkout Music</h1>
+        <div class="buttons">
+            <button class="button button-icon icon ion-ios-close-empty" ng-click="closeModal()"
+                    style="font-size: 18px;"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <a ng-repeat="playlist in playlists" class="item item-thumbnail-left item-text-wrap item-icon-right "
+               ng-click="launchPlaylists(playlist)">
+                <img ng-src="{{playlist.image}}">
+                <h2>{{playlist.name}}</h2>
+                <strong><img ng-if="playlist.musicIcon" ng-src="{{playlist.musicIcon}}" class="music-app-icon" />{{playlist.listenText}}</strong>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-modal-view>

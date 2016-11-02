@@ -1,0 +1,29 @@
+<ion-view cache-view="false" view-title="Delete Account" ng-controller="DeleteNumberCtrl">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left" style="color:white" ng-click="go('app/account')"></button>
+    </ion-nav-buttons>
+    <ion-content>
+      <div class="delete_number_wrapper">
+        <p align="center" class="padding"style="font-size:20px;line-height:28px;font-weight:300">
+          Deleting your account will:<br />
+          Delete your account from triby ,
+          Delete messages history, and remove you form all the Tribys.
+        </p>
+        <br>
+        <div class="list list-inset list-delete-number" style="text-align:center">
+          <label class="item item-title" style="border-bottom: none;">
+            <span >Confirm your number</span>
+          </label>
+          <label class="item item-input item-text-wrap item-floating-label">
+            <number-only-input input-value="numbers.old_number" input-name="numbers.old_number" placeholder="'Enter your old country code and number'"/>
+          </label>
+        </div>
+        <br>
+        <div class="list list-exit" style="text-align:center">
+          <label class="item item-input item-text-wrap item-floating-label" ng-click="deleteUser()">
+            <span>Exit Triby</span>
+          </label>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

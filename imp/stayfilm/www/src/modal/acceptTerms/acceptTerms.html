@@ -1,0 +1,30 @@
+<div ng-controller="AcceptTermsController" class="modal modal-accept-terms">
+	<div class="bar bar-header white-close-bar">
+		<button class="button button-clear" ng-click="modal.hide()" >
+			<img src="images/ico-close.png" height="44">
+		</button>
+	</div>
+	<ion-content class="has-header">
+		
+		<h1 class="main-instruction" translate>Para continuar, concorde com os termos abaixo:</h1>
+		
+		<div class="accept-terms clearfix">
+
+			<ion-toggle class="terms-toggle" ng-model="data.acceptedGenreTerms">
+				<div class="vertical-center">
+					<p><span translate>Estou de acordo com os</span> <a ng-click="openDynamicTerms(data.genre)" translate>Termos de Publicação de Filmes {{ campaignName }}</a></p>
+				</div>
+			</ion-toggle>
+
+			<ion-toggle class="terms-toggle" ng-model="data.acceptedStayfilmTerms">
+				<div class="vertical-center">
+					<p><span translate>Estou de acordo com os</span> <a ng-click="showLegalTerms()" translate>Termos e a Política do Site</a></p>
+				</div>
+			</ion-toggle>
+
+		</div>
+	</ion-content>
+	<ion-footer-bar class="big-button-footer">
+		<button ng-click="agree()" class="agree kana-button png-fix"><img src="images/kana-check.png" /><span translate>Continuar</span></button>
+	</ion-footer-bar>
+</div>

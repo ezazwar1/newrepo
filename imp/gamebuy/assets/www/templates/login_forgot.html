@@ -1,0 +1,23 @@
+<ion-view title="Find My Account">
+    <ion-content>
+        <div class="login_wrapper">
+            <div class="login_logo">
+                <img class="login_logo-image" src="img/logos/gbg-gamebuygame-square-logo.svg" alt="GBG logo">
+            </div>
+
+            <div class="login_form">
+                <div class="form-group">
+                    <i class="input-icon ion-ios-email"></i>
+                    <input class="form-input" type="email" name="email" placeholder="Email" ng-model="data.email"/>
+                </div>
+
+                <button class="button button-block button-primary" ng-disabled="forgot_disabled" ng-click="send_reset_email()">Reset My Password</button>
+            </div>
+        </div>
+
+<script>
+    $('.login_wrapper').css('height',$(window).height()+'px');
+</script>
+
+    </ion-content>
+</ion-view>

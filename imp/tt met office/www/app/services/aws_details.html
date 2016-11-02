@@ -1,0 +1,26 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive blue">
+        <h1 class="title">{{title}} Station</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeModal('aws_modal')">Close</button>
+        </div>
+    </ion-header-bar>
+
+    <div class="bar bar-subheader" ng-if="do_split">
+        <p class="title lowercase">last updated {{updated_at | amCalendar:referenceTime:formats}}</p>
+    </div>
+
+    <ion-content class="has-header has-subheaderr ng-cloak" ng-class="{'has-subheader': do_split}" scroll="true" class="containerr" style="background: #fff">
+        <div class="row no-padding" ng-repeat="item in ai" ng-if="item.item">
+            <div class="card wide">
+                <div class="item item-divider">
+                    {{item.item == 'Precipitation' ? item.item + ' (for the last hour)' : item.item}}
+                </div>
+                <div class="item item-text-wrap">
+                    <p>{{(item.item ? item.item  == 'Pressure' ? item.value + ' hPa' : item.value : ' - ')}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-modal-view>

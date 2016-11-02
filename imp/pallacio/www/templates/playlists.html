@@ -1,0 +1,17 @@
+<ion-view title="El Palacio de la Aljafería">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item ng-repeat="item in homeItems" href="#/app/playlists/{{item.id}}" style="background-image:url('img/homeImages/{{playlist.image}}');" class="eventListPicture">
+        <h2>{{item.title}}</h2>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,138 @@
+<!-- this template is a single page for item details page --->
+<ion-view view-title="{{item.name}}">
+    <ion-nav-buttons side="right">
+        <a class="button button-positive" ng-click="share()"><i class="icon ion-ios-upload-outline"></i></a>
+    </ion-nav-buttons>
+    <ion-content elastic-header="item-elastic-header" delegate-handle="example-scroller">
+        <div class="padding text-center">
+            <ion-slide-box id="item-elastic-header">
+                <ion-slide ng-repeat="img in ::item.images">
+                    <div class="itemshow"><img preload-image ng-src="{{::img.preview}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" /></div>
+                </ion-slide>
+            </ion-slide-box>
+
+            <div class="white-background padding-top">
+                <h5><span ng-bind-html="item.name"></span> <span class="badge badge-assertive" ng-if="off" i18n="shop.item_page_off" data-percent="{{item.off}}"></span></h5>
+                <p>{{item.text_model}} {{item.model}}</p>
+                <p>{{item.text_stock}} {{item.stock}}</p>
+                <p>
+                    <span ng-if="special">{{::item.special}}</span>
+                    <span ng-class="{'has-special' : special}">{{::item.price}}</span>
+                </p>
+                <p ng-if="item.special != item.mobile_special && item.mobile_special" ng-click="showRegisterPopup()">
+                    <i class="icon ion-iphone mobile-icon-fix"></i> <span i18n="shop.special_price"></span> <span class="mobile-price color-animate">{{::item.mobile_special}}</span>
+                </p>
+                <button class="button button-full button-positive" ng-click="share()" i18n="shop.share_product_with_friends"></button>
+            </div>
+        </div>
+        <div class="list white-background">
+            <div class="item item-divider" i18n="shop.item_description"></div>
+            <div ng-class="{'seemore' : showLessDesc}" class="padding" ng-init="showLessDesc = true">
+                <div>
+                    <p ng-bind-html="item.description"></p>
+                </div>
+            </div>
+
+            <button class="button button-positive button-small button-outline button-full button-no-border" ng-click="showLessDesc = !showLessDesc">
+                <span ng-if="showLessDesc" i18n="shop.item_view_all"></span>
+                <span ng-if="!showLessDesc" i18n="shop.item_view_less"></span>
+            </button>
+
+            <div class="item item-divider" ng-if="item.attribure_groups && item.attribure_groups.length > 0" i18n="shop.item_specification"></div>
+            <div ng-if="item.attribure_groups && item.attribure_groups.length > 0" ng-class="{'seemore' : showLessSpec}" class="padding" ng-init="showLessSpec = true">
+                <div>
+                    <p>
+                        <table class="attribute-table" ng-repeat="attribure_group in item.attribure_groups">
+                            <thead> <tr> <td colspan="2"><strong>{{attribure_group.name}}</strong></td> </tr> </thead>
+                            <tbody>
+                                <tr ng-repeat="attribute in attribure_group.attribute"> <td>{{attribute.name}}</td> <td>{{attribute.text}}</td> </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+            </div>
+
+            <button ng-if="item.attribure_groups && item.attribure_groups.length > 0" class="button button-positive button-small button-outline button-full button-no-border" ng-click="showLessSpec = !showLessSpec">
+                <span ng-if="showLessSpec" i18n="shop.item_view_all"></span>
+                <span ng-if="!showLessSpec" i18n="shop.item_view_less"></span>
+            </button>
+
+            <div class="item item-divider" i18n="shop.item_available_options"></div>
+
+            <form name="shop.shopItemForm" enctype="multipart/form-data">
+                <label class="item item-input item-select" ng-repeat="option in ::item.options | filter: selectableOptions">
+                    <div class="input-label" ng-class="{'assertive':shop.shopItemForm['options_{{::option.product_option_id}}'].$invalid}" ng-bind-html="option.name"></div>
+                    <select ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+                        <option ng-repeat="value in ::option.product_option_value" value="{{value.product_option_value_id}}">{{value.name}}</option>
+                    </select>
+                </label>
+
+                <div class="item item-input" ng-repeat="option in ::item.options | filter: multipleOptions">
+                    <div class="input-label" ng-class="{'assertive':shop.shopItemForm['options_{{::option.product_option_id}}'].$invalid}" ng-bind-html="option.name"></div>
+                    <select multiple ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+                        <option ng-repeat="value in ::option.product_option_value" value="{{::value.product_option_value_id}}">{{value.name}}</option>
+                    </select>
+                </div>
+
+                <div class="item item-input" ng-repeat="option in ::item.options | filter: textOptions">
+                    <div class="input-label" ng-class="{'assertive':shop.shopItemForm['options_{{::option.product_option_id}}'].$invalid}" ng-bind-html="option.name"></div>
+                    <input type="{{::option.type}}" ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+                </div>
+
+                <div class="item item-input" ng-repeat="option in ::item.options | filter: fileOptions">
+                    <div class="input-label" ng-class="{'assertive':shop.shopItemForm['options_{{::option.product_option_id}}'].$invalid}" ng-bind-html="option.name"></div>
+                    <input type="file" ng-model="cart.options[option.product_option_id]" fileread="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+                </div>
+
+                <div class="item item-input" ng-repeat="option in ::item.options | filter: datetimeOptions">
+                    <div class="input-label" ng-class="{'assertive':shop.shopItemForm['options_{{::option.product_option_id}}'].$invalid}" ng-bind-html="option.name"></div>
+                    <input type="datetime-local" ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+                </div>
+
+                <div class="item item-input" ng-repeat="option in ::item.options | filter: textareaOptions">
+                    <div class="input-label" ng-class="{'assertive':shop.shopItemForm['options_{{::option.product_option_id}}'].$invalid}" ng-bind-html="option.name"></div>
+                    <textarea ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required"></textarea>
+                </div>
+
+                <label class="item item-input item-select">
+                    <div class="input-label" ng-class="{'assertive':shop.shopItemForm.quantity.$invalid}" i18n="shop.item_quantity"></div>
+                    <select ng-model="cart.quantity" name="quantity" required ng-init="cart.quantity = item.minimum">
+                        <option value="{{::n}}" ng-repeat="n in range(item.minimum, 15)">{{::n}}</option>
+                    </select>
+                </label>
+            </form>
+
+            <div class="item item-divider" ng-if="item.review_status">Riviews</div>
+            <item-rating item="item" ng-if="item.review_status"></item-rating>
+
+            <div class="item item-divider" i18n="shop.item_related_products"></div>
+            <ion-slide-box show-pager="false">
+                <ion-slide ng-repeat="item in item.related" class="related">
+                    <a class="row" href="#/app/menu/shop/item/{{item.product_id}}">
+                        <div class="col related-items-image">
+                            <img ng-src="{{item.thumb}}" />
+                        </div>
+                        <div class="col-60 related-items-details">
+                            <div ng-bind-html="::item.name"></div>
+                            <p>
+                                <span ng-if="item.special">{{item.special}}</span>
+                                <span ng-class="{'has-special' : item.special}">{{item.price}}</span>
+                                <span class="badge badge-assertive" ng-if="item.off" i18n="shop.item_page_off" data-percent="{{item.off}}"></span>
+                            </p>
+                        </div>
+                    </a>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+
+    </ion-content>
+    <ion-footer-bar align-title="center" ng-class="{'bar-assertive':shop.shopItemForm.$invalid, 'bar-positive':shop.shopItemForm.$valid}">
+        <div class="buttons">
+            <button class="button" ng-click="addToCart()" i18n="shop.item_button_add_to_cart"></button>
+        </div>
+        <h2 class="title">{{item.special ? item.special : item.price}}</h2>
+        <div class="buttons">
+            <button class="button" ng-click="buyNow()" i18n="shop.item_button_buy_now"></button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

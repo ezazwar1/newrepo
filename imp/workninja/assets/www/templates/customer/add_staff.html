@@ -1,0 +1,79 @@
+<ion-view title="{{staffMsg}}" class="customer-workplace-pane">
+    <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light" style="z-index: 10000">
+        <!-- <ion-nav-buttons side="left">
+            <a class="button button-clear button-icon" ng-click="goBack()">
+                <i class="icon ion-arrow-left-a"></i>
+            </a>
+        </ion-nav-buttons> -->
+    </div>
+    <ion-content class="has-header height-100" scroll="false">
+        <div class="button-bar bar-dark">
+            <button class="button" ng-click="selectDetails();" ng-class="(detailsActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px">DETAILS</button>
+            <button class="button" ng-click="selectWorkplaces();" ng-class="(workplacesActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px;">WORKPLACES</button>
+            <button class="button" ng-click="selectRoles();" ng-class="(rolesActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px">ROLES</button>
+        </div>
+        <div class="main-page" style="background-color: #fff">
+        <!--ROLES START-->
+            <div class="list" style="width: 100%;height:100%" ng-show="rolesActive">
+                <ion-content>
+                    <ul class="list" style="width: 100%;height:100%" ng-show="rolesActive" >
+                        <a class="item" style="margin-top:10px;border:0">
+                            <p style="font-size: 12px;margin-left: 70px; float: left;opacity: 0.4">Role</p>
+                            <hr style="font-size: 12px;margin-left: 70px;margin-top:40px;opacity: 0.2">
+                        </a>                      
+                        <li class="item item-checkbox" ng-repeat="n in rolesList track by $index" ng-click="toggleRole(n.id)" style="border:0">
+                            <label class="checkbox checkbox-balanced" style="margin-left: 10px;height: 10px;">
+                               <input type="checkbox" ng-checked="isInRoles(n.id)">
+                            </label>
+                            <div style="font-size: 12px;margin-left: 70px;float: left;opacity: 0.4">{{n.name}}</div> 
+                        </li>
+                    </ul>
+                </ion-content>
+            </div>
+        <!--ROLES END-->
+
+        <!--WORKPLACES START -->
+            <div class="list" style="width: 100%;height:100%" ng-show="workplacesActive">
+                <ion-content>
+                <ul class="list" style="width: 100%;height:100%" ng-show="workplacesActive">
+                    <a class="item" style="margin-top:10px;border:0">
+                        <p style="font-size: 12px;margin-left: 70px; float: left;opacity: 0.4">Name</p>
+                        <p style="font-size: 12px;float: right;opacity: 0.2">Suburb</p>
+                        <hr style="margin-left: 70px;margin-top:40px;opacity: 0.2">
+                    </a>
+                    <li class="item item-checkbox"  ng-repeat="s in workplaceList track by $index" ng-click="toggleWorkplace(s.id)" style="border:0">
+                        <label class="checkbox checkbox-balanced" style="margin-left: 10px;" >
+                           <input type="checkbox" ng-checked="isInWorkplaces(s.id)">
+                        </label>
+                        <div style="font-size: 12px;margin-left: 70px;float: left;opacity: 0.4">{{s.name}}</div> <div style="font-size: 12px;float: right;opacity: 0.2">{{s.suburb}}</div>
+                    </li>
+                </ul>
+                </ion-content>
+            </div>
+        <!--WORKPLACES END -->
+        <!--DETAILS START -->
+            <div class="profile" style="width: 100%;position:absolute;top: 60px" ng-show="detailsActive">
+                <div>
+                    <div style="padding-left: 15px; padding-right: 17px">
+                        <div class="form-group" style="margin-top: 10px;opacity: 0.4">
+                            <input id="first_name" type="text" ng-model="newstaff.first_name" wn-errors="errors.first_name" required="" placeholder="First name" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input">
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;opacity: 0.4">
+                            <input id="last_name" type="text" ng-model="newstaff.last_name" wn-errors="errors.last_name" required="" placeholder="Last name" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input">
+                        </div>
+                        <div ng-hide="staffEditUpdate">
+                            <div class="form-group" style="padding-top:20px;opacity: 0.4">
+                                <input type="text" id="last_name" name="last_name" placeholder="Email address" ng-model="newstaff.email" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                            </div>
+                            <div class="form-group" style="padding-top:20px;opacity: 0.4">
+                                <input type="text" id="mobile" name="mobile" placeholder="Mobile phone" ng-model="newstaff.mobile" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                            </div>
+                        </div>
+                        <button class="button border-no" ng-click="invite()"  style="font-size:16px;float: right;background: white;color:#01be6e;margin-top: 10px">{{btnMsg}}</button>
+                    </div>
+                </div>
+            </div>
+        <!--DETAILS START -->
+        </div>
+    </ion-content>
+   

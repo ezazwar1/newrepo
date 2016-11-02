@@ -1,0 +1,86 @@
+<ion-view title="{{dict.theCheckout}}">
+    <ion-header-bar class="bar-subheader bar-light bar-checkout">
+        <button class="button button-dark button-clear button-checkout-back icon ion-ios7-arrow-left" ng-click="goBack()"></button>
+        <h1 class="title">{{dict.register}} / {{dict.login}}</h1>
+    </ion-header-bar>
+    <ion-content class="has-checkout-footer">
+        <div ng-show="!loggedIn && registerFields">
+            <div class="card transparent">
+                <label class="item item-radio transparent" ng-if="!noRegister">
+                    <input type="radio" ng-model="auth.method" ng-value="'register'">
+                    <div class="item-content">
+                        <i class="icon circle"></i>
+                        <div class="label">{{dict.register}}</div>
+                    </div>
+                </label>
+                <label class="item item-radio transparent">
+                    <input type="radio" ng-model="auth.method" ng-value="'login'">
+                    <div class="item-content">
+                        <i class="icon circle"></i>
+                        <div class="label">{{dict.login}}</div>
+                    </div>
+                </label>
+            </div>
+
+            <!-- LOGIN -->
+            <div class="card transparent" ng-if="auth.method === 'login'"> <!-- ng-show="auth.method === ''" -->
+                <p class="bold small">{{dict.login}}</p>
+                <p ng-if="loginInfo" ng-class="loginInfo.class">{{loginInfo.msg}}</p>
+                {{auth.$valid}}
+                <form id="authForm" name="authForm" ng-class="{'form-invalid': submitted}" ng-submit="authForm.$valid && login()">
+                    <div class="list">
+                        <label class="label">{{dict.email}}</label>
+                        <label class="item item-input" ng-class="{'input-invalid': loginForm.email.$error.required}">
+                            <input type="email" name="email" ng-model="auth.email" required>
+                        </label>
+                        <label class="label">{{dict.password}}</label>
+                        <label class="item item-input" ng-class="{'input-invalid': loginForm.password.$error.required}">
+                            <input type="password" name="password" ng-model="auth.password" required>
+                        </label>
+                    </div>
+                </form>
+                <button class="button button-clear button-dark no-padding-left" ng-click="recoverModal()">{{dict.lostPassword}}</button>
+            </div>
+
+            <!-- REGISTER -->
+            <div class="card transparent" ng-if="!noRegister" ng-show="auth.method === 'register'">
+                <p class="bold small">{{dict.register}}</p>
+                <p ng-if="registerInfo" ng-class="registerInfo.class">{{registerInfo.msg}}</p>
+                <form id="authForm" name="authForm" ng-class="{'form-invalid': submitted}" ng-submit="authForm.$valid && registerUser()">
+                    <div class="list">
+                        <div ng-repeat="field in registerFields">
+                            <ng-form name="userFieldForm">
+                                <label class="label">{{field['@attributes'].label}} <span ng-if="field['@attributes'].required === 'true'">*</span></label>
+                                <label class="item item-input" ng-class="{'input-invalid': userFieldForm.name.$error.required}">
+                                    <input
+                                        ng-if="field['@attributes'].type !== 'select' && field['@attributes'].type !== 'radio' && field['@attributes'].type !== 'checkbox'"
+                                        type="{{field['@attributes'].type}}"
+                                        name="name"
+                                        ng-model="register[field['@attributes'].name]"
+                                        ng-required="field['@attributes'].required === 'true'">
+                                </label>
+                            </ng-form>
+                        </div>
+                    </div>
+                </form>
+                <br><p>* {{dict.mandatoryField}}</p>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="card transparent" ng-show="loggedIn">
+            <p>{{dict.alreadyLoggedIn}}</p>
+            <p ng-if="logoutInfo" ng-class="logoutInfo.class">{{logoutInfo.msg}}</p>
+            <button class="button" ng-click="logout()">{{dict.logout}}</button>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="checkout-footer transparent">
+        <button form="authForm" ng-if="auth.method !== '' || auth.method === '' && loggedIn" class="button button-block button-clear button-dark button-checkout" ng-click="next()" ng-disabled="authForm.$invalid">
+            <div class="circle"><i class="icon ion-ios7-arrow-right light"></i></div>
+            <span ng-if="auth.method === 'login' && !loggedIn">{{dict.login}}</span>
+            <span ng-if="auth.method === 'register'">{{dict.register}}</span>
+            <span ng-if="auth.method === '' && loggedIn">{{dict.billingAddress}}</span>
+        </button>
+    </ion-footer-bar>
+</ion-view>
+

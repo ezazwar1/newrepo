@@ -1,0 +1,55 @@
+<ion-view title="{{title}}">
+    <ion-nav-buttons side="right">
+        <cart-button></cart-button>
+    </ion-nav-buttons>
+    <ion-content class="has-header stable-content darker-content" has-bouncing="true" >
+
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()"
+                pulling-icon="ion-ios-arrow-down">
+        </ion-refresher>
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div class="list card sub-categories-list small-only" ng-show="subCategories">
+            <div class="">
+                <ion-item  ng-hide="subCat.products.qty < 1"
+                           ng-repeat="subCat in subCategories"
+                           class="item item-icon-right"
+                           ng-click="showProducts(subCat)"
+                           role="link"
+                           aria-label="{{subCat.name}}">
+                    <h2 class="light-weight dark category">
+                        {{subCat.name}}
+                    </h2>
+                    <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                </ion-item>
+            </div>
+        </div>
+
+        <div class="padding large-only" ng-show="subCategories">
+            <div class="row">
+                <div class="col col-20"
+                     ng-hide="subCat.products.qty < 1"
+                     ng-repeat="subCat in subCategories"
+                     >
+                    <div class="item category-item"
+                         ng-click="showProducts(subCat)"
+                         role="link"
+                         aria-label="{{subCat.name}}" >
+                        <h2 class="dark category" aria-hidden="true">
+                            {{subCat.name}}
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ion-infinite-scroll
+                ng-if="moreDataCanBeLoaded()"
+                on-infinite="loadMoreItems()"
+                immediate-check="true"
+                distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

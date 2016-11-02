@@ -1,0 +1,73 @@
+<ion-view title="{{'MAP_TITLE' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right"  >
+        <a style="top: 3px !important;" class="button icon-right button-icon" href="#/app/space/:{{lastSpaceVisited}}" animation="slide-in-up"><img src="img/listaNew.png"></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+
+    <ion-content  has-header="true" padding="false" scroll="false" class="blurLayer">
+        <ion-slide-box class="spaceVisit" style="height: 100% !important;" show-pager="true" disable-scroll="false"  does-continue="true" slide-interval="60000" on-slide-changed="slideChanged()" active-slide="currSlide">
+            <ion-slide>
+                <div id="wrap"  style="max-width: 100%;" >
+                    <img style="max-width: 100%;" src="img/mapFirst2.png" usemap="#smallMapDiv" alt="" />
+                        <map id="map23" name="smallMapDiv">
+                            <area id="areaInfo" ng-click="openModal(10)"shape="circle" coords="1130, 590, 71"/>
+                            <area id="area11" ng-click="openModal(11)" shape="poly" coords="649, 486, 1027, 472, 1017, 560, 1052, 564, 1050, 603, 1010, 598, 995, 735, 1011, 740, 994, 873, 993, 843, 635, 842" />
+                            <area id="area12" ng-click="openModal(12)" shape="poly" coords="87, 711, 148, 712, 149, 717, 163, 717, 164, 712, 222, 713, 222, 718, 234, 718, 235, 713, 295, 714, 295, 719, 308, 719, 308, 714, 364, 714, 363, 719, 378, 719, 377, 714, 431, 716, 431, 719, 445, 720, 445, 715, 514, 711, 499, 1176, 494, 1177, 496, 1187, 499, 1187, 497, 1283, 485, 1284, 495, 1295, 494, 1361, 434, 1359, 434, 1351, 424, 1347, 423, 1359, 139, 1352, 139, 1344, 132, 1341, 130, 1352, 75, 1351, 75, 1284, 88, 1276, 76, 1268, 78, 1171, 82, 1170, 80, 1162, 78, 1160, 81, 1056, 75, 1054, 78, 786, 86, 786, 86, 776, 82, 776, 82, 710" />
+                            <area id="area13" ng-click="openModal(13)"  shape="poly" coords="88, 478, 86, 556, 92, 556, 98, 565, 87, 573, 85, 693, 96, 694, 96, 706, 136, 708, 137, 695, 147, 696, 147, 682, 162, 685, 163, 694, 170, 696, 169, 707, 216, 709, 214, 698, 220, 698, 220, 691, 236, 692, 237, 698, 241, 699, 241, 708, 289, 709, 289, 700, 295, 700, 295, 694, 305, 694, 309, 701, 311, 701, 312, 708, 358, 710, 358, 701, 361, 701, 363, 696, 375, 696, 376, 700, 382, 700, 380, 710, 425, 712, 423, 701, 429, 699, 429, 688, 444, 688, 444, 699, 457, 699, 457, 711, 505, 709, 503, 696, 513, 696, 515, 580, 503, 578, 501, 564, 512, 564, 515, 481, 448, 479, 440, 492, 434, 480, 424, 478, 424, 461, 431, 461, 431, 369, 172, 364, 171, 395, 162, 397, 163, 424, 171, 423, 171, 455, 179, 459, 178, 476, 168, 478, 161, 486, 153, 478" />
+                            <area id="area14" ng-click="openModal(14)" shape="poly" coords="534, 482, 533, 500, 517, 499, 515, 540, 532, 540, 533, 567, 534, 573, 595, 576, 602, 566, 607, 571, 607, 579, 612, 590, 625, 590, 631, 584, 632, 572, 626, 563, 618, 563, 612, 555, 624, 549, 623, 506, 598, 482"/>
+                            <area id="area15" ng-click="openModal(15)" shape="poly" coords="70, 214, 65, 346, 330, 348, 329, 213" />
+                            <area id="area21" ng-click="openModal(21)" shape="poly" coords="623, 921, 625, 866, 525, 864, 508, 1460, 492, 1460, 492, 1497, 508, 1498, 507, 1525, 902, 1548, 906, 1550, 919, 1540, 909, 1529, 918, 1462, 902, 1457, 969, 1077, 941, 1073, 941, 1030, 959, 1031, 959, 1053, 971, 1053, 994, 882, 982, 881, 983, 862, 951, 860, 954, 924, 969, 929, 967, 939, 942, 937, 945, 855, 957, 844, 890, 844, 889, 934, 875, 933, 876, 855, 670, 855, 669, 901, 675, 902, 670, 930, 656, 929, 658, 844, 636, 846, 633, 929, 629, 929, 628, 955, 616, 957, 615, 951, 621, 951, 621, 930, 570, 927, 569, 949, 578, 952, 577, 959, 561, 956, 560, 928, 549, 927, 549, 920" />
+                        </map>
+                </div>
+            </ion-slide>
+
+            <ion-slide >
+
+
+                <div id="wrap" style="max-width: 100%;" >
+                    <img style="max-width: 100%;" src="img/mapSecond2.png" usemap="#smallMapDivSecond" alt="" />
+
+                    <map id="map23" name="smallMapDivSecond">
+                        <area id="area16" ng-click="openModal(16)" alt="Salas superiores del palacio mudejar" shape="poly" coords="155, 152, 426, 154, 425, 283, 368, 282, 369, 299, 492, 302, 491, 390, 248, 388, 249, 299, 320, 300, 320, 282, 149, 280" />
+                        <area id="area17" ng-click="openModal(17)" alt="Torre trovador" shape="poly" coords="486, 104, 531, 102, 532, 108, 545, 107, 545, 103, 588, 102, 588, 107, 598, 107, 598, 103, 644, 102, 643, 107, 652, 106, 655, 140, 642, 141, 643, 150, 654, 149, 656, 203, 599, 201, 597, 198, 586, 198, 587, 201, 542, 201, 541, 195, 531, 195, 530, 209, 486, 209, 483, 201, 479, 201, 477, 155, 492, 155, 493, 144, 477, 144, 476, 110, 486, 109" />
+                        <area id="area18" ng-click="openModal(18)" alt="Salon del trono" shape="poly" coords="242, 494, 574, 498, 571, 622, 240, 616" />
+                        <area id="area19" ng-click="openModal(19)" alt="Salas de los pasos perdidos" shape="poly" coords="584, 510, 654, 510, 655, 505, 668, 506, 669, 512, 680, 512, 672, 629, 655, 628, 655, 638, 671, 639, 665, 739, 573, 738, 575, 684, 566, 674, 568, 651, 578, 648, 577, 638, 642, 639, 641, 631, 583, 628" />
+                        <area id="area20" ng-click="openModal(20)" alt="Galeria y escaleras" shape="poly" coords="567, 636, 564, 693, 159, 687, 160, 680, 149, 678, 148, 684, 86, 684, 82, 850, 93, 850, 98, 693, 148, 694, 142, 942, 33, 942, 40, 619, 150, 622, 151, 642, 161, 642, 162, 624" />
+                        <!--<area id="area21" ng-click="openModal(21)" alt="Salón de San Jorge" shape="poly" coords="149, 1264, 160, 1263, 162, 1231, 551, 1242, 550, 1342, 555, 1344, 554, 1401, 544, 1401, 545, 1391, 154, 1379, 153, 1363, 148, 1363" />-->
+                    </map>
+                </div>
+
+            </ion-slide>
+
+            <ion-slide href="#/app/fullmap/:37">
+                <a href="#/app/fullmap/:37" >
+                <img style="max-width: 100%;" src="img/PlanoCompleto.png" alt="" />
+                    </a>
+                </ion-slide>
+
+    </ion-slide-box>
+        <div id="smallMap" >
+            <a href="#/app/fullmap/:37" ><img style="right: 0px; bottom: 0px;border: none;height: auto;max-width: 120px;width: auto;" src="img/zoomMap.png" alt="" /><i class="customIcon icon ion-arrow-expand" style="position:absolute;z-index: 99999;bottom:5px;left:5px;" href="#/app/fullmap/:37"></i></a>
+        </div>
+
+
+
+
+    </ion-content>
+
+
+    <script id="modal.html" type="text/ng-template">
+        <div class="modal" ng-controller="ModalCtrl">
+            <ion-content>
+                <div id="infoView" ng-bind-html="page.description" style="padding: 15px 15px;color:#FFFFFF;font-size: 1.2em;"></div>
+                <br/>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>

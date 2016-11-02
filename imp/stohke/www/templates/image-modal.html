@@ -1,0 +1,41 @@
+<ion-modal-view no-scroll>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-icon icon ion-ios-close-outline" ng-click="mediaModal.hide()"></button>
+        <h1 class="title">{{user.UserName}} {{user.FirstName}} {{user.LastName}}</h1>
+        <div class="buttons">
+            
+        </div>
+    </ion-header-bar>
+    <ion-content no-scroll>
+        <ion-refresher pulling-text="" on-refresh="mediaModal.hide()" pulling-icon="ion-ios-close-outline"></ion-refresher>
+        <ion-slide-box on-slide-changed="slideChanged(index, 'images')" show-pager="false" active-slide="activeSlide" does-continue="false" class="media-slider">
+            <ion-slide ng-repeat="image in userMedia.images track by $index" on-double-tap="doStohke(userMedia.images[activeSlide])" on-hold="share(userMedia.images[activeSlide])">
+                <div class="box" ng-show="$index >= (activeSlide-1) && $index <= (activeSlide+1)">
+                    <div class="media-wrapper">
+                        
+                        <div class="hotspots" ng-controller="hotspotsController" ng-if="$index === activeSlide && image.HotSpots.length" ng-init="slideIndex = $index">
+                            <div class="image-info">
+                                <button class="button button-icon ion-ios-information-outline" ng-class="{true:'active', false: ''}[hotspotsVisible]" ng-click="toggleHotspots()"></button>
+                            </div>
+                            <hotspot ng-repeat="hotspot in image.HotSpots" data="hotspot" class="hotspot" ng-show="hotspotsVisible"></hotspot>
+                        </div>
+                        <img ng-src="{{image.ImageUrl768X432}}" class="fullscreen-image"/>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <ion-footer-bar class="bar-dark">
+        <div class="buttons">
+            <button class="button button-icon ion-ios-upload-outline" ng-click="share(userMedia.images[activeSlide])"></button>
+        </div>
+        <div class="title">
+            <stohke-button data-media-owner="(user.UserId || user.Id) + '_' + userMedia.images[activeSlide].Id" data-media-type="userMedia.images[activeSlide].Type"> 
+            </stohke-button>
+            <stohke-count data-media-owner="(user.UserId || user.Id) + '_' + userMedia.images[activeSlide].Id" data-media-type="userMedia.images[activeSlide].Type" data-counter-only="true"></stohke-count>
+        </div>
+        <div class="buttons" ng-if="!disableFlagging">
+            <button class="button button-icon ion-ios-flag-outline" ng-click="flag(userMedia.images[activeSlide])"></button>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

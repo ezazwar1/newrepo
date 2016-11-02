@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'SerifaStd-Bold';
+    src: url('../fonts/SerifaStd-Bold.otf')   format('opentype');
+}
+
+@font-face {
+    font-family: 'SerifaStd-Light';
+    src: url('../fonts/SerifaStd-Light.otf')   format('opentype');
+}
+
+@font-face {
+    font-family: 'SerifaStd-Roman';
+    src: url('../fonts/SerifaStd-Roman.otf')   format('opentype');
+}
+
+
+/* overwrite ionics variables
+********************************************* */
+$energized: rgb(255, 204, 0);
+$light: #FFF;
+$calm: #808080;
+$dark: #333;
+
+$base-color: #333;
+
+$font-family-base: 'SerifaStd-Roman';
+$font-family-light: 'SerifaStd-Light';
+$font-family-bold: 'SerifaStd-Bold';
+$font-size-base: 18px;
+$font-size-large: 20px;
+$font-size-small: 16px;
+
+$button-dark-border: $dark;
+
+$button-energized-bg:             $calm;
+$button-energized-text:           $light;
+$button-energized-border:         $calm;
+$button-energized-active-bg:      $energized;
+$button-energized-active-border:  $energized;
+
+$badge-energized-bg: $energized;
+
+$item-thumbnail-width: 80px;
+$item-thumbnail-height: 80px;
+$item-default-active-bg: transparent;
+
+$tabs-default-text: $light;
+
+$modal-inset-mode-break-point: 2000px;
+
+$popup-background-color: $dark;
+
+/* own variables
+********************************************* */
+$font-size-extra-large: 22px;
+$spacing-base: 15px;

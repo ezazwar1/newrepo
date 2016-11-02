@@ -1,0 +1,30 @@
+<ion-view title="{{ 'ACHIEVEMENTS.TITLE' | translate }}">
+  <ion-nav-buttons side="left">
+    <wf-back to="app.userProfile"></wf-back>
+  </ion-nav-buttons>
+  <ion-content class="has-header padding darker-bg">
+    <ion-refresher
+        spinner="none"
+        pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+        on-refresh="pullRefresh()">
+    </ion-refresher>
+   <div ng-if="achievements">
+    <div class="badges-container achievement-page">
+      <div class="achievement-badges" ng-repeat="achievement in achievements">
+              <wf-badge
+                  icon="wf-ultra-fast"
+                  data="achievement"
+                  img="true"
+                  type="{{ achievement.type }}"
+                  title="{{ achievement.name }}"
+                  ng-click="showInfo($event, achievement)"
+                  active="achievement.locked === '0'"
+                  locked="achievement.locked === '1'">
+              </wf-badge>
+      </div>
+    </div>
+  </div>
+
+    <div wf-pager per-page="20" params="params" distance="20" dataset="achievements" url="url"></div>
+  </ion-content>
+</ion-view>

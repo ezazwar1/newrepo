@@ -1,0 +1,60 @@
+<ion-view view-title="Radars" ng-controller="ServicesCtrl as sc" >
+
+    <ion-content class="has-header" ng-class="{'has-tabs-top': $root.isAndroid}">
+        <ion-slide-box on-slide-changed="slideHasChanged_a($index)" ng-init="sc.update_slide_a(0); disableSwipe()">
+            <ion-slide ng-init="sc.radars_150()">
+                <div class="box">
+                    <ion-list>
+                        <ion-item class="item-remove-animate item-avatarr item-icon-right" ng-repeat="item in sc.radars_150_list" href="#/app/services/radar_detail/{{item.id}}">
+                            <!-- <img ng-src="{{item.img}}"> -->
+                            <h2>{{item.title}}</h2>
+                            <p>{{item.sub}}</p>
+                            <i class="icon ion-chevron-right icon-accessory"></i>
+                            <!-- <ion-option-button class="button-stable" ng-click="share()">
+                                <i class="icon ion-android-share-alt"></i>
+                            </ion-option-button> -->
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-slide >
+            <ion-slide ng-init="sc.radars_250()">
+                <div class="box">
+                    <ion-list>
+                        <ion-item class="item-remove-animate item-avatarr item-icon-right" ng-repeat="item in sc.radars_250_list" href="#/app/services/radar_detail/{{item.id}}">
+                            <!-- <img ng-src="{{item.img}}"> -->
+                            <h2>{{item.title}}</h2>
+                            <p>{{item.sub}}</p>
+                            <i class="icon ion-chevron-right icon-accessory"></i>
+                            <!-- <ion-option-button class="button-stable" ng-click="share()">
+                                <i class="icon ion-android-share-alt"></i>
+                            </ion-option-button> -->
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-slide>
+            <ion-slide ng-init="sc.get_radar_400()">
+                <div class="box">
+                    <ion-list>
+                        <ion-item class="item-remove-animate item-avatarr item-icon-right" ng-repeat="item in sc.radars_400_list" href="#/app/services/radar_detail/{{item.id}}">
+                            <!-- <img ng-src="{{item.img}}"> -->
+                            <h2>{{item.title}}</h2>
+                            <p>{{item.sub}}</p>
+                            <i class="icon ion-chevron-right icon-accessory"></i>
+                            <!-- <ion-option-button class="button-stable" ng-click="share()">
+                                <i class="icon ion-android-share-alt"></i>
+                            </ion-option-button> -->
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-slide >
+        </ion-slide-box>
+    </ion-content>
+    <ion-tabs class="tabs-color-active-positive" ng-class="{'tabs-themed': $root.isAndroid}">
+        <ion-tab title="150 km" on-select="slide(0)"></ion-tab>
+        <ion-tab title="250 km" on-select="slide(1)"></ion-tab>
+        <ion-tab title="400 km" on-select="slide(2)"></ion-tab>
+    </ion-tabs>
+</ion-view>
+
+
+<!-- href="#/app/services/radar_detail/15" -->

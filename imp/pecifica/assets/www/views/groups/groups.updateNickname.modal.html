@@ -1,0 +1,27 @@
+<ion-modal-view class="touchpoint popoverr new-post">
+
+  <ion-content class="filter-popover">
+
+    <a href="javascript:;" ng-click="closeNicknameModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'UPDATE_PUBLIC_NICKNAME' | translate}}</h1>
+       
+        <input type="text" placeholder="{{ 'NICKNAME' | translate }}" ng-model="originalNickname" name="nickname" id="updateUserNickname" maxlength="20">
+
+      <p class="no-indent">
+        {{ 'UPDATE_PUBLIC_NICKNAME_BODY' | translate }}
+      </p>
+
+      <p ng-if="nicknameError" class="error">
+        {{nicknameError}}
+      </p>
+      <div class="clearfix">
+      <button ng-click="updatePublicNickname()" class="button-start" ng-disabled="updatingNickname">
+        {{ 'UPDATE_NICKNAME' | translate }}
+      </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

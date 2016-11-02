@@ -1,0 +1,86 @@
+/* ---------------- VARIABLES --------------- */
+
+@light-blue: #3c8dbc;
+@red: #f56954;
+@green: #00a65a;
+@aqua: #00c0ef;
+@yellow: #f39c12;
+@blue: #0073b7;
+@gray: #eaeaec;
+/* ---------------- DASHBOARD --------------- */
+
+.dashboard-wrapper {
+    width: 100vw;
+    height: 100%;
+    // brings the footer up
+    margin-bottom: -40px;
+    section {
+        width: 100vw;
+        color: #ffffff;
+        padding-top: 100px;
+        // TOP BACKGROUND
+        &.bg-2 {
+            height: 300px;
+            background: url('../../assets/images/4.jpg') no-repeat top center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        // BOTTOM BACKGROUND
+        &.bg-3 {
+            height: 400px;
+            background: url('../../assets/images/4.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    }
+    .dashboard-container {
+        width: 100vw;
+        min-height: 500px;
+        padding: 0px;
+        margin: 0px !important;
+        text-align: center;
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+            .dashboard-navigation {
+                margin-top: 3px;
+                position: absolute;
+                left: 0px;
+                .dashboard-navigation-img {
+                    font-size: 20px;
+                    padding: 0px 5px;
+                }
+            }
+            @media(max-width: 650px) {
+                .dashboard-navigation {
+                    width: 30px !important;
+                    top: -200px;
+                    position: absolute;
+                    background-color: #eee;
+                    margin-left: 5px;
+                }
+            }
+            .page-header {
+                font-size: 30px;
+                margin: 0px;
+                .text-muted {
+                    font-size: 16px;
+                    color: #555;
+                }
+            }
+        }
+    }
+    .divider {
+        height: 50px;
+    }
+}
+/* ---------------- FEATURE IMPORTS --------------- */
+
+@import 'features/welcome/welcome.less';
+@import 'features/wedding/wedding.less';
+@import 'features/games/games.less';
+@import 'features/games/scavenger.less';

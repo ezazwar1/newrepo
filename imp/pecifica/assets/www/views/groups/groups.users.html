@@ -1,0 +1,55 @@
+<ion-view id="groups" class="member-view">
+
+  <ion-nav-title >
+    {{ 'MEMBERS' | translate }}
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <a href="javascript:;" ng-click="showInvite()" ng-if="isOwner()"><button class="button button-clear icon ion-ios-personadd-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back is-white"></div>
+  <ion-content> 
+    <div ng-if="loadingUsers" class="loading">
+      {{ 'GROUP_LOADING' | translate }}
+    </div>
+    <div ng-if="!loadingUsers" class="list habits-menu">
+      <div ng-if="isOwner()">
+        <div class="item item-divider">{{ 'GROUP_CODE_LABEL' | translate}}</div>
+        <a href="javascript:;" ng-click="copyCodeToClipboard()" class="item item-icon-left group-code-link">
+        <i class="icon ion-clipboard"></i>{{ 'SEND_GROUP_CODE_TEXT' | translate }}:<br>
+        <strong>{{getGroupCode()}}</strong>
+        </a>
+      </div>
+
+      <div ng-if="isOwner()">
+        <div class="item item-divider" >{{ 'PENDING_INVITATIONS' | translate }}</div>
+        <div ng-repeat="pendingInvite in pendingInvites" ng-if="pendingInvites && pendingInvites.length > 0">
+          <div class="item">
+            <span>{{ pendingInvite.userKnowsEmail ? pendingInvite.email : pendingInvite.publicNickname}}</span>
+            <div class="remove" ng-click="deletePendingInvite(pendingInvite.email)"></div>
+          </div>
+        </div>
+        <div class="item" ng-if="!pendingInvites || pendingInvites.length == 0">
+          {{ 'NO_PENDING_INVITATIONS' | translate}}
+        </div> 
+      </div>
+
+      <div class="item item-divider">{{ 'COMMUNITY_NOTIFICATIONS' | translate }}</div>
+      <ion-radio ng-model="notificationData.communityNotification" value="false" ng-change="updateCommunityNotifications()" name="communityNotification">{{ 'OFF' | translate }}</ion-radio>
+      <ion-radio ng-model="notificationData.communityNotification" value="true" ng-change="updateCommunityNotifications()" name="communityNotification">{{ 'ON_TOGGLE' | translate }}</ion-radio>
+
+      <div class="item item-divider">{{ 'MEMBERS' | translate }}</div>
+      <div collection-repeat="groupUser in groupUsers">
+        <div class="item" ng-click="viewUserProfile($event, groupUser, groupUser.nickname)">
+          <span>{{groupUser.nickname}}</span> <span ng-if="isYou(groupUser)"> - {{ 'YOU' | translate }}</span>
+          <div class="remove" ng-click="removeUser(groupUser.userId)" ng-if="isOwner() && !isYou(groupUser)"></div>
+          <div class="remove" ng-click="leaveGroup($event)" ng-show="!isOwner() && isYou(groupUser)"></div>
+        </div>
+      </div>
+
+    </div>   
+
+  </ion-content>
+
+</ion-view>

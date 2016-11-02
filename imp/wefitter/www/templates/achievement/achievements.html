@@ -1,0 +1,19 @@
+<ion-view title="{{ 'ACHIEVEMENTS.TITLE' | translate }}">
+  <ion-nav-buttons side="left">
+    <wf-back to="app.userProfile"></wf-back>
+  </ion-nav-buttons>
+  <ion-tabs class="tabs-positive tabs-top tabs-striped tabs-background-dark">
+    <ion-tab title="{{ 'ACHIEVEMENTS.PROGRESS' | translate }}" ui-sref="app.achievements.progress">
+      <ion-nav-view name="achievements-progress"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="{{ 'ACHIEVEMENTS.EVENTS' | translate }}" ui-sref="app.achievements.events">
+      <ion-nav-view name="achievements-events"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="{{ 'NAV.CHALLENGES' | translate }}" ui-sref="app.achievements.challenges">
+      <ion-nav-view name="achievements-challenges"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

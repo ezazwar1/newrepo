@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/wide.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/nv.d3.min.css"/>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <!-- ngCordova becore cordova.js -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        window.onerror = function (message, url, lineNumber, columnNumber, error) {
+            var errorObj = {name: '', stack: '', message: '', url: ''};
+
+            var lineAndColumnInfo = columnNumber ? ' line:' + lineNumber + ', column:' + columnNumber : ' line:' + lineNumber;
+            if (message) {
+                errorObj.message = message;
+            }
+            if (url) {
+                errorObj.url = url;
+            }
+            if (error) {
+                errorObj.name = error.name;
+                errorObj.stack = error.stack;
+            }
+            var jsMessage = errorObj.message + " - " + errorObj.url + ' - ' + lineAndColumnInfo + ' - ' + errorObj.name + ' - ' + errorObj.stack + ' -> ' + navigator.userAgent;
+            var platformCategory = ionic.Platform.isAndroid() ? 'Sworkit Google' : 'Sworkit iOS';
+            if (ionic.Platform.isWebView() && errorObj.message.indexOf('ee.getBoundingClientRect') == -1) {
+                analytics.trackEvent(platformCategory, "Javascript Error", jsMessage, 0);
+            }
+        };
+    </script>
+
+    <!-- Libraries -->
+    <script src="lib/localforage-min.js"></script>
+    <script src="lib/d3.min.js"></script>
+    <script src="lib/nv.d3.min.js"></script>
+    <script src="lib/angular-nvd3.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="lib/angular-translate.min.js"></script>
+    <script src="lib/angular-translate-storage-cookie.min.js"></script>
+    <script src="lib/angular-translate-storage-local.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/autocomplete.js"></script>
+    <script src="lib/angular-progress-arc.min.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+    <script src="lib/auto-font-size.js"></script>
+    <script src="lib/ionic.hscrollcards.js"></script>
+
+    <!-- Sworkit Specific Files -->
+    <script src="js/global.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/app-startup.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/analytics-service.js"></script>
+
+    <script src="data/user-data-service.js"></script>
+    <script src="data/data.js"></script>
+    <script src="data/exercise-data.js"></script>
+    <script src="data/exercise-unlocked-account-data.js"></script>
+    <script src="data/exercise-unlocked-lowimpact-data.js"></script>
+    <script src="data/languages.js"></script>
+
+    <script src="components/body-ctrl.js"></script>
+    <script src="components/home/home-ctrl.js"></script>
+    <script src="components/select-workout/category-workouts-ctrl.js"></script>
+    <script src="components/custom-workouts/custom-workouts-discover-ctrl.js"></script>
+    <script src="components/custom-workouts/custom-workouts-ctrl.js"></script>
+    <script src="components/exercise-list/exercise-list-ctrl.js"></script>
+    <script src="components/help/help-ctrl.js"></script>
+    <script src="components/accounts/login/extra-info-ctrl.js"></script>
+    <script src="components/accounts/login/extra-info-goals-ctrl.js"></script>
+    <script src="components/accounts/login/forgot-password-ctrl.js"></script>
+    <script src="components/accounts/login/login-ctrl.js"></script>
+    <script src="components/accounts/login/signup-ctrl.js"></script>
+    <script src="components/accounts/login/welcome-ctrl.js"></script>
+    <script src="components/accounts/user-tier-ctrl.js"></script>
+    <script src="components/accounts/profile/logs-ctrl.js"></script>
+    <script src="components/accounts/profile/profile-ctrl.js"></script>
+    <script src="components/accounts/profile/progress-ctrl.js"></script>
+    <script src="components/reminders/reminders-ctrl.js"></script>
+    <script src="components/rewards/rewards-ctrl.js"></script>
+    <script src="components/settings/settings-audio-ctrl.js"></script>
+    <script src="components/settings/settings-ctrl.js"></script>
+    <script src="components/side-menu/side-menu-ctrl.js"></script>
+    <script src="components/select-time/time-ctrl.js"></script>
+    <script src="components/workout/workout-ctrl.js"></script>
+    <script src="components/workout/workout-service.js"></script>
+    <script src="components/accounts/sync-services/firebase-service.js"></script>
+    <script src="components/accounts/sync-services/sync-service.js"></script>
+    <script src="components/accounts/login/accounts-service.js"></script>
+    <script src="components/accounts/sync-services/app-sync-service.js"></script>
+    <script src="components/accounts/sync-services/user-workout-service.js"></script>
+    <script src="components/accounts/sync-services/achievement-service.js"></script>
+    <script src="components/premium/access-service.js"></script>
+    <script src="components/premium/inapp-purchase.js"></script>
+    <script src="components/custom-interstitial/custom-interstitial-modal.js"></script>
+    <script src="components/side-menu/ionic-drawer.js"></script>
+    <script src="components/accounts/login/welcome-ctrl.js"></script>
+    <script src="components/music/music-playlists-modal.js"></script>
+    <script src="components/workout/workout-preview-popup.js"></script>
+
+    <script src="directives/show-hide-directives.js"></script>
+    <script src="directives/integer-directive.js"></script>
+    <script src="directives/custom-brand-home-directive.js"></script>
+    <script src="directives/countdown-timer-directive.js"></script>
+    <script src="directives/placeholder-image-directive.js"></script>
+
+    <script src="filters/max-val-filter.js"></script>
+    <script src="filters/range-filter.js"></script>
+    <script src="filters/raw-html-filter.js"></script>
+
+    <!-- firebase -->
+    <script src="lib/firebase/firebase-debug.js"></script>
+    <script src="lib/angularfire/dist/angularfire.min.js"></script>
+
+    <!-- iOS9 Patch -->
+    <script src="lib/angular-ios9-uiwebview.patch.js"></script>
+
+</head>
+
+<body ng-app="swMobileApp" ng-controller="BodyCtrl" class="platform-android platform-cordova platform-webview">
+    <div class="volume-notification">
+        <h3><span><i class="icon ion-volume-medium"></i></span> {{'VOLUME_REC' | translate}}</h3>
+    </div>
+    <ion-nav-view></ion-nav-view>
+    <div id="status-notification" class="fade-in"></div>
+</body>
+</html>

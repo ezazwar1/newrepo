@@ -1,0 +1,29 @@
+<ion-view title="{{ 'BACKGROUND_VIDEOS' | translate }}" id="account" class="themes">
+
+  <div class="back"></div>
+  <ion-content> 
+
+
+    <ion-list class="list habits-menu">
+      <div class="item item-divider">{{ 'BACKGROUND_VIDEOS' | translate }}</div>
+
+      <div ng-repeat="video in videos" class="item item-icon-right item-icon-left dragContainer hideRemove {{getVideoClass(video)}}" href="javascript:;" ng-click="selectVideo(video)" on-drag-left="elementDragged($event)" on-drag-right="elementDragged($event)" ng-class="{active: isActive(video)}">
+
+        {{video.name}}
+
+        <span class="loading" ng-if="isDownloading(video)">{{getDownloadPercentage(video)}}%</span>
+        <div class="remove" ng-click="removeDownload($event, video)" ng-if="isDownloaded(video) && ($index > 0)"></div>
+        <!--<i class="icon icon-right ion-ios-checkmark" ng-if="isActive(video)"></i>-->
+        <i class="icon icon-right ion-ios-download-outline" ng-if="isPremiumVideoEnabled(video) && !isDownloaded(video) && !isDownloading(video)"></i>
+        <i class="icon icon-right ion-ios-locked-outline" ng-if="!isPremiumVideoEnabled(video)"></i>
+      </div>
+      
+    </ion-list>
+
+    <div ng-if="notificationsUpdated" class="UI-alert">
+      {{ 'LANGUAGE_UPDATED' | translate }}
+    </div>
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{ 'ACTIVITY.LOG_WORKOUT' | translate }}</h1>
+    <button class="button button-positive button-icon ion-android-close" ng-click="closeActivityModal()" />
+  </ion-header-bar>
+  <ion-content class="darker-bg">
+    <div class="workout-descrption-text" ng-bind-html="descriptionText | toTrusted">Description</div>
+
+    <div class="text-center bottom-spacer-20"><button ng-click="openConnection()" class="button button-positive conn-btn" ng-hide="!appConneted || disable">{{'NAV.CONNECT_NOW' | translate }}</button></div>
+
+    <div class="row activity-list dark-bg workout-item" ng-repeat="item in workouts.codes track by $index" ng-click="item.status == 1 ? addActivity(item) : showAlertPopup() ">
+      <div class="col col-20">
+        <a href="" class="round-icon" ng-class="item.status == 0 ? 'image-disable' : '' ">
+          <img ng-src="{{ item.sport_type_image }}">
+        </a>
+      </div>
+      <div class="col col-60 padding-left margin-top-10">
+        <h5 class="text-transform-upper" ng-class="item.status == 0 ? 'text-disable' : '' ">{{ item.name }}</h5>
+      </div>
+      <div class="col col-25 col-center act-points">
+        <i class="ion-ios-plus-outline workout-add-icon" ng-if="item.status != 0"></i>
+      </div>
+    </div>
+  </ion-content>
+
+</ion-modal-view>

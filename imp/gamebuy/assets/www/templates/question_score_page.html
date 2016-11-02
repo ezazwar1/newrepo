@@ -1,0 +1,42 @@
+<ion-view title="{{ata.question_set_name}}">
+    <ion-content class="padding question_page" scroll="true" padding="false">
+        <div class="question-score_wrapper">
+            <div class="question-score_main">
+
+                <div class="question-score_comment-wrapper">
+                    <p class="question-score_comment">{{ data.results.question_set_score_message }}</p>
+                    <img src="{{data.results.question_set_score_pic}}"
+                         class="question-score_comment-img"/>
+                </div>
+
+                <div class="question-score_result-wrapper">
+                    <p class="question-score_result-title">Your Score</p>
+
+                    <p class="question-score_score">
+                        <span class="data_highlight">{{ data.results.question_set_score }}</span>/10<br>
+                    </p>
+                </div>
+
+                <div class="question-score_rank">
+                    {{data.results.question_set_score_rank_message}}
+                </div>
+
+                <div class="question-score_cta">
+                    <div class="question-score_cta-box" ng-click="back_to_postad()">
+                        <i class="question-score_cta-icon ion-ios-arrow-thin-left"></i>
+                        Back to Post Ad
+                    </div>
+                    <div class="question-score_cta-box" ng-click="play_again()">
+                        <i class="question-score_cta-icon ion-ios-refresh-outline"></i>
+                        Play Again
+                    </div>
+                    <div class="question-score_cta-box" ng-click="share_score()">
+                        <i class="question-score_cta-icon ion-ios-upload-outline"></i>
+                        Show off to friends
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

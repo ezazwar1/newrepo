@@ -1,0 +1,23 @@
+	<div class="page-start-fb lang-{{ currentLanguage }}">
+	<div class="container back-art">
+		<button ng-click="closeApp()" class="close-app" ng-if="showCancelButton">
+			<img src="images/ico-close-white.svg">
+		</button>
+		<div class="contents back-slider">
+			<div class="snap-frame frame-a">
+				<!-- <div class="main-logo">
+					<img ng-src="images/start/LOGO_Stayfilm_redondo.svg" class="logo" />
+				</div>
+				<div class="main-heading">
+					<img ng-src="images/start/UPGRADEyourSTORIES.svg" class="upgrade" />
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<div style="position: absolute; top: 10px; color: #1C62AD; width: 100%; font-size: 11px; padding-left: 15px;">
+		v{{ funVersion }}
+	</div>
+	<div class="action-buttons">
+		<button ng-disabled="facebookNotAvailable" ng-click="loginWithFacebook()" ng-class="{'kana-button': true, disabled:facebookNotAvailable}"><span translate>Conectar com Facebook</span><img src="images/kana-new-facebook.png" width="41" height="35"/></button>
+	</div>
+</div>

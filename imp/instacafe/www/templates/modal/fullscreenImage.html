@@ -1,0 +1,16 @@
+<ion-modal-view class="image-modal transparent">
+    <ion-header-bar class="transparent">
+        <button class="button button-clear" ng-click="closeFullscreenImageModal()"><i class="icon ion-close-round"></i></button>
+    </ion-header-bar>
+    <ion-content class="transparent" ng-click="closeFullscreenImageModal()" scroll="false">
+        <img ng-src="{{ photo.standard }}" width="100%" default-src="img/default.png"></div>
+    </ion-content>
+    <ion-footer-bar class="transparent">
+        <div class="item item-avatar item-icon-right" photo-action photo="photo">
+            <img ng-src="{{ photo.account.image }}" default-src="img/default.png" type="account" account-data="{{ photo.account }}">
+            <h2>{{ photo.account.name }}</h2>
+            <p>{{ photo.likes }} likes</p>
+            <i class="icon ion-ios-more"></i>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

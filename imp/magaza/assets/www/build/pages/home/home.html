@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Magaza
+    </ion-title>
+    <ion-buttons right>
+      <button [navPush]="searchPage">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+  <!-- Pull to refresh -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Error Dialog. -->
+  <div class="mg-error-box" *ngIf="didNotLoad">
+    <h1>
+      <ion-icon name="alert"></ion-icon>
+    </h1>
+    <h3 class="bold-weight">Hmmm. Something's not right.</h3>
+    <p>Data didn't load. Try again</p>
+    <pre>
+      {{debugData}}
+    </pre>
+    <button primary (click)="loadFeed()">Reload</button>
+  </div>
+  <!-- End Error Dialog -->
+
+  <!--
+    Custom Component for rendering feed. Refer to
+    app/custom-components/post/post.component.ts
+  -->
+  <app-post
+    *ngFor="let feed of feedData"
+    feedTitle="{{feed.feedTitle}}"
+    feedImage={{feed.feedImage}}
+    feedCategory="{{feed.feedCategory}}"
+    feedPostID = "{{feed.postID}}"
+    (onPostClick)="gotoDetailPost($event)">
+  </app-post>
+
+</ion-content>

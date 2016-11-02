@@ -1,0 +1,31 @@
+<ion-view class="opening-bg" title="Share Permissions" hide-nav-bar="true">
+  <ion-content scroll="false">
+    <div class="connect-container">
+
+      <h3 class="header">
+        We'll need your permission to allow us to share your Throwbacks on Facebook.
+      </h3>
+       <p class="description">
+        If this is something you'd like, tap "OK" on the next popup.
+      </p>
+
+      
+      <div class="share-permissions-container">
+        <div class="logo">
+          <i class="icon ion-social-facebook"></i>
+        </div>
+        <div class="prompt">
+          <p class="text">
+            Throwback would like permission to post to your friends on your behalf.
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </ion-content>
+  <div class="bar bar-footer bar-positive" ng-click="handleAskForSharePermissions()" ng-disabled="isGotItDisabled" ng-model="isGotItDisabled">
+    <div class="title">Got it!</div>
+  </div>  
+</ion-view>

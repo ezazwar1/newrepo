@@ -1,0 +1,27 @@
+<ion-modal-view class="touchpoint popoverr email">
+
+  <ion-content class="filter-popover">
+
+    <div class="box">
+
+      <h1>{{ 'ENTER_EMAIL_ADDRESS' | translate}}</h1>
+
+      <input type="email" placeholder="{{ 'EMAIL' | translate }}" ng-model="originalEmail" name="email" id="updateUserEmail">
+
+      <p ng-if="emailError" class="error">
+        {{emailError}}
+      </p>
+      <div class="clearfix">
+      <button ng-click="closeEmailModal()" class="button-start">
+        {{ 'CANCEL' | translate }}
+      </button>
+      <button ng-click="updateEmail()" class="button-start">
+        {{ 'UPDATE_EMAIL' | translate }}
+      </button>
+      </div>
+
+      <p class="validate-email"><a href="javascript:;" ng-click="resendValidationEmail()" ng-if="!isEmailValidated()">{{ 'RESEND_VALIDATION_EMAIL' | translate }}</a></p>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,88 @@
+<ion-modal-view class="darker-bg">
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{ 'LEADERBOARD.TITLE' | translate }}</h1>
+    <button class="button button-positive button-icon ion-android-close" ng-click="closeFilter()" />
+  </ion-header-bar>
+  <ion-content class="darker-bg bottom-0">
+      <h5 class="dash-header" translate="ACTION.FILTER_BY">Filter By:</h5>
+      <div class="dark-bg" ng-model="filter.rank_unit" wf-icon-toggle-group>
+          <div class="row streak-foot row-no-padding">              
+              <div class="col">
+                <wf-icon-toggle
+                  title="{{ 'UNIT.DISTANCE' | translate }}"
+                  icon="wf-distance-shoe"
+                  key="distance"
+                  ng-model="filter.by.distance">
+                </wf-icon-toggle>
+              </div>
+              <div class="col">
+                <wf-icon-toggle
+                  title="{{ 'UNIT.POINTS' | translate }}"
+                  icon="wf-coins"
+                  key="points"
+                  ng-model="filter.by.points">
+                </wf-icon-toggle>
+              </div>
+          </div>          
+    </div> <!-- filter icon -->
+
+    <h5 class="dash-header" translate="NAV.MY_GROUPS"></h5>
+    <div class="dark-bg">
+        <div class="dark-bg">
+          <div class="row streak-foot padding">
+              <div class="col select-box" ng-if = "userEntities.length">
+                <select placeholder="{{ 'NAV.MY_GROUPS' | translate }}" ng-model="filter.group" name="group">
+                  <option value="" translate="REWARDS.FILTER.NONE" selected>Dont Filter</option>
+                  <option ng-repeat= "entity in userEntities" value="{{entity.id}}" >{{entity.name}}</option>
+                </select>
+              </div>
+              <div class="text-center" ng-if = "!userEntities.length">
+                <div class="bottom-spacer-20">
+                  <span translate="REWARDS.FILTER.NO_GROUPS"></span>
+                </div>
+                <div>
+                  <button class="button button-stable button-block button-empty" translate="ACTION.JOIN" ng-click="goToGroups()"></button>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <h5 class="dash-header" translate="UNIT.PERIOD"></h5>
+    <div class="dark-bg">
+          <div class="row streak-foot padding">
+              <div class="col select-box">
+                <select ng-model="filter.period" ng-init="filter.period = 'week'" name="" id="">
+                  <option value="week" translate="UNIT.THIS_WEEK">This week</option>
+                  <option value="month" translate="UNIT.THIS_MONTH">This month</option>
+                  <option value="year" translate="UNIT.THIS_YEAR">This year</option>
+                  <option value="all" translate="UNIT.ALL">All</option>
+                </select>
+              </div>
+          </div>
+    </div> <!-- Group By -->
+
+    <!--
+    TEMPORARY DISABLED
+    <h5 class="dash-header" translate="ACTION.FILTER_BY_GROUP">Filter By Group:</h5>
+    <div class="dark-bg">
+          <div class="row streak-foot padding">
+              <div class="col select-box">
+                <select ng-model="filter.group" name="" id="">
+                  <option value="all" translate="LEADERBOARD.FILTER_BY.ALL">All</option>
+                  <option value="gym" translate="LEADERBOARD.FILTER_BY.GYM">My Gyms</option>
+                  <option value="friends" translate="LEADERBOARD.FILTER_BY.FRIEND">All Friends</option>
+                  <option value="company" translate="LEADERBOARD.FILTER_BY.COMPANY">My Company</option>
+                  <option value="city" translate="LEADERBOARD.FILTER_BY.CITY">My City</option>
+                </select>
+              </div>
+          </div>
+    </div> <!-- Group By -->
+    <div class="footer-height"></div>
+  </ion-content>
+
+  <ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+    <button ng-click="applyFilters()" class="button button-big-sticky button-full floating-footer-button">{{ 'ACTION.CONFIRM_FILTERS' | translate }}</button>
+  </ion-footer-bar>
+
+</ion-modal-view>

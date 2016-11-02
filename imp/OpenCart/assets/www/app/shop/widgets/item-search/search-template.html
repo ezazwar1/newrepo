@@ -1,0 +1,25 @@
+﻿<div>
+    <filter-box placeholder="Search" filtertext="search" ng-model-options="{debounce: 1000}" change="onSearchKeyDown"></filter-box>
+
+    <ion-list class="recent-items-list">
+        <ion-item ng-repeat="item in items">
+            <item-template item="item"></item-template>
+        </ion-item>
+
+        <div ng-if="!noSearchword && !loadingItems && items.length == 0" class="large-icon-message">
+            <span class="large-app-icon large-app-icon-red">
+                <i class="icon ion-ios-search"></i>
+            </span>
+            <p i18n="shop.errors_search_no_results"></p>
+        </div>
+
+        <div ng-if="noSearchword" class="large-icon-message">
+            <span class="large-app-icon large-app-icon-yellow">
+                <i class="icon ion-ios-search"></i>
+            </span>
+            <p i18n="shop.search_hint"></p>
+        </div>
+
+        <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
+    </ion-list>
+</div>

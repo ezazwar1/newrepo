@@ -1,0 +1,116 @@
+/* line 5, album.scss */
+.album-page .bar.bar-header {
+  background: #efecec;
+}
+/* line 8, album.scss */
+.album-page .bar.bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 14, album.scss */
+.album-page .bar.bar-header .btn-done {
+  font: bold 16px HelveticaNeueLT, sans-serif;
+  color: #9aa7b2;
+  width: auto;
+  height: auto;
+}
+/* line 22, album.scss */
+.album-page .bar.bar-header .btn-back img {
+  height: 22px;
+}
+/* line 28, album.scss */
+.album-page .album-content {
+  top: 155px;
+}
+/* line 32, album.scss */
+.album-page .album-info {
+  font: normal 16px HelveticaNeueLT, sans-serif;
+  position: relative;
+  margin: 10px;
+}
+/* line 37, album.scss */
+.album-page .album-info .title {
+  color: #35434d;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 45, album.scss */
+.album-page .album-info .instruction {
+  color: #9aa7b2;
+  margin-bottom: 10px;
+}
+/* line 50, album.scss */
+.album-page .album-info .btn-select-all {
+  font: normal 16px HelveticaNeueMD, sans-serif;
+  color: #9aa7b2;
+  text-align: left;
+}
+/* line 55, album.scss */
+.album-page .album-info .btn-select-all .select-box {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #9aa7b2;
+  border-radius: 3px;
+}
+/* line 65, album.scss */
+.album-page .album-info .btn-select-all.all-selected .select-box {
+  background-image: url("../images/albummanager/check-green.svg");
+}
+/* line 73, album.scss */
+.album-page .grid-item .grid-item-inner {
+  background-color: #e5e5e5;
+  background-position: center center;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #fff;
+}
+/* line 82, album.scss */
+.album-page .grid-item .status {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+  font-size: 40px;
+  color: #fff;
+  background-color: #12ad60;
+  background-size: cover;
+}
+/* line 94, album.scss */
+.album-page .grid-item .status.selected {
+  background-image: url("../images/albummanager/check-green.svg");
+}
+/* line 100, album.scss */
+.album-page .big-button-footer {
+  height: 60px;
+  padding: 10px 20px 17px;
+  background: #fff;
+  border: 0;
+}
+/* line 106, album.scss */
+.album-page .big-button-footer .make-it {
+  position: relative;
+  background: #12ad60;
+  text-align: center;
+  padding: 12px;
+  color: #fff;
+  font-family: HelveticaNeueBD, sans-serif;
+  font-size: 16px;
+  border-radius: 3px;
+  line-height: 10px;
+}
+/* line 117, album.scss */
+.album-page .big-button-footer .make-it img {
+  height: 35px;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}

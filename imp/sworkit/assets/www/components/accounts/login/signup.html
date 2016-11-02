@@ -1,0 +1,85 @@
+<ion-view class="auth-view auth-outer form-view">
+    <ion-nav-bar class="view-navigation">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> {{'BACK' | translate}}
+        </ion-nav-back-button>
+        <ion-nav-title>
+            <span>{{'CREATE_ACCT' | translate}}</span>
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-content class="">
+        <ion-spinner ng-if="data.loading" class="spinner-on-load"></ion-spinner>
+        <div class="row form-wrapper">
+            <div class="col social-options">
+                <a class="google-sign-in button button-block icon-left ion-social-google" ng-click="googleSignUp()">
+                    <span class="btn-copy">{{'SIGNINGOOGLE' | translate}}</span>
+                </a>
+                <a class="facebook-sign-in button button-block icon-left ion-social-facebook"
+                   ng-click="facebookSignUp()">
+                    <span class="btn-copy">{{'SIGNINFACEBOOK' | translate}}</span>
+                </a>
+                <form name="signUpForm" novalidate ng-submit="signupEmail(signUpForm)">
+                    <div class="form-fields-outer list list-inset">
+                        <label class="item item-input">
+                            <input type="email" placeholder="{{'EMAILADD' | translate}}" name="email"
+                                   ng-model="user.email" required>
+                        </label>
+                        <label class="item item-input" show-hide-container>
+                            <input type="password" placeholder="{{'PASSWORDPLACE' | translate}}" name="password"
+                                   ng-model="user.password" ng-minlength="8" required show-hide-input>
+                        </label>
+                        <label class="item item-input split-view-input">
+                            <input type="text" placeholder="{{'FIRSTNAME' | translate}}" name="firstName"
+                                   ng-model="user.firstName" required>
+                        </label>
+                        <label class="item item-input split-view-input last-name">
+                            <input type="text" placeholder="{{'LASTNAME' | translate}}" name="lastName"
+                                   ng-model="user.lastName" required>
+                        </label>
+                        <li class="item item-checkbox email-preference item-text-wrap">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="user.emailPreference">
+                            </label>
+                            {{'RECEIVEEMAILS' | translate}}
+                        </li>
+                    </div>
+                    <p ng-if="error" class="message error"> {{error}}</p>
+                    <div class="error-container"
+                         ng-if="(signUpForm.password.$invalid || emailForm.password.$error.minlength || signUpForm.email.$invalid || signUpForm.firstName.$invalid || signUpForm.lastName.$invalid) && signUpForm.submitted">
+                        <small class="message error"
+                               ng-if="signUpForm.email.$error.required">
+                            {{'EMAILADDREQ' | translate}}
+                        </small>
+                        <small class="message error"
+                               ng-if="signUpForm.password.$error.minlength">
+                            {{'PASSMUST' | translate}}
+                        </small>
+                        <small class="message error"
+                               ng-if="signUpForm.firstName.$error.required">
+                            {{'FIRSTREQ' | translate}}
+                        </small>
+                        <small class="message error"
+                               ng-if="signUpForm.lastName.$error.required">
+                            {{'LASTREQ' | translate}}
+                        </small>
+                    </div>
+                    <button type="submit" class="sign-up button button-block"
+                            ng-class="{'pseudo-disabled':signUpForm.$invalid}">
+                        {{'SUBMIT' | translate}}
+                    </button>
+                    <div class="alternative-action">
+                        <a class="" ui-sref="app.login">
+                            {{'HAVEACCOUNT' | translate}} <span>{{'LOGIN' | translate}}</span>
+                        </a>
+                    </div>
+                    <div class="alternative-action" ng-if="authUnavailable">
+                        <a class="" ui-sref="app.home">
+                            {{'NOTYET' | translate}}, <span>{{'SKIP' | translate}}</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <section ng-include="'components/accounts/login/partials/legal-notice.html'"></section>
+    </ion-content>
+</ion-view>

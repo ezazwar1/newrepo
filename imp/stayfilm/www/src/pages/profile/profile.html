@@ -1,0 +1,56 @@
+<div class="page-profile page">
+	<div class="profile-header bar-retractile bar-retractile-up">
+
+		<div class="secondary-header">
+			<div class="user-info">
+				<div class="user-thumb">
+					<img ng-src="{{ user.photo }}" src="images/default-profile-photo.png">
+				</div>
+
+				<div class="info">
+					<h3>{{ user.fullName }}</h3>
+					<div ng-click="editProfile()" class="edit-box">
+						<span class="edit" translate>editar <span>perfil</span></span>
+						<span class="location">{{ user.city }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="title-tabs" ng-class="{
+				'like-active': 
+					currentState === 'main.home.profile.like', 
+
+				'pending-active': 
+					currentState === 'main.home.profile.pending',
+
+				'movie-active': 
+					currentState === 'main.home.profile.movie'
+			}">
+				<div class="cursor"></div>
+				<a class="text-center my-films" ng-click="goTo('main.home.profile.movie')">
+					<div>
+						<span>{{ user.movieCount || 0 }}</span><br>
+						<strong translate>meus filmes</strong>
+					</div>
+				</a>
+				<a class="text-center yes" ng-click="goTo('main.home.profile.like')">
+
+					<div class="crown"></div>
+					<div>
+						<span>{{ user.likeCount }}</span><br>
+						<strong>YES!</strong>
+					</div>
+				</a>
+				<a class="text-center pending"  ng-click="goTo('main.home.profile.pending')">
+					<div>
+						<span>{{ user.countPendingMovies || 0 }}</span><br>
+						<strong translate>pendentes</strong>
+					</div>
+				</a>
+			</div>
+		</div>
+
+	</div>
+
+	<ui-view class="main-home-profile"></ui-view>
+
+</div>

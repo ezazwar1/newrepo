@@ -1,0 +1,176 @@
+/* line 4, mediaStep.scss */
+.fbmessenger-mediastep .bar.bar-header {
+  background: #efecec;
+  height: 50px !important;
+}
+/* line 8, mediaStep.scss */
+.fbmessenger-mediastep .bar.bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 14, mediaStep.scss */
+.fbmessenger-mediastep .bar.bar-header button.button {
+  color: #63c199;
+  width: auto;
+  line-height: 50px;
+  top: 0;
+  padding: 0 20px;
+  font-family: HelveticaNeueMD, sans-serif;
+}
+/* line 22, mediaStep.scss */
+.fbmessenger-mediastep .bar.bar-header button.button.btn-back {
+  margin-top: 4px;
+}
+/* line 25, mediaStep.scss */
+.fbmessenger-mediastep .bar.bar-header button.button.btn-back img {
+  height: 22px;
+}
+/* line 32, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container {
+  top: 50px;
+  background: #fff;
+}
+/* line 36, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .cf-wrapper {
+  padding: 20px;
+}
+/* line 39, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .cf-wrapper .doc {
+  font-weight: normal;
+  font-family: HelveticaNeueLT, sans-serif;
+  color: #98a6b1;
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+/* line 48, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .cf-wrapper .btn-refresh {
+  text-align: center;
+  width: auto;
+  float: right;
+  color: #98a6b1;
+  width: 40%;
+}
+/* line 58, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .zero-album {
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 63, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: flex-start;
+  -moz-align-content: flex-start;
+  align-content: flex-start;
+  -ms-flex-line-pack: start;
+  background: #efecec;
+  height: 100%;
+}
+/* line 72, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .album-list-item {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 100px;
+  -moz-flex: 0 0 100px;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  margin: 20px 20px 50px 20px;
+}
+/* line 79, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .btn-refresh {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background-image: url("../images/album_Refresh.png");
+  background-size: cover;
+}
+/* line 87, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .album-cover {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 100px;
+  -moz-flex: 0 0 100px;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  border: 3px double #ccd3d8;
+  border-width: 0 0 3px 3px;
+}
+/* line 94, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .album-cover .frame {
+  position: relative;
+  top: -1px;
+  left: 1px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 3px;
+  border: 1px solid #ccd3d8;
+}
+/* line 104, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .album-cover .frame .cover-image {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: padding-box;
+  background-clip: padding-box;
+}
+/* line 116, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .album-cover .frame .selected-medias {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 35px;
+  height: 35px;
+  background: #12ad60;
+  color: #fff;
+  text-align: center;
+  line-height: 3;
+  font-family: sans-serif;
+  font-size: 12px;
+  border-radius: 5px;
+}
+/* line 132, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .album-cover .media-count {
+  margin-top: 10px;
+}
+/* line 136, mediaStep.scss */
+.fbmessenger-mediastep .album-list-container .album-list .album-cover .media-count, .fbmessenger-mediastep .album-list-container .album-list .album-cover .album-name {
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+  color: #335771;
+}

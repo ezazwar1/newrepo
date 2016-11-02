@@ -1,0 +1,106 @@
+/* line 5, acceptTerms.scss */
+.modal-accept-terms .big-button-footer {
+  padding: 10px 20px 17px;
+  background: #fff;
+  border: 0;
+}
+/* line 11, acceptTerms.scss */
+.modal-accept-terms .big-button-footer .agree {
+  background: #12ad60;
+}
+/* line 16, acceptTerms.scss */
+.modal-accept-terms .pre-loader {
+  text-align: center;
+}
+/* line 20, acceptTerms.scss */
+.modal-accept-terms .white-close-bar {
+  background: #fff;
+}
+/* line 23, acceptTerms.scss */
+.modal-accept-terms .white-close-bar .button-clear {
+  margin-left: auto;
+}
+/* line 25, acceptTerms.scss */
+.modal-accept-terms .white-close-bar .button-clear img {
+  height: 20px;
+}
+/* line 31, acceptTerms.scss */
+.modal-accept-terms .main-instruction {
+  font-size: 16px;
+  color: #666;
+  margin: 20px;
+}
+/* line 37, acceptTerms.scss */
+.modal-accept-terms .accept-terms {
+  margin: 20px;
+}
+/* line 40, acceptTerms.scss */
+.modal-accept-terms .accept-terms .vertical-center {
+  display: table;
+  height: 44px;
+}
+/* line 44, acceptTerms.scss */
+.modal-accept-terms .accept-terms .vertical-center p {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  white-space: normal;
+}
+/* line 53, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle {
+  width: 100%;
+  background: #dedcdf;
+  border-radius: 5px;
+  margin: 0 0 10px;
+  padding: 0 20px 0 80px;
+  min-height: 45px;
+  float: left;
+  white-space: normal;
+  font-size: 14px;
+  pointer-events: auto;
+}
+/* line 65, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle a {
+  color: #ad252a;
+  text-decoration: none;
+}
+/* line 70, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle:nth-child(even) {
+  float: right;
+}
+/* line 74, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle.disabled {
+  opacity: 0.2;
+}
+/* line 78, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle label.toggle {
+  right: auto;
+  left: 6px;
+  top: 6px;
+}
+/* line 84, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle label.toggle input + .track {
+  background: #fff;
+  border-color: #fff;
+}
+/* line 88, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle label.toggle input + .track .handle {
+  background: #dedcdf;
+}
+/* line 95, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle label.toggle input:checked + .track {
+  background: #12ad60;
+  border-color: #12ad60;
+}
+/* line 99, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle label.toggle input:checked + .track .handle {
+  background: #fff;
+}
+/* line 106, acceptTerms.scss */
+.modal-accept-terms .accept-terms .terms-toggle .network-icon {
+  position: absolute;
+  height: 100%;
+  right: -1px;
+  top: 0;
+}

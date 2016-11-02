@@ -1,0 +1,21 @@
+﻿<div class="padding text-center" ng-if="sent" i18n="info.contact_success"></div>
+
+<div class="list list-inset">
+    <form name="contactForm" ng-submit="postContactData()">
+        <label class="item item-input">
+            <input type="text" data-i18n-attr="{placeholder: 'info.contact_name'}" name="name" ng-model="contact.name" required>
+        </label>
+        <label class="item item-input">
+            <input type="email" data-i18n-attr="{placeholder: 'info.contact_email'}" name="email" ng-model="contact.email" required>
+        </label>
+        <label class="item item-input">
+            <textarea data-i18n-attr="{placeholder: 'info.contact_enquiry'}" ng-model="contact.enquiry" required></textarea>
+        </label>
+        <div class="text-center">
+            <button type="submit" id="send_button" class="button button-block button-positive" ng-class="{'button-outline' : contactForm.$invalid}" ng-disabled="contactForm.$invalid" i18n="info.contact_send_button"></button>
+        </div>
+        <a class="button button-block button-positive" href="mailto:{{email}}">{{email}}</a>
+        <a class="button button-block button-positive" href="tel:{{phone}}">{{phone}}</a>
+    </form>
+</div>
+

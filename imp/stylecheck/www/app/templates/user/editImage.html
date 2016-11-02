@@ -1,0 +1,16 @@
+<ion-view>
+    <ion-content >
+        <h2 class="padding-left padding-top no-margin">{{dict.profileImage}}</h2>
+        <p class="padding-left padding-right">{{dict.profileImageHint}}</p>
+        <div class="crop-area" ng-style="{'height': cropAreaHeight + 'px'}">
+            <img-crop image="image.original" result-image="image.cropped"></img-crop>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light">
+        <div class="row">
+            <div class="col">
+                <button class="button button-block button-outline button-assertive" ng-click="doUpload()">{{dict.resume}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

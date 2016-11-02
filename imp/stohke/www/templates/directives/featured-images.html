@@ -1,0 +1,26 @@
+<simple-slider class="carousel">
+    <div class="simple-slider-inner" style="webkit-transform: translate3d(0,0,0);">
+        <div class="collection" ng-repeat="image in userMedia.images track by $index">
+            <a data-ui-sref="app.explore.user.media({alias: image.UserId, mediaType: image.Type, mediaId: image.Id})" >
+                <div class="media-wrapper">
+                    <div class="hotspots" ng-controller="hotspotsController" ng-if="($index === (currentPage - 1)) && image.HotSpots.length">
+                            <div class="image-info">
+                                <button class="button button-icon" ng-class="{true:'ion-ios-information', false: 'ion-ios-information-outline'}[hotspotsVisible]" ng-click="toggleHotspots()"></button>
+                            </div>
+                            <hotspot ng-repeat="hotspot in image.HotSpots" data="hotspot" class="hotspot" ng-show="hotspotsVisible"></hotspot>
+                        </div>
+                    <div class="collection-banner-img featured-image" style="background-image: url({{image.ImageUrl768X432}})">
+                    </div>
+                </div>
+                <div class="details">
+                    <user-profile data-user-id="{{image.userDetails.Alias}}" data-format="small" data-user-type="{{image.userDetails.Type}}"></user-profile>
+                    <div class="details-stohked">
+                        <stohke-button data-media-owner="image.UserId + '_' + image.Id" data-media-type="image.Type">
+                        </stohke-button>
+                        <stohke-count data-media-owner="image.UserId + '_' + image.Id" data-media-type="image.Type" data-counter-only="true"></stohke-count>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</simple-slider>

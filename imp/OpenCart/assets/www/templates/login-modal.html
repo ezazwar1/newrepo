@@ -1,0 +1,43 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title" ng-if="!userLoggedIn()" i18n="modals.login_title_guest"></h1>
+        <h1 class="title" ng-if="userLoggedIn()" i18n="modals.login_title_user"></h1>
+
+        <button class="button button-clear button-positive" ng-click="closeLoginModal();" i18n="modals.button_close"></button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list list-inset" ng-if="!userLoggedIn()">
+            <form name="loginForm" ng-submit="postLoginData()">
+                <label class="item item-input">
+                    <input type="email" data-i18n-attr="{placeholder: 'modals.login_email'}" name="email" ng-model="login.email" required>
+                </label>
+                <label class="item item-input">
+                    <input type="password" data-i18n-attr="{placeholder: 'modals.login_password'}" name="password" ng-model="login.password" required>
+                </label>
+                <div class="text-center">
+                    <button type="submit" id="login_button" class="button button-block button-positive" ng-class="{'button-outline' : loginForm.$invalid}" ng-disabled="loginForm.$invalid" i18n="modals.button_log_in"></button>
+                    <b ng-click="openForgotPassword()" i18n="modals.button_forgot_pass"></b>
+                </div>
+            </form>
+
+            <div class="text-center">
+                <div i18n="modals.login_modal_not_a_customer"></div>
+                <p i18n="modals.not_signup_modal_desc"></p>
+                <a class="button button-outline button-balanced button-block" ng-click="openRegisterModal()" i18n="modals.button_create_account"></a>
+                <a class="button button-outline button-assertive button-block" ng-click="closeLoginModal()" ui-sref="app.main.auth.home({back:currentState()})">Connect with Existing Account</a>
+            </div>
+        </div>
+
+
+        <div class="large-icon-message" ng-if="userLoggedIn()">
+            <span class="large-app-icon large-app-icon-yellow">
+                <i class="icon ion-ios-lightbulb-outline"></i>
+            </span>
+            <p i18n="modals.login_greeting" data-firstname="{{userObject().firstname}}"></p>
+            <p>
+                <button class="button button-calm button-small" ng-click="logout()" i18n="modals.button_log_out"></button>
+            </p>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

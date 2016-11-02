@@ -1,0 +1,19 @@
+<ion-navbar *navbar dark>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Caetano</ion-title>
+</ion-navbar>
+
+<ion-content>
+  <ion-card *ngFor="#item of categories" text-center (click)="itemTapped($event, item.id)" [ngStyle]="{'background': 'url(' + item.cover + ')'}">
+    <ion-card-content>
+      <h1 class="card-title">
+        {{item.name}}
+      </h1>
+      <p>
+        {{item.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

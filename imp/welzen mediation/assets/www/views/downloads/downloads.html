@@ -1,0 +1,24 @@
+<ion-view class="bg-welzen downloads" view-title="Downloads">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Download Manager</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+    <ion-content has-bouncing="true">
+      <div class="container">
+        <div class="course" ng-repeat="download in downloads">
+          <div class="info-box--clear--downloads-style">
+            <span class="info-box__title">{{download.title}}</span>
+            <div ng-class="{'delete-all' : download.delete, close : !download.delete}" ng-click="deleteAll(download, $index)"></div>
+          </div>
+          <div class="info-box--transparent--medium-padding" ng-repeat="course in download.courses">
+            <div class="info-box__contents--downloads-style">
+              <span class="info-box__subtitle">{{course.name}}</span>
+              <span class="info-box__brief">&nbsp;- {{course.time}} Min.</span>
+            </div>
+            <div class="right" ng-class="{close : !course.delete, delete : course.delete}" ng-click="deleteOne(download.courses, $index)"></div>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,145 @@
+/* line 5, gallery.scss */
+.page-gallery .scroll {
+  padding-top: 120px;
+}
+/* line 9, gallery.scss */
+.page-gallery .scroll-refresher {
+  top: 50px;
+}
+/* line 13, gallery.scss */
+.page-gallery .bar-header {
+  border: 0;
+  z-index: 10;
+}
+/* line 18, gallery.scss */
+.page-gallery .bar-header .button {
+  margin-top: 30px !important;
+}
+/* line 22, gallery.scss */
+.page-gallery .bar-header .title {
+  height: 109px;
+  padding-top: 20px;
+  opacity: 0.8;
+  line-height: 30px;
+}
+/* line 28, gallery.scss */
+.page-gallery .bar-header .title img {
+  width: 200px;
+}
+/* line 32, gallery.scss */
+.page-gallery .bar-header .title .spots {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+/* line 36, gallery.scss */
+.page-gallery .bar-header .title .spots b {
+  display: block;
+  border: 1px solid #a7a6a9;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 13px;
+}
+/* line 44, gallery.scss */
+.page-gallery .bar-header .title .spots b.active {
+  background: #a7a6a9;
+}
+/* line 54, gallery.scss */
+.page-gallery .page-gallery-bestof .bar-header {
+  background: #171717 url("../images/gallery/gallery-header-bestof-bg.jpg") center center;
+  background-size: cover;
+  height: 109px !important;
+}
+/* line 60, gallery.scss */
+.page-gallery .page-gallery-bestof ion-content {
+  background: #171717;
+}
+/* line 66, gallery.scss */
+.page-gallery .page-gallery-latest .bar-header {
+  background: #fff;
+  height: 109px !important;
+}
+/* line 74, gallery.scss */
+.page-gallery .page-gallery-genres .bar-header {
+  background: white;
+  height: 109px !important;
+}
+/* line 79, gallery.scss */
+.page-gallery .page-gallery-genres .item-genre {
+  position: relative;
+  display: block;
+  border: 0;
+}
+/* line 84, gallery.scss */
+.page-gallery .page-gallery-genres .item-genre img {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+/* line 90, gallery.scss */
+.page-gallery .page-gallery-genres .item-genre .genre-name {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  margin: auto;
+  top: 40%;
+  left: 30%;
+  font-size: 6vmin;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}
+/* line 106, gallery.scss */
+.page-gallery .page-gallery-genre .sf-retract-up {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+/* line 110, gallery.scss */
+.page-gallery .page-gallery-genre .scroll {
+  padding-top: 25%;
+}
+/* line 114, gallery.scss */
+.page-gallery .page-gallery-genre .scroll-refresher {
+  top: 0;
+  padding-top: 20%;
+}
+/* line 119, gallery.scss */
+.page-gallery .page-gallery-genre .bar-header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: auto;
+  display: block;
+  padding: 0;
+}
+/* line 127, gallery.scss */
+.page-gallery .page-gallery-genre .bar-header img {
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+/* line 134, gallery.scss */
+.page-gallery .page-gallery-genre .bar-header button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 44px;
+  width: 44px;
+}

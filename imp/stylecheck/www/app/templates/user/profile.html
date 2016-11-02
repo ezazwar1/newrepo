@@ -1,0 +1,130 @@
+<ion-view>
+    <ion-content class="profile" delegate-handle="mainScroll" ng-init="active = 1">
+        <div ng-if="!userLoaded" class="padding">
+            <ion-spinner icon="crescent" class="spinner-assertive center"></ion-spinner>
+        </div>
+        <div ng-if="userLoaded">
+            <div class="row padding details align-center">
+                <div class="col thumbnail-container">
+                    <div ng-if="currentUser && avatar" class="circle thumbnail grayscale imageonload hide-image" imageonload image-src="{{avatar}}" ng-style="{'background-image':'url(' + avatar + ')'}"></div>
+                    <div ng-if="currentUser && !avatar" class="circle thumbnail"></div>
+                </div>
+                <div class="col display-flex align-center uppercase" ng-class="{'profil-data-small': screen.width < 350 && (currentUser.username.length > 10 || currentUser.location.length > 10)}">
+                    <div class="username">
+                        <span class="bold truncate">{{currentUser.username}}</span>
+                        <span class="truncate">{{currentUser.location}}</span>
+                    </div>
+                    <div class="level">
+                        <span class="truncate">{{currentUser.level.name}}</span>
+                        <span class="stable">{{dict.level}}</span>
+                    </div>
+                    <div class="detail-buttons">
+                        <div ng-if="userLoaded && currentUser">
+                            <button class="button button-clear button-dark icon icon-edit" ng-if="loggedInUser" ng-click="goTo('editProfile')"></button>
+                            <button class="button button-clear icon" ng-class="followButtonStyle" ng-if="!loggedInUser" ng-click="toggleFavorites()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="currentUser.info" class="row info-text">
+                <div class="col"><p class="text-center">{{currentUser.info}}</p></div>
+            </div>
+            <div class="row profile-buttons text-center stable uppercase">
+                <div class="col" ng-click="slide.active = 1; showSlide(0)" ng-class="{active: slide.active === 1}">
+                    <div>
+                        <span class="bold">{{myStyles.pager.count}}</span><br>
+                        <span class="label" ng-if="loggedInUser">{{dict.myStyles}}</span>
+                        <span class="label" ng-if="!loggedInUser">{{dict.styles}}</span>
+                    </div>
+                </div>
+                <div class="col border-dark-left" ng-click="slide.active = 2; showSlide(1)" ng-class="{active: slide.active === 2}">
+                    <div>
+                        <span class="bold">{{favoritesCount}}</span><br>
+                        <span class="label">{{dict.followI}}</span>
+                    </div>
+                </div>
+                <div class="col border-dark-left" ng-click="slide.active = 3; showSlide(2)" ng-class="{active: slide.active === 3}">
+                    <div>
+                        <span class="bold">{{followersCount}}</span><br>
+                        <span class="label">{{dict.follower}}</span>
+                    </div>
+                </div>
+            </div>
+            <ion-slide-box auto-play="false" show-pager="false" on-slide-changed="setActive($index)">
+                <ion-slide>
+                    <ion-scroll delegate-handle="styleScroller" ng-style="{'height': getRestHeight('styleScroller')}">
+                        <ion-list class="style-list">
+                            <ion-item class="style" ng-click="showDetail(style._id)" collection-repeat="style in myStyles.entries track by style._id" ng-class="{'border': ($index % 2) === 0}" item-height="sizes.styleContainer.height" item-width="sizes.styleContainer.width">
+                                <div class="image imageonload hide-image" imageonload image-src="{{style.imagePath}}" ng-if="style.imagePath" style="background-image: url({{style.imagePath}});"></div>
+                            </ion-item>
+                        </ion-list>
+                        <ion-infinite-scroll
+                                on-infinite="loadStyles()"
+                                ng-if="entered && (currentUser && (!myStyles.pager.page || myStyles.pager.page < myStyles.pager.pages))"
+                                distance="1%"
+                                spinner="crescent">
+                        </ion-infinite-scroll>
+                    </ion-scroll>
+                </ion-slide>
+                <ion-slide>
+                    <ion-scroll delegate-handle="favoriteScroller" ng-style="{'height': getRestHeight('favoriteScroller')}">
+                        <ion-list ng-show="favoriteUsers.entries.length" class="list user-list margin-top">
+                            <ion-item class="item display-flex align-center uppercase" collection-repeat="user in favoriteUsers.entries" item-height="76px" item-width="100%" ng-click="goToUser(user._id)">
+                                <div class="item-content-wrapper flex-1 display-flex align-center" ng-class="{'no-border': $last}">
+                                    <div class="circle thumbnail grayscale" ng-if="user.avatarPath" ng-style="{'background-image':'url(' + user.avatarPath + ')'}"></div>
+                                    <div class="circle thumbnail" ng-if="!user.avatarPath"></div>
+                                    <div class="flex-1">
+                                        <span class="bold truncate full-width">{{user.username}}</span>
+                                        <span class="small truncate">{{user.location}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="level bold truncate">{{user.level.name}}</span>
+                                        <span class="stable small">{{dict.level}}</span>
+                                    </div>
+                                    <button ng-if="!user.isMe" class="button button-clear icon" ng-class="{'button-stable icon-follow-me': !user.isFav, 'button-assertive icon-follow': user.isFav}" ng-click="setFavorite(user, $index, $event)"></button>
+                                    <div ng-if="user.isMe" class="button-placeholder"></div>
+                                </div>
+                            </ion-item>
+                        </ion-list>
+                        <div></div>
+                        <ion-infinite-scroll
+                                on-infinite="loadMoreFavorites(currentUser._id, favoriteUsers.pager)"
+                                ng-if="entered && (!favoriteUsers.currentUser._id && pager.page || favoriteUsers.pager.page < favoriteUsers.pager.pages)"
+                                distance="1%"
+                                spinner="crescent">
+                        </ion-infinite-scroll>
+                    </ion-scroll>
+                </ion-slide>
+                <ion-slide>
+                    <ion-scroll delegate-handle="followerScroller" ng-style="{'height': getRestHeight('followerScroller')}">
+                        <ion-list ng-show="followers.entries.length" class="list user-list margin-top">
+                            <ion-item class="item display-flex align-center uppercase" collection-repeat="follower in followers.entries" item-height="76px" item-width="100%" ng-click="goToUser(follower._id)">
+                                <div class="item-content-wrapper flex-1 display-flex align-center" ng-class="{'no-border': $last}">
+                                    <div class="circle thumbnail grayscale" ng-if="follower.avatarPath" ng-style="{'background-image':'url(' + follower.avatarPath + ')'}"></div>
+                                    <div class="circle thumbnail" ng-if="!follower.avatarPath"></div>
+                                    <div class="flex-1">
+                                        <span class="bold truncate full-width">{{follower.username}}</span>
+                                        <span class="small truncate">{{follower.location}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="level bold truncate">{{follower.level.name}}</span>
+                                        <span class="stable small">{{dict.level}}</span>
+                                    </div>
+                                    <button ng-if="!follower.isMe" class="button button-clear icon" ng-class="{'button-stable icon-follow-me': !follower.isFav, 'button-assertive icon-follow': follower.isFav}" ng-click="setFavorite(follower, $index, $event, true)"></button>
+                                    <div ng-if="follower.isMe" class="button-placeholder"></div>
+                                </div>
+                            </ion-item>
+                        </ion-list>
+                        <div></div>
+                        <ion-infinite-scroll
+                                on-infinite="loadMoreFollowers()"
+                                ng-if="entered && (currentUser && (!followers.pager.page || followers.pager.page < followers.pager.pages))"
+                                distance="1%"
+                                spinner="crescent">
+                        </ion-infinite-scroll>
+                    </ion-scroll>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

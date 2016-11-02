@@ -1,0 +1,132 @@
+<ion-view title="{{'MYSWORKIT' | translate}}" cache-view="false" class="profile-view" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-and-drawer-toggle class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button-icon icon ion-arrow-graph-up-right edit-profile mixer-button"
+                ng-click="showProgress()"></button>
+        <button class="button-icon icon ion-edit mixer-button edit-profile" ng-click="showEditProfile()"></button>
+    </ion-nav-buttons>
+    <ion-content class="width-control full-length">
+        <ion-refresher
+                on-refresh="refreshData()">
+        </ion-refresher>
+        <div class="row profile-header">
+            <div class="app-copy col col-center centered">
+                <div class="profile-image" ng-click="showEditProfile()">
+                    <img ng-if="user.photo" ng-src="{{user.photo}}"/>
+                    <div ng-if="!user.photo" class="add-photo-outer fill-height-or-more">
+                        <i class="icon ion-camera flex-column flex-justify-center flex-align-center"></i>
+                    </div>
+                </div>
+                <h4 ng-if="authData" class="welcome-message"><p>{{user.firstName}} {{user.lastName}}</p></h4>
+                <p class="account-type uppercase">
+                    <span ng-if="isLegacyPro">Legacy Pro</span>
+                    <span ng-if="isLegacyPro && isActiveSubscription"> | </span>
+                    <span ng-if="isActiveSubscription">{{'PREMIUM' | translate}}</span>
+                    <span ng-if="!isLegacyPro && !isActiveSubscription && userSettings.preferredLanguage === 'EN'">{{'BASIC' | translate}}</span>
+                </p>
+            </div>
+        </div>
+        <div class="profile-stats">
+            <div class="button-bar stats-selector">
+                <a class="button button-small button-outline"
+                   ng-repeat="button in listOptions"
+                   ng-click="optionSelected.listType = button.value;setDisplayedStats(button.value)"
+                   ng-class="{'active' : button.value === optionSelected.listType}"
+                >{{button.text | translate}}</a>
+            </div>
+            <div class="list">
+                <div class="item item-text-wrap">
+                    <div class="category-label">
+                        <h2>{{'AVGDURATION' | translate}}</h2>
+                    </div>
+                    <div class="category-stats">
+                        <h3>{{displayStats.totalSessions !== 0 ? displayStats.averageDuration : '-'}}</h3>
+                        <h4>{{'MINUTES_SM' | translate}}</h4>
+                    </div>
+                </div>
+                <div class="item item-text-wrap">
+                    <div class="category-label">
+                        <h2>{{'TOTALSESSIONS' | translate}}</h2>
+                    </div>
+                    <div class="category-stats">
+                        <h3>{{displayStats.totalSessions !== 0 ? displayStats.totalSessions : '-'}}</h3>
+                        <h4>{{'SESSIONS_SM' | translate}}</h4>
+                    </div>
+                </div>
+                <div class="item item-text-wrap">
+                    <div class="category-label">
+                        <h2>{{'TOTALTIMESWORK' | translate}}</h2>
+                    </div>
+                    <div class="category-stats">
+                        <h3>{{displayStats.totalSessions !== 0 ? displayStats.totalMinutes : '-'}}</h3>
+                        <h4>{{'MINUTES_SM' | translate}}</h4>
+                    </div>
+                </div>
+                <div class="item item-text-wrap">
+                    <div class="category-label">
+                        <h2>{{'TOTALCALSBURN' | translate}}</h2>
+                    </div>
+                    <div class="category-stats">
+                        <h3>{{displayStats.totalSessions !== 0 ? displayStats.totalCalories : '-'}}</h3>
+                        <h4>{{'CALORIES_SM' | translate}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row medals-board">
+                <div class="col gold">
+                    <i class="icon ion-ribbon-a" ng-class="{'no-medals': displayStats.goldCount == 0}"></i>
+                    <h2 ng-if="displayStats.goldCount > 0">{{displayStats.goldCount}}</h2>
+                    <p>{{goldStatus}}+ {{'MINS_SM' | translate}}</p>
+                </div>
+                <div class="col silver">
+                    <i class="icon ion-ribbon-a" ng-class="{'no-medals': displayStats.silverCount == 0}"></i>
+                    <h2 ng-if="displayStats.silverCount > 0">{{displayStats.silverCount}}</h2>
+                    <p>{{silverStatus}} {{'MINS_SM' | translate}}</p>
+                </div>
+                <div class="col bronze">
+                    <i class="icon ion-ribbon-a" ng-class="{'no-medals': displayStats.bronzeCount == 0}"></i>
+                    <h2 ng-if="displayStats.bronzeCount > 0">{{displayStats.bronzeCount}}</h2>
+                    <p>{{bronzeStatus}} {{'MINS_SM' | translate}}</p>
+                </div>
+            </div>
+            <div class="row streak-board">
+                <p class="current-streak">
+          <span ng-if="streakCount">
+            <span class="lead">{{'CURSTREAK' | translate}}:</span><span class="streak-total"> {{streakCount}} {{streakCount === 1 ? 'WEEK' : 'WEEKS' | translate}}</span> {{'INAROW' | translate}}
+          </span>
+                    <span ng-if="!streakCount">{{'STARTSTREAK' | translate}}</span>
+                </p>
+            </div>
+        </div>
+        <div class="recent-workout-section">
+            <div class="row-header" ng-if="personalStats.workoutsTotal !== 0">
+                <p>{{'RECENTWORK' | translate}}</p>
+            </div>
+            <ion-scroll direction="x" id="recent-workouts" ng-if="personalStats.workoutsTotal !== 0" style="width:100%">
+                <div style="width:{{(recentWorkouts.length * 170) + 190}}px">
+                    <div class="recent-workout" ng-repeat="dayLog in recentWorkouts"
+                         style="background-image:url('img/{{dayLog.background}}');"
+                         ui-sref="{{dayLog.goToLocation}}">
+                        <div class="recent-inside">
+                            <div class="recent-type"><p>{{dayLog.typeName | translate}}</p></div>
+                            <div class="recent-mins"><p>{{dayLog.minutes_completed}} {{'MINUTES_SM' | translate}}</p>
+                            </div>
+                            <div class="recent-cals"><p>{{dayLog.calories}} {{'CALORIES_SM' | translate}}</p></div>
+                        </div>
+                        <div class="recent-date"><p><i class="icon ion-clock"></i> {{dayLog.created_on}}</p></div>
+                    </div>
+                    <div ui-sref="app.log" class="recent-workout"
+                         style="background-image:url('img/strength-color.jpg');">
+                        <div class="recent-inside">
+                            <div class="recent-type"><p style="font-weight:400">{{'VIEWMORE' | translate}}</p></div>
+                        </div>
+                        <div class="recent-date"><p>{{statsTotal.totalSessions !== 0 ? statsTotal.totalSessions : '-'}}
+                            {{'SESSIONS_SM' | translate}}</p></div>
+                    </div>
+                </div>
+            </ion-scroll>
+        </div>
+    </ion-content>
+</ion-view>

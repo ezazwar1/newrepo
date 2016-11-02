@@ -1,0 +1,58 @@
+ /*
+Image Config
+*/
+.gallery {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+ .image-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.image-center-other{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: auto;
+}
+
+.image-resize-mygame{
+	width: 10px;
+	height: 10px;
+}
+.table {
+    display:table;
+    width:100%;
+}
+.tr {
+    display:table-row;
+}
+.c1 {
+    display:table-cell;
+    width:70%;
+}
+.c2 {
+    display:table-cell;
+    text-align:right;
+    width:15%;
+
+}
+.c3 {
+    display:table-cell;
+    text-align:right;
+    width:15%;
+}
+
+[ng\:cloak], 
+[ng-cloak], 
+[data-ng-cloak], 
+[x-ng-cloak], 
+.ng-cloak, 
+.x-ng-cloak {
+  display: none !important;
+}
+

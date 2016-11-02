@@ -1,0 +1,15 @@
+<ion-view title="{{ 'CHALLENGE.TITLE' | translate }}">
+    <ion-tabs class="tabs-positive tabs-top tabs-striped tabs-background-dark">
+        <!-- <ion-tab title="{{ 'CHALLENGE.FEATURED' | translate }}" ui-sref="app.challenges.featured">
+            <ion-nav-view name="challenges-featured"></ion-nav-view>
+        </ion-tab> -->
+
+        <ion-tab title="{{ 'UNIT.MINE' | translate }}" ui-sref="app.challenges.mine">
+            <ion-nav-view name="challenges-mine"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="{{ 'UNIT.ALL' | translate }}" ui-sref="app.challenges.all">
+            <ion-nav-view name="challenges-all"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

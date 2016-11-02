@@ -1,0 +1,56 @@
+<ion-view hide-back-button="true" view-title="Address" ng-controller="addressSearchController as viewModel">
+    <ion-content style="" class="has-header darker-content" id="searchAddressListContent" has-bouncing="true" >
+
+        <div class="row account-area responsive-lg">
+            <div class="col col-50 col-offset-25  address-search">
+                <div class="padding">
+                    <label class="item-input-wrapper faq-search-input-wrapper">
+                        <i class="icon ion-ios-location-outline placeholder-icon" aria-hidden="true"></i>
+                        <input type="search"
+                               class="typeAheadAddressSearchTextBox"
+                               placeholder="Type Address Here"
+                               ng-model="viewModel.search.searchQuery"
+                               ng-model-options="{ debounce: 1000 }">
+                        <ion-spinner ng-if="viewModel.loadingSpinner" style="padding-left: 7px;">
+                        </ion-spinner>
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button class="button button-clear button-positive text-center" ng-click="viewModel.currentLocationClick();">
+                        Use Current Location <i class="icon ion-location"></i>
+                    </button>
+                </div>
+                <div class="selection-list" ng-show="viewModel.results">
+                    <div class="section-body">
+                        <button ng-repeat="result in viewModel.results"
+                                  ng-click="viewModel.resultClick(result)"
+                                  class="button button-light section-item button-full"
+                                  aria-label="{{result.description}} {{result.formatted_address}}">
+                            <span class="wrap" ng-show="!result.formatted_address && result.description">
+                                {{result.description}}
+                            </span>
+                            <span class="wrap" ng-show="result.formatted_address && !result.description">
+                                {{result.formatted_address}}
+                            </span>
+                            <i ng-show="result.loadingSpinner" style="position: absolute;right: 9px;top: 25%;" aria-label="loading...">
+                                <ion-spinner>
+                                </ion-spinner>
+                            </i>
+                        </button>
+
+                        <button ng-click="viewModel.resultClick({other: true})"
+                                  class="button button-light section-item button-full">
+                            <p ng-if="viewModel.results && viewModel.results.length == 0">
+                                No Matches Found
+                            </p>
+                            <span class="wrap">
+                                Add Your Address By Tapping Here
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

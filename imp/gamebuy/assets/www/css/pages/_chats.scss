@@ -1,0 +1,158 @@
+
+/*------------------------------------*\
+    #CHATS
+        * Chats list
+\*------------------------------------*/
+
+.chats_tabs {
+    .platform-ios & {
+        //padding-top: 28px;
+    }
+}
+
+.chats_wrapper {
+
+    .platform-ios & {
+        //margin-top: 28px; // give space to iPhone status bar
+    }
+    
+}
+
+.chats-list_last-chat {
+    .item & {
+        @extend %highlight-note;
+    }
+}
+
+.chats-list_upated-on {
+    .item & {
+        @extend %subtitle;
+        position: absolute;
+        top: 4px;
+        right: 10px; // give a space to the right. Keep the full-width highlight area
+    }
+}
+
+.chats-list_unread-count {
+    .item & {
+        @include fontBold;
+        @include typography (
+            $fontSize: $fontSizeSmall,
+            $lineHeight: 1.625em,
+            $fontWeight: 400,
+            $color: $baseBgColor
+        );
+    }
+    @include borderRadius($radius: 50%);
+    @include translate($x: 50%, $y: -50%);
+    text-align: center;
+    background-color: $baseLinkColor;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+
+.chats-list_unread-count_num {
+    // position: relative;
+    // top: 1px;
+}
+
+// When unread count equals 0, add this class to <p class="unread_count"> and hide the unread marker.
+.chats-list_unread-count-zero {
+    visibility: hidden;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #CHATS
+        * Chat content
+\*------------------------------------*/
+
+// Fix the sticky footer covering the content
+.chat-content {
+    .scroll-content {
+        margin-bottom: 54px;
+    }
+}
+
+.chat-content_chat-line-wrapper {
+    padding: 8px $colGutter;
+
+    &.activated {
+        background-color: $listBgColor;
+        border-color: $listBgColor;
+        @include animation;
+    }
+}
+
+.chat-content_chat-line {
+    .item & {
+        white-space: initial;  // show the full content
+        line-height: $lineheightSpacious;
+        text-overflow: inherit;
+        padding-right: 10px;
+    }
+}
+
+.chat-content_name {
+    @extend %subtitle;
+}
+
+.chat-content_time {
+    @extend %subtitle;
+    float: right;
+
+    .notification-list & {
+        float: none;
+        display: block;
+    }
+}
+
+.chat-content_content {
+    @extend %highlight-note;
+}
+
+// Bottom input position
+.chat-content_chat-input {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    //height: 54px;
+
+    .item-input-inset {
+        @include alignItems($var: flex-end);
+    }
+}
+
+
+
+
+.chats-intro {
+    width: 90%;
+    text-align: center;
+    margin: 180px auto 0;
+}
+
+.chats-graphic {
+    width: 90px;
+}
+
+.chats-tips {
+    @extend %title;
+    margin-top: 20px;
+}
+
+
+
+
+.notification-item {
+    &.activated {
+        border-color: $listBgColor;
+        background-color: $listBgColor;
+    }
+}

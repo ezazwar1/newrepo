@@ -1,0 +1,113 @@
+<div id="WeddingCtrl" ng-controller="WeddingCtrl">
+    <div class="row">
+    <div class="page-header text-center">
+        <span ng-show="!firstEditWedding">Wedding Info</span>
+        
+        <span ng-show="firstEditWedding">
+            Ready to get Hitched?!
+            <p class="text-muted">
+             Let's get started with setting up your personalized wedding app!
+            </p>
+        </span>
+
+        <a ng-hide="editWedding" class="btn btn-md btn-primary editWedding pull-right" ng-click="editWeddingInit()">Edit</a>
+        <a ng-show="editWedding" class="btn btn-md btn-danger editWedding pull-right" ng-click="cancelWeddingInit()">Cancel</a>
+        <button ng-hide="submitted || !editWedding" class="btn btn-md btn-primary editWedding pull-right" type="submit">Save</button>
+    </div>
+    <div class="col-md-12">
+        <div class="alert alert-success" style="display:none;">
+            <strong>
+                <span class="glyphicon glyphicon-send"></span>Success!</strong>
+        </div>
+        <div class="alert alert-danger" style="display:none;">
+            <span class="glyphicon glyphicon-alert"></span>
+            <strong>Error!</strong>
+        </div>
+    </div>
+    <form class="form" name="form" ng-submit="saveWedding(form)">
+        <div class="row">
+            <div class="col-md-5" style="margin-top:25px; padding:0px;">
+                <div class="form-group col-lg-6" ng-class="{ 'has-success': form.firstName.$valid && submitted,'has-error': form.firstName.$invalid && submitted }">
+                    <label for="firstName">Your Name</label>
+                    <input type="text" ng-disabled="!editWedding" class="form-control" name="firstName" id="firstName" placeholder="Enter Name" ng-model="wedding.firstName" required>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="firstAre">You Are</label>
+                    <div class="input-group">
+                        <div ng-hide="!editWedding" class="btn-group firstAre" ng-class="{ 'has-success': form.firstAre.$valid && submitted,'has-error': form.firstAre.$invalid && submitted }">
+                            <button type="button" ng-model="wedding.firstType" ng-click="wedding.firstType = 'Bride'" ng-class="{ 'active' : wedding.firstType == 'Bride' }" class="btn btn-default" btn-radio="'Bride'">Bride</button>
+                            <button type="button" ng-model="wedding.firstType" ng-click="wedding.firstType = 'Groom'" ng-class="{ 'active' : wedding.firstType == 'Groom' }" class="btn btn-default" btn-radio="'Groom'">Groom</button>
+                            <button type="button" ng-model="wedding.firstType" ng-click="wedding.firstType = 'Partner'" ng-class="{ 'active' : wedding.firstType == 'Partner' }" class="btn btn-default" btn-radio="'Partner'">Partner</button>
+                            <input type="hidden" id="firstAre" name="firstAre" ng-model="wedding.firstType" required />
+                        </div>
+                        <div ng-hide="editWedding" class="firstAre">
+                            The {{wedding.firstType}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-6">
+                    <label for="secondName">Fianc&eacute; Name</label>
+                    <input type="text" ng-readonly="!editWedding" class="form-control" name="secondName" id="secondName" ng-model="wedding.secondName" placeholder="Enter Name" required>
+                </div>
+
+                <div class="form-group col-lg-6" ng-class="{ 'has-success': form.secondName.$valid && submitted,
+                                            'has-error': form.secondName.$invalid && submitted }">
+                    <label for="secondAre">Fianc&eacute; Is</label>
+                    <div class="input-group">
+                        <div ng-hide="!editWedding" class="btn-group secondAre" ng-class="{ 'has-success': form.secondAre.$valid && submitted,'has-error': form.secondAre.$invalid && submitted }">
+                            <button type="button" ng-model="wedding.secondType" ng-click="wedding.secondType = 'Bride'" ng-class="{ 'active' : wedding.secondType == 'Bride' }" class="btn btn-default" btn-radio="'Bride'">Bride</button>
+                            <button type="button" ng-model="wedding.secondType" ng-click="wedding.secondType = 'Groom'" ng-class="{ 'active' : wedding.secondType == 'Groom' }" class="btn btn-default" btn-radio="'Groom'">Groom</button>
+                            <button type="button" ng-model="wedding.secondType" ng-click="wedding.secondType = 'Partner'" ng-class="{ 'active' : wedding.secondType == 'Partner' }" class="btn btn-default" btn-radio="'Partner'">Partner</button>
+                            <input type="hidden" id="secondAre" name="secondAre" ng-model="wedding.secondType" required />
+                        </div>
+                        <div ng-hide="editWedding" class="secondAre">
+                            The {{wedding.secondType}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-5" ng-controller="DatepickerCtrl" ng-class="{ 'has-success': form.dateTime.$valid && submitted,'has-error': form.dateTime.$invalid && submitted }">
+                    <label for="InputWeddingDate">Wedding Date</label>
+                    <p class="input-group">
+                        <input type="text" id="dateTime" name="dateTime" ng-readonly="!editWedding" class="form-control" ng-model="wedding.dateTime" show-button-bar="false" show-weeks="false" datepicker-popup="MM/dd/yyyy" is-open="opened" min="minDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                        <span ng-hide="!editWedding" class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    </p>
+                </div>
+
+                <div class="form-group col-lg-7" ng-class="{ 'has-success': form.unlockCode.$valid && submitted,'has-error': form.unlockCode.$invalid && submitted }">
+                    <label for="unlockCode">Wedding Code</label>
+                    <input type="text" ng-readonly="!editWedding" class="form-control" name="unlockCode" id="unlockCode" ng-model="wedding.unlockCode" required>
+                    <span style="color:#555; font-size:13px;">(Guest Access Code)</span>
+                </div>
+            </div>
+
+            <hr class="featurette-divider hidden-lg">
+
+            <div class="col-md-3" style="padding:0px;">
+                <h3><span title="Search for the location." class="glyphicon glyphicon-search"></span> Wedding Location</h3>
+                <div ng-show="editWedding">
+                    <input ng-model="chosenPlace" style="width:250px; font-size:16px; margin-bottom:10px;" googleplace/>
+                    <input ng-model="wedding.location" style="display:none" />
+                </div>
+                <div ng-show="!wedding.location">Not Set</div>
+                <div ng-show="wedding.location">
+                    <address>
+                        <div id="weddingAddress"></div>
+                    </address>
+                    <a target="_blank" href="{{googleplaceURL}}" title="View Location">Location Info</a>
+                </div>
+            </div>
+
+            <div class="col-md-4" style="padding:0px;">
+                <div id="map-canvas"></div>
+            </div>
+        </div>
+        
+
+    </form>
+</div>
+</div>

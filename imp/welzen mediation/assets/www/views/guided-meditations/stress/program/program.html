@@ -1,0 +1,80 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Guided Mindfulness Meditations</span>
+    <span class="welzen-popup__contents">Access 100’s of hours of focused and  categorized guided Mindfulness meditations anytime anywhere. Enjoy fresh new content every month.</span>
+    <div class="welzen-popup__separator"></div>
+    <span class="welzen-popup__footer">This content requires a premium subscription</span>
+    <a  class="welzen-popup__cta" ng-click='togglePopUpActive()' ui-sref="unlock">Subscribe</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+<ion-view class="bg-welzen program" view-title="{{category.name}} Series">
+  <header align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">{{category.name}} Series</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </header>
+
+  <ion-content has-bouncing="true">
+    <div class="container--with-header">
+
+      <a class="info-box--transparent" ng-repeat="media in medias">
+        <div class="rounded-icon rounded-icon--large" ng-class="{'dotted-line':!$last}"><img src="img/ico-play-btn-med.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">{{media.title}}</span>
+          <span class="info-box__brief">{{media.description}}</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+<!--       <a class="info-box--transparent" href="#">
+        <div class="rounded-icon rounded-icon--large dotted-line checked"><img src="img/day1-ready.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Intro to stress series</span>
+          <span class="info-box__brief">Stress day description here</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" href="#">
+        <div class="rounded-icon rounded-icon--large dotted-line incomplete"><img src="img/day2-ready.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Intro to stress series</span>
+          <span class="info-box__brief">Stress day description here</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" href="#">
+        <div class="rounded-icon rounded-icon--large dotted-line"><img src="img/day3-next.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Intro to stress series</span>
+          <span class="info-box__brief">Stress day description here</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" ng-click='togglePopUpActive()'>
+        <div class="rounded-icon rounded-icon--large dotted-line"><img src="img/day4-unav.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Intro to stress series</span>
+          <span class="info-box__brief">Stress day description here</span>
+        </div>
+        <div class="info-box__lock"><img src="img/ico-lock.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--no-border" ng-click='togglePopUpActive()'>
+        <div class="rounded-icon rounded-icon--large"><img src="img/day5-unav.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Intro to stress series</span>
+          <span class="info-box__brief">Stress day description here</span>
+        </div>
+        <div class="info-box__lock"><img src="img/ico-lock.svg"></div>
+      </a>
+ -->
+    </div>
+  </ion-content>
+</ion-view>

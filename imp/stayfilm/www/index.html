@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<meta http-equiv="Content-Security-Policy" content="default-src * gap: android-webview-video-poster:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';">
+
+		<title>Stayfilm</title>
+
+		<link rel="stylesheet" type="text/css" href="ionic.min.css" />
+		<link rel="stylesheet" type="text/css" href="ion-radio-fix-ios9.patch.css" />
+
+		<link rel="stylesheet" type="text/css" href="src/page-animations.css" />
+		<link rel="stylesheet" type="text/css" href="src/transitions-route-map.css" />
+		<link rel="stylesheet" type="text/css" href="src/app.css" />
+	</head>
+	<body ng-app="fun">
+		<div id="fb-root"></div>
+		<ui-view class="root"></ui-view>
+		<div class="sf-growl"></div>
+
+		<div id="sfdtContainer"></div>
+
+		<script defer src="cordova.js"></script>
+
+		<script defer src="ionic.bundle.min.js"></script>
+
+		<script defer src="common.js"></script>
+		<script defer src="local.js"></script>
+
+		<script defer src="src/stayalert.js"></script>
+		
+		<script defer src="vendor/jquery.js"></script>
+		<script defer src="vendor/tracekit.js"></script>
+		<script defer src="vendor/angular-route.min.js"></script>
+		<script defer src="vendor/angular-touch.min.js"></script>
+		<script defer src="vendor/lodash.min.js"></script>
+		<script defer src="vendor/restangular.min.js"></script>
+		<script defer src="vendor/angular-cache.min.js"></script>
+		<script defer src="vendor/angular-gettext.min.js"></script>
+
+		<script defer src="angular-ios9-uiwebview.patch.js"></script>
+		<script defer src="ion-radio-fix-ios9.patch.js"></script>
+
+		<script defer src="languages/translations.js"></script>
+
+		<script defer src="src/modules.js"></script>
+		<script defer src="src/app.js"></script>
+		<script defer src="src/app.run.js"></script>
+		<script defer src="src/filters.js"></script>
+		<script defer src="src/directives.js"></script>
+
+		<script defer src="src/widget/slideBox/slideBox.js"></script>
+		<script defer src="src/widget/movieMosaic/movieMosaic.js"></script>
+		<script defer src="src/widget/userItem/userItem.js"></script>
+		<script defer src="src/widget/movieItem/movieItem.js"></script>
+		<script defer src="src/widget/storyMosaic/storyMosaic.js"></script>
+		<script defer src="src/widget/userMosaic/userMosaic.js"></script>
+		<script defer src="src/widget/growl/growl.js"></script>
+		<script defer src="src/sfTopBar/sfTopBar.js"></script>
+		<script defer src="src/widget/loading/loading.js"></script>
+		<script defer src="vendor/jwplayer/jwplayer.js"></script>
+
+		<script defer src="src/services/StorageServ.js"></script>
+		<script defer src="src/services/ConfigServ.js"></script>
+		<script defer src="src/services/Utils.js"></script>
+		<script defer src="src/services/CoolServ.js"></script>
+		<script defer src="src/services/AuthServ.js"></script>
+		<script defer src="src/services/MiscServ.js"></script>
+		<script defer src="src/services/SessionServ.js"></script>
+		<script defer src="src/services/UserServ.js"></script>
+		<script defer src="src/services/GalleryServ.js"></script>
+		<script defer src="src/services/FeedServ.js"></script>
+		<script defer src="src/services/MovieServ.js"></script>
+		<script defer src="src/services/UploadMediaServ.js"></script>
+		<script defer src="src/services/SocialNetworkServ.js"></script>
+		<script defer src="src/services/MediaServ.js"></script>
+		<script defer src="src/services/AlbumManagerServ.js"></script>
+		<script defer src="src/services/MoviemakerServ.js"></script>
+		<script defer src="src/services/AlbumServ.js"></script>
+		<script defer src="src/services/FbClientServ.js"></script>
+		<script defer src="src/services/LogServ.js"></script>
+		<script defer src="src/services/ModalServ.js"></script>
+		<script defer src="src/services/FacebookServ.js"></script>
+		<script defer src="src/services/SnServ.js"></script>
+		<script defer src="src/services/BgTaskManager.js"></script>
+		<script defer src="src/services/MaintenanceServ.js"></script>
+		<script defer src="src/services/PushServ.js"></script>
+		<script defer src="src/services/NotificationServ.js"></script>
+		<script defer src="src/services/RoutingServ.js"></script>
+		<script defer src="src/services/UIServ.js"></script>
+		<script defer src="src/services/GaServ.js"></script>
+		<script defer src="src/services/JobServ.js"></script>
+		<script defer src="src/services/AdMobServ.js"></script>
+		<script defer src="src/services/ProgressBarServ.js"></script>
+
+		<script defer src="src/pages/main/main.js"></script>
+		<script defer src="src/pages/main/home.js"></script>
+		<script defer src="src/pages/main/invite.js"></script>
+		<script defer src="src/pages/start/start.js"></script>
+		<script defer src="src/pages/maintenance/maintenance.js"></script>
+		<script defer src="src/pages/login/login.js"></script>
+		<script defer src="src/pages/about/about.js"></script>
+		<script defer src="src/pages/feed/feed.js"></script>
+		<script defer src="src/pages/search/search.js"></script>
+		<script defer src="src/pages/gallery/gallery.js"></script>
+		<script defer src="src/pages/albummanager/albummanager.js"></script>
+		<script defer src="src/pages/albummanager/contentzone.js"></script>
+		<script defer src="src/pages/albummanager/sourcezone.js"></script>
+		<script defer src="src/pages/albummanager/album.js"></script>
+		<script defer src="src/pages/moviemaker/moviemaker.js"></script>
+		<script defer src="src/pages/moviemaker/content.js"></script>
+		<script defer src="src/pages/moviemaker/theme.js"></script>
+		<script defer src="src/pages/moviemaker/genre.js"></script>
+		<script defer src="src/pages/moviemaker/upload.js"></script>
+		<script defer src="src/pages/register/register.js"></script>
+		<script defer src="src/pages/publish/publish.js"></script>
+		<script defer src="src/pages/friendship/friendship.js"></script>
+		<script defer src="src/pages/settings/settings.js"></script>
+		<script defer src="src/pages/resetPassword/resetPassword.js"></script>
+		<script defer src="src/pages/friend/friend.js"></script>
+		<script defer src="src/sandbox/sandbox.js"></script>
+		<script defer src="src/sandbox/tokenSandbox.js"></script>
+		<script defer src="src/modal/modals.js"></script>
+		<script defer src="src/modal/viewPhotoController.js"></script>
+		<script defer src="src/modal/watch/WatchModal.js"></script>
+		<script defer src="src/modal/share/shareModal.js"></script>
+		<script defer src="src/modal/dynamicTerms/dynamicTerms.js"></script>
+		<script defer src="src/modal/acceptTerms/acceptTerms.js"></script>
+		<script defer src="src/modal/denounce/denounce.js"></script>
+		<script defer src="src/modal/editSynopsis/editSynopsis.js"></script>
+		<script defer src="src/modal/appinvite/appinvite.js"></script>
+		<script defer src="src/pages/notification/notification.js"></script>
+		<script defer src="src/pages/institutional/terms.js"></script>
+		<script defer src="src/pages/institutional/privacy.js"></script>
+		<script defer src="src/pages/waiting/waiting.js"></script>
+		<script defer src="src/pages/profile/profile.js"></script>
+		
+		<script defer src="src/pages/fbMessenger/startFb/startFb.js"></script>
+		<script defer src="src/pages/fbMessenger/titlestep/titleStep.js"></script>
+		<script defer src="src/pages/fbMessenger/mediaStep/mediaStep.js"></script>
+		<script defer src="src/pages/fbMessenger/mediaAlbum/mediaAlbum.js"></script>
+		<script defer src="src/pages/fbMessenger/shareStep/shareStep.js"></script>
+		<script defer src="src/pages/fbMessenger/myFilms/myFilms.js"></script>
+
+		<script defer src="src/pages/admin/log/log.js"></script>
+		<script defer src="src/pages/admin/config/config.js"></script>
+
+		<script defer src="src/svgIcons.js"></script>
+
+		<script defer src="bootstrap.js"></script>
+	</body>
+</html>

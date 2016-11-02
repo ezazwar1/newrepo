@@ -1,0 +1,56 @@
+
+/*------------------------------------*\
+    #COLOR
+\*------------------------------------*/
+$gbgGreen: #18e598;
+$gbgDarkBlue: #001021;
+
+$baseBgColor: $gbgDarkBlue;
+$altBgColor: #010621;
+$activateBgColor: #007850;
+
+$baseFontColor: #007850;
+$baseLinkColor: $gbgGreen;
+
+$placeholderColor:  rgba(255, 255, 255, 1);
+$dividerColor: rgba(255, 255, 255, .1);
+$supportInfoColor: #c3c3c3;
+$textOnBtnColor: #010621;
+$listBgColor: #007850;
+
+$colorReverse: $gbgDarkBlue;
+$colorReverseBkg: $gbgGreen;
+
+// Typography and icon size variables
+$fontSizeHighlight: 1.875rem;
+$fontSizeTitle: 1rem;
+$fontSizeBase: 0.875rem;
+$fontSizeSmall: 0.75rem;
+$fontSizeTabs: 0.625rem;
+$lineheightBase: 1em;
+$lineheightComfort: 1.25em;
+$lineheightSpacious: 1.5em;
+$iconFontSizeBase: 0.75em;
+$iconFontSizeButton: 1.25em;
+$btnMiniHeight: 33px;
+
+// Vertical space
+$vSpaceTight: 4px;
+$vSpaceSmall: 8px;
+$vSpaceBase: 12px;
+$vSpaceSection: 15px;
+
+// Grid system variables
+$colGutter: 10px;
+$colWidth: percentage(84px / 320px);
+$innerBoxGutter: 2.5%;
+$innerBoxWidth: 18%;
+$chatInnerColGutter: percentage(14px / 286px);
+$chatInnerColWidth: percentage(42px / 286px);
+
+$headerHeight: 56px;
+
+
+
+
+

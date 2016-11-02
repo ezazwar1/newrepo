@@ -1,0 +1,86 @@
+<ion-view title="{{ 'REWARDS.SINGLE_TITLE' | translate }}">
+    <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+    </ion-nav-buttons>
+
+		<ion-content class="has-header no-border" >
+        <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh()">
+        </ion-refresher>
+        <div ng-if="reward">
+        <div class="img-cover item item-image">
+            <div class="assertive-overlay" ng-show="totalPoints() < (reward.goal | num) && reward.purchased === '0' || reward.stock == '0'">
+                <h3 class="unlock-text">{{ reward.stock == '0' ? 'REWARDS.OUT_OF_STOCK_MSG' : 'REWARDS.LOCKED_MSG' | translate }} <br>
+               <span ng-hide="reward.stock == '0'"><i class="wf-coins"></i> {{ reward.goal | shortNumber }}</span></h3>
+            </div>
+
+            <!-- <img class="img-responsive" hires="{{ reward.image_url }}" src="img/loader-anim.svg"> -->
+            <img class="img-responsive" ng-src="{{ reward.image_url }}" default-image="img/placeholder-broken.svg" preload-image>
+            <div class="row top-btns">
+              <div class="col text-left">
+                <!-- {{ reward.merchant }} -->
+              </div>
+            </div>
+        </div>
+
+        <div class="parallax-content">
+          <div class="desc-card padding-bottom">
+            <h3>{{ reward.title }}</h3>
+            <div class="row assertive row-no-padding-sides">
+                  <div class="col col-center">
+                      <wf-meter color="assertive-bg" value="totalPoints()" limit="reward.goal"></wf-meter>
+                  </div>
+            </div>
+            <div class="row assertive row-no-padding-sides">
+                  <div class="col text-left dark">
+                      <i class="wf wf-coins"></i> {{ (reward.goal - totalPoints()) | max | shortNumber }} {{ 'UNIT.POINTS' | translate}} {{ 'REWARDS.ALMOSOT_LEFT' | translate }}
+                  </div>
+                  <div class="col text-right row-no-padding">
+                      <i class="wf wf-coins"></i> {{ reward.goal | shortNumber }} {{ 'UNIT.POINTS' | translate}}
+                  </div>
+            </div>
+          </div>
+
+          <section class="white-bg">
+                <div ext-links class="content-box big-padding">
+
+                          <div ng-bind-html="reward.description | toTrusted"></div>
+
+                          <div ng-bind-html="reward.conditions | toTrusted" class="bottom-spacer-40"></div>
+
+                          <div><p><strong>{{ 'REWARDS.STOCK' | translate }}:</strong> {{ reward.stock }}</p></div>
+
+                          <div><p>{{ rewardExTxt }}</p></div>
+
+                          <div class="text-center padding-top" style="position:relative">
+                            <a ng-click="shareIt(share)" class="button button-assertive button-round">
+                              <i class="wf wf-shared"></i>
+                            </a>
+
+                            <span class="share-ribbon"><span> <i class="wf-coins"></i> +20</span></span>
+                          </div>
+
+                          <div class="spacer" style="height:70px"></div>
+
+                        </div>
+          </section>
+        </div>
+      </div>
+    </ion-content>
+
+    <ion-footer-bar ng-hide="reward.stock == '0'" ng-show="totalPoints() < (reward.goal | num)" class="bar-dark floating-footer floating-footer-button">
+        <button class="button button-big-sticky button-full floating-footer-button" disabled> {{ 'REWARDS.ALMOSOT_GET_IT_MSG' | translate }} <i class="wf wf-coins"></i> {{ ( (reward.goal | num) - totalPoints()) | max }} {{ 'REWARDS.ALMOSOT_LEFT' | translate }}</button>
+    </ion-footer-bar>
+
+    <ion-footer-bar ng-hide="reward.stock == '0'" ng-show="reward.stock != '0' && totalPoints() >= (reward.goal | num) && !(reward.purchased === '1' && reward.voucher_unique === '1')" class="bar-positive floating-footer floating-footer-button">
+        <button ng-click="purchaseRewardToggle(reward)" class="button button-big-sticky big-text button-full floating-footer-button">{{ 'ACTION.GET_IT' | translate }}</button>
+    </ion-footer-bar>
+
+    <ion-footer-bar ng-show="totalPoints() >= (reward.goal | num) && (reward.purchased === '1' && reward.voucher_unique === '1')" class="bar-dark floating-footer floating-footer-button">
+        <button class="button button-big-sticky button-full floating-footer-button" disabled>
+        {{ 'REWARDS.SINGLE_PURCHASE' | translate }}</button>
+    </ion-footer-bar>
+
+</ion-view>

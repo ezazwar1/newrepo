@@ -1,0 +1,292 @@
+<ion-view>
+	<ion-nav-title>
+	    <wf-intro-dots max="isRefer && localData.referData ? '3' : '2'" active="isRefer ? (isReferVisited ? '2' : '0') : '1'"></wf-intro-dots>
+	</ion-nav-title>
+
+	<ion-nav-buttons side="left">
+      <div ng-if="!localData.referData.entity_id"><wf-back></wf-back></div>
+    </ion-nav-buttons>
+
+	<ion-nav-buttons side="right">
+        <button ng-click="changeState();referPageDone()" class="button button-clear button-skip">
+          {{ 'ACTION.NEXT' | translate }}
+        </button>
+    </ion-nav-buttons>
+
+		<ion-content class="no-border bottom-0" set-bottom scroll="false" delegate-handle="bottomScroll">
+	<div wf-validation-msg show="showError" type="alert-danger" msg="{{ errorMsg }}"></div>
+
+		<div ng-if="item">
+			<section class="white-bg slide-visible">
+
+				<wf-tabs style="light-bg">
+
+							<wf-pane title="{{ 'ACTION.INFO' | translate }}" callback="tabCallback('desc')" class="dash-content">
+								<ion-scroll direction="y" style="height: {{wHeight}}px">
+
+								<ion-refresher
+													spinner="none"
+													pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+													on-refresh="pullRefresh()">
+												</ion-refresher>
+
+								<div class="img-cover item item-image">
+												<!-- <img class="img-responsive small" hires="{{ item.image_url }}" src="img/loader-anim.svg"> -->
+                        <img class="img-responsive small" ng-src="{{ item.image_url }}" default-image="img/placeholder-broken.svg" preload-image>
+										<div class="row bottom-top-gradient bot-btns">
+										<div ng-show="item.joined == '0' " class="col text-left">
+											<i class="wf wf-accept"></i> {{ 'ACTION.JOIN' | translate }}
+										</div>
+										<div ng-show="item.joined == '1'" class="col text-left">
+											<i class="wf wf-accept"></i> {{ 'GROUPS.JOINED' | translate }}
+										</div>
+
+										<div class="col text-right">
+											<i class="wf wf-people"></i> {{ item.subscribers | number }}
+										</div>
+									</div>
+								</div>
+										<!-- <div class="parallax-content">
+											<div class="desc-card padding-bottom">
+												<h3>{{ item.name }}</h3>
+											</div>
+										</div> -->
+										<div class="background-grey">
+							<!-- <div class="connection-body" ng-bind-html="item.description | toTrusted"></div> -->
+				<div class="desc-wrap">
+					<div class="name">{{ item.name }}</div>
+					<div class="desc" ng-bind-html="item.description | toTrusted"></div>
+				</div>
+
+				<div class="item-wrap">
+						<div class="row sub-title">
+							<div class="col">
+								 <div class="dash-sub-heading">
+									 <span class="heading dash-subheading-color">{{'DASHBOARD.REWARDS' | translate }}</span>
+								</div>
+							</div>
+						</div>
+						<div class="padding text-center text-gray" ng-hide="item.latest_rewards.length">
+									{{ 'REWARDS.EMPTY_MSG' | translate }}
+						</div>
+						<div class="padding-slide">
+						<ion-slide-box>
+								<ion-slide ng-repeat="reward in item.latest_rewards" style="z-index : {{item.latest_rewards.length - $index}}">
+									 <div ui-sref="app.reward({id : reward.id})">
+										 <wf-thumb-bar
+											 type="rewards"
+											 caption="{{ reward.title | excerpt:false:200 }}"
+											 done="(reward.goal | num) > totalPoints()"
+											 img="{{ reward.image_url }}"
+											 title="<h5 class=light>{{ (reward.goal | num) > totalPoints() ? 'REWARDS.LOCKED_MSG': '' | translate }}</h5>"
+											 unit="points"
+											 goal="reward.goal"
+											 current="totalPoints()"
+											 ></wf-thumb-bar>
+									 </div>
+									</ion-slide>
+							</ion-slide-box>
+						</div>
+			</div>
+
+			<div class="item-wrap">
+					<div class="row sub-title">
+						<div class="col">
+							 <div class="dash-sub-heading">
+								 <span class="heading dash-subheading-color">{{'DASHBOARD.CHALLENGES' | translate }}</span>
+							</div>
+						</div>
+					</div>
+					<div class="padding text-center text-gray" ng-hide="item.latest_challenges.length">
+								{{ 'CHALLENGE.EMPTY_MSG' | translate }}
+					</div>
+					<div class="padding-slide">
+					<ion-slide-box>
+							<ion-slide ng-repeat="challenge in item.latest_challenges" style="z-index : {{item.latest_challenges.length - $index}}">
+									<div ui-sref="app.challenge({id : challenge.id})">
+										<wf-thumb-bar
+											type="challenge"
+											caption="{{ challenge.title | excerpt:false:200 }}"
+											img="{{ challenge.cover_url }}"
+											done="challenge.joined == '1'"
+											soon="{{ challenge.coming_soon }}"
+											title="<h5 class=light>{{ (challenge.coming_soon == '1') ? 'CHALLENGE.SOON': '' | translate }}</h5>"
+											unit="{{ challenge.goal_unit }}"
+											goal="challenge.goal"
+											current="challenge.goal_current"
+											joined="{{ challenge.joined }}"
+											start="{{ challenge.start_date }}"
+											end="{{ challenge.end_date }}"
+											global="{{ challenge.global }}"
+											></wf-thumb-bar>
+									</div>
+							</ion-slide>
+						</ion-slide-box>
+					</div>
+		</div>
+
+		<div class="item-wrap">
+				<div class="row sub-title member-div">
+					<div class="col">
+						 <div class="dash-sub-heading" ui-sref="intro.entityMembers({id: groupId})">
+							 <span class="heading dash-subheading-color">{{'GROUPS.GROUP_MEMBER' | translate }}</span>
+							 <span class="arrow-right"><i class="ion-ios-arrow-right"></i></span>
+							 <span class="info member-number">{{ item.subscribers | number }} {{'GROUPS.PLAYERS' | translate}}</span>
+						</div>
+					</div>
+				</div>
+	</div>
+
+	<div class="item-wrap" ng-if="item.joined == '1'" ng-click="openModal()">
+			<div class="row sub-title member-div">
+				<div class="col">
+					 <div class="dash-sub-heading" >
+						 <span class="heading dash-subheading-color">{{'ACTION.EDIT_SUBSCRIPTION' | translate }}</span>
+						 <span class="arrow-right"><i class="ion-ios-arrow-right"></i></span>
+					</div>
+				</div>
+			</div>
+</div>
+
+	<div class="item-wrap" ng-if="item.is_owner == 1">
+			<div class="row sub-title member-div">
+				<div class="col">
+					 <div class="dash-sub-heading" ui-sref="app.edit-group({id: item.id})">
+						 <span class="heading dash-subheading-color">{{'GROUPS.EDIT_GROUP' | translate }}</span>
+						 <span class="arrow-right"><i class="ion-ios-arrow-right"></i></span>
+					</div>
+				</div>
+			</div>
+</div>
+				<!-- <div class="padding text-center text-gray" ng-if="item.latest_challenges.length == 0 && item.latest_rewards.length == 0">
+					<wf-no-results></wf-no-results>
+					{{ 'GROUPS.GROUP_INACTIVE' | translate }}
+				</div> -->
+				<!-- <div ng-if="! (item.latest_challenges.length == 0 && item.latest_rewards.length == 0)">
+				 <div>
+					<h5 class="text-center dash-header-dark">{{ 'DASHBOARD.CHALLENGES' | translate }}</h5>
+					<div>
+						<div class="padding text-center text-gray" ng-hide="item.latest_challenges.length">
+							{{ 'GROUPS.CHALLENGES_EMPTY_MSG' | translate }}
+						</div>
+						<ion-slide-box>
+							<ion-slide ng-repeat="challenge in item.latest_challenges" style="z-index : {{item.latest_challenges.length - $index}}">
+						<div ui-sref="app.challenge({id : challenge.id})">
+							<wf-thumb-bar
+								type="challenge"
+								caption="{{ challenge.title | excerpt:false:200 }}"
+								img="{{ challenge.cover_url }}"
+								done="challenge.joined == '1'"
+								soon="{{ challenge.coming_soon }}"
+								title="<h5 class=light>{{ (challenge.coming_soon == '1') ? 'CHALLENGE.SOON': '' | translate }}</h5>"
+								unit="{{ challenge.goal_unit }}"
+								goal="challenge.goal"
+								current="challenge.goal_current"
+								joined="{{ challenge.joined }}"
+								start="{{ challenge.start_date }}"
+								end="{{ challenge.end_date }}"
+								global="{{ challenge.global }}"
+								></wf-thumb-bar>
+						</div>
+						</ion-slide>
+						</ion-slide-box>
+					</div>
+				</div>
+				<div>
+					<h5 style="margin-top: 5px;" class="text-center dash-header-dark">{{ 'DASHBOARD.REWARDS' | translate }}</h5>
+					<div>
+								<div class="padding text-center text-gray" ng-hide="item.latest_rewards.length">
+									{{ 'GROUPS.REWARDS_EMPTY_MSG' | translate }}
+								</div>
+												<ion-slide-box >
+								 <ion-slide ng-repeat="reward in item.latest_rewards" style="z-index : {{item.latest_rewards.length - $index}}">
+								<div ui-sref="app.reward({id : reward.id})">
+									<wf-thumb-bar
+										type="rewards"
+										caption="{{ reward.title | excerpt:false:200 }}"
+										done="(reward.goal | num) > totalPoints()"
+										img="{{ reward.image_url }}"
+										title="<h5 class=light>{{ (reward.goal | num) > totalPoints() ? 'REWARDS.LOCKED_MSG': '' | translate }}</h5>"
+										unit="points"
+										goal="reward.goal"
+										current="totalPoints()"
+										></wf-thumb-bar>
+								</div>
+							</ion-slide>
+							</ion-slide-box>
+					</div>
+				</div>
+				</div> -->
+				<div class="big-padding">
+				<div class="text-center big-padding" style="position: relative;" ng-if="showShare">
+						<button ng-click="shareIt(share)" class="button button-assertive button-round">
+							<i class="wf wf-shared"></i>
+						</button>
+						<span class="share-ribbon ribbon-center"><span> <i class="wf-coins"></i> +20</span></span>
+				</div>
+			</div>
+				</div>
+				<div class="footer-height background-grey" ng-if="item.joined != '1'"></div>
+	</ion-scroll>
+	<!-- <button ng-if="item.joined == '1'" ng-click="openModal()" class="button button-big-sticky button-full floating-footer-button button-assertive btn-tab-one">{{'ACTION.EDIT_SUBSCRIPTION' | translate }}</button> -->
+	<button ng-if="item.joined != '1'" ng-click="openModal()" class="button button-big-sticky button-full floating-footer-button button-positive btn-tab-one">{{'ACTION.JOIN' | translate }}</button>
+							</wf-pane>
+
+
+							<wf-pane title="{{ 'NAV.LEADERBOARD' | translate }}" >
+									<ion-scroll direction="y" style="height: {{wHeight}}px">
+										<ion-refresher
+												spinner="none"
+												pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+												on-refresh="refreshLeaderboard()">
+										</ion-refresher>
+								<div class="padding text-center" ng-if="iserrorMsg">
+									{{ 'GROUPS.RANK_ERROR' | translate }}
+								</div>
+										<div ng-if="leaderboard">
+											 <div wf-leaderboard result="leaderboard" url="url" meta="resMeta" params="params" per-page="limit" refresh="refresh"></div>
+
+										<!-- <div class="footer-height"></div> -->
+
+
+											</div>
+										</ion-scroll>
+										<button ng-click="applyFilters()" class="button  button-assertive button-round button-righ-bottom-sticky">
+															<i ng-class="filter.mode == 'user' ? 'wf wf-user' : 'wf wf-team-shirt'"></i>
+											</button>
+								</wf-pane>
+
+
+								<wf-pane title="{{ 'NAV.FEED' | translate }}" callback="tabCallback('feed')"  class="pad-top-7">
+									<div class="card connect-getSupport addgroup-card" ng-if="item.joined == 0">
+										<div class="item item-text-wrap wrapper" ng-click="openModal()">
+											<div class="ion-ios-people-outline icon-div people-icon"></div>
+											<p translate="COMMENT.JOIN_TEXT"> Create Text</p>
+											<div class="support_btn_wrap"><span class="support_btn" translate="ACTION.JOIN_GROUP">GET</span><span class="ion-ios-arrow-right"></span></div>
+										</div>
+									</div>
+											<div wf-feeds ng-if="item.joined == 1" url="feed_url" params="feed_params" per-page="20" refreshfeed="refreshfeed"></div>
+								</wf-pane>
+
+					</wf-tabs>
+
+			</section>
+
+			<!-- TODO PUT UPDATE BUTTON
+			<a href="#"
+							ng-show="entity.joined == '1'"
+							ng-click="joinChallengeToggle(challenge)"
+							class="leave-challenge-link">
+							<i class="ion-refresh"></i> {{ 'GROUPS.UPDATE_VALUES' | translate}}
+						</a>
+			-->
+
+
+
+		</div>
+	</ion-content>
+		<!-- <ion-footer-bar  class="bar-positive floating-footer floating-footer-button" ng-if="item">
+		<button ng-if="item.joined == '1'" ng-click="openModal()" class="button button-big-sticky button-full floating-footer-button button-assertive">{{'ACTION.EDIT_SUBSCRIPTION' | translate }}</button>
+		<button ng-if="item.joined != '1'" ng-click="openModal()" class="button button-big-sticky button-full floating-footer-button button-positive">{{'ACTION.JOIN' | translate }}</button>
+		</ion-footer-bar> -->
+</ion-view>

@@ -1,0 +1,109 @@
+<div class="iphone-status-bar"></div>
+<ion-view title="" hide-nav-bar="false">
+    <ion-nav-buttons side="primary">
+        <div class="item-input-inset search_search-bar">
+
+            <div class="search__platform-select">
+                <!--<label class="form-label">Select Platform to Narrow Down the Search Result</label>-->
+                <div class="form-select-wrapper ion-arrow-down-b">
+                    <select class="form-select" name="platform" ng-model="data.platform_filter">
+                        <option value="all">All</option>
+                        <option value="playstation-4">PS4</option>
+                        <option value="playstation-3">PS3</option>
+                        <option value="playstation-vita">PS Vita</option>
+                        <option value="xbox-one">Xbox One</option>
+                        <option value="xbox-360">Xbox 360</option>
+                        <option value="wii-u">Wii U</option>
+                        <option value="wii">Wii</option>
+                        <option value="nintendo-3ds">3DS</option>
+                        <option value="vintage">Vintage</option>
+                        <option value="console">Console</option>
+                    </select>
+                </div>
+            </div>
+
+            <label class="item-input-wrapper search__field">
+                <input class="form-input search-input" type="text" placeholder=" Search by game name"
+                       ng-model="input.keyword">
+            </label>
+
+            <button class="button button-primary button-search" ng-disabled="search_disabled" ng-click="search()">
+                Search
+            </button>
+
+            <button class="button button-primary button-search" ng-click="scan()">
+                Scan
+            </button>
+
+        </div>
+    </ion-nav-buttons>
+
+    <ion-content scroll="true" padding="false" class="search_wrapper">
+
+        <ion-content class="scroll-content-search">
+            <ion-list>
+                <ion-item class="search_list-wrapper" ng-repeat="game in data.games"
+                          ui-sref="tab.search_game_profile({ game_id: game.id, tab_name: 'search'})">
+                    <span class="search_list">[{{game.platform}}] {{game.title}}</span>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+
+        <div class="search_recommend" ng-hide="newValue_flag">
+            <div class="recommend_wrapper">
+                <div class="recommend_group" ui-sref="tab.search_game_rank_list({collect_as: 1})">
+                    <img src="img/icons/icon-top-sold.svg" alt="Top wish GBG icon">
+
+                    <h2 class="recommend_title">Most Available</h2>
+                </div>
+                <div class="recommend_group" ui-sref="tab.search_game_rank_list({collect_as: 2})">
+                    <img src="img/icons/icon-top-wish.svg" alt="Top wish GBG icon">
+
+                    <h2 class="recommend_title">Most Wanted</h2>
+                </div>
+                <div class="recommend_group" ui-sref="tab.search_game_rank_list({collect_as: 3})">
+                    <img src="img/icons/icon-top-owned.svg" alt="Top wish GBG icon">
+
+                    <h2 class="recommend_title">Most Owned</h2>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div class="scan-intro" ng-hide="newValue_flag">
+             <img class="scan-graphic" src="img/graphics/phone-scan-barcode.svg" alt="Scan barcode" ng-click="scan()">
+
+             <p class="scan-tips">To bring up a game's page on GBG, <span
+                     class="button button-primary button-scan ion-qr-scanner" ng-click="scan()"><span
+                     class="button-scan-inner">scan</span></span> the barcode on the back of the game's case</p>
+         </div> -->
+
+        <div class="question" ng-hide="newValue_flag">
+            <p class="question_section-title">Challenge Your Video Game Knowledge</p>
+
+            <div class="question_block-wrapper">
+                <div class="question_block-1-col" ng-repeat="question_set in data.question_sets">
+                    <p class="question_title">{{ question_set.question_set_name }}</p>
+                    <img class="question_img" ng-src="{{ question_set.question_set_pic }}"
+                         ng-click="goto_question_set(question_set.question_set_id, question_set.question_set_name, 'search')">
+                </div>
+            </div>
+            <div class="question_add-question" ng-click="show_action_popup()">
+                <!--<button class="button button-primary" ng-click="show_action_popup()">-->
+                <!--Add Question you want to ask other gamers-->
+                <!--</button>-->
+                <div class="question_cta">
+                    <i class="question_add-icon ion-ios-plus-outline"></i>
+
+                    <p class="question_text">Challenge other gamers with your questions</p>
+                </div>
+                <!--<img class="question_img" src="https://gamebuygame.s3.amazonaws.com/question_pic/batman.jpg"/>-->
+            </div>
+        </div>
+
+        <script>
+            $('.view-container').css('height', $(window).height() + 'px');
+        </script>
+
+    </ion-content>
+</ion-view>

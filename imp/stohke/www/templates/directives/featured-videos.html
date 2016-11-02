@@ -1,0 +1,21 @@
+<simple-slider class="carousel" ng-if="userMedia.videos">
+    <div class="simple-slider-inner" style="webkit-transform: translate3d(0,0,0);">
+        <div ng-repeat="media in userMedia.videos track by $index" class="featured-video" >
+            <span ng-click="showVideo($index)">
+                <div class="banner-img video" style="background-image: url({{media.ThumbnailLargeUrl || media.ThumbnailSmallUrl}})"></div>
+                <!-- <img ng-src="" alt="" class="profile-video-thumb"> -->
+                <!-- <i class="ion-android-arrow-dropright-circle play-button"></i> -->
+            </span>
+            <div class="details with-stohke-button">
+                <user-profile data-user-id="{{media.userDetails.Alias}}" data-format="small" data-user-type="{{media.userDetails.Type}}"></user-profile>
+
+                <div class="details-stohked">
+                    <stohke-button data-media-owner="media.UserId + '_' + media.Id" data-media-type="media.Type">
+                    </stohke-button>
+                    <stohke-count data-media-owner="media.UserId + '_' + media.Id" data-media-type="media.Type" data-counter-only="true"></stohke-count>
+                </div>
+                <p>{{::media.Caption}}</p>
+            </div>
+        </ion-item>
+    </div>
+</simple-slider>

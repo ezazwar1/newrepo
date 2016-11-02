@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "appIconFont";
+  src: url('../fonts/appIconFont.eot');
+  src: url('../fonts/appIconFont.eot?#iefix') format('eot'),
+    url('../fonts/appIconFont.woff') format('woff'),
+    url('../fonts/appIconFont.ttf') format('truetype'),
+    url('../fonts/appIconFont.svg#appIconFont') format('svg');
+}
+
+.app-icon:before {
+  font-family: "appIconFont";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+
+
+.icon-cart-add:before {
+  content: "\EA01";
+}
+
+.icon-cart:before {
+  content: "\EA02";
+}
+
+.icon-cartadd:before {
+  content: "\EA03";
+}
+
+.icon-globe:before {
+  content: "\EA04";
+}
+
+.icon-gridview:before {
+  content: "\EA05";
+}
+
+.icon-heart:before {
+  content: "\EA06";
+}
+
+.icon-house:before {
+  content: "\EA07";
+}
+
+.icon-listview:before {
+  content: "\EA08";
+}
+
+.icon-mail:before {
+  content: "\EA09";
+}
+
+.icon-menu:before {
+  content: "\EA0A";
+}
+
+.icon-phone:before {
+  content: "\EA0B";
+}
+
+.icon-plus:before {
+  content: "\EA0C";
+}
+
+.icon-search:before {
+  content: "\EA0D";
+}
+
+.trash-icon:before {
+  content: "\EA0E";
+}

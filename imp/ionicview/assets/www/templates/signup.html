@@ -1,0 +1,82 @@
+<ion-view class="signup" view-title="Sign up">
+  <ion-content class="content padding">
+    <div class="error" ng-show="formModel.errors.error" ng-model="formModel.errors.error">{{formModel.errors.error}}</div>
+    <form name="form" ng-submit="signup()">
+      <label class="item item-input item-floating-label item-md-input">
+        <span class="input-label">USERNAME</span>
+        <input class="md-input" type="text" placeholder="USERNAME" name="username" ng-model="formModel.username" required>
+        <div class="highlight"></div>
+        <i ng-show="formModel.errors.username" class="icon ion-ios-close-empty"></i>
+        <i ng-show="formModel.errors && !formModel.errors.username" class="icon ion-ios-checkmark-empty"></i>
+        <div class="error" ng-show="formModel.errors.username" ng-model="formModel.errors.username">
+          {{formModel.errors.username | uppercase}}
+        </div>
+      </label>
+      <div class="item item-input">
+        <label class="item-floating-label firstname item-md-input">
+          <span class="input-label">FIRST</span>
+          <input class="md-input" type="text" placeholder="FIRST" name="firstname" ng-model="formModel.firstName" required>
+          <div class="highlight half-highlight"></div>
+          <i ng-show="formModel.errors.name" class="icon ion-ios-close-empty"></i>
+          <i ng-show="formModel.errors && !formModel.errors.name" class="icon ion-ios-checkmark-empty"></i>
+        </label>
+        <label class="item-floating-label lastname item-md-input">
+          <span class="input-label">LAST</span>
+          <input class="md-input" type="text" placeholder="LAST" name="lastname" ng-model="formModel.lastName" required>
+          <div class="highlight half-highlight"></div>
+          <i ng-show="formModel.errors.name" class="icon ion-ios-close-empty"></i>
+          <i ng-show="formModel.errors && !formModel.errors.name" class="icon ion-ios-checkmark-empty"></i>
+          <div class="error" ng-show="formModel.errors.name" ng-model="formModel.errors.name">
+            {{formModel.errors.name | uppercase}}
+          </div>
+        </label>
+      </div>
+      <label class="item item-input item-floating-label item-md-input">
+        <span class="input-label">EMAIL</span>
+        <input class="md-input" type="email" placeholder="EMAIL" name="email" ng-model="formModel.email" ng-focus="blurred = false" ng-blur="blurred = true" required>
+        <div class="highlight"></div>
+        <i ng-class="{'visible': (form.email.$error.email && blurred) || formModel.errors.email }" class="icon icon-error ion-ios-close-empty"></i>
+        <i ng-show="formModel.errors && !formModel.errors.email && !form.email.$error.email" class="icon ion-ios-checkmark-empty"></i>
+        <div class="error input-error" ng-class="{'has-error': form.email.$error.email, 'blur': blurred}">
+          PLEASE ENTER A VALID EMAIL
+        </div>
+        <div class="error" ng-show="formModel.errors.email" ng-model="formModel.errors.email">
+          {{formModel.errors.email | uppercase}}
+        </div>
+      </label>
+      <label class="item item-input item-floating-label item-md-input">
+        <span class="input-label">PASSWORD</span>
+        <input class="md-input" type="password" placeholder="PASSWORD" name="password1" ng-model="formModel.password1" required>
+        <div class="highlight"></div>
+        <i ng-class="{'visible': formModel.errors.password2 || (form.password1.$viewValue && form.password2.$viewValue && form.password2.$viewValue !== form.password1.$viewValue) }" class="icon icon-error ion-ios-close-empty"></i>
+        <i ng-show="(form.password1.$viewValue && form.password2.$viewValue == form.password1.$viewValue) && (!formModel.errors || (formModel.errors && !formModel.errors.password1))" class="icon ion-ios-checkmark-empty"></i>
+        <div class="error" ng-show="formModel.errors.password1" ng-model="formModel.errors.password1">
+          {{formModel.errors.password1 | uppercase}}
+        </div>
+      </label>
+      <label class="item item-input item-floating-label item-md-input">
+        <span class="input-label">CONFIRM PASSWORD</span>
+        <input class="md-input"
+               type="password"
+               placeholder="CONFIRM PASSWORD"
+               name="password2"
+               ng-model="formModel.password2"
+               ng-focus="pwBlurred = false"
+               ng-blur="pwBlurred = true"
+               required>
+        <div class="highlight"></div>
+        <i ng-class="{'visible': formModel.errors.password2 || (form.password1.$viewValue && form.password2.$viewValue && form.password2.$viewValue !== form.password1.$viewValue) }" class="icon icon-error ion-ios-close-empty"></i>
+        <i ng-show="(form.password2.$viewValue && form.password2.$viewValue == form.password1.$viewValue) && (!formModel.errors || (formModel.errors && !formModel.errors.password2))" class="icon ion-ios-checkmark-empty"></i>
+        <div class="error input-error password-error" 
+          ng-class="{'has-error': form.password1.$viewValue && form.password2.$viewValue && form.password2.$viewValue !== form.password1.$viewValue }">
+          THE PASSWORDS DON'T MATCH
+        </div>
+        <div class="error" ng-show="formModel.errors.password2" ng-model="formModel.errors.password2">
+          {{formModel.errors.password2 | uppercase}}
+        </div>
+      </label>
+      <input type="submit" ng-disabled="form.$invalid || form.password2.$viewValue !== form.password1.$viewValue" class="button button-block button-positive view-button" value="CREATE ACCOUNT">
+    </form>
+  </ion-content>
+</ion-view>
+

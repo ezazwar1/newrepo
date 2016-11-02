@@ -1,0 +1,92 @@
+
+/* Tabs */
+.tab-menus {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-top: 12px;
+    width: 100%;
+}
+
+.tab-content {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 0;
+    width: 100%;
+}
+
+.bar .buttons-left span {
+    margin-right: 0; // overwrite the default margin right
+}
+
+.bar .buttons-right .secondary-buttons {
+    width: 100%;
+    margin-right: 0;
+}
+
+.bar-stable {
+
+    .buttons {
+        width: 100%; //top nav tab takes full width
+    }
+
+    .primary-buttons {
+        width: 100%; //top nav tab takes full width
+    }
+
+}
+
+
+.tabs_nav {
+    text-align: center;
+    width: 100%; //top nav tab takes full width
+}
+
+.tabs_list-group {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    @include flexParentLayout;
+}
+
+.tabs_list {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0;
+
+    .tabs_nav--has-2-tabs & {
+        width: 50%; //2 tabs
+    }
+
+    .tabs_nav--has-3-tabs & {
+        width: 33.3333333%; //3 tabs
+    }
+}
+
+.tabs_item {
+    position: relative;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: $fontSizeBase;
+}
+
+.tabs_item:focus {
+    outline: none;
+}
+
+.tab-current{
+    color: $baseLinkColor;
+    border-bottom: 1px solid $baseLinkColor;
+}
+
+.tabs_icon {
+    .item-icon-left & {
+        left: 11px;
+        top: -2px;
+    }
+    &::before {
+        font-size: $iconFontSizeBase;
+    }
+}

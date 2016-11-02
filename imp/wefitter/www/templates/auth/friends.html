@@ -1,0 +1,22 @@
+<ion-view title="{{userName}} {{ 'FRIENDS.TITLE' | translate }}">
+	<div class="bar bar-header item-input-inset friend-search-bar">
+		<label class="item-input-wrapper">
+			<input type="search" ng-model="search.name" class="dark-plc" placeholder="{{ searchPlaceholder }}">
+			<i class="icon ion-ios-search placeholder-icon search-icon-friend"></i>
+		</label>
+		<button ng-click="search.name = ''" ng-show="search.name.length > 0" class="button button-clear">
+			<i class="ion-android-close"></i>
+		</button>
+	</div>
+    <ion-tabs class="tabs-positive tabs-top tabs-striped tabs-background-dark bg-white tabs-headerSearch">
+
+			<ion-tab title="{{ 'PROFILE.FOLLOWING' | translate }}" ui-sref="app.friends.following">
+					<ion-nav-view name="friends-following"></ion-nav-view>
+			</ion-tab>
+
+        <ion-tab title="{{ 'PROFILE.FOLLOWERS' | translate }}" ui-sref="app.friends.followers">
+            <ion-nav-view name="friends-followers"></ion-nav-view>
+        </ion-tab>
+
+    </ion-tabs>
+</ion-view>

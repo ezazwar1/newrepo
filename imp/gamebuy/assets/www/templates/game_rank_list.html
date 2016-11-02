@@ -1,0 +1,31 @@
+<ion-view title="{{data.page_title}}">
+    <ion-content scroll="true" padding="false">
+        <div class="intro" ng-if="data.gamerank_placeholderpic_flag && data.collect_as==1">
+            <img class="intro_graphic" src="img/graphics/controllers/gameboy.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.GameRankCtrl_message}}</p>
+        </div>
+        <div class="intro" ng-if="data.gamerank_placeholderpic_flag && data.collect_as==2">
+            <img class="intro_graphic" src="img/graphics/controllers/ps-wireless.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.GameRankCtrl_message}}</p>
+        </div>
+        <div class="intro" ng-if="data.gamerank_placeholderpic_flag && data.collect_as==3">
+            <img class="intro_graphic" src="img/graphics/controllers/360.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.GameRankCtrl_message}}</p>
+        </div>
+        <ion-list>
+            <ion-item class="item game-list" ng-click="goto_game_profile_by_tab(game.game_id, 'search')" ng-repeat="game in data.collections_ranking">
+
+                <div class="game-list-thumbnail">
+                    <img ng-src="{{game.picture}}">
+                </div>
+
+                <div class="game-list_game-info">
+                    <h2 class="game-list_game-title">{{game.title}}</h2>
+                    <p class="game-list_game-platform">{{game.platform}}</p>
+                    <p class="game-list_game-distance">{{game.count}} <ng-pluralize count="game.count" when="{'0': 'Gamers', '1': 'Gamer', 'other': 'Gamers'}"></ng-pluralize></p>
+                </div>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

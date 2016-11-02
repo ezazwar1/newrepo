@@ -1,0 +1,16 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">About</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="padded title-font about-text">
+            <p>Stohke is the place online to be inspired to go offline.</p>
+            <p>Our app is designed to give you easy access to the world of outdoor and action sports.</p>
+            <p>Adventure is at your fingertips.</p>
+        </div>
+        <div class="padding-bottom padded" ng-if="!userAuth.isAuth">
+            <button class="button button-positive button-block" ng-click="signIn()">Sign in with Facebook</button>
+        </div>
+        <featured-videos data-featured-type="stohkeaboutvids"></featured-videos>
+    </ion-content>
+</ion-modal-view>

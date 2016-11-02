@@ -1,0 +1,1 @@
+<ion-view view-title="{{ 'PICTURES.TAB_TITLE' | translate }}"><ion-content class="has-subheader"><div ng-if="deviceGrade === 'a' && pictures.length <= 50" ng-include="'templates/partials/picture-list.html'"></div><div ng-if="deviceGrade !=='a' || pictures.length> 50" ng-include="'templates/partials/picture-list_fast.html'"></div></ion-content></ion-view>

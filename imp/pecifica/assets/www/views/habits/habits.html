@@ -1,0 +1,91 @@
+<ion-view hide-back-button="true" hide-nav-bar="nux" ng-class="{'popoverr add-activity': nux}">
+
+<ion-nav-bar class="pa-header" ng-class="{'level-header': !isUMNUser()}">
+  <ion-nav-title>
+    <div>{{ (editingGoals && habits.length > 0 ? 'EDIT_DAILY_GOALS' : 'HEALTH_ACTIVITY') | translate }}<span ng-click="goToSkills()" ng-show="!isUMNUser()">{{ 'LEVEL' | translate }} {{ getHabitsLevel()}}</span></div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+     <a href="javascript:;" ng-click="editGoals()" ng-show="habits.length > 0" ng-if="!nux">{{ (editingGoals ? 'DONE' : 'EDIT') | translate }}</a>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <a href="javascript:;" ng-click="showHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+
+   </ion-nav-bar>
+  
+  <div class="back"></div>
+
+  <ion-content> 
+
+    <div ng-if="nux">
+
+      <h1>{{ 'SELECT_YOUR_HABITS' | translate }}</h1>
+      <h3>{{ 'SELECT_YOUR_HABITS2' | translate }}</h3>
+      <div class="list habits-menu">
+        <div ng-repeat="habit in potentialHabits | filter:name='!mood' ">
+          <div class="item {{habit.name}} item-icon-right item-icon-left inactive" ng-click="toggleHabit(habit)">
+            <i class="icon icon-left ion-ios-star-outline"></i> 
+            <span>{{getHabitName(habit)}}</span>
+            <i class="icon ion-ios-checkmark" ng-show="isAddingHabit(habit)"></i>
+          </div>
+        </div>
+      </div>
+      <div class="error" ng-show="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <div ng-click="next()" class="button-start">
+        {{ 'NEXT' | translate }}
+      </div>
+    </div>
+
+    <div ng-if="!nux">
+      <ion-list class="list habits-menu" ng-class="{editing: !editingGoals}" show-reorder="true" style="pointer-events: auto !important;"> <!-- problem with reorder and the pointer events for swiping. -->
+        <div class="item item-divider heart-row item-icon-left item-icon-right">
+          <!-- #DB: note the disabled class -->
+          <div class="heart-monitor zero {{getTodaysHabitsClass()}}"></div>
+          <i class="icon ion-ios-arrow-left {{!canGoBackwards() ? 'disabled' : ''}}" ng-click="previousDay()" ng-show="!editingGoals && habits.length > 0"></i>
+
+          <span ng-show="!editingGoals || habits.length == 0">{{getDateString()}}</span>
+          <span class="editing-goals-help" ng-show="editingGoals && habits.length > 0">{{ 'HEALTH_GOAL_DESC' | translate }}</span>
+
+          <i class="icon ion-ios-arrow-right {{!canGoForward() ? 'disabled' : ''}}" ng-click="nextDay()" ng-show="!editingGoals && habits.length > 0"></i>
+        </div>
+        <h2 class="quote" ng-if="habits.length == 0">&ldquo;{{ 'HABITS_QUOTE' | translate }}&rdquo;<br><span>Leigh Hunt</span></h2>
+
+        <ion-item ng-repeat="habit in habits track by habit.id" class="dragContainer">
+          <a href="javascript:;" ng-click="removeHabit(habit)" ng-show="editingGoals" class="remove_btn" title="Remove"><i class="icon ion-minus-circled"></i></a>
+          <ion-reorder-button class="ion-navicon" on-reorder="moveHabit(habit, $fromIndex, $toIndex)" ng-show="editingGoals" >
+          </ion-reorder-button>
+          <div class="item {{habit.name}} item-icon-left" ng-class="{'no-slider':!showSlider()}" ng-click="navigateToHabit(habit.id)" ng-show="!editingGoals || (habit.id != 20)"> <!-- HabitsService.MENSTRUATION_HABIT_ID -->
+            <i class="icon icon-left ion-ios-star-outline" ng-show="!editingGoals"></i>
+            <i class="icon icon-left ion-ios-bell" ng-show="hasReminder(habit)"></i>
+            <span ng-click="editHabit(habit)" class="edit-habit">{{getHabitName(habit)}} <em>{{ getEditHabitText(habit) }}</em></span>
+            <span class="status" ng-class="{goal: isGoalMet(habit), empty: !hasEntry(habit)}">{{getTodaysDataDisplay(habit)}}</span>
+            <i class="icon icon-right ion-ios-more" ng-show="!editingGoals" ng-click="showOptions($event, habit)"></i>
+            <health-selector habit="habit" value="getTodaysData(habit).options.value" editing-goals="editingGoals" redraw="redraw" callbacks="callbacks" disabled="isHabitDisabled(habit)" ng-show="showSlider()"></health-selector>
+          </div>
+        </ion-item>
+        
+      </ion-list> 
+
+      <!-- Handled during transition.
+      <a ng-if="requiresUpdate && !editingGoals" ng-click="postHabits()" class="item add-new-habit">
+        {{ 'DONE' | translate }}
+      </a>
+      -->
+
+      <a ng-click="addHabits()" ng-show="canAddHabits()" class="item add-new-habit item-icon-left">
+        <i class="icon ion-ios-plus-empty"></i>{{ 'HABITS_ADD_ACTIVITY' | translate }}
+      </a>
+      <a ng-click="goToCreateHabit()" class="item add-new-habit create item-icon-left">
+        <i class="icon ion-ios-compose-outline"></i>{{ 'CREATE_YOUR_OWN' | translate }}
+      </a>
+      <a ng-click="showDailyReminders()" class="item add-new-habit create item-icon-left">
+        <i class="icon ion-ios-bell-outline"></i>{{ 'DAILY_REMINDERS' | translate }}
+      </a>
+    </div>
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

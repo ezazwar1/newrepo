@@ -1,0 +1,51 @@
+<ion-view title="{{ title }}">
+
+    <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header no-border bottom-0">
+
+		<div class="img-cover item item-image group-bg">
+            <img class="img-responsive" ng-src="{{ group.image_url }}" height="200">
+            <div class="row bot-btns">
+              <div class="col text-right">
+        		<button ng-click="changeProfilePic()" class="button button-profile-pic button-light btn-sm button-round">
+                    <ion-spinner class="spinner-positive" ng-show="loading" icon="dots"></ion-spinner>
+
+                    <i ng-hide="loading || !group.image_url" class="wf positive ion-edit"></i>
+                    <i ng-show="!group.image_url && !loading" class="wf positive ion-plus"></i>
+                </button>
+              </div>
+            </div>
+        </div>
+
+        <div class="big-padding">
+          <form class="list" name="group.create" novalidate>
+        	<label class="item item-input on-light">
+                <input ng-model="group.name" name="name" type="text" placeholder="{{ 'GROUPS.NAME' | translate }}" class="dark-plc" required ng-disabled="isEdit">
+            </label>
+            <label class="item item-input on-light">
+                  <input ng-model="group.name" name="identifier" type="text" placeholder="{{ 'GROUPS.IDENTIFIER' | translate }}" class="dark-plc" disabled>
+            </label>
+            <label class="item item-input on-light margin-top-10">
+            <textarea ng-model="group.description" name="description" placeholder="{{ 'GROUPS.DESCRIPTION' | translate }}" class="dark-plc description-textarea" msd-elastic maxlength="500"></textarea>
+          </label>
+          <label class="item item-input on-light margin-top-10 placeholder-color">
+            {{'GROUPS.RANKING_UNIT' | translate}}
+          </label>
+         <div class="select-box">
+            <select ng-model="group.default_unit" ng-options="unit as unit.key for unit in unitList" ng-disabled="isEdit">
+            </select>
+         </div>
+        </form>
+        </div>
+        <div class="footer-height"></div>
+
+    </ion-content>
+
+    <ion-footer-bar class="bar-positive floating-footer floating-footer-button" ng-hide="keyboardOpen">
+        <button ng-if="isCreate" ng-click="createGroup()" class="button button-big-sticky button-full floating-footer-button" translate="ACTION.CREATE">Save</button>
+        <button ng-if="dataChanged > 0 && isEdit" ng-click="editGroup()" class="button button-big-sticky button-full floating-footer-button" translate="ACTION.SAVE">Save</button>
+    </ion-footer-bar>
+</ion-view>

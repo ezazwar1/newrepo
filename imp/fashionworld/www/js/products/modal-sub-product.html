@@ -1,0 +1,10 @@
+<ion-modal-view class="modal-half">
+	<h3>SIMILAR ITEMS</h3>
+		<ion-scroll direction="x" class="catScroll" >
+			<div class="image-modal" ng-repeat="tmpObj in products">
+				<img class="full-image" ng-src="{{tmpObj.product_image!=null ? tmpObj.product_image : 'img/no-image.jpg' }}">
+				<p class="item-brand">{{tmpObj.product_name}}</p>
+				<p class="item-price"><span class="actual-price"><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{tmpObj.actual_price}}</span> </p>
+			</div>
+		</ion-scroll>
+</ion-modal-view>

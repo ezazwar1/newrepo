@@ -1,0 +1,30 @@
+<div class="user-item">
+	<div class="thumb" ng-click="$parent.goTo('main.home.friend.movie', null, {username: user.username})">
+		<img  ng-src="{{ user.photo || 'images/default-profile-photo.png' }}" />
+	</div>
+	<div class="user-info">
+		<div class="fullName">
+			<a ng-click="$parent.goTo('main.home.friend.movie', null, {username: user.username})">{{user.fullName}}</a>
+		</div>
+		<div class="city">
+			{{user.city}}
+		</div>
+	</div>
+	<div class="actions status" ng-class="{shake: working, 'two-buttons': user.friendshipStatus === 'REQUEST_SENT'}">
+
+		<!--
+			WATCH OUT! 
+			The inverted statuses are CORRECT, because the session user is the reference.
+			DO NOT INVERT until is really needed
+		-->
+		<button ng-if="user.friendshipStatus === 'REQUEST_RECEIVED'"><span translate>Solicitado</span></button>
+		<button ng-if="user.friendshipStatus === 'SAME'"><span translate>Sou eu</span></button>
+
+		<button  ng-click="discardFriendship(user); $event.stopPropagation();" ng-if="user.friendshipStatus === 'FRIENDS'"><span translate>Desfazer</span></button>
+		<button  ng-click="acceptFriendship(user); $event.stopPropagation();" ng-if="user.friendshipStatus === 'REQUEST_SENT'"><span translate>Aceitar</span></button>
+		<button  ng-click="rejectFriendship(user); $event.stopPropagation();" ng-if="user.friendshipStatus === 'REQUEST_SENT'"><span translate>Rejeitar</span></button>
+		<button  ng-click="requestFriendship(user); $event.stopPropagation();" ng-if="user.friendshipStatus === 'NO_RELATIONSHIP' || user.friendshipStatus === 'REJECTED'">
+			<span translate>Solicitar amizade</span>
+		</button>
+	</div>
+</div>

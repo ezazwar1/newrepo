@@ -1,0 +1,32 @@
+<ion-view view-title="Home" can-swipe-back="false">
+<ion-nav-buttons side="right">
+    <button class="button button-ghost" ng-click="openMap()">Map</button>
+</ion-nav-buttons>
+<ion-content>
+        <section id="home">
+            <ion-spinner icon="ios" ng-show="cafes.length == 0" ng-hide="message"></ion-spinner>
+            <section ng-include="'templates/include/error-message.html'"></section>
+            <div ng-repeat="cafe in cafes" ng-click="openDetail(cafe.id)">
+                <div class="item item-text-right">
+                    <h2 class="cafe-name">{{ ::cafe.name }}</h2>
+                    <rate-stars rating="cafe.rating"></rate-stars>
+                    <span class="item-note">{{ ::cafe.distance }}km</span>
+                </div>
+                <section class="gallery">
+                    <div class="row" ng-repeat="image in cafe.images track by $index" ng-if="$index % 3 === 0">
+                        <div class="col col-33" ng-if="$index < cafe.images.length">
+                            <img ng-src="{{ cafe.images[$index] }}" width="100%" default-src="img/default.png">
+                        </div>
+                        <div class="col col-33" ng-if="$index + 1 < cafe.images.length">
+                            <img ng-src="{{ cafe.images[$index + 1] }}" width="100%" default-src="img/default.png">
+                        </div>
+                        <div class="col col-33" ng-if="$index + 2 < cafe.images.length">
+                            <img ng-src="{{ cafe.images[$index + 2] }}" width="100%" default-src="img/default.png">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="hasMore"></ion-infinite-scroll>
+        </section>
+        </ion-content>
+        </ion-view>

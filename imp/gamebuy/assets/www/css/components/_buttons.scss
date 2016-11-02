@@ -1,0 +1,410 @@
+
+.bar-stable .button.active, .bar-stable .button.activated {
+    color: $colorReverse;
+    background-color: $colorReverseBkg;
+    border-color: $colorReverseBkg;
+}
+
+.buttons {
+    // Vertical align center for buttons in the header bar
+    height: $headerHeight;
+    line-height: $headerHeight;
+}
+
+/*------------------------------------*\
+    #BASIC BUTTON
+    
+    * Rewrite the basic style of the ionic button
+\*------------------------------------*/
+
+.button {
+    position: relative;
+    min-height: inherit;
+
+    .bar & {
+        @extend %button-primary;
+        @extend %icon-attached;
+        min-height: inherit;
+    }
+
+    .button-stable & {
+        // Vertical align center for ionic back buttons
+        height: $headerHeight;
+        line-height: $headerHeight;
+    }
+
+    &.button-positive.button-clear {
+        @extend %icon-attached;
+        color: $baseLinkColor;
+        background-color: transparent;
+        font-size: $fontSizeSmall;
+        line-height: $lineheightBase;
+        border: none;
+
+        &.activated {
+            color: white;
+            opacity: 1;
+        }
+    }
+
+    &.button-block {
+        margin: $vSpaceTight auto;
+    }
+
+    &.activated {
+        color: white;
+        border-color: transparent;
+        background: none;
+        box-shadow: none;
+        min-width: inherit;
+        padding-right: 8px; // same as button-primary
+    }
+}
+
+/*------------------------------------*\
+    #PRIMARY BUTTONS
+    
+    * Main style of the green button in GBG
+\*------------------------------------*/
+
+.button-primary {
+    @extend %button-primary;
+    @extend %icon-attached;
+
+    // style the icons inside of the primary button. Make it smaller and give a space between the icon and text
+    &::before {
+        font-size: $fontSizeBase;
+        padding-right: 10px;
+    }
+
+    // make sure the button will keep the consistency when being clicked
+    &:active {
+        @extend %button-primary;
+    }
+    &:hover {
+        @extend %button-primary;
+    }
+    &.activated {
+        @extend %button-primary;
+        background-color: $baseLinkColor;
+        color: $baseBgColor;
+    }
+    
+    &.button-pressed {
+        background-color: $baseLinkColor;
+        color: $baseBgColor;
+    }
+
+    // for the arrow at the right side. It's on the game profile for viewing the gamer list
+    &.ion-chevron-right::before {
+        position: absolute;
+        right: -15px;
+    }
+
+    // Block button has a taller height
+    &.button-block {
+        line-height: 32px;
+    }
+
+    // Search button has a taller height.
+    &.button-search {
+        height: 32px;
+        line-height: 24px; // rewrite the general setting for buttons in the header bar, so the text inside of search button could vertical aligned middle
+        //padding: 0 6px;
+        min-width: inherit;
+        &::before {
+            padding-right: 2px;
+        }
+
+        &.activated {
+            padding: 0 8px;
+        }
+    }
+
+    // For filter button on Near Me
+    &.button-filter {
+        height: 32px;
+        line-height: 24px; // rewrite the general setting for buttons in the header bar, so the text inside of search button could vertical aligned middle
+        min-width: 0; // rewrite the min-width 54px default setting
+
+        &.activated {
+            padding: 0 8px;
+        }
+    }
+
+}
+
+/*------------------------------------*\
+    #MULTIPLE INLINE BUTTONS
+    
+    * For multiple buttons in one line. The width of all buttons is even.
+\*------------------------------------*/
+
+// When it has multiple buttons in the same line
+.button-multi {
+    @include flexParentLayout;
+    width: 100%;
+}
+
+.button-multi_item {
+    @include animation($property: width, $duration: 0s); // For some reason, the button loading is slow. This is a fix for it.
+}
+
+/* one item */
+.button-multi_item:first-child:nth-last-child(1) {
+    width: 100%;
+}
+
+/* two items */
+.button-multi_item:first-child:nth-last-child(2),
+.button-multi_item:first-child:nth-last-child(2) ~ .button-multi_item {
+    width: 49%;
+    margin-left: 2%;
+}
+
+.button-multi_item:first-child:nth-last-child(2) {
+    margin-left: 0;
+}
+
+/* three items */
+.button-multi_item:first-child:nth-last-child(3),
+.button-multi_item:first-child:nth-last-child(3) ~ .button-multi_item {
+    width: 32%;
+    margin-left: 2%;
+}
+
+.button-multi_item:first-child:nth-last-child(3) {
+    margin-left: 0;
+}
+
+/*------------------------------------*\
+    #MULTIPLE INLINE BUTTONS (UNEVEN)
+    
+    * For multiple buttons in one line. The width of all buttons is uneven.
+\*------------------------------------*/
+
+/* two items */
+.button-multi_item-uneven:first-child {
+    width: 32.3333333333%;
+    margin-right: 2%;
+}
+
+.button-multi_item-uneven:last-child {
+    @include flexChildLayout($var: 1);
+}
+
+/*------------------------------------*\
+    #Chat BUTTONS
+    
+    * Buttons on the chat tab need a special height
+\*------------------------------------*/
+
+.button-chat {
+    line-height: 32px;
+
+    // rewrite the button height for chat button only when being clicked
+    &.activated {
+        line-height: 32px;
+        padding: 0 8px;
+    }
+    &:active {
+        line-height: 32px;
+    }
+    &:hover {
+        line-height: 32px;
+    }
+}
+
+// Give the space between the search bar and Search button
+.item-input-wrapper ~ .button {
+    margin-left: 5px;
+}
+
+// The class shared by Search and Scan on Search page
+.button-small {
+    padding-left: 10px;
+    padding-right: 10px;
+    @include borderRadius;
+}
+
+.button-scan {
+    vertical-align: middle;
+}
+
+.button-scan-inner {
+    position: relative;
+    top: -1px;
+}
+
+/*------------------------------------*\
+    #SPECIAL BUTTONS
+    
+    * Some special buttons with custom settings
+\*------------------------------------*/
+
+// For the buttons without any background and border, just like a like, such as the "cancel" button in the popup
+.button-link {
+    @extend %icon-attached;
+    font-size: $fontSizeSmall;
+    color: $baseLinkColor;
+    line-height: $lineheightComfort;
+    background: none;
+    border: none;
+    text-align: center;
+    padding: 0;
+
+    &.activated {
+        background: transparent;
+        color: white;
+    }
+
+    &::before {
+        padding-right: 5px;
+    }
+
+    // In popup, the button take the whole block
+    // .popup-body & {
+    //     margin: 15px 0;
+    //     padding: 10px 0;
+    // }
+}
+
+// rewrite the buttons in the popup
+.popup-buttons {
+
+    .button.button-positive {
+        @extend %button-primary;
+        min-height: 32px;
+        height: 32px;
+        @include animation;
+
+        &.activated {
+            background-color: $baseLinkColor;
+            color: $baseBgColor;
+        }
+    }
+
+    .button.button-default {
+        @extend %button-primary;
+        min-height: 32px;
+        height: 32px;
+        @include animation;
+
+        &.activated {
+            background-color: $baseLinkColor;
+            color: $baseBgColor;
+        }
+    }
+    
+    // Hide the area don't need a popup buttons area. Used on ToHave popup.
+    .popup-body ~ & {
+        // display: none;
+    }
+}
+
+.button-disabled[disabled="disabled"] {
+    &::before {
+        content: '\f373';
+        color: $baseLinkColor;
+    }
+}
+
+// For setting buttons
+.button-list {
+    @extend %highlight-note;
+    text-align: left;
+    line-height: 2em;
+    background-color: transparent;
+    border: 1px solid $baseBgColor;
+    border-bottom-color: $dividerColor;
+
+    &::before {
+        font-size: $fontSizeSmall;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        @include translate(0, -50%);
+    }
+
+    &:last-child {
+        border-bottom: 1px solid $baseBgColor;
+    }
+
+    // rewrite the setting of margin and padding
+    &.button.button-block {
+        margin: 0 auto;
+        padding: $vSpaceTight 20px;
+        height: 34px; // magic number
+    }
+
+    // make sure the button will keep the consistency when being clicked
+    &:hover {
+        color: $baseLinkColor;
+    }
+    &:active {
+        @extend %button-primary;
+        background-color: $baseLinkColor;
+        color: $baseBgColor;
+    }
+    &.activated {
+        @extend %button-primary;
+        background-color: $baseLinkColor;
+        color: $baseBgColor;
+        height: 34px; // magic number
+    }
+    
+}
+
+// For disabled button on deal profile
+.button-placeholder {
+    border-color: $baseFontColor;
+    color: $baseFontColor;
+}
+
+
+
+
+
+
+
+
+.button-icon-right {
+
+    &::before {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include translate(40px, -50%);
+    }
+
+    .question-page_wrapper &::before {
+        @include translate(50px, -50%);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<div class="movie-item" ng-click="$parent.watch(movie.idMovie)">
+	<div class="thumb">
+		<img  ng-src="{{ getImageUrl(movie, 'small') }}" err-src="images/default-mosaic-cover.png" />
+	</div>
+	<div class="movie-info">
+		<div class="fullName">
+			{{movie.user.fullName}}
+		</div>
+		<div class="movie-title">
+			{{movie.title}}
+		</div>
+		<div class="movie-stats">
+			<div class="stat-item" ng-class="{active: movie.liked}">
+				<span class="nb" style="margin-right: 0;">{{ movie.likeCount }}</span>
+				<span  ng-class="{swingAnim: loadingLike}"><img ng-src="images/ico-yes{{ movie.liked ? '-red' : ''}}.svg" style="height: 100%;" /></span>
+			</div>
+			<div class="stat-item">
+				<span class="nb" style="margin-right: 7px;">{{ movie.commentCount }}</span>
+				<img src="images/ico-comment.svg" style="height: 100%; position: relative;" />
+			</div>
+			<div class="stat-item" ng-click="watch(movie.idMovie)">
+				<span class="nb" style="margin-right: 8px;">{{ movie.viewCount }}</span>
+				<img src="images/ico-view.svg" style="height: 100%;" />
+			</div>
+		</div>
+	</div>
+</div>

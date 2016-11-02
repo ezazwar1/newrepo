@@ -1,0 +1,235 @@
+/*------------------------------------*\
+    #GRID SYSTEM
+        * List with small image
+\*------------------------------------*/
+
+// For the list with a small avatar on the left side. Usually it's a gamer list, such as the Gamer List under My Games, and the chats list on Chats tab.
+%list-with-gamer-pic {
+    padding: 8px 8px 8px $colGutter;
+}
+
+// For the thumbnail un the list-with-gamer-pic
+%list-thumbnail {
+	float: left;
+    width: $chatInnerColWidth;
+    margin-right: 12px;
+}
+
+
+// For the gamer name under the list-with-gamer-pic
+%list-gamer-name {
+    .item & {
+        @extend %title;
+    }
+}
+
+// For the gamer distance under the list-with-gamer-pic
+%list-distance {
+	@extend %icon-attached;
+    .item & {
+        @extend %list-gamer-name;
+        color: $baseLinkColor;
+    }
+}
+
+%list-activated-background {
+
+    @include animation($property: background-color);
+
+    &.activated {
+        background-color: $baseFontColor;
+        border-color: $dividerColor;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    #BUTTONS & ICONS
+        * 
+\*------------------------------------*/
+
+// For primary button in gbg
+%button-primary {
+    border: 1px solid $baseLinkColor;
+    background-color: transparent;
+    color: $baseLinkColor;
+    font-size: $fontSizeSmall;
+    line-height: 22px;
+    padding: 0 8px;
+    @include animation;
+}
+
+// For all the icons attached to the distance, tag and coins
+%icon-attached {
+    &::before {
+        font-size: $fontSizeSmall;
+        padding-right: 4px;
+        position: relative;
+        top: 0;
+    }
+}
+
+// Icons should be a bit smaller than the normal size, like the + and >, so they look elegent.
+%icon-small {
+    &::before {
+        font-size: $fontSizeBase;
+        top: 16px;
+    }
+}
+
+%icon-normal {
+    &::before {
+        font-size: 1.25rem;
+    }
+}
+
+%g-coin {
+    &::before {
+        content: '';
+        width: 14px;
+        height: 14px;
+        background: transparent url('../img/icons/g-coin.svg') center center no-repeat;
+        background-size: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-right: 4px;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    #TYPOGRAPHY
+\*------------------------------------*/
+
+// Main title for the list, such as game name and user name
+%title {
+    margin-bottom: 2px;
+    font-size: $fontSizeBase;
+    white-space: initial;
+    color: rgba(255, 255, 255, .9);
+}
+
+// Variation of the title with green color
+%title-green {
+    @extend %title;
+    color: $baseLinkColor;
+}
+
+// Subtitle for the list, such as platform and update time
+%subtitle {
+    color: rgba(255, 255, 255, .8);
+    font-size: $fontSizeTabs;
+    @include fontRegular;
+}
+
+// Information want to get noticed in the list
+%highlight-note {
+    font-size: $fontSizeSmall;
+    color: $baseLinkColor;
+    @include fontRegular;
+}
+
+// Form text typography
+%form-text {
+    font-size: $fontSizeBase;
+    line-height: 34px;
+    color: $baseLinkColor;
+    @include fontRegular;
+}
+
+
+
+
+
+
+
+%data-show { 
+    margin: 8px 0;
+    padding: 16px 5%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: $lineheightBase;
+    @include flexParentLayout;
+}
+
+%star-000 {
+    background: url("../img/icons/star-000.svg") center center no-repeat;
+}
+
+%star-025 {
+    background: url("../img/icons/star-025.svg") center center no-repeat;
+}
+
+%star-050 {
+    background: url("../img/icons/star-050.svg") center center no-repeat;
+}
+
+%star-075 {
+    background: url("../img/icons/star-075.svg") center center no-repeat;
+}
+
+%star-100 {
+    background: url("../img/icons/star-100.svg") center center no-repeat;
+}
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #Full page background gradient
+\*------------------------------------*/
+
+%full-page-bkg {
+    background: #121a3c; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #121a3c 0%, #000000 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#121a3c), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #121a3c 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #121a3c 0%,#000000 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #121a3c 0%,#000000 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #121a3c 0%,#000000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#121a3c', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #Navigation button group at the bottom of the screen
+\*------------------------------------*/
+
+%btm-nav {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    @include translate(-50%, 0);
+}
+
+
+
+
+
+
+
+
+
+
+

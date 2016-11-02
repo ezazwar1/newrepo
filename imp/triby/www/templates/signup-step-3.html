@@ -1,0 +1,44 @@
+<ion-view cache-view="false" view-title="Sign Up" ng-controller="UserCtrl">
+  <ion-content scroll="true">
+    <div class="edit_info_img" ng-style="{'background-image':'url(' + getAvatar() + ')'}" ng-click="uploadPicture()"></div>
+    <div class="singup_third_step_wrapper">
+      <div class="signup_third_step_form">
+        <form name="signup">
+
+          <div class="enter_code_box">
+            <input type="text" class="enter_code" name="profilename" ng-model="signupData.username"
+                   placeholder="Profile Name" ng-minlength="2" ng-maxlength="25" custom-maxlength="26" ng-model-options="{allowInvalid:true}">
+
+            <div class="profilename-errors">
+              <p class="error" ng-show="!!signup.profilename.$error.minlength">
+                Too short!
+              </p>
+              <p class="error" ng-show="!!signup.profilename.$error.maxlength">
+                Too long!
+              </p>
+            </div>
+          </div>
+
+          <div class="enter_code_box">
+            <input type="text" name="username" class="enter_code" ng-model="signupData.profilename" placeholder="User Name"
+                   ng-minlength="2" ng-maxlength="25" custom-maxlength="26" ng-trim="false" ng-model-options="{allowInvalid:true}">
+            <div class="username-errors">
+              <p class="error" ng-show="!!signup.username.$error.minlength">
+                Too short!
+              </p>
+              <p class="error" ng-show="!!signup.username.$error.maxlength">
+                Too long!
+              </p>
+              <p class="error" ng-show="errors.usernamePattern">
+                You can use only numbers, letters and periods!
+              </p>
+            </div>
+      </div>
+          <div class="ok_button_box">
+            <input type="button" class="ok_step_button" value="Done" ng-click="signUp(signup)">
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

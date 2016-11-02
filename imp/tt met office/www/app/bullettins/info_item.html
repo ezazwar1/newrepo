@@ -1,0 +1,17 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header has-border">
+    <h1 class="title no-left">{{vm.bulletin.bulletinType}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="b_info_close()">
+      	<span class="ion-ios-close-outline" style="font-size: 30px; margin-top: -2px;"></span>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="container">
+    <p>{{vm.bulletin.textArea1}}</p>
+    <p>{{vm.bulletin.textArea2}}</p>
+    <p>{{vm.bulletin.textArea3}}</p>
+    <p>{{vm.bulletin.textArea4}}</p>
+    <p>{{vm.bulletin.textArea5}}</p>
+  </ion-content>
+</ion-modal-view>

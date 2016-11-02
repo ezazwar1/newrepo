@@ -1,0 +1,48 @@
+<ion-modal-view class="modal-collection">
+  
+  <ion-footer-bar keyboard-attach class="main-area edit">
+
+    <ion-header-bar class="header" no-tap-scroll="true">
+      <div class="close">
+        <button class="btn-link-white" ng-click="closeModal()"><span class="ion-close"></span></button>
+      </div>
+      <div class="title modal-bottom">
+          Edit {{ currGroupName }}
+      </div>
+    </ion-header-bar>
+
+    <ion-content class="add-collection-raw" ng-show="displayRename">
+      <input type="text" placeholder="e.g Dinner dresses" ng-model="itemGroupModel.groupName" ng-change="onSetNameChanged()"/>
+    </ion-content>
+    <ion-footer-bar class="footer" ng-show="displayRename">
+      <div class="row">
+        <div class="col right-border" ng-click="changeDisplay(0)">
+          <span>BACK</span>
+        </div>
+        <div class="col save" ng-click="doUpdate()">
+          <ion-spinner ng-show="working" icon="ios-small"></ion-spinner> <span ng-show="!working" ng-class="allowToSave ? 'active' : ''"> SAVE</span>
+        </div>
+      </div>
+    </ion-footer-bar>
+
+    <ion-content ng-show="!displayRename" class="no-footer">
+      <ion-item class="collection-item new edit" ng-click="changeDisplay(1)">
+        <div class="new-icon">
+          <span class="ion-edit"></span>
+        </div>
+        <div class="new-label">
+          Rename
+        </div>
+      </ion-item>
+      <ion-item class="collection-item new edit" ng-click="doRemove()">
+        <div class="new-icon trash">
+          <span class="ion-trash-a"></span>
+        </div>
+        <div class="new-label">
+          Delete
+        </div>
+      </ion-item>
+    </ion-content>
+
+  </ion-footer-bar>
+</ion-modal-view>

@@ -1,0 +1,143 @@
+
+<!-- <ion-refresher
+		pulling-text=""
+		spinner="none"
+		on-refresh="loadMore(false, true)">
+	</ion-refresher> -->
+<div class="padding text-center" ng-show="noData && result.rank_users.length == 0">
+	{{ 'ACTION.NO_DATA' | translate }}
+</div>
+<div class="leaderboard-wrap">
+	<div class="round-carousel darker-bg">
+		<div class="rc-wrap row" ng-if="isTopRankShow">
+
+			<div class="col" ng-click="topRank[1].id ? getProfile(topRank[1].id,topRank[1].ranking) : ''">
+				<div ng-show="topRank[1]">
+					<div class="circle-avatar" style="background-image:url({{ topRank[1].image_url ? topRank[1].image_url : 'img/avatar.svg' }});background-color: #ffffff;">
+					</div>
+					<span class="count">{{topRank[1].ranking | shortNumber }}</span>
+					<h4>{{ topRank[1].first_name ? topRank[1].first_name + ' ' +  topRank[1].last_name : 'LEADERBOARD.ANONYMOUS' | translate }}</h4>
+					<h5><i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i> {{ topRank[1].value | number:0 }} {{ unit}} </h5>
+				</div>
+			</div>
+
+			<div ng-show="imIn" class="col active" ng-click="topRank[imIn].id ? getProfile(topRank[imIn].id,topRank[imIn].ranking) : ''">
+				<div ng-show="topRank[imIn]">
+					<div class="circle-avatar" style="background-image:url({{ topRank[imIn].image_url ? topRank[imIn].image_url : 'img/avatar.svg' }});background-color: #ffffff;">
+					</div>
+					<span class="count">{{topRank[imIn].ranking | shortNumber }}</span>
+					<h4>{{ topRank[imIn].first_name ? topRank[imIn].first_name + ' ' +  topRank[imIn].last_name : 'LEADERBOARD.ANONYMOUS' | translate }}</h4>
+					<h5><i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i> {{ topRank[imIn].value | number:0 }} {{ unit}} </h5>
+				</div>
+			</div>
+
+			<div ng-hide="imIn" class="col active" ng-click="topRank[0].id ? getProfile(topRank[0].id,topRank[0].ranking) : ''">			
+				<div ng-show="topRank[0]">
+					<div class="circle-avatar" style="background-image:url({{ topRank[0].image_url ? topRank[0].image_url : 'img/avatar.svg' }});background-color: #ffffff;">
+					</div>
+					<span class="count">{{topRank[0].ranking | shortNumber }}</span>
+					<h4>{{ topRank[0].first_name ? topRank[0].first_name + ' ' +  topRank[0].last_name : 'LEADERBOARD.ANONYMOUS' | translate }}</h4>
+					<h5><i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i> {{ topRank[0].value | number:0 }} {{ unit}} </h5>
+				</div>
+			</div>
+
+			<div class="col" ng-click="topRank[2].id ? getProfile(topRank[2].id,topRank[2].ranking) : ''">			
+				<div ng-show="topRank[2]">
+					<div class="circle-avatar" style="background-image:url({{ topRank[2].image_url ? topRank[2].image_url : 'img/avatar.svg' }});background-color: #ffffff;">
+					</div>
+					<span class="count">{{topRank[2].ranking | shortNumber }}</span>
+					<h4>{{ topRank[2].first_name ? topRank[2].first_name + ' ' +  topRank[2].last_name : 'LEADERBOARD.ANONYMOUS' | translate }}</h4>
+					<h5><i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i> {{ topRank[2].value | number:0 }} {{ unit}} </h5>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="leader-board">
+
+		<!-- <ion-scroll direction="y" delegate-handle="leaderboardScroll" style="height: {{wHeight}}px" class="theroot"> -->
+
+	       	<!-- <div ng-if="isTopRankShow" class="row row-center row-no-padding" ng-class="{'active' : user.ranking == result['user-stats'].ranking }"
+	       		ng-repeat="user in result.rank_users track by $index">
+				<div class="col col-10 numItem">
+					<span class="text-dark">{{ user.ranking | number }}</span>
+				</div>
+				<div class="col col-70 pgItem">
+					<div class="progress">
+						<span style="width: {{ ((user.value / max)*100).toFixed(2) }}%"></span>
+						<p ng-if="user.ranking == result['user-stats'].ranking">{{ 'LEADERBOARD.YOU' | translate }}</p>
+						<p ng-if="user.ranking != result['user-stats'].ranking">{{ user.first_name ? user.first_name + ' ' +  user.last_name : 'LEADERBOARD.ANONYMOUS' | translate }}</p>
+					</div>
+				</div>
+				<div class="col col-20 numItem">
+					<i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i>
+					 {{user.value | shortNumber:0 }} {{ unit}}
+				</div>
+			</div> -->
+
+			<!-- <div ng-if="!isTopRankShow" class="row row-center row-no-padding" ng-class="{'active' : user.ranking == result['user-stats'].ranking }"
+				ng-repeat="user in result.rank_users track by $index">
+		<div class="col col-10 numItem">
+			<span class="text-dark">{{ user.ranking | number }}</span>
+		</div>
+		<div class="col col-70 pgItem">
+			<div class="progress">
+				<span style="width: {{ ((user.value / max)*100).toFixed(2) }}%"></span>
+				<p ng-if="user.ranking == result['user-stats'].ranking">{{ user.name ? user.name  : 'LEADERBOARD.ANONYMOUS' | translate }} ({{  user.num_users}})</p>
+				<p ng-if="user.ranking != result['user-stats'].ranking">{{ user.name ? user.name  : 'LEADERBOARD.ANONYMOUS' | translate }} ({{  user.num_users}})</p>
+			</div>
+		</div>
+		<div class="col col-20 numItem">
+			<i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i>
+			 {{user.avg_value | shortNumber:0 }} {{ unit }}/{{ 'UNIT.USER' | translate }}
+		</div>
+	</div> -->
+
+
+	<div class="user-profile-nav-wrapper leaderboard_rank_wrap">
+		<div ng-if="isTopRankShow" class="row" ng-repeat="user in result.rank_users track by $index" ng-class="user.ranking == result['user-stats'].ranking ? 'me' : '' " ng-click="user.id ? getProfile(user.id,user.ranking) : ''">		
+			<div class="col col-20 icon-wrapper">
+				<div class="profile-user-image" style="background-image: url({{user.image_url ? user.image_url : 'img/avatar.svg'}});background-color: #0b1626;"></div>
+	    </div>
+			<div class="col item-name">
+				<span ng-if="user.ranking == result['user-stats'].ranking">{{ 'LEADERBOARD.YOU' | translate }}</span>
+				<span ng-if="user.ranking != result['user-stats'].ranking">{{ user.first_name ? user.first_name + ' ' +  user.last_name : 'LEADERBOARD.ANONYMOUS' | translate }}</span>
+				<div class="rank_stat_wrap">
+					<span class="rank"><i class="wf wf-bar-chart rank-icon" style="font-size: 15px !important;"></i>{{ user.ranking }}</span>
+					<span class="progress" ng-if="user.rank_diff && user.rank_diff != 0" ng-class="user.rank_diff < 0 ? 'negative_icon' : 'positive_icon'"><div style="display: -webkit-inline-box;" ng-class="user.rank_diff < 0 ? 'rotate' : ''"><i ng-if="user.rank_diff != 0" ng-class="user.rank_diff < 0 ? ' wf wf-arrow-up' : 'wf wf-arrow-up'"></i></div>{{user.rank_diff > 0 && user.rank_diff != 0 ? '+' : ''}}{{ user.rank_diff }}</span>
+					<span class="value"><i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i>
+					 {{user.value | shortNumber:0 }} {{ unit}}</span>
+				</div>
+			</div>
+
+	</div>
+
+	<!--<div ng-if="!isTopRankShow" class="row" ng-repeat="user in result.rank_users track by $index" ng-class="user.ranking == result['user-stats'].ranking ? 'me' : '' " ng-click="user.id ? getProfile(user.id,user.ranking) : ''">-->
+	<div ng-if="!isTopRankShow" class="row" ng-repeat="user in result.rank_users track by $index" ng-class="user.ranking == result['user-stats'].ranking ? 'me' : '' ">
+		<div class="col col-20 icon-wrapper">
+			<div class="group-icon"><i class="wf wf-team-shirt"></i></div>
+		</div>
+		<div class="col item-name">
+			<span>{{ user.name ? user.name  : 'LEADERBOARD.ANONYMOUS_TEAM' | translate }}</span>
+			<div class="rank_stat_wrap">
+				<span class="rank"><i class="wf wf-bar-chart rank-icon" style="font-size: 15px !important;"></i>{{ user.ranking }}</span>
+				<span class="progress" ng-if="user.rank_diff && user.rank_diff != 0" ng-class="user.rank_diff < 0 ? 'negative_icon' : 'positive_icon'"><div style="display: -webkit-inline-box;" ng-class="user.rank_diff < 0 ? 'rotate' : ''"><i ng-if="user.rank_diff != 0" ng-class="user.rank_diff < 0 ? ' wf wf-arrow-up' : 'wf wf-arrow-up'"></i></div>{{user.rank_diff > 0 && user.rank_diff != 0 ? '+' : ''}}{{ user.rank_diff }}</span>
+				<span class="people"><i class="wf wf-people user_num_icon"></i>{{  user.num_users }}</span>
+				<span class="value"><i ng-class="{'wf-calorie' : icon == 'kcal', 'wf-distance-shoe' : icon == 'distance', 'wf-coins' : icon == 'points', 'wf-time' : icon == 'duration'}" class="wf text-dark"></i>
+				 {{user.avg_value | shortNumber:0 }} {{ unit }}/{{ 'UNIT.PLAYER_SHORT' | translate }}</span>
+			</div>
+		</div>
+
+</div>
+	</div>
+
+
+</div>
+<ion-infinite-scroll
+	ng-if="isDataAvailable"
+	on-infinite="loadMore()"
+	icon="none"
+	immediate-check="false"
+	distance="5%">
+</ion-infinite-scroll>

@@ -1,0 +1,17 @@
+<ion-view clas="'mural-view" cache-view="false" view-title="Gallery">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left client-positive" ui-sref="app.news_feed({triby_id: triby._id})" ng-bind="tribyName | groupName"></button>
+    </ion-nav-buttons>
+    <ion-content class="center" style="background-color:#2b2b2b" scroll="true" delegate-handle="scroll">
+        <div class="list">
+            <a class="item mural"
+                collection-repeat="post in triby_posts"
+                collection-item-width="Get_Width($index)"
+                collection-item-height="150"
+                ng-style="{height: '150px',width:Get_Width($index),'padding-left':'0px','padding-left':Get_PaddingLeft($index)}" ng-click="openModal(post)">
+                <div ng-if="post.pic" image-loaded data-just-posted-image='true' style="background-image:url({{post.pic}})" ng-style="Get_MarginRight($index)">
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

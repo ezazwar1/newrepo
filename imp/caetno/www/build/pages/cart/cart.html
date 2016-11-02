@@ -1,0 +1,79 @@
+<ion-navbar *navbar dark>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Shopping Cart</ion-title>
+</ion-navbar>
+
+<ion-content class="cart">
+  <div *ngIf="cartItems.length > 0">
+
+    <ion-list inset>
+      <ion-item *ngFor="#item of cartItems">
+        <ion-thumbnail item-left>
+          <img src="{{item.thumbnail}}">
+        </ion-thumbnail>
+
+        <h2>{{item.name}}</h2>
+
+        <ion-row no-padding>
+          <ion-col>
+            <span secondary>
+              ${{item.price.toFixed(2)}}
+            </span>
+            <span>x</span>
+            <ion-item class="quantity">
+              <input type="number" min="1" step="1" [(ngModel)]="item.quantity" (change)="updateQuantity(item)"/>
+            </ion-item>
+          </ion-col>
+          <ion-col text-right>
+            <button clear light class="remove" (click)="remove(item)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+
+      </ion-item>
+    </ion-list>
+
+    <ion-list inset>
+      <ion-item>
+        Subtotal
+        <strong item-right>
+          ${{subTotal.toFixed(2)}}
+        </strong>
+      </ion-item>
+      <ion-item>
+        Shipping
+        <strong item-right>
+          ${{shipping.toFixed(2)}}
+        </strong>
+      </ion-item>
+      <ion-item>
+        Total
+        <strong item-right>
+          ${{total.toFixed(2)}}
+        </strong>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button block secondary (click)="checkout()">
+        <ion-icon name="cart"></ion-icon>
+        Checkout
+      </button>
+    </div>
+
+  </div>
+
+  <ion-card *ngIf="cartItems.length === 0">
+    <ion-card-header text-center>
+      <h1>Your cart is currently empty.</h1>
+    </ion-card-header>
+
+    <ion-card-content>
+      <button secondary block (click)="goToProducts()">
+        Explore products
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

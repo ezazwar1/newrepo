@@ -1,0 +1,23 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+      <h1 class="title" translate="PROFILE.YOUR_AGE">Your Age</h1>
+      <button class="button button-positive button-icon ion-android-close" ng-click="closeAgeModal()" />
+    </ion-header-bar>
+    <ion-content>
+    <div class="big-padding text-center">
+    	<h3 translate="PROFILE.MY_BIRTHDATE_IS">My birthday is</h3>        
+    	<div class="row">
+    		<div ng-click="showDatePicker()" class="col text-center entity-box on-light">
+                <div class="placeholder">{{ formattedBirthDate || '&nbsp' }}</div>
+                <i  class="ion-chevron-down"></i>
+    		</div>
+    	</div>
+        
+        <div class="padding">
+        <button ng-click="closeAgeModal()" class="button button-block big-button button-positive" translate="ACTION.CONFIRM">Confirm</button>    
+        </div>
+    	
+    </div>
+
+    </ion-content>
+</ion-modal-view>

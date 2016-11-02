@@ -1,0 +1,52 @@
+<ion-view class="welcome-view auth-outer pane" cache-view="false" hide-back-button="true">
+    <video muted="" playsinline="true" webkit-playsinline="" preload="" autoplay=""
+           poster="http://m.sworkit.com.s3.amazonaws.com/assets/media/sworkit-background-welcome.png" id="bgvid"
+           loop="">
+        <source src="http://sworkit.com/media/sworkit-background-welcome.mp4"
+                type="video/mp4">
+        <source src="http://sworkit.com/media/sworkit-background-welcome.webmhd.webm"
+                type="video/webm">
+        <source src="http://sworkit.com/media/sworkit-background-welcome.ogg"
+                type="video/ogg">
+    </video>
+    <div class="video-content-wrapper">
+        <ion-nav-bar class="view-navigation">
+            <ion-nav-buttons side="left">
+                <button menu-and-drawer-toggle class="button button-icon icon ion-navicon"
+                        ng-if="!showWelcome"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-content>
+            <div class="top-content row">
+                <div class="app-copy col col-center">
+                    <img class="app-logo" src="img/sworkit-white.png"/>
+                    <p class="account-value">{{welcomeText}}</p>
+                </div>
+            </div>
+            <div class="bottom-content row">
+                <div class="col col-bottom">
+                    <div class="row">
+                        <div class="col">
+                            <a class="button button-block button-outline main-action uppercase"
+                               ng-class="{'orange-button':abTestingButton == 'orange', 'blue-button':abTestingButton == 'blue', 'black-button':abTestingButton == 'black'}"
+                               ng-click="createAccount()">
+                                {{'CREATE_AN_ACCT' | translate}}
+                            </a>
+                            <div class="alternative-action">
+                                <a class="" ui-sref="app.login">
+                                    {{'ALREADYACCOUNT' | translate}}, <span
+                                        class="bigger-touch">{{'LOGIN' | translate}}</span>
+                                </a>
+                                <a class="skip-option" class="" ng-if="showWelcome && canSkipAccountRegistration"
+                                   ng-click="skipAccount()">
+                                    {{'NOTYETSKIP' | translate}}, <span
+                                        class="bigger-touch">{{'SKIP' | translate}}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

@@ -1,0 +1,46 @@
+<ion-modal-view class="modal-join-wrapper" ng-style="{ 'background-color' : isCompletion ? '#fff' : 'transparent' }">
+	<div class="modal-submission-contest" ng-show="isCompletion"> 
+		<div class="submission-area">
+			<ion-header-bar class="header">
+		      <div class="close">
+		        <button class="btn-link" ng-click="closeModal()"><span class="ion-close"></span></button>
+		      </div>
+		      <div class="title">
+		          COMPLETE SUBMISSION
+		      </div>
+		      <div class="button-finish">
+		      		<ion-spinner ng-show="blockDone" icon="ios-small"></ion-spinner>
+		          	<button class="btn-link" ng-show="!blockDone" ng-click="submitCompletion()">Done</button>
+		      </div>
+		    </ion-header-bar>
+
+		    <ion-content>
+		    	<div class="image-wrapper">
+		    		<img ng-src="{{ croppedImage }}" />
+		    	</div>
+		    	<div class="form-wrapper">
+		    		<textarea placeholder="Describe your outfit" rows="4" ng-model="contestant.description"></textarea>
+		    	</div>
+		   	</ion-content>
+		</div>
+	</div>
+	<div class="modal-join-contest" ng-show="!isCompletion"> 
+		<div class="picker-area">
+			<ion-header-bar class="header">
+		      <div class="close">
+		        <button class="btn-link-white" ng-click="closeModal()"><span class="ion-close"></span></button>
+		      </div>
+		      <div class="title">
+		          Choose photo from
+		      </div>
+		    </ion-header-bar>
+
+		    <ion-content>
+		    	<div class="action-wrapper" ng-click="getImageGallery()">
+		    		<div class="ion-images"></div>
+		    		<div class="text">GALLERY</div>
+		    	</div>
+		   	</ion-content>
+		</div>
+	</div>
+</ion-modal-view>

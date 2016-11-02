@@ -1,0 +1,49 @@
+<ion-view view-title="Наличие">
+  <ion-nav-bar class="bar-light">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="right">
+    <a href="#/tab/wishlist" class="button button-icon icon {{ wishlistStatusFull == 0 ? 'ion-ios-heart-outline' : 'ion-ios-heart' }}"><span ng-show="wishlistStatusFull >0" class="badge badge-assertive icon-badge">{{$parent.wishlistCount}}</span></a>
+    <a href="#/tab/cart" class="button button-icon icon {{shoppingCartStatusFull == 0 ? 'ion-ios-cart-outline' : 'ion-ios-cart'}}"><span ng-show="shoppingCartStatusFull >0" class="badge badge-assertive icon-badge">{{CartCount}}</span></a>
+  </ion-nav-buttons>
+  <ion-content has-header="true" has-footer="true" has-tabs="true">
+
+    <ul ng-repeat="quantity in products.Quantity" class="list">
+      <div class="item item-divider">
+        {{quantity.city}}
+      </div>
+      <span style="word-wrap: break-word!important;" ng-repeat="shop in quantity.shops" class="item">
+                <a style="padding:0!important;" class="button button-clear  button-dark" href="#/tab/shoplist/shop/{{shop.id}}"><b>{{shop.name}}</b></a><br>
+
+             <span style="padding-right:6px;"ng-repeat="size in shop.sizes" >
+            {{size}}
+            </span>
+      </span>
+
+
+    </ul>
+
+    <div  class="list">
+      
+
+      <div   class="item item-divider">
+        Примечания
+      </div>
+
+      <span style="font-size:12px!important; white-space: normal; word-wrap: break-word!important; overflow:visible!important;" class="item">
+    <sup>*</sup>изделие имеет незначительные дефекты
+  </span>
+      <span style="font-size:12px!important; white-space: normal; word-wrap: break-word!important; overflow:visible!important;" class="item">
+    <sup>**</sup>изделие имеет слегка видимые дефекты
+  </span>
+      <span style="font-size:12px!important; white-space: normal; word-wrap: break-word!important; overflow:visible!important;" class="item">
+    <sup>***</sup>изделие имеет видимые дефекты
+  </span>
+
+
+    </div>
+
+  </ion-content>
+
+
+</ion-view>

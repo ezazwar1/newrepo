@@ -1,0 +1,48 @@
+<ion-view view-title="{{info.product.model}}">
+    <ion-nav-bar class="bar-light">
+        <ion-nav-back-button></ion-nav-back-button>
+
+    </ion-nav-bar>
+    <ion-nav-buttons side="right">
+      <a href="#/tab/wishlist" class="button button-icon icon {{ wishlistStatusFull == 0 ? 'ion-ios-heart-outline' : 'ion-ios-heart' }}"><span ng-show="wishlistStatusFull >0" class="badge badge-assertive icon-badge">{{$parent.wishlistCount}}</span></a>
+          <a href="#/tab/cart" class="button button-icon icon {{shoppingCartStatusFull == 0 ? 'ion-ios-cart-outline' : 'ion-ios-cart'}}" ><span ng-show="shoppingCartStatusFull >0" class="badge badge-assertive icon-badge">{{CartCount}}</span></a>
+      </ion-nav-buttons>
+    <ion-content has-header="true" has-footer="true" has-tabs="true" lazy-scroll >
+      <ion-slide-box ng-hide="info.product.image == null" style="text-align: center;" delegate-handle="img-viewer" auto-play="true" does-continue="true">
+
+        <ion-slide style="text-align: center;" >
+          <img  class="full-image" lazy-scroll-resize="true" image-lazy-src="{{info.product.image}}" image-lazy-distance-from-bottom-to-load="260" image-lazy-loader="ios-small"  >
+        </ion-slide>
+        <ion-slide  style="text-align: center;"  ng-repeat="add_img in info.product.images">
+        <img  class="full-image"  lazy-scroll-resize="true" image-lazy-src="{{add_img}}" image-lazy-distance-from-bottom-to-load="260" image-lazy-loader="ios-small"  >
+        </ion-slide>
+
+</ion-slide-box>
+ <i ng-class="{'faa-burst animated' : inWishlist === true  }" class=" heart_like icon ion-ios-heart"></i>
+<h3 ng-show="info.product.special == false" class="price title center">{{ info.product.price | currency:"&#x20bd;":0 }} </h3>
+<h3 ng-show="info.product.special != false" class="price title center">{{ info.product.special | currency:"&#x20bd;":0 }}&nbsp;&nbsp;<span style="text-decoration: line-through; ">{{ info.product.price | currency:"&#x20bd;":0 }} </span></h3>
+
+<button ng-hide='info.product.status == 0' ng-click="isAccess ? buyIt() : show()" class="button button-full button-dark">
+купить
+</button>
+<div class="button-bar bar-stable">
+  <a href="#/tab/collection/item/quantity/{{info.product.model}}" class="button button-icon icon-left icon ion-ios-location-outline">наличие</a>
+  <a ng-click="wishlist()" ng-class="{'ion-ios-heart' : inWishlist === true  }"  class="button button-icon icon-left icon ion-ios-heart-outline">в закладки</a>
+
+</div>
+
+
+<div class="card no_shadow">
+<div class="item item-text-wrap" ng-bind-html="description">
+</div>
+<!--<div class="item item-text-wrap">
+  {{description}}
+</div>-->
+</div>
+
+
+
+    </ion-content>
+
+
+</ion-view>

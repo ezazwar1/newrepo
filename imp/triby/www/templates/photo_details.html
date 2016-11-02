@@ -1,0 +1,54 @@
+<ion-view cache-view="false">
+  <!-- Header -->
+  <div class="bar mural-detail-header bar-header disable-user-behavior" ng-show="isShowDetails">
+    <div class="buttons buttons-left">
+      <span class="left-buttons">
+        <button class="button button-icon ion-chevron-left client-positive" ng-click="closeModal()">Close</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <ion-content style="background-color:#2b2b2b" scroll="false" style="width: 100%; height: 100%" class="modal image-modal">
+    <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" has-bouncing="false"
+                zooming="true" style="width: 100%; height: 100%" min-zoom="1" class="modal-image">
+      <div class="image" ng-click="toggleDetails()">
+        <img ng-src="{{selectedMessage.pic}}">
+
+      </div>
+      <!--<div class="image" style="background-image: url( {{selectedMessage.pic}} )" ng-click="toggleDetails()"></div>-->
+    </ion-scroll>
+  </ion-content>
+
+  <!-- Footer -->
+  <div class="bar bar-footer mural-detail-footer" ng-slide-down="open" ng-attr-duration="0.2" style="display: none">
+    <div class="row flex" id="flex-1">
+      <div class="col col-10 col-center">
+        <img class="mural_detail_profile_img" ng-src="{{::selectedMessage.user.pic || 'img/default_avatar.jpg' }}" />
+      </div>
+      <div  class="col feed-text-name col-center mural-details" id="mural-content-wrapper">
+        <span style="color: #ffffff" class="feed-text-name-block">{{::selectedMessage.user.username | limitName}}</span>
+        <span style="color: #ffffff" class="feed-text-name-content" ng-bind-html="::escapeHTML(selectedMessage.message) | processHTML"></span>
+      </div>
+      <div class="col col-33 mural-date">
+        {{::selectedMessage.created_at | customDate}}
+      </div>
+    </div>
+    <div class="news_feed_icon_wrapper flex" style="border-top: 1px solid #ffffff">
+      <div class="left_chat_icon">
+        <div class="heart text-12-gray" style=" width: 71.875px; ">
+          <a ng-click="setHeart(selectedMessage, $event)">
+          <img style=" width: 42px; " ng-src={{selectedMessage.hearts.length?'img/heart.png':'img/heart-grey.png'}} />
+          </a>
+          <span class="text-heart" ng-bind="selectedMessage.hearts.length || ''"></span>
+        </div>
+        <div class="hand-down text-12-gray" ng-click="setDislike(selectedMessage, $event)">
+          <a href="javascript:void 0">
+            <img style="width: 23px;" ng-src={{selectedMessage.dislikes.length?'img/hand-down.png':'img/hand-down-grey.png'}} />
+          </a>
+          <span ng-bind="selectedMessage.dislikes.length || ''"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>

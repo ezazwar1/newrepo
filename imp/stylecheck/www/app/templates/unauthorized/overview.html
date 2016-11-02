@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-content class="dashboard" scroll="false">
+        <div class="row" ng-style="{'height': sizes.first.height + 'px'}">
+            <div class="col display-flex align-center">
+                <p class="padding full-width text-center welcome-text">{{dict.welcomeText1}}</p>
+            </div>
+        </div>
+        <div class="row display-flex align-center image imageonload hide-image" imageonload image-src="resources/images/test-2.jpg" ng-style="{'background-image': 'url(resources/images/test-2.jpg)', 'width': sizes.second.width + 'px', 'height': sizes.second.height + 'px'}">
+            <div class="col">
+                <button class="button button-assertive center" ng-click="goTo('register')">{{dict.register}}</button>
+            </div>
+        </div>
+        <div class="row padding" ng-style="{'height': sizes.third.height + 'px'}">
+            <div class="col display-flex align-center" ng-click="goTo('login')">
+                <p class="text-center uppercase full-width">{{dict.login}}</p>
+            </div>
+            <div class="col display-flex align-center border-dark-left" ng-click="goTo('preview')">
+                <p class="text-center uppercase full-width">{{dict.testApp}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

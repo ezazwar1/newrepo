@@ -1,0 +1,23 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <button class="button button-positive button-icon ion-ios-arrow-back" ng-click="closeModal()" />
+    <h1 class="title">{{ 'CONNECT.LOGIN' | translate }} {{ connection.name }}</h1>
+  </ion-header-bar>
+
+  <ion-content>
+    <div class="big-padding">
+      
+      <div class="txt-center">
+        <img width="65" ng-src="{{ connection.logo }}">
+        <h3>{{ connection.name }}</h3>
+      </div>
+      
+      <div ng-if="connection.connection_type != 'gym'">
+        <div ng-include="'templates/connect/login/form.html'"></div>              
+      </div>   
+      <div ng-if="connection.connection_type == 'gym'">
+        <div ng-include="'templates/connect/login/form_gym.html'"></div>              
+      </div> 
+  </ion-content>
+
+</ion-modal-view>

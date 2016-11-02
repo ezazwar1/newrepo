@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: blob: 'unsafe-inline' 'unsafe-eval';">
+
+
+
+  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="/6e50e9dae829c35ceef9dd2b3568186b2c776dd7.css?meteor_css_resource=true">  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="/b2de1901a72c5f4b001ac8188416b4fe67afd363.css?meteor_css_resource=true">
+
+  <script type="text/javascript">
+    __meteor_runtime_config__ = JSON.parse(decodeURIComponent("%7B%22meteorRelease%22%3A%22METEOR%401.3.4.4%22%2C%22ROOT_URL%22%3A%22http%3A%2F%2Ftapshop.tk%2F%22%2C%22ROOT_URL_PATH_PREFIX%22%3A%22%22%2C%22DDP_DEFAULT_CONNECTION_URL%22%3A%22http%3A%2F%2Ftapshop.tk%2F%22%2C%22autoupdateVersionCordova%22%3A%2258c3fe2cc68aec3d942ef23d334fd03083a003cd%22%2C%22appId%22%3A%22ij03q016rg6je161rqxc%22%2C%22meteorEnv%22%3A%7B%22NODE_ENV%22%3A%22production%22%2C%22TEST_METADATA%22%3A%22%7B%7D%22%7D%2C%22PUBLIC_SETTINGS%22%3A%7B%22facebook%22%3A%7B%22appId%22%3A%221581246048871068%22%7D%2C%22admob%22%3A%7B%22adId%22%3A%22ca-app-pub-7889102172439120%2F8207752899%22%7D%2C%22gcm%22%3A%7B%22projectNumber%22%3A%22753295790200%22%7D%7D%7D"));
+
+    if (/Android/i.test(navigator.userAgent)) {
+      // When Android app is emulated, it cannot connect to localhost,
+      // instead it should connect to 10.0.2.2
+      // (unless we're using an http proxy; then it works!)
+      if (!__meteor_runtime_config__.httpProxyPort) {
+        __meteor_runtime_config__.ROOT_URL = (__meteor_runtime_config__.ROOT_URL || '').replace(/localhost/i, '10.0.2.2');
+        __meteor_runtime_config__.DDP_DEFAULT_CONNECTION_URL = (__meteor_runtime_config__.DDP_DEFAULT_CONNECTION_URL || '').replace(/localhost/i, '10.0.2.2');
+      }
+    }
+  </script>
+
+  <script type="text/javascript" src="/cordova.js"></script>
+  <script type="text/javascript" src="/d3c7015d4fc3c5a55cc73c4a3e5311cb803e98cc.js?meteor_js_resource=true"></script>
+
+
+  <meta charset="utf-8">
+    <title>TapShop</title>
+    <meta name="description" content="Fastest and most convenient way to sell anything.">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimal-ui, maximum-scale=1, minimum-scale=1" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/icons/apple-touch-icon-120x120.png" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16" />
+</head>
+
+<body>
+  <ion-nav-view></ion-nav-view>
+</body>
+</html>

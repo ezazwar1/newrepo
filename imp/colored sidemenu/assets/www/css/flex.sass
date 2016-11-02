@@ -1,0 +1,198 @@
+html
+  [layout]
+    &[horizontal], &[vertical]
+      display: -ms-flexbox
+      display: -webkit-flex
+
+      display: flex
+    &[horizontal][inline], &[vertical][inline]
+      display: -ms-inline-flexbox
+      display: -webkit-inline-flex
+      display: inline-flex
+    &[horizontal]
+      -ms-flex-direction: row
+      -webkit-flex-direction: row
+      flex-direction: row
+      &[reverse]
+        -ms-flex-direction: row-reverse
+        -webkit-flex-direction: row-reverse
+        flex-direction: row-reverse
+    &[vertical]
+      -ms-flex-direction: column
+      -webkit-flex-direction: column
+      flex-direction: column
+      &[reverse]
+        -ms-flex-direction: column-reverse
+        -webkit-flex-direction: column-reverse
+        flex-direction: column-reverse
+    &[wrap]
+      -ms-flex-wrap: wrap
+      -webkit-flex-wrap: wrap
+      flex-wrap: wrap
+    &[wrap-reverse]
+      -ms-flex-wrap: wrap-reverse
+      -webkit-flex-wrap: wrap-reverse
+      flex-wrap: wrap-reverse
+  [flex]
+    -ms-flex: 1 1 0
+    -webkit-flex: 1
+    flex: 1
+    -webkit-flex-basis: 0
+    flex-basis: 0
+  [vertical][layout]
+    > [flex][auto-vertical], [flex][auto-vertical]
+      -ms-flex: 1 1 auto
+      -webkit-flex-basis: auto
+      flex-basis: auto
+  [flex]
+    &[auto]
+      -ms-flex: 1 1 auto
+      -webkit-flex-basis: auto
+      flex-basis: auto
+    &[none]
+      -ms-flex: none
+      -webkit-flex: none
+      flex: none
+    &[one]
+      -ms-flex: 1
+      -webkit-flex: 1
+      flex: 1
+    &[two]
+      -ms-flex: 2
+      -webkit-flex: 2
+      flex: 2
+    &[three]
+      -ms-flex: 3
+      -webkit-flex: 3
+      flex: 3
+    &[four]
+      -ms-flex: 4
+      -webkit-flex: 4
+      flex: 4
+    &[five]
+      -ms-flex: 5
+      -webkit-flex: 5
+      flex: 5
+    &[six]
+      -ms-flex: 6
+      -webkit-flex: 6
+      flex: 6
+    &[seven]
+      -ms-flex: 7
+      -webkit-flex: 7
+      flex: 7
+    &[eight]
+      -ms-flex: 8
+      -webkit-flex: 8
+      flex: 8
+    &[nine]
+      -ms-flex: 9
+      -webkit-flex: 9
+      flex: 9
+    &[ten]
+      -ms-flex: 10
+      -webkit-flex: 10
+      flex: 10
+    &[eleven]
+      -ms-flex: 11
+      -webkit-flex: 11
+      flex: 11
+    &[twelve]
+      -ms-flex: 12
+      -webkit-flex: 12
+      flex: 12
+  [layout]
+    &[start]
+      -ms-flex-align: start
+      -webkit-align-items: flex-start
+      align-items: flex-start
+    &[center], &[center-center]
+      -ms-flex-align: center
+      -webkit-align-items: center
+      align-items: center
+    &[end]
+      -ms-flex-align: end
+      -webkit-align-items: flex-end
+      align-items: flex-end
+    &[start-justified]
+      -ms-flex-pack: start
+      -webkit-justify-content: flex-start
+      justify-content: flex-start
+    &[center-justified], &[center-center]
+      -ms-flex-pack: center
+      -webkit-justify-content: center
+      justify-content: center
+    &[end-justified]
+      -ms-flex-pack: end
+      -webkit-justify-content: flex-end
+      justify-content: flex-end
+    &[around-justified]
+      -ms-flex-pack: distribute
+      -webkit-justify-content: space-around
+      justify-content: space-around
+    &[justified]
+      -ms-flex-pack: justify
+      -webkit-justify-content: space-between
+      justify-content: space-between
+  [self-start]
+    -ms-align-self: flex-start
+    -webkit-align-self: flex-start
+    align-self: flex-start
+  [self-center]
+    -ms-align-self: center
+    -webkit-align-self: center
+    align-self: center
+  [self-end]
+    -ms-align-self: flex-end
+    -webkit-align-self: flex-end
+    align-self: flex-end
+  [self-stretch]
+    -ms-align-self: stretch
+    -webkit-align-self: stretch
+    align-self: stretch
+  [block]
+    display: block
+  [hidden]
+    display: none!important
+  [relative]
+    position: relative
+  [fit]
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+body[fullbleed]
+  margin: 0
+  height: 100vh
+
+html
+  [segment], segment
+    display: block
+    position: relative
+    -webkit-box-sizing: border-box
+    -ms-box-sizing: border-box
+    box-sizing: border-box
+    margin: 1em .5em
+    padding: 1em
+    background-color: #fff
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1)
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1)
+    border-radius: 5px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

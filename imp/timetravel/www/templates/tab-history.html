@@ -1,0 +1,107 @@
+<ion-view view-title="History">
+  
+  <ion-nav-buttons side="left">
+      <button class="button button-light cornered" ng-click="openShareModal('total')">
+        <i class="ion-ios-upload-outline icon-custom"></i>
+      </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-light cornered" ng-click="clearHistTimer()">
+        <i class="ion-ios-trash-outline icon-custom"></i>
+      </button>
+  </ion-nav-buttons>
+  
+  <ion-content class="padding" has-bouncing="true">
+    
+    
+    <ion-list>
+      
+      <ion-item class="item-divider" type="item-text-wrap" style="border: none !important; text-align: center !important; padding: 30px !important">
+        Total time travel: <br><br>
+        <i class="timetravel-history">&nbsp;{{histTimerTotal.value}} {{histTimerTotal.metric}}</i>
+      </ion-item>
+      
+
+    <ion-item 
+          ng-click="openShareModal('element', $index)();"
+          class="item item-icon-left item-icon-right item-text-wrap" 
+          ng-repeat="histtimer in HistTimers | orderBy: '-TID'" 
+          style="text-align: left; border: none !important; margin-top: 5px">
+              
+              <i class="icon {{TransModes[histtimer.transModeIndex].icon}}"></i>
+              
+              
+              {{histtimer.notes || TransModes[histtimer.transModeIndex].text}}
+              
+              
+              <p>
+                <br>{{histtimer.datef}} <br>
+                {{histtimer.totalTimeShare}}<br>
+              </p>
+              
+               
+               <span class="badge badge-assertive">{{histtimer.totalTimeTravelled.value}} {{histtimer.totalTimeTravelled.metric}}</span>
+
+
+   
+
+
+            <ion-option-button class="button-assertive" ng-click="editNotesTimer($index)">Rename</ion-option-button>
+            <ion-option-button class="button-energized"  ng-click="deleteHistTimer(histtimer.TID)">Delete</ion-option-button>
+          </ion-item>
+        </ion-list>
+        
+  </ion-content>
+</ion-view>
+
+<!-- SHARE -->
+<!-- SHARE -->
+<script id="share-modal.html" type="text/ng-template" >
+
+    <ion-modal-view class="modal-positive center"><div style="display: block !important">
+    
+        <!-- <textarea name="Text1" ng-model="data.defaultShareText" cols="1" rows="10" class="textarea-share"></textarea> -->
+        <p class="textarea-share">Share your time travel</p>
+        
+        <div class="section-divider"></div>
+            <a class="padding" ng-click="openLink('http://bit.ly/timetravelerapp')">
+                Find aggregate time traveled by community here: bit.ly/timetravelerapp
+            </a>
+        <div class="section-divider"></div>
+        
+       <div class="row padding">
+           <div class="col">   
+                <button ng-click="shareTimer('facebook')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-social-facebook icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('twitter')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-social-twitter icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('whatsapp')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-social-whatsapp icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('email')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-email icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('other')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-more icon-custom"></i>
+                </button>
+            </div>
+       </div>
+       
+       <div class="section-divider"></div>
+       <div class="section-divider"></div>
+       
+       <button class="button button-assertive button-outline cornered" ng-click="closeShareModal()">Close</button>
+       
+    </div>
+   </ion-modal-view>
+</script>

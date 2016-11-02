@@ -1,0 +1,113 @@
+/* line 5, myFilms.scss */
+.page-my-films .bar.bar-header {
+  padding: 0;
+  background: #efecec;
+}
+/* line 9, myFilms.scss */
+.page-my-films .bar.bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 15, myFilms.scss */
+.page-my-films .bar.bar-header button.button {
+  color: #63c199;
+  height: 44px;
+  padding: 0 20px;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-weight: normal;
+  display: block;
+  top: 0;
+  right: 0;
+}
+/* line 27, myFilms.scss */
+.page-my-films .bar.bar-header .btn-back img {
+  height: 22px;
+  margin-top: 10px;
+}
+/* line 34, myFilms.scss */
+.page-my-films .my-films-container {
+  font: normal 16px HelveticaNeueLT, sans-serif;
+  top: 44px;
+}
+/* line 38, myFilms.scss */
+.page-my-films .my-films-container .user-info {
+  padding-top: 20px;
+  border-bottom: 2px solid #bfc8ce;
+}
+/* line 42, myFilms.scss */
+.page-my-films .my-films-container .user-info .picture {
+  width: 100px;
+  height: 100px;
+  margin: 0 20px 20px;
+  background-size: cover;
+  background-position: center;
+  float: left;
+}
+/* line 51, myFilms.scss */
+.page-my-films .my-films-container .user-info .name, .page-my-films .my-films-container .user-info .quantity {
+  margin: 15px;
+  font-family: HelveticaNeueLT, sans-serif;
+}
+/* line 56, myFilms.scss */
+.page-my-films .my-films-container .user-info .name {
+  color: #335771;
+  font-size: 22px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 64, myFilms.scss */
+.page-my-films .my-films-container .user-info .quantity {
+  color: #98a6b1;
+  font-size: 18px;
+}
+/* line 70, myFilms.scss */
+.page-my-films .my-films-container .films-list {
+  clear: both;
+  padding: 0 20px 20px 0;
+}
+/* line 74, myFilms.scss */
+.page-my-films .my-films-container .films-list .empty-list {
+  width: 100%;
+}
+/* line 77, myFilms.scss */
+.page-my-films .my-films-container .films-list .empty-list span {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #98a6b1;
+}
+/* line 83, myFilms.scss */
+.page-my-films .my-films-container .films-list .empty-list img {
+  width: 100%;
+  padding: 30px 25%;
+}
+/* line 89, myFilms.scss */
+.page-my-films .my-films-container .films-list .my-films-mosaic {
+  width: 50%;
+  padding: 20px 0 20px 20px;
+  float: left;
+}
+/* line 94, myFilms.scss */
+.page-my-films .my-films-container .films-list .my-films-mosaic .thumbnail {
+  height: 20px;
+  background: #eee;
+  padding-bottom: 56%;
+  background-size: cover;
+  background-position: center;
+}
+/* line 102, myFilms.scss */
+.page-my-films .my-films-container .films-list .my-films-mosaic .title {
+  color: #335771;
+  padding: 15px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+/* line 113, myFilms.scss */
+.page-my-films .my-films-container .films-list .my-films-mosaic .actions .discard, .page-my-films .my-films-container .films-list .my-films-mosaic .actions .share, .page-my-films .my-films-container .films-list .my-films-mosaic .actions .download {
+  width: 33.3%;
+  text-align: center;
+  float: left;
+}

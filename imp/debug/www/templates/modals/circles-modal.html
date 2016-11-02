@@ -1,0 +1,14 @@
+<ion-modal-view class="circle-select-modal">
+	<div class="bar bar-header bar-assertive">
+		<h1 class="title">Select Photo Circle</h1>
+	</div>
+	<ion-content class="has-header">
+		<div class="list">
+			<a ng-click="chooseCircle('{{value}}')" ng-repeat="(key, value) in cirlces" class="item item-icon-right">
+				{{value.name}}
+				<i class="icon ion-chevron-right"></i>
+			</a>
+			
+		</div>
+	</ion-content>
+</ion-modal-view>

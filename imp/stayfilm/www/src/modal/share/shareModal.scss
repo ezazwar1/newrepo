@@ -1,0 +1,163 @@
+@import 'variables';
+
+@media (min-width: 680px) {
+	.modal-share {
+		top: 15%;
+		right: 15%;
+		bottom: 15%;
+		left: 15%;
+	}
+}
+
+.modal-share {
+	.share-header {
+		background: #ddd;
+
+		.title {
+			color: #666;
+		}
+
+		.share-close {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.share-content {
+		h2 {
+			font-family: HelveticaNeueBLK, sans-serif;
+			text-transform: uppercase;
+			font-size: 15px;
+			margin-top: 20px;
+		}
+
+		.share-wrapper {
+			margin: 10px;
+
+			.already-shared {
+				text-align: center;
+				margin-bottom: 13px;
+				color: #666;
+			}
+
+			.user-textarea {
+				@include display(flex);
+				margin-bottom: 20px;
+
+				.avatar {
+					img {
+						width: 50px;
+						height: 50px;
+					}
+				}
+
+				.description {
+					position: relative;
+					@include flex-grow(1);
+					margin-left: 15px;
+
+					textarea {
+						resize: none;
+						padding: 15px;
+						width: 100%;
+						height: 125px;
+						border-radius: 5px;
+						background: #dedee0;
+						color: #7a7a7a;
+
+					}
+
+					&:before {
+						border: solid transparent;
+						content: ' ';
+						height: 0;
+						left: -20px;
+						position: absolute;
+						width: 0;
+						border-width: 10px;
+						border-right-color: #dedee0;
+						top: 15px;
+					}
+				}
+			}
+
+			.copy-url {
+				margin: 0 0 20px 0;
+
+				#text-copy {
+					background: #ddd;
+					cursor: default;
+					padding: 10px;
+					text-align: center;
+				    width: 100%;
+				}
+			}
+
+			.network-toggle {
+				width: 49%;
+				background: #dedcdf;
+				border-radius: 5px;
+				margin: 0 0 10px;
+				padding: 0;
+				height: 45px;
+				float: left;
+
+				&:nth-child(even) {
+					float: right;
+				}
+
+				label.toggle { // ion-toggle
+					right: auto;
+					left: 6px;
+					top: 6px;
+
+					input { // unchecked
+						& + .track {
+							background: #fff;
+							border-color: #fff;
+
+							.handle { // circle
+								background: #dedcdf;
+
+							}
+						}
+					}
+
+					input:checked { // checked
+						& + .track {
+							background: #12ad60;
+							border-color: #12ad60;
+
+							.handle { // circle
+								background: #fff;
+
+							}
+						}
+					}
+				}
+
+				.network-icon {
+					position: absolute;
+					height: 100%;
+					right: -1px;
+					top: 0;
+				}
+			}
+		}
+	}
+
+	.big-button-footer {
+		background: #fff;
+		border: 0;
+
+		.action-button {
+			clear: both;
+			margin: 20px 0;
+			width: 100%;
+
+			button {
+				background: #12ad60;
+			}
+		}
+	}
+}

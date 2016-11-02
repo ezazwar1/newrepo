@@ -1,0 +1,16 @@
+<ion-view cache-view="false">
+    <ion-content padding="true">
+        <div class="uppercase margin-bottom">{{dict.color}}</div>
+        <div class="list color-list">
+            <label ng-repeat="(key, value) in colors" class="item color-circle-{{value}}" ng-click="chooseColor(value)" ng-class="{'activated': newStyle.tags[newStyle.activeTag].color === value}">
+                <div class="item-content text-center">
+                    {{dict.colors[value].name}}
+                </div>
+                <div class="circle color center display-flex align-center">
+                    <i class="radio-icon icon icon-check center"></i>
+                </div>
+                <input type="radio" name="color" ng-model="newStyle.tags[newStyle.activeTag].color" ng-value="value">
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

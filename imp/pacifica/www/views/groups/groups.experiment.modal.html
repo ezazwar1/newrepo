@@ -1,0 +1,29 @@
+<ion-modal-view class="touchpoint popoverr experiment-1 share-data">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeShareExperimentModal()" class="go-back">X</a>
+
+    <div class="box">
+      <div class="slide-image"></div>
+      <h1>{{ 'SHARE_EXPERIMENT_TITLE' | translate}}</h1>
+      <p>
+        {{ 'SHARE_EXPERIMENT_COPY' | translate}} 
+      </p>
+
+      <p class="label">
+      {{ 'SELECTED_EXPERIMENT' | translate}}
+      </p>
+
+      <label class="item item-select">
+      <select ng-model="experimentOptions.experimentOrdinal" ng-options="experimentOptions.experiments.indexOf(item) as getExperimentItemDisplay(item) for item in experimentOptions.experiments" ng-change="updateSelectedExperiment()">
+      </select>
+      </label>
+
+      <div class="clearfix">
+        <button ng-click="shareExperiment()" class="button-start">
+          {{ 'SHARE_EXPERIMENT' | translate }}
+        </button>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

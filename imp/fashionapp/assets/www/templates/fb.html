@@ -1,0 +1,30 @@
+<div class="content" ng-style="{'background-image':'url(./img/betosee.png)'}">
+    <div class="list list-inset">
+    <p>test</p>
+    <button class="button button-block button-positive" ng-click="callFb()" value="Fb login">facebook Login</button>
+
+    <button class="button button-block button-positive" onclick="window.plugins.socialsharing.shareVia('com.apple.social.facebook', 'Message via FB', null, null, null, function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})">message via Facebook iOS</button>
+
+    <button class="button button-block button-positive" onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', 'http://betosee.com', 'http://betosee.com', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">fb android</button>
+
+    <!-- start twitter on iOS (same as `shareViaTwitter`), if Twitter is not installed, the errorcallback will be invoked with message 'not available' -->
+    <button class="button button-block button-positive" onclick="window.plugins.socialsharing.shareVia('com.apple.social.twitter', 'Message via Twitter', null, null, null, function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})">message via Twitter on iOS</button>
+
+    <button class="button button-block button-positive" onclick="window.plugins.socialsharing.shareViaTwitter('http://betosee.com')">message via Twitter Android</button>
+
+    <button onclick="window.plugins.socialsharing.share('Message only')">message only</button>
+    <button onclick="window.plugins.socialsharing.share('Message and subject', 'The subject')">message and subject</button>
+    <button onclick="window.plugins.socialsharing.share(null, null, null, 'http://www.x-services.nl')">link only</button>
+
+    <button onclick="window.plugins.socialsharing.share('Message and link', null, null, 'http://www.x-services.nl')">message and link</button>
+
+    <button onclick="window.plugins.socialsharing.share(null, null, 'https://www.google.nl/images/srpr/logo4w.png', null)">image only</button>
+    // Beware: passing a base64 file as 'data:' is not supported on Android 2.x: https://code.google.com/p/android/issues/detail?id=7901#c43
+    // Hint: when sharing a base64 encoded file on Android you can set the filename by passing it as the subject (second param)
+    <button onclick="window.plugins.socialsharing.share(null, 'Android filename', 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null)">base64 image only</button>
+    // Hint: you can share multiple files by using an array as thirds param: ['file 1','file 2', ..]
+    <button onclick="window.plugins.socialsharing.share('Message and image', null, 'https://www.google.nl/images/srpr/logo4w.png', null)">message and image</button>
+    <button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button>
+    <button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button>
+</div>
+

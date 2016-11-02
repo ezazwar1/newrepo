@@ -1,0 +1,9 @@
+{"success":true,"appbanners":{"slider":[
+{"banner_id":"1","banner_name":"Slider 1","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/banner-craousal/craousal1.jpg","banner_cat_id":"28"},
+{"banner_id":"2","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/banner-craousal/craousal2.jpg","banner_cat_id":"1"},
+{"banner_id":"3","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/banner-craousal/craousal3.jpg","banner_cat_id":"2"},
+{"banner_id":"5","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/banner-craousal/craousal5.jpg","banner_cat_id":"4"},
+{"banner_id":"6","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/banner-craousal/craousal6.jpg","banner_cat_id":"4"},
+{"banner_id":"7","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/banner-craousal/craousal7.jpg","banner_cat_id":"4"}
+]
+}}

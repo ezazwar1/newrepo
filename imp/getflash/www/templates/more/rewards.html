@@ -1,0 +1,44 @@
+<ion-view view-title="{{ title }}">
+	
+	<ion-content class="article-pick-wrapper">
+        <div class="loader-wrapper" ng-show="rewardLoader">
+            <ion-spinner class="spinner-android"></ion-spinner>
+        </div>
+        <ion-refresher pulling-text="Reload..." on-refresh="doReloadReward()">
+        </ion-refresher>
+
+        <ion-item ng-repeat="rw in rewards | orderBy:['-createdDate']"  class="article-stream-holder">
+            
+            <div class="article-wrapper rewards" preload-bg-image="{{ rw.featuredImage }}" default-image="img/article-ph.jpg">
+                <div class="row main-wrapper">
+                    <div class="col">
+                            <div class="headline-wrapper">
+                                <div class="headline">{{ rw.headline }}</div>
+                                <div class="promo-text">{{ rw.promoText }}</div>  
+                                <div class="promo-code">Promo code: <span>{{ rw.promoCode }}</span></div> 
+                                <div class="merchant">By <span>{{ rw.merchantName }}</span></div>  
+                                <div class="links" ng-show="rw.isValid">
+                                    <button class="btn-link-small link-13-bold" ng-click="copyCode({{ rw.isValid }}, '{{ rw.promoCode }}')">Copy Code</button> | <button class="btn-link-small link-13-bold" ng-click="goToShop({{ rw.isValid }}, '{{ rw.promoLink }}')" >Shop Now</button>
+                                </div>    
+                                <div class="links" ng-show="!rw.isValid">
+                                    <span>Expired</span>
+                                </div>     
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+        </ion-item>
+
+        <div class="no-data-wrapper" ng-show="displayRewardEmpty">
+            <div class="title">
+                No rewards yet
+            </div>
+        </div>
+
+        <ion-infinite-scroll ng-if="loadmore" on-infinite="loadMoreReward()" distance="10%" class="ionic-load-more">
+        </ion-infinite-scroll>
+
+    </ion-content>
+
+</ion-view>

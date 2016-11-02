@@ -1,0 +1,23 @@
+<ion-view hide-nav-bar="true" class="popoverr add-activity">
+  <div class="back"></div>
+  <ion-content>
+
+    <h1>{{ 'SELECT_YOUR_HABITS' | translate }}</h1>
+    <h3>{{ 'SELECT_YOUR_HABITS2' | translate }}</h3>
+    <div class="list habits-menu">
+      <div ng-repeat="habit in potentialHabits | filter:name='!mood' ">
+      	<div class="item {{habit.name}} item-icon-right item-icon-left inactive" ng-click="toggleHabit(habit)">
+          <i class="icon icon-left ion-ios-star-outline"></i> 
+          <span>{{getHabitName(habit)}}</span>
+      		<i class="icon ion-ios-checkmark" ng-show="isAddingHabit(habit)"></i>
+      	</div>
+      </div>
+    </div>
+    <div class="error" ng-show="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div ng-click="next()" class="button-start">
+      {{ 'NEXT' | translate }}
+    </div>
+  </ion-content>
+</ion-view>

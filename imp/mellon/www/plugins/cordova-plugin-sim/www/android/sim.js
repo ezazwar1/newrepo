@@ -1,0 +1,1 @@
+cordova.define("cordova-plugin-sim.SimAndroid",function(e,i,o){o.exports={hasReadPermission:function(e,i){cordova.exec(e,i,"Sim","hasReadPermission",[])},requestReadPermission:function(e,i){cordova.exec(e,i,"Sim","requestReadPermission",[])}}});

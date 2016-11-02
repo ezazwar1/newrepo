@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-content delegate-handle="wishListScroller">
+        <p ng-if="favsLoaded && !favorites.entries.length" class="margin-top padding text-center">{{dict.noWishListEntries}}</p>
+        <ion-scroll delegate-handle="wishListScroller" ng-style="{'height': getRestHeight('wishListScroller')}">
+            <ion-refresher
+                    pulling-text="{{dict.pullToRefresh}}"
+                    on-refresh="getFavs(true)"
+                    spinner="crescent">
+            </ion-refresher>
+            <ion-list class="style-list">
+                <ion-item class="style" ng-click="showDetail(favorite._id)" collection-repeat="favorite in favorites.entries track by favorite._id" item-height="sizes.styleContainer.height" item-width="sizes.styleContainer.width" ng-class="{'border': ($index % 2) === 0}">
+                    <div ng-if="favorite.imagePath" class="image" imageonload image-src="{{favorite.imagePath}}" style="background-image: url({{favorite.imagePath}});"></div>
+                </ion-item>
+            </ion-list>
+            <!--{{entered}} {{favorites.pager}}-->
+            <ion-infinite-scroll
+                    on-infinite="getFavs()"
+                    ng-if="entered && (!favorites.pager.page || favorites.pager.page < favorites.pager.pages)"
+                    distance="30%">
+            </ion-infinite-scroll>
+        </ion-scroll>
+    </ion-content>
+</ion-view>

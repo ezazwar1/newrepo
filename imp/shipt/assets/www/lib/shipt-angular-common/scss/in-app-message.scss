@@ -1,0 +1,42 @@
+.modal {
+  &.modal-center {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    min-height: 0;
+  }
+  &.in-app-message {
+    div:first-child {
+      height: 100%;
+      .dismiss {
+        position: absolute;
+        right: 20px;
+        font-size: 50px;
+      }
+      .img-primary {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      .row {
+        padding-left: 15px;
+        padding-right: 15px;
+        .title {
+          font-weight: 400;
+        }
+        .content {
+          font-weight: 200;
+          font-size: 16px;
+        }
+        &.footer {
+          position: absolute;
+          bottom: 0;
+          button {
+            border-radius: 0;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<ion-view view-title="Comments">
+	<ion-pane>
+		<ion-content class="has-header">
+			<ion-list>
+				<ion-item data-ng-if="commentsCtrl.comments.length == 0">
+					<h3 class="no-comments">No coments on this article yet.</h3>
+				</ion-item>
+				<ion-item class="user-info" data-ng-repeat="comment in commentsCtrl.comments track by $index">
+					<img class="user-avatar" data-ng-src="{{comment.author.avatar}}" />
+					<div class="user-comment">
+						<h4>{{comment.author.name}}</h4>
+						<p data-ng-bind-html="comment.description|trustHtml"></p>
+					</div>
+				</ion-item>
+			</ion-list>
+		</ion-content>
+	</ion-pane>
+</ion-view>

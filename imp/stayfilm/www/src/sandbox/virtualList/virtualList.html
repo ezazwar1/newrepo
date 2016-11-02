@@ -1,0 +1,37 @@
+	<style type="text/css">
+		body {
+		  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+		}
+
+		.list .my-item.item {
+		  left: 0;
+		  right: 0;
+		  transition:All 5s ease !important;
+		  -webkit-transition:All 5s ease !important;
+		  -moz-transition:All 5s ease !important;
+		  -o-transition:All 5s ease !important;
+		}
+
+
+
+		.my-item.item.ng-leave.ng-leave-active,
+		.my-item.item.ng-enter {
+		  opacity: 0 !important;
+		  background: red !important;
+		}
+		.my-item.item.ng-leave,
+		.my-item.item.ng-enter.ng-enter-active {
+		  opacity: 1 !important;
+		  background: green !important;
+		}
+	</style>
+
+
+
+          <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+            <ion-nav-back-button class="button-icon ion-arrow-left-c">
+            </ion-nav-back-button>
+          </ion-nav-bar>
+
+          <ion-nav-view animation="slide-left-right"></ion-nav-view>
+

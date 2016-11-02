@@ -1,0 +1,132 @@
+<ion-view class="single-product-view" view-title="{{singleProduct.name}}">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon side-menu-icon icon ion-navicon"></button>
+		<!--Drawer Change-->
+	</ion-nav-buttons>
+	<ion-content>
+		<ion-slide-box on-slide-changed="slideHasChanged()">
+			<ion-slide ng-repeat="prod in singleProduct.images">
+				<div class="list card">
+					
+					<img class="full-image preloadFade" img-preload 
+					src="img/loader.gif" ng-src="./img/products/{{prod.name}}" alt="">
+					
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+		<div class="product-details">
+			<div class="row">
+				<div class="col col-75">
+					<h4>{{singleProduct.name}}</h4>
+				</div>
+				<div class="col col-25">
+					<p class="text-center">{{singleProduct.price}}</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Product Description -->
+		<div class="card descCard">
+			<div class="list">
+				<div class="list-group">
+					<div ng-click="toggleDesc()" class="row">
+
+						<i class="icon" ng-class="IsItemOpened() ? 'ion-minus' : 'ion-plus'"></i>	
+						<p class="descCaption">Description</p>
+					</div>
+					<p class="item item-text-wrap desc-item"
+					ng-class="{active: IsItemOpened()}">
+					{{singleProduct.Desc}}
+				</p>
+
+			</div>
+		</div>
+	</div>
+	<!-- product properties -->
+
+
+	<div class="card product-properties">
+		<div class="item-body">
+			<div class="row">
+				<div class="col text-center">
+					<h3 class="item-color"><i class="icon ion-paintbucket"></i> Color</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col text-center">
+					<p class="choose-color">
+						Choose a colour for item
+					</p>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col col-10"></div>
+				<div class="col col-80 item-color-select text-center">				
+					<a href="" ng-click="choseColor('first')" class="color first-color">
+						<i ng-if="(chosenColor=='first')" class="icon ion-checkmark-circled">						
+						</i>
+					</a>
+					<a href="" ng-click="choseColor('second')" class="color second-color">
+						<i ng-if="(chosenColor=='second')" class="icon ion-checkmark-circled">						
+						</i>
+					</a>
+					<a href="" ng-click="choseColor('third')" class="color third-color">
+						<i ng-if="(chosenColor=='third')" class="icon ion-checkmark-circled">						
+						</i>
+					</a>
+				</div>
+				<div class="col col-10"></div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col text-center">
+					<h3 class="item-color"><i class="icon ion-ios-speedometer"></i> Size</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col text-center">
+					<p class="choose-color">
+						Size available for this item
+					</p>
+				</div>
+			</div>
+
+
+			<div class="row">
+
+				<div class="col item-size-select">				
+					<a ng-click="chooseSize('6')" 
+					class="{{(chosenSize=='6') ? 'active' : ''}}" href=""><span>6</span></a>
+					<a ng-click="chooseSize('8')" 
+					class="{{(chosenSize=='8') ? 'active' : ''}}" href=""><span>8</span></a>
+					<a ng-click="chooseSize('10')" 
+					class="{{(chosenSize=='10') ? 'active' : ''}}" href=""><span>10</span></a>
+					<a ng-click="chooseSize('12')" 
+					class="{{(chosenSize=='12') ? 'active' : ''}}" href=""><span>12</span></a>
+					<a ng-click="chooseSize('14')" 
+					class="{{(chosenSize=='14') ? 'active' : ''}}" href=""><span>14</span></a>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="button-bar button-wrap">
+		
+		<button class="button button-block button-positive">Share</button>
+		
+		
+		<button ng-click="gotoCart()" class="button button-block add-to-cart-btn">Add to Cart</button>
+		
+	</div>
+	<!-- <div class="button-bar"> -->
+
+
+
+	
+
+
+</ion-content>
+</ion-view>

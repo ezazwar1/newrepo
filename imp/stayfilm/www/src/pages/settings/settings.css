@@ -1,0 +1,295 @@
+/* line 5, settings.scss */
+.page-settings .scroll {
+  padding: 88px 20px;
+}
+/* line 9, settings.scss */
+.page-settings .invalidated {
+  border: 1px solid red;
+}
+/* line 13, settings.scss */
+.page-settings .bar-header {
+  background: white;
+}
+/* line 18, settings.scss */
+.page-settings .bar-header .close img {
+  width: 20px;
+  height: 20px;
+}
+/* line 24, settings.scss */
+.page-settings .bar-header h1 {
+  color: #dedcdf;
+}
+/* line 29, settings.scss */
+.page-settings .fs-header {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 44px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  text-align: center;
+  width: 100%;
+  background: white;
+  z-index: 10;
+}
+/* line 42, settings.scss */
+.page-settings .fs-header .cursor {
+  position: absolute;
+  height: 3px;
+  background: #ad252a;
+  top: 41px;
+  z-index: 2;
+  width: 100%;
+  left: 0;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: all 0.8s ease 0.5s;
+  -moz-transition: all 0.8s ease 0.5s;
+  transition: all 0.8s ease 0.5s;
+}
+/* line 54, settings.scss */
+.page-settings .fs-header .cursor.personal-active {
+  -webkit-transform: translateX(0%) scaleX(0.5);
+  -moz-transform: translateX(0%) scaleX(0.5);
+  -ms-transform: translateX(0%) scaleX(0.5);
+  -o-transform: translateX(0%) scaleX(0.5);
+  transform: translateX(0%) scaleX(0.5);
+}
+/* line 58, settings.scss */
+.page-settings .fs-header .cursor.credentials-active {
+  -webkit-transform: translateX(50%) scaleX(0.5);
+  -moz-transform: translateX(50%) scaleX(0.5);
+  -ms-transform: translateX(50%) scaleX(0.5);
+  -o-transform: translateX(50%) scaleX(0.5);
+  transform: translateX(50%) scaleX(0.5);
+}
+/* line 63, settings.scss */
+.page-settings .fs-header .settings-tabs {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  border-bottom: 3px solid #9aa7b2;
+  height: 44px;
+}
+/* line 71, settings.scss */
+.page-settings .fs-header .settings-tabs .tab {
+  display: block;
+  color: #9aa7b2;
+  font-size: 17px;
+  width: 50%;
+  -webkit-transition: all 0.8s ease 0.5s;
+  -moz-transition: all 0.8s ease 0.5s;
+  transition: all 0.8s ease 0.5s;
+}
+/* line 78, settings.scss */
+.page-settings .fs-header .settings-tabs .tab.active {
+  color: #ad252a;
+}
+/* line 85, settings.scss */
+.page-settings .personal {
+  padding-top: 20px;
+}
+/* line 88, settings.scss */
+.page-settings .personal .btn-save-settings {
+  background: #35424d;
+}
+/* line 93, settings.scss */
+.page-settings .credentials {
+  padding-top: 20px;
+}
+/* line 96, settings.scss */
+.page-settings .credentials .btn-save-password {
+  background: #35424d;
+}
+/* line 100, settings.scss */
+.page-settings .credentials .btn-save-settings {
+  background: #35424d;
+}
+/* line 105, settings.scss */
+.page-settings .or-separator {
+  position: relative;
+  border-top: 1px dashed #d0d0d0;
+  text-align: center;
+  margin: 40px 0px 20px;
+}
+/* line 111, settings.scss */
+.page-settings .or-separator span {
+  position: relative;
+  padding: 0 20px;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  background: #fff;
+  top: -12px;
+  color: #7a7a7a;
+}
+/* line 122, settings.scss */
+.page-settings .error-box {
+  border: 1px solid red;
+  padding: 20px;
+  margin: 20px 0;
+  color: #999;
+  font-family: HelveticaNeueLT, sans-serif;
+}
+/* line 129, settings.scss */
+.page-settings .error-box ul {
+  list-style: inside disc;
+}
+/* line 135, settings.scss */
+.page-settings form label {
+  color: #ad252a;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 14px;
+}
+/* line 140, settings.scss */
+.page-settings form label input {
+  background: #dedee1;
+  border-radius: 4px;
+  margin: 2px 0 15px;
+  padding: 10px;
+  width: 100%;
+}
+/* line 148, settings.scss */
+.page-settings form label select {
+  width: 100%;
+  border-radius: 5px;
+  background: #dedee1;
+  margin: 2px 0 15px;
+  border: none;
+  padding: 8px 10px;
+}
+/* line 156, settings.scss */
+.page-settings form label select option {
+  padding: 10px;
+}
+/* line 162, settings.scss */
+.page-settings form .birthday-field {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 150px;
+  color: #ad252a;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 14px;
+}
+/* line 169, settings.scss */
+.page-settings form .birthday-field input {
+  background: #dedee1;
+  border-radius: 4px;
+  margin: 2px 0 15px;
+  padding: 10px;
+  text-align: center;
+}
+/* line 177, settings.scss */
+.page-settings form .birthday-field [type="number"] {
+  box-sizing: content-box;
+}
+/* line 178, settings.scss */
+.page-settings form .birthday-field [type="number"]::-webkit-inner-spin-button, .page-settings form .birthday-field [type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+/* line 186, settings.scss */
+.page-settings form .birthday-field [name="birthdayDay"], .page-settings form .birthday-field [name="birthdayMonth"] {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 25%;
+  -moz-flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+}
+/* line 190, settings.scss */
+.page-settings form .birthday-field [name="birthdayMonth"] {
+  margin-right: 1px;
+  margin-left: 1px;
+}
+/* line 195, settings.scss */
+.page-settings form .birthday-field [name="birthdayYear"] {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 50%;
+  -moz-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+/* line 200, settings.scss */
+.page-settings form .email-toggle {
+  width: 100%;
+  background: #fff;
+  margin: 0 0 10px;
+  min-height: 45px;
+  padding: 0;
+  border: none;
+}
+/* line 208, settings.scss */
+.page-settings form .email-toggle > div {
+  white-space: normal;
+  margin: 10px 0 0 72px;
+  color: #787878;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+}
+/* line 216, settings.scss */
+.page-settings form .email-toggle label.toggle {
+  right: auto;
+  left: 6px;
+  top: 6px;
+}
+/* line 222, settings.scss */
+.page-settings form .email-toggle label.toggle input + .track {
+  background: #dedcdf;
+  border-color: #dedcdf;
+}
+/* line 226, settings.scss */
+.page-settings form .email-toggle label.toggle input + .track .handle {
+  background: #fff;
+}
+/* line 234, settings.scss */
+.page-settings form .email-toggle label.toggle input:checked + .track {
+  background: #12ad60;
+  border-color: #12ad60;
+}
+/* line 238, settings.scss */
+.page-settings form .email-toggle label.toggle input:checked + .track .handle {
+  background: #fff;
+}

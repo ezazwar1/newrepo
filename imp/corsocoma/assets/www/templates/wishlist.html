@@ -1,0 +1,24 @@
+<ion-view cache-view="false" view-title="Список желаний">
+  <ion-nav-bar class="bar-light coll">
+      <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content lazy-scroll>
+
+
+       <ion-item  class='catalog-items' style="text-align: center;" item-width="dev_width" item-height="dev_height"  force-refresh-images ="true" item-render-buffer ="6" collection-repeat="product in products | orderBy:'name' ">
+
+
+           <a ng-click="show(product.id)">  <img  class="full-image" image-lazy-src="{{product.thumb}}" image-lazy-loader="ios-small" > </a>
+
+               <p class="model-name">{{product.name}}</p>
+               <p class="model-art">{{product.model}}</p>
+
+               <p ng-show="product.special == false" class="model-price">{{ product.price | currency:"&#x20bd;":0 }} </p>
+               <p ng-show="product.special != false" class="model-price">{{ product.special | currency:"&#x20bd;":0 }}&nbsp;&nbsp;<span style="text-decoration: line-through; ">{{ product.price | currency:"&#x20bd;":0 }} </span>&nbsp;&nbsp;</p>
+
+  </ion-item>
+
+
+
+  </ion-content>
+</ion-view>

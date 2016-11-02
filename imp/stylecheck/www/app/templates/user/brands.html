@@ -1,0 +1,26 @@
+<ion-view>
+    <ion-content>
+        <h2 class="padding-top padding-left">{{dict.brandFavorites}}</h2>
+        <form name="myForm">
+            <div class="brand-list" ng-repeat="(letter, brands) in brandList">
+                <div class="bold padding assertive">{{letter}}</div>
+                <div class="list">
+                    <div class="item-wrapper" ng-repeat="(key, brand) in brands">
+                        <label class="item item-radio" ng-click="toggleSelection(brand.name)">
+                            <input type="checkbox" ng-checked="selection.indexOf(brand.name) > -1;" value="{{brand.name}}">
+                            <div class="item-content">{{brand.name}}</div>
+                            <i class="radio-icon icon icon-check assertive"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+    <ion-footer-bar class="bar-light hide-on-keyboard-open">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="button button-outline button-assertive center" ng-click="saveBrands()">{{dict.save}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

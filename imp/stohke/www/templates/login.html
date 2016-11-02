@@ -1,0 +1,24 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doLogin()" >
+      <div class="list">
+        <label class="item" ng-hide="appUser">
+          <button class="button button-block button-positive" type="submit">Sign in with Facebook</button>
+        </label>
+      </div>
+    </form>
+          <!-- <button class="button button-block button-danger" type="button" ng-click="tempLogin()">Temp Sign in</button> -->
+      <div class="item" ng-show="userInfo.isAuth">
+        <p>Welcome back, {{userInfo.data.UserName}}!</p>
+        <p>This will self-close in 3 seconds</p>
+        <ion-spinner icon="dots"></ion-spinner>
+      </div>
+
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,21 @@
+<ion-view view-title="{{ 'info.title_info_orders' | i18n }}">
+    <ion-content>
+        <div ng-if="orders.length == 0" class="large-icon-message">
+            <span class="large-app-icon large-app-icon-red">
+                <i class="icon ion-ios-paper-outline"></i>
+            </span>
+            <p i18n="info.errors_no_orders"></p>
+        </div>
+
+        <div class="list">
+            <div class="item row item-button-right" ng-repeat="order in orders">
+                <div class="col-30"><h1>#{{::order.order_id}}</h1></div>
+                <div class="col">
+                    {{::order.date_added}}
+                    <p>{{::order.status}} <span>{{::order.total}}</span></p>
+                </div>
+                <a class="button button-small" ng-class="{'button-balanced': order.status == 'Complete'}" href="#/app/menu/info/order/{{::order.order_id}}" i18n="info.buttons_more"></a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

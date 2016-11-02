@@ -1,0 +1,56 @@
+
+<ion-view view-title="Коллекция">
+    <ion-nav-bar class="bar-light coll">
+        <ion-nav-back-button></ion-nav-back-button>
+
+    </ion-nav-bar>
+    <ion-nav-buttons side="right">
+      <a href="#/tab/wishlist" class="button button-icon icon {{ wishlistStatusFull == 0 ? 'ion-ios-heart-outline' : 'ion-ios-heart' }}"><span ng-show="wishlistStatusFull >0" class="badge badge-assertive icon-badge">{{$parent.wishlistCount}}</span></a>
+          <a href="#/tab/cart" class="button button-icon icon {{shoppingCartStatusFull == 0 ? 'ion-ios-cart-outline' : 'ion-ios-cart'}}" ><span ng-show="shoppingCartStatusFull >0" class="badge badge-assertive icon-badge">{{CartCount}}</span></a>
+      </ion-nav-buttons>
+
+
+
+
+      <ion-header-bar  align-title="left" class="bar-light bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-ios-search placeholder-icon"></i>
+          <input ng-enter="startSearch()" ng-model="searchArt" type="search" placeholder="Поиск по артикулу">
+        </label>
+        <button ng-click="startSearch()" class="button button-clear">
+          искать
+        </button>
+
+      </ion-header-bar>
+     <ion-header-bar align-title="left" class="bar-light bar-subheader item-input-inset">
+        <div class="button-bar">
+    <a ng-click="filter()" class="button">Фильтр</a>
+    <a ng-click="orderBy()" class="button">Сортировать</a>
+  </div>
+
+      </ion-header-bar>
+
+<ion-content lazy-scroll style="padding-top:44px;">
+    <!--<ion-content lazy-scroll >-->
+    <div class="card no_shadow" ng-show="success == false">
+    <div class="item item-text-wrap">
+     К сожалению ничего не найдено....
+    </div>
+  </div>
+
+       <ion-item  class='catalog-items' style="text-align: center;" item-width="dev_width" item-height="dev_height"  force-refresh-images ="true" item-render-buffer ="6" collection-repeat="product in products  | orderBy:final_price | filter:asignFilter">
+
+
+           <a href="#/tab/collection/item/{{product.id}}">   <img  class="full-image"  lazy-scroll-resize="true" image-lazy-src="{{product.thumb}}" image-lazy-distance-from-bottom-to-load="260" image-lazy-loader="ios-small" > </a>
+
+               <p class="model-name">{{product.name}}</p>
+               <p class="model-art">{{product.model}}</p>
+
+               <p ng-show="product.special == false" class="model-price">{{ product.price | currency:"&#x20bd;":0 }} </p>
+               <p ng-show="product.special != false" class="model-price">{{ product.special | currency:"&#x20bd;":0 }}&nbsp;&nbsp;<span style="text-decoration: line-through; ">{{ product.price | currency:"&#x20bd;":0 }} </span>&nbsp;&nbsp;</p>
+  </ion-item>
+
+
+
+  </ion-content>
+</ion-view>

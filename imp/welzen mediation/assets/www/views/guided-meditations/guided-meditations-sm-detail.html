@@ -1,0 +1,80 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Guided Mindfulness Meditations</span>
+    <span class="welzen-popup__contents">Receive access to all of Welzen’s premium Mindfulness tools. Deepen your practice with our category series, single meditations and fun coaching sessions.</span>
+    <div class="welzen-popup__separator"></div>
+    <span class="welzen-popup__footer">This content requires a premium subscription</span>
+    <!-- <a  class="welzen-popup__info-box" ng-click='togglePopUpActive()' href="#/unlock/upgrade">
+      <div class="welzen-popup__info-box__details">
+        <span class="welzen-popup__info-box__details--title">Stress Pack</span>
+        <span class="welzen-popup__info-box__details--brief">30 Day Unlimited Access</span>
+      </div>
+      <span class="welzen-popup__info-box__price">$2.99</span>
+    </a>
+    <span class="welzen-popup__or">or</span> -->
+    <a  class="welzen-popup__mini-cta" ng-click='togglePopUpActive()' ui-sref="unlock">SUBSCRIBE</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+
+<ion-view class="bg-welzen meditations-detail" view-title="Quick Break">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack()"><img src="img/btn-back.png"/></a>
+    <h1 class="title">{{meditation.title}}</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+    <div class="container">
+    <p class="overview">{{meditation.description}}</p>
+    <a class="info-box--transparent" ng-repeat="media in meditation.medias"  class="info-box--transparent--border-top" ng-click="goToPlay(media)">
+      <div class="rounded-icon rounded-icon--medium"><img src="img/ico-play-btn-sml.png"></div>
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">{{media.length}} Minute Meditation</span>
+      </div>
+      <div class="info-box__forward info-box__forward--push-left" ng-if="!showLock(media);"><img src="img/btn-forward.svg"></div>
+      <div class="info-box__lock" ng-if="showLock(media);"><img src="img/ico-lock.svg"></div>
+    </a>
+    </div>
+
+  <ion-footer-bar class="footer bg-clear">
+
+
+
+<!--     <a class="info-box--transparent">
+      <div class="rounded-icon rounded-icon--medium"><img src="img/ico-play-btn-sml.png"></div>
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">10 Minute Meditation</span>
+      </div>
+      <div class="info-box__download"><img src="img/ico-nav-download.png"></div>
+    </a>
+
+    <a ng-click='togglePopUpActive()' class="info-box--transparent">
+      <div class="rounded-icon rounded-icon--medium"><img src="img/ico-play-btn-sml.png"></div>
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">15 Minute Meditation</span>
+      </div>
+      <div class="info-box__lock"><img src="img/ico-lock.svg"></div>
+    </a>
+
+    <a ng-click='togglePopUpActive()' class="info-box--transparent">
+      <div class="rounded-icon rounded-icon--medium"><img src="img/ico-play-btn-sml.png"></div>
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">20 Minute Meditation</span>
+      </div>
+      <div class="info-box__lock"><img src="img/ico-lock.svg"></div>
+    </a>
+
+    <a ng-click='togglePopUpActive()' class="info-box--transparent info-box--transparent--no-border">
+      <div class="rounded-icon rounded-icon--medium"><img src="img/ico-play-btn-sml.png"></div>
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">30 Minute Meditation</span>
+      </div>
+      <div class="info-box__lock"><img src="img/ico-lock.svg"></div>
+    </a> -->
+
+  </ion-footer-bar>
+
+</ion-view>

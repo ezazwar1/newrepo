@@ -1,0 +1,26 @@
+
+<ion-view title="{{getPageTitle()}}" class="rethink text step1">
+
+  <ion-nav-buttons side="right">
+    <a href="javascript:;" ng-click="goToHelp()" ng-show="showHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back"></div>
+
+  <ion-content scroll="{{isAndroid()}}">
+  	<h2>{{ getThoughtsRecordHeader() }}</h2>
+
+    <p ng-if="textThoughtError" class="error">{{textThoughtError}}</p>
+
+    <!-- Need parent because of the ion-view i think. -->
+    <!-- Also, this will get shortened on focus. -->
+    <textarea ng-model="$parent.thought" placeholder="{{ getTextPlaceholder() }}" style="height:1200px; -moz-user-select:text !important; -webkit-user-select: text !important; overflow:scroll !important;"> 
+
+    </textarea>
+
+  </ion-content>
+    <div class="top-videos-bar-fake"></div>
+    <div class="bar bar-footer" style="z-index: 100">
+      <button class="button button-start" ng-click="nextStep()">{{ getNextStepText() }}</button>
+    </div>
+</ion-view>

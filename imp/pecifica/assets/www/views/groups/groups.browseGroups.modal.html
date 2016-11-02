@@ -1,0 +1,41 @@
+<ion-modal-view class="touchpoint popoverr new-post browse">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeBrowseGroupsModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'FIND_SUPPORT' | translate }}</h1>
+      <h2>{{ 'FIND_SUPPORT_SUBHEAD' | translate }}</h2>
+
+      <div ng-show="curatedGroups.length == 0">
+        {{ 'SUPPORT_GROUPS_NOT_AVAILABLE' | translate }}
+      </div>
+
+      <div ng-show="loadingCuratedGroups" class="is-loading">
+        {{ 'LOADING_SUPPORT_GROUPS' | translate }}
+      </div>
+
+      <div ng-show="!loadingCuratedGroups" ng-class="{joining: joiningCuratedGroup}">
+
+        <div ng-show="curatedGroups.length == 0" class="is-loading">
+          {{ 'SUPPORT_GROUPS_NOT_AVAILABLE' | translate }}
+        </div>
+
+        <div ng-repeat="category in curatedCategories" class="category">
+          <div class="cat-title" ng-click="toggleCategoryDisplay(category)">
+            {{category}}
+            <i class="icon ion-ios-arrow-up" ng-show="isDisplayingCategory(category)"></i>
+            <i class="icon ion-ios-arrow-down" ng-show="!isDisplayingCategory(category)"></i>
+          </div>
+          
+          <div ng-repeat="group in curatedGroups[category]" ng-click="joinCuratedGroup(group.id, group.code)" class="group-cat" ng-show="isDisplayingCategory(category)">
+            <strong>{{group.name}}</strong>
+            <span class="groupDescription" ng-show="group.description && group.description.length > 0"><br>{{getGroupDescription(group)}}</span>
+            <i class="icon ion-ios-plus-empty"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

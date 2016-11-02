@@ -1,0 +1,100 @@
+<ion-view title="ORGANISATION" class="customer-workplace-pane">
+    <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light" style="z-index: 10000">
+        <ion-nav-buttons side="left">
+            <!--    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+            <a class="button button-clear button-icon" ng-click="goMain()">
+                <i class="icon ion-arrow-left-a"></i>
+            </a>
+        </ion-nav-buttons>
+    </div>
+        <ion-content class="has-header height-100" scroll="false">
+            <div class="button-bar bar-dark">
+                <button class="button" ng-click="selectStaff();" ng-class="(staffActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px">STAFF</button>
+                <button class="button" ng-click="selectManagers();" ng-class="(managersActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px">MANAGERS</button>
+                <button class="button" ng-click="selectWorkplaces();" ng-class="(workplacesActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px;">WORKPLACES</button>
+            </div>
+
+
+    <div class="main-page" style="background-color: #fff">
+
+        <!-- Staff -->
+        <div style="width: 100%;height:100%;position:relative"  ng-show="staffActive" >
+          <ion-content>
+          <a class="item">
+              <p style="margin-left: 70px; float: left; opacity: 0.4">Name</p>
+              <hr style="margin-left: 70px;margin-top:40px;opacity: 0.2">
+          </a>
+          <ion-item class="item item-avatar" style="border-width: 0;" ng-repeat="s in staffList track by $index">
+              <img style="border-radius: 50%;" src="{{s.picture_thumb_url}}" onerror="this.src = 'img/ninja-160x160.png';">
+              <!-- <img style="border-radius: 50%;" src="showStaffPicture(s.picture_thumb_url)"> -->
+              <h2 style="margin-left: 70px;font-size:12px;float: left;opacity: 0.4;margin-top:14px;" ng-click="editStaff(s);">{{s.name}}</h2>
+          </ion-item>
+          <ion-content>
+        </div>
+
+        <!-- Managers -->
+        <div style="width: 100%;height:100%;position:relative" ng-show="managersActive" >
+          <ion-content>
+            <a class="item">
+                <p style="margin-left: 70px; float: left;opacity: 0.4">Name</p><p style="float: right;opacity: 0.4">Status</p>
+                <hr style="margin-left: 70px;margin-top:40px;opacity: 0.2">
+            </a>
+              <ion-item class="item item-avatar" style="border-width: 0;" ng-repeat="m in managersList track by $index">
+                  <img style="border-radius: 50%;" src="{{m.picture_thumb_url}}" onerror="this.src = 'img/ninja-160x160.png';">
+
+                  <h2 style="font-size:12px;margin-left: 70px; margin-top: 14px;float: left;opacity: 0.4" ng-click="editManager(m);">{{m.name}}</h2><p style="font-size:12px;float: right;margin-top: 14px;opacity: 0.2">{{isActive(m.active)}}</p>
+              </ion-item>
+          </ion-content>
+        </div>
+
+        <!-- Workplaces -->
+        <div  style="width: 100%;height:100%;position:relative" ng-show="workplacesActive" >
+          <ion-content>
+          <a class="item">
+              <p style="margin-left: 70px; float: left;opacity: 0.4">Name</p><p style="float: right;opacity: 0.4">Status</p>
+              <hr style="margin-left: 70px;margin-top:40px;opacity: 0.2">
+          </a>
+          <ion-item class="item item-avatar" style="border-width: 0;" ng-click="editWorkplace(n);" ng-repeat="n in workplaceList track by $index">
+              <img style="border-radius: 50%;width: 70px" src="{{n.picture_thumb_url}}" onerror="this.src = 'img/placeholder.png';">
+
+              <h2 style="font-size:12px;margin-left: 70px; margin-top: 14px;float: left;opacity: 0.4">{{n.name}}</h2><p style="font-size:12px;float: right;opacity: 0.2;margin-top: 14px">{{isActive(n.active)}}</p>
+          </ion-item>
+          </ion-content>
+        </div>
+
+        <!-- Add and edit forms -->
+        <div class="profile-page" style="height: calc(100% - 46px); width: 100%;" ng-show="addStaff">
+            <div class="profile" style="height: calc(100% - 1px)">
+                <div>
+                    <div style="padding-left: 15px; padding-right: 17px">
+                        <div class="form-group">
+                            <input id="first_name" type="text" ng-model="staff.first_name" wn-errors="errors.first_name" required="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input">
+                        </div>
+                        <div class="form-group" style="padding-top:5px;">
+                            <input type="text" id="last_name" name="last_name" placeholder="Last Name" ng-model="staff.last_name" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                        </div>
+                        <div class="form-group" style="padding-top:5px;">
+                            <input type="text" id="mobile" name="mobile" placeholder="Mobile" ng-model="staff.mobile" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                        </div>
+                        <div class="form-group" style="padding-top:5px;">
+                            <input type="text" id="headline" name="headline" placeholder="Headline eg (I'm a bartender ninja)" ng-model="staff.headline" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                        </div>
+                        <button class="button border-no" ng-click="update()" ng-disabled="!canUpdate()" style="font-size:14px;float: right;background: white;color:#01be6e;margin-top: 10px" >UPDATE</button>
+                    </div>
+                   
+                </div> 
+          </div>
+        </div>
+        <nav mfb-menu position="br" effect="zoomin" label="Add {{addMessage}}" active-icon="ion-edit" resting-icon="ion-plus-round" toggling-method="click" main-action="goAdd()" ng-hide="addStaff">
+        </nav>
+        
+      
+
+
+    </div>
+    </ion-content>
+
+
+
+
+

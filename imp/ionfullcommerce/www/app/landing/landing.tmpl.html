@@ -1,0 +1,37 @@
+<ion-view class="landing-view">
+	<ion-content class="landing-page padding" scroll="false">
+		<section class="landing-container">
+			<div class = "col header text-center">
+				<img src="./img/logo.png" class = "logo" />
+			</div>
+
+			<div class="col bottom-section text-center">
+				<div class="row">
+					<button ng-click="showLogin()" class="button button-block sign-in-button button-dark">
+						Sign In
+					</button>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button class="button button-clear button-block facebook-in-button">
+							Facebook
+						</button>
+					</div>
+					<div class="col">
+						<button ng-click="showSignUp()" class="button button-clear button-block sign-in-button">
+							Sign up
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<button ng-click="startShopping()" class="button button-clear button-block sign-in-button">
+						Anonymous Shopping
+					</button>
+				</div>
+				
+			</div>
+
+		</section>
+
+	</ion-content>
+</ion-view>

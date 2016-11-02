@@ -1,0 +1,38 @@
+{"success":true,"data":[ {"categorySpecific_id":1,"categoryName":"ACCENT", "catbanner":[
+{"category_id":"11","title":"Mens wear","image":"img/bannerSpecific/ac1.jpg"},
+{"category_id":"12","title":"Mens wear","image":"img/bannerSpecific/ac2.jpg"},
+{"category_id":"13","title":"Mens wear","image":"img/bannerSpecific/ac3.jpg"},
+{"category_id":"14","title":"Mens wear","image":"img/bannerSpecific/ac4.jpg"},
+{"category_id":"15","title":"Mens wear","image":"img/bannerSpecific/ac5.jpg"}]},
+
+{"categorySpecific_id":2,"categoryName":"DINING",  "catbanner":[
+{"category_id":"21","title":"Womens wear","image":"img/bannerSpecific/din1.jpg"},
+{"category_id":"22","title":"Womens wear","image":"img/bannerSpecific/din2.jpg"},
+{"category_id":"23","title":"Womens wear","image":"img/bannerSpecific/din3.jpg"},
+{"category_id":"24","title":"Womens wear","image":"img/bannerSpecific/din4.jpg"},
+{"category_id":"25","title":"Womens wear","image":"img/bannerSpecific/din5.jpg"}
+]},
+
+{"categorySpecific_id":3,"categoryName":"LIVING",  "catbanner":[
+{"category_id":"31","title":"Kids wear","image":"img/bannerSpecific/liv1.jpg"},
+{"category_id":"32","title":"Kids wear","image":"img/bannerSpecific/liv2.jpg"},
+{"category_id":"33","title":"Kids wear","image":"img/bannerSpecific/liv3.jpg"},
+{"category_id":"34","title":"Kids wear","image":"img/bannerSpecific/liv4.jpg"},
+{"category_id":"15","title":"Mens wear","image":"img/bannerSpecific/liv5.jpg"}]},
+
+{"categorySpecific_id":4,"categoryName":"OFFICE",  "catbanner":[
+{"category_id":"41","title":"Sales","image":"img/bannerSpecific/ff1.jpg"},
+{"category_id":"42","title":"Sales","image":"img/bannerSpecific/ff2.jpg"},
+{"category_id":"43","title":"Sales","image":"img/bannerSpecific/ff3.jpg"},
+{"category_id":"44","title":"Sales","image":"img/bannerSpecific/ff4.jpg"},
+{"category_id":"45","title":"Sales","image":"img/bannerSpecific/ff5.jpg"}]},
+
+
+{"categorySpecific_id":5,"categoryName":"STROAGE",  "catbanner":[
+{"category_id":"46","title":"Sales","image":"img/bannerSpecific/st1.jpg"},
+{"category_id":"47","title":"Sales","image":"img/bannerSpecific/st2.jpg"},
+{"category_id":"48","title":"Sales","image":"img/bannerSpecific/st3.jpg"},
+{"category_id":"49","title":"Sales","image":"img/bannerSpecific/st4.png"},
+{"category_id":"50","title":"Sales","image":"img/bannerSpecific/st5.jpg"}]}
+
+]}

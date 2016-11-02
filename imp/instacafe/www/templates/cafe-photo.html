@@ -1,0 +1,32 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>Instagram Photos</ion-nav-title>
+<ion-content>
+<section class="gallery">
+    <section ng-include="'templates/include/error-message.html'"></section>
+    <div class="row" ng-repeat="photo in photos" ng-if="$index % 3 === 0">
+        <div class="col col-33" ng-if="$index < photos.length" fullscreen-image photo="photos[$index]">
+            <img ng-src="{{ photos[$index].thumbnail }}"
+                 width="100%"
+                 default-src="img/default.png"
+                 photo-id="{{ photos[$index].id }}"
+                 type="photo">
+        </div>
+        <div class="col col-33" ng-if="$index + 1 < photos.length" fullscreen-image photo="photos[$index + 1]">
+            <img ng-src="{{ photos[$index + 1].thumbnail }}"
+                 width="100%"
+                 default-src="img/default.png"
+                 photo-id="{{ photos[$index + 1].id }}"
+                 type="photo">
+        </div>
+        <div class="col col-33" ng-if="$index + 2 < photos.length" fullscreen-image photo="photos[$index + 2]">
+            <img ng-src="{{ photos[$index + 2].thumbnail }}"
+                 width="100%"
+                 default-src="img/default.png"
+                 photo-id="{{ photos[$index + 2].id }}"
+                 type="photo">
+        </div>
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="hasMore"></ion-infinite-scroll>
+</section>
+</ion-content>
+</ion-view>

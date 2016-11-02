@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">  
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Rum">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui, height=device-height">
+  <title>Ciao</title>
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
+  <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
+  <link rel='stylesheet' href='main.css?v=20160615'>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon-precomposed" href="/mobile-bookmark-bubble/images/rum_57x57.png" />
+</head>
+<body>
+
+<div sb-main=""></div>
+
+<!--don't use now-->
+<!--<script src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>-->
+<script src="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js"></script>
+<script src="socket.io.js"></script>
+<script src="main.js?v=20160615"></script>
+
+<script src="cordova.js"></script>
+<script src="js/plugins/LaunchMyApp.js"></script>
+<!-- <script type="text/javascript" src="js/plugins/appsflyer.js"></script> -->
+<script>
+  function handleOpenURL(url) {
+    var parts = url.split('://');
+    window.location.hash = '/' + (parts[1] || '');
+  }
+
+  document.addEventListener("deviceready", function() {
+    Appsee.start("b7bad84068dc48618f01d26fd73f919a");
+  });
+
+  // document.addEventListener("deviceready", function(){
+  //   var args = [];
+  //   var devKey = "nh3QndhpD86ct25ED2bhqh"; // your AppsFlyer devKey
+  //   args.push(devKey);
+  
+  //   var userAgent = window.navigator.userAgent.toLowerCase();
+
+  //   if (/iphone|ipad|ipod/.test( userAgent )) {
+  //     var appId = "com.ciaodate.cordova"; // your ios app id in app store
+  //     args.push(appId);
+  //   }
+  //   window.plugins.appsFlyer.initSdk(args);
+  // }, false);
+</script>
+
+<!--<script src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>-->
+
+<!--<script src="socket.io.js"></script>-->
+
+<!--<script src="main.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,110 @@
+<ion-pane class="containerr black" id="home" >
+
+    <!-- <div class="flip"> -->
+
+        <!-- <div class="homecc" ng-class="{'flipped':isFlipped}"> -->
+            <!-- trinidad face -->
+            <div ng-controller="TrinCtrl as tc">
+                <div class="some_error" ng-if="trin_error">{{trin_error}}</div>
+                <background-cycler-trin class="bg-fade" id="trin-img"></background-cycler-trin>
+                <img crossorigin="Anonymous" style="display: none" id="i-trin" src="" />
+                <ion-header-bar id="headerr" class="header trin bar bar-header bar-cdlear no-border fancy">
+                    <!-- <button menu-toggle="left" class="button button-icon icon ion-ios-list-outline"></button> -->
+                    <button  menu-toggle="left" class="hamburger hamburger--spring" type="button" ng-class="$root.$ionicSideMenuDelegate.isOpen() ? 'is-active' : ''">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    <h1 class="title">
+                        <span class="city"><i class="city-nav-icon icon ion-navigate"></i>Trinidad<br></span>
+                    </h1>
+                    <!-- <button ng-click="flip('Tobago')" class="button button-icon ion-arrow-swap"></button> -->
+                    <button ng-click="open_trin_popover($event); tc.show=!tc.show" class="button button-icon " ng-class="{'ion-ios-more': tc.show, 'ion-ios-more-outline': !tc.show}"></button>
+                    <!-- <button ng-click="open_trin_popover($event); tc.show=!tc.show" ng-if="!tc.show" class="button button-icon ion-ios-more-outline"></button> -->
+                </ion-header-bar>
+
+                <ion-content scroll-effects scrollbar-y="false" class="no-header">
+                	<ion-refresher pulling-text="Pull to refresh..." on-refresh="tc.refreshData();" style="/*margin-top: -20px;*/"></ion-refresher>
+                    <div class="main-content">
+                        <current-weather-trin></current-weather-trin>
+                    </div>
+
+
+                    <!-- <div class="row" id="home-reload">
+                        <div class="col">
+                            <button class="button button-icon ion-ios-reload home-reload" ng-click="tc.refreshData();"></button>
+                        </div>
+                    </div> -->
+                </ion-content>
+
+                <ion-footer-bar class="bar-d3">
+
+                    <div class="d3 threeDay trin" ui-sref="app.forecast_home">
+                        <div class="row">
+                            <!-- col hold days -->
+                            <div class="col col-25">
+                                <div class="col"><p>{{t}}</p></div>
+                                <div class="col"><p>{{tm}}</p></div>
+                                <div class="col"><p>{{nd}}</p></div>
+                            </div>
+
+                            <!-- col hold icons -->
+                            <div class="col col-20 no_flex_zone">
+                                <span class="icon-size">
+                                    <div ng-if="!trin_today_icon_ready"><br><br></div>
+                                    <trin-today-icon ng-show="trin_today_icon_ready"></trin-today-icon>
+
+                                    <div ng-if="!trin_tm_icon_ready"><br><br></div>
+                                    <trin-tom-icon ng-show="trin_tm_icon_ready"></trin-tom-icon>
+
+                                    <div ng-if="!trin_nd_icon_ready"><br><br></div>
+                                    <trin-ndi-icon ng-show="trin_nd_icon_ready"></trin-ndi-icon>
+                                </span>
+                            </div>
+
+                            <!-- col hold temp values-->
+                            <div class="col col-60" style="position: absolute; right: 0; padding-left: 0px; ">
+                                <div class="col" style="padding-left: 0px; ">
+                                     <p ng-if="!trin_today_icon_ready" class="d3-svg-holder text-right">
+                                        <ion-spinner style="" class="holder light" icon="dots"></ion-spinner>
+                                    </p>
+                                    <p class="text-right fc-high" ng-class="{wider_p: t=='Today'}" ng-if="trin_today_icon_ready">
+                                        <span ng-if="t == 'Today'">
+                                            <span class="small">Day</span>
+                                            {{tc.th}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-up"></i></span> •
+                                        </span>
+                                        Night {{tc.tl}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-down"></i></span>
+                                    </p>
+                                </div>
+                                <div class="col">
+                                     <p ng-if="!trin_tm_icon_ready || !tc.maxtm && !tc.mintm" class="d3-svg-holder text-right">
+                                        <ion-spinner style="" class="holder light" icon="dots"></ion-spinner>
+                                    </p>
+                                    <p class="text-right fc-high wider_p" ng-if="trin_tm_icon_ready && tc.maxtm && tc.mintm">
+                                        <span class="small">Day</span>
+                                        {{tc.maxtm}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-up"></i></span> •
+                                        Night {{tc.mintm}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-down"></i></span>
+                                    </p>
+                                </div>
+                                <div class="col">
+                                     <p ng-if="!trin_nd_icon_ready || !tc.max24 && !tc.min24" class="d3-svg-holder text-right">
+                                        <ion-spinner style="" class="holder light" icon="dots"></ion-spinner>
+                                    </p>
+                                    <p class="text-right fc-high wider_p" ng-if="trin_nd_icon_ready && tc.max24 && tc.min24">
+                                        <span class="small">Day</span>
+                                        {{tc.max24}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-up"></i></span> •
+                                        Night {{tc.min24}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-down"></i></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-footer-bar>
+
+            </div>
+            <!-- end of trinidad face -->
+
+
+        <!-- </div> -->
+    <!-- </div> -->
+</ion-pane>

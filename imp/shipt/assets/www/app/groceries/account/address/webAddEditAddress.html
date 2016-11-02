@@ -1,0 +1,37 @@
+<ion-view hide-back-button="true" view-title="Address">
+    <ion-nav-buttons side="right">
+        <button ng-if="!addingNewAddressMode" class="button button-icon icon ion-ios-trash-outline" ng-click="deleteAddress(address)"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header stable-content" has-bouncing="true" >
+        <br/>
+        <form class="add-card-form large-padding" name="addressForm">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Street</span>
+                    <input type="text" ng-change="streetInputChanged()" ng-model="address.street1" name="streetone" required="required">
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">Apartment/Suite #</span>
+                    <input type="text" ng-model="address.street2" name="streettwo" >
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">City</span>
+                    <input ng-model="address.city" name="city" type="text" required="required">
+                </label>
+                <label class="item item-input ">
+                    <span class="input-label">State</span>
+                    <input ng-model="address.state" name="state" type="text" required="required">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Zip Code</span>
+                    <input ng-model="address.zip_code" name="zip_code" type="tel" required="required">
+                </label>
+            </div>
+            <div class="text-center padding">
+                <button class="button button-positive" ng-click="saveAddress(address)" >
+                    Save Address
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

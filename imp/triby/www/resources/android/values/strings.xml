@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Triby</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="video_recording_stopped">Video recording stopped</string>
+    <string name="video_recording_stopped_message">The maximum length for video recording is 15 seconds</string>
+</resources>

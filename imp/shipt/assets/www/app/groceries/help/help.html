@@ -1,0 +1,45 @@
+<ion-view title="Shipt Help" ng-controller="HelpController as viewModel">
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+
+        <div class="padding">
+            <div class="text-center">
+                <p style="margin-bottom: 0px;" class="faded">
+                    Help Topics
+                </p>
+            </div>
+        </div>
+        <div class="text-center" ng-if="viewModel.loadingSpinner">
+            <ion-spinner>
+            </ion-spinner>
+        </div>
+        <div class="list light-item-list " ng-if="viewModel.showList()">
+            <ion-item ng-repeat="article in viewModel.articles "
+                      ng-click="viewModel.articleClick(article)"
+                      class="item order-history-item help item-icon-right"
+                      role="button"
+                      aria-label="{{article.name}}">
+                <h2 class="wrap dark">
+                    {{article.name}}
+                </h2>
+                <i class="icon ion-ios-arrow-right" aria-hidden="true" aria-label="arrow right icon"></i>
+            </ion-item>
+        </div>
+
+        <br/>
+        <div class="text-center">
+            <p class="text-positive">
+                Can't Find Your Answer Here?
+            </p>
+            <h4 ng-click="viewModel.contactClick()" class="text-positive" role="button" aria-label="Contact us">
+                Contact Us <i class="icon ion-arrow-right-c" aria-hidden="true" aria-label="arrow right icon"></i>
+            </h4>
+        </div>
+        <div class="padding">
+            <div class="text-center">
+                <p class="faded">
+                    Shipt {{viewModel.version.version}}({{viewModel.version.build}})
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

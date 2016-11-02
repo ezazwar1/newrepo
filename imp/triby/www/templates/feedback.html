@@ -1,0 +1,27 @@
+<ion-view cache-view="false" view-title="Feedback" ng-controller="FeedbackCtrl">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left client-positive" ng-click="backHistory()">Settings</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon" style="color:#2695f9" ng-show="feedback.stars[0] || feedback.text" ng-click="saveFeedback()">Done</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list list-feedback-star">
+            <i class="icon ion-android-star" ng-class="{'icon-full-star':feedback.stars[0]==1,'icon-empty-star':feedback.stars[0]==0}" ng-click="addStar(0)"></i>
+            <i class="icon ion-android-star" ng-class="{'icon-full-star':feedback.stars[1]==1,'icon-empty-star':feedback.stars[1]==0}" ng-click="addStar(1)"></i>
+            <i class="icon ion-android-star" ng-class="{'icon-full-star':feedback.stars[2]==1,'icon-empty-star':feedback.stars[2]==0}" ng-click="addStar(2)"></i>
+            <i class="icon ion-android-star" ng-class="{'icon-full-star':feedback.stars[3]==1,'icon-empty-star':feedback.stars[3]==0}" ng-click="addStar(3)"></i>
+            <i class="icon ion-android-star" ng-class="{'icon-full-star':feedback.stars[4]==1,'icon-empty-star':feedback.stars[4]==0}" ng-click="addStar(4)"></i>
+        </div>
+      <div class="list email-feedback">
+        <label class="item item-input">
+          <input ng-model="feedback.email" placeholder="Enter your email" type="text">
+        </label>
+      </div>
+        <div class="list text-feedback">
+            <label class="item item-input">
+                <textarea rows="6" ng-model="feedback.text" placeholder="Give us your feedback. Help us to improve."></textarea>
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

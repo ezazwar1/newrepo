@@ -1,0 +1,125 @@
+<ion-view hide-back-button="true" title="" hide-nav-bar="nux">
+
+  <ion-nav-buttons side="left">
+    <a href="javascript:;" ng-click="goToProgress()" ng-show="!isPacificaLiteUser()"><button class="button button-clear icon ion-stats-bars"><span class="nav-text">{{ 'YOUR_PROGRESS' | translate }}</span> <span ng-show="newLevels > 0" class="badge-progress">{{ newLevels }}</span></button></a>
+
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    
+    <a href="javascript:;" ng-click="goToAccount()"><button class="button button-clear icon ion-ios-gear-outline"></button></a>
+
+  </ion-nav-buttons>
+
+  <ion-content ng-class="{'nux': nux, 'has-header': !nux}">
+
+      <ion-slide-box on-slide-changed="nuxSlideChanged($index)" delegate-handle="nuxSlider" ng-if="nux" class="intro-view nux-welcome-tour">
+
+        <ion-slide>
+          <div class="box intro-welcome">
+            <div class="slide-image"></div>
+            <h1>{{ 'WELCOME' | translate }}, {{ getName() }}</h1>
+            <p>{{ 'WELCOME_SLIDE_DESCRIPTION' | translate }}<br><br>
+               {{ 'WELCOME_SLIDE_DESCRIPTION2' | translate }}<br><br>
+               {{ 'WELCOME_SLIDE_DESCRIPTION3' | translate }}</p>
+            <div ng-click="nextNuxSlide()" class="button-bottom">{{ 'NEXT' | translate }}</div>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div class="box intro-theme">
+            <h1>{{ 'CHOOSE_YOUR_THEME' | translate }}</h1>
+            <p>{{ 'THEME_SLIDE_DESCRIPTION' | translate }}</p>
+            <div ng-repeat="video in videos" class="item item-icon-right item-icon-left dragContainer hideRemove {{getVideoClass(video)}}" href="javascript:;" ng-click="selectVideo(video)" on-drag-left="elementDragged($event)" on-drag-right="elementDragged($event)" ng-class="{active: isActive(video)}" ng-show="video.free">
+              {{video.name}}
+              <span class="loading" ng-if="isDownloading(video)">{{getDownloadPercentage(video)}}%</span>
+              <i class="icon icon-right ion-ios-download-outline" ng-if="isPremiumVideoEnabled(video) && !isDownloaded(video) && !isDownloading(video)"></i>
+            </div>
+            <div ng-click="nextNuxSlide()" class="button-bottom">{{ 'NEXT' | translate }}</div>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div class="box intro-notifications">
+            <div class="slide-image"></div>
+            <h1>{{ 'NOTIFICATION_SLIDE_HEADER' | translate }}</h1>
+            <p>{{ 'NOTIFICATION_SLIDE_DESCRIPTION' | translate }}<br><br>
+               {{ 'NOTIFICATION_SLIDE_DESCRIPTION2' | translate }}</p>
+            <div ng-click="handleNotificationRegistration()" class="button-bottom" ng-if="grantingPermission">{{ savingNotifications ? 'SAVING_LOWER' : 'OK_GOT_IT_LOWER' | translate }}</div>
+            <div ng-click="isUMNUser() ? closeNux() : nextNuxSlide()" class="button-bottom" ng-if="!grantingPermission">{{ isUMNUser() ? 'GET_STARTED' : 'NEXT' | translate }}</div>
+          </div>
+        </ion-slide>
+
+        <ion-slide ng-if="!isUMNUser()">
+          <div class="box intro-explainer">
+            <div class="slide-image"></div>
+            <h1>{{ 'STEPS_TO_USING_PACIFICA' | translate }}</h1>
+            <div class="mood">
+              <strong>{{ 'EXPLAINER_SLIDE_MOOD_HEADLINE' | translate }}</strong><br>
+              <span>{{ 'EXPLAINER_SLIDE_MOOD_DESC' | translate }}</span>
+            </div>
+            <div class="relax">
+              <strong>{{ 'EXPLAINER_SLIDE_RELAX_HEADLINE' | translate }}</strong><br>
+              <span>{{ 'EXPLAINER_SLIDE_RELAX_DESC' | translate }}</span>
+            </div>
+            <div class="community">
+              <strong>{{ 'EXPLAINER_SLIDE_COMMUNITY_HEADLINE' | translate }}</strong><br>
+              <span>{{ 'EXPLAINER_SLIDE_COMMUNITY_DESC' | translate }}</span>
+            </div>
+            <div ng-click="closeNux()" class="button-bottom">{{ 'I_UNDERSTAND' | translate }}</div>
+          </div>
+        </ion-slide>
+
+      </ion-slide-box>
+
+    <div class="list home-menu complete {{getCharacterSplitTestClass()}} {{hasCompletedIntro() || isPacificaLiteUser() ? 'complete' : ''}}" ng-if="!nux">
+      {{ 'TODAY' | translate }}
+      <div ng-show="showMoodTooltip()" class="hint-tooltip">
+        <span ng-click="hideMoodTooltip()" class="close">X</span>
+        <h1>{{ 'MOOD_TAGLINE' | translate }}</h1>
+        <h2>{{ 'MOOD_TOOLTIP_TEXT' | translate }}</h2>
+      </div>
+      <a ng-click="goToThoughts()" class="item thoughts" ng-show="showThoughts()">
+        <span>{{ 'THOUGHTS_ACTIVITY' | translate }}</span>
+        <div class="icon ion-ios-lightbulb-outline"></div>
+      </a>
+      <a ng-click="goToMood()" class="item mood {{hitMoodGoal() ? 'true': ''}} {{ (hasViewedVideo(0) || isPacificaLiteUser() || canSkipVideos()) ? '' : 'video'}}">
+        <div class="icon smile"></div>
+        <span class="mood-empty"><em>{{ getActivityName() }}</em></span>
+        <!--<span class="mood-average"><em>{{getTodaysLastMoodEntry()}}</em></span>-->
+      </a>
+      <a ng-click="goToGoals()" class="item goals" ng-show="showGoals()">
+        <span>{{ 'EXPERIMENTS_ACTIVITY' | translate }}</span>
+        <i class="icon ion-ios-bolt-outline"></i>
+      </a>
+    </div>
+
+    <div class="action-toggle" ng-if="!nux && todaysActionList.length == 1" ng-click="toggleActions()">{{ todaysActionList.length }} {{ 'ACTIONS_SINGLE' | translate }} ({{ isShowingActions() ? 'HIDE' : 'SHOW' | translate}})</div>
+
+    <div class="action-toggle" ng-if="!nux && todaysActionList.length > 1" ng-click="toggleActions()">{{ todaysActionList.length }} {{ 'ACTIONS_PLURAL' | translate }} ({{ isShowingActions() ? 'HIDE' : 'SHOW' | translate}})</div>
+
+    <div class="action-list list" ng-if="!nux && todaysActionList.length > 0 && isShowingActions()" ng-class="{'has-tip': showActionsTooltip()}">
+
+      <div ng-repeat="action in todaysActionList" class="action item {{getActionClass(action)}} {{getSubClass(action)}} {{action.moodRespondedTo ? 'completed' : ''}}">
+        <!-- the action will hold the class for the icon. -->
+        <i class="icon"></i>
+        <span class="action-title">{{ getActionTitle(action) }}</span><br>
+        <span class="action-timestamp">{{getActionTimeDisplay(action)}}</span>
+        <button ng-show="action.showActionButton && !isUMNUser()" ng-click="showActionPanel()">{{ 'ACTIONS' | translate }}</button>
+
+        <div ng-show="action.showActionButton && showActionsTooltip() && (action.actionClass == 'mood')" class="hint-tooltip action">
+          <span ng-click="hideActionsTooltip()" class="close">X</span>
+          <h1>{{ 'ACTIONS_TOOLTIP_TITLE' | translate }}</h1>
+          <h2>{{ 'ACTIONS_TOOLTIP_TEXT' | translate }}</h2>
+        </div>
+      </div>
+    </div>
+
+	</ion-content>
+  <div class="top-videos-bar-fake" ng-if="!nux"></div>
+      <div ng-show="showRelaxTooltip()" class="hint-tooltip relax-tip">
+      <span ng-click="hideRelaxTooltip()" class="close">X</span>
+      <h1>{{ 'RELAX_TAGLINE' | translate }}</h1>
+      <h2>{{ 'RELAX_TOOLTIP_TEXT' | translate }}</h2>
+    </div>
+</ion-view>

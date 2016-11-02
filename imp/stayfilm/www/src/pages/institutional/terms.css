@@ -1,0 +1,89 @@
+/* line 5, terms.scss */
+.modal-terms .white-close-bar {
+  background: #fff;
+}
+/* line 8, terms.scss */
+.modal-terms .white-close-bar .close {
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+}
+/* line 13, terms.scss */
+.modal-terms .white-close-bar .close img {
+  width: 50%;
+  height: 50%;
+}
+/* line 20, terms.scss */
+.modal-terms .terms {
+  padding: 20px;
+}
+/* line 23, terms.scss */
+.modal-terms .terms img {
+  margin: 0 auto 20px;
+  display: block;
+}
+/* line 28, terms.scss */
+.modal-terms .terms h1 {
+  font-family: HelveticaNeueBLK, sans-serif;
+  font-size: 12px;
+  color: #af252b;
+  text-transform: uppercase;
+  margin: 10px 0;
+  letter-spacing: 2px;
+}
+/* line 37, terms.scss */
+.modal-terms .terms > ol {
+  list-style: decimal outside;
+}
+/* line 40, terms.scss */
+.modal-terms .terms > ol > li {
+  margin-left: 65px;
+  margin-bottom: 30px;
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 50px;
+  color: #c6c5c5;
+}
+/* line 47, terms.scss */
+.modal-terms .terms > ol > li h2 {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 35px;
+  color: #c6c5c5;
+  margin-left: -23px;
+}
+/* line 54, terms.scss */
+.modal-terms .terms > ol > li > ol {
+  margin-left: -65px;
+  list-style: upper-roman inside;
+}
+/* line 58, terms.scss */
+.modal-terms .terms > ol > li > ol li {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 14px;
+  color: #7a7a7a;
+  margin-bottom: 20px;
+}
+/* line 64, terms.scss */
+.modal-terms .terms > ol > li > ol li h3 {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #7a7a7a;
+}
+/* line 76, terms.scss */
+.modal-terms .terms.privacy-terms > ol {
+  list-style-position: inside;
+}
+/* line 79, terms.scss */
+.modal-terms .terms.privacy-terms > ol > li {
+  margin-left: 0;
+  font-size: 25px;
+}
+/* line 83, terms.scss */
+.modal-terms .terms.privacy-terms > ol > li h2 {
+  margin-left: 0;
+  font-size: 16px;
+}
+/* line 88, terms.scss */
+.modal-terms .terms.privacy-terms > ol > li > ol {
+  margin-left: 0;
+}

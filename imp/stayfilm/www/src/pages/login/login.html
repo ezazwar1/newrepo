@@ -1,0 +1,55 @@
+<ion-view class="page-login">
+	<div class="bar bar-header">
+		<button class="button button-clear" ng-click="goTo('welcome.start')" style="position: absolute;">
+			<img src="images/ico-arrow-left-white.svg" style="width: 25px; height: 25px;" />
+		</button>
+		<h1 class="title">
+			<img src="images/logo-stayfilm.png" class="logo-title" width="100" height="50" />
+		</h1>
+	</div>
+
+	<ion-content class="has-header">
+		<div class="page-text padding-sf">
+			<span translate>Primeiro acesso?</span> <a ng-click="goTo('welcome.register')" translate>Inscreva-se agora!</a>
+		</div>
+
+		<div class="padding-sf">
+			<button ui-sref="welcome.register" class="kana-button"><img src="images/kana-email.png" /><span translate>Usando e-mail</span></button>
+		</div>
+
+		<div class="padding-sf margin-top">
+			<button ng-click="loginWithFacebook()" class="kana-button facebook-connect"><img src="images/kana-facebook.png" />Facebook Connect</button>
+		</div>
+
+		<div class="or-separator"><span translate>ou</span></div>
+
+		<form name="loginForm">
+			<div class="double-field padding-sf">
+				<div class="field">
+					<input tabindex="1" disabled required type="text" placeholder="E-mail" ng-model="user.username" />
+				</div>
+				<div class="field-separator"></div>
+				<div class="field">
+					<input tabindex="2" disabled required type="password" placeholder="{{'Senha'|translate}}" ng-model="user.password" pattern=".{5,16}" />
+				</div>
+			</div>
+
+			<div class="padding-sf">
+				<button tabindex="3" ng-click="signIn(user)" class="kana-button make-it"><img src="images/kana-check.png" /><span translate>Entrar</span></button>
+			</div>
+
+		</form>
+
+		<div>
+			<p class="text-center">
+				<a class="button button-full button-clear button-stable" ng-click="goTo('welcome.resetpassword');"><span translate>Esqueci a minha senha</span></a>
+			</p>
+		</div>
+
+		<div>
+			<p class="text-center">
+				<a class="button button-full button-clear button-stable" on-hold="goTo('admin.config');" style="margin: 0; color: transparent;">Config</a>
+			</p>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,54 @@
+<div id="current-weather">
+	<div class="row" ng-class="{'pullup20': !has_index}">
+		<!-- {{ date | date : format : shortTime}} -->
+		<div class="col col-50 uvc trinuv uvi" ng-class="{'small': !has_index}" id="uv-index" ui-sref="app.uv_index">
+			<div class="col" ng-class="{'text-center':!has_index}">
+				<!-- <span>{{hour_of_day}}</span> -->
+				<span>{{ cdate | date : 'shortTime'}}</span>
+				<span id="uv-value" class="" ng-if="has_index">{{uv_index.uv_value}}</span><br>
+				<div class="clear clearfix" ng-if="has_index"></div>
+				<span class="pull-right" ng-if="has_index">UV INDEX</span>
+				<div class="clear clearfix" ng-if="has_index"></div>
+			</div>
+		</div>
+		<div class="col col-70" ng-class="{'small': !has_index}" id="today-block">
+			<p>{{ cdate | date : 'EEEE, MMM d'}}</p>
+			<!-- <p class="text-uppercasey">{{today[0]}}</p>
+			<span>{{today[1]}}</span>
+			<span>{{today[2]}},</span>
+			<span>{{today[3]}}</span> -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="icon">
+			<span ng-if="!trin_w_icon_ready">
+                <ion-spinner style="" class="holder light w_i" icon="dots"></ion-spinner>
+            </span>
+			<weather-icon-trin></weather-icon-trin>
+		</div>
+		<div class="col" id="present-cond" ui-sref="app.metars_trin">
+			<div>
+				<span class="block-support-text lowercase" id="day">
+					<!-- PRESENT -->
+					<span ng-if="current_temp_trin == 'Loading..'" style="color: transparent; "> - </span>
+					<span ng-if="current_temp_trin != 'Loading..'">
+						updated <time am-time-ago="updated_at"></time>
+						<!-- {{updated_at | amCalendar:referenceTime:formats}} -->
+					</span>
+				</span>
+				<div ng-class="{'current_no_data': current_temp_trin == 'Loading..'}">
+					<span ng-if="current_temp_trin == 'Loading..'" id="pw">Please wait</span>
+					<h1 class="current-temp" >
+						<span id="today-temp">{{current_temp_trin}}</span><span id="deg">&deg;<span>c</span></span>
+				  		<span class="block-support-text">/ <span>{{dew_point_trin}}</span></span>
+				  	</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+  	<h5 id="cw-summary" ui-sref="app.metars_trin">
+  	<!-- <weather-icon icon="current.icon" id="current-icon"></weather-icon> -->
+  	 	{{summary_text_trin}}
+  	</h5>
+  	<!-- <h5 id="cw-range"></h5> -->
+</div>

@@ -1,0 +1,64 @@
+<ion-view cache-view="false">
+    <ion-content class="tag-overview" padding="true">
+        <form id="form.tagForm" name="form.tagForm" ng-submit="form.tagForm.$valid && backToOverview()">
+            <div class="tag-attribute display-flex align-center" ng-click="openChooseClothes()">
+                <div class="flex-1">
+                    <div class="uppercase">{{dict.garment}}</div>
+                    <div class="display-flex align-center" ng-if="newStyle.tags[newStyle.activeTag].category && newStyle.tags[newStyle.activeTag].name">
+                        <i class="icon icon-clothes icon-{{newStyle.tags[newStyle.activeTag].gender}}-{{newStyle.tags[newStyle.activeTag].category}}"></i>
+                        <div>
+                            {{dict.clothes.categories[newStyle.tags[newStyle.activeTag].gender][newStyle.tags[newStyle.activeTag].category]}}: {{dict.clothes.subcategories[newStyle.tags[newStyle.activeTag].category][newStyle.tags[newStyle.activeTag].name].display}}
+                        </div>
+                    </div>
+                    <div class="stable" ng-if="!newStyle.tags[newStyle.activeTag].category || !newStyle.tags[newStyle.activeTag].name">
+                        {{dict.magicWord}} {{dict.chooseClothes}}
+                    </div>
+                </div>
+                <div>
+                    <i class="icon icon-forward"></i>
+                </div>
+            </div>
+            <div class="tag-attribute display-flex align-center" ng-click="openChooseColor()">
+                <div class="flex-1">
+                    <div class="uppercase">{{dict.color}}</div>
+                    <div ng-if="newStyle.tags[newStyle.activeTag].color" class="display-flex align-center color-circle-{{newStyle.tags[newStyle.activeTag].color}}">
+                        <div class="circle color"></div>
+                        <div>{{dict.colors[newStyle.tags[newStyle.activeTag].color].name}}</div>
+                    </div>
+                    <div class="stable" ng-if="!newStyle.tags[newStyle.activeTag].color">{{dict.magicWord}} {{dict.chooseColor}}</div>
+                </div>
+                <div>
+                    <i class="icon icon-forward"></i>
+                </div>
+            </div>
+            <div class="tag-attribute">
+                <div class="uppercase">{{dict.brand}}</div>
+                <label class="item item-input" input-delimiter limit="60" hint="true" model="newStyle.tags[newStyle.activeTag].brand">
+                    <input type="text" placeholder="{{dict.brandName}}" ng-model="newStyle.tags[newStyle.activeTag].brand">
+                </label>
+            </div>
+            <!--<div class="button button-outline button-assertive center" ng-click="getProducts(newStyle.activeTag)">Produkte anzeigen</div>
+            <div>
+                <ion-list class="style-list">
+                    <ion-item class="product" ng-repeat="(key, value) in productList" ng-style="{'width': sizes.styleContainer.width + 'px', 'height': sizes.styleContainer.height + 'px'}">
+                        <div class="product-image" ng-style="{'background-image': 'url({{value.imagebaseurl+'resized/normal/120/'+value.ein+'.jpg'}})', 'height': sizes.styleContainer.height - 110 + 'px'}" ng-click="openLink(value.detailpageurl)"></div>
+                        <div class="product-details uppercase">
+                            <span class="truncate">{{value.title}}</span>
+                            <span class="bold truncate">{{value.listprice.formattedprice}}</span>
+                            <span class="stable small truncate">{{dict.brand}}: {{value.brand}}</span>
+                            <span class="stable small truncate">{{dict.shop}}: {{value.shop.name}}</span>
+                        </div>
+                    </ion-item>
+                </ion-list>
+                <div ng-if="noProducts">{{dict.errors.no_products}}</div>
+            </div>-->
+        </form>
+    </ion-content>
+    <ion-footer-bar class="bar-light hide-on-keyboard-open">
+        <div class="row">
+            <div class="col">
+                <button type="submit" form="form.tagForm" class="button button-outline button-assertive center" ng-disabled="!newStyle.tags[newStyle.activeTag].category || !newStyle.tags[newStyle.activeTag].name || !newStyle.tags[newStyle.activeTag].color">{{dict.save}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,29 @@
+.sf-user-mosaic {
+	border: 0px solid red;
+	border-radius: 5px;
+	overflow: hidden;
+	position:relative;
+
+	.thumb {
+		width: 100%;
+		display: block;
+	}
+
+
+	.caption {
+		position: absolute;
+		height: 23px;
+		padding: 0 10px 0 10px;
+		white-space: nowrap;
+		overflow: hidden;
+		bottom: 0;
+		color: white;
+		background: rgba(0,0,0,0.3);
+		font-size: 12px;
+		width: 100%;
+		border-radius: 5px;
+		text-overflow: ellipsis;
+	}
+
+
+}

@@ -1,0 +1,34 @@
+<ion-view class="settings" view-title="Settings">
+  <ion-content class="has-header" has-bouncing="false">
+    <ul class="list">
+      <ion-toggle ng-model="data.showSwipeInfo" ng-change="toggleShowSwipeInfo()" toggle-class="toggle-positive">
+        Show Swipe Info
+      </ion-toggle>
+      <a class="item" ng-click="clear()">
+        <span ng-class="{'fade-active': !clearError }" class="fade clear-default-text">Clear all app data</span>
+        <span status active="{{clearError}}" class="fade error clear-text-error">{{clearErrorText}}</span>
+        <div status active="{{clearLoading}}" class="fade settings-loading-icon">
+          <div class="loading-icon">
+            <view-spinner icon="android"></view-spinner>
+          </div>
+        </div>
+        <i status active="{{clearSuccess}}" class="fade icon success ion-ios-checkmark-empty"></i>
+        <i status active="{{clearError}}" class="fade icon error ion-ios-close-empty"></i>
+      </a>
+      <a class="item" ng-click="goToInstructions()">
+        Instructions
+      </a>
+      <hr>
+      <a class="item" ng-click="goToTOS()">
+        Terms of Service
+      </a>
+      <a class="item" ng-click="goToPrivacy()">
+        Privacy Policy
+      </a>
+      <hr>
+      <a class="item logout" ng-click="logout()">
+        Log out
+      </a>
+    </ul>
+  </ion-content>
+</ion-view>

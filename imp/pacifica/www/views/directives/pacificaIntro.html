@@ -1,0 +1,19 @@
+<span><!--
+<div ng-show="!hasCompletedIntro() || alwaysDisplay()">
+	<div ng-show="!hasViewedVideo(6) || alwaysDisplay()">
+		<h2 ng-show="showTitle()">{{ 'PACIFICA_INTRO_TITLE' | translate }}</h2> 
+		<div class="video-buttons">
+			<span ng-click="viewVideo(0)" ng-class="{finishedVideo: hasViewedVideo(0), video: !hasViewedVideo(0)}">1</span>
+			<span ng-click="viewVideo(1)" ng-class="{finishedVideo: hasViewedVideo(1), video: canViewVideo(1) && !hasViewedVideo(1)}">2</span>
+			<span ng-click="viewVideo(2)" ng-class="{finishedVideo: hasViewedVideo(2), video: canViewVideo(2) && !hasViewedVideo(2)}">3</span>
+			<span ng-click="viewVideo(3)" ng-class="{finishedVideo: hasViewedVideo(3), video: canViewVideo(3) && !hasViewedVideo(3)}">4</span>
+			<span ng-click="viewVideo(4)" ng-class="{finishedVideo: hasViewedVideo(4), video: canViewVideo(4) && !hasViewedVideo(4)}">5</span>
+			<span ng-click="viewVideo(5)" ng-class="{finishedVideo: hasViewedVideo(5), video: canViewVideo(5) && !hasViewedVideo(5)}">6</span>
+			<span ng-click="viewVideo(6)" ng-class="{finishedVideo: hasViewedVideo(6), video: canViewVideo(6) && !hasViewedVideo(6)}">7</span>
+		</div>
+	</div>
+	<div ng-show="hasViewedVideo(6) && !alwaysDisplay()">
+		<a href="javascript:;" ng-click="sharePacifica()">{{ 'SHARE_PACIFICA' | translate }}</a>
+	</div>
+<div>
+--></span>

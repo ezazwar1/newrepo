@@ -1,0 +1,74 @@
+@import 'variables';
+
+.movie-list {
+	.movie-item {
+		@include display(flex);
+		@include justify-content(space-between);
+		height: 72px;
+		margin: 0 0 25px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		align-items: center;
+
+		font-size: 14px;
+		font-family: HelveticaNeue, 'sans-serif';
+		width: 100%;
+		overflow: hidden;
+
+		.thumb
+		{
+			margin-right: 10px;
+			margin-left: 15px;
+			overflow: hidden;
+			height: 72px;
+			width: 127px;
+
+			@include flex-shrink(0);
+
+			img {
+				height: 72px;
+			}
+		}
+
+		.movie-info {
+			height: 72px;
+			@include flex-grow(1);
+			@include flex-shrink(1);
+
+			.fullName {
+				line-height: 15px;
+				color: $stayfilmColor;
+				margin-bottom: 3px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				font-size: 15px;
+
+			}
+
+			.movie-title {
+				color: #9aa7b2;
+				font-size: 23px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				margin-bottom: 8px;
+				line-height: 25px;
+			}
+
+			.movie-stats {
+
+				@include display(flex);
+
+				color: #9aa7b2;
+				font-size: 12px;
+				height: 25px;
+
+				.stat-item {
+					height: 15px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}

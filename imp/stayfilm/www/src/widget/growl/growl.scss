@@ -1,0 +1,46 @@
+@import 'variables';
+
+.sf-growl {
+	display: none; /////////////////////// activate GROW
+	position: absolute;
+	padding: 15px;
+	left: 0;
+	top: 0;
+	right: 0;
+	z-index: 999;
+	background: rgba(0, 0, 0, .7);
+
+	@include transform(translateY(-100%));
+	@include transition(all .5s ease);
+
+	&.open {
+		display: block;
+		@include transform(translateY(0));
+	}
+
+	.icon {
+		width: 30px;
+		height: 30px;
+		vertical-align: middle;
+		float: left;
+	}
+
+	.message {
+		display: block;
+		color: #fff;
+		margin-left: 10px;
+		float: left;
+		width: 80%;
+	}
+
+	.close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 30px;
+		height: 30px;
+		background: transparent url('../images/ico-close.png') center center no-repeat;
+		background-size: 15px;
+	}
+
+}

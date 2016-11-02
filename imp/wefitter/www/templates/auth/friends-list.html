@@ -1,0 +1,33 @@
+<ion-view  title="{{userName}} {{ 'FRIENDS.TITLE' | translate }}">
+  <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+  </ion-nav-buttons>
+  	<ion-content class="has-header">
+          <div class="friend-list">
+
+            <div class="row friend-row add-friend" ng-if="showAddFriend == true && userId == me.user_id" ui-sref="app.addFriend">
+              <div class="col col-20 icon-wrapper">
+                <div class="profile-user-image background-assertive"><i class="ion-android-add add-icon"></i></div>
+              </div>
+              <div class="col add-friend-text">
+                <span>{{ 'PUBLIC_PROFILE.ADD_FRIEND' | translate }}</span>
+                <div><span class="sub-text">{{ 'PUBLIC_PROFILE.ADD_FRIEND_SUBTITLE' | translate }}</span></div>
+              </div>
+            </div>
+
+            <div class="row friend-row" ng-repeat = "friend in friends | filter:search.name as filtered track by $index">
+        			<div class="col col-20 icon-wrapper" ui-sref="app.publicProfile({id:friend.id})">
+        				<div class="profile-user-image" style="background-image: url({{friend.image_url ?  friend.image_url : 'img/avatar.svg'}})"></div>
+        	    </div>
+              <div class="col col-50 name-wrapper" ui-sref="app.publicProfile({id:friend.id})">
+                {{friend.first_name ? friend.first_name : friend.email }}  {{friend.first_name ? friend.last_name : ''}}
+              </div>
+              <div class="col follow_btn_wrap">
+                <button class="button button-clear" ng-class="friend.following == 0 ? 'button-positive' : 'button-assertive' " ng-bind-html="friend.following == 0 ? follow_btn_txt : unfollow_btn_txt " ng-click="changeFollow($index)" ng-disabled="friend.follow_btn_disable">Follow</button>
+              </div>
+            </div>
+          </div>
+          <div class="txt-center" ng-show="(showError && friends.length == 0) || (showError && filtered.length == 0)"><wf-no-results></wf-no-results>{{'PUBLIC_PROFILE.NO_FRIEND_FOUND' | translate}}</div>
+          <div class="sub-footer-height"></div>
+      </ion-content>
+</ion-view>

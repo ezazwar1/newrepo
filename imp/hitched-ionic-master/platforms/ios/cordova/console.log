@@ -1,0 +1,18 @@
+2015-03-31 15:54:08.689 Hitched[519:5512] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Trevor/Library/Developer/CoreSimulator/Devices/FD7EBC75-7960-42BC-8777-2E7B3A425192/data/Containers/Data/Application/ED49C7C3-74A5-4F1F-9665-499FBAC4316F/Library/Cookies/Cookies.binarycookies
+2015-03-31 15:54:09.850 Hitched[519:5512] Apache Cordova native platform version 3.8.0 is starting.
+2015-03-31 15:54:09.851 Hitched[519:5512] Multi-tasking -> Device: YES, App: YES
+2015-03-31 15:54:09.925 Hitched[519:5512] Unlimited access to network resources
+2015-03-31 15:54:11.386 Hitched[519:5512] [CDVTimer][keyboard] 0.131011ms
+2015-03-31 15:54:11.386 Hitched[519:5512] [CDVTimer][TotalPluginStartup] 0.431001ms
+2015-03-31 15:54:12.673 Hitched[519:5512] Resetting plugins due to page load.
+2015-03-31 15:54:13.504 Hitched[519:5512] Finished load of: file:///Users/Trevor/Library/Developer/CoreSimulator/Devices/FD7EBC75-7960-42BC-8777-2E7B3A425192/data/Containers/Bundle/Application/BB0D3C09-6850-49C3-B11A-2FFBE077EA20/Hitched.app/www/index.html#/app/playlists
+2015-03-31 15:57:00.878 Hitched[519:6817] Terminating since there is no system app.
+2015-04-03 06:33:44.744 Hitched[3474:43928] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Trevor/Library/Developer/CoreSimulator/Devices/FD7EBC75-7960-42BC-8777-2E7B3A425192/data/Containers/Data/Application/FEB7A4D7-5E45-43EE-BBDC-77E46DCB3A2C/Library/Cookies/Cookies.binarycookies
+2015-04-03 06:33:46.405 Hitched[3474:43928] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-03 06:33:46.406 Hitched[3474:43928] Multi-tasking -> Device: YES, App: YES
+2015-04-03 06:33:46.499 Hitched[3474:43928] Unlimited access to network resources
+2015-04-03 06:33:47.642 Hitched[3474:43928] [CDVTimer][keyboard] 0.162959ms
+2015-04-03 06:33:47.642 Hitched[3474:43928] [CDVTimer][TotalPluginStartup] 0.535011ms
+2015-04-03 06:33:48.932 Hitched[3474:43928] Resetting plugins due to page load.
+2015-04-03 06:33:49.513 Hitched[3474:43928] Finished load of: file:///Users/Trevor/Library/Developer/CoreSimulator/Devices/FD7EBC75-7960-42BC-8777-2E7B3A425192/data/Containers/Bundle/Application/F60C58D6-5EBF-440D-B11C-FC67581D540A/Hitched.app/www/index.html#/app/playlists
+2015-04-03 06:39:13.929 Hitched[3474:45917] Terminating since there is no system app.

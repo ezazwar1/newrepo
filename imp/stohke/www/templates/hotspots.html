@@ -1,0 +1,20 @@
+<ion-modal-view class="transparent">
+    <ion-header-bar class="bar-dark">
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hotspotModal.hide()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content no-scroll>
+        <ion-refresher pulling-text="" on-refresh="hotspotModal.hide()" pulling-icon="ion-ios-close-outline"></ion-refresher>
+        <ion-list class="middle-aligned-list">
+            <h3 class="title-font text-center">Tagged in this photo</h3>
+            <ion-item class="item-hotspot " ng-repeat="hotspot in activeMediaHotspots">
+                <a ng-click="openUrl(hotspot.DestinationUrl)">
+                    {{hotspot.Description}} <br>
+                    <small>{{hotspot.DestinationUrl}}</small>
+                </a>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

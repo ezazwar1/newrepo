@@ -1,0 +1,24 @@
+<ion-view title="{{ 'THOUGHTS_STEP_THREE_OF_THREE' | translate }}" class="rethink text step3">
+
+  <ion-nav-buttons side="right">
+    <a href="javascript:;" ui-sref="app.textthoughts-rethink-help"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back"></div>
+
+  <ion-content scroll="false">
+  	<h2 ng-bind-html="getTextThoughtsRethinkTitle()"></h2>
+
+    <div ng-bind-html="thoughtHTML" class="thought-highlight-box" style="height: 1200px; background-color: rgba(255, 255, 255, 0.7); overflow:scroll !important;"></div>
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+    <div class="bar bar-footer" style="z-index:100">
+      <div class="counter-wrap">
+        <div class="negative">{{ getTagCount(false) }}</div>
+        <!--<div class="positive">{{ getTagCount(true) }}</div>-->
+      </div>
+      <button class="button button-start" ng-click="finish()">{{ 'FINISHED' | translate }}</button>
+    </div>
+
+</ion-view>

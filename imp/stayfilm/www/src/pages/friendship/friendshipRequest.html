@@ -1,0 +1,12 @@
+<div class="friendship-request">
+
+	<div class="thumb" ng-click="$parent.goTo('main.home.friend.movie', null, {username: requester.username})" ng-style="{ 'background-image': 'url(' + (requester.photo || 'images/default-profile-photo.png') + ')' }"></div>
+
+	<span class="fullname">
+		<div ng-click="$parent.goTo('main.home.friend.movie', null, {username: requester.username})" class="user-fullname">{{requester.fullName.trim() || requester.username}}</div>
+		<div class="action-buttons" ng-hide="flip">
+			<a ng-click="accept(requester)" class="action-accept" translate>aceitar</a>
+			<a ng-click="reject(requester)" class="action-reject" translate>rejeitar</a>
+		</div>
+	</span>
+</div>

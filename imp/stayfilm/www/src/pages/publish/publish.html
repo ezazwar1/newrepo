@@ -1,0 +1,62 @@
+<div class="page-publish page">
+	<ion-content>
+		<div class="jwplayer-container">
+			<jwplayer movie="movie"></jwplayer>
+		</div>
+
+		<div class="action-buttons">
+			<div class="action-item" ng-click="discard(movie)">
+				<div><img src="images/ico-trash.svg"></div>
+				<div class="text-description" translate>Descartar</div>
+			</div>
+			<div class="action-item permission" ng-click="changePermission()">
+				<div><img ng-src="images/{{permission.icon}}.svg"></div>
+				<div class="text-description">{{permission.name}}</div>
+			</div>
+		</div>
+
+		<h2>{{ movie.title }}</h2>
+
+		<div class="user-textarea padding-sf">
+			<div class="avatar">
+				<img src="default-profile.png" ng-src="{{ me.photo }}" />
+			</div>
+			<div class="description">
+				<textarea placeholder="{{ 'Escreva sobre seu filme' | translate }}" ng-model="data.synopsis"></textarea>
+			</div>
+		</div>
+
+		<h3 translate>Também nas redes sociais</h3>
+		<div class="clearfix padding-sf">
+			<ion-toggle class="network-toggle" ng-class="{disabled: permission.code !== 3}" ng-repeat="network in networks" ng-if="network !== 'whatsapp'" ng-disabled="permission.code !== 3" ng-model="data.selectedNetworks[network]" ng-change="toggleNetwork(network)">
+				<img ng-src="images/moviemaker/switch_{{network}}.png" class="network-icon" ng-if="data.integratedNetworks[network]" />
+				<img ng-src="images/moviemaker/switch_{{network}}_inactive.png" class="network-icon" ng-if=" ! data.integratedNetworks[network]" />
+			</ion-toggle>
+		</div>
+
+		<div class="padding-sf">
+			<button ng-click="publish()" class="publish-button kana-button"><img src="images/kana-check.png" /><span translate>Publicar</span></button>
+		</div>
+		<br />
+		<div class="padding-sf" ng-if=" ! showProduceAgain">
+			<button ng-click="goTo(prevState, null, prevStateParams)" class="cancel-button kana-button"><span translate>Cancelar</span></button>
+		</div>
+
+		<!-- div class="padding-sf download-box">
+			<button ng-click="saveToDevice()" ng-if="canSaveToDevice" class="save-to-device kana-button"><span translate>Download</span></button>
+		</div -->
+
+		<div class="or-separator" ng-if="showProduceAgain"></div>
+
+		<div class="padding-sf">
+			<button ng-click="produce()" ng-if="showProduceAgain" class="produce-again kana-button"><img src="images/moviemaker/button_produceagain.png" /><span translate>Produzir novamente</span></button>
+		</div>
+
+		<div class="padding-sf">
+			<button ng-click="refine()" ng-if="showProduceAgain" class="produce-again kana-button"><span translate>Refinar</span></button>
+		</div>
+
+		<br /><br /><br />
+
+	</ion-content>
+</div>

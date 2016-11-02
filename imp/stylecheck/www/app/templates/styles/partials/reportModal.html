@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center">
+        <button class="button button-clear button-dark icon icon-close" ng-click="closeModal('report')"></button>
+        <h1 class="title">{{dict.reportStyle}}</h1>
+    </ion-header-bar>
+    <ion-content padding="true">
+        <div class="padding">
+            <form id="form.reportStyle" name="form.reportStyle" ng-submit="form.reportStyle.$valid && reportStyleAndSend()">
+                <div class="item item-checkbox uppercase small">
+                    <label class="checkbox checkbox-assertive">
+                        <input type="radio" name="reason" ng-model="reportStyle.reason" value="{{dict.reportStyleReasons.reason1}}" ng-click="reportStyle.otherReason = ''">
+                    </label>
+                    {{dict.reportStyleReasons.reason1}}
+                </div>
+                <div class="item item-checkbox uppercase small">
+                    <label class="checkbox checkbox-assertive">
+                        <input type="radio" name="reason" ng-model="reportStyle.reason" value="{{dict.reportStyleReasons.reason2}}" ng-click="reportStyle.otherReason = ''">
+                    </label>
+                    {{dict.reportStyleReasons.reason2}}
+                </div>
+                <div class="item item-checkbox uppercase small">
+                    <label class="checkbox checkbox-assertive">
+                        <input type="radio" name="reason" ng-model="reportStyle.reason" value="{{dict.reportStyleReasons.reason3}}" ng-click="reportStyle.otherReason = ''">
+                    </label>
+                    {{dict.reportStyleReasons.reason3}}
+                </div>
+                <br>
+                <label class="item item-input">
+                    <input type="text" placeholder="{{dict.reasonCustom}}" ng-model="reportStyle.otherReason" ng-change="reportStyle.reason = ''">
+                </label>
+            </form>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light">
+        <div class="row">
+            <div class="col">
+                <button form="form.reportStyle" type="submit" class="button button-outline button-assertive center" ng-disabled="!reportStyle.reason && !reportStyle.otherReason">{{dict.send}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

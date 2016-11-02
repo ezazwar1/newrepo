@@ -1,0 +1,3 @@
+sfLocal.appContext = 'fbmessenger';
+
+sfLocal.gaTrackingIds = {web: 'UA-8807943-7', cordova: 'UA-8807943-5'};

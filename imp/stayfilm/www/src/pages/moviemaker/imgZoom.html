@@ -1,0 +1,27 @@
+<div ng-controller="viewPhotoController"  class="modal modal-zoom">
+
+	<div class="bar bar-header">
+		<div class="buttons">
+			<button ng-if="data.remove" ng-click="data.remove()" class="button button-clear button-light icon-left ion-trash-a"><span translate>Descartar</span></button>
+			<button ng-if="data.fileData.status === 'FAIL'" ng-click="data.uploadAgain()" class="button button-clear button-light icon-left ion-upload"><span translate>Tentar novamente</span></button>
+		</div>
+
+		<div class="title"></div><!-- do not delete -->
+
+		<div class="buttons">
+			<button class="button button-clear button-light icon ion-close icon-right" ng-click="modal.hide()"></button>
+		</div>
+	</div>
+
+	<ion-content class="has-header">
+		<div class="img-container" ng-if="data.fileData.type !== 'video'">
+			<img ng-src="{{ data.fileData.uri}}" />
+		</div>
+
+		<div id="zoom-modal-jwplayer" class="video-container" ng-if="data.fileData.type === 'video'">
+			<jwplayer-zoom movieurl="movieUrl" moviecover="movieCover"></jwplayer-zoom>
+		</div>
+		
+	</ion-content>
+
+</div>

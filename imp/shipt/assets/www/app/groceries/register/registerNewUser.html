@@ -1,0 +1,48 @@
+<div class="buttons" ng-controller="RegisterController">
+    <div class="modal fullscreen-modal"  >
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Register</h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="cancelRegister()" aria-label="Close Icon in top right"><i class="icon ion-ios-close-empty"></i></button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="has-header" has-bouncing="true" >
+            <div>
+                <p class="center assertive" ng-show="invalidLogin">
+                    {{invalidRegisterMessage}}
+                </p>
+                <p class="center assertive" ng-show="loginError">
+                    {{errorRegisterMessage}}
+                </p>
+                <form class="login-form  modal-form" name="loginForm" ng-submit="registerSubmit(register)">
+                    <div class="list">
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label" aria-hidden="true">Full Name</span>
+                            <input type="text" ng-model="register.name" placeholder="Full Name" required>
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label" aria-hidden="true">Email</span>
+                            <input type="email" ng-model="register.email" placeholder="Email" required>
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label" aria-hidden="true">Password</span>
+                            <input ng-model="register.password" type="password" placeholder="Password" ng-required="true" required>
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label" aria-hidden="true">Phone Number</span>
+                            <input ng-model="register.phone" type="tel" placeholder="Phone Number" ui-us-phone-number ng-required="true" required>
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label" aria-hidden="true">Delivery Zip Code</span>
+                            <input ng-model="register.zip" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Delivery Zip Code" ng-required="true" required>
+                        </label>
+                        <button id="signup_user_button" class="login-button button button-positive button-full button-outline" ng-disabled="!loginForm.$valid" type="submit">
+                            Sign up
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </ion-content>
+    </div>
+</div>

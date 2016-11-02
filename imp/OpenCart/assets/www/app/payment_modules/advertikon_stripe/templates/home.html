@@ -1,0 +1,11 @@
+<ion-view view-title="Payment">
+    <ion-content>
+        <div class="padding vmiddle">
+            <center>
+                <p>Pay securely with your credit/debit card via Stripe. We accept following cards</p>
+                <img src="app/payment_modules/advertikon_stripe/cards.png" width="220" />
+                <button ng-click="doCheckout()" class="button button-positive ergized button-block">Pay {{total_amount}}</button>
+            </center>
+        </div>
+    </ion-content>
+</ion-view>

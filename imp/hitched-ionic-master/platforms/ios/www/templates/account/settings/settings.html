@@ -1,0 +1,93 @@
+<div class="hitched-settings">
+    <div class="row">
+        <div class="col-sm-12 modalHeader">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+            <h2 class="titles">Account</h2>
+
+            <p class="help-block" ng-class="{ 'alert alert-success': success }">{{ message }}</p>
+        </div>
+
+        <div class="col-sm-12">
+
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <label>Name</label>
+                    <input ng-readonly="true" type="text" name="name" class="form-control" ng-model="currentUser.name" />
+                </div>
+
+            </div>
+
+
+            <form class="form" name="formEmail" ng-submit="changeEmail(formEmail)" novalidate>
+                <div class="row">
+                    <div class="form-group col-sm-12" ng-class="{ 'has-success': formEmail.email.$valid && emailSubmitted,
+                                                                  'has-error': formEmail.email.$invalid && emailSubmitted }">
+                        <label>Email <a ng-hide="editEmail" class="btn btn-md btn-link editSetting" ng-click="editEmailInit()"> (Edit)</a> </label>
+
+                        <div class="form-group">
+                            <input ng-readonly="!editEmail" type="email" name="email" class="form-control" ng-model="currentUser.email" required mongoose-error/>
+
+                            
+
+                            <p class="help-block" ng-show="formEmail.email.$error.email && emailSubmitted">
+                                Doesn't look like a valid email.
+                            </p>
+                            <p class="help-block" ng-show="formEmail.email.$error.required && emailSubmitted">
+                                What's your email address?
+                            </p>
+                            <p class="help-block" ng-show="formEmail.email.$error.mongoose">
+                                {{ errors.email }}
+                            </p>
+                        </div>
+                        
+                        <a ng-show="editEmail" class="btn btn-md btn-danger editSetting" ng-click="editEmailInit()">Cancel</a>
+                        <button ng-show="editEmail" class="btn btn-md btn-primary editSetting" type="submit">Save Email</button>
+
+                    </div>
+
+                </div>
+            </form>
+
+            <form class="form" name="formPassword" ng-submit="changePassword(formPassword)" novalidate>
+
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label>Password <a ng-hide="editPassword" class="btn btn-md btn-link editSetting" ng-click="editPasswordInit()">(Edit)</a></label>
+
+                        <div ng-show="editPassword" class="form-group" ng-class="{ 'has-success': formPassword.password.$valid && passwordSubmitted,
+                                                                                    'has-error': ((formPassword.password.$invalid || errors.other) && passwordSubmitted) || formPassword.newPassword.$error.noMatch }">
+                            <label>New Password</label>
+
+                            <input ng-readonly="!editPassword" type="password" id="password" name="password" class="form-control" ng-model="currentUser.password" ng-minlength="5" required mongoose-error/>
+
+                            <p class="help-block" ng-show="(formPassword.password.$error.minlength || formPassword.password.$error.required) && (formPassword.password.$dirty || passwordSubmitted)">
+                                Password must be at least 5 characters.
+                            </p>
+
+                            <p class="help-block">{{ errors.other }}</p>
+
+                        </div>
+
+                        <div ng-show="editPassword" class="form-group" ng-class="{ 'has-success': formPassword.newPassword.$valid && passwordSubmitted,
+                                                                                    'has-error': ((formPassword.newPassword.$invalid || errors.other) && passwordSubmitted) || formPassword.newPassword.$error.noMatch }">
+                            <label>Confirm Password</label>
+
+                            <input type="password" id="newPassword" name="newPassword" class="form-control" ng-model="currentUser.newPassword" ng-minlength="5" required mongoose-error password-match="password" />
+
+                            <p class="help-block" ng-show="!formPassword.newPassword.$error.required && formPassword.newPassword.$error.noMatch && formPassword.newPassword.$dirty">
+                                Passwords do not match.
+                            </p>
+
+                        </div>
+
+                        <a ng-show="editPassword" class="btn btn-md btn-danger editSetting" ng-click="editPasswordInit()">Cancel</a>
+                        <button ng-show="editPassword" class="btn btn-md btn-primary editSetting" type="submit">Update Password</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="social-sharing">
+	<button data-ng-repeat="share in shareCtrl.sharing track by $index"
+			data-ng-class="share.htmlClass"
+			data-ng-click="shareCtrl.share(share.shareData)"
+			class="button">
+		<i class="icon" data-ng-class="share.iconClass"></i>
+	</button>
+</div>

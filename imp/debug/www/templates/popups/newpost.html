@@ -1,0 +1,26 @@
+<div class="row post-popup">
+	<div class="col col-center">
+		<div ng-click="choosePhoto()" ng-if="thereIsImage==false" class="postimg">
+			<div class="col col-center">
+				<p class="text-center">
+					<i class="icon ion-upload"></i>
+				</p>
+				
+			</div>			
+		</div>
+		<div ng-if="thereIsImage==true" class="card">
+			<img id="postImage" ng-src="{{imageUrl}}" alt="" class="full-image">
+		</div>
+
+		<div class="list">
+			<label class="item item-input">
+				<textarea ng-model="data.desc" placeholder="Photo Description"></textarea>
+			</label>
+
+			<button ng-click="postPhoto(data)" class="button button-block button-dark">
+				Post Photo
+			</button>
+		</div>
+		<!-- <img src="" alt="" class="postimg"> -->
+	</div>
+</div>

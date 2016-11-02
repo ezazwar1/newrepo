@@ -1,0 +1,44 @@
+<ion-view title="{{'GALLERY_MENU_NAME' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+
+
+
+
+    <ion-content padding="true" style="padding-left: 3%;" >
+
+            <div class="item-avatar my-image-item"
+                 collection-repeat="grid in grids"
+                 collection-item-width="'23%'"
+                 collection-item-height="'17%'" ng-click="showFullImage('img/homeImages/{{grid.src}}',grid.details)" style="width: 20% !important; height: 62px !important; " >
+                <img ng-src="img/homeImages/thumbs/{{grid.src}}">
+            </div>
+                    <!-- start of grid -->
+                 <!--   <div class="gridcontainer" style="width: 100%;margin-left: 1%;margin-top: 2%;">
+                        <ul style="width: 98%;">
+                            <li class="gridRepeats" ng-repeat="grid in grids">
+
+                                <div class="" grid-image="{{grid.src}}" ng-click="showFullImage(grid.src,grid.details)"></div>
+                                &lt;!&ndash;<div class="details responsive"  >{{grid.details}}</div>&ndash;&gt;
+                            </li>
+                        </ul>
+                    </div>-->
+
+
+
+
+<!--        <ion-list>
+            <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}" style="background-image:url('img/homeImages/{{playlist.image}}');" class="eventListPicture">
+                <h2>{{playlist.title}}</h2>
+
+            </ion-item>
+        </ion-list>-->
+
+
+    </ion-content>
+</ion-view>

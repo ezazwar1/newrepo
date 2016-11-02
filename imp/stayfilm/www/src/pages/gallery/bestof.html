@@ -1,0 +1,43 @@
+<div class="page-gallery-bestof page">
+
+	<div class="bar bar-header bar-retractile bar-retractile-up">
+
+		<button class="button button-clear" ng-click="goTo('main.home.gallery.latest', 'slide-right')" style="text-align: left">
+			<img src="images/ico-arrow-left.svg" />
+		</button>
+
+		<div class="title">
+			<img src="images/gallery/gallery-header-bestof.png">
+			<div class="spots">
+				<b></b>
+				<b class="active"></b>
+				<b></b>
+			</div>
+		</div>
+
+		<button class="button button-clear" ng-click="goTo('main.home.gallery.genres', 'slide-left')" style="text-align: right">
+			<img src="images/ico-arrow-right.svg" />
+		</button>
+
+	</div>
+
+	<ion-content on-scroll="onScroll()">
+
+		<ion-refresher pulling-text="{{'Puxe para atualizar' | translate}}" ng-if="bag.offset !== null" on-refresh="refresh()"></ion-refresher>
+
+		<div class="empty-list" ng-if="bag.movies.length === 0 && bag.finished">
+			<span translate>Nenhum filme disponível.</span>
+		</div>
+
+		<div class="list-container {{animationName}}" >
+			<div class="list-item" ng-repeat="movie in bag.movies">
+				<sf-movie-mosaic ng-if="movie" movie="movie" user="movie.user"></sf-movie-mosaic>
+			</div>
+		</div>
+
+		<div ng-if="bag.movies.length > 0 && bag.finished" class="feed-end"><span translate>Fim desta lista.</span></div>
+
+		<ion-infinite-scroll distance="1%" ng-if=" ! bag.finished" on-infinite="loadMore()"></ion-infinite-scroll>
+
+	</ion-content>
+</div>

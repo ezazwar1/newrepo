@@ -1,0 +1,40 @@
+<ion-modal-view class="touchpoint popoverr new-post">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeEditGroupModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'EDIT_GROUP_TITLE' | translate}}</h1>
+
+        <div ng-if="isOwnerById(editGroupId)">
+          <label>{{ 'GROUP_NAME_LABEL' | translate}}</label>
+          <input type="text" placeholder="{{ 'GROUP_NAME' | translate }}" name="groupName" id="groupName" ng-model="newGroupData.name" maxLength="64">
+        </div>
+        <label>{{ 'GROUP_NICKNAME_LABEL' | translate}}</label>
+        <input type="text" placeholder="{{ 'GROUP_NICKNAME' | translate }}" name="groupNickname" id="groupNickname" ng-model="newGroupData.nickname" maxLength="32">
+
+
+      <div class="clearfix check-wrapper" ng-if="isOwnerById(editGroupId)">
+        <label class="checkbox">{{ 'PRIVATE_GROUP_LABEL' | translate}}
+        <input type="radio" name="searchable" ng-model="newGroupData.searchable" ng-value="{{false}}" id="groupNotSearchable"></label>
+      </div>
+
+      <div class="clearfix check-wrapper" ng-if="isOwnerById(editGroupId)">
+        <label class="checkbox">{{ 'PUBLIC_GROUP_LABEL' | translate}}
+        <input type="radio" name="searchable" ng-model="newGroupData.searchable" ng-value="{{true}}" id="groupSearchable" checked></label>
+      </div>
+
+      <div class="description-wrapper" ng-show="newGroupData.searchable" ng-if="isOwnerById(editGroupId)">
+        <textarea ng-model="newGroupData.description" id="groupDescription" placeholder="{{ 'GROUP_DESCRIPTION_PROMPT' | translate }}" id="moodNote"></textarea>
+      </div>
+
+      <p ng-if="groupError" class="error">{{groupError}}</p>
+
+      <div class="clearfix">
+        <button ng-click="editGroup()" class="button-start" ng-disabled="editingGroup">
+          {{ 'UPDATE_GROUP' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

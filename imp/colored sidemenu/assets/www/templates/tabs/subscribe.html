@@ -1,0 +1,47 @@
+<ion-view view-title="Subscribe">
+    <ion-content>
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div class="list card" ng-repeat="item in data.videos" ng-click="viewVideo(item)">
+
+            <div class="item item-avatar">
+                <img ng-src="{{item.img}}">
+                <h2>{{item.name}}</h2>
+                <p>November 05, 1955</p>
+            </div>
+
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{item.img}}">
+                <p>
+                    This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+                    the content is from a card-body consisting of an image and paragraph text. The footer
+                    consists of tabs, icons aligned left, within the card-footer.
+                </p>
+                <p>
+                    <a href="#" class="subdued">{{item.likes}} Like</a>
+                    <a href="#" class="subdued">{{item.comments}} Comments</a>
+                </p>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item">
+                    <i class="icon ion-thumbsup"></i>
+                    Like
+                </a>
+                <a class="tab-item">
+                    <i class="icon ion-chatbox"></i>
+                    Comment
+                </a>
+                <a class="tab-item">
+                    <i class="icon ion-share"></i>
+                    Share
+                </a>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

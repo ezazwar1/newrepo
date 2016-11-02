@@ -1,0 +1,21 @@
+<ion-nav-bar>
+    <!--<ion-nav-back-button class="button-clear button-dark">
+        <i class="icon icon-back"></i>
+    </ion-nav-back-button>-->
+    <ion-nav-title><img height="26" src="resources/images/logo.png"></ion-nav-title>
+</ion-nav-bar>
+<ion-nav-view></ion-nav-view>
+<script id="app/templates/modal.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar class="bar-light" align-title="center">
+            <button class="button button-clear button-dark icon icon-close" ng-click="closeModal()"></button>
+            <h1 class="title"><img height="26" src="resources/images/logo.png"></h1>
+        </ion-header-bar>
+        <ion-content>
+            <div class="padding">
+                <h2 class="uppercase" id="{{page[0].type}}">{{page[0].title}}</h2>
+                <p ng-bind-html="trustAsHTML(page[0].text)"></p>
+            </div>
+        </ion-content>
+    </ion-modal-view>
+</script>

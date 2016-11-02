@@ -1,0 +1,21 @@
+@import 'variables';
+
+.sandbox {
+	.line.ng-enter {
+		@include animation(fadeIn 60s);
+	}
+
+	.line.ng-move {
+		@include animation(swing 3s);
+	}
+
+	.line.ng-leave {
+		@include animation(swing 30s 0 infinite);
+	}
+
+	.my-item {
+		left: 0;
+		right: 0;
+	}
+
+}

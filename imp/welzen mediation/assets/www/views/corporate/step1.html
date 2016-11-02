@@ -1,0 +1,37 @@
+<ion-view class="bg-welzen corporate-connect" view-title="Corporate Connect Step 1">
+
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Corporate Connect</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+
+      <a class="info-box--transparent--medium-padding" ng-click='togglePopUpActive()'>
+        <div class="corporate-icon"><img src="img/corporate-icon.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__brief">Connecting with...</span>
+          <span class="info-box__title">Wild Fox Consulting LLC.</span>
+        </div>
+      </a>
+
+      <div class="info-box--purple-clear--not-top">
+        <div class="info-box__contents">
+          <span class="info-box__brief">In order to access discounts and benefits by Wild Fox Consulting LLC. You must enter a corporate key.</span>
+        </div>
+      </div>
+
+      <form>
+        <welzen-input placeholder="Corporate Key" type="text"></welzen-input>
+        <a href='#/corporate/request' class="forgot">Request Corporate Key</a>
+      </form>
+
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bg-clear footer" keyboard-attach>
+    <a class="footer__terms" ui-sref="terms">by clicking you agree to the terms &amp; conditions</a>
+    <a class="button button-block button-calm cta footer__cta" href='#/corporate/step2'>Connect &amp; Subscribe</a>
+  </ion-footer-bar>
+</ion-view>

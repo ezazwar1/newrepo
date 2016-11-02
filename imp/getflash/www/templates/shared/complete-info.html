@@ -1,0 +1,24 @@
+<ion-modal-view class="modal login-modal child">
+  <ion-content>
+    <div class="login-title">
+      <div class="back">
+        <button ng-click="closeModal()" class="btn-link link-16"><span class="icon ion-android-arrow-back"></span></button>
+      </div>
+      <div class="title">PLEASE COMPLETE <br> TO CONTINUE</div>
+      <hr>
+    </div>
+
+    <div class="login-body" id="loginWrapper">
+      <div class="img-wrapper">
+        <img ng-src="{{users.picture}}" />
+      </div>
+      <div class="input-wrapper">
+        <input type="text" class="form-control" placeholder="Email address" ng-model="users.email">
+      </div>
+      <div class="btn-wrapper">
+        <button class="btn-email" ng-click="doCompleteInfo()"><div><b>SUBMIT</b></div></button>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

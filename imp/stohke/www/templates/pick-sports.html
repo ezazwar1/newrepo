@@ -1,0 +1,18 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">Choose Sports</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="modal.hide()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-checkbox ng-repeat="sport in sports" 
+                          ng-model="sport.isChecked"
+                          ng-checked="sport.isChecked"
+                          ng-change="toggleSport(sport.name)">
+              {{ sport.name }}
+            </ion-checkbox>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,10 @@
+﻿<ion-scroll direction="x">
+    <div class="row home-category-grid-icons">
+        <a class="col" ng-repeat="category in categories" ng-href="#/app/menu/shop/category/{{::category.category_id}}">
+            <div class="">
+                <img ng-src="{{category.image}}" style="vertical-align:middle;" />
+                <span ng-bind-html="category.name"></span>
+            </div>
+        </a>
+    </div>
+</ion-scroll>

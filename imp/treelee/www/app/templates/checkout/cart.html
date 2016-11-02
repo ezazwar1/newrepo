@@ -1,0 +1,50 @@
+<ion-view title="{{dict.cart}}">
+    <ion-header-bar class="bar-subheader" disable-side-menu>
+        <button class="button button-dark button-clear button-checkout-back icon ion-ios7-arrow-left" ng-click="goBack()"></button>
+        <div class="buttons"></div>
+        <div class="title"></div>
+        <div class="buttons ng-hide" ng-show="cart['@attributes'].summary_qty">{{cart['@attributes'].summary_qty}} {{dict.article}}</div>
+    </ion-header-bar>
+    <ion-content class="has-cart-footer">
+        <div ng-if="cart && (cart['@attributes'].summary_qty === '' || cart['@attributes'].summary_qty === '0')" class="info card"><p class="text-center">{{dict.emptyCart}}</p></div>
+        <div class="card transparent" ng-show="cart">
+            <form name="cartForm" class="cartForm" id="cartForm" ng-submit="cartForm.$valid && checkout()">
+                <div ng-show="cart.products.length">
+                    <div class="list cart-list">
+                        <div class="item item-thumbnail-left transparent" ng-repeat="item in cart.products">
+                            <img ng-src="{{item.icon}}">
+                            <div class="price-container">
+                                <div>
+                                    <div class="price">
+                                        {{item.price['@attributes'].price_currency}}
+                                        {{item.price['@attributes'].regular}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header">
+                                <h2>{{item.name}}</h2>
+                                <button type="button" class="button button-dark circle delete" ng-click="remove({{item.item_id}})" ng-disabled="changing[product.item_id]">X</button>
+                            </div>
+                            <div ng-repeat="option in item.options">{{option['@attributes'].label}}: {{option['@attributes'].text}}</div>
+                            <div ng-if="error[item.item_id]">{{error[item.item_id]}}</div>
+                            <div>{{dict.amount}}: {{item.qty}}</div>
+                            <div ng-if="item.messages">{{dict.error.quantity_not_available}}</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="cart-footer transparent">
+        <div class="cart-info" ng-show="cart.info && cart.info.summary_qty && cart.info.summary_qty !== '0'">
+            <div class="row total">
+                <div class="col col-33"><h2>{{dict.total}}</h2></div>
+                <div class="col text-right"><h2>{{cart.info.totals.grand_total.formated_value}}</h2></div>
+            </div>
+            <button form="cartForm" class="button button-large button-block button-clear button-dark button-checkout" ng-disabled="!cart.info.summary_qty || cart.info.summary_qty === '0' || cartForm.$invalid || cart.messages">
+                <div class="circle"><i class="icon ion-ios7-arrow-right light"></i></div>
+                {{dict.checkout}}
+            </button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

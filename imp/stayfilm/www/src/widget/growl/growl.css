@@ -1,0 +1,53 @@
+/* line 3, growl.scss */
+.sf-growl {
+  display: none;
+  position: absolute;
+  padding: 15px;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 16, growl.scss */
+.sf-growl.open {
+  display: block;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+/* line 21, growl.scss */
+.sf-growl .icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  float: left;
+}
+/* line 28, growl.scss */
+.sf-growl .message {
+  display: block;
+  color: #fff;
+  margin-left: 10px;
+  float: left;
+  width: 80%;
+}
+/* line 36, growl.scss */
+.sf-growl .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: transparent url("../images/ico-close.png") center center no-repeat;
+  background-size: 15px;
+}

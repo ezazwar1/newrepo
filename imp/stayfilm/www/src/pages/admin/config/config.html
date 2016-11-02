@@ -1,0 +1,94 @@
+<ion-view>
+	<ion-header-bar align-title="center" class="bar bar-header">
+		<div class="buttons">
+			<button class="button button-clear button-light icon ion-arrow-left-a" ui-sref="index"></button>
+		</div>
+		<h1 class="title">Admin Config</h1>
+
+	</ion-header-bar>
+
+	<ion-content class="admin-config has-header">
+
+		<div class="list">
+			<div class="item item-divider">
+				Misc
+			</div>
+
+			<a class="item" href="#">
+				<label>Version: </label><span>{{ funVersion }}</span>
+			</a>
+		</div>
+
+		<br>
+
+		<div>
+			<button class="button button-assertive button-block" ng-click="appInvite()">AppInvite</button>
+		</div>
+
+		<br>
+
+		<h2>Server</h2>
+
+		<div ng-repeat="(key, url) in serverList">
+			<ion-radio-fix ng-model="result.env" ng-value="key" checked="true">({{key}}) {{url}}</ion-radio>
+		</div>
+
+		<button class="button button-positive button-block" ng-click="saveEnv(result.env)">Save and restart</button>
+
+		<h2>Config</h2>
+		<div ng-repeat="(key, value) in serverConfig">
+			<div class="row">
+				<div class="col">{{key}}</div>
+				<div class="col" style="max-height: 50px; overflow: hidden;">{{value}}</div>
+				<div class="col" style="max-height: 50px; overflow: hidden;"><textarea style="border: 1px solid #888" ng-model="localConfig[key]">{{localConfig[key]}}</textarea></div>
+			</div>
+
+		</div>
+		<div ng-repeat="(key, value) in localConfig">
+			<div class="row" ng-if="! serverConfig[key]">
+				<div class="col">{{key}}</div>
+				<div class="col" style="max-height: 50px; overflow: hidden;"><textarea style="border: 1px solid #888" ng-model="localConfig[key]">{{localConfig[key]}}</textarea></div>
+			</div>
+
+		</div>
+
+		<button class="button button-positive button-block" ng-click="saveConfig()">Save</button>
+
+		<hr><hr><hr>
+		<div class="language-test">
+			<style type="text/css">
+				.language-test {
+
+				}
+				
+				.language-test h3 {
+					/*font-family: HelveticaNeueTH, sans-serif;*/
+				}
+
+			</style>
+			<h1>Language Test:</h1>
+			<hr>
+			<h3><strong>English</strong>: Life gets smaller or bigger in proportion to one’s courage.</h3>
+			<hr>
+			<h3><strong>Thai</strong>: ชีวิตจะมีขนาดเล็กหรือใหญ่ในสัดส่วนกับความกล้าหาญของคน ๆ หนึ่ง</h3>
+			<hr>
+			<h3><strong>Spanish</strong>: La vida se hace más pequeño o más grande en proporción a la propia valentía.</h3>
+			<hr>
+			<h3><strong>French</strong>: La vie devient plus ou moins grande en proportion de son courage.</h3>
+			<hr>
+			<h3><strong>Portuguese</strong>: A vida fica menor ou maior em proporção à sua coragem.</h3>
+			<hr>
+			<h3><strong>Turkish</strong>: Hayat kişinin cesaret küçük veya orantılı olarak büyür.</h3>
+			<hr>
+			<h3><strong>Vietnamese</strong>: Cuộc sống trở nên nhỏ hơn hoặc lớn hơn tỷ lệ thuận với sự dũng cảm của một người.</h3>
+			<hr>
+			<h3><strong>Hungarian</strong>: Az élet egyre kisebb vagy nagyobb arányban az ember bátorsága.</h3>
+			<hr>
+			<h3><strong>Italian</strong>: La vita diventa più piccolo o più grande in proporzione al proprio coraggio.</h3>
+			<hr>
+			<h3><strong>Traditional</strong> Chinese: 生活變得更小或更大比例一個人的勇氣。</h3>
+		</div>
+
+	</ion-content>
+</ion-view>
+

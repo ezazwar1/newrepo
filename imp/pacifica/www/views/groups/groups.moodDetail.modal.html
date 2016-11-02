@@ -1,0 +1,25 @@
+<ion-modal-view class="touchpoint popoverr slideshow mood-details-popupp">
+  <ion-content class="filter-popover mood-slide">
+    <a href="javascript:;" ng-click="closeMoodDetailModal()" class="go-back">X</a>
+
+    <div class="box1 box">
+      <h1>{{ 'MOOD_DETAIL_TITLE' | translate}}</h1>
+      
+      <!--<p>{{getMoodDetailDate()}}</p> This is repeated in the dates for the mood entries. -->
+      <div ng-if="(!modalMoodEntries || modalMoodEntries.length == 0)">
+        <p>{{ 'MOOD_DETAIL_EMPTY' | translate }}</p>
+      </div>
+      <div ng-repeat="moodRating in modalMoodEntries" class="item {{getMoodColor(moodRating)}}" ng-class="{note: hasNotes(moodRating)}">
+        {{getMoodRatingDisplay(moodRating)}}<br>
+        <span class="timestamp">{{getMoodRatingDateDisplay(moodRating)}}</span>
+        <div class="feeling-contain">
+          <span ng-repeat="subValue in moodRating.habitSubValueIds" class="feeling">
+            {{getHabitSubValue(subValue)}}
+          </span>
+        </div>
+        <p>{{moodRating.habitDataNotes.notes}}</p>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

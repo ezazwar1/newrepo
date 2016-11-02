@@ -1,0 +1,27 @@
+<ion-view title="{{ 'GOALS' | translate }}" class="popoverr add-activity">
+  <div class="back"></div>
+  <ion-content>
+    <div class="list habits-menu configure-goals">
+      <div class="item item-divider">{{ 'CUSTOMIZE_GOALS' | translate}}</div>
+      <div ng-repeat="habit in habits | filter:name='!mood' | filter:name='!stress' ">
+        <a class="item item-{{habit.name}} item-icon-right item-select">
+          <habit-line-item class="item-icon-left" habit="habit"></habit-line-item>
+          <select ng-model="habit.goalOrdinal" ng-options="habit.habitValues.indexOf(item) as getGoalDisplay(item) for item in getHabitValues(habit)" style="color:white" ng-change="updateGoal(habit)">
+          </select>
+        </a>
+
+      </div>
+
+      <a ng-click="goBack()" class="item add-new-habit">
+        {{ 'DONE' | translate}}
+      </a>
+      
+    </div>
+
+    <!--
+    <div ng-show="goalUpdated" class="UI-alert">
+      {{ 'HABITS_CONFIG_GOAL_UPDATED' | translate }}
+    </div>
+  -->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+{"success":true,"data":[ {"categorySpecific_id":1,"categoryName":"MEN", "catbanner":[
+{"category_id":"11","title":"Mens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/men-banners/mens_section_banner.jpg"},
+{"category_id":"12","title":"Mens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/men-banners/black-man-style-banner.jpg"},
+{"category_id":"13","title":"Mens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/men-banners/banner-111_copy.jpg"},
+{"category_id":"14","title":"Mens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/men-banners/Banner_Men.jpg"},
+{"category_id":"15","title":"Mens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/men-banners/men_page_banner2.jpg"}]},
+
+{"categorySpecific_id":2,"categoryName":"WOMEN",  "catbanner":[
+{"category_id":"21","title":"Womens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/women-banners/womens_banner.jpg"},
+{"category_id":"22","title":"Womens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/women-banners/BANNER-20160311-15.jpg"},
+{"category_id":"23","title":"Womens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/women-banners/women_banner2.jpg"},
+{"category_id":"24","title":"Womens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/women-banners/women_banner3.jpg"},
+{"category_id":"24","title":"Womens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/women-banners/women_banner1.jpg"},
+{"category_id":"25","title":"Womens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/women-banners/Salwar-Suit-Banner.jpg"}]},
+
+{"categorySpecific_id":3,"categoryName":"KIDS",  "catbanner":[
+{"category_id":"31","title":"Kids wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/kids-banners/kids_banner1.jpg"},
+{"category_id":"32","title":"Kids wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/kids-banners/kids_banner2.jpg"},
+{"category_id":"33","title":"Kids wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/kids-banners/kids_banner3.jpg"},
+{"category_id":"34","title":"Kids wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/kids-banners/kids_banner4.jpg"},
+{"category_id":"15","title":"Mens wear","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/kids-banners/below_tabimg.jpg"}]},
+
+{"categorySpecific_id":4,"categoryName":"SALE",  "catbanner":[
+{"category_id":"41","title":"Sales","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/sale-banners/sales_banner1.jpg"},
+{"category_id":"42","title":"Sales","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/sale-banners/sales_banner_4.jpg"},
+{"category_id":"43","title":"Sales","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/sale-banners/sale_banner2.jpg"},
+{"category_id":"44","title":"Sales","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/sale-banners/sale_banner3.jpg"},
+{"category_id":"45","title":"Sales","image":"http://www.ostwork.com/ionic/themeimg/fashionworld/banners/sale-banners/sale_banner1.jpg"}]}
+]}

@@ -1,0 +1,467 @@
+/*------------------------------------*\
+    #DEALS
+        * Deal list
+\*------------------------------------*/
+
+.deals_wrapper {
+    padding-top: 0;
+
+    .platform-ios & {
+        //padding-top: 15px;
+        //margin-top: 8px; // Hide it as adding a new watch list tab to it. It doesn't need top space
+    }
+}
+
+.deals_tabs {
+    .platform-ios & {
+        //padding-top: 28px;
+    }
+}
+
+.deals-list {
+    // rewrite the original white highlight color
+    @extend %list-activated-background;
+    padding: $vSpaceSmall $colGutter;
+    border-top: none;
+    border-bottom: 1px solid $dividerColor;
+    margin-top: 1px;
+}
+
+.deals-list_box {
+    background-color: transparent;
+    position: relative;
+    min-height: 130px;
+}
+
+.deals-list_top {
+    color: $baseFontColor;
+    @include clearfix;
+    .item.activated & {
+        color: $baseBgColor;
+    }
+}
+
+.deals-list_trader {
+    float: left;
+}
+
+.deals-list_update-time {
+    @extend %icon-attached;
+    @extend %subtitle;
+    float: right;
+    line-height: 28px;
+    .ion-clock {
+        margin-right: 3px;
+    }
+}
+
+.deals-list_avatar-wrapper {
+    // center the image inside of the container whatever the shape of the image
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1; /* Fix for IE7 */
+    *display: inline; /* Fix for IE7 */
+}
+
+.deals-list_avatar {
+    vertical-align: middle;
+
+    // center the image inside of the container whatever the shape of the image
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    @include circleClip ($width: 24px);
+}
+
+.deals-list_name {
+    margin-left: 4px;
+    @extend %subtitle;
+}
+
+.deals-list_btm {
+    padding: $vSpaceSmall 0;
+    @include clearfix;
+}
+
+.deals-list_game-cover {
+    display: block;
+    width: $innerBoxWidth;
+    float: left;
+}
+
+.deals-list_game-brief {
+    width: 100% - $innerBoxGutter - $innerBoxWidth;
+    float: left;
+    margin-left: $innerBoxGutter;
+
+    & > p {
+        margin-bottom: 10px;
+    }
+}
+
+.deals-list_status {
+    .item & {
+        @extend %icon-attached;
+        @extend %highlight-note;
+        text-align: right;
+        position: absolute;
+        right: 0;
+        bottom: $vSpaceSmall;
+
+        &::before {
+            font-size: 0.8125rem; // rewrite the default 0.75rem setting only for the information icon. At 0.75rem size, it's blurry on Android
+            top: 1px;
+        }
+    }
+}
+
+.deals-list-highlight {
+    // @include outerGlow;
+    border: 1px solid $baseLinkColor;
+    padding: 8px;
+    @include flashBorder;
+
+    .deals-list_update-time {
+        color: $baseLinkColor;
+    }
+
+    .deals-list_update-alart {
+        display: block;
+        right: 8px;
+        @include flash;
+    }
+}
+
+/*------------------------------------*\
+    #DEALS
+        * Deal profile
+\*------------------------------------*/
+
+.deal-profile_section {
+    position: relative;
+    padding: $vSpaceSection 0;
+    border-bottom: 1px solid $dividerColor;
+    @include clearfix;
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.deal-profile_summary {
+    position: relative;
+    min-height: 65px;
+    margin-bottom: 12px;
+}
+
+// Game section. Showing the basic information about the trade.
+
+// Gamer picture on Deal Profile
+.avatar-clip-deal-profile {
+    @extend .avatar-clip-collection-profile;
+}
+
+.deal-profile_game-cover {
+    width: 74px; // same as the width of gamer-profile_avatar on the deal profile
+    float: left;
+}
+
+.deal-profile_game-brief {
+    // width: 78%;
+    // margin-left: 4%;
+    width: calc(100% - 74px - 12px);
+    margin-left: 12px;
+    float: left;
+
+    & > p {
+        line-height: $lineheightComfort;
+    }
+}
+
+.deal-profile_title {
+    @extend %title;
+}
+
+.deal-profile_platform {
+    @extend %subtitle;
+    text-transform: uppercase;
+}
+
+.deal-profile_price {
+    @extend %icon-attached;
+    @extend %highlight-note;
+    position: absolute;
+    bottom: -1px; // Don't know why, but -1px looks align bottom with the game cover next to it
+}
+
+// Status section with the progress bar.
+.deal-profile_progress {
+    padding: 12px 0;
+}
+
+.deal-profile_section-title {
+    @extend %title;
+    text-align: center;
+    margin: 0 0 $vSpaceBase 0;
+}
+
+.deal-profile_status {
+    position: relative;
+    height: 75px;
+}
+
+.status_bar {
+    background: $baseBgColor;
+    position: relative;
+    height: 28px;
+    padding: 6px 4px;
+    border: 1px solid $baseFontColor;
+    font-size: 0;
+    @include borderRadius;
+}
+
+.bar_inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid $baseLinkColor;
+    @include borderRadius(
+    $radius: 2px,
+    $radiusTopRight: 0,
+    $radiusBtmRight: 0);
+    @include gradient;
+    @include outerGlow ($spread: 2px);
+}
+
+.steps-name {
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1; /* Fix for IE7 */
+    *display: inline; /* Fix for IE7 */
+    position: absolute;
+    top: 36px;
+}
+
+.steps-request {
+    left: 0;
+}
+
+.steps-accept {
+    left: 50%;
+    @include translate (-50%, 0);
+}
+
+.steps-receive {
+    right: 0;
+}
+
+.steps-reject {
+    left: 50%;
+    display: none;
+    @include translate (-50%, 0);
+}
+
+.buyer-withdraw {
+    left: 50%;
+    display: none;
+    @include translate (-50%, 0);
+}
+
+.seller-cancel {
+    left: 50%;
+    display: none;
+    @include translate (-50%, 0);
+}
+
+.buyer-cancel {
+    left: 50%;
+    display: none;
+    @include translate (-50%, 0);
+}
+
+
+// Swith the class name according to the status
+.bar_length {
+    width: 0%;
+}
+
+.status-request {
+    .bar_length {
+        @include barMove ($endWidth: 10%);
+    }
+    .steps-request {
+        color: $baseLinkColor;
+        &::after {
+            content: '*';
+        }
+    }
+}
+
+.status-accept {
+    .bar_length {
+        @include barMove ($endWidth: 50%);
+    }
+    .steps-accept {
+        color: $baseLinkColor;
+        &::after {
+            content: '*';
+        }
+    }
+}
+
+.status-receive {
+    .bar_length {
+        @include barMove ($endWidth: 100%);
+    }
+
+    .steps-receive {
+        color: $baseLinkColor;
+        &::after {
+            content: '*';
+        }
+    }
+    .bar_inner {
+        @include borderRadius ($radius: 2px);
+    }
+}
+
+.status-seller_reject {
+
+    .status_bar {
+        background: url('../img/patterns/scan-lines.svg') left center repeat-x;
+    }
+
+    .bar_inner {
+        display: none;
+    }
+    .steps-name {
+        display: none;
+    }
+    .steps-reject {
+        display: block;
+    }
+}
+
+.status-buyer_withdraw {
+
+    .status_bar {
+        background: url('../img/patterns/scan-lines.svg') left center repeat-x;
+    }
+
+    .bar_inner {
+        display: none;
+    }
+    .steps-name {
+        display: none;
+    }
+    .buyer-withdraw {
+        display: block;
+    }
+
+}
+
+.status-seller_cancel {
+
+    .status_bar {
+        background: url('../img/patterns/scan-lines.svg') left center repeat-x;
+    }
+
+    .bar_inner {
+        display: none;
+    }
+    .steps-name {
+        display: none;
+    }
+    .seller-cancel {
+        display: block;
+    }
+
+}
+
+.status-buyer_cancel {
+
+    .status_bar {
+        background: url('../img/patterns/scan-lines.svg') left center repeat-x;
+    }
+
+    .bar_inner {
+        display: none;
+    }
+    .steps-name {
+        display: none;
+    }
+    .buyer-cancel {
+        display: block;
+    }
+
+}
+
+
+
+
+
+
+
+.deal-profile_notes {
+    @extend %subtitle;
+    margin-top: $vSpaceSmall;
+    text-align: center;
+}
+
+// Trader
+.deal-profile_name {
+    @extend %title;
+    margin: 15px 0 6px;
+    text-align: center;
+}
+
+.deal-profile_distance {
+    @extend %icon-attached;
+    @extend %highlight-note;
+    text-align: center;
+}
+
+.deal-profile_buttons {
+    margin-top: $vSpaceBase;
+}
+
+// History
+.deal-profile_history-list {
+    border: none;
+    padding: 2px 0;
+}
+
+.deal-profile_history-item {
+    .item & {
+        @extend %subtitle;
+    }
+}
+
+.deals-intro {
+    width: 100%;
+    text-align: center;
+    margin: 125px auto 0;
+
+    .platform-ios & {
+        margin-top: 140px;
+    }
+}
+
+.deals-graphic {
+    width: 100px;
+}
+
+.deals-tips {
+    @extend %title;
+    width: 80%;
+    margin: 20px auto 0;
+}
+

@@ -1,0 +1,38 @@
+<ion-view view-title="Аккаунт">
+  <ion-nav-bar class="bar-light coll">
+      <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="list">
+<form ng-submit="submit()">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Email</span>
+        <input type="email"  name="email" placeholder="Email" ng-model="data.email">
+      </label>
+      <label class="item item-input item-floating-label">
+   <span class="input-label">Password</span>
+   <input type="password" name="password" placeholder="Password" ng-model="data.password">
+ </label>
+       <input class="button button-block button-dark" type="submit" name="submit" value="{{response.success == false ? 'Попробовать еще раз' : 'Войти'}}">
+</form>
+      <div>
+             <a href="#/tab/registration" class="button button-block button-stable">Зарегистрироваться</a>
+           </div>
+    </div>
+    <div  ng-show="passResult.success == true " class="no_shadow card">
+                    <div class="item item-text-wrap">
+                      <b ng-bind="passResult.passResult"></b>
+                    </div>
+                </div>
+    <div>
+    <div ng-show="passResult.success != true " class=" no_shadow card">
+                    <div class="item item-text-wrap">
+                      <b ng-bind="response.error"></b>
+                    </div>
+                </div>
+    <div>
+           <button ng-show="response.found_email == true" ng-click="askPassword(response.account.email)" class="button button-block button-dark">Забыли пароль?</button>
+         </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,158 @@
+@media (min-width: 680px) {
+  /* line 4, shareModal.scss */
+  .modal-share {
+    top: 15%;
+    right: 15%;
+    bottom: 15%;
+    left: 15%;
+  }
+}
+/* line 13, shareModal.scss */
+.modal-share .share-header {
+  background: #ddd;
+}
+/* line 16, shareModal.scss */
+.modal-share .share-header .title {
+  color: #666;
+}
+/* line 20, shareModal.scss */
+.modal-share .share-header .share-close {
+  width: 20px;
+  height: 20px;
+}
+/* line 27, shareModal.scss */
+.modal-share .share-content h2 {
+  font-family: HelveticaNeueBLK, sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-top: 20px;
+}
+/* line 34, shareModal.scss */
+.modal-share .share-content .share-wrapper {
+  margin: 10px;
+}
+/* line 37, shareModal.scss */
+.modal-share .share-content .share-wrapper .already-shared {
+  text-align: center;
+  margin-bottom: 13px;
+  color: #666;
+}
+/* line 43, shareModal.scss */
+.modal-share .share-content .share-wrapper .user-textarea {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+/* line 48, shareModal.scss */
+.modal-share .share-content .share-wrapper .user-textarea .avatar img {
+  width: 50px;
+  height: 50px;
+}
+/* line 54, shareModal.scss */
+.modal-share .share-content .share-wrapper .user-textarea .description {
+  position: relative;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  margin-left: 15px;
+}
+/* line 59, shareModal.scss */
+.modal-share .share-content .share-wrapper .user-textarea .description textarea {
+  resize: none;
+  padding: 15px;
+  width: 100%;
+  height: 125px;
+  border-radius: 5px;
+  background: #dedee0;
+  color: #7a7a7a;
+}
+/* line 70, shareModal.scss */
+.modal-share .share-content .share-wrapper .user-textarea .description:before {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  left: -20px;
+  position: absolute;
+  width: 0;
+  border-width: 10px;
+  border-right-color: #dedee0;
+  top: 15px;
+}
+/* line 84, shareModal.scss */
+.modal-share .share-content .share-wrapper .copy-url {
+  margin: 0 0 20px 0;
+}
+/* line 87, shareModal.scss */
+.modal-share .share-content .share-wrapper .copy-url #text-copy {
+  background: #ddd;
+  cursor: default;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}
+/* line 96, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle {
+  width: 49%;
+  background: #dedcdf;
+  border-radius: 5px;
+  margin: 0 0 10px;
+  padding: 0;
+  height: 45px;
+  float: left;
+}
+/* line 105, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle:nth-child(even) {
+  float: right;
+}
+/* line 109, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle label.toggle {
+  right: auto;
+  left: 6px;
+  top: 6px;
+}
+/* line 115, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle label.toggle input + .track {
+  background: #fff;
+  border-color: #fff;
+}
+/* line 119, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle label.toggle input + .track .handle {
+  background: #dedcdf;
+}
+/* line 127, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle label.toggle input:checked + .track {
+  background: #12ad60;
+  border-color: #12ad60;
+}
+/* line 131, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle label.toggle input:checked + .track .handle {
+  background: #fff;
+}
+/* line 139, shareModal.scss */
+.modal-share .share-content .share-wrapper .network-toggle .network-icon {
+  position: absolute;
+  height: 100%;
+  right: -1px;
+  top: 0;
+}
+/* line 149, shareModal.scss */
+.modal-share .big-button-footer {
+  background: #fff;
+  border: 0;
+}
+/* line 153, shareModal.scss */
+.modal-share .big-button-footer .action-button {
+  clear: both;
+  margin: 20px 0;
+  width: 100%;
+}
+/* line 158, shareModal.scss */
+.modal-share .big-button-footer .action-button button {
+  background: #12ad60;
+}

@@ -1,0 +1,61 @@
+<ion-view view-title="{{ title }}">
+	<ion-content>
+		<ul class="list setting">
+			<li class="item item-toggle" style="border-top:none;">
+			    New Contests have begun
+			    <label class="toggle toggle-positive">
+			        <input type="checkbox" ng-model="notification.n1" ng-change="changeNotification('N1', notification.n1)">
+				    <div class="track">
+				         <div class="handle"></div>
+				    </div>
+			    </label>
+			</li>
+			<li class="item item-toggle">
+			    New Article has published
+			    <label class="toggle toggle-positive">
+			        <input type="checkbox" ng-model="notification.n2" ng-change="changeNotification('N2', notification.n2)">
+				    <div class="track">
+				         <div class="handle"></div>
+				    </div>
+			    </label>
+			</li>
+			<li class="item item-toggle">
+			    New Fashion Contests have ended
+			    <label class="toggle toggle-positive">
+			        <input type="checkbox" ng-model="notification.n3" ng-change="changeNotification('N3', notification.n3)">
+				    <div class="track">
+				         <div class="handle"></div>
+				    </div>
+			    </label>
+			</li>
+			<li class="item item-toggle" >
+			    Peopl also saved an item that you saved 
+			    <label class="toggle toggle-positive">
+			        <input type="checkbox" ng-model="notification.n4" ng-change="changeNotification('N4', notification.n4)">
+				    <div class="track">
+				         <div class="handle"></div>
+				    </div>
+			    </label>
+			</li>
+			<li class="item item-toggle" >
+			    New giveaway has begun
+			    <label class="toggle toggle-positive">
+			        <input type="checkbox" ng-model="notification.n5" ng-change="changeNotification('N5', notification.n5)">
+				    <div class="track">
+				         <div class="handle"></div>
+				    </div>
+			    </label>
+			</li>
+			<li class="item item-toggle" >
+			 	Giveaway has ended
+			    <label class="toggle toggle-positive">
+			        <input type="checkbox" ng-model="notification.n6" ng-change="changeNotification('N6', notification.n6)">
+				    <div class="track">
+				         <div class="handle"></div>
+				    </div>
+			    </label>
+			</li>
+		</ul>
+	</ion-content>
+
+</ion-view>

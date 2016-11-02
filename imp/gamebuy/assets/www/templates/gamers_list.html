@@ -1,0 +1,33 @@
+<ion-view title="Gamer List">
+    <ion-content scroll="true" padding="false">
+        <div class="intro" ng-if="data.gamers_placeholderpic_flag">
+            <img class="intro_graphic" src="img/graphics/controllers/nintendo2.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.gamerslist_message}}</p>
+        </div>
+        <ion-list>
+            <ion-item class="item gamer-list" ng-click="goto_collection_profile_by_tab(gamer.collection_id)" ng-repeat="gamer in data.gamers | orderBy:miles">
+                <div class="gamer-list_thumbnail">
+                    <img class="gamer-list_thumbnail-clip" ng-if="!gamer.profile_pic" ng-src="https://graph.facebook.com/{{gamer.fb_id}}/picture?type=normal">
+                    <img class="gamer-list_thumbnail-clip" ng-if="gamer.profile_pic" ng-src={{gamer.profile_pic}}>
+                </div>
+                <div class="gamer-list_gamer-info">
+                    <p class="gamer-list_gamer-name">{{gamer.name}}</p>
+                    <p class="game-list_game-deal" ng-if="gamer.collect_as==1">
+                        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+	                        <span class="game-list_game-price">
+	                            {{gamer.price_sell}}
+	                            <span class="game-list_price-unit">{{gamer.price_unit}}</span>
+	                        </span>
+                    </p>
+                    <p class="gamer-list_format">{{gamer.collect_format_message}}</p>
+                    <p class="gamer-list_distance ion-location">{{gamer.miles}}</p>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+            ng-if="data.there_is_more"
+            on-infinite="load_more()"
+            distance="0%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title"> Сортировать</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeOrderBy()">Закрыть</button>
+    </div>
+  </ion-header-bar>
+  <ion-content   has-header="true"  >
+
+    <div class="list">
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Сортировка
+        </div>
+        <select ng-change="OrderChanged(order)" ng-model="order">
+          <option value="final_price_reverse">по возрастанию цены</option>
+          <option value="final_price_inverse">по убыванию цены</option>
+          <option value="percent_reverse" selected>по убыванию скидки</option>
+          <option value="percent_inverse" selected>по возрастанию скидки</option>
+          <option value="date_reverse" selected>сначала старые модели</option>
+          <option value="date_inverse" selected>сначала новые модели</option>
+        </select>
+      </label>
+
+    </div>
+
+
+
+   <button class="button button-block button-dark" ng-click="closeOrderBy()">Сортировать</button>
+
+  </ion-content>
+</ion-modal-view>

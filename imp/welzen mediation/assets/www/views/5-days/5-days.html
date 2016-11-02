@@ -1,0 +1,32 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Step-by-Step</span>
+    <span class="welzen-popup__contents">This series is designed in such a way that in each step you learn something that helps you set yourself up for a successful mindfulness meditation practice.</span>
+    <div class="welzen-popup__separator"></div>
+    <a  class="welzen-popup__cta" ng-click='togglePopUpActive()'>Okay!</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+<ion-view class="bg-welzen 5-days" view-title="5 Days of Welzen">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack()"><img src="img/btn-back.png"/></a>
+    <h1 class="title">{{meditation.title}}</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+  <ion-content has-bouncing="true">
+  <div class="container" >
+    <a class="info-box--transparent" ng-repeat="media in medias" ng-click="goToDay(media)">
+      <div class="rounded-icon rounded-icon--large {{media.seriesIcon}}"><img src="{{media.seriesImage}}"></div>
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__title">{{media.title}}</span>
+        <span class="info-box__brief">{{media.description}}</span>
+      </div>
+      <div class="info-box__forward info-box__forward--push-left" ng-if="!showLock(media);"><img src="img/btn-forward.svg"></div>
+      <div class="info-box__lock" ng-if="showLock(media);"><img src="img/ico-lock.svg"></div>
+    </a>
+  </div>
+</ion-content>
+</ion-view>

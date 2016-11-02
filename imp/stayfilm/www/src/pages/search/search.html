@@ -1,0 +1,42 @@
+<div class="page-search page">
+	<div class="bar bar-header bar-retractile bar-retractile-up">
+
+		<div class="input-container" ng-class="{'active': form.term || inputFocused }">
+			<form ng-submit="search(form.term);">
+				<input placeholder="{{ 'busca' | translate }}" ng-focus="inputFocused = true" ng-blur="inputFocused = false" type="search" name="search" class="search" ng-model="form.term"/>
+
+				<button type="submit" class="btn-search">
+					<img src="images/kana-search.svg" />
+				</button>
+
+				<button class="btn-search-inactive"  >
+					<img src="images/kana-search-inactive.svg" />
+				</button>
+			</form>
+		</div>
+		<button class="btn-cancel"  ng-click="cancel()">
+			<span translate>Cancelar</span>
+		</button>
+	</div>
+
+	<div class="secondary-header" ng-class="{'movie-active': currentState === 'main.home.search.movie', 'user-active': currentState === 'main.home.search.user'}">
+
+		<div class="cursor"></div>
+
+		<a class="tab" ng-class="{active: currentState === 'main.home.search.movie'}" ng-click="goTo('main.home.search.movie', 'slide-right')">
+			<div>
+				<span>{{ bag.movie.count || 0 }}</span><br>
+				<span class="label" translate>filmes</span>
+			</div>
+		</a>
+		<a class="tab" ng-class="{active: currentState === 'main.home.search.user'}"  ng-click="goTo('main.home.search.user', 'slide-left')">
+			<div>
+				<span>{{ bag.user.count || 0  }}</span><br>
+				<span class="label" translate>usuários</span>
+			</div>
+		</a>
+	</div>
+
+	<ui-view class="main-home-search" ></ui-view>
+
+</div>

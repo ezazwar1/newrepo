@@ -1,0 +1,22 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow">
+  <ion-content>
+
+    <go-back ng-if="!intro"></go-back>
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+
+      <ion-slide class="visualize-slide">
+        <div class="box1 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'RELAX_VISUALIZE_HELP_TITLE' | translate }}</h1>
+          <h2>{{ 'RELAX_VISUALIZE_HELP_LINE_3' | translate }}</h2>
+          <p>{{ 'RELAX_VISUALIZE_HELP_LINE_1' | translate }}<br><br>
+          {{ 'RELAX_VISUALIZE_HELP_LINE_2' | translate }}</p><br>
+
+          <button class="button-start" ng-click="confirm()" ng-if="intro">{{ 'OK_GOT_IT' | translate }}</button>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

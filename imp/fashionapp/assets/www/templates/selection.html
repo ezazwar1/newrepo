@@ -1,0 +1,54 @@
+<ion-view>
+<div class="page-layout">
+    <ion-content has-bouncing="true" class="news list-home"
+            on-scroll="animate()" delegate-handle=" 'scrollList' ">
+        <div class="top" >
+            <h1> {{ board.title }} </h1>
+        </div>
+        <div class="content-scroll">
+            <div class="product-infos element">
+                <div class="loading-icon pull-center" ng-if="items == null"><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></div>
+
+                <div class="loading-icon pull-center" ng-if="(items.length) == 0"><em>No item added to that board.</em></div>
+
+                <div class="full-list">
+                    <div class="full-list-item {{item.element_type}}" ng-repeat="(key,item) in items" ng-click="goId(item.element_type,item.id)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__medium + ')' }">
+                            <img class="avatar" src="{{ item.img_avatar__thumbnail }}" ng-if="item.element_type == 'profile'">
+                        </div>
+                        <p ng-if="item.element_type == 'product'">{{ item.name }}</p>
+
+                        <p ng-if="item.element_type == 'profile'">
+                            {{ item.first_name }} {{ item.last_name }} <br>
+                            <small>
+                                {{ item.profession.name }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                        <p ng-if="item.element_type == 'news'">{{ item.title }} <br> <small>{{ item.category.title }}</small></p>
+                        <p ng-if="item.element_type == 'collection'">
+                            {{ item.title }} <br>
+                            <small>{{ item.category.name }}</small>
+                        </p>
+                        <p ng-if="item.element_type == 'brand'">
+                            {{ item.company_name }} <br>
+                            <small>
+                                {{ item.title_category }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                    </div>
+                    <div class="full-list-item more" ng-if="items.length == (offset + max)" ng-click="moreItem()">
+                        <strong>+</strong>
+                    </div>
+                    <div class="full-list-item more" ng-show="isLoading">
+                        <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</div>
+</ion-view>

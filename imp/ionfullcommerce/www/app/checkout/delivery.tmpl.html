@@ -1,0 +1,72 @@
+<ion-view class="delivery-view" view-title="DELIVERY">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon side-menu-icon icon ion-navicon"></button>
+		<!--Drawer Change-->
+	</ion-nav-buttons>
+	<ion-content has-subheader="false">
+		
+		<div class="item-divider">			
+			<h3>SHIPPING ADDRESS</h3>
+		</div>
+		<div class="list">
+
+			<ion-checkbox>
+				<h3>John Doe</h3>
+				<p>Block 5 Flat 3</p>
+				<p>Saint Petersburg, Russia</p>
+				<p>+7 963 653 23 29</p>
+			</ion-checkbox>
+			<ion-checkbox>
+				<h3>John Doe</h3>
+				<p>Block 5 Flat 3</p>
+				<p>Saint Petersburg, Russia</p>
+				<p>+7 963 653 23 29</p>
+			</ion-checkbox>
+			<div class="item add-address">
+				<a href="#">
+					<i class="icon ion-plus-round"></i>
+					Add a new address
+				</a>
+			</div>
+		</div>
+
+		<div class="item-divider">			
+			<h3>SUMMARY</h3>			
+		</div>
+		<div class="item-purchased">
+			<a class="item" href="#">
+				Shipping Method
+				<span class="item-note">
+					DHL
+				</span>
+			</a>
+
+			<a class="item" href="#">
+				Subtotal
+				<span class="item-note">
+					$2300
+				</span>
+			</a>
+
+			<a class="item" href="#">
+				Shipping Cost
+				<span class="item-note">
+					$14
+				</span>
+			</a>
+
+			<a class="item" href="#">
+				TOTAL
+				<span class="item-note">
+					$2314
+				</span>
+			</a>
+		</div>
+		<div class="padding">
+			<button ng-click="proceedToCheckout()" class="button checkout-btn  button-block">
+				Check out
+			</button>
+		</div>
+		
+	</ion-content>
+</ion-view>

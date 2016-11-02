@@ -1,0 +1,88 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false"> 
+    <ion-nav-bar class="bar-wedivite">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+     
+    </ion-nav-bar>
+
+
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" expose-aside-when="large">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">{{ coupleName }}</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/home">
+          <i class="icon ion-ios-speedometer"></i>
+          Overview
+        </ion-item>
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/guest-list">
+          <i class="icon ion-ios-people"></i>
+          Guest list
+          <span class="badge badge-wedivite">{{ rsvpCount }}</span>
+        </ion-item>
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/song-list">
+          <i class="icon ion-headphone"></i>
+          Song list
+          <span class="badge badge-wedivite">{{ songCount }}</span>
+        </ion-item>
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/guest-book">
+        <i class="icon ion-ios-bookmarks"></i>
+          Guest Book
+          <span class="badge badge-wedivite">{{ greetCount }}</span>
+        </ion-item>
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/wedding-album">
+          <i class="icon ion-images"></i>
+          Wedding Album
+          <span class="badge badge-wedivite">{{ photoCount }}</span>
+        </ion-item>
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/invite-guests">
+          <i class="icon ion-paper-airplane"></i>
+          Invite Guests
+        </ion-item>
+        <div class="item item-divider">
+        
+        </div>
+        <ion-item nav-clear menu-close class="item-icon-left" ng-click="openInvite()">
+          <i class="icon ion-eye"></i>
+          View Invitation
+        </ion-item>
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/edit-invitation">
+          <i class="icon ion-ios-gear"></i>
+          Edit Invitation
+        </ion-item>
+        <ion-item nav-clear menu-close class="item-icon-left" ng-click="logout()">
+        <!-- <ion-item nav-clear menu-close class="item-icon-left" href="#/onboarding"> -->
+          <i class="icon ion-log-out"></i>
+          Logout
+        </ion-item>
+        <div style="text-align: center; padding: 15px 5px;">
+          <a ng-click="rateUs()" style="color: #333;"><i class="ion-flag" style="font-size: 16px; margin-right: 5px;"></i>Rate us!</a>        
+        </div>
+
+        <!-- <ion-item nav-clear menu-close ng-click="login()">
+          Login
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/search">
+          Search
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/browse">
+          Browse
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/playlists">
+          Playlists
+        </ion-item> -->
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

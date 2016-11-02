@@ -1,0 +1,116 @@
+{"success":true,"parat":{"limit":"10","start":0,"filter_category_id":"1","sort":"name","order":"ASC","filter_manufacturer_id":"","brandfilter":"","pricefilter":null,"pricedataarray":["0-10000000"],"discountfilter":null,"discountdataarray":["0-10000000"]},
+
+"data":[
+{ "id":"11","product_name":"Petal Chair","manufacturer":"B-Line Furniture, INC.","product_model":"14788","product_image":"img/livingroom/liv1.jpg","actual_price":"120.00",
+  "rating":"3","quantity":"10","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"95.00",
+  "offer":"2","discount_percent":"25",
+  "images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"12","product_name":"Leather Sofa","manufacturer":"B-Line Furniture, INC.","product_model":"14789","product_image":"img/livingroom/liv2.jpg","actual_price":"220.00",
+  "rating":"2","quantity":"15","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"195.00",
+  "offer":"3","discount_percent":"15",
+  "images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"13","product_name":"Boss Guest Chair","manufacturer":"B-Line Furniture, INC","product_model":"14790","product_image":"img/livingroom/liv3.jpg","actual_price":"320.00",
+  "rating":"5","quantity":"12","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"295.00",
+  "offer":"0","discount_percent":"0",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"14","product_name":"Red Ween-Futon","manufacturer":"B-Line Furniture, INC","product_model":"14791","product_image":"img/livingroom/liv4.jpg","actual_price":"520.00",
+  "rating":"4","quantity":"5","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"395.00",
+  "offer":"1","discount_percent":"5",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"15","product_name":"Rome Leather Futon","manufacturer":"B-Line Furniture, INC","product_model":"14792","product_image":"img/livingroom/liv5.jpg","actual_price":"100.00",
+  "rating":"0","quantity":"20","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"0",
+  "offer":"0","discount_percent":"0",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+"m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"16","product_name":"Electric Fireplace","manufacturer":"B-Line Furniture, INC","product_model":"14793","product_image":"img/livingroom/liv6.jpg","actual_price":"620.00",
+  "rating":"5","quantity":"10","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"555.00",
+  "offer":"1","discount_percent":"10",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"17","product_name":"Sleeper Sofa","manufacturer":"B-Line Furniture, INC.","product_model":"14794","product_image":"img/livingroom/liv7.jpg","actual_price":"120.00",
+  "rating":"0","quantity":"5","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"95.00",
+  "offer":"2","discount_percent":"25",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"18","product_name":"Recliner Chair","manufacturer":"B-Line Furniture, INC","product_model":"14795","product_image":"img/livingroom/liv8.jpg","actual_price":"499.00",
+  "rating":"3","quantity":"20","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"325",
+  "offer":"2","discount_percent":"25",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"19","product_name":"Chantilly Fireplace","manufacturer":"B-Line Furniture, INC","product_model":"14796","product_image":"img/livingroom/liv9.jpg","actual_price":"399.00",
+  "rating":"0","quantity":"12","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"325.00",
+  "offer":"","discount_percent":"25",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+},
+
+{ "id":"20","product_name":"Cambridge Cabinet ","manufacturer":"B-Line Furniture, INC.","product_model":"14797","product_image":"img/livingroom/liv10.jpg","actual_price":"120.00",
+  "rating":"0","quantity":"5","stock_status":"yes","product_description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.","original_price":"95.00",
+  "offer":"2","discount_percent":"25",
+"images":["img/craousal-detail/kidscraousal1.jpg","img/craousal-detail/kidscraousal2.jpg","img/craousal-detail/kidscraousal3.jpg"],
+  "m_care":["Product Id:524555","Phone Code: 330A-2995"],"sizes":["S","M","XL"],"likes":"5",
+  "similar_products":["img/livingroom/kids-jeans.jpg","img/livingroom/sns-kids-tshirt.jpg","img/livingroom/kids-trousers.jpg","img/livingroom/kids-skirt.jpg",
+    "img/livingroom/kids-western.jpg","img/livingroom/kids-suits.jpg","img/livingroom/kids-sport.jpg","img/livingroom/kids-ethnic.jpg",
+    "img/livingroom/kids-tshirt.jpg","img/livingroom/kids-watch.jpg"],
+  "cartQnt":0,"s_note":"This stylish T-shirt from louis Phillippe Jeans is a fashion essential and a must have in tour waredrobe.Team it with a pair of jeans or short."
+}
+
+
+
+]}

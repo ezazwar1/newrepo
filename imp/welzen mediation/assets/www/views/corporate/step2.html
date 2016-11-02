@@ -1,0 +1,37 @@
+<ion-view class="bg-welzen corporate-connect" view-title="Corporate Connect Step 2">
+
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Corporate Connect</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+
+      <a class="info-box--transparent--medium-padding" ng-click='togglePopUpActive()'>
+        <div class="corporate-icon"><img src="img/corporate-icon.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__brief">Connecting with...</span>
+          <span class="info-box__title">Wild Fox Consulting LLC.</span>
+        </div>
+      </a>
+
+      <div class="info-box--calm--not-top">
+        <span class="info-box__success">Corporate Key Successfully Validated</span>
+      </div>
+
+      <form>
+        <welzen-input placeholder="Corporate email" type="email"></welzen-input>
+        <span class="form__info">Only emails ending in @wildfoxconsulting.com</span>
+        <welzen-input placeholder="Employee ID" type="text"></welzen-input>
+        <welzen-input placeholder="Department" type="text"></welzen-input>
+        <welzen-input placeholder="Position" type="text"></welzen-input>
+      </form>
+
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bg-clear footer" keyboard-attach>
+    <a class="button button-block button-calm cta footer__cta" href='#/unlock/corporate-success'>Finish</a>
+  </ion-footer-bar>
+</ion-view>

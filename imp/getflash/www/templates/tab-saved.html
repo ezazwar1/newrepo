@@ -1,0 +1,93 @@
+<ion-view view-title="{{ title }}">
+  <ion-nav-buttons side="right">
+    <button class="btn-link link-16" ng-click="createCollection()">
+      <span class="ion-plus"></span> <span class="label">NEW FOLDER</span>
+    </button> 
+  </ion-nav-buttons>
+
+  <ion-content class="my-collection" ng-show="isLoggedin">
+    <ion-refresher pulling-text="Reload..." on-refresh="doReloadCollection()">
+    </ion-refresher>
+
+    <div class="row head-area">
+      <div class="col wrapper">
+        <div class="row">
+          <div class="col">
+            <div class="img-wrapper">
+              <img ng-src="{{ currProfilePicUrl }}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="icon-wrapper" ng-bind-html="greetingIcon">
+            </div>
+            <div class="greetings-wrapper">
+              {{ greetings }}
+            </div>
+            <div class="name-wrapper">
+              {{ currFullName }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row question-area">
+      <div class="col">
+        {{ greetingMessage }}
+      </div>
+    </div>
+
+    <ion-item class="saved-collection-holder">
+      <div class="row" ng-repeat="group in itemGroups" ng-if="$index % 2 === 0">
+        <div class="col col-50" ng-if="$index < itemGroups.length">
+          <div class="click-area">
+            <div class="collection-wrapper" ng-style="{'background-image': 'url(' + itemGroups[$index].coverImageUrl + ')'}" ng-click="goToItemSaved('{{ itemGroups[$index].groupId }}','{{ itemGroups[$index].groupName }}')">
+            </div>
+            <div class="edit-wrapper"> 
+              <div class="detail-group">
+                <div class="group-name">
+                  {{ itemGroups[$index].groupName }}
+                </div>
+                <div class="total-outfit">
+                  {{ itemGroups[$index].totalOutFit }} items
+                </div>
+              </div>
+              <button class="btn-link" ng-click="editCollection('{{ itemGroups[$index].groupId }}','{{ itemGroups[$index].groupName }}')"><span class="ion-android-more-vertical"></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="col col-50" ng-if="$index + 1 < itemGroups.length">
+          <div class="click-area">
+            <div class="collection-wrapper" ng-style="{'background-image': 'url(' + itemGroups[$index + 1].coverImageUrl + ')'}" ng-click="goToItemSaved('{{ itemGroups[$index + 1].groupId }}','{{ itemGroups[$index + 1].groupName }}')">
+            </div>
+            <div class="edit-wrapper"> 
+              <div class="detail-group">
+                <div class="group-name">
+                  {{ itemGroups[$index + 1].groupName }}
+                </div>
+                <div class="total-outfit">
+                  {{ itemGroups[$index + 1].totalOutFit }} items
+                </div>
+              </div>
+              <button class="btn-link" ng-click="editCollection('{{ itemGroups[$index + 1].groupId }}','{{ itemGroups[$index + 1].groupName }}')">
+                <span class="ion-android-more-vertical"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <div class="loader-wrapper" ng-show="itemGroupLoader">
+      <ion-spinner class="spinner-android"></ion-spinner>
+    </div>
+
+    <div class="no-data-wrapper" ng-show="displayItemGroupEmpty">
+      <div class="title">
+        No saved collection yet!
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

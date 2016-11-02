@@ -1,0 +1,48 @@
+<!--
+  Generated template for the TabLoginPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>TabLogin</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list class="tab-login-form">
+
+    <ion-item class="animated fadeInUp">
+      <ion-label primary floating>Email Address</ion-label>
+      <ion-input clearInput></ion-input>
+    </ion-item>
+
+    <ion-item class="animated fadeInDown">
+      <ion-label primary floating>Password</ion-label>
+      <ion-input type="password" clearInput></ion-input>
+    </ion-item>
+<!-- (click)="openPage(homePage)" -->
+    <button light block class="secondary-font semi-bold animated fadeIn delay-1-second" (click)="presentLoading()">Login with Email</button>
+
+    <ion-row>
+      <ion-col width-50><a class="text-left block" [navPush]="forgotPage">Forgot Password?</a></ion-col>
+      <ion-col width-50><a class="text-right block" (click)="presentToast()">Try Wrong Login</a></ion-col>
+    </ion-row>
+
+  </ion-list>
+
+  <h6 class="divider uppercase">Or</h6>
+
+  <div class="">
+    <button dark block class="secondary-font semi-bold">
+      <ion-icon name="logo-facebook" class="far-left"></ion-icon>
+      Login with Facebook
+    </button>
+  </div>
+
+  <div class="terms-and-services">By using Magaza you agree with our Terms</div>
+</ion-content>

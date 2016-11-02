@@ -1,0 +1,86 @@
+<ion-side-menus>
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar bar-dark ninja-header-bar nav-title-slide-ios7" delegate-handle="main-navbar">
+      <ion-nav-back-button class="button-clear">
+        <i class="icon ion-arrow-left-a"></i>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view name="content" animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" class="sidebar">
+    <ion-content>
+      <!-- customer -->
+      <div class="menu-content" ng-show="currentUser.isCustomer">
+        <div style="width: 100%; padding-left: 14px; height: 60px;">
+              <div>
+              <img nav-clear menu-close ng-src="{{picture_url}}" class="img-circle" style="position:absolute;top:110px;" ui-sref="app.customer.workplace">
+              <label nav-clear menu-close style="font-size: 16px;text-transform: uppercase;color: #fff;position:absolute;top:110px;left:70px" ui-sref="app.customer.workplace">
+                {{currentUser.name | limitTo: 30}}
+              </label>
+              </div>
+              <i class="ion-location" style="font-size: 18px;color: #fff;position:absolute;top:135px;left:70px" ></i><label nav-clear menu-close style="font-size: 14px;color: #fff;position:absolute;top:135px;left:86px" ui-sref="app.customer.main">
+                {{business_name | limitTo: 30}}
+              </label>
+        </div>
+        <div class="menu-section" style="position:absolute; bottom:10px;">
+          <ion-list>
+            <ion-item nav-clear menu-close ui-sref="app.customer.organisation" ng-show="is_admin">
+              <i class="ion-person-stalker"></i>
+              ORGANISATION
+            </ion-item>
+            <ion-item nav-clear menu-close ui-sref="app.customer.payment" ng-show="is_admin">
+              <i class="ion-card"></i>
+              Payment
+            </ion-item>
+            <!-- keep dummy ui-sref to keep the same layout for all items -->
+            <ion-item nav-clear menu-close ui-sref="app.customer.main" ng-click="support()">
+              <i class="ion-ios7-help"></i>
+              Support
+            </ion-item>
+            <ion-item nav-clear menu-close ui-sref="app.share">
+              <i class="ion-android-share" style="font-size:15px;top:0"></i>
+              Share
+            </ion-item>
+            <ion-item nav-clear menu-close ui-sref="app.about">
+              <i class="ion-ios7-information"></i>
+              About
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+
+      <!-- staff -->
+      <div class="menu-content" ng-show="currentUser.isStaff">
+        <a nav-clear menu-close class="ninja-section" ui-sref="app.staff.main">
+          <img src="img/workninja.svg"/>
+        </a>
+        <div class="menu-section">
+          <ion-list>
+            <ion-item nav-clear menu-close ui-sref="app.staff.profile">
+              <i class="ion-navicon"></i>
+              Profile
+            </ion-item>
+<!--            <ion-item nav-clear menu-close ui-sref="app.staff.availability">
+              <i class="ion-ios7-calendar-outline"></i>
+              Availability
+            </ion-item>-->
+            <!-- keep dummy ui-sref to keep the same layout for all items -->
+            <ion-item nav-clear menu-close ui-sref="app.staff.main" ng-click="support()">
+              <i class="ion-ios7-help"></i>
+              Support
+            </ion-item>
+            <ion-item nav-clear menu-close ui-sref="app.share">
+              <i class="ion-android-share" style="font-size:15px;top:0"></i>
+              Share
+            </ion-item>
+            <ion-item nav-clear menu-close ui-sref="app.about">
+              <i class="ion-ios7-information"></i>
+              About
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

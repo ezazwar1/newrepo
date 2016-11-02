@@ -1,0 +1,1631 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/pages/fbMessenger/mediaAlbum/mediaAlbum.html:7
+msgid "{{ (album.name || 'Sem título') | translate}}"
+msgstr "{{ (album.name || 'No title') | translate}}"
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.html:8
+msgid "{{ totalSelected }} selecionadas"
+msgstr "{{ totalSelected }} selected"
+
+#: src/pages/friend/like.html:10
+msgid "{{user.firstName}} ainda não deu YES! em nenhum filme."
+msgstr "{{user.firstName}} did not give any YES! yet."
+
+#: src/pages/friend/mate.html:10
+msgid "{{user.firstName}} ainda não tem filmates."
+msgstr "{{user.firstName}} does not have any filmates yet."
+
+#: src/pages/friend/movie.html:5
+msgid "{{user.firstName}} ainda não tem filmes."
+msgstr "{{user.firstName}} does not have any films yet."
+
+#: src/pages/register/register.js:45
+msgid "Abr"
+msgstr "Apr"
+
+#: src/pages/friendship/friendshipRequest.html:8
+msgid "aceitar"
+msgstr "accept"
+
+#: src/pages/friend/friend.html:34 src/widget/userItem/userItem.html:24
+msgid "Aceitar"
+msgstr "Accept"
+
+#: src/pages/notification/notification.html:60
+msgid "aceitou seu pedido de amizade."
+msgstr "accepted your friendship request."
+
+#: src/pages/main/invite.html:4
+msgid "Adicionar conhecidos"
+msgstr "Add friends"
+
+#: src/pages/moviemaker/upload.html:15
+msgid "adicionar mídias"
+msgstr "add photos/videos"
+
+#: src/pages/main/invite.html:33
+msgid "Adicionar todos"
+msgstr "Add all"
+
+#: src/pages/moviemaker/content.html:41
+msgid "Adicione aqui..."
+msgstr "Add here..."
+
+#: src/pages/moviemaker/tagList.html:19
+msgid "Adicione tags usando o campo acima"
+msgstr "Add tags using the field above"
+
+#: src/pages/main/home.js:37
+msgid "admin"
+msgstr "Admin"
+
+#: src/pages/register/register.js:49
+msgid "Ago"
+msgstr "Aug"
+
+#: src/pages/publish/publish.js:246
+msgid "Agora não, obrigado"
+msgstr "Not now, thank you"
+
+#: src/services/CoolServ.js:53
+msgid "Aguardando conexão com internet"
+msgstr "Waiting for internet connection"
+
+#: src/pages/waiting/waiting.js:301 src/pages/waiting/waiting.js:515
+msgid "Algo está errado..."
+msgstr "Something is wrong..."
+
+#: src/pages/moviemaker/moviemaker.js:15
+msgid ""
+"Algumas mídias são maiores que o permitido ou de tipo inválido, e não serão "
+"adicionadas."
+msgstr ""
+"Some content may be bigger than the allowed size or has an invalid type and "
+"will not be added."
+
+#: src/pages/settings/credentials.html:22
+msgid "alterar senha"
+msgstr "change password"
+
+#: src/pages/publish/publish.js:34 src/services/UIServ.js:134
+#: src/widget/movieMosaic/movieMosaic.html:54
+msgid "Amigo"
+msgstr "Friend"
+
+#: src/pages/main/home.js:30
+msgid "Amigos do Facebook"
+msgstr "Friends from Facebook"
+
+#: src/pages/albummanager/contentzone.js:204
+msgid "an error occured while saving"
+msgstr "an error occured while saving"
+
+#: src/pages/register/register.html:37
+msgid "Aniversário"
+msgstr "Birthday"
+
+#: src/pages/register/register.html:49
+msgid "Ano"
+msgstr "Year"
+
+#: src/modal/watch/WatchModal.js:276
+msgid "Apagar Filme"
+msgstr "Delete Film"
+
+#: src/pages/start/start.html:34
+msgid "Assista, compartilhe <br>e divirta-se. É grátis!"
+msgstr "Watch, share <br>and enjoy. It's free!"
+
+#: src/pages/settings/settings.js:399
+msgid "Aviso de que aceitaram seu pedido de amizade"
+msgstr "Your friendship request was accepted"
+
+#: src/pages/settings/settings.js:400
+msgid "Aviso de que lhe solicitaram amizade"
+msgstr "Notice of friendship request"
+
+#: src/pages/settings/settings.js:403
+msgid "Aviso de que o comentaram seu filme"
+msgstr "Notice that someone has commented on your film"
+
+#: src/pages/settings/settings.js:404
+msgid "Aviso de que seu filme foi criado"
+msgstr "Your film has been created"
+
+#: src/pages/settings/settings.js:402
+msgid "Aviso de que seu filme foi escolhido como Yes Of the Week"
+msgstr "Notice that your film was chosen as Yes Of the Week"
+
+#: src/pages/settings/settings.js:401
+msgid "Aviso de que um filme seu recebeu um YES! de alguém"
+msgstr "Notice that your film got a YES! from someone"
+
+#: src/pages/fbMessenger/myFilms/myFilms.js:145
+msgid "Baixando filme..."
+msgstr "Downloading film..."
+
+#: src/pages/fbMessenger/myFilms/myFilms.js:105
+#: src/pages/fbMessenger/myFilms/myFilms.js:59
+#: src/pages/waiting/waiting.js:246 src/pages/waiting/waiting.js:292
+#: src/services/MovieServ.js:239
+msgid "Baixando..."
+msgstr "Downloading..."
+
+#: src/pages/search/search.html:6
+msgid "busca"
+msgstr "search"
+
+#: src/pages/main/home.js:29
+msgid "Busca"
+msgstr "Search"
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.html:46
+msgid "buscando mídias..."
+msgstr "searching medias..."
+
+#: src/pages/start/start.html:43
+msgid "Cadastrar"
+msgstr "Register"
+
+#: src/pages/fbMessenger/titlestep/titleStep.html:4
+#: src/pages/waiting/waiting.html:4
+msgid "cancelar"
+msgstr "cancel"
+
+#: src/modal/watch/WatchModal.js:285 src/modal/watch/WatchModal.js:325
+#: src/pages/albummanager/contentzone.js:160
+#: src/pages/fbMessenger/mediaStep/mediaStep.js:238
+#: src/pages/fbMessenger/titlestep/titleStep.js:32
+#: src/pages/fbMessenger/titlestep/titleStep.js:55 src/pages/main/home.js:118
+#: src/pages/main/home.js:43 src/pages/moviemaker/content.js:230
+#: src/pages/moviemaker/upload.js:35 src/pages/publish/publish.html:42
+#: src/pages/publish/publish.js:78 src/pages/search/search.html:18
+#: src/services/MiscServ.js:153 src/services/UIServ.js:150
+#: src/services/UIServ.js:18 src/services/UIServ.js:73
+#: src/services/UploadMediaServ.js:432
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: src/pages/settings/personal.html:36
+msgid "Casado(a)"
+msgstr "Married"
+
+#: src/pages/settings/personal.html:40
+msgid "cidade atual"
+msgstr "current city"
+
+#: src/pages/register/register.html:85
+msgid "Clicando em \"Criar conta\" você concorda com:"
+msgstr "By clicking on \"Create account \" you agree with:"
+
+#: src/pages/main/invite.html:23
+msgid "Clique aqui para convidá-los."
+msgstr "Click here to invite them."
+
+#: src/pages/notification/notification.html:39
+msgid "comentou em seu filme"
+msgstr "commented on your film"
+
+#: src/widget/movieMosaic/movieMosaic.html:13
+msgid "compartilhado de"
+msgstr "Shared from"
+
+#: src/modal/share/shareModal.html:47 src/modal/watch/watchModal.html:30
+msgid "Compartilhar"
+msgstr "Share"
+
+#: src/modal/share/shareModal.html:4
+msgid "Compartilhar no Stayfilm"
+msgstr "Share on Stayfilm"
+
+#: src/pages/fbMessenger/startFb/startFb.html:21
+msgid "Conectar com Facebook"
+msgstr "Connect with Facebook"
+
+#: src/modal/watch/watchModal.html:56 src/pages/settings/settings.html:6
+msgid "Configurações"
+msgstr "Settings"
+
+#: src/pages/settings/personal.html:49
+msgid "configurações de e-mail"
+msgstr "e-mail configurations"
+
+#: src/pages/settings/credentials.html:38
+msgid "confirme a nova senha"
+msgstr "confirm your new password"
+
+#: src/modal/denounce/denounce.html:17
+msgid "Contém imagens de nudez, pornografia ou violência"
+msgstr "Contains nude images, porn or violence"
+
+#: src/pages/albummanager/contentzone.html:7
+msgid "conteúdo do filme"
+msgstr "film content"
+
+#: src/modal/acceptTerms/acceptTerms.html:28
+msgid "Continuar"
+msgstr "Continue"
+
+#: src/modal/appinvite/appinvite.html:6
+msgid "convidar amigos"
+msgstr "invite friends"
+
+#: src/pages/settings/settings.html:17
+msgid "credenciais"
+msgstr "credentials"
+
+#: src/services/MiscServ.js:955
+msgid "Criando a sua conta..."
+msgstr "Creating your account..."
+
+#: src/pages/register/register.html:81
+msgid "Criar conta"
+msgstr "Create account"
+
+#: src/pages/feed/feed.html:23
+msgid "Criar Filme"
+msgstr "Create Film"
+
+#: src/pages/settings/settings.js:200 src/pages/settings/settings.js:247
+#: src/pages/settings/settings.js:325
+msgid "Dados inválidos, verifique por favor."
+msgstr "Invalid data, please verify."
+
+#: src/pages/moviemaker/content.html:30
+msgid "Das redes sociais"
+msgstr "From social networks"
+
+#: src/modal/watch/watchModal.html:90 src/modal/watch/watchModal.html:95
+msgid "Deixe seu comentário"
+msgstr "Write your comment"
+
+#: src/modal/watch/WatchModal.js:318
+msgid "Denunciar"
+msgstr "Report"
+
+#: src/modal/denounce/denounce.html:27
+msgid "DENUNCIAR CONTEÚDO"
+msgstr "REPORT CONTENT"
+
+#: src/pages/fbMessenger/shareStep/shareStep.html:3
+msgid "descartar"
+msgstr "discard"
+
+#: src/pages/moviemaker/content.js:299 src/pages/moviemaker/imgZoom.html:5
+#: src/pages/moviemaker/upload.js:26 src/pages/publish/publish.html:10
+#: src/services/UIServ.js:71 src/widget/movieMosaic/movieMosaic.html:38
+#: src/widget/movieMosaic/movieMosaic.html:47
+msgid "Descartar"
+msgstr "Discard"
+
+#: src/modal/editSynopsis/editSynopsis.js:49
+msgid "Descrição alterada"
+msgstr "Description changed"
+
+#: src/pages/waiting/waiting.js:471
+msgid "Desculpe"
+msgstr "Sorry"
+
+#: src/modal/watch/WatchModal.js:118
+msgid "Desculpe, esse filme não pode ser compartilhado pois não é público."
+msgstr "Sorry, this film can not be shared because it's not public."
+
+#: src/widget/userItem/userItem.html:23
+msgid "Desfazer"
+msgstr "Unfriend"
+
+#: src/pages/friend/friend.html:31
+msgid "Desfazer amizade"
+msgstr "Unfriend"
+
+#: src/pages/notification/notification.html:49
+msgid "deu YES! para seu filme"
+msgstr "gave a YES! to your film"
+
+#: src/pages/register/register.js:53
+msgid "Dez"
+msgstr "Dec"
+
+#: src/pages/register/register.html:41
+msgid "Dia"
+msgstr "Day"
+
+#: src/modal/denounce/denounce.html:22
+msgid "Digite aqui o motivo"
+msgstr "Write the reason here"
+
+#: src/pages/register/register.js:159
+msgid "Divirta-se! ;D"
+msgstr "Have Fun!"
+
+#: src/pages/moviemaker/content.html:50
+msgid "Do meu dispositivo"
+msgstr "From my device"
+
+#: src/modal/watch/watchModal.html:55
+msgid "Download"
+msgstr "Download"
+
+#: src/pages/settings/credentials.html:12
+msgid "e-mail"
+msgstr "e-mail"
+
+#: src/pages/profile/profile.html:13
+msgid "editar <span>perfil</span>"
+msgstr "edit <span>profile</span>"
+
+#: src/modal/editSynopsis/editSynopsis.html:14
+#: src/modal/watch/WatchModal.js:278
+msgid "Editar Descrição"
+msgstr "Edit Description"
+
+#: src/pages/albummanager/sourcezone.html:8
+msgid "editar medias"
+msgstr "content"
+
+#: src/pages/albummanager/album.html:7 src/pages/moviemaker/upload.html:4
+msgid "editar mídias"
+msgstr "content"
+
+#: src/modal/watch/WatchModal.js:277
+msgid "Editar Privacidade"
+msgstr "Edit Privacy"
+
+#: src/pages/resetPassword/resetPassword.js:20
+msgid "Email enviado"
+msgstr "Email sent"
+
+#: src/pages/login/login.html:38 src/pages/start/start.html:40
+msgid "Entrar"
+msgstr "Log in"
+
+#: src/pages/about/about.html:4
+msgid "ENTRE EM CONTATO"
+msgstr "CONTACT US"
+
+#: src/pages/fbMessenger/shareStep/shareStep.html:19
+#: src/pages/fbMessenger/shareStep/shareStep.js:13
+#: src/pages/resetPassword/resetPassword.html:27
+msgid "Enviar"
+msgstr "Send"
+
+#: src/pages/notification/notification.html:64
+msgid "enviou um solicitação de amizade."
+msgstr "sent you a friendship request."
+
+#: src/services/MovieServ.js:189
+msgid "Erro ao salvar seu filme. Tente novamente."
+msgstr "Error while saving film. Please try again."
+
+#: src/pages/start/start.html:18
+msgid "Escolha em suas redes sociais <br>e no seu dispositivo"
+msgstr "Choose photos and videos <br> from your social networks and device"
+
+#: src/pages/albummanager/sourcezone.html:15
+msgid "Escolha um álbum da sua rede social favorita para ver o conteúdo"
+msgstr "Select an album from your favorite social network to view the content"
+
+#: src/pages/fbMessenger/titlestep/titleStep.html:23
+msgid "ESCOLHA UM ESTILO"
+msgstr "CHOOSE A STYLE"
+
+#: src/pages/moviemaker/genre.html:25
+msgid "Escolha um estilo<br>para seu filme"
+msgstr "Choose a style<br>for your film"
+
+#: src/pages/albummanager/sourcezone.html:34
+msgid "Escolha uma rede"
+msgstr "Choose a network"
+
+#: src/pages/fbMessenger/titlestep/titleStep.html:19
+#: src/pages/moviemaker/content.html:26
+msgid "Escreva aqui o seu título"
+msgstr "Write your title here"
+
+#: src/modal/editSynopsis/editSynopsis.html:9
+#: src/modal/share/shareModal.html:26 src/pages/publish/publish.html:25
+msgid "Escreva sobre seu filme"
+msgstr "Write about your film"
+
+#: src/pages/login/login.html:45
+msgid "Esqueci a minha senha"
+msgstr "I forgot my password"
+
+#: src/pages/albummanager/contentzone.html:15
+msgid ""
+"Este é todo conteúdo que será usado para produzir seu filme. Você pode "
+"modificar, fazer upload ou escolher das redes sociais."
+msgstr ""
+"This is all the content that will be used to produce your film. You can "
+"change, upload or choose from social networks."
+
+#: src/pages/fbMessenger/titlestep/titleStep.html:37
+msgid "estilo aleatório"
+msgstr "random style"
+
+#: src/modal/acceptTerms/acceptTerms.html:15
+#: src/modal/acceptTerms/acceptTerms.html:21
+msgid "Estou de acordo com os"
+msgstr "I agree with the"
+
+#: src/pages/moviemaker/content.html:6 src/pages/moviemaker/genre.html:7
+#: src/pages/moviemaker/theme.html:6
+msgid "faça um filme"
+msgstr "Make a film"
+
+#: src/pages/register/register.html:60 src/pages/settings/personal.html:19
+msgid "Feminino"
+msgstr "Female"
+
+#: src/pages/register/register.js:43
+msgid "Fev"
+msgstr "Feb"
+
+#: src/modal/share/shareModal.js:191 src/modal/share/shareModal.js:202
+msgid "Filme compartilhado."
+msgstr "Film shared."
+
+#: src/modal/denounce/denounce.js:61
+msgid "Filme denunciado."
+msgstr "The film has been reported."
+
+#: src/pages/settings/settings.js:396
+msgid "Filme foi denunciado"
+msgstr "Your film has been reported"
+
+#: src/app.run.js:266 src/app.run.js:292
+msgid "Filme indisponível :("
+msgstr "Film not available :("
+
+#: src/services/MovieServ.js:199
+msgid "Filme salvo com sucesso no dispositivo."
+msgstr "Film saved to device."
+
+#: src/modal/denounce/denounce.js:22
+msgid "Filme: {{movieTitle}} de {{username}}"
+msgstr "Film: {{movieTitle}} from {{username}}"
+
+#: src/pages/fbMessenger/myFilms/myFilms.html:17
+#: src/pages/search/search.html:29
+msgid "filmes"
+msgstr "films"
+
+#: src/modal/denounce/denounce.html:24
+msgid ""
+"Filmes denunciados serão analisados por nossa equipe de acordo com os Termos "
+"de Uso do site, podendo ser penalizados com a exclusão do perfil caso seja "
+"constatado o descumprimento dessas regras."
+msgstr ""
+"Reported films will be reviewed by Stayfilm's staff according to the site's "
+"Privacy Policy and the owner can have their profile banned if it breaks any "
+"rule."
+
+#: src/pages/moviemaker/tagList.html:4
+msgid "Filtre por Tags"
+msgstr "Filter by tags"
+
+#: src/pages/moviemaker/content.html:40
+msgid "Filtre usando palavras-chave"
+msgstr "Filter using keywords"
+
+#: src/pages/feed/feed.html:50 src/pages/friend/like.html:17
+#: src/pages/friend/movie.html:12 src/pages/gallery/bestof.html:38
+#: src/pages/gallery/genre.html:25 src/pages/gallery/latest.html:35
+#: src/pages/notification/notification.html:85 src/pages/profile/like.html:18
+#: src/pages/profile/movie.html:17 src/pages/profile/pending.html:17
+#: src/pages/search/searchMovie.html:19 src/pages/search/searchUser.html:20
+msgid "Fim desta lista."
+msgstr "End of the list."
+
+#: src/pages/notification/notification.html:74
+msgid "foi aprovado."
+msgstr "has been approved."
+
+#: src/pages/notification/notification.html:55
+msgid "foi compartilhado por"
+msgstr "has been shared by"
+
+#: src/pages/notification/notification.html:35
+msgid "foi criado."
+msgstr "has been created."
+
+#: src/services/UploadMediaServ.js:428
+msgid "Fotos desse dispositivo"
+msgstr "Photos from my device"
+
+#: src/pages/moviemaker/content.html:67
+msgid "Fotos e vídeos"
+msgstr "Photos and videos"
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.html:37
+msgid "Galeria"
+msgstr "Camera Roll"
+
+#: src/pages/main/home.js:32
+msgid "Idioma"
+msgstr "Language"
+
+#: src/pages/login/login.html:13
+msgid "Inscreva-se agora!"
+msgstr "Sign-up now!"
+
+#: src/pages/register/register.js:42
+msgid "Jan"
+msgstr "Jan"
+
+#: src/pages/register/register.js:48
+msgid "Jul"
+msgstr "Jul"
+
+#: src/pages/register/register.js:47
+msgid "Jun"
+msgstr "Jun"
+
+#: src/pages/albummanager/contentzone.html:25
+msgid "limpar tudo"
+msgstr "clear all"
+
+#: src/pages/register/register.js:46
+msgid "Mai"
+msgstr "May"
+
+#: src/pages/register/register.js:44
+msgid "Mar"
+msgstr "Mar"
+
+#: src/pages/notification/notification.html:44
+msgid "marcou você no filme"
+msgstr "Tagged you in a film"
+
+#: src/pages/register/register.html:59 src/pages/settings/personal.html:18
+msgid "Masculino"
+msgstr "Male"
+
+#: src/pages/albummanager/contentzone.html:56
+msgid "medias"
+msgstr "medias"
+
+#: src/pages/register/register.html:45
+msgid "Mês"
+msgstr "Month"
+
+#: src/pages/friendship/friendship.html:10
+msgid "meus filmates"
+msgstr "my filmates"
+
+#: src/pages/fbMessenger/myFilms/myFilms.html:8
+#: src/pages/fbMessenger/titlestep/titleStep.html:39
+#: src/pages/profile/profile.html:32
+msgid "meus filmes"
+msgstr "my films"
+
+#: src/pages/friendship/friendship.html:16
+msgid "meus pedidos"
+msgstr "friendship requests"
+
+#: src/modal/watch/WatchModal.js:279 src/modal/watch/WatchModal.js:319
+msgid "Não consegue assistir?"
+msgstr "Can’t watch?"
+
+#: src/pages/waiting/waiting.js:472
+msgid ""
+"Não encontramos conteúdo suficiente para criar seu filme. Por favor "
+"verifique."
+msgstr "We did not find enough content to make a film. Please check."
+
+#: src/pages/register/register.html:61 src/pages/settings/personal.html:20
+msgid "Não especificado"
+msgstr "Not specified"
+
+#: src/modal/dynamicTerms/dynamicTerms.js:49
+msgid "Não foi possível carregar os termos."
+msgstr "Unable to load terms."
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.js:234
+#: src/pages/moviemaker/content.js:226 src/pages/waiting/waiting.js:408
+msgid "Não foi possível carregar todas as fotos."
+msgstr "Unable to upload all your photos."
+
+#: src/modal/share/shareModal.js:195
+msgid ""
+"Não foi possível compartilhar no Whatsapp. <br> Whatsapp está instalado?"
+msgstr "We could not share in Whatsapp. <br> Is Whatsapp installed?"
+
+#: src/services/UIServ.js:16
+msgid "Não foi possível conectar ao Facebook."
+msgstr "Unable to connect to Facebook."
+
+#: src/pages/register/register.js:216
+msgid ""
+"Não foi possível criar sua conta usando o Facebook. Por favor, crie sua "
+"conta usando o formulário de cadastro ou tente mais tarde."
+msgstr ""
+"We could not create your account using Facebook. Please create your account "
+"using the register form or try again later."
+
+#: src/modal/denounce/denounce.js:69
+msgid "Não foi possível denunciar o filme. Tente novamente mais tarde."
+msgstr "We could not report this film. Please try again later."
+
+#: src/modal/share/shareModal.js:209 src/pages/publish/publish.js:350
+#: src/sandbox/tokenSandbox.js:97
+msgid ""
+"Não foi possível publicar seu filme em todas as redes. Por favor, tente "
+"novamente mais tarde"
+msgstr ""
+"We could not publish your film in all networks. Please try again later."
+
+#: src/modal/editSynopsis/editSynopsis.js:60
+msgid "Não foi possível salvar a descrição. Tente novamente mais tarde."
+msgstr "Could not save description. Try again later."
+
+#: src/pages/resetPassword/resetPassword.js:28
+msgid "Não foi possível trocar sua senha. Por favor, tente mais tarde."
+msgstr "We could not change your password. Please try again later."
+
+#: src/modal/appinvite/appinvite.html:7
+msgid "não obrigado"
+msgstr "no, thank you"
+
+#: src/pages/settings/personal.html:24
+msgid "nascimento (dd/mm/aaaa)"
+msgstr "birthday (dd/mm/yyyy)"
+
+#: src/pages/albummanager/sourcezone.html:38
+msgid "Nenhum album"
+msgstr "No album"
+
+#: src/pages/gallery/bestof.html:29
+msgid "Nenhum filme disponível."
+msgstr "No films available."
+
+#: src/pages/gallery/genre.html:16
+msgid "Nenhum filme encontrado"
+msgstr "No films were found"
+
+#: src/pages/search/searchMovie.html:4
+msgid "Nenhum filme encontrado."
+msgstr "No films were found."
+
+#: src/pages/search/searchUser.html:4
+msgid "Nenhum usuário encontrado."
+msgstr "No users were found"
+
+#: src/pages/settings/personal.html:35
+msgid "Noivo(a)"
+msgstr "Engaged"
+
+#: src/pages/settings/personal.html:8
+msgid "nome"
+msgstr "first name"
+
+#: src/pages/register/register.html:25
+msgid "Nome"
+msgstr "First name"
+
+#: src/pages/settings/credentials.html:9
+msgid "nome de usuário"
+msgstr "username"
+
+#: src/pages/start/start.html:26
+msgid "Nós filtramos o seu conteúdo <br>e produzimos o seu filme"
+msgstr "We filter your content <br> and produce your film"
+
+#: src/pages/register/register.js:52
+msgid "Nov"
+msgstr "Nov"
+
+#: src/pages/settings/credentials.html:35
+msgid "nova senha"
+msgstr "new password"
+
+#: src/pages/publish/publish.js:343
+msgid ""
+"O conteúdo de todos os filmes são de responsabilidade do usuário e serão "
+"avaliados para que estejam de acordo com os Termos de Publicação."
+msgstr ""
+"The content of all films are under user’s responsibility and will be "
+"evaluated to comply with the Terms of Publication."
+
+#: src/services/MovieServ.js:194
+msgid "O filme já existe no dispositivo."
+msgstr "Your film is already on device."
+
+#: src/pages/publish/publish.js:276
+msgid "Obrigado!"
+msgstr "Thank you!"
+
+#: src/pages/fbMessenger/titlestep/titleStep.js:34
+#: src/pages/fbMessenger/titlestep/titleStep.js:57
+msgid "Ok"
+msgstr "Ok"
+
+#: src/pages/moviemaker/theme.js:106
+msgid "Onde estão suas fotos ?"
+msgstr "Where are your photos ?"
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.js:252
+#: src/pages/moviemaker/content.js:109 src/pages/moviemaker/content.js:125
+#: src/pages/moviemaker/genre.js:95
+#: src/pages/resetPassword/resetPassword.js:30
+#: src/pages/waiting/waiting.js:514
+msgid "Ops..."
+msgstr "Ops..."
+
+#: src/pages/login/login.html:24 src/pages/moviemaker/theme.html:28
+#: src/pages/register/register.html:20
+msgid "ou"
+msgstr "or"
+
+#: src/pages/fbMessenger/startFb/startFb.js:78 src/pages/login/login.js:110
+#: src/pages/register/register.js:219
+msgid "Oups..."
+msgstr "Oups..."
+
+#: src/pages/register/register.js:51
+msgid "Out"
+msgstr "Oct"
+
+#: src/modal/denounce/denounce.html:19
+msgid "Outros"
+msgstr "Other"
+
+#: src/pages/moviemaker/genre.html:28
+msgid "Para cada estilo existem diferentes versões"
+msgstr "Each style has different versions"
+
+#: src/modal/acceptTerms/acceptTerms.html:9
+msgid "Para continuar, concorde com os termos abaixo:"
+msgstr "In order to continue, you must agree with the following terms:"
+
+#: src/pages/profile/profile.html:46
+msgid "pendentes"
+msgstr "pending"
+
+#: src/pages/settings/settings.html:14
+msgid "pessoal"
+msgstr "personal"
+
+#: src/pages/waiting/waiting.html:11
+msgid "Por favor aguarde, estamos organizando o seu conteúdo."
+msgstr "Please wait, we are organizing your content."
+
+#: src/pages/waiting/waiting.html:12
+msgid "Por favor aguarde, estamos produzindo o seu filme."
+msgstr "Please wait, we are producing your film."
+
+#: src/pages/waiting/waiting.html:10
+msgid "Por favor aguarde, estamos transferindo as suas fotos."
+msgstr "Please wait, we are uploading your photos."
+
+#: src/pages/fbMessenger/shareStep/shareStep.js:51
+msgid "Por favor aguarde..."
+msgstr "Please wait..."
+
+#: src/pages/fbMessenger/titlestep/titleStep.html:16
+msgid "Por favor autorize o acesso de suas fotos do Facebook"
+msgstr "Please grant permission to access your photos on Facebook"
+
+#: src/pages/waiting/waiting.js:301 src/pages/waiting/waiting.js:535
+msgid "Por favor tente novamente."
+msgstr "Please try again."
+
+#: src/pages/main/invite.js:45
+msgid "Por favor, aguarde..."
+msgstr "Please wait..."
+
+#: src/pages/fbMessenger/titlestep/titleStep.js:30
+#: src/pages/fbMessenger/titlestep/titleStep.js:53
+msgid "Por favor, conceda permissão para acessar suas fotos no Facebook"
+msgstr "Please grant permission to access your photos on Facebook"
+
+#: src/modal/acceptTerms/acceptTerms.js:33
+msgid "Por favor, concorde com os termos apresentados antes de continuar."
+msgstr "Please agree with the terms before proceeding."
+
+#: src/pages/resetPassword/resetPassword.html:16
+msgid "Por favor, digite seu email."
+msgstr "Please enter your email."
+
+#: src/modal/denounce/denounce.html:11
+msgid ""
+"Por favor, especifique o motivo de sua denúncia na lista abaixo. "
+"Analisaremos o conteúdo em breve."
+msgstr ""
+"Please tell us why you want to report this film. We will review it soon."
+
+#: src/modal/denounce/denounce.js:50
+msgid "Por favor, indique os detalhes da sua denúncia."
+msgstr "Please specify the details of your report."
+
+#: src/pages/fbMessenger/titlestep/titleStep.js:155
+#: src/pages/moviemaker/content.js:109
+msgid "Por favor, preencha o título."
+msgstr "Please fill in the title."
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.js:252
+msgid "Por favor, selecione pelo menos {{num}} fotos."
+msgstr "Please select or upload at least {{num}} photos"
+
+#: src/pages/fbMessenger/titlestep/titleStep.js:162
+msgid "Por favor, selecione um estilo."
+msgstr "Please select a style."
+
+#: src/pages/moviemaker/theme.js:83
+msgid "Por favor, selecione um tema ou escolha 'Todo meu conteúdo'."
+msgstr "Please choose a theme or select 'All my content'."
+
+#: src/pages/moviemaker/content.js:124 src/pages/moviemaker/genre.js:94
+#: src/pages/moviemaker/theme.js:107
+msgid ""
+"Por favor, selecione uma rede social ou escolha pelo menos {{num}} fotos de "
+"seu aparelho."
+msgstr ""
+"Please choose a social network or at least {{num}} photos from your device."
+
+#: src/pages/register/register.js:184
+msgid "Por favor, tente novamente."
+msgstr "Please try again."
+
+#: src/pages/register/register.js:179
+msgid "Por favor, verifique os dados"
+msgstr "Please check the form."
+
+#: src/pages/register/register.js:113
+msgid "Por favor, verifique os seus dados."
+msgstr "Please check the form."
+
+#: src/pages/resetPassword/resetPassword.js:20
+msgid "Por favor, verifique seu email para trocar sua senha."
+msgstr "Please check your email inbox to change your password."
+
+#: src/modal/denounce/denounce.html:13
+msgid "Porque você está denunciando este filme?"
+msgstr "Why are you reporting this film?"
+
+#: src/pages/login/login.html:13
+msgid "Primeiro acesso?"
+msgstr "New user?"
+
+#: src/pages/register/register.html:87
+msgid "Privacidade e Copyright"
+msgstr "Privacy & Copyright"
+
+#: src/pages/publish/publish.js:30 src/services/UIServ.js:133
+#: src/widget/movieMosaic/movieMosaic.html:51
+msgid "Privado"
+msgstr "Private"
+
+#: src/pages/main/invite.html:19
+msgid "Procurando conhecidos..."
+msgstr "Searching friends..."
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.html:12
+msgid "produzir"
+msgstr "produce"
+
+#: src/pages/waiting/waiting.js:390 src/pages/waiting/waiting.js:396
+msgid "Produzir"
+msgstr "Produce"
+
+#: src/pages/albummanager/contentzone.html:66
+#: src/pages/albummanager/contentzone.html:67
+msgid "produzir filme"
+msgstr "produce film"
+
+#: src/pages/moviemaker/content.js:298 src/pages/moviemaker/theme.html:46
+msgid "Produzir filme"
+msgstr "Produce film"
+
+#: src/pages/fbMessenger/shareStep/shareStep.html:25
+#: src/pages/publish/publish.html:52
+msgid "Produzir novamente"
+msgstr "Produce again"
+
+#: src/pages/albummanager/album.html:16
+#: src/pages/fbMessenger/mediaAlbum/mediaAlbum.html:16
+#: src/pages/moviemaker/upload.html:8
+msgid "pronto"
+msgstr "done"
+
+#: src/pages/fbMessenger/titlestep/titleStep.html:11
+#: src/pages/moviemaker/content.html:10
+msgid "próximo"
+msgstr "next"
+
+#: src/pages/publish/publish.js:329 src/sandbox/tokenSandbox.js:108
+#: src/sandbox/tokenSandbox.js:80
+msgid "Publicando filme..."
+msgstr "Publishing film..."
+
+#: src/pages/publish/publish.html:38
+#: src/widget/movieMosaic/movieMosaic.html:41
+msgid "Publicar"
+msgstr "Publish"
+
+#: src/pages/publish/publish.js:38 src/services/UIServ.js:135
+#: src/widget/movieMosaic/movieMosaic.html:57
+msgid "Público"
+msgstr "Public"
+
+#: src/pages/feed/feed.html:26 src/pages/friend/like.html:3
+#: src/pages/friend/mate.html:3 src/pages/friend/movie.html:2
+#: src/pages/friendship/mate.html:3 src/pages/friendship/request.html:4
+#: src/pages/gallery/bestof.html:26 src/pages/gallery/genre.html:13
+#: src/pages/gallery/latest.html:23 src/pages/notification/notification.html:4
+#: src/pages/profile/like.html:5 src/pages/profile/movie.html:5
+#: src/pages/profile/pending.html:5
+msgid "Puxe para atualizar"
+msgstr "Pull to refresh"
+
+#: src/pages/settings/personal.html:51
+msgid "Quais e-mails deseja receber?"
+msgstr "Which e-mails do you want to receive ?"
+
+#: src/pages/moviemaker/theme.js:82
+msgid "Quase pronto..."
+msgstr "Almost done..."
+
+#: src/pages/publish/publish.js:77 src/services/UIServ.js:149
+msgid "Quem pode ver este filme?"
+msgstr "Who can watch this film?"
+
+#: src/pages/fbMessenger/mediaAlbum/mediaAlbum.html:25
+#: src/pages/fbMessenger/mediaStep/mediaStep.html:24
+#: src/pages/fbMessenger/mediaStep/mediaStep.html:45
+msgid "recarregar"
+msgstr "reload"
+
+#: src/pages/resetPassword/resetPassword.html:7
+msgid "Recuperar senha"
+msgstr "Recover password"
+
+#: src/pages/albummanager/contentzone.html:24
+msgid "rede social"
+msgstr "social network"
+
+#: src/pages/moviemaker/theme.html:10
+msgid "refinar"
+msgstr "refine"
+
+#: src/pages/publish/publish.html:56
+msgid "Refinar"
+msgstr "Refine"
+
+#: src/pages/register/register.html:13
+msgid "Registre-se e faça seu filme. É grátis."
+msgstr "Register and make your film. It's free."
+
+#: src/pages/friendship/friendshipRequest.html:9
+msgid "rejeitar"
+msgstr "reject"
+
+#: src/pages/friend/friend.html:37 src/widget/userItem/userItem.html:25
+msgid "Rejeitar"
+msgstr "Reject"
+
+#: src/pages/settings/personal.html:34
+msgid "Relacionamento Sério"
+msgstr "Serious relationship"
+
+#: src/pages/albummanager/contentzone.js:158
+msgid "Remover todas as mídias"
+msgstr "Remove all content"
+
+#: src/pages/fbMessenger/titlestep/titleStep.html:5
+msgid "sair"
+msgstr "log out"
+
+#: src/pages/main/home.js:33
+msgid "Sair"
+msgstr "Logout"
+
+#: src/pages/albummanager/contentzone.js:201
+msgid "Salvando album..."
+msgstr "Saving album..."
+
+#: src/services/MovieServ.js:168
+msgid "Salvando filme no dispositivo..."
+msgstr "Saving film to device..."
+
+#: src/pages/albummanager/contentzone.html:10
+msgid "salvar"
+msgstr "save"
+
+#: src/pages/settings/credentials.html:18
+msgid "Salvar"
+msgstr "Save"
+
+#: src/pages/settings/personal.html:46
+msgid "Salvar informação"
+msgstr "Save information"
+
+#: src/pages/settings/credentials.html:44
+msgid "Salvar senha"
+msgstr "Save password"
+
+#: src/pages/notification/notification.html:69
+msgid "se registrou no Stayfilm."
+msgstr "registered at Stayfilm."
+
+#: src/pages/login/login.js:89 src/pages/register/register.js:204
+msgid "Seja bem-vindo, <br>divirta-se !"
+msgstr "Welcome, <br>have fun !"
+
+#: src/pages/albummanager/album.html:25
+#: src/pages/fbMessenger/mediaAlbum/mediaAlbum.html:22
+msgid "selecionar todas"
+msgstr "select all"
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.html:21
+msgid "Selecione as fotos de seu dispositivo ou de seus álbuns do Facebook."
+msgstr "Select photos from your device or Facebook albums."
+
+#: src/pages/moviemaker/content.html:51
+msgid "Selecione suas fotos"
+msgstr "Choose your photos / videos"
+
+#: src/pages/login/login.html:33 src/pages/register/register.html:74
+msgid "Senha"
+msgstr "Password"
+
+#: src/pages/settings/credentials.html:32
+msgid "senha atual"
+msgstr "current password"
+
+#: src/pages/waiting/waiting.js:544
+msgid "Serviço indisponível"
+msgstr "Service unavailable"
+
+#: src/pages/register/register.js:50
+msgid "Set"
+msgstr "Sep"
+
+#: src/pages/notification/notification.html:33
+#: src/pages/notification/notification.html:53
+#: src/pages/notification/notification.html:72
+msgid "Seu filme"
+msgstr "Your film"
+
+#: src/pages/start/start.html:33
+msgid "SEU FILME"
+msgstr "YOUR FILM"
+
+#: src/pages/notification/notification.html:77
+msgid "Seu filme \"{{item.movie.title}}\" foi reprovado."
+msgstr "Your film \"{{item.movie.title}}\" was not approved."
+
+#: src/pages/settings/settings.js:398
+msgid "Seu filme foi compartilhado no Facebook"
+msgstr "Your film was shared on Facebook"
+
+#: src/pages/settings/settings.js:405
+msgid "Seu filme foi compartilhado no Stayfilm"
+msgstr "Your film was shared on Stayfilm"
+
+#: src/pages/publish/publish.js:337
+msgid "Seu filme foi compartilhado."
+msgstr "Your film has been shared."
+
+#: src/services/UIServ.js:83
+msgid "Seu filme foi descartado."
+msgstr "Your film has been discarded."
+
+#: src/pages/publish/publish.js:339
+msgid "Seu filme foi publicado."
+msgstr "Your film has been published."
+
+#: src/pages/main/invite.html:16
+msgid "Seus amigos já estão aqui!"
+msgstr "You already have some friends here!"
+
+#: src/pages/settings/settings.js:230 src/pages/settings/settings.js:282
+#: src/pages/settings/settings.js:354
+msgid "Seus dados foram salvos."
+msgstr "Your data has been saved."
+
+#: src/pages/settings/personal.html:16
+msgid "sexo"
+msgstr "gender"
+
+#: src/pages/register/register.html:57
+msgid "Sexo"
+msgstr "Gender"
+
+#: src/pages/main/home.js:31
+msgid "Sobre"
+msgstr "About"
+
+#: src/pages/moviemaker/theme.html:20
+msgid "Sobre o que <br>é seu filme?"
+msgstr "What's your <br>film about?"
+
+#: src/pages/settings/personal.html:12
+msgid "sobrenome"
+msgstr "last name"
+
+#: src/pages/register/register.html:30
+msgid "Sobrenome"
+msgstr "Last name"
+
+#: src/pages/friend/friend.html:25
+msgid "Solicitação enviada"
+msgstr "Request sent"
+
+#: src/widget/userItem/userItem.html:20
+msgid "Solicitado"
+msgstr "Requested"
+
+#: src/pages/friend/friend.html:41 src/widget/userItem/userItem.html:27
+msgid "Solicitar amizade"
+msgstr "Add friend"
+
+#: src/pages/settings/personal.html:33
+msgid "Solteiro(a)"
+msgstr "Single"
+
+#: src/pages/friend/friend.html:28 src/widget/userItem/userItem.html:21
+msgid "Sou eu"
+msgstr "It's me"
+
+#: src/pages/settings/personal.html:31
+msgid "status de relacionamento"
+msgstr "relationship status"
+
+#: src/pages/start/start.html:25
+msgid "STAYFILM"
+msgstr "STAYFILM"
+
+#: src/pages/moviemaker/content.html:21
+msgid "Suas fotos &amp; vídeos"
+msgstr "Your photos &amp; videos"
+
+#: src/pages/start/start.html:17
+msgid "SUAS FOTOS E VÍDEOS"
+msgstr "YOUR PHOTOS AND VIDEOS"
+
+#: src/pages/moviemaker/tagList.html:22
+msgid "Tags adicionadas"
+msgstr "Added tags"
+
+#: src/modal/share/shareModal.html:30 src/pages/publish/publish.html:29
+msgid "Também nas redes sociais"
+msgstr "Also share on"
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.js:220
+#: src/pages/moviemaker/content.js:214 src/pages/moviemaker/imgZoom.html:6
+#: src/pages/moviemaker/upload.js:29 src/pages/waiting/waiting.js:370
+#: src/services/UIServ.js:20
+msgid "Tentar novamente"
+msgstr "Try again"
+
+#: src/pages/waiting/waiting.js:515
+msgid "Tentar novamente ?"
+msgstr "Try again ?"
+
+#: src/modal/acceptTerms/acceptTerms.html:15
+msgid "Termos de Publicação de Filmes {{ campaignName }}"
+msgstr "Film Terms of Publication {{ campaignName }}"
+
+#: src/modal/acceptTerms/acceptTerms.html:21
+msgid "Termos e a Política do Site"
+msgstr "Terms and Policy"
+
+#: src/pages/register/register.html:86
+msgid "Termos Legais Stayfilm"
+msgstr "Terms and Conditions"
+
+#: src/services/UploadMediaServ.js:430
+msgid "Tirar uma foto"
+msgstr "Take a picture"
+
+#: src/pages/moviemaker/theme.html:24
+msgid "Todo meu conteúdo"
+msgstr "All my content"
+
+#: src/pages/albummanager/album.html:23
+msgid "Toque para selecionar"
+msgstr "Click to select"
+
+#: src/pages/notification/notification.html:67
+msgid "Um amigo seu,"
+msgstr "A friend,"
+
+#: src/pages/login/login.js:107
+msgid ""
+"Um erro aconteceu ao criar sua conta via Facebook. Por favor, cria sua conta "
+"manualmente."
+msgstr ""
+"An error occurred while creating your account via Facbook. Please create "
+"your account manually."
+
+#: src/pages/fbMessenger/startFb/startFb.js:75
+msgid "Um erro aconteceu ao criar sua conta via Facebook. Tenta novamente."
+msgstr ""
+"An error occurred while creating your account via Facbook. Please create "
+"your account manually."
+
+#: src/pages/albummanager/contentzone.html:23
+msgid "upload"
+msgstr "upload"
+
+#: src/pages/login/login.html:17
+msgid "Usando e-mail"
+msgstr "Using e-mail"
+
+#: src/pages/albummanager/album.html:12
+#: src/pages/fbMessenger/mediaAlbum/mediaAlbum.html:12
+msgid "Usar"
+msgstr "Use"
+
+#: src/pages/albummanager/contentzone.html:57
+msgid "Use os botões do topo para gerenciar o conteúdo do seu filme"
+msgstr "Use the buttons to manage the content of your film"
+
+#: src/pages/search/search.html:35
+msgid "usuários"
+msgstr "users"
+
+#: src/modal/denounce/denounce.html:18
+msgid "Utiliza minhas imagens sem minha permissão"
+msgstr "Uses my pictures without permission"
+
+#: src/pages/search/searchMovie.html:8 src/pages/search/searchUser.html:8
+msgid "Utilize o campo de busca acima."
+msgstr "Use the search field above."
+
+#: src/pages/fbMessenger/shareStep/shareStep.html:5
+msgid "ver"
+msgstr "preview"
+
+#: src/pages/fbMessenger/mediaStep/mediaStep.js:224
+#: src/pages/moviemaker/content.js:218 src/pages/waiting/waiting.js:374
+msgid "Ver fotos"
+msgstr "See photos"
+
+#: src/pages/about/about.html:6
+msgid "VERSÃO"
+msgstr "Version"
+
+#: src/services/UploadMediaServ.js:429
+msgid "Vídeo desse dispositivo"
+msgstr "Videos from my device"
+
+#: src/modal/denounce/denounce.html:16
+msgid "Viola as regras e políticas do site"
+msgstr "Violates site's policy and rules"
+
+#: src/pages/fbMessenger/mediaAlbum/mediaAlbum.js:195
+msgid "Visualização indisponível"
+msgstr "Preview unavailable"
+
+#: src/pages/profile/like.html:8
+msgid "Você ainda não deu YES! para nenhum filme."
+msgstr "You still didn't give a YES! for any film."
+
+#: src/pages/friendship/mate.html:13
+msgid "Você ainda não tem filmates."
+msgstr "You don't have any filmates yet."
+
+#: src/pages/profile/pending.html:8
+msgid "Você ainda não tem filmes pendentes."
+msgstr "You don't have any pending films."
+
+#: src/pages/fbMessenger/myFilms/myFilms.html:22
+#: src/pages/profile/movie.html:8
+msgid "Você ainda não tem filmes."
+msgstr "You don't have any films yet."
+
+#: src/pages/feed/feed.html:21
+msgid "Você ainda não tem histórias no seu feed de notícias."
+msgstr "You don't have any stories in your feed yet."
+
+#: src/pages/notification/notification.html:7
+msgid "Você ainda não tem notificações."
+msgstr "You don't have any notifications yet."
+
+#: src/modal/acceptTerms/acceptTerms.js:33
+msgid "Você concorda?"
+msgstr "Do you agree?"
+
+#: src/pages/settings/settings.js:397
+msgid "Você denúnciou um filme"
+msgstr "You reported a film"
+
+#: src/pages/settings/settings.js:406
+msgid "Você foi citado em uma mensagem"
+msgstr "You have been quoted in a message"
+
+#: src/modal/share/shareModal.html:16
+msgid ""
+"Você já compartilhou este filme na Stayfilm, mas pode compartilhar em outras "
+"redes."
+msgstr ""
+"You already shared this film on Stayfilm, but you can share it in other "
+"networks."
+
+#: src/pages/main/invite.html:13
+msgid "Você não está conectado com o Facebook"
+msgstr "You are not connected to Facebook"
+
+#: src/pages/main/invite.html:23
+msgid "Você não tem amigos do Facebook usando a Stayfilm."
+msgstr "You don't have Facebook friends using Stayfilm."
+
+#: src/pages/friendship/request.html:14
+msgid "Você não tem solicitação de amizade."
+msgstr "You don't have any friendship requests."
+
+#: src/pages/publish/publish.js:244
+msgid "Você também pode compartilhar nessas redes"
+msgstr "You can also share on these networks"
+
+#~ msgid "Denunciar filme"
+#~ msgstr "Denounce film"
+
+#~ msgid "Adicionar"
+#~ msgstr "Add"
+
+#~ msgid "Fechar"
+#~ msgstr "Close"
+
+#~ msgid "Messenger"
+#~ msgstr "Messenger"
+
+#~ msgid "voltar"
+#~ msgstr "back"
+
+#~ msgid "Chinês (Tradicional)"
+#~ msgstr "繁體中文"
+
+#~ msgid "Espanhol"
+#~ msgstr "Español"
+
+#~ msgid "Francês"
+#~ msgstr "Français"
+
+#~ msgid "Inglês"
+#~ msgstr "English"
+
+#~ msgid "Italiano"
+#~ msgstr "Italiano"
+
+#~ msgid "Português"
+#~ msgstr "Português"
+
+#~ msgid "Responder"
+#~ msgstr "Reply"
+
+#~ msgid "Turco"
+#~ msgstr "Türkçe"
+
+#~ msgid "Húngaro"
+#~ msgstr "Hungarian"
+
+#~ msgid "Tailandês"
+#~ msgstr "Thai"
+
+#~ msgid "Vietnamita"
+#~ msgstr "Vietnamese"
+
+#~ msgid ""
+#~ "&nbsp;C&nbsp;H&nbsp;O&nbsp;O&nbsp;S&nbsp;E&nbsp;&nbsp;A&nbsp;&nbsp;S&nbsp;"
+#~ "T&nbsp;Y&nbsp;L&nbsp;E&nbsp;"
+#~ msgstr ""
+#~ "&nbsp;C&nbsp;H&nbsp;O&nbsp;O&nbsp;S&nbsp;E&nbsp;&nbsp;A&nbsp;&nbsp;S&nbsp;"
+#~ "T&nbsp;Y&nbsp;L&nbsp;E&nbsp;"
+
+#~ msgid "Reply"
+#~ msgstr "Responder"
+
+#~ msgid "Send"
+#~ msgstr "Enviar"
+
+#~ msgid "Deseja mesmo sair?"
+#~ msgstr "Are you sure you want to exit ?"
+
+#~ msgid "adicionar fotos"
+#~ msgstr "add photos"
+
+#~ msgid ""
+#~ "Por favor, escolha uma rede social ou pelo menos 5 fotos de seu aparelho"
+#~ msgstr ""
+#~ "Please, chose a social network or at least 5 photos from your device"
+
+#~ msgid "Agosto"
+#~ msgstr "August"
+
+#~ msgid "Dezembro"
+#~ msgstr "December"
+
+#~ msgid "Fevereiro"
+#~ msgstr "February"
+
+#~ msgid "Novembro"
+#~ msgstr "November"
+
+#~ msgid "Setembro"
+#~ msgstr "September"
+
+#~ msgid "Compartilhado"
+#~ msgstr "Shared"
+
+#~ msgid "This is the end, my only friend !"
+#~ msgstr "This is the end!"
+
+#~ msgid ""
+#~ "Estou de acordo com os <a ng-click=\"openDynamicTerms(data."
+#~ "genre)\">Termos de Publicação de Filmes {{ campaignName }}</a>"
+#~ msgstr ""
+#~ "I agree with the <a ng-click=\"openDynamicTerms(data.genre)\">Terms of "
+#~ "Publication of Movies {{ campaignName }}</a>"
+
+#~ msgid ""
+#~ "Estou de acordo com os <a ng-click=\"showLegalTerms()\">Termos e a "
+#~ "Política do Site</a>"
+#~ msgstr "I agree with <a ng-click=\"showLegalTerms()\">Terms and Policy</a>"
+
+#~ msgid "An error occurred while login in with facebook"
+#~ msgstr "an error occurred while saving"
+
+#~ msgid "Rejeitar amizade"
+#~ msgstr "Reject friendship"
+
+#~ msgid "Linguas"
+#~ msgstr "Languages"
+
+#~ msgid "atual"
+#~ msgstr "Actual"
+
+#~ msgid "that's me"
+#~ msgstr "That's me"
+
+#~ msgid "Ferramentas"
+#~ msgstr "Tools"
+
+#, fuzzy
+#~ msgid ""
+#~ "Seu filme <a ng-click=\"goTo(&apos;main.home.friend.movie&apos;, null, "
+#~ "{username: item.user.username});\">{{item.movie.title}}</a> foi criado."
+#~ msgstr ""
+#~ "Your film <a ng-click=\"goTo('main.home.friend.movie', null, {username: "
+#~ "item.user.username});\">{{item.movie.title}}</a> has been created."
+
+#, fuzzy
+#~ msgid ""
+#~ "<a ng-click=\"goTo(&apos;main.home.friend.movie&apos;, null, {username: "
+#~ "item.user.username});\">{{item.user.fullName}}</a> <span translate="
+#~ "\"\">deu YES! para seu filme</span>\n"
+#~ "\t\t\t\t\t\t\t\t\t\t<a ng-click=\"watch(item.movie.idMovie)\">{{item."
+#~ "movie.title}}</a>"
+#~ msgstr ""
+#~ "<a ng-click=\"goTo('main.home.friend.movie', null, {username: item.user."
+#~ "username});\">{{item.user.fullName}}</a> gave YES! to your movie\n"
+#~ "\t\t\t\t\t\t\t\t\t\t<a ng-click=\"watch(item.movie.idMovie)\">{{item."
+#~ "movie.title}}</a>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<span translate=\"\">Seu filme</span> <a ng-click=\"watch(item.movie."
+#~ "idMovie)\">{{item.movie.title}}</a> <span translate=\"\">foi "
+#~ "compartilhado por</span>\n"
+#~ "\t\t\t\t\t\t\t\t\t\t<a ng-click=\"goTo(&apos;main.home.friend."
+#~ "movie&apos;, null, {username: item.user.username});\">{{item.user."
+#~ "fullName}}</a>."
+#~ msgstr ""
+#~ "Your movie <a ng-click=\"watch(item.movie.idMovie)\">{{item.movie.title}}"
+#~ "</a> was shared by\n"
+#~ "\t\t\t\t\t\t\t\t\t\t<a ng-click=\"goTo('main.home.friend.movie', null, "
+#~ "{username: item.user.username});\">{{item.user.fullName}}</a>."
+
+#, fuzzy
+#~ msgid ""
+#~ "<a ng-click=\"goTo(&apos;main.home.friend.movie&apos;, null, {username: "
+#~ "item.user.username});\">{{item.user.fullName}}</a> comentou em seu filme "
+#~ "<a ng-click=\"watch(item.movie.idMovie)\">{{item.movie.title}}</a>."
+#~ msgstr ""
+#~ "<a ng-click=\"goTo('main.home.friend.movie', null, {username: item.user."
+#~ "username});\">{{item.user.fullName}}</a> comented your movie <a ng-click="
+#~ "\"watch(item.movie.idMovie)\">{{item.movie.title}}</a>."
+
+#, fuzzy
+#~ msgid ""
+#~ "<a ng-click=\"goTo(&apos;main.home.friend.movie&apos;, null, {username: "
+#~ "item.user.username});\">{{item.user.fullName}}</a> marcou você no filme "
+#~ "<a href=\"javascript:;\" ng-click=\"watch(item.movie.idMovie)\">{{item."
+#~ "movie.title}}</a>."
+#~ msgstr ""
+#~ "<a ng-click=\"goTo('main.home.friend.movie', null, {username: item.user."
+#~ "username});\">{{item.user.fullName}}</a> mentioned your  movie <a href="
+#~ "\"javascript:;\" ng-click=\"watch(item.movie.idMovie)\">{{item.movie."
+#~ "title}}</a>."
+
+#~ msgid "Seu filme <span>{{title}}</span> foi criado."
+#~ msgstr "Your movie <span>{{title}}</span> had been created."
+
+#~ msgid "Entrar <a ng-click=\"testTranslate('home')\">clique aqui</a>"
+#~ msgstr "Enter <a ng-click=\"go('home')\">click here</a>"
+
+#~ msgid ""
+#~ "Seu filme <sf-watch movie=\"item.movie\">{{item.movie.title}}</sf-watch> "
+#~ "foi criado."
+#~ msgstr ""
+#~ "Your film <a href=\"javascript:;\" ng-click=\"watch(item.movie."
+#~ "idMovie)\">{{item.movie.title}}</a> has been created."
+
+#~ msgid ""
+#~ "<a href=\"javascript:;\" ng-click=\"goTo(&apos;main.home.friend."
+#~ "movie&apos;, null, {username: item.user.username});\">{{item.user."
+#~ "fullName}}</a> comentou em seu filme <a href=\"javascript:;\" ng-click="
+#~ "\"watch(item.movie.idMovie)\">{{item.movie.title}}</a>."
+#~ msgstr ""
+#~ "<a href=\"javascript:;\" ng-click=\"goTo(&apos;main.home.friend."
+#~ "movie&apos;, null, {username: item.user.username});\">{{item.user."
+#~ "fullName}}</a> commented your movie <a href=\"javascript:;\" ng-click="
+#~ "\"watch(item.movie.idMovie)\">{{item.movie.title}}</a>."
+
+#~ msgid ""
+#~ "<a href=\"javascript:;\" ng-click=\"goTo(&apos;main.home.friend."
+#~ "movie&apos;, null, {username: item.user.username});\">{{item.user."
+#~ "fullName}}</a> deu YES! para seu filme\n"
+#~ "\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:;\" ng-click=\"watch(item.movie."
+#~ "idMovie)\">{{item.movie.title}}</a>"
+#~ msgstr ""
+#~ "<a href=\"javascript:;\" ng-click=\"goTo(&apos;main.home.friend."
+#~ "movie&apos;, null, {username: item.user.username});\">{{item.user."
+#~ "fullName}}</a> gave YES! to your movie\n"
+#~ "\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:;\" ng-click=\"watch(item.movie."
+#~ "idMovie)\">{{item.movie.title}}</a>"
+
+#~ msgid ""
+#~ "<sf-link-user-profile user=\"item.user\"> deu YES! para seu filme  <sf-"
+#~ "watch movie=\"item.movie\"></sf-watch></sf-link-user-profile>"
+#~ msgstr ""
+#~ "<sf-link-user-profile user=\"item.user\"> deu YES! para seu filme  <sf-"
+#~ "watch movie=\"item.movie\"></sf-watch></sf-link-user-profile>"
+
+#~ msgid "entrar"
+#~ msgstr "enter"
+
+#~ msgid "{{item.user.fullName}} comentou em seu filme {{item.movie.title}}."
+#~ msgstr "{{item.user.fullName}} commented your movie {{item.movie.title}}."
+
+#~ msgid "{{item.user.fullName}} deu YES! para seu filme {{item.movie.title}}."
+#~ msgstr ""
+#~ "{{item.user.fullName}} gave a YES! to your movie {{item.movie.title}}."
+
+#~ msgid "{{item.user.fullName}} marcou você no filme {{item.movie.title}}."
+#~ msgstr ""
+#~ "{{item.user.fullName}} mentioned you in the movie {{item.movie.title}}."
+
+#~ msgid "Tenho um cavalo"
+#~ msgstr "I have a horse"
+
+#~ msgid "Tenho um chicote"
+#~ msgstr "I have a whip"
+
+#~ msgid "Um  barco"
+#~ msgid_plural "{{countBarco}} barcos"
+#~ msgstr[0] "A boat"
+#~ msgstr[1] "{{countBarco}} boats"
+
+#~ msgid "Um gato"
+#~ msgid_plural "{{countGato}} gatos"
+#~ msgstr[0] "A cat"
+#~ msgstr[1] "{{countGato}} cats"
+
+#~ msgid "cavalo"
+#~ msgstr "horse"

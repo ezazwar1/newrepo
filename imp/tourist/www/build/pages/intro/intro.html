@@ -1,0 +1,43 @@
+<ion-content class="intro">
+  <ion-fixed padding *ngIf="showSkipButton">
+    <button light outline small (click)="goToHome()">skip</button>
+  </ion-fixed>
+  <ion-slides (change)="onSlideChanged($event)" pager>
+    <ion-slide primary>
+      <div class="slide-header">
+        <img src="assets/images/screen-home_galaxys4_black_portrait.png" />
+      </div>
+      <div class="slide-content">
+        <h2>Discover new cities</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide secondary>
+      <div class="slide-header">
+        <img src="assets/images/screen-map_galaxys4_black_portrait.png" />
+      </div>
+      <div class="slide-content">
+        <h2>Explore the city's places</h2>
+        <p>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide dark>
+      <div class="slide-header">
+        <img src="assets/images/screen-detail_galaxys4_black_portrait.png" />
+      </div>
+      <div class="slide-content">
+        <h2>Browse through the city</h2>
+        <p>
+           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <button light (click)="goToHome()">Explore</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

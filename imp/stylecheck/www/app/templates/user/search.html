@@ -1,0 +1,38 @@
+<ion-view>
+    <ion-header-bar class="bar-subheader padding-left">
+        <form>
+            <div class="item-input search">
+                <i class="icon icon-search placeholder-icon dark"></i>
+                <input type="search" placeholder="{{dict.username}}" ng-model="users.pager.filter.username" ng-change="searchUsers('username')">
+                <i ng-if="users.pager.filter.username.length" class="icon icon-close placeholder-icon dark" ng-click="clear()"></i>
+            </div>
+        </form>
+    </ion-header-bar>
+    <ion-content delegate-handle="userScroller">
+        <p ng-if="userLoaded && !users.entries.length" class="padding text-center">{{dict.noUsersFound}}</p>
+        <ion-list ng-show="users.entries.length" class="list user-list">
+            <ion-item class="item display-flex align-center uppercase" collection-repeat="user in users.entries" item-height="76px" ng-click="goToUser(user._id)">
+                <div class="item-content-wrapper flex-1 display-flex align-center" ng-class="{'no-border': $last}">
+                    <div ng-if="user.avatarPath" class="circle thumbnail grayscale" ng-style="{'background-image':'url(' + user.avatarPath + ')'}"></div>
+                    <div ng-if="!user.avatarPath" class="circle thumbnail"></div>
+                    <div class="flex-1">
+                        <span class="bold truncate full-width">{{user.username}}</span>
+                        <span class="small truncate">{{user.location}}</span>
+                    </div>
+                    <div>
+                        <span class="level bold truncate">{{user.level.name}}</span>
+                        <span class="stable small">{{dict.level}}</span>
+                    </div>
+                    <button ng-if="!user.isMe" class="button button-clear icon" ng-class="{'button-stable icon-follow-me': !user.isFav, 'button-assertive icon-follow': user.isFav}" ng-click="setFavorite(user, $index, $event)"></button>
+                    <div ng-if="user.isMe" class="button-placeholder"></div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+                on-infinite="getUsers()"
+                ng-if="entered && (!users.pager.page || users.pager.page < users.pager.pages)"
+                distance="1%"
+                spinner="crescent">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

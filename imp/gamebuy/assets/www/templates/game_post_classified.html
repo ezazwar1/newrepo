@@ -1,0 +1,62 @@
+<ion-view title="Post to Kijiji">
+    <ion-content scroll="true" padding="true">
+
+        <!--<div class="form-group">-->
+        <!--<label class="form-label">Type of Ad</label>-->
+        <!--<div class="form-select-wrapper ion-arrow-down-b">-->
+        <!--<select class="form-select" name="amount" ng-model="data.ad_posting_info.ad_type">-->
+        <!--<option value="offer">I'm offering</option>-->
+        <!--<option value="want">I want to buy</option>-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="form-group">
+            <label class="form-label">Ad Title</label>
+            <input class="form-input" type="text" ng-model="data.ad_posting_info.ad_title"/>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Ad Description</label>
+            <textarea class="form-textarea form-textarea-review" cols="30" rows="5"
+                      ng-model="data.ad_posting_info.description"></textarea>
+            <!--<input class="form-input" type="text" ng-model="data.ad_posting_info.description"/>-->
+        </div>
+
+        <form class="form-group">
+            <label class="form-label">Price</label>
+            <input class="form-input" type="text" ng-model="data.ad_posting_info.price">
+        </form>
+
+        <div class="form-inline">
+            <form class="form-group">
+                <label class="form-label">City</label>
+                <input class="form-input" type="text" ng-model="data.ad_posting_info.city" requried>
+            </form>
+
+            <form class="form-group">
+                <label class="form-label">Province/State</label>
+                <input class="form-input" type="text" ng-model="data.ad_posting_info.province" requried>
+            </form>
+        </div>
+
+        <form class="form-group">
+            <label class="form-label">Postal Code/Address</label>
+            <input class="form-input" type="text" ng-model="data.ad_posting_info.post_code" requried>
+        </form>
+
+        <form class="form-group">
+            <label class="form-label">Email (Ad activation email will be sent here)</label>
+            <input class="form-input" type="text" ng-model="data.ad_posting_info.email" requried>
+        </form>
+
+        <div class="form-group button-bar">
+            <button class="button button-block button-primary button-ionicon ng-binding" type="submit"
+                    ng-click="confirm()"
+                    ng-disabled="!data.ad_posting_info.ad_title || !data.ad_posting_info.description || !data.ad_posting_info.price || !data.ad_posting_info.city || !data.ad_posting_info.province || !data.ad_posting_info.post_code || !data.ad_posting_info.email">
+                Post
+            </button>
+        </div>
+
+    </ion-content>
+</ion-view>

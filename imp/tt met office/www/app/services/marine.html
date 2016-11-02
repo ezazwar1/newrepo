@@ -1,0 +1,87 @@
+<ion-view view-title="Marine" ng-controller="ForecastCtrl as mc">
+    <ion-nav-bar class="bar no-border blue">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i>
+        </ion-nav-back-button>
+        <!-- <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-navicon" ></button>
+        </ion-nav-buttons> -->
+    </ion-nav-bar>
+
+    <ion-content scroll="true" ng-init="mc.getForecast()">
+        <div class="marine-info">
+            <div class="card wide">
+                <div class="item item-divider">
+                    <i class="ion-android-boat "></i>
+                    <p class="">Seas</p>
+                </div>
+                <div class="item item-text-wrap">
+                    <span class="em-txt">
+                        <p>{{mc.forecast.seas}}</p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="card wide">
+                <div class="item item-divider">
+                    <i class="ion-help-buoy "></i>
+                    <p class="">Waves</p>
+                </div>
+                <div class="item item-text-wrap ">
+                    <span class="em-txt">
+                        <p>{{mc.forecast.waves1}} {{mc.forecast.waves2}}</p>
+                    </span>
+                </div>
+            </div>
+
+            <div ng-if="mc.forecast.addMarine">
+                <div class="row no-padding">
+                    <div class="card wide">
+                        <div class="item item-divider">
+                            <i class="ion-android-boat "></i>
+                            <p class="">Additional Marine Info</p>
+                        </div>
+                        <div class="item item-text-wrap">
+                            <span class="em-txt">
+                                <p>{{mc.forecast.addMarine}}</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="mc.forecast.tideDate">
+                <div class="card wide">
+                    <div class="item item-divider">
+                        <i class="ion-ios-moon-outline "></i>
+                        <p class="">Tides</p>
+                    </div>
+                    <div class="item item-text-wrap text-left">
+                        <h1 class="temp-md">Port of Spain</h1>
+                        <div class="row no-padding">
+                            <div class="col no-padding"><p>High:</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.trinAmHigh}}</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.trinPmHigh}}</p></div>
+                        </div>
+                        <div class="row no-padding">
+                            <div class="col no-padding"><p>Low:</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.trinAmLow}}</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.trinPmLow}}</p></div>
+                        </div>
+                        <h1 class="temp-md">Crown Point</h1>
+                        <div class="row no-padding">
+                            <div class="col no-padding"><p>High:</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.tobAmHigh}}</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.tobPmHigh}}</p></div>
+                        </div>
+                        <div class="row no-padding">
+                            <div class="col no-padding"><p>Low:</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.tobAmLow}}</p></div>
+                            <div class="col no-padding"><p>{{vm.forecast.tobPmLow}}</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

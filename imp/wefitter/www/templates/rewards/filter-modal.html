@@ -1,0 +1,74 @@
+<ion-modal-view class="darker-bg">
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{ 'REWARDS.FILTER.TITLE' | translate }}</h1>
+    <button class="button button-positive button-icon ion-android-close" ng-click="closeFilter()" />
+  </ion-header-bar>
+  <ion-content class="darker-bg">
+
+    <h5 class="dash-header" translate="ACTION.FILTER_BY">Filter By:</h5>
+    <div class="text-center padding">
+        {{ 'REWARDS.CATEGORY' | translate }}
+        <div class="select-box">
+            <select placeholder="{{ 'REWARDS.CATEGORY' | translate }}" ng-model="filter.type" name="type">
+              <option value="0" translate="REWARDS.FILTER.NONE">Dont Filter</option>
+              <option value="1" translate="REWARDS.FILTER.CATEGORY.SPORTS_WEAR_AND_GEAR">Sports wear and gear</option>
+              <option value="2" translate="REWARDS.FILTER.CATEGORY.NUTRITION">Nutrition</option>
+              <option value="3" translate="REWARDS.FILTER.CATEGORY.TRAINING">Training</option>
+              <option value="4" translate="REWARDS.FILTER.CATEGORY.HEALTH_AND_WELLNESS">Health and wellness</option>
+              <option value="5" translate="REWARDS.FILTER.CATEGORY.SUSTAINABILITY">Sustainability</option>
+              <option value="6" translate="REWARDS.FILTER.CATEGORY.CULTURE">Culture</option>
+              <option value="7" translate="REWARDS.FILTER.CATEGORY.TRIPS_AND_EVENTS">Trips and events</option>
+              <option value="8" translate="REWARDS.FILTER.CATEGORY.CHARITY">Charity</option>
+            </select>
+        </div>
+    </div>
+
+    <h5 class="dash-header" translate="NAV.MY_GROUPS"></h5>
+    <div class="dark-bg">
+        <div class="dark-bg">
+          <div class="row streak-foot padding">
+              <div class="col select-box" ng-if = "userEntities.length">
+                <select placeholder="{{ 'NAV.MY_GROUPS' | translate }}" ng-model="filter.group" name="group">
+                  <option value="0" translate="REWARDS.FILTER.NONE">Dont Filter</option>
+                  <option ng-repeat= "entity in userEntities" value="{{entity.id}}" >{{entity.name}}</option>
+                </select>
+              </div>
+              <div class="text-center" ng-if = "!userEntities.length">
+                <div class="bottom-spacer-20">
+                  <span translate="REWARDS.FILTER.NO_GROUPS"></span>
+                </div>
+                <div>
+                  <button class="button button-stable button-block button-empty" translate="ACTION.JOIN" ng-click="goToGroups()"></button>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+
+    <h5 class="dash-header" translate="ACTION.ORDER_BY">Order By:</h5>
+      <div class="dark-bg">
+          <div class="row streak-foot padding">
+          <div class="col select-box">
+            <select ng-model="filter.order" name="order">
+              <option value="0" translate="REWARDS.FILTER.ORDER_BY.NONE">Don't Order</option>
+              <option value="1" translate="REWARDS.FILTER.ORDER_BY.LESS_POINTS_FIRST">Less points first</option>
+              <option value="2" translate="REWARDS.FILTER.ORDER_BY.MORE_POINTS_FIRST">More points first</option>
+              <option value="3" translate="REWARDS.FILTER.ORDER_BY.NAME_AZ">Name A-Z</option>
+              <option value="4" translate="REWARDS.FILTER.ORDER_BY.NAME_ZA">Name Z-A</option>
+              <option value="5" translate="REWARDS.FILTER.ORDER_BY.NEWEST_FIRST">Newest first</option>
+              <option value="6" translate="REWARDS.FILTER.ORDER_BY.OLDEST_FIRST">Oldest first</option>
+            </select>
+          </div>
+          </div>
+    </div> <!-- Order By -->
+
+
+  </ion-content>
+
+  <ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+    <button ng-click="applyFilters()" class="button button-big-sticky button-full floating-footer-button">{{ 'ACTION.CONFIRM_FILTERS' | translate }}</button>
+  </ion-footer-bar>
+
+</ion-modal-view>

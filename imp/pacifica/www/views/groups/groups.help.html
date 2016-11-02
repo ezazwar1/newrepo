@@ -1,0 +1,19 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow">
+  <ion-content>
+
+    <go-back ng-if="!intro"></go-back>
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+
+      <ion-slide class="groups-slide">
+        <div class="box1 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'GROUPS_HELP_TITLE_1' | translate}}</h1>
+          <p ng-bind-html="getHelpSlide(1)"></p><br>
+          <button class="button-start" ng-click="confirm()" ng-if="intro">{{ 'OK_GOT_IT' | translate }}</button>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

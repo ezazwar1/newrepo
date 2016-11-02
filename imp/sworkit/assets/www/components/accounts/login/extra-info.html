@@ -1,0 +1,58 @@
+<ion-view class="auth-view auth-outer form-view extra-info-view">
+    <ion-nav-bar class="view-navigation">
+        <ion-nav-title>
+            <span>{{'EXTRAINFO' | translate}}</span>
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-spinner ng-if="data.loading" class="spinner-on-load"></ion-spinner>
+        <div class="row why-box">
+            <div class="col">
+                <h2>{{'WHYINFO' | translate}}</h2>
+            </div>
+        </div>
+        <div class="row form-wrapper">
+            <div class="col">
+                <form name="ExtraForm" ng-submit="extraInfoSubmit()" novalidate>
+                    <div class="form-fields-outer list list-inset">
+                        <label class="item item-input item-select year-select">
+                            <div class="input-label item-input">
+                                <h2 class="small-label">{{'BIRTHYR' | translate}}</h2>
+                            </div>
+                            <select ng-options="n for n in [] | range:1900:2015" ng-model="user.birthYear">
+                                <option value="" ng-if="!user.birthYear"></option>
+                            </select>
+                        </label>
+                        <label class="item item-input item-select year-select">
+                            <div class="input-label item-input">
+                                <h2 class="small-label">{{'GENDER' | translate}}</h2>
+                            </div>
+                            <select ng-options="(n | translate) for n in ['MALE', 'FEMALE', 'OTHER']"
+                                    ng-model="user.gender">
+                                <option value="" ng-if="!user.gender"></option>
+                            </select>
+                        </label>
+                        <div class="item item-input settings-padding">
+                            <div class="input-label">
+                                <h2 class="small-label">{{'CURRWEIGHT' | translate}}</h2>
+                            </div>
+                            <input class="settings-input" type="tel" ng-model="displayWeight.data" integer>
+                        </div>
+                        <label class="item item-input item-select year-select">
+                            <div class="input-label item-input">
+                                <h2 class="small-label">{{'UNITS' | translate}}</h2>
+                            </div>
+                            <select ng-model="selectedType.data"
+                                    ng-options="(weightType.title | translate) for weightType in weightTypes"></select>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="wizard-bar">
+        <button class="button button-block" style="margin-top: 0;" ng-click="extraInfoSubmit()">
+            {{'NEXT' | translate}}
+        </button>
+    </ion-footer-bar>
+</ion-view>

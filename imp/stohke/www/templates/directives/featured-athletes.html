@@ -1,0 +1,23 @@
+<simple-slider class="carousel">
+    <div class="simple-slider-inner" style="webkit-transform: translate3d(0,0,0);">
+        <ion-item ng-repeat="item in featured.athletes track by $index" class="profile-card" ng-class="{true: 'featured-profile'}[item.isFeatured]">
+            <a class="profile-card-image" data-ui-sref="app.explore.user({alias: item.Id})">
+                <span class="location" ng-show="item.Type !== 1">{{item.City}}{{(item.City && item.State ? ', ' : '')}} {{item.State}}</span>
+                <img class="" ng-src="{{item.Pic200X200}}" src="img/empty.png">
+            </a>
+                <div class="details">
+                    <p class="profile-card-title">
+                        <a class="profile-card-image" data-ui-sref="app.explore.user({alias: item.Id})">{{item.Title}}
+                        </a>
+                    </p>
+                    <p class="sports" ng-if="item.Sports.length">
+                        <span data-ng-repeat="sport in item.Sports">
+                            <a ng-href="#explore/category/{{sport.trim().toLowerCase()}}">
+                                {{sport.trim().toLowerCase()}}
+                            </a>{{ $last ? '' : ','}}
+                        </span> 
+                    </p>
+                </div>
+        </ion-item>
+    </div>
+</simple-slider>

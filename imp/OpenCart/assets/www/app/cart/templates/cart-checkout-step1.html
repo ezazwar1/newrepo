@@ -1,0 +1,67 @@
+<ion-view view-title="{{ 'cart.title_checkout' | i18n }}" cache-view="false">
+    <ion-nav-buttons side="right">
+        <a class="button button-positive" ng-click="openLoginModal()"><i class="icon ion-ios-person-outline"></i></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <form name="forms.checkoutForm" novalidate>
+                <div class="item item-divider" i18n="cart.order_your_details"></div>
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_firstname"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'cart.order_firstname'}" ng-model="checkout.firstname" name="firstname" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_lastname"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'cart.order_lastname'}" ng-model="checkout.lastname" name="lastname" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_email"></span>
+                    <input type="email" data-i18n-attr="{placeholder: 'cart.order_email'}" ng-model="checkout.email" name="email" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_telephone"></span>
+                    <input type="tel" data-i18n-attr="{placeholder: 'cart.order_telephone'}" ng-model="checkout.telephone" name="telephone" required>
+                </label>
+
+                <div class="item item-divider" i18n="cart.order_your_address"></div>
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_address1"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'cart.order_address1'}" ng-model="checkout.address_1" name="address_1" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_address2"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'cart.order_address2'}" ng-model="checkout.address_2" name="address_2">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_city"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'cart.order_city'}" ng-model="checkout.city" name="city" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="cart.order_postal"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'cart.order_postal'}" ng-model="checkout.postcode" maxlength="5" minlength="5" name="postal_code" required>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label" i18n="cart.order_country"></div>
+                    <select ng-model="checkout.country_id" ng-change="countryChanged()" name="country_id" required>
+                        <option value="{{::country.country_id}}" ng-selected="country.country_id == checkout.country_id" ng-repeat="country in countries">{{::country.name}}</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label" i18n="cart.order_region"></div>
+                    <select ng-model="checkout.zone_id" name="zone_id" required ng-init="countryChanged()">
+                        <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == checkout.zone_id" ng-repeat="zone in zones">{{::zone.name}}</option>
+                    </select>
+                </label>
+            </form>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer-bar align-title="left" ng-class="{'bar-assertive':forms.checkoutForm.$invalid, 'bar-positive':forms.checkoutForm.$valid}">
+        <h2 class="title">{{total_amount}}</h2>
+        <div class="buttons">
+            <a class="button" ng-click="savePersonalInfo()" i18n="cart.button_next"></a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

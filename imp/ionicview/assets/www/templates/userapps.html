@@ -1,0 +1,24 @@
+  <ion-view class="userapps" can-swipe-back="false" hide-back-button="true" view-title="My apps">
+    <ion-nav-buttons side="right">
+      <button class="button button-clear button-light" ng-click="openActionSheet()">
+        <i class="icon ion-android-more-vertical"></i>
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="content" scroll="true" scrollbar-y="false">
+      <view-refresher on-refresh="reloadAppList()"></view-refresher>
+      <div ng-repeat="app in appListService.appListOrdered" class="card">
+        <a class="item item-icon-left" ng-click="showPopup(app.appId, app.name)" ng-class="{'loaded': app.loaded}">
+          <img class="loaded-icon" ng-show="app.loaded" src="img/synced-icon.png">
+          <img class="loaded-icon" ng-show="!app.loaded" src="img/cloud-icon.png">
+          <div class="appname">
+            {{app.name}}
+          </div>
+          <div class="subtext">
+            ID: {{app.appId|uppercase}}<br/>
+            SIZE: {{app.size|bytes|uppercase}}<br/>
+            MODIFIED: {{app.server_last_modified | date : 'medium' | uppercase}}<br/>
+          </div>
+        </a>
+      </div>
+    </ion-content>
+  </ion-view>

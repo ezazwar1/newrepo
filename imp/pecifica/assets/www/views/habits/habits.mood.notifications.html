@@ -1,0 +1,18 @@
+<ion-modal-view class="intro-view">
+
+  <ion-content scroll="false">
+
+        <div class="box intro2 notif">
+
+          <div class="slide-image"></div>
+          <h1>{{ 'MOOD_NOTIFICATIONS_LINE_1' | translate }}</h1>
+          <h2>{{ 'MOOD_NOTIFICATIONS_LINE_2' | translate }}</h2>
+          <p style="text-align: left;">{{ getNotificationsLine3() }}</p>
+          <div ng-click="closeNotificationModal()" class="button-bottom" ng-if="!grantingPermission">{{ 'OK_GOT_IT' | translate }}</div>
+
+          <div ng-click="closeNotificationModal(true)" class="button-bottom" ng-if="grantingPermission">{{ 'CLOSE' | translate }}</div>
+
+        </div> 
+
+  </ion-content>
+</ion-modal-view>

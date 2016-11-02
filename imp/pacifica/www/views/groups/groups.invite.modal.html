@@ -1,0 +1,23 @@
+<ion-modal-view class="touchpoint popoverr new-post">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeInviteModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'INVITE_TO_GROUP_TITLE' | translate}}</h1>
+      <p>
+        <label>{{ 'INVITE_GROUP_EMAIL_LABEL' | translate }}</label>
+        <input type="text" placeholder="{{ 'INVITE_GROUP_EMAIL_PLACEHOLDER' | translate}}" name="inviteEmails" id="inviteEmails">
+        <label>{{ 'INVITE_GROUP_TEXT_LABEL' | translate }}</label>
+        <textarea name="inviteText" id="inviteText">{{ 'INVITE_GROUP_TEXT' | translate }}</textarea>
+      </p>
+      <p ng-if="inviteError" class="error">{{inviteError}}</p>
+      <p>{{ 'INVITE_TO_GROUP_COPY' | translate}}</p>
+      <div class="clearfix">
+        <button ng-click="sendInvite()" class="button-start" ng-disabled="sendingInvites">
+          {{ 'SEND_INVITE' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

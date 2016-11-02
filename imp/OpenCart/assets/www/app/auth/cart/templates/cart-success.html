@@ -1,0 +1,21 @@
+<ion-view view-title="{{ 'cart.title_order_added' | i18n }}" cache-view="false">
+    <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button hide-back-button="true"></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+
+        <div class="large-icon-message">
+            <span class="large-app-icon large-app-icon-green">
+                <i class="icon ion-ios-checkmark-outline"></i>
+            </span>
+            <p i18n="cart.order_added_title"></p>
+            <p i18n="cart.order_added_desc"></p>
+
+            <p>
+                <a class="button button-positive" ng-click="goBackToShop()" i18n="cart.go_to_shop"></a>
+            </p>
+
+        </div>
+
+    </ion-content>
+</ion-view>

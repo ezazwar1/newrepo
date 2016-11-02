@@ -1,0 +1,43 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>Select Country</ion-nav-title>
+<ion-content>
+<section id="cafe-search">
+    <ion-spinner icon="ios" ng-show="countries.length == 0" ng-hide="message"></ion-spinner>
+    <section ng-include="'templates/include/error-message.html'"></section>
+    <div ng-repeat="country in countries">
+        <div class="item item-text-wrap item-icon-right item-avatar"
+             ui-sref="tab.select-city({ countryId:country.id, total_count: country.cafe_count, country_name: country.name })">
+            <img ng-src="img/flags/{{ country.code }}.svg" alt="">
+            <h2 class="country-name">{{ ::country.name }}</h2>
+            <p class="country-cafe-count">{{ ::country.cafe_count }} cafes</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </div>
+        <section class="gallery">
+        <div class="row" ng-repeat="popular_cafe in country.popular_cafes" ng-if="$index % 3 === 0">
+            <div class="col col-33"
+                 ng-if="$index < country.popular_cafes.length"
+                 ui-sref="tab.search-cafe-detail({ cafeId:country.popular_cafes[$index].id })">
+                <img ng-src="{{ country.popular_cafes[$index].image }}"
+                     width="100%"
+                     default-src="img/default.png">
+            </div>
+            <div class="col col-33"
+                 ng-if="$index + 1 < country.popular_cafes.length"
+                 ui-sref="tab.search-cafe-detail({ cafeId:country.popular_cafes[$index + 1].id })">
+                <img ng-src="{{ country.popular_cafes[$index + 1].image }}"
+                     width="100%"
+                     default-src="img/default.png">
+            </div>
+            <div class="col col-33"
+                 ng-if="$index + 2 < country.popular_cafes.length"
+                 ui-sref="tab.search-cafe-detail({ cafeId:country.popular_cafes[$index + 2].id })">
+                <img ng-src="{{ country.popular_cafes[$index + 2].image }}"
+                     width="100%"
+                     default-src="img/default.png">
+            </div>
+        </div>
+        </section>
+    </div>
+</section>
+</ion-content>
+</ion-view>

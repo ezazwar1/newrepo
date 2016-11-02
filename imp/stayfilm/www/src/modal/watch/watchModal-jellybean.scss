@@ -1,0 +1,27 @@
+@import 'variables';
+
+.modal-watch {
+	.comment-footer {
+		form {
+			.input-wrapper {
+				.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+					width: 78%;
+				}
+			}
+		}
+
+		.toggle-comment {
+			.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+				width: 70%;
+			}
+		}
+	}
+
+	.user-header-bar {
+		.user-thumb {
+			.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+				width: 30px;
+			}
+		}
+	}
+}

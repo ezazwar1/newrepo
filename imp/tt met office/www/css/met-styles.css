@@ -1,0 +1,43 @@
+/*.container {
+ padding: 20px;
+}
+
+.slider {
+ overflow: visible;
+ display: table; // makes the slider have a height
+}
+ion-slide {
+ padding-right: 20px;
+ padding-left: 0px;
+
+}
+ion-slide:first-child {
+ padding-left: 0;
+}
+ion-slide:last-child {
+ padding-right: 0;
+}
+ion-slide:nth-child(1) {
+ z-index: 4; // posible fix for last slide positioning on top of next slide
+}
+ion-slide:nth-child(2) {
+ z-index: 3; // posible fix for last slide positioning on top of next slide
+}
+ion-slide:nth-child(3) {
+ z-index: 2; // posible fix for last slide positioning on top of next slide
+}
+ion-slide:nth-child(4) {
+ z-index: 1; // posible fix for last slide positioning on top of next slide
+}
+*/
+.background {
+    background: url(https://s-media-cache-ak0.pinimg.com/736x/8e/7d/e6/8e7de6bd7fa1b6df45a0bb8434e7f376.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 80%;
+    height: 246px;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+}

@@ -1,0 +1,32 @@
+<ion-modal-view class="modal-collection create-only">
+  
+  <ion-footer-bar keyboard-attach class="main-area">
+
+    <ion-header-bar class="header" no-tap-scroll="true">
+      <div class="close">
+        <button class="btn-link-white" ng-click="closeModal()"><span class="ion-close"></span></button>
+      </div>
+      <div class="title modal-bottom">
+          Create New Collection
+      </div>
+    </ion-header-bar>
+
+    <ion-content class="add-collection-raw">
+      <input type="text" placeholder="For any occasion, venue, mood, etc" ng-model="itemGroupModel.groupName" ng-change="onSetNameChanged()"/>
+    </ion-content>
+
+    <ion-footer-bar class="footer">
+      <div class="row">
+        <div class="col right-border" ng-click="closeModal()">
+          <button class="btn-link"><span class="active-normal">CLOSE</span></button>
+        </div>
+        <div class="col save">
+          <ion-spinner ng-show="working" icon="ios-small"></ion-spinner> 
+          <button class="btn-link" ng-show="!working" class="active" ng-click="doCreate()"><span ng-class="{'active': allowToSave == true, '': allowToSave == false}"> SAVE</span></button>
+        </div>
+      </div>
+    </ion-footer-bar>
+
+  </ion-footer-bar>
+
+</ion-modal-view>

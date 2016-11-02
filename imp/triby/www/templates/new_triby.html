@@ -1,0 +1,19 @@
+<ion-view cache-view="false" view-title="Create a Group" ng-controller="NewTribyCtrl">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left client-positive" ng-click="go('app/main/home')">Groups</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button ng-class="{'show-hide': triby.name}" class="button button-icon init-hide client-positive" ng-click="nextStep()">Next</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="triby-picture" ng-click="uploadPicture()">
+          <img class="triby-pic" ng-src="{{ triby.pic }}"/>
+        </div>
+        <br>
+        <div class="list list-add-triby">
+            <label class="item item-input">
+                <input type="text" placeholder="Group Name" ng-model="triby.name" maxLength="15">
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,172 @@
+<ion-view hide-back-button="true" ng-controller="homeController as viewModel">
+    <ion-nav-buttons side="left">
+        <web-home-logo-button></web-home-logo-button>
+    </ion-nav-buttons>
+    <ion-nav-title class="">
+        <div class="bar bar-light bar-has-sub-header item-input-inset">
+            <form ng-submit="searchSubmit()" role="search" class="text-center">
+                <label class="item-input-wrapper category-search-label" stop-event="click">
+                    <input type="search"
+                    ng-focus="searchFocus()"
+                    ng-blur="searchUnFocus()"
+                    placeholder="{{viewModel.searchButtonText()}}"
+                    ng-model="search.searchQuery">
+                    <button
+                        class="button button-positive button-icon icon ion-ios-search"
+                        ng-click="searchSubmit()"
+                        aria-label="search">
+                    </button>
+                </label>
+            </form>
+        </div>
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+        <web-cart-button></web-cart-button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader home-sub-header">
+        <button ng-click="viewModel.shopCategories($event)" class="button button-icon icon dark">
+            <i class="icon ion-navicon text-positive" aria-hidden="true"></i> Shop by Category
+        </button>
+        <button
+            ng-if="viewModel.defaultShoppingAddressText && viewModel.chooseStoreEnabled"
+            ng-click="viewModel.clickEditShoppingAddressButton()"
+            class="address-bar-icon button button-icon icon dark"
+            aria-label="Change address, currently at {{viewModel.defaultShoppingAddressText}}">
+            {{viewModel.defaultShoppingAddressText}} <i class="icon ion-edit text-positive" aria-hidden="true"></i>
+        </button>
+        <button class="button button-icon icon dark" ng-click="viewModel.accountClick()">
+            <i class="icon ion-android-person text-positive" aria-hidden="true"></i> Your Account
+        </button>
+    </div>
+
+    <ion-content id="homeIonContent" class="has-header has-subheader home-screen-content" >
+        <guest-account-callout ng-if="viewModel.guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div ng-if="!searching"  ng-if="viewModel.chooseStoreEnabled" class="top-color-area" style="background-color: {{viewModel.store.background_color}}">
+            <div ng-click="viewModel.changeLocationStoreClick()" class="store-info-area" aria-label="Change Store from {{viewModel.store.name}}">
+                <div class="text-center ">
+                    <img ng-src="{{viewModel.store.image}}" alt="" aria-hidden="true">
+                </div>
+            </div>
+            <div class="text-center" ng-if="viewModel.chooseStoreEnabled" >
+                <a
+                    ng-click="viewModel.changeLocationStoreClick()"
+                    class="change-location-button button button-light button-clear"
+                    aria-hidden="true">
+                    Change Store <i class="icon ion-ios-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+        <!-- <div ng-if="!searching" class="area-for-address-and-window">
+            <div class="padding text-center ">
+                <h2 class="dark" style="font-weight: 400;font-size: 16px;">
+                    {{viewModel.nextAvailableDeliveryMessage()}}
+                </h2>
+            </div>
+        </div> -->
+        <div ng-if="!searching"  class="row home-row">
+            <div class="col padding">
+                <div class="padding text-center">
+                    <h2 ng-show="viewModel.featurePromos" class="dark" aria-label="Featured Categories" tabindex="0">
+                        Featured Categories
+                    </h2>
+                    <h2 ng-hide="viewModel.featurePromos" class="dark">
+                        <ion-spinner></ion-spinner>
+                    </h2>
+                </div>
+                <div class="padding text-center row responsive-md feature-items">
+                    <div ng-click="viewModel.webFeatureClick(feature)"
+                        class="col col-33 feature"
+                        ng-repeat="feature in viewModel.featurePromos | limitTo:6"
+                        ng-if="feature.category.products.count > 4"
+                        aria-label="{{feature.display_title}}">
+                        <div style="background-image:url('{{feature.image_url}}');">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="searching" cg-busy="{promise:myPromise,templateUrl:'templates/searchLoading.html'}">
+            <div class="row responsive-md">
+                <div class="col col-20 web-product-item" ng-repeat="product in searchResults ">
+                    <ion-item class=" "
+                              force-refresh-images="true"
+                              item-render-buffer="6"
+                              ng-class="getItemClass(product)"
+                              ng-click="productDetail(product)">
+                        <div ng-show="!product.addButton && !product.loadingMore"
+                             class="product-inside-box">
+                            <div class="detail-img-wrapper text-center">
+                                <img class="img-products-list" ng-src="{{product.images[0].url}}" />
+                            </div>
+                            <div ng-show="product.on_sale && !product.bogo" class="on-sale-web-banner">
+                                SALE
+                            </div>
+                            <div ng-show="product.bogo" class="on-sale-web-banner bogo">
+                                BOGO
+                            </div>
+                            <div class="qty-buttons">
+                                <button ng-show="productInCart(product)"  stop-event="click" ng-click="removeItemFromCart(product)" class="button button-positive button-small qty-button minus-button if-fade" >
+                                    <i class="icon ion-minus"></i>
+                                </button>
+                                <button class="button button-positive button-small qty-button add-button if-fade" stop-event="click" ng-click="addItem(product)">
+                                    <i class="icon ion-plus"></i> Add
+                                </button>
+                            </div>
+                            <span ng-if="productInCart(product)" class="badge badge-positive product-grid-cart-count-badge if-bounce">
+                                {{cartItemCountForProduct(product)}} {{viewModel.inCartText(product, cartItemCountForProduct(product))}}
+                            </span>
+                            <p class="wrap grid-product-name" ng-class="product.on_sale ? 'grid-product-name-sale':''">
+                                {{product.brand_name}} {{product.name}}
+                            </p>
+                            <div class="grid-product-info">
+                                <p >
+                                    {{product.size}}
+                                </p>
+                                <p class="price">
+                                    <span ng-class="product.on_sale ? 'strike-through':''">{{viewModel.getPrice(product)}} </span>
+                                    <br ng-if="product.on_sale">
+                                    <span class="positive" ng-show="product.on_sale">{{viewModel.getSalePrice(product)}} </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div ng-show="product.addButton" class="text-center add-special-item">
+                            <div class="">
+                                <h1>
+                                    <i class="icon ion-ios-plus-empty dark"></i>
+                                </h1>
+                            </div>
+                            <p class="light-weight">Add Special Request</p>
+                        </div>
+                        <div ng-if="product.loadingMore" class="center-content text-center loading-more-item">
+                            <div>
+                                <ion-spinner></ion-spinner>
+                            </div>
+                            <p class="light-weight">Loading...</p>
+                        </div>
+                    </ion-item>
+                </div>
+            </div>
+        </div >
+        <ion-infinite-scroll
+                ng-show="moreDataCanBeLoadedSearch()"
+                on-infinite="loadMoreSearchItems()"
+                immediate-check="true"
+                spinner="none"
+                distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+
+
+    <script id="templates/searchLoading.html" type="text/ng-template">
+        <div class="cg-busy-default-wrapper">
+            <div class="cg-busy-default-sign">
+                <br/>
+                <ion-spinner></ion-spinner>
+                <div class="text-center">Searching...</div>
+            </div>
+        </div>
+    </script>
+
+</ion-view>

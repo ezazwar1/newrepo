@@ -1,0 +1,58 @@
+<ion-view view-title="Address" ng-controller="addressSearchController as viewModel">
+    <ion-header-bar class="bar bar-subheader bar-stable item-input-inset">
+        <label class="item-input-wrapper faq-search-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon" aria-hidden="true"></i>
+            <input type="search"
+                   class="typeAheadAddressSearchTextBox"
+                   placeholder="Address"
+                   ng-model="viewModel.search.searchQuery"
+                   ng-model-options="{ debounce: 1000 }">
+
+
+        </label>
+        <ion-spinner ng-if="viewModel.loadingSpinner" style="padding-left: 7px;">
+        </ion-spinner>
+    </ion-header-bar>
+    <ion-content style="" class="has-header darker-content" id="searchAddressListContent" has-bouncing="true" >
+        <div class="text-center">
+            <button class="button button-clear button-positive text-center" ng-click="viewModel.currentLocationClick();"
+                    role="button" aria-label="Use Current Location" >
+                Use Current Location <i class="icon ion-location" aria-hidden="true" aria-label="location icon"></i>
+            </button>
+        </div>
+        <div class="list light-item-list large-padding" ng-if="viewModel.results">
+            <ion-item ng-repeat="result in viewModel.results"
+                      ng-click="viewModel.resultClick(result)"
+                      class="item order-history-item help item-icon-right"
+                      >
+                <div role="button" aria-label="{{result.description}}, {{result.formatted_address}}">
+                    <span class="wrap" ng-if="!result.formatted_address && result.description">
+                        {{result.description}}
+                    </span>
+                    <span class="wrap" ng-if="result.formatted_address && !result.description">
+                        {{result.formatted_address}}
+                    </span>
+                    <i ng-if="result.loadingSpinner" style="position: absolute;right: 9px;top: 25%;" aria-hidden="true" aria-label="spinner icon">
+                        <ion-spinner>
+                        </ion-spinner>
+                    </i>
+                    <i ng-if="!result.loadingSpinner" class="icon ion-ios-arrow-right text-positive" aria-hidden="true" aria-label="arrow-right icon"></i>
+                </div>
+            </ion-item>
+            <ion-item ng-click="viewModel.resultClick({other: true})"
+                      class="item order-history-item help item-icon-right">
+                <p ng-if="viewModel.results && viewModel.results.length == 0">
+                    No Matches Found
+                </p>
+                <span class="wrap" role="button" aria-label="Add Your Address By Tapping Here">
+                    Add Your Address By Tapping Here
+                </span>
+                <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true" aria-label="plus icon"></i>
+            </ion-item>
+        </div>
+        <div ng-if="viewModel.results" class="powered-by-google-logo">
+            <img src="img/powered_by_google.png" alt="" aria-hidden="true">
+        </div>
+
+    </ion-content>
+</ion-view>

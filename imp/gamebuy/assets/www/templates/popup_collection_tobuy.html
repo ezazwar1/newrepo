@@ -1,0 +1,25 @@
+<div ng-init="pop_init()" class="popup-tobuy">
+    <h2 class="popup-title">Select Type of Transaction</h2>
+
+    <div class="popup-tobuy_option">
+        <!--<p class="popup-tobuy_option-title">Meeting in Person Transaction</p>-->
+        <!--<p class="popup-tobuy_option-info">If you intend to meet the seller in person to receive and pay for the item, select "Use Cash",-->
+            <!--to indicate that you'll pay cash in exchange for the item when you meet.</p>-->
+        <p class="popup-tobuy_option-title">If you will meet the seller to trade, click</p>
+        <button class="button button-block button-primary" ng-click="use_cash()">Meet and Trade</button>
+    </div>
+
+    <div class="popup-tobuy_option">
+        <!--<p class="popup-tobuy_option-title">Secure Online Transaction</p>-->
+        <!--<p class="popup-tobuy_option-info"> If your purchase doesn't involve an in-person exchange and you anticipate receiving-->
+            <!--a digital code or third party delivery of the item (for example, by mail), select "Pay Online".-->
+            <!--Please note that you must first have sufficient credit stored in your GBG wallet to pay for the item.</p>-->
+        <p class="popup-tobuy_option-title">Or, if your purchase doesn't involve an in-person exchange and you anticipate receiving
+            a digital code or third party delivery of the item (for example, by mail)</p>
+        <button class="button button-block button-primary ion-android-lock" ng-click="use_credit()">Pay Online</button>
+    </div>
+
+    <div>
+        <button class="button button-block button-primary" ng-click="cancel_button()">Cancel</button>
+    </div>
+</div>

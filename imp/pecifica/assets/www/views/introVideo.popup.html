@@ -1,0 +1,45 @@
+<ion-modal-view class="touchpoint intro-video popoverr">
+  <ion-content class="filter-popover">
+
+    <!--
+    <a href="javascript:;" ng-click="closeIntroVideoModal()" class="go-back">X</a>
+    -->
+
+    <div class="slide-image" ng-class="{ 'mood': (currentVideo == 0), 'relax': (currentVideo == 1), 'thoughts': (currentVideo == 2), 'goals': (currentVideo == 3), 'health': (currentVideo == 4), 'community': (currentVideo == 5) }"></div>
+ 
+    <!--<i class="icon ion-android-share" ng-click="shareVideo(currentVideo)">{{ 'SHARE' | translate }}</i>-->
+
+    <h1><strong>{{ getIntroVideoTitle(currentVideo) }}</strong></h1>
+
+    
+    <p ng-show="!isUMNUser() && !alwaysDisplay() && (currentVideo == 0)">{{ 'HABITS_MOOD_HELP_LINE_1' | translate }}</p>
+    <p ng-show="!isUMNUser() && !alwaysDisplay() && (currentVideo == 0)">{{ 'HABITS_MOOD_HELP_LINE_3' | translate }}</p>
+
+    <p ng-show="isUMNUser() && !alwaysDisplay() && (currentVideo == 0)">{{ 'HABITS_MOOD_STRESS_HELP_LINE_1' | translate }}</p>
+    <p ng-show="isUMNUser() && !alwaysDisplay() && (currentVideo == 0)">{{ 'HABITS_MOOD_STRESS_HELP_LINE_3' | translate }}</p>
+
+    <p ng-show="!alwaysDisplay() && (currentVideo == 1)">{{ 'RELAX_HELP_LINE_2' | translate }}</p>
+    <p ng-show="!alwaysDisplay() && (currentVideo == 1)">{{ 'RELAX_HELP_LINE_3' | translate }}</p>
+
+    <p ng-show="!alwaysDisplay() && (currentVideo == 2)">{{ 'THOUGHTS_HELP_LINE_2' | translate }}</p>
+    <p ng-show="!alwaysDisplay() && (currentVideo == 2)">{{ 'THOUGHTS_HELP_LINE_3' | translate }}</p>
+
+    <p ng-show="!alwaysDisplay() && (currentVideo == 3)">{{ 'EXPERIMENTS_HELP_SLIDE_2' | translate }}</p>
+    <p ng-show="!alwaysDisplay() && (currentVideo == 3)">{{ 'EXPERIMENTS_HELP_SLIDE_3' | translate }}</p>
+
+    <p ng-show="!alwaysDisplay() && (currentVideo == 4)">{{ 'HABITS_HELP_LINE_2' | translate }}</p>
+    <p ng-show="!alwaysDisplay() && (currentVideo == 4)">{{ 'HABITS_HELP_LINE_3' | translate }}</p>
+
+    <p ng-show="!alwaysDisplay() && (currentVideo == 5)">{{ 'VIDEO_COMMUNITIES_DESC' | translate }}</p>
+    <p ng-show="!alwaysDisplay() && (currentVideo == 5)">{{ 'VIDEO_COMMUNITIES_DESC2' | translate }}</p>
+    
+    <div ng-show="!alwaysDisplay()" class="button-start" ng-click="buttonClicked(currentVideo)" ng-class="{ 'mood': (currentVideo == 0), 'relax': (currentVideo == 1), 'thoughts': (currentVideo == 2), 'goals': (currentVideo == 3), 'health': (currentVideo == 4), 'community': (currentVideo == 5) }">
+      {{ getVideoButtonText() }}
+    </div>
+
+    <!--<div ng-show="alwaysDisplay()" class="button-start" ng-click="shareVideo(currentVideo)">
+      {{ 'SHARE_PACIFICA' | translate }}
+    </div>-->
+
+  </ion-content>
+</ion-modal-view>

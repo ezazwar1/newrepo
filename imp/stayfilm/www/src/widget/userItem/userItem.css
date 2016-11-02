@@ -1,0 +1,102 @@
+/* line 4, userItem.scss */
+.user-list .user-item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  margin-bottom: 25px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-items: center;
+  font-size: 14px;
+  font-family: HelveticaNeue, 'sans-serif';
+  width: 100%;
+  overflow: hidden;
+}
+/* line 19, userItem.scss */
+.user-list .user-item .thumb {
+  margin-right: 10px;
+  margin-left: 10px;
+  overflow: hidden;
+  height: 30px;
+  width: 30px;
+  display: block;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+  -webkit-flex-basis: 30px;
+  -moz-flex-basis: 30px;
+  flex-basis: 30px;
+  -ms-flex-preferred-size: 30px;
+}
+/* line 31, userItem.scss */
+.user-list .user-item .thumb img {
+  height: 30px;
+}
+/* line 36, userItem.scss */
+.user-list .user-item .user-info {
+  height: 30px;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+}
+/* line 41, userItem.scss */
+.user-list .user-item .user-info .fullName {
+  line-height: 15px;
+  color: #ad252a;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+/* line 51, userItem.scss */
+.user-list .user-item .user-info .city {
+  line-height: 15px;
+  color: #9aa7b2;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+}
+/* line 62, userItem.scss */
+.user-list .user-item .actions {
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+  display: block;
+  padding-right: 10px;
+}
+/* line 68, userItem.scss */
+.user-list .user-item .actions.two-buttons button {
+  display: inline;
+  width: 50%;
+  text-align: left;
+  padding: 5px;
+}
+/* line 76, userItem.scss */
+.user-list .user-item .actions button {
+  color: #9aa7b2;
+  padding: 0;
+}
+/* line 81, userItem.scss */
+.user-list .user-item .actions.shake {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}

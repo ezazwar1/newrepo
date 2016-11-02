@@ -1,0 +1,51 @@
+<ion-pane ng-class="{umn: isUMNUser()}">
+
+	<ion-nav-bar class="pa-header">    
+	  <ion-nav-back-button class="button-clear" ng-click="goBack()"><i class="icon ion-ios-arrow-left"></i></ion-nav-back-button>
+	</ion-nav-bar>
+
+	<div class="offline" ng-if="serverError">{{ 'OFFLINE' | translate }}</div>
+
+	<div id="bgvidContainer"></div>
+
+	<div id="bgimgblur" style="display:none"></div>
+  <div id="gradient"></div>
+
+  <!-- This is for functionality, not to display the element. Do not delete the element. -->
+  <pacifica-intro ></pacifica-intro>
+
+  <!-- for the logged-out view. -->
+  <div ng-if="!isLoggedIn()"> <!-- ng-if doesn't work on the nav view apparently. -->
+	  <ion-nav-view name="loginContent" class="pa-container" animation="slide-left-right"></ion-nav-view>
+  </div>
+
+  <ion-tabs class="tabs-icon-top {{hideTabs() ? 'tabs-item-hide' : ''}}" ng-show="isLoggedIn()">
+
+    <ion-tab title="{{ 'HOME' | translate}}" icon-on="ion-happy" icon-off="ion-happy-outline" href="#/app/home" nav-transition="none">
+      <ion-nav-view name="homeContent" class="pa-container" animation="slide-left-right"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="{{ 'HEALTH' | translate }}" icon-on="ion-ios-heart" icon-off="ion-ios-heart-outline" href="#/app/habits" nav-transition="none">
+      <ion-nav-view name="healthContent" class="pa-container" animation="slide-left-right"></ion-nav-view>
+    </ion-tab>
+
+    <!-- Pacifica lite users will not have the icon in the upper-left for progress. NOTE: moodTab here and not mood for the URL-->
+    <ion-tab title="{{ 'PROGRESS' | translate }}" icon-on="ion-stats-bars" icon-off="ion-stats-bars" href="#/app/progress/moodTab" nav-transition="none" hidden="{{!isPacificaLiteUser()}}">
+      <ion-nav-view name="progressContent" class="pa-container" animation="slide-left-right"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="{{ 'RELAX_NOW' | translate }}" icon-on="ion-ios-flame" icon-off="ion-ios-flame-outline" href="#/app/relax" nav-transition="none" hidden="{{isPacificaLiteUser()}}">
+      <ion-nav-view name="relaxContent" class="pa-container" animation="slide-left-right"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="{{ 'GROUPS' | translate }}" icon-on="ion-ios-chatboxes" icon-off="ion-ios-chatboxes-outline" href="#/app/groups" badge="getGroupsBadgeCount()" nav-transition="none" hidden="{{isUMNUser()}}">
+      <ion-nav-view name="groupContent" class="pa-container" animation="slide-left-right"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="{{ 'COMMUNITY' | translate }}" icon-on="ion-ios-people" icon-off="ion-ios-people-outline" href="#/app/communities" badge="getCommunityBadgeCount()" nav-transition="none" hidden="{{isUMNUser()}}">
+      <ion-nav-view name="communityContent" class="pa-container" animation="slide-left-right"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+
+</ion-pane>

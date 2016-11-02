@@ -1,0 +1,34 @@
+<ion-view class="black">
+    <div class="discover-home">
+        <ion-content has-bouncing="true">
+            <div class="discover">
+                <ul>
+                    <li ng-repeat="item in discover" ng-click="goFromDiscover(item.link, item.picture__large)"  ng-style="{ 'background-image': 'url(' + item.picture__medium + ')' }">
+                        <h1>
+                            {{ item.label }} <br/>
+                            <small>{{ item.description }}</small>
+                        </h1>
+                    </li>
+                </ul>
+            </div>
+        </ion-content>
+    </div>
+
+    <div class="search">
+        <span class="bts bts-search placeholder-icon"></span>
+        <span class="bts bts-close hide" ng-click="emptySearch()"></span>
+        <label class="item item-input">
+            <input id="searchInput" type="text" placeholder="Search" ng-model="searchText" ng-change="search()">
+        </label>
+    </div>
+
+    <div class="result slide-up">
+        <ion-content>
+            <ul class="list">
+                <li class="item" ng-click="searchData(item.tag)" ng-repeat="item in searchResult">
+                       {{ item.tag }}
+                </li>
+            </ul>
+        </ion-content>
+    </div>
+</ion-view>

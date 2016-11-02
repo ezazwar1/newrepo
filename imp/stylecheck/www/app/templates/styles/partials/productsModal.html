@@ -1,0 +1,45 @@
+ <ion-modal-view>
+    <ion-header-bar align-title="center">
+        <button class="button button-clear button-dark icon icon-close" ng-click="closeModal('products')"></button>
+        <h1 class="title">
+            <img height="26" src="resources/images/logo.png">
+        </h1>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader">
+        <div class="products-title display-flex align-center bold uppercase">
+            <img class="tag" src="resources/images/tag.png" height="24">
+            <div class="flex-1">
+                {{dict.clothes.subcategories[style.tags[tagIndex].category][style.tags[tagIndex].name].display}}
+                <span ng-if="style.tags[tagIndex].brand">: {{style.tags[tagIndex].brand}}</span>
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content delegate-handle="products" class="style-list">
+        <div class="padding">
+            <ion-spinner ng-if="!productsLoaded" icon="crescent" class="spinner-assertive center"></ion-spinner>
+            <div ng-if="noProducts && productsLoaded">{{dict.errors.no_products}}</div>
+        </div>
+        <ion-list class="style-list" ng-if="productsLoaded">
+            <ion-item class="product" collection-repeat="value in productList[sort]" item-height="sizes.styleContainer.height" item-width="sizes.styleContainer.width">
+                <div ng-click="openLink(value.detailpageurl)">
+                    <div class="product-image imageonload hide-image" imageonload image-src="{{value.image}}" style="background-image: url({{value.image}}); height: {{sizes.styleContainer.height - 110 + 'px'}};"></div>
+                    <div class="product-details uppercase">
+                        <span class="truncate">{{value.title}}</span>
+                        <span class="bold truncate">{{value.listprice.formattedprice}}</span>
+                        <span class="stable small truncate">{{dict.brand}}: {{value.brand || '-'}}</span>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="row fashion-feed-buttons">
+            <div class="col display-flex align-center" ng-click="filterProducts(tempTagIndex, 'score')">
+                <div class="label text-center uppercase" ng-class="{active: sort === 'score'}">{{dict.popularity}}</div>
+            </div>
+            <div class="col display-flex align-center" ng-click="filterProducts(tempTagIndex, 'price')">
+                <div class="label text-center uppercase" ng-class="{active: sort === 'price'}">{{dict.price}}</div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

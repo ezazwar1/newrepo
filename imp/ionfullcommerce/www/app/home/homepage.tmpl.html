@@ -1,0 +1,120 @@
+<ion-view class="view-home" view-title="Home">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon side-menu-icon icon ion-navicon"></button>
+		<!--Drawer Change-->
+	</ion-nav-buttons>
+	<ion-content has-subheader="false">
+		<ion-slide-box auto-play=true on-slide-changed="slideChanged(index)">
+			<ion-slide>
+				<div class="featured-card">
+					<div class="row">
+						<div class="col col-60">
+							<div ng-if="featured.images.big ==null" class="featured-loading-icon">
+								<img style="width:44px" src="img/loader.gif"><br>
+								Loading..
+							</div>
+							<!-- <img src="./img/products/home-featured.jpg" class="featured" alt=""> -->
+							<img ng-if="featured.images.big !==null" class="featured"
+							ng-src="./img/products/{{featured.images[0].name}}"  alt="">
+
+					<!-- <img img-preload class="preloadFade featured"
+					src="img/hex_loader.gif" ng-src="./img/products/{{featured.images.big}}"  alt=""> -->
+				</div>
+				<div class="col col-40">
+					<h3>NEW COLLECTION</h3>
+					<P>Out now! </P>
+					<a href="" class="button discoverbtn">Discover</a>
+				</div>
+			</div>
+		</div>
+	</ion-slide>
+	<ion-slide>
+		<div class="featured-card">
+			<div class="row">
+				<div class="col col-60">
+					<div ng-if="featured.images.big ==null" class="featured-loading-icon">
+						<img src="img/loader.gif"><br>
+						Loading..
+					</div>
+					<!-- <img src="./img/products/elevate.jpg" class="featured" alt=""> -->
+					<img ng-if="featured.images.big !==null" class="featured"
+					ng-src="./img/products/{{featured.images[0].name}}"  alt="">
+
+					<!-- <img img-preload class="preloadFade featured"
+					src="img/hex_loader.gif" ng-src="./img/products/{{featured.images.big}}"  alt=""> -->
+				</div>
+				<div class="col col-40">
+					<h3>NEW COLLECTION</h3>
+					<P>Out now! </P>
+					<a href="" class="button discoverbtn">Discover</a>
+				</div>
+			</div>
+		</div>
+	</ion-slide>
+	<ion-slide>
+		<div class="featured-card">
+			<div class="row">
+				<div class="col col-60">
+					<div ng-if="featured.images.big ==null" class="featured-loading-icon">
+						<img src="img/loader.gif"><br>
+						Loading..
+					</div>
+					<!-- <img src="./img/products/woolcoat.jpg" class="featured" alt=""> -->
+					<img ng-if="featured.images.big !==null" class="featured"
+					ng-src="./img/products/{{featured.images[0].name}}"  alt="">
+
+					<!-- <img img-preload class="preloadFade featured"
+					src="img/hex_loader.gif" ng-src="./img/products/{{featured.images.big}}"  alt=""> -->
+				</div>
+				<div class="col col-40">
+					<h3>NEW COLLECTION</h3>
+					<P>Out now! </P>
+					<a href="" class="button discoverbtn">Discover</a>
+				</div>
+			</div>
+		</div>
+	</ion-slide>
+</ion-slide-box>
+<div class="padding">
+
+	<label class="item item-input search-box">
+		<i class="icon ion-search placeholder-icon"></i>
+		<input type="text" ng-model="search" placeholder="Search products">
+	</label>
+
+	<div class="divider"></div>
+	<h3 class="text-center">OUR POPULAR PRODUCTS</h3>
+	<div class="divider"></div>
+
+	<div class="product-wrap">
+		<div ng-click="viewProduct({{product}})" ng-repeat="product in products | filter : search" class="product-item">
+			<div class="list card">
+				<div class="item item-body">
+					<img img-preload class="preloadFade full-image" 
+					src="img/loader.gif"
+					ng-src="img/products/{{product.images[0].name}}" alt="">
+				</div>
+				<!-- <p class="text-center p-cat">{{product.category}}</p> -->
+				<p class="text-center product-name">
+					{{product.name}}
+				</p>
+			<!-- <p class="text-center product-price text-assertive">
+				{{product.price}}
+			</p> -->
+
+		</div>
+	</div>
+
+	
+</div>
+
+<!-- <a ng-if="products.length>0" href="" class="button button-dark button-full btn-all-items">View all Items</a>
+-->
+
+
+</div>
+
+
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-145 277 60 60" style="enable-background:new -145 277 60 60;" xml:space="preserve">
+<style type="text/css">
+    .all > * { fill: #fff; }
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{clip-path:url(#SVGID_4_);}
+</style>
+<g id="XMLID_93_" class="all">
+	<path id="XMLID_105_" d="M-105.3,308.4h-18.6c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1h18.6c0.6,0,1,0.4,1,1S-104.8,308.4-105.3,308.4z"/>
+	<g id="XMLID_100_">
+		<path id="XMLID_104_" d="M-128.2,317.9c-1.1,0-2-0.9-2-2v-17.8c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2v17.8
+			C-126.2,317-127.1,317.9-128.2,317.9z"/>
+		<path id="XMLID_103_" d="M-132.7,313.7c-0.7,0-1.2-0.6-1.2-1.2v-10.8c0-0.7,0.6-1.2,1.2-1.2c0.7,0,1.2,0.6,1.2,1.2v10.8
+			C-131.5,313.1-132,313.7-132.7,313.7z"/>
+		<g id="XMLID_101_">
+			<g>
+				<g>
+					<g>
+						<defs>
+							<rect id="SVGID_1_" x="-140" y="305.6" width="4.3" height="4.3"/>
+						</defs>
+						<clipPath id="SVGID_2_">
+							<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+						</clipPath>
+						<path id="XMLID_99_" class="st0" d="M-134,308.9h-1.5c-0.8,0-1.4-0.6-1.4-1.4c0-0.8,0.6-1.4,1.4-1.4h1.5
+							c0.8,0,1.4,0.6,1.4,1.4C-132.6,308.3-133.2,308.9-134,308.9z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+	<g id="XMLID_94_">
+		<path id="XMLID_98_" d="M-101.3,317.9c-1.1,0-2-0.9-2-2v-17.8c0-1.1,0.9-2,2-2s2,0.9,2,2v17.8C-99.3,317-100.2,317.9-101.3,317.9z
+			"/>
+		<path id="XMLID_97_" d="M-96.8,313.7c-0.7,0-1.2-0.6-1.2-1.2v-10.8c0-0.7,0.6-1.2,1.2-1.2c0.7,0,1.2,0.6,1.2,1.2v10.8
+			C-95.5,313.1-96.1,313.7-96.8,313.7z"/>
+		<g id="XMLID_95_">
+			<g>
+				<g>
+					<g>
+						<defs>
+							<rect id="SVGID_3_" x="-94.3" y="305.6" width="4.3" height="4.3"/>
+						</defs>
+						<clipPath id="SVGID_4_">
+							<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+						</clipPath>
+						<path id="XMLID_107_" class="st1" d="M-94,308.9h-1.5c-0.8,0-1.4-0.6-1.4-1.4c0-0.8,0.6-1.4,1.4-1.4h1.5
+							c0.8,0,1.4,0.6,1.4,1.4C-92.7,308.3-93.3,308.9-94,308.9z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

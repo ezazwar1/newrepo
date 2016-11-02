@@ -1,0 +1,225 @@
+/* line 3, start.scss */
+body, html {
+  height: 100%;
+}
+
+/* line 7, start.scss */
+.page-start {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  height: 100%;
+  background-color: #000;
+}
+/* line 19, start.scss */
+.page-start .breadcrumb {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+/* line 27, start.scss */
+.page-start .breadcrumb b {
+  display: block;
+  border: 2px solid #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 13px;
+}
+/* line 35, start.scss */
+.page-start .breadcrumb b.active {
+  background: #fff;
+}
+/* line 41, start.scss */
+.page-start .action-buttons {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 49, start.scss */
+.page-start .action-buttons div {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  display: block;
+  width: 50%;
+  padding: 20px;
+}
+/* line 55, start.scss */
+.page-start .action-buttons div button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 14px;
+}
+/* line 63, start.scss */
+.page-start .action-buttons div.login button {
+  background: transparent;
+  border: 2px solid #fff;
+}
+/* line 68, start.scss */
+.page-start .action-buttons div.signup button {
+  background: #12ac5f;
+  border: 2px solid transparent;
+}
+/* line 75, start.scss */
+.page-start .back-art {
+  background-color: #000;
+  background-image: url("../images/start.jpg");
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+/* line 83, start.scss */
+.page-start .container {
+  position: relative;
+  height: 100%;
+}
+/* line 87, start.scss */
+.page-start .container .scroll {
+  height: 100%;
+}
+/* line 92, start.scss */
+.page-start .contents {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 400%;
+}
+/* line 97, start.scss */
+.page-start .contents .snap-frame {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  padding-top: 50px;
+  -webkit-flex-basis: 25%;
+  -moz-flex-basis: 25%;
+  flex-basis: 25%;
+  -ms-flex-preferred-size: 25%;
+}
+/* line 104, start.scss */
+.page-start .contents .snap-frame .round-number {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 24px;
+  line-height: 47px;
+}
+/* line 116, start.scss */
+.page-start .contents .snap-frame .logo {
+  width: 25%;
+  height: 30%;
+  margin: 5% auto;
+}
+/* line 122, start.scss */
+.page-start .contents .snap-frame h1 {
+  font-family: HelveticaNeueBLK, sans-serif;
+  font-size: 24px;
+  color: #fff;
+}
+/* line 128, start.scss */
+.page-start .contents .snap-frame h2 {
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+/* line 137, start.scss */
+.page-start .contents .snap-frame.frame-a .main-logo {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 143, start.scss */
+.page-start .contents .snap-frame.frame-a .main-logo .logo {
+  width: 35%;
+}
+/* line 148, start.scss */
+.page-start .contents .snap-frame.frame-a .main-heading {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  height: 100%;
+}
+/* line 154, start.scss */
+.page-start .contents .snap-frame.frame-a .main-heading .upgrade {
+  width: 75%;
+  height: 5%;
+}
+
+@media only screen and (max-height: 479px) {
+  /* line 179, start.scss */
+  .page-start .contents .snap-frame {
+    padding-top: 20px;
+  }
+  /* line 182, start.scss */
+  .page-start .contents .snap-frame .round-number {
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+    line-height: 22px;
+  }
+  /* line 189, start.scss */
+  .page-start .contents .snap-frame .logo {
+    width: 15%;
+    height: 15%;
+    margin: 3% auto 0%;
+  }
+  /* line 195, start.scss */
+  .page-start .contents .snap-frame h1 {
+    font-size: 20px;
+  }
+  /* line 199, start.scss */
+  .page-start .contents .snap-frame h2 {
+    font-size: 12px;
+  }
+  /* line 204, start.scss */
+  .page-start .contents .snap-frame.frame-a .main-heading {
+    top: 50%;
+  }
+  /* line 208, start.scss */
+  .page-start .contents .snap-frame.frame-a .logo {
+    height: 40%;
+    margin: 2% auto 0%;
+  }
+}

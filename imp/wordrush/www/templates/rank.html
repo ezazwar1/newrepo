@@ -1,0 +1,44 @@
+<div class="modal">
+    
+    <div class="bar bar-header bar-dark" style="background-color: #333333">
+        <h1 class="title"><i class="icon ion-arrow-graph-up-right"></i>  Your Rank - {{::myRank}}</h1>
+    </div>
+    <ion-content class=" has-header has-footer allview">
+
+        <div ng-if="isOnline">
+
+            <ul class="list" ng-if="rankList.length>0">
+
+
+                <li class="list-item" style="background-color:#2E2E2E;color:#BDBDBD" ng-cloak ng-repeat="rank in rankList">
+                    <div class="row">
+                        <div class="col col-20" style="text-align: left;">
+                            #{{::rank.rank}}
+                        </div>
+                        <div class="col rankName" style="text-align: left;">
+                            {{::rank.name}}
+                        </div>
+                        <div class="col col-25 rankScore" style="text-align: right;">
+                            {{::rank.score}}
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div  class="padding" style="text-align: center;" ng-if="!isOnline">
+            <h2 >Please connect to Internet</h2> 
+        </div>
+
+
+
+    </ion-content>
+    <div class="bar bar-footer allview center">
+
+        <i class="icon ion-android-exit exit-icon" ng-click=goBack()></i>
+    </div>
+
+</div>

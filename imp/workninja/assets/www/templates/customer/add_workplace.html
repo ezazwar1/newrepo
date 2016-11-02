@@ -1,0 +1,33 @@
+<ion-view title="{{workplaceMsg}}" class="customer-workplace-pane">
+    <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light" style="z-index: 10000">
+
+    </div>
+    <ion-content class="has-header height-100" scroll="false">
+        <div class="button-bar bar-dark">
+            <button class="button"></button>
+        </div>
+        <div class="main-page" style="background-color: #fff">
+            <div class="profile" style="width: 100%;position:absolute;top: 60px">
+                <div>
+                    <div style="padding-left: 15px; padding-right: 17px">
+                        <div class="form-group">
+                            <div id="map-dummy" class="map-dummy"></div>
+                            <input id="name" type="text" ng-model="workplace.name" wn-errors="name" required="" placeholder="Business Name" typeahead="business for businesses in getBusinesses($viewValue)" typeahead-template-url="templates/customer/business_autocomplete.html" typeahead-on-select="selectBusiness($item, $model, $label)" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-008-184" style="margin-top: 20px;" ng-bind-html="expression">
+                            <ul class="dropdown-menu ng-isolate-scope ng-hide" ng-show="isOpen()" ng-style="{top: position.top+'px', left: position.left+'px'}" style="display: block;" role="listbox" aria-hidden="true" typeahead-popup="" id="typeahead-008-184" matches="matches" active="activeIdx" select="select(activeIdx)" query="query" position="position" template-url="templates/customer/business_autocomplete.html" />
+                        </div>
+                        <div class="form-group">
+                            <div id="map-dummy" class="map-dummy"></div>
+                            <input id="address_1" type="text" ng-model="workplace.address_1" wn-errors="errors.address_1" required="" placeholder="Business Address" typeahead="address for addesses in getAddresses($viewValue)" typeahead-template-url="templates/customer/business_autocomplete.html" typeahead-on-select="selectAddress($item, $model, $label)" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-008-184" style="margin-top: 20px;">
+                            <ul class="dropdown-menu ng-isolate-scope ng-hide" ng-show="isOpen()" ng-style="{top: position.top+'px', left: position.left+'px'}" style="display: block;" role="listbox" aria-hidden="true" typeahead-popup="" id="typeahead-008-184" matches="matches" active="activeIdx" select="select(activeIdx)" query="query" position="position" template-url="templates/customer/business_autocomplete.html" />
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <input id="headline" type="text" ng-model="workplace.headline" wn-errors="errors.first_name" required="" placeholder="Headline e.g. " class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input">
+                        </div>
+                        <div class="form-group" style="margin-top:40px;margin-bottom:20px;width:100%">
+                            <button class="button border-no" ng-click="addWorkplace()" style="font-size:16px;float: right;background: white;color:#01be6e;margin-top: 10px">{{btnMsg}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>

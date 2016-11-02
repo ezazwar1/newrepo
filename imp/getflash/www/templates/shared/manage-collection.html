@@ -1,0 +1,49 @@
+<ion-modal-view class="modal-collection">
+  
+  <ion-footer-bar keyboard-attach class="main-area">
+    <ion-header-bar class="header" no-tap-scroll="true">
+      <div class="close">
+        <button class="btn-link-white" ng-click="closeModal()"><span class="ion-close"></span></button>
+      </div>
+      <div class="title modal-bottom">
+          Save to Collection
+      </div>
+    </ion-header-bar>
+
+    <ion-content class="add-collection-raw" ng-show="displayCreateNew">
+      <input type="text" placeholder="For any occasion, venue, mood, etc" ng-model="itemGroupModel.groupName" ng-change="onSetNameChanged()"/>
+    </ion-content>
+    <ion-footer-bar class="footer" ng-show="displayCreateNew">
+      <div class="row">
+        <div class="col right-border" ng-click="changeDisplay(0)">
+          <span>BACK</span>
+        </div>
+        <div class="col save" ng-click="doSave()">
+          <ion-spinner ng-show="working" icon="ios-small"></ion-spinner> <span ng-show="!working" ng-class="allowToSave ? 'active' : ''"> SAVE</span>
+        </div>
+      </div>
+    </ion-footer-bar>
+
+    <ion-content ng-show="!displayCreateNew" class="no-footer">
+      <ion-item class="collection-item new" ng-click="changeDisplay(1)">
+        <div class="new-icon">
+          <span class="ion-plus"></span>
+        </div>
+        <div class="new-label">
+          New Collection
+        </div>
+      </ion-item>
+
+      <!-- item -->
+      <ion-item collection-repeat="group in itemGroupItems" item-height="50px" item-width="100%" class="collection-item" ng-click="doSaveToCollection(group.groupId, group.groupName)">
+        <div class="item-icon">
+          <span class="ion-record"></span>
+        </div>
+        <div class="item-label">
+          {{ group.groupName }}
+        </div>
+      </ion-item>
+    </ion-content>
+  </ion-footer-bar>
+
+</ion-modal-view>

@@ -1,0 +1,114 @@
+<ion-view title="{{ 'SETTINGS.TITLE' | translate }}">
+    <ion-content class="has-header">
+        <!--<div ng-if="setting">-->
+            <div wf-validation-msg show="showError.show" type="alert-danger" msg="{{ errorMsg || 'SETTINGS.INVALID_EMAIL_ID' | translate}}"></div>
+                <div class="padding">
+                    <form name="formSetting" class="list no-border">
+                        <div class="med-padding">
+                            <label class="item item-input on-light">
+                                <input type="email" name="email" ng-model="setting.email" disabled="true" placeholder="{{ 'SETTINGS.CHANGE_EMAIL' | translate}}">
+                            </label>
+                            <!--
+                            TEMPORARY DISABLED
+                            <label class="item item-input on-light" >
+                                <input type="password" name="password" placeholder="{{ 'SETTINGS.CHANGE_PASSWORD' | translate}}">
+                            </label>
+                            -->
+                        </div>
+                    </form>
+                </div>
+                <!-- </div> -->
+                
+                <ion-item class="item" ui-sref="app.profile">
+                    <div class="input-label text-dark" style="color:#444">
+                      <i class="icon wf wf-profile"></i> {{ 'SETTINGS.EDIT_PROFILE' | translate}}
+                    </div>
+                </ion-item>
+                <ion-item class="item" ui-sref="app.connect">
+                    <div class="input-label text-dark" style="color:#444">
+                      <i class="icon wf wf-used-app"></i> {{ 'SETTINGS.EDIT_CONNECTIONS' | translate}}
+                    </div>
+                </ion-item>        
+                <ion-item class="item" ng-click="addBonusCode()">
+                    <div class="input-label text-dark" style="color:#444">
+                      <i class="icon ion-ios-plus"></i> {{ 'SETTINGS.BONUS' | translate}}
+                    </div>
+                </ion-item>
+                <ion-item class="item" ng-click="openLink('https://shop.wefitter.com')">
+                    <div class="input-label text-dark" style="color:#444">
+                      <i class="icon ion-ios-cart"></i> {{ 'SETTINGS.SHOP' | translate}}
+                    </div>
+                </ion-item>
+                
+
+                <ion-item class="item" ng-click="rateUs()">
+                    <div class="input-label text-dark" style="color:#444">
+                      <i class="icon ion-ios-star"></i> {{ 'SETTINGS.RATE_US' | translate}}
+                    </div>
+                </ion-item>
+
+                <ion-item class="item" ui-sref="app.help">
+                    <div class="input-label text-dark" style="color:#444">
+                      <i class="icon ion-ios-help"></i> {{ 'SETTINGS.HELP_TITLE' | translate}}
+                    </div>
+                </ion-item>
+
+                <!--
+                <ion-item class="item noti-toggle">
+
+                      <ion-toggle toggle-class="toggle-positive" ng-model="setting.push_notifications" ng-change="updateNotificationSubscription()" name="push-notify">
+                      <i class="icon ion-android-notifications"></i>   {{ 'SETTINGS.PUSH_NOTIFICATION' | translate}}
+                      </ion-toggle>
+                  </ion-item>
+                -->
+
+                <ion-item class="item" ng-click="logout()">
+                    <div class="input-label text-dark" style="color:#444">
+                      <i class="icon ion-power"></i> {{ 'NAV.LOGOUT' | translate}}
+                    </div>
+                </ion-item>
+
+
+        <!--
+                <ion-item class="item" ng-click="removeAccount()">
+                    <div class="input-label text-dark" style="color:#444">
+                      {{ 'SETTINGS.REMOVE_ACCOUNT' | translate}}
+                    </div>
+                </ion-item>
+        -->
+
+                    <!--
+                    TEMPORARY DISABLED
+
+                    <ion-toggle toggle-class="toggle-positive" ng-model="setting.motivational_mails" name="motivational-mails">
+                    {{ 'SETTINGS.MOTIVATIONAL_MAILS' | translate}}
+                    </ion-toggle>
+
+                    <ion-toggle toggle-class="toggle-positive" ng-model="setting.american_units" name="american-unit">
+                    {{ 'SETTINGS.AMERICAN_UNIT' | translate}}
+                    </ion-toggle>
+                    <ion-item class="item item-input item-select">
+                        <div class="input-label text-dark" style="color:#444">
+                          {{ 'SETTINGS.LANGUAGE' | translate}}
+                        </div>
+                        <select ng-model="setting.lang">
+                          <option value="en" translate="SETTINGS.LANG_EN">English</option>
+                          <option value="es" translate="SETTINGS.LANG_ES">Spanish</option>
+                        </select>
+                    </ion-item>
+                    -->
+
+                    <!--div class="button-bar btn-settings-bar">
+                        <button ng-click="supportMail()" class="button txt-left button-stable button-icon button-block btn-settings">
+                        <i class="wf-comment"></i> {{ 'SETTINGS.CONTACT_SUPPORT' | translate}}
+                        </button>
+                        <button ng-click="removeAccount()" class="button txt-right button-icon button-block assertive btn-settings icon-left">
+                        <i class="wf-delete"></i> {{ 'SETTINGS.REMOVE_ACCOUNT' | translate}}
+                        </button>
+                    </div-->
+        <!--</div>-->
+    </ion-content>
+    <!--<ion-footer-bar class="bar-positive">
+        <button ng-click="save()" ng-disabled="formSetting.$invalid" class="button button-big-sticky button-full" translate="SETTINGS.SAVE_SETTINGS"></button>
+    </ion-footer-bar>-->
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-modal-view class="modal-unlock-promo">
+  
+  <div class="main-area">
+    <div class="body">
+      <ion-header-bar class="header">
+        <div class="close">
+          <button class="btn-link-white" ng-click="closeModal()"><span class="ion-close"></span></button>
+        </div>
+        <div class="title">
+            Reward unlocked
+        </div>
+      </ion-header-bar>
+      <div class="main-message">
+        You've unlocked <span>{{ promoMessage }}</span>!
+      </div>
+      <div class="sub-message">
+        Your reward is stored in your "My Rewards" page
+      </div>
+      <div class="sub-message" ng-show="isShowThankYou">
+        <b>Thank you for joining!</b> We are currently reviewing your entry and will alert you once you have been shortlisted for the finals! Good luck, <span ng-bind="fullname"></span>! 
+      </div>
+      <div class="button-wrapper">
+        <button class="btn-main" ng-click="closeModal()">Okay</button>
+      </div>
+    </div>
+  </div>
+
+</ion-modal-view>

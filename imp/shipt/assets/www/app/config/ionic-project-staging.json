@@ -1,0 +1,27 @@
+{
+  "name": "Shipt-Staging",
+  "app_id": "e6d84d5a",
+  "gulpStartupTasks": [
+    "sass",
+    "babel",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "proxies": [
+    {
+      "path": "/authapi",
+      "proxyUrl": "https://shipt-staging.herokuapp.com/api/v1/sessions.json"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "https://shipt-staging.herokuapp.com/"
+    },
+    {
+      "path": "/googleapis",
+      "proxyUrl": "https://maps.googleapis.com/"
+    }
+  ]
+}

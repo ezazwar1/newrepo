@@ -1,0 +1,17 @@
+<ion-content class="has-header height-100" scroll="false">
+  <div class="button-bar bar-dark">
+    <button class="button"></button>
+  </div>
+  <!-- <div class="profile-page" style="height: calc(100% - 46px)">
+            <div class="profile" style="height: calc(100% - 1px)"> -->
+  <div class="main-page" style="height: calc(100% - 46px)">
+    <div class="map-content" ng-class="{'blurred': isMapBlurred}">
+      <div id="map" class="map"></div>
+    </div>
+  </div>
+  <div class="ninja-footer-bar">
+      <button class="button button-block button-uppercase button-square"   ng-class="{'button-darkstable': available, 'button-balanced': !available}" style="margin-bottom: 5px;z-index: 10000;position: absolute;width: calc(100% - 20px);bottom: 20px; right: 10px; left: 10px"  ng-click="ninjaAvailable()">{{standbyMessage}}</button>
+  </div>
+  </div>
+  <div>
+</ion-content>

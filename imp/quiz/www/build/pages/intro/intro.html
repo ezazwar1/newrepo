@@ -1,0 +1,55 @@
+<ion-content class="intro">
+  <ion-fixed padding *ngIf="showSkipButton">
+    <button light outline small (click)="goToHome()">skip</button>
+  </ion-fixed>
+  <ion-slides (willChange)="onSlideChanged($event)" pager>
+    <ion-slide primary>
+      <div class="slide-header">
+        <img src="assets/images/screen-home_galaxys4_white_portrait.png" />
+      </div>
+      <div class="slide-content">
+        <h2>Start to learn</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide secondary>
+      <div class="slide-header">
+        <img src="assets/images/screen-category_galaxys4_white_portrait.png" />
+      </div>
+      <div class="slide-content">
+        <h2>Many topics</h2>
+        <p>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide dark>
+      <div class="slide-header">
+        <img src="assets/images/screen-question_galaxys4_white_portrait.png" />
+      </div>
+      <div class="slide-content">
+        <h2>Timed and non-timed modes</h2>
+        <p>
+          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide light>
+      <div class="slide-header">
+        <img src="assets/images/screen-stats_galaxys4_white_portrait.png" />
+      </div>
+      <div class="slide-content">
+        <h2>Analyze your stats</h2>
+        <p>
+           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <button dark (click)="goToHome()">Learn</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

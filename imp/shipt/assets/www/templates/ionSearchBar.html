@@ -1,0 +1,26 @@
+<form ng-submit="formSubmit(search.value)" role="search" name="search-form" class="text-center">
+    <div ng-touchstart="startTouchSearchBar()" class="search-bar bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon" aria-hidden="true"></i>
+            <input select-on-click
+                   class="productSearchBox"
+                   ng-blur="formSubmit(search.value)"
+                   type="search"
+                   autocapitalize="none"
+                   placeholder="{{placeholder}}"
+                   ng-model="searchValue">
+
+            <button type="button"
+                    class="button button-clear button-icon ion-ios-close clear-text-button"
+                    ng-class="shouldShowClearText() ? 'show' : 'hide'"
+                    ng-touchstart="clearTextButtonClick()"
+                    aria-label="clear search">
+            </button>
+        </label>
+        <button ng-if="showScanButton"
+                type="button" class="button button-clear button-positive search-scanner-button"
+                ng-click="scanClick()" aria-label="scan product to search">
+            <i class="icon ion-ios-barcode-outline"></i>
+        </button>
+    </div>
+</form>

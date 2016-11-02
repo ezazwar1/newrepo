@@ -1,0 +1,83 @@
+<!-- MAIN PRODUCT LISTING PAGE FOR AN APP -->
+<ion-view style="" id="" title="">
+	<ion-nav-title class="logo" ui-sref="app.dashboard"></ion-nav-title>
+		<ion-nav-bar class="bar-stable">
+			<ion-nav-buttons side="left"><button ng-click="$ionicGoBack()" class="button button-icon icon ion-android-arrow-back"></button></ion-nav-buttons>
+			<ion-nav-buttons side="right">
+				<button class="button button-icon  icon ion-ios-search" ui-sref="app.search"></button>
+				 <button class="button button-icon  icon ion-bag" ui-sref="app.shopping-cart">
+				 <span class="badge badge-assertive"  ng-if="cartItems!=undefined && cartItems!=''">
+						 {{cartItems}}
+					 </span>
+				 </button>
+				<button class="button button-icon  icon ion-android-notifications" ng-click="openNotifications($event)"></button>
+			</ion-nav-buttons>
+			<div class="bar bar-subheader">
+			   <h4 class="title">{{cat_Name}} PRODUCTS</h4>
+			</div>
+		</ion-nav-bar>
+    <ion-content class="product_list has-subheader">
+      <div class="list card">
+      	<div class="row" ng-repeat="tmpObj in products" ng-if="$index %2 === 0">
+      			<div class="col {{highlightedCol}} {{(products[$index].cartQnt>0) ? 'afterHighlighted' : 'beforeHighlighted'}}" id="coldiv-{{products[$index].id}}" ng-if="$index < products.length">
+      			  <div class="item item-body front">
+      			<a href="#/app/productdetail/{{products[$index].id}}/{{cat_id}}/{{cat_Name}}">
+      						<img class="full-image" ng-src="{{products[$index].product_image!=null ? products[$index].product_image : 'img/no-image.jpg' }}" height="213">
+      					</a>
+      					<div class="offer-box" ng-if="products[$index].offer!=0"><!--Condition on offer box to show only when there is offer on product-->
+      						<div class="offer-content">{{products[$index].offer}} offers</div><!--end of offer content-->
+      					</div><!--end of offer box-->
+      					<p class="item-brand">{{products[$index].product_name }} 
+
+                                   <!--   <p class="item-brand">{{products[$index].product_name | limitTo :30}}{{products[$index].product_name.length >5 ? '&hellip;':''}}  -->
+      						<span class="right"><a href="#"><i class="icon ion-ios-photos" ng-click = "openModal()"></i></a></span>
+                                  
+      					</p>
+      					<!-- <p class="item-brand">{{products[$index].manufacturer}}</p> -->
+      					<p class="item-price">
+      						<span class="actual-price"><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{products[$index].actual_price}}</span>
+      						<span class="discount" ng-if="products[$index].original_price!=0"><strike><i class="icon {{currencyIcon}}" aria-hidden="true"></i> {{products[$index].original_price}}</strike></span>
+      						<span class="discoun-per" ng-if="products[$index].discount_percent!=0">{{products[$index].discount_percent}}% Off</span>
+      					</p>
+								<div  class="buttonContaining {{class}} {{(products[$index].cartQnt>0) ? 'afterFlip' : 'beforeFlip'}}" id="btndiv-{{products[$index].id}}">
+								<div class="addtocartButton front" ng-click="AddToCart(products[$index]);changeClass(products[$index].id);">Add to cart</div>
+									<div class="addtocartButton back" >
+										<input type="text" placeholder="{{products[$index].cartQnt}}" readonly>
+										<button class="button button-icon  icon ion-ios-minus-outline decButton" ng-click="decrement(products[$index]);"></button>
+										<button class="button button-icon  icon ion-ios-plus-outline incButton" ng-click="AddToCart(products[$index]);increment();"></button>
+									</div>
+								</div>
+      			  </div>
+						</div><!--end of col-->
+      			<div class="col {{highlightedCol}} {{(products[$index+1].cartQnt>0) ? 'afterHighlighted' : 'beforeHighlighted'}}" id="coldiv-{{products[$index+1].id}}" ng-if="$index+1 < products.length">
+      			<div class="item item-body">
+      				<a href="#/app/productdetail/{{products[$index+1].id}}/{{cat_id}}/{{cat_Name}}">
+      					<img class="full-image" ng-src="{{products[$index+1].product_image!=null ? products[$index+1].product_image : 'img/no-image.jpg' }}">
+      				</a>
+      			<div class="offer-box" ng-if="products[$index+1].offer!=0"><!--Condition on offer box to show only when there is offer on product-->
+      				<div class="offer-content">{{products[$index+1].offer}} offers</div><!--end of offer content-->
+      			</div><!--end of offer box-->
+      			<p class="item-brand">{{products[$index+1].product_name}}
+      				<span class="right"><a href="#"><i class="icon ion-ios-photos" ng-click = "openModal()"></i></a></span>
+      			</p>
+      			<!-- <p class="item-brand">{{products[$index+1].manufacturer}}</p> -->
+      			<p class="item-price">
+      				<span class="actual-price"><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{products[$index+1].actual_price}}</span>
+      				<span class="discount" ng-if="products[$index+1].original_price!=0"><strike><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{products[$index+1].original_price}}</strike></span>
+      				<span class="discoun-per" ng-if="products[$index+1].discount_percent!=0">{{products[$index+1].discount_percent}}% Off</span>
+      			</p>
+						<div class="buttonContaining {{class}} {{(products[$index+1].cartQnt>0) ? 'afterFlip' : 'beforeFlip'}}" id="btndiv-{{products[$index+1].id}}">
+							<div class="addtocartButton front" ng-click="AddToCart(products[$index+1]);changeClass(products[$index+1].id);">Add to cart</div>
+							<div class="addtocartButton back" >
+								<input type="text" placeholder="{{products[$index+1].cartQnt}}" readonly>
+								<button class="button button-icon  icon ion-ios-minus-outline decButton" ng-click="decrement(products[$index+1]);"></button>
+								<button class="button button-icon  icon ion-ios-plus-outline incButton" ng-click="AddToCart(products[$index+1]);increment();"></button>
+							</div>
+						</div>
+      		</div>
+      	</div>
+      	</div><!--end of row-->
+      </div><!--end of list card-->
+	  </ion-content>
+
+</ion-view>

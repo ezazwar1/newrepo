@@ -1,0 +1,33 @@
+<ion-modal-view class="comment-modal" on-swipe-down="closeCommentModal()">
+	
+	<div class="bar bar-header bar-light">
+		<h1 class="title">Comments</h1>
+	</div>
+	<ion-content class="has-header padding" scroll="true" delegate-handle="mainScroll">
+		<div ng-if="hasComment == 1">
+			<div class="list">
+				<a ng-repeat="comment in comments" class="item item-avatar">
+					<img ng-src="{{comment.user_id.avatar}}">
+					<h2>{{comment.user_id.fullname}}</h2>
+					<p class="comment-text">{{comment.comment}}</p>
+					<p am-time-ago="comment.comment_date"></p>
+					<!-- <span am-time-ago="value.dateSent"></span> -->
+				</a>
+
+			</div>
+		</div>
+
+		<div ng-if="hasComment == 0">
+			<p class="text-center no-comment">
+				No comments yet.Be The first to comment.
+			</p>
+		</div>
+	</ion-content>
+	<footer class="bar bar-footer item-input-inset has-content">
+		<p ng-model="chat.postId" ng-show='false'></p>
+		<label class="item-input-wrapper">
+			<input type="text" ng-enter="sendComment()" ng-model="chat.data" placeholder="Write your comment here">
+		</label>
+		<a ng-disabled="!chat.data" class="button button-icon icon ion-android-send" ng-click="sendComment(chat)"></a>
+	</footer>
+</ion-modal-view>

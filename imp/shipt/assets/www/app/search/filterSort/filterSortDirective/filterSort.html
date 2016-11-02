@@ -1,0 +1,88 @@
+<div class="filter-area">
+
+    <div class="filter-section" ng-if="vm.algoliaSortEnabled">
+        <div class="filter-section-heading">
+            <p>
+                SORT BY
+            </p>
+        </div>
+        <div class="filter-section-body">
+            <ion-item class="item item-icon-right header-item"
+                      ng-click="vm.filterSortOptions.toggleExpandSection(vm.filterSortOptions.sort)">
+                <h2 ng-class="{'text-positive': vm.filterSortOptions.sort.selectedOption().displayName !== vm.filterSortOptions.sort.defaultSelection}">
+                    {{vm.filterSortOptions.sort.selectedOption().displayName}}
+                </h2>
+                <i class="icon positive"
+                   ng-class="vm.filterSortOptions.sort.displayExpanded ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+            </ion-item>
+            <div class="collapse-area" ng-if="vm.filterSortOptions.sort.displayExpanded">
+                <ion-item ng-repeat="option in vm.filterSortOptions.sort.options"
+                          ng-click="vm.filterSortOptions.selectOption(option, true)"
+                          ng-class="{selected: option.selected}"
+                          class="item item-icon-right">
+                    {{option.displayName}}
+                    <i ng-class="option.selected ? 'ion-shipt-checkbox-selected':'ion-shipt-checkbox-unselected'"
+                       class="icon"></i>
+                </ion-item>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-section">
+        <div class="filter-section-heading">
+            <p>
+                CATEGORIES
+            </p>
+        </div>
+        <div class="filter-section-body">
+            <ion-item class="item item-icon-right header-item"
+                      ng-click="vm.filterSortOptions.toggleExpandSection(vm.filterSortOptions.categories)">
+                <h2 class="filters-display" ng-class="{'text-positive': vm.filterSortOptions.categories.selectedOptionsDisplay() !== vm.filterSortOptions.categories.defaultSelection}">
+                    {{vm.filterSortOptions.categories.selectedOptionsDisplay()}}
+                </h2>
+                <i class="icon positive"
+                   ng-class="vm.filterSortOptions.categories.displayExpanded ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+            </ion-item>
+            <div class="collapse-area" ng-if="vm.filterSortOptions.categories.displayExpanded">
+                <ion-item ng-repeat="option in vm.filterSortOptions.categories.options"
+                          ng-click="vm.filterSortOptions.selectOption(option)"
+                          ng-class="{selected: option.selected, 'blacklisted-facet': !option.isCurrentFacet}"
+                          class="item item-icon-right">
+                    {{option.displayName}}
+                    <i ng-class="option.selected ? 'ion-shipt-checkbox-selected':'ion-shipt-checkbox-unselected'"
+                       class="icon"></i>
+                </ion-item>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-section">
+        <div class="filter-section-heading">
+            <p>
+                BRANDS
+            </p>
+        </div>
+
+        <div class="filter-section-body">
+            <ion-item class="item item-icon-right header-item"
+                      ng-click="vm.filterSortOptions.toggleExpandSection(vm.filterSortOptions.brands)">
+                <h2 class="filters-display" ng-class="{'text-positive': vm.filterSortOptions.brands.selectedOptionsDisplay() !== vm.filterSortOptions.brands.defaultSelection}">
+                    {{vm.filterSortOptions.brands.selectedOptionsDisplay()}}
+                </h2>
+                <i class="icon positive"
+                   ng-class="vm.filterSortOptions.brands.displayExpanded ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+            </ion-item>
+            <div class="collapse-area" ng-if="vm.filterSortOptions.brands.displayExpanded">
+                <ion-item ng-repeat="option in vm.filterSortOptions.brands.options"
+                          ng-click="vm.filterSortOptions.selectOption(option)"
+                          ng-class="{selected: option.selected, 'blacklisted-facet': !option.isCurrentFacet}"
+                          class="item item-icon-right">
+                    {{option.displayName}}
+                    <i ng-class="option.selected ? 'ion-shipt-checkbox-selected':'ion-shipt-checkbox-unselected'"
+                       class="icon"></i>
+                </ion-item>
+            </div>
+        </div>
+    </div>
+
+</div>

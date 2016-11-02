@@ -1,0 +1,24 @@
+<ion-view title="{{ habitQuestionKey | translate }}" class="popoverr {{habitClass}} pane">
+  
+  <ion-nav-bar class="pa-header">
+    <ion-nav-back-button class="button-clear hide-back">
+      <span class="nav-anchor">Cancel</span>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="right">
+    <button href="javascript:;" ng-click="submitData()" ng-disabled="submittingData" class="nav-anchor done-btn">{{ 'NEXT' | translate}}</button>
+  </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+  <div class="back"></div>
+  
+  <ion-content>
+  	<!--<go-back></go-back>-->
+    
+    <graph-selector values="habit.habitValues" value-data="valueData" selectable="true" colors="colors" progress-colors="progressColors" color-percentages="colorPercentages" show-ticks="true" goal-percentage="goalPercentage" segmented="true" class="{{noDataError ? 'error' : ''}}"></graph-selector>
+  	<!--<div class="bar bar-footer">
+    	<button class="button button-large" ng-click="submitData()" ng-disabled="submittingData">{{ 'CONFIRM' | translate}}</button>
+  	</div>-->
+  </ion-content>
+</ion-view>

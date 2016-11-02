@@ -1,0 +1,9 @@
+{"success":true,"appbanners":{"slider":[
+{"banner_id":"1","banner_name":"Slider 1","banner_btype_id":"slider","banner_image":"img/slider/slide1.png","banner_cat_id":"1"},
+{"banner_id":"2","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/slider/slide2.jpg","banner_cat_id":"2"},
+{"banner_id":"3","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/slider/slide3.jpg","banner_cat_id":"3"},
+{"banner_id":"4","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/slider/slide4.jpg","banner_cat_id":"4"},
+{"banner_id":"5","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/slider/slide5.jpg","banner_cat_id":"5"},
+{"banner_id":"6","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/slider/slide6.jpg","banner_cat_id":"6"}
+]
+}}

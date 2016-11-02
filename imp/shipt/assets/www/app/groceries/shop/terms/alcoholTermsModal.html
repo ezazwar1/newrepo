@@ -1,0 +1,36 @@
+<div class="modal fullscreen-modal" ng-controller="alcoholTermsModalController as viewModel" >
+    <ion-header-bar class="darker-content">
+        <h1 class="title">
+            Alcohol Delivery Terms
+        </h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeModal()" aria-label="close icon top right"><i class="icon text-positive ion-ios-close-empty" aria-hidden="true"></i></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header lighter-content"
+                 has-bouncing="true" >
+
+        <div class="alcohol-terms">
+           <div ng-class="termsClass()">
+               (1) You agree that you will comply with all applicable laws and not cause Shipt, your Personal Shopper, or any retailer to contravene any applicable laws. If you receive your delivery in the United States, you agree that you are 21 years of age or older if you order alcohol products.
+           </div>
+           <br>
+           <div ng-class="termsClass()">
+               (2) If you order alcohol products, you understand and acknowledge that neither Shipt nor Personal Shopper can accept your order of alcohol products, and the order will only be delivered if the retailer accepts your order.
+           </div>
+           <br>
+           <div ng-class="termsClass()">
+               (3) You agree that, upon delivery of alcohol products, the recipient will provide valid government-issued identification proving their age Of 21 years-of-age or older to the Personal Shopper delivering the alcohol products and that the recipient will not be intoxicated when receiving delivery of such products.
+           </div>
+           <br>
+           <div ng-class="termsClass()">
+               (4) You agree that if any applicable legal requirements for the delivery of alcohol are not met, Shipt reserves the right to cancel the alcohol-related portion of your order. Items canceled in this manner are not eligible for refund.
+           </div>
+       </div>
+    </ion-content>
+    <ion-footer-bar class="footer-button-bar bar-stable padding">
+        <button ng-click="completeOrder()" class="button button-positive button-full">
+            Accept Terms
+        </button>
+    </ion-footer-bar>
+</div>

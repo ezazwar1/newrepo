@@ -1,0 +1,16 @@
+<ion-content on-scroll="onScroll()">
+	<ion-refresher pulling-text="{{'Puxe para atualizar' | translate}}" ng-if="bag.offset !== null" on-refresh="refresh()"></ion-refresher>
+
+	<div class="empty-list" ng-if="bag.movies.length === 0 && bag.finished">
+		<span translate>{{user.firstName}} ainda não tem filmes.</span>
+	</div>
+
+	<div ng-repeat="movie in bag.movies">
+		<sf-movie-mosaic movie="movie" user="user"></sf-movie-mosaic>
+	</div>
+
+	<div ng-if="bag.movies.length > 0 && bag.finished" class="feed-end"><span translate>Fim desta lista.</span></div>
+
+	<ion-infinite-scroll distance="1%" ng-if=" ! bag.finished" on-infinite="loadMore()"></ion-infinite-scroll>
+
+</ion-content>

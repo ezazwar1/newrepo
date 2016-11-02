@@ -1,0 +1,83 @@
+<ion-view class="intro goals">
+  <ion-nav-bar class="pa-header" ng-class="{'level-header': !isUMNUser()}"> 
+
+    <ion-nav-back-button class="button-clear" ng-click="goBack()"><i class="icon ion-ios-arrow-left"></i></ion-nav-back-button>
+
+  	<ion-nav-buttons side="right">
+      <a href="javascript:;" ng-click="showHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+    </ion-nav-buttons>
+
+    <ion-nav-title>
+      <div>{{ 'GOALS' | translate }}<span ng-click="goToSkills()" ng-show="!isUMNUser()">{{ 'LEVEL' | translate }} {{ getGoalsLevel()}}</span></div>
+    </ion-nav-title>
+  </ion-nav-bar>
+  
+  <div class="back"></div>
+  <ion-content>
+
+    <!--
+    <div class="item item-divider">{{ 'LONG_TERM_GOAL' | translate }}</div>
+    -->
+
+    <div class="list goals-header"> 
+      <div class="item item-icon-right item-icon-left dragContainer hideRemove" on-drag-left="elementDragged($event)" on-drag-right="elementDragged($event)" ng-click="selectGoal()">
+        {{ getCurrentGoalTitle() }}
+        <!--<i class="icon ion-ios-star {{getAchievedGoalClass()}}" ng-show="goals.length > 0"><span>{{getAchievedGoalDifficulty()}}</span></i>-->
+        <i class="icon ion-ios-arrow-down"></i>
+        <div class="edit" ng-click="modifyGoal(currentGoal)"></div>
+        <div class="remove" ng-click="archiveGoal()"></div>
+      </div>
+    </div>
+    <div class="goal-select-wrapper">
+      <div class="goals-select" ng-show="showingSelectGoal">
+        <div ng-repeat="goal in goals" ng-click="setCurrentGoal(goal)">
+          <span>{{ goal.title }}</span>
+        </div>
+        <div ng-click="modifyGoal()" class="item item-icon-left" ng-click="modifyGoal()">
+          <i class="icon ion-ios-plus-empty"></i>{{ 'ADD_NEW_EXPERIMENT' | translate }}
+        </div>
+      </div> 
+    </div>   
+    <div class="clearfix">
+      <div ng-class="{active: activeTab == 'active'}" ng-click="setActiveTab('active')" class="goal-tab">{{ 'CHALLENGES_TAB' | translate }}</div>
+      <div ng-class="{active: activeTab == 'completed'}" ng-click="setActiveTab('completed')" class="goal-tab">{{ 'COMPLETED' | translate }} ({{ getAchievedSubGoals() }})</div> 
+    </div>
+
+    <div class="list goals-menu" ng-show="activeTab == 'active'">
+      <div ng-repeat="subGoal in activeSubGoals track by subGoal.id" ng-click="showAchieveSubGoal(subGoal)" class="item item-icon-left dragContainer hideRemove" ng-class="{true: achievedSubGoal(subGoal)}" on-drag-left="elementDragged($event)" on-drag-right="elementDragged($event)">
+        <em>{{subGoal.title}}</em><br>
+        <span ng-if="!achievedSubGoal(subGoal)" class="is-date">{{ 'EXPERIMENTS_TAP_WHEN_COMPLETE' | translate }}</span>
+        <span ng-if="achievedSubGoal(subGoal)" class="is-date">{{ 'COMPLETED_ON' | translate }} {{getPrintableDate(subGoal)}}</span>       
+          <span class="status goal" ng-class="{true: achievedSubGoal(subGoal)}"></span><br>
+          <div class="edit" ng-click="modifySubGoal(subGoal)" ng-show="!achievedSubGoal(subGoal)"></div>
+          <div class="remove" ng-click="archiveSubGoal(subGoal)"></div>
+      </div>
+
+      <div ng-show="activeSubGoals.length == 0" class="item" ng-click="modifySubGoal()" style="padding-right: 16px;">
+        {{ 'NO_DAILY_EXPERIMENTS' | translate }}
+      </div>
+
+    </div>
+
+    <div class="list goals-menu" ng-show="activeTab == 'completed'">
+      <div ng-repeat="subGoal in completedSubGoals track by subGoal.id" ng-click="reAddSubGoal(subGoal)" class="item item-icon-left dragContainer hideRemove" on-drag-left="elementDragged($event)" on-drag-right="elementDragged($event)">
+        {{subGoal.title}}
+          <span class="status goal" ng-class="{true: achievedSubGoal(subGoal)}"></span><br>
+          <span class="is-date">{{ 'COMPLETED_ON' | translate }} {{getPrintableDate(subGoal)}}</span>
+          <div class="edit readd" ng-click="reAddSubGoal(subGoal)"></div>
+          <div class="remove" ng-click="archiveSubGoal(subGoal)"></div>
+      </div>
+      <div ng-show="completedSubGoals.length == 0" class="item" style="padding-right: 16px;" ng-click="modifySubGoal()">
+        {{ 'NO_COMPLETED_EXPERIMENTS' | translate }}
+      </div>
+    </div>
+ 
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+  <div ng-click="modifySubGoal()" ng-if="goals && goals.length > 0 && !showingSelectGoal" class="circle-button item item-icon-left">
+    <i class="icon ion-ios-plus-empty"></i>
+    <span ng-if="!activeSubGoals || activeSubGoals.length == 0" class="tooltip">{{ 'EXPERIMENTS_ADD_SUB_GOAL' | translate }}</span>
+  </div>
+
+</ion-view>

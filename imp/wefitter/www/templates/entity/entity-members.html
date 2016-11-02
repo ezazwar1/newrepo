@@ -1,0 +1,56 @@
+<ion-view  title="{{ 'GROUPS.GROUP_MEMBER' | translate }}">
+  <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+  </ion-nav-buttons>
+  <div class="bar bar-header item-input-inset group-member-search-bar">
+    <label class="item-input-wrapper">
+      <input type="search" ng-model="search.params" class="blue-plc" placeholder="{{ searchPlaceholder }}" ng-change="(search.params.length > 2 || search.params == '') && updateInterface()">
+      <i class="icon ion-ios-search placeholder-icon search-icon-friend"></i>
+    </label>
+    <button ng-click="search.params = '';updateInterface()" ng-show="search.params.length > 0" class="button button-clear">
+      <i class="ion-android-close"></i>
+    </button>
+  </div>
+  <ion-content class="has-subheader">
+
+    <div ng-if="filter.mode == 'team'">
+      <div class="friend-list">
+      <div class="row friend-row team-list" ng-repeat = "team in teams track by $index" ng-click="team.team ? getTeamUser(team.team) : ''">
+       <div class="col col-20 icon-wrapper">
+        <div class="group-icon"><i class="wf wf-team-shirt"></i></div>
+       </div>
+        <div class="col col-40 name-wrapper">
+          {{team.team ? team.team : 'LEADERBOARD.ANONYMOUS' | translate}}
+        </div>
+        <div class="col follow_btn_wrap member-num-wrap text-overflow-ellipsis">
+          <div class="dash-sub-heading text-overflow-ellipsis">
+            <span class="arrow-right"><i class="ion-ios-arrow-right"></i></span>
+            <span class="member-number">{{ team.users | number }} {{'GROUPS.PLAYERS' | translate}}</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div wf-pager params="teamParams" distance="10" offset="10" dataset="teams" url="teamUrl"></div>
+  </div>
+
+  <div ng-if="filter.mode == 'user'">
+    <div class="friend-list">
+    <div class="row friend-row" ng-repeat = "friend in teams track by $index">
+     <div class="col col-20 icon-wrapper" ui-sref="app.publicProfile({id:friend.id})">
+       <div class="profile-user-image" style="background-image: url({{friend.image_url ?  friend.image_url : 'img/avatar.svg'}})"></div>
+     </div>
+      <div class="col col-50 name-wrapper" ui-sref="app.publicProfile({id:friend.id})">
+        {{friend.first_name ? friend.first_name : 'LEADERBOARD.ANONYMOUS' | translate}}  {{friend.last_name}}
+      </div>
+      <div class="col follow_btn_wrap">
+        <button class="button button-clear" ng-class="friend.following_him == 0 ? 'button-positive' : 'button-assertive' " ng-bind-html="friend.following_him == 0 ? follow_btn_txt : unfollow_btn_txt " ng-click="changeFollow($index)" ng-disabled="friend.follow_btn_disable">Follow</button>
+      </div>
+    </div>
+  </div>
+  <div wf-pager params="params" distance="10" offset="10" dataset="teams" url="userUrl"></div>
+  </div>
+</ion-content>
+<button ng-click="applyFilters()" class="button  button-assertive button-round button-righ-bottom-sticky">
+          <i ng-class="filter.mode == 'team' ? 'wf wf-user' : 'wf wf-team-shirt'"></i>
+  </button>
+</ion-view>

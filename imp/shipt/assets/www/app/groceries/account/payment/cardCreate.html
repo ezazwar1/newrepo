@@ -1,0 +1,52 @@
+<ion-view title="">
+    <ion-nav-buttons side="right">
+
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+        <div class="text-center" >
+            <div class="padding">
+                <h3 class="dark">Add Card</h3>
+            </div>
+        </div>
+        <form class="add-card-form large-padding " name="loginForm" novalidate="novalidate" ng-submit="saveCard(card)">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Card Number</span>
+                    <input type="tel" ng-model="card.number"
+                           ng-minlength="15"
+                           ui-us-card-number
+                           ng-maxlength="20" name="number" placeholder="1234 5678 9012 3456" required="true">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Expiration Date</span>
+                    <input ng-model="card.exp_date"
+                                          name="exp_date"
+                                          id="exp_date"
+                                          ui-us-exp-date
+                                          placeholder="01/19"
+                                          type="tel"/>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Security Code</span>
+                    <input ng-model="card.cvc" name="cvc"
+                           ng-minlength="3"
+                           ng-maxlength="4" type="tel" placeholder="123" required="true">
+                </label>
+
+
+                <label class="item item-input">
+                    <span class="input-label">Billing Zip</span>
+                    <input ng-model="card.address_zip" name="billing_zip"
+                           type="tel" placeholder="35233" required="true">
+                </label>
+
+                <button class="button button-positive button-clear button-full" type="submit">
+                    Save Card
+                </button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,12 @@
+<div class="sf-user-search-item clearfix" ng-click="ProfileModal.open(user.username)">
+
+	<img class="thumb" src="{{ user.photo | defaultThumbUser }}" ng-src="{{ user.photo }}" title="{{ user.fullName }}">
+
+	<div class="caption">
+		{{ user.fullName}}
+	</div>
+
+	<div class="stats">
+		<span ng-if="user.movieCount">{{ user.movieCount }} filmes</span>
+	</div>
+</div>

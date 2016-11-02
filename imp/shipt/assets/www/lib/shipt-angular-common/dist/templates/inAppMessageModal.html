@@ -1,0 +1,24 @@
+<div id="in-app-message-new-store" ng-controller="InAppMessageController">
+    <ion-modal-view class="modal modal-center in-app-message">
+        <ion-content>
+            <i ng-click="closeModal()" class="icon dismiss ion-ios-close-empty"></i>
+            <img class="img-primary" src="{{inAppMessage.imageUrl}}" alt="Header Image">
+            <div class="row text-center">
+                <div class="col">
+                    <h2 class="title">{{inAppMessage.title}}</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <span class="content">{{inAppMessage.content}}</span>
+                </div>
+            </div>
+            <div class="row footer">
+                <div class="col">
+                    <button ng-if="inAppMessage.messageType === inAppMessageTypes.newStoreAnnouncement" ng-click="callToAction(inAppMessage.messageType)" class="button button-block button-positive" role="button" aria-label="open change store modal">Change Store</button>
+                    <button ng-if="inAppMessage.messageType === inAppMessageTypes.acknowledgement" ng-click="callToAction(inAppMessage.messageType)" class="button button-block button-positive" role="button" aria-label="acknowledge message">Got It</button>
+                </div>
+            </div>
+        </ion-content>
+    </ion-modal-view>
+</div>

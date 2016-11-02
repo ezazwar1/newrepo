@@ -1,0 +1,95 @@
+<ion-view view-title="Climate" ng-controller="ServicesCtrl as sc">
+    <ion-content scroll="true" class="has-header climate-container text-left" ng-class="{'has-tabs-top': $root.isAndroid}">
+        <ion-slide-box on-slide-changed="slideHasChanged_c($index)" ng-init="disableSwipe()">
+            <ion-slide ng-init="sc.get_elninos()">
+                <div class="container">
+                    <h4><strong>El Nino Update {{sc.el_infos.month}} {{sc.el_infos.year}}</strong></h4>
+                    <p>Issued: {{sc.el_infos.issuedAt}}</p>
+                </div>
+                <div class="card wide">
+                    <div class="item item-divider" >
+                        <p class="darkk wrap">{{sc.el_infos.head1}}</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span ng-if="sc.el_infos.para1" class="em-txt"><p>{{sc.el_infos.para1}}</p></span>
+                        <span ng-if="sc.el_infos.para2" class="em-txt"><p>{{sc.el_infos.para2}}</p></span>
+                        <span ng-if="sc.el_infos.para3" class="em-txt"><p>{{sc.el_infos.para3}}</p></span>
+                        <span ng-if="sc.el_infos.para4" class="em-txt"><p>{{sc.el_infos.para4}}</p></span>
+                    </div>
+                    <!-- <br><br><br> -->
+                </div>
+
+                <div class="container">
+                    <div ng-if="!sc.ii[0]" style="height: 100%">
+                        <ion-spinner style="display: block; margin: 0 auto;" class="dark" icon="lines"></ion-spinner>
+                    </div>
+                    <div class="nino_i1"></div>
+                    <hr class="style-two" ng-if="sc.ii[0]">
+                    <div class="nino_i2"></div>
+                    <hr class="style-two" ng-if="sc.ii[0]">
+                    <div class="nino_i3"></div>
+                </div>
+            </ion-slide>
+
+            <!-- Rainfall and Temp -->
+            <ion-slide ng-init="sc.get_rainandtemp()">
+                <div class="container">
+                    <h4><strong>Trinidad and Tobago Rainfall and Temperature for {{sc.rt.month}} {{sc.rt.year}}</strong></h4>
+                    <p>{{sc.rt.textArea10}}</p>
+                </div>
+                <div class="card wide">
+                    <div class="item item-divider" ng-if="sc.rt.head1">
+                        <p class="darkk">{{sc.rt.head1}}</p>
+                    </div>
+                    <div class="item item-text-wrap" style="margin-bottom: 40px;">
+                        <p ng-repeat="item in sc.key_list">{{item}}<br><br></p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div ng-if="!sc.rti[0]" style="height: 100%">
+                        <ion-spinner style="display: block; margin: 0 auto;" class="dark" icon="lines"></ion-spinner>
+                    </div>
+                    <div class="rt_i1"></div>
+                    <hr class="style-two" ng-if="sc.rti[0]">
+                    <div class="rt_i2"></div>
+                    <br>
+                    <!-- <div class="image" style="background-image: url(' {{image4}} '); height: 200px; margin-top: 0px; "></div> -->
+                    <!-- <div class="image" style="background-image: url(' {{image5}} '); height: 200px; margin-top: 0px; "></div> -->
+                </div>
+            </ion-slide>
+
+            <ion-slide ng-init="sc.get_drywet()">
+                <div class="container">
+                    <h4><strong>Trinidad and Tobago Dry Spell Outlook by End of {{sc.dw.month}} {{sc.dw.year}}</strong></h4>
+                    <p>"{{sc.dw.textArea10}}"</p>
+                </div>
+                <div class="container">
+                    <div ng-if="!sc.dwi[0]" style="height: 100%">
+                        <ion-spinner style="display: block; margin: 0 auto;" class="dark" icon="lines"></ion-spinner>
+                    </div>
+                    <div class="dw_i1"></div>
+                    <!-- <div class="dw_i2"></div> -->
+                    <!-- <div class="image" style="background-image: url(' {{image6}} '); height: 200px; margin-top: 0px; "></div> -->
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+
+    <ion-tabs class="tabs-color-active-positive tabs-themed" ng-if="$root.isAndroid">
+        <ion-tab title="El Nino Update" on-select="slide(0)"></ion-tab>
+        <ion-tab title="Rainfall &middot; Temp" on-select="slide(1)"></ion-tab>
+        <ion-tab title="Dry/Wet Outlook" on-select="slide(2)"></ion-tab>
+    </ion-tabs>
+
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive tabs-small-text" ng-if="!$root.isAndroid">
+        <ion-tab title="El Nino Update" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" on-select="slide(0)"></ion-tab>
+        <ion-tab title="Rainfall &middot; Temp" icon-off="icon ion-ios-rainy-outline" icon-on="icon ion-ios-rainy" on-select="slide(1)"></ion-tab>
+        <ion-tab title="Dry/Wet Outlook" icon-off="icon ion-ios-cloud-outline" icon-on="icon ion-ios-cloud" on-select="slide(2)"></ion-tab>
+    </ion-tabs>
+
+    <!-- <ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-themed': $root.isAndroid}">
+        <ion-tab title="El Nino Update" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" on-select="slide(0)"></ion-tab>
+        <ion-tab title="Rainfall &middot; Temp" icon-off="icon ion-ios-rainy-outline" icon-on="icon ion-ios-rainy" on-select="slide(1)"></ion-tab>
+        <ion-tab title="Dry/Wet Outlook" icon-off="icon ion-ios-cloud-outline" icon-on="icon ion-ios-cloud" on-select="slide(2)"></ion-tab>
+    </ion-tabs> -->
+</ion-view>

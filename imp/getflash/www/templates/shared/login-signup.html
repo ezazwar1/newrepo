@@ -1,0 +1,50 @@
+<ion-modal-view class="modal login-modal">
+
+  <ion-content>
+    <div class="main-menu">
+      <div class="main-title">
+        <div>A SHOPPABLE MAGAZINE <br> FOR THE STYLE CONSCIOUS.</div>
+        <hr>
+      </div>
+      <div class="detail">
+        Receive, save, & shop for outfit ideas.
+      </div>
+      <div class="row button-wrapper">
+        <div class="col">
+          <button class="btn-social-fb" ng-click="loginFB()">
+            Login with Facebook
+          </button>
+        </div>
+      </div>
+      <!--<div class="row button-wrapper">
+        <div class="col">
+          <button class="btn-social-twitter" ng-click="loginTwitter()">
+            <span class="ion-social-twitter"></span>&nbsp;&nbsp; Login with Twitter
+          </button>
+        </div>
+      </div>-->
+      <div class="row button-wrapper">
+        <div class="col">
+          <button class="btn-email" ng-click="goToLogin()">
+            Login with Email</div>
+          </button>
+        </div>
+      </div>
+      <div class="row button-wrapper">
+        <div class="col plain">
+          Don't have an account yet? <button class="btn-link-small link-13" ng-click="goToSignup()">Sign up</button>
+        </div>
+      </div>
+      <div class="row button-wrapper modified">
+        <div class="col">
+          <button ng-show="isStep" class="btn-link-small link-13" ng-click="backToIntro()"><span class="ion-arrow-left-c"></span> Go back</button>
+          <button ng-show="!isStep" class="btn-link-small link-13" ng-click="closeModal()">Continue browsing</button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  <div class="term">
+    By using Getfash, you agree to our <br> <button ng-click="goTo('https://www.getfash.com/info/terms-of-use')" class="btn-link-term">Terms of Use</button> and <button ng-click="goTo('https://www.getfash.com/info/privacy-policy/')" class="btn-link-term">Privacy policy</button>
+  </div>
+</ion-modal-view>

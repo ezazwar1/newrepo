@@ -1,0 +1,26 @@
+<ion-view view-title="{{ currSetName }}">
+
+  	<ion-content>
+		<ion-refresher pulling-text="Reload..." on-refresh="doReloadSavedMedia()">
+		</ion-refresher>
+
+		<ion-item class="saved-media-stream-holder">
+			<div class="image-wrapper box" ng-repeat="media in savedMedias | orderBy:'-createddate'" ng-include src="'templates/shared/othersavedmediatemplate.html'"></div>
+		</ion-item>
+
+		<div class="loader-wrapper" ng-show="mediaFirstTimeLoader">
+			<ion-spinner class="spinner-android"></ion-spinner>
+		</div>
+
+		<div class="no-data-wrapper" ng-show="displayStyleEmpty">
+			<div class="title">
+				No outfit saved yet!
+			</div>
+		</div>
+
+		<ion-infinite-scroll ng-if="loadMore" on-infinite="doLoadMore()" distance="1%" class="ionic-load-more">
+		</ion-infinite-scroll>
+
+  	</ion-content>
+
+</ion-view>

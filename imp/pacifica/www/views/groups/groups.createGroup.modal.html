@@ -1,0 +1,38 @@
+<ion-modal-view class="touchpoint popoverr new-post create-group">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeCreateGroupModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'CREATE_GROUP_TITLE' | translate}}</h1>
+      <label>{{ 'GROUP_NAME_LABEL' | translate}}</label>
+      <input type="text" placeholder="{{ 'GROUP_NAME' | translate }}" name="groupName" id="groupName" ng-model="newGroupData.name" maxLength="64">
+      <label>{{ 'GROUP_NICKNAME_LABEL' | translate}}</label>
+      <input type="text" placeholder="{{ 'GROUP_NICKNAME' | translate }}" name="groupNickname" id="groupNickname" ng-model="newGroupData.nickname" maxLength="32">
+
+      <div class="clearfix check-wrapper">
+        <label class="checkbox">{{ 'PRIVATE_GROUP_LABEL' | translate}}
+        <input type="radio" name="searchable" ng-model="newGroupData.searchable" ng-value="{{false}}" id="groupNotSearchable" checked></label>
+      </div>
+
+      <div class="clearfix check-wrapper">
+        <label class="checkbox">{{ 'PUBLIC_GROUP_LABEL' | translate}}
+        <input type="radio" name="searchable" ng-model="newGroupData.searchable" ng-value="{{true}}" id="groupSearchable"></label>
+      </div>
+
+      <div class="description-wrapper" ng-show="newGroupData.searchable">
+        <textarea ng-model="newGroupData.description" id="groupDescription" placeholder="{{ 'GROUP_DESCRIPTION_PROMPT' | translate }}" id="moodNote"></textarea>
+      </div>
+
+      <p ng-if="groupError" class="error">{{groupError}}</p>
+
+      <div class="clearfix">
+        <button ng-click="createGroup()" class="button-start" ng-disabled="creatingGroup">
+          {{ 'CREATE_GROUP' | translate }}
+        </button>
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-modal-view>

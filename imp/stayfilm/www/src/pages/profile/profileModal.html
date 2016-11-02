@@ -1,0 +1,26 @@
+<div class="modal">
+
+	<ion-header-bar align-title="center" class="bar bar-header" no-tap-scroll="true">
+
+		<h1 class="title">{{ user.fullName }}</h1>
+		<div class="buttons">
+			<button class="button button-clear button-light icon ion-close" ng-click="ProfileModal.close()"></button>
+		</div>
+
+	</ion-header-bar>
+
+	<ion-content class="has-header">
+		<div ng-include="'src/pages/profile/header.html'"></div>
+
+		<div style="text-align: center">
+		<br>
+		<br>
+		<br>
+		<button class="button button-large button-positive" ng-click="goToProfile(user.username, 'movie')">
+			Ver Mais
+		</button>
+		</div>
+
+	</ion-content>
+
+</div>

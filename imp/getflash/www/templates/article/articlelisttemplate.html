@@ -1,0 +1,19 @@
+<div class="article-wrapper" preload-bg-image="{{ ar.articleFeaturedImage }}" default-image="img/article-ph.jpg">
+	<div class="row main-wrapper">
+		<div class="click-area" ng-click="goToDetail('{{ ar.articleId }}',{{ ar.articleType }}, '{{ ar.articleLink }}')">
+        	</div>
+                <div class="headline-wrapper">
+                        <div class="headline">{{ ar.articleHeadline }}</div>
+                        <div class="category" ng-show="ar.showCategory">
+                                <div ng-repeat="cat in ar.articleCategories">
+                                        <button class="btn btn-link-small" ng-click="goToCategory('{{ cat.category }}')">{{ cat.category }}</button><span ng-show="cat.displayDivider">|</span>
+                                </div>
+                        </div>
+                        <div class="category" ng-show="!ar.showCategory">
+                                <div ng-repeat="cat in ar.articleCategories">
+                                        {{ cat.category }}<span ng-show="cat.displayDivider">|</span>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

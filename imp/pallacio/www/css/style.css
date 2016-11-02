@@ -1,0 +1,517 @@
+/* Empty. Add your own CSS if you like */
+
+
+
+
+.pane,.view, body {
+    background-color: #d8d7d3 !important;
+}
+
+.info-view body {
+    background-color: rgba(240,184,64,0.5) !important;
+    color: #FFFFFF;
+    border-color: #d08d00;
+    border-bottom: 1px;
+    border-top: 0px;
+    font-size: 1.3em;
+}
+
+.my-menu {
+    background-color: #3f4041;
+}
+
+.my-menu .item, .my-menu .item-content, .my-menu .item-complex{
+    background-color: rgba(240,184,64,0.5) !important;
+    color: #FFFFFF !important;
+    border-color: #d08d00 !important;
+    border-bottom: 1px !important;
+    border-top: 0px !important;
+    font-size: 1.3em !important;
+}
+
+
+
+.my-menu .item-content:active,.my-menu .item-complex:active,.my-menu .item:active{
+
+    background-color: rgba(240,184,64,0.8) !important;
+}
+.my-menu .item-content:focus,.my-menu .item-complex:focus{
+
+    background-color: rgba(240,184,64,0.8) !important;
+}
+
+.my-menu .item-content:visited,.my-menu .item-complex:visited{
+
+    background-color: rgba(240,184,64,0.8) !important;
+}
+
+.bar .title{
+
+    font-size: 1.6em !important;
+}
+
+.slider .eventListPictureSlide{
+    width:100%;
+    height:100%;
+}
+
+.eventListPicture{
+    width:102%;
+    height:100%;
+    display:block;
+    color:#fff;
+    text-decoration: none;
+    border-top: 0px;
+    border-bottom: 0px;
+    background-position: 0% 20%;
+}
+
+.eventListPicture .item{
+
+}
+.eventListPicture .item-content{
+
+    margin: 30% 0px 0px 0px !important;
+    height: auto !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+
+.eventListPicture h2{
+    font-size: 5.5vw !important;
+    color: #fff;
+    text-align: center;
+    width: 102%;
+    text-wrap: normal;
+    padding-right: 4%;
+}
+.eventListPicture h3{
+    font-size: 5.5vw !important;
+    color: #000;
+    margin: 0px 20px 0px 20px;
+}
+
+
+
+.details {
+    float: left;
+    font-size: 1em;
+    text-align: center;
+    padding: 2%;
+    background-color: #d8d7d3;
+}
+
+.image {
+    float: left;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+
+}
+
+.responsive{
+    height: 90px;
+    width: 90px;
+    margin: 2px;
+
+}
+
+
+.gridRepeats:nth-child(4n+1), .gridRepeats:nth-child(4n+2)  {
+.details{
+    background-color: red;
+}
+}
+
+.image-wrap {
+    max-height: 450px;
+    overflow: hidden;
+    max-width: 800px;
+    -webkit-transition: max-width .5s ease-out;  /* Saf3.2+, Chrome */
+    -moz-transition: max-width .5s ease-out;  /* FF4+ */
+    -ms-transition: max-width .5s ease-out;  /* IE10? */
+    -o-transition: max-width .5s ease-out;  /* Opera 10.5+ */
+    transition: max-width .5s ease-out;
+}
+
+.image-wrap img {
+    width: 100%;
+    -webkit-transition: margin-top .5s ease-out;  /* Saf3.2+, Chrome */
+    -moz-transition: margin-top .5s ease-out;  /* FF4+ */
+    -ms-transition: margin-top .5s ease-out;  /* IE10? */
+    -o-transition: margin-top .5s ease-out;  /* Opera 10.5+ */
+    transition: margin-top .5s ease-out;
+}
+
+@media only screen and (min-width: 1160px) {
+    .image-wrap { max-width: 1000px; }
+}
+
+#imagebgMap {
+    background-image: url(../img/Plano1.png) !important;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.scroll-content#imagebg {
+    background-image: url(../img/infoBackground.jpg) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.slider-slide#imageSlideBG {
+    background-image: url(../img/homeImages/ImagenHome22.png) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+#contentInfo {
+
+    font-size: 1em;
+    color: #fff !important;
+
+
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    text-align: center;
+    height: 300% !important;
+}
+
+#contentInfo h1{
+    color: #fff !important;
+
+}
+#contentInfo h2{
+    color: #fff !important;
+
+}
+
+#contentInfo h3{
+    color: #fff !important;
+    font-size: 5.5vw !important;
+
+}
+
+#contentInfo a{
+    color: #d08d00 !important;
+
+}
+
+#contentInfo div{
+    font-size: 1.2em !important;
+
+}
+
+#contentInfoPalace {
+    background-color: rgba(0, 0, 0, 0.0) !important;
+    color: #000000;
+
+}
+#contentInfoPalace h3 {
+    font-size: 5.5vw !important;
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+#contentInfoPalace h2 {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 8.5vw !important;
+
+}
+
+.tab-title{
+    font-size: 1.4em !important;
+}
+.blurLayerNew{
+    -webkit-filter: blur(9px);
+    -moz-filter: blur(9px);
+    -o-filter: blur(9px);
+    -ms-filter: blur(9px);
+    filter: blur(9px);
+    opacity: 0.9;
+}
+
+
+
+.scroll-content#location{
+    /* This image will be displayed fullscreen */
+    background:url('../img/map.png') no-repeat center center fixed;
+    /* Ensure the html element always takes up the full height of the browser window */
+    min-height:100%;
+    /* The Magic */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#compassContainerDistance{
+
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    z-index: 999;
+    width: 50px;
+    font-size: 1em;
+    text-align: right;
+    color:#FFFFFF;
+    font-weight: bold;
+}
+
+
+#compassContainer{
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+
+    position: absolute;
+    bottom: 10%;
+    right: 2%;
+    z-index: 999;
+    width: 30px;
+}
+#infoButtonDiv{
+    position: absolute;
+    bottom: 5%;
+    z-index: 999;
+    width: 100%;
+
+
+}
+
+#rightNavButton{
+
+    position: absolute;
+    font-size: 5em !important;
+    z-index: 9999;
+    right: 4%;
+    top: 0%;
+    height: 100%;
+}
+#rightNavButton:before{
+    font-size: 9vw !important;
+}
+
+#leftNavButton{
+
+    position: absolute;
+    font-size: 5em !important;
+    z-index: 9999;
+    left: 1%;
+    top: 0%;
+    height: 100%;
+
+}
+#leftNavButton:before{
+    font-size: 9vw !important;
+}
+
+#infoButton{
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+
+}
+#infoButton img{
+    width: 20%;
+    text-align: center;
+}
+.modal-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.0) !important;
+}
+
+.modal-backdrop.active i{
+    font-style: oblique;
+    text-align: center !important;
+}
+
+
+.modal {
+    top: 35%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    overflow: visible;
+    min-height: 240px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+
+#infoView h3{
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    width: 120%;
+    margin-left: -15px !important;
+    margin-right: 0px;
+    padding-left: 15px;
+
+
+}
+
+
+
+#infonextprev{
+    top: -5px;
+    width: 105%;
+    background-color: rgba(0, 0, 0, 0.0) !important;
+    position: absolute;
+    z-index: 999;
+    border-bottom: 0px !important;
+    left:-1%;
+
+}
+
+title#infonextprev {
+
+}
+
+#infonextprev h3{
+    color:#fff !important;
+
+
+}
+button#infonextprev{
+    color:#fff !important;
+}
+
+
+div#wrap {
+    width: 100% !important;
+
+}
+
+/*#wrap{background: url(img/Plano1.png) no-repeat center center !important; background-size: cover !important;}*/
+#wrap > div{background-size: cover !important;background-position: center center !important;}
+#wrap{overflow: hidden;}
+
+
+#smallMap > div{background-size: cover !important;background-position: center center !important;}
+div#smallMap{
+    position: absolute;
+    bottom: 1%;
+    right: 2%;
+    z-index: 999;
+    max-width: 120px;
+    overflow: hidden;
+    box-shadow: 3px -1px 5px #000000;
+    background-color: rgba(0, 0, 0, 0.67);
+
+}
+
+
+.spaceVisit > .slider-pager .slider-pager-page{
+    color: #FFFFFF !important;
+}
+
+i.customIcon.ion-arrow-expand {
+    font-size: 4em;
+    text-shadow: 1px -1px 5px #000000;
+    color: #FFFFFF;
+
+}
+.palaceList > .slider-pager .slider-pager-page{
+    color: #FFFFFF !important;
+}
+
+
+.item-complex .item-content, .item-radio .item-content{
+
+
+}
+.menuItem .item-content{
+
+    padding:15px !important;
+}
+#coverAnimated{
+
+
+}
+
+/*New Cover image background with css, avoid background-size:cover;*/
+.item-content a{
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    padding:0px !important;
+}
+.item{
+    border-width:0px !important;
+}
+#homeItem .item-content{
+    width: 100%;
+    padding: 0px !important;
+    margin: 0px;
+}
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    padding:0px !important;
+}
+#bg h2{
+    font-size: 5.5vw !important;
+    color: #fff;
+    text-align: center;
+    width: 102%;
+    text-wrap: normal;
+    padding-right: 4%;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    margin:0px !important;
+    padding:0px !important;
+    overflow: initial;white-space: initial;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.my-image-item > .item-avatar{
+    margin:0px !important;
+    padding-left: 90px;
+    min-height: 90px;
+}
+
+.my-image-item img{
+    height: 100% !important;
+    width: 100% !important;
+    top:0px !important;
+    left: 0px !important;
+
+}
+.my-image-item > img:first-child{
+
+    max-width: 100%;
+    max-height: 100%;
+}
+.itemSchedule > .item-content{
+    padding: 10px;
+}
+
+.maplegend{
+    bottom:-1%;
+    left:1%;
+    z-index: 9999;
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    padding-left: 1%;padding-right: 1%;
+}
+
+@media only screen and (min-width: 768px) {
+    .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+        padding-left: 70px;
+        min-height: 130px;
+    }
+}

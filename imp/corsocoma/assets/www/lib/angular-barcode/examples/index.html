@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Example</title>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="../dist/angular-barcode.js"></script>
+    <script type="text/javascript">
+        angular.module('barcodeExample', ['barcode'])
+                .controller('Controller', ['$scope', function ($scope) {
+                    var vm = this;
+
+                    vm.options = {
+                        width: 2,
+                        height: 100,
+                        quite: 10,
+                        displayValue: true,
+                        font: "monospace",
+                        textAlign: "center",
+                        fontSize: 12,
+                        backgroundColor: "",
+                        lineColor: "#000"
+                    };
+                    var barcodes = [
+                        {
+                            type: "ean",
+                            code: "0029000018068"
+                        },
+                        {
+                            type: "upc",
+                            code: "029000018068"
+                        },
+                        {
+                            type: "code39",
+                            code: "Code39 Barcode"
+                        },
+                        {
+                            type: "code128b",
+                            code: "Code128B Barcode"
+                        },
+                        {
+                            type: "code128c",
+                            code: "22"
+                        },
+                        {
+                            type: "itf",
+                            code: "1234567895"
+                        },
+                        {
+                            type: "itf14",
+                            code: "98765432109213"
+                        }
+                    ];
+
+                    vm.mycode = {};
+                    vm.mycode.type = "ean";
+                    vm.mycode.code = "0029000018068";
+
+                    var i = 0;
+
+                    setInterval(
+                            function () {
+                                if (i < barcodes.length) {
+                                    vm.mycode.type = barcodes[i].type;
+                                    vm.mycode.code = barcodes[i].code;
+                                    i++;
+                                } else {
+                                    i = 0;
+                                }
+                                $scope.$apply();
+                            },
+                            1000);
+                }]);
+    </script>
+</head>
+<body ng-app="barcodeExample">
+<div ng-controller="Controller as vm">
+    <h4>Rendered in canvas</h4>
+    <barcode type="{{vm.mycode.type}}" string="{{vm.mycode.code}}" options="vm.options"></barcode>
+    <br>
+    <barcode type="ean" string="0029000018068" options="vm.options"></barcode>
+    <br>
+    <barcode type="upc" string="029000018068" options="vm.options"></barcode>
+    <br>
+    <barcode type="code39" string="Code39 Barcode" options="vm.options"></barcode>
+    <br>
+    <barcode type="code128b" string="Code128B Barcode" options="vm.options"></barcode>
+    <br>
+    <barcode type="code128c" string="22" options="vm.options"></barcode>
+    <br>
+    <barcode type="itf" string="1234567895" options="vm.options"></barcode>
+    <br>
+    <barcode type="itf14" string="98765432109213" options="vm.options"></barcode>
+    <br>
+    <h4>Rendered in img element</h4>
+    <barcode type="{{vm.mycode.type}}" render="img" string="{{vm.mycode.code}}" options="vm.options"></barcode>
+    <br>
+    <barcode type="ean" render="img" string="0029000018068" options="vm.options"></barcode>
+    <br>
+    <barcode type="upc" render="img" string="029000018068" options="vm.options"></barcode>
+    <br>
+    <barcode type="code39" render="img" string="Code39 Barcode" options="vm.options"></barcode>
+    <br>
+    <barcode type="code128b" render="img" string="Code128B Barcode" options="vm.options"></barcode>
+    <br>
+    <barcode type="code128c" render="img" string="22" options="vm.options"></barcode>
+    <br>
+    <barcode type="itf" render="img" string="1234567895" options="vm.options"></barcode>
+    <br>
+    <barcode type="itf14" render="img" string="98765432109213" options="vm.options"></barcode>
+    <br>
+</div>
+</body>
+</html>

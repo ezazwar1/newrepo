@@ -1,0 +1,38 @@
+<div class="modal simple-modal" ng-controller="selectedPaymentMethodModalController as vm" >
+    <ion-header-bar class="bar-light">
+        <h1 class="title">Payment Method</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="vm.cancel()"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header darker-content" scroll="true" has-bouncing="true" >
+        <ion-list class="delivery-time-radio">
+            <div class="text-center padding" style="margin-top: 20px;">
+                <span class="faded padding">
+                    Select payment method to be used
+                </span>
+            </div>
+            <label class="item item-radio"
+                   ng-click="vm.clickSource(source)"
+                   ng-repeat="source in vm.sources" >
+                <input type="radio"
+                       ng-value="source" ng-model="vm.selectedSource" name="group">
+                <div class="item-content">
+                    <h2 class="dark">
+                        <span class="faded">
+                            {{source.brand}}
+                        </span>
+                        *{{source.last_4_digits}}
+                        <br/>
+                        <span class="faded">
+                            Exp Date
+                        </span>
+                        {{source.exp_date}}
+                    </h3>
+                </div>
+                <i class="radio-icon ion-ios-checkmark"></i>
+            </label>
+        </ion-list>
+    </ion-content>
+</div>

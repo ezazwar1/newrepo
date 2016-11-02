@@ -1,0 +1,29 @@
+<ion-modal-view class="darker-bg">
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{ 'GROUPS.FILTER.TITLE' | translate }}</h1>
+    <button class="button button-positive button-icon ion-android-close" ng-click="closeFilter()" />
+  </ion-header-bar>
+  <ion-content class="darker-bg">
+
+    <h5 class="dash-header" translate="ACTION.FILTER_BY">Filter By:</h5>
+    <div class="text-center padding">
+        {{ 'GROUPS.CATEGORY' | translate }}
+        <div class="select-box">
+            <select placeholder="{{ 'GROUPS.CATEGORY' | translate }}" ng-model="filter.type" name="type">
+              <option value="none" translate="GROUPS.FILTER.NONE">Dont Filter</option>
+              <option value="company" translate="GROUPS.FILTER.CATEGORY.COMPANY">Company</option>
+              <option value="brand" translate="GROUPS.FILTER.CATEGORY.BRAND">Brand</option>
+              <option value="fitness" translate="GROUPS.FILTER.CATEGORY.FITNESS">Fitness</option>
+              <option value="community" translate="GROUPS.FILTER.CATEGORY.COMMUNITY">Community</option>
+            </select>
+        </div>
+    </div>
+
+
+  </ion-content>
+
+  <ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+    <button ng-click="applyFilters()" class="button button-big-sticky button-full floating-footer-button">{{ 'ACTION.CONFIRM_FILTERS' | translate }}</button>
+  </ion-footer-bar>
+
+</ion-modal-view>

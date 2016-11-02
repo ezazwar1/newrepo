@@ -1,0 +1,25 @@
+<div ng-init="pop_init()" class="popup-tosell">
+    <h2 class="popup-title">Enter Selling Price</h2>
+
+    <div class="form-group">
+        <p class="popup-tosell_unit">{{ data.price_unit }}</p>
+        <input class="form-input popup-price" type="text" name="price" ng-model="data.price_sell" autofocus />
+        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+    </div>
+
+    <div class="game-profile_section">
+        <div class="game-actions_wrapper">
+            <div class="game-actions_group" ng-click="format_selection(0)" ng-disabled="data.collect_format == 0">
+                <h2 class="game-actions_title">Disc</h2>
+            </div>
+            <div class="game-actions_group" ng-click="format_selection(1)" ng-disabled="data.collect_format == 1">
+                <h2 class="game-actions_title">Digital Code</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-multi">
+        <button class="button button-block button-primary button-multi_item-uneven" ng-click="cancel_button()">Cancel</button>
+        <button class="button button-block button-primary button-multi_item-uneven" ng-disabled="priceconfirm_disabled" ng-click="close_action_popup()">Confirm</button>
+    </div>
+</div>

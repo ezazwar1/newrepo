@@ -1,0 +1,99 @@
+<ion-view title="{{ 'CONNECT.TITLE' | translate }}">
+
+	<ion-nav-buttons side="left">
+      <wf-back to="app.connect"></wf-back>
+    </ion-nav-buttons>
+
+	<ion-content>
+		<ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh()">
+        </ion-refresher>
+   <div ng-if="screens" class="single-connect">
+		<div style="padding: 1.2em 2em;">
+			<div class="pan connection-list single">
+				<div class="row row-no-padding">
+	  					<div class="col">
+  							<img width="65" ng-src="{{ connection.logo }}" ng-class="connection.status != 0 ? 'image-disable' : ''">
+	  					</div>
+	  					<div class="col col-75 no-border check-tick-wrapper single-connect-wrapper">
+	  						<!-- <ion-toggle class="padding-left" ng-true-value="'0'"
+	  							ng-false-value="'1'" ng-model="connection.disabled" ng-change="handleConnect()" toggle-class="toggle-calm" ng-class="{'third-party' : connection.connection_type == '3rd_party_app'}">
+	  							<h2>{{ connection.name }}</h2>
+	  						</ion-toggle> -->
+								<span>{{ connection.name }}</span>
+									<button class="button single-conn-btn" ng-class="connection.disabled == 0 ? 'button-assertive':'button-positive'" ng-hide="connection.connection_type == '3rd_party_app'"  ng-click="connectBtnHandle()">{{ connectBtnTxt }}</button>
+	  				 </div>
+				</div>
+			</div>
+		</div>
+
+
+	<wf-tabs style="light-bg">
+		<wf-pane title="{{ 'CONNECT.STATUS' | translate }}" callback="tabCallback('status')"  class="big-padding">
+
+			<div ng-hide="connection.connection_type == '3rd_party_app'"><p><strong>{{'CONNECT.STATUS' | translate}}:</strong><span class="margin-left-10">{{connectStatus}}</span></p></div>
+ 		  <div ng-if="connection.last_update"><p><strong>{{'CONNECT.LAST_UPDATE' | translate}}:</strong><span class="margin-left-10">{{connection.last_update | amDateFormat:'L HH:mm'}}</span></p></div>
+
+		  <div class="single-conn-help" ng-if="connection.disabled != 0 && connection.status==0">
+			<div class="card connect-getSupport addgroup-card">
+				<div class="item item-text-wrap wrapper" ng-click="getSupport(connection.name,'page');goHelp()">
+					<div class="ion-ios-help icon-div"></div>
+					<p>{{connection.connection_type == '3rd_party_app' ? 'CONNECT.SINGLE_CONN_HELP_TEXT' : 'CONNECT.SINGLE_CONN_TUTORIAL_TEXT' | translate }}</p>
+					<div class="support_btn_wrap"><span class="support_btn">{{connection.connection_type == '3rd_party_app' ? 'CONNECT.SINGLE_CONN_HELP' : 'CONNECT.SINGLE_CONN_TUTORIAL' | translate }}</span><span class="ion-ios-arrow-right"></span></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="single-conn-help" ng-if="connection.status==2">
+			<div class="card connect-getSupport addgroup-card">
+				<div class="item item-text-wrap wrapper" ng-click="">
+					<div class="ion-settings icon-div people-icon"></div>
+					<p translate="CONNECT.CONN_PROBLEM_TEXT"> Support Text</p>
+					<div class="support_btn_wrap"><span class="support_btn" translate="CONNECT.CONN_PROBLEM">GET</span><span class="ion-ios-arrow-right"></span></div>
+				</div>
+			</div>
+		</div>
+
+		</wf-pane>
+
+ 	  <wf-pane title="{{ 'CONNECT.DESCRIPTION' | translate }}" callback="tabCallback('desc')"  class="big-padding">
+			<!--<div class="pan light-gray">
+				<ion-slide-box>
+						<ion-slide ng-repeat="screen in screens">
+							<div class="box screenBox">
+								<img hires="{{ screen }}" src="img/img-placeholder.svg">
+							</div>
+						</ion-slide>
+				</ion-slide-box>
+			</div>-->
+			<!--<div class="pan big-padding">-->
+				<div class="connection-body" ng-bind-html="connection.description | toTrusted">
+
+				</div>
+
+				<!-- <div ng-if="connection.last_update"><p><strong>{{ 'CONNECT.LAST_UPDATE' | translate }}:</strong> {{ connection.last_update| amDateFormat:'DD MMM YYYY HH:MM' }}</p></div> -->
+
+				<!-- <div ng-if="connection.disabled == '0'"  class="padding-bottom">
+                  <a href="#"
+                      ng-click="remove(connection.id)"
+                      class="leave-challenge-link">
+                      <i class="ion-close"></i> {{ 'CONNECT.REMOVE_CONNECTION' | translate}}
+                  </a>
+
+                </div> -->
+
+				<div class="text-center" ng-show="connection.source_url">
+					<a
+						class="button big-button button-block button-positive"
+						onclick="window.open(this.href, '_system', 'location=yes,toolbar=yes'); return false;" href="{{ connection.source_url }}"
+						translate="ACTION.DOWNLOAD_APP">Download App</a>
+				</div>
+		<!--</div>-->
+	</wf-pane>
+     </wf-tabs>
+
+	</div>
+	</ion-content>
+</ion-view>

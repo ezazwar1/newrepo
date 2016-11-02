@@ -1,0 +1,225 @@
+/* line 5, publish.scss */
+.page-publish .jwplayer-container {
+  position: relative;
+  padding-bottom: 56%;
+  background: #8f8f96;
+}
+/* line 10, publish.scss */
+.page-publish .jwplayer-container #movie-player {
+  position: absolute;
+}
+/* line 14, publish.scss */
+.page-publish .jwplayer-container .manual-control {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80%;
+}
+/* line 23, publish.scss */
+.page-publish .padding-sf {
+  margin: 0 20px;
+}
+/* line 27, publish.scss */
+.page-publish .action-buttons {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  height: 44px;
+  margin: 0 40px;
+}
+/* line 33, publish.scss */
+.page-publish .action-buttons .action-item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  height: 44px;
+  width: 150px;
+  cursor: pointer;
+}
+/* line 40, publish.scss */
+.page-publish .action-buttons .action-item img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+/* line 46, publish.scss */
+.page-publish .action-buttons .action-item .text-description {
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 54, publish.scss */
+.page-publish h2 {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 22px;
+  margin: 20px 20px 20px 80px;
+}
+/* line 60, publish.scss */
+.page-publish h3 {
+  font-family: HelveticaNeueBLK, sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin: 30px 20px 10px;
+}
+/* line 67, publish.scss */
+.page-publish .user-textarea {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+/* line 72, publish.scss */
+.page-publish .user-textarea .avatar img {
+  width: 50px;
+  height: 50px;
+}
+/* line 78, publish.scss */
+.page-publish .user-textarea .description {
+  position: relative;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  margin-left: 15px;
+}
+/* line 83, publish.scss */
+.page-publish .user-textarea .description textarea {
+  resize: none;
+  padding: 15px;
+  width: 100%;
+  height: 62px;
+  border-radius: 5px;
+  background: #dedee0;
+  color: #7a7a7a;
+}
+/* line 94, publish.scss */
+.page-publish .user-textarea .description:before {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  left: -20px;
+  position: absolute;
+  width: 0;
+  border-width: 10px;
+  border-right-color: #dedee0;
+  top: 15px;
+}
+/* line 109, publish.scss */
+.page-publish .facebook-publish .item.item-toggle {
+  background: #dedee0;
+  border: none;
+  margin: 0 20px 20px 20px;
+  padding: 0px;
+  border-radius: 5px;
+}
+/* line 116, publish.scss */
+.page-publish .facebook-publish .item.item-toggle .facebook-align {
+  margin: 10px 10px 4px 10px;
+}
+/* line 119, publish.scss */
+.page-publish .facebook-publish .item.item-toggle .facebook-align span {
+  color: #7a7a7a;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 12px;
+  position: relative;
+  top: -10px;
+  margin-left: 10px;
+}
+/* line 130, publish.scss */
+.page-publish .facebook-publish .item.item-toggle input + .track {
+  background: #fff;
+  border-color: #fff;
+}
+/* line 134, publish.scss */
+.page-publish .facebook-publish .item.item-toggle input + .track .handle {
+  background: #dedcdf;
+}
+/* line 142, publish.scss */
+.page-publish .facebook-publish .item.item-toggle input:checked + .track {
+  background: #12ad60;
+  border-color: #12ad60;
+}
+/* line 146, publish.scss */
+.page-publish .facebook-publish .item.item-toggle input:checked + .track .handle {
+  background: #fff;
+}
+/* line 153, publish.scss */
+.page-publish .facebook-publish .item.item-toggle[disabled=disabled] {
+  opacity: 0.2;
+}
+/* line 159, publish.scss */
+.page-publish .publish-button {
+  background: #12ad60;
+  margin-top: 30px;
+}
+/* line 164, publish.scss */
+.page-publish .download-box {
+  margin-top: 25px;
+}
+/* line 168, publish.scss */
+.page-publish .cancel-button {
+  background: #aaa;
+}
+/* line 172, publish.scss */
+.page-publish .or-separator {
+  position: relative;
+  border-top: 2px dashed #d0d0d0;
+  text-align: center;
+  margin: 20px 15px;
+}
+/* line 179, publish.scss */
+.page-publish .produce-again {
+  background: #35424d;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* line 188, publish.scss */
+.action-sheet-backdrop .item-image {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 33px;
+  top: 6px;
+  background-size: cover;
+  margin-left: 10px;
+}
+/* line 197, publish.scss */
+.action-sheet-backdrop .item-image.whatsapp {
+  background-image: url("../images/moviemaker/switch_whatsapp.png");
+}
+/* line 201, publish.scss */
+.action-sheet-backdrop .item-image.instagram {
+  background-image: url("../images/moviemaker/switch_instagram.png");
+}

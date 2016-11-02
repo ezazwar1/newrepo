@@ -1,0 +1,311 @@
+
+
+
+@mixin clearfix {
+    &::after {
+        content:"";
+        display:table; 
+        clear:both;
+    }
+}
+
+
+// Typography
+@mixin webFont ($fontName, $fontURL, $fontWeight, $fontStyle: normal) {
+	font-family: '#{$fontName}';
+    src: url('../font/#{$fontURL}.eot');
+    src: url('../font/#{$fontURL}.eot?#iefix') format('embedded-opentype'),
+         url('../font/#{$fontURL}.woff') format('woff'),
+         url('../font/#{$fontURL}.ttf') format('truetype'),
+         url('../font/#{$fontURL}.svg##{$fontName}') format('svg');
+    font-weight: $fontWeight;
+    font-style: $fontStyle;
+}
+
+@mixin fontLight () {
+    font-family:'open_sanslight', Arial, Helvetica, sans-serif;
+}
+
+@mixin fontRegular () {
+	font-family:'open_sansregular', Arial, Helvetica, sans-serif;
+}
+
+@mixin fontSemibold () {
+    font-family:'open_sanssemibold', Arial, Helvetica, sans-serif;
+}
+
+@mixin fontBold () {
+    font-family:'open_sansbold', Arial, Helvetica, sans-serif;
+}
+
+@mixin typography (
+    $fontSize: $fontSizeBase,
+    $lineHeight: $lineheightBase,
+    $fontWeight: 400,
+    $color: $baseFontColor) {
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    font-weight: $fontWeight;
+    color: $color;
+}
+
+
+
+
+
+
+
+
+
+
+// Icons
+@mixin iconStyle (
+    $fontStyle: fontRegular,
+    $color: $baseLinkColor) {
+    @extend %icon-attached;
+    @include fontBold;
+    font-size: $fontSizeSmall;
+    color: $baseLinkColor;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Effect enhance
+@mixin innerGlow ($blur, $spread, $color, $opacity) {
+	-webkit-box-shadow: inset 0px 0px $blur $spread rgba($color,$opacity);
+       -moz-box-shadow: inset 0px 0px $blur $spread rgba($color,$opacity);
+            box-shadow: inset 0px 0px $blur $spread rgba($color,$opacity);
+}
+
+@mixin outerGlow ($blur: 5px, $spread: 2px, $color: $baseLinkColor, $opacity: 0.48) {
+	-webkit-box-shadow: 0px 0px $blur $spread rgba($color,$opacity);
+       -moz-box-shadow: 0px 0px $blur $spread rgba($color,$opacity);
+            box-shadow: 0px 0px $blur $spread rgba($color,$opacity);
+}
+
+@mixin textShadow ($x: 1px, $y: 1px, $blur: 1px, $color: black, $opacity: 0.75) {
+    -webkit-text-shadow: $x $y $blur rgba($color, $opacity);
+    -moz-text-shadow: $x $y $blur rgba($color, $opacity);
+    text-shadow: $x $y $blur rgba($color, $opacity);
+}
+
+@mixin borderRadius (
+    $radius: 2px,
+    $radiusTopLeft: $radius,
+    $radiusTopRight: $radius,
+    $radiusBtmRight: $radius,
+    $radiusBtmLeft: $radius) {
+	-webkit-border-radius: $radiusTopLeft $radiusTopRight $radiusBtmRight $radiusBtmLeft;
+	   -moz-border-radius: $radiusTopLeft $radiusTopRight $radiusBtmRight $radiusBtmLeft;
+			border-radius: $radiusTopLeft $radiusTopRight $radiusBtmRight $radiusBtmLeft;
+}
+
+@mixin translate ($x, $y) {
+    -webkit-transform: translate($x, $y);
+           -moz-transform: translate($x, $y);
+            -ms-transform: translate($x, $y);
+             -o-transform: translate($x, $y);
+                transform: translate($x, $y);
+}
+
+@mixin translate3d ($x, $y, $z) {
+    -webkit-transform: translate3d($x, $y, $z);
+       -moz-transform: translate3d($x, $y, $z);
+        -ms-transform: translate3d($x, $y, $z);
+         -o-transform: translate3d($x, $y, $z);
+            transform: translate3d($x, $y, $z);
+}
+
+@mixin transition ($property, $duration, $function) {
+    -webkit-transition: $property $duration $function;
+       -moz-transition: $property $duration $function;
+        -ms-transition: $property $duration $function;
+         -o-transition: $property $duration $function;
+            transition: $property $duration $function;
+}
+
+@mixin gradient (
+    $startColor: #106d4c,
+    $endColor: #19ae79,
+    $startPosition: 0%,
+    $endPosition: 100%) {
+    background: $startColor; /* Old browsers */
+    background: -moz-linear-gradient(left,  $startColor $startPosition, $endColor $endPosition); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop($startPosition,$startColor), color-stop($endPosition,$endColor)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  $startColor $startPosition,$endColor $endPosition); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  $startColor $startPosition,$endColor $endPosition); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  $startColor $startPosition,$endColor $endPosition); /* IE10+ */
+    background: linear-gradient(to right,  $startColor $startPosition,$endColor $endPosition); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$startColor', endColorstr='$endColor',GradientType=1 ); /* IE6-9 */
+}
+
+
+
+
+
+
+
+
+
+
+// Prefix
+
+@mixin prefixAppearance ($var: none) {
+    -webkit-appearance: $var;
+    -moz-appearance:    $var;
+    appearance:         $var;
+}
+
+// Prefix flexbox
+
+@mixin justifyContent ($var: space-between) {
+    // Important. Include this section with @mixin justifyContent.
+    // The property will have a weird combination result when you try to rewrite justify-content.
+    // The solution here is seperating the justify-content and the other codes.
+    -webkit-justify-content: $var;
+    -moz-justify-content: $var;
+    -ms-justify-content: $var;
+    justify-content: $var;
+}
+
+@mixin flexParentLayout () {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-box-orient: horizontal;
+    -ms-box-pack: center;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+@mixin flexChildLayout ($var: 1) {
+    // Without this applied to the child elements, the justify-content doesn't work for Android 4.2 and below
+    -webkit-box-flex: $var;
+    -webkit-flex: $var;
+    -moz-box-flex: $var;
+    -moz-flex: $var;
+    -ms-flex: $var;
+    flex: $var;
+}
+
+
+@mixin alignItems($var: flex-end) {
+    -webkit-align-items: $var;
+    -moz-align-items: $var;
+    -ms-align-items: $var;
+    align-items: $var;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Layout
+
+@mixin dataBox ($n) {
+    // $n is the numbers of the column
+    //@if $n == 1 {
+    //    width: 100%;
+    //} @else if $n == 2 {
+    //    width: 48%;
+    //} @else if $n == 3 {
+    //    width: 28.5%;
+    //} @else if $n == 4 {
+    //    width: 25%;
+    //}
+    text-align: center;
+    display: block;
+}
+
+// @mixin cusIcon () {
+//     content: '';
+//     display: block;
+//     background: url('../img/icons/$img') 0 0 no-repeat;
+//     position: absolute;
+// }
+
+
+
+
+
+
+
+
+
+
+
+// Shape
+@mixin triangleBtm (
+    $width: 18px,
+    $height: 8px,
+    $color: $dividerColor) {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: $height $width/2 0 $width/2;
+    border-color: $color transparent transparent transparent;
+
+    // for a better anti-aliasing in webkit browser
+    -webkit-transform:rotate(360deg);
+}
+
+@mixin circleClip ($width: 100%, $height: auto) {
+    width: $width;
+    height: $height;
+    -webkit-clip-path: circle($width/2 at center);
+    clip-path: circle($width/2 at center);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

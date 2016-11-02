@@ -1,0 +1,167 @@
+{
+  "products": [
+    {
+      "id": 7,
+      "price": 200,
+      "price_sale": 145,
+      "image": "./img/sample-images/fashion/Fashion7-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion7-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion7_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion7_3-3.4.png"
+      ],
+      "name": "Badass Leather Jacket",
+      "style": "Tight",
+      "related_products": [
+        {
+          "id": "2"
+        },
+        {
+          "id": "1"
+        }
+      ]
+    },{
+      "id": 4,
+      "price": 15.55,
+      "price_sale": 13.99,
+      "image": "./img/sample-images/fashion/Fashion4-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion4-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion4_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion4_3-3.4.png"
+      ],
+      "name": "Silk Blouse",
+      "style": "Loose",
+      "related_products": [
+        {
+          "id": "3"
+        },
+        {
+          "id": "2"
+        }
+      ]
+    }, {
+      "id": 5,
+      "price": 45.95,
+      "price_sale": 35.15,
+      "image": "./img/sample-images/fashion/Fashion5-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion5-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion5_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion5_3-3.4.png"
+      ],
+      "name": "Washed Skinny Jeans",
+      "style": "Skinny",
+      "related_products": [
+        {
+          "id": "8"
+        },
+        {
+          "id": "4"
+        }
+      ]
+    }, {
+      "id": 6,
+      "price": 130.55,
+      "price_sale": 95.99,
+      "image": "./img/sample-images/fashion/Fashion6-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion6-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion6_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion6_3-3.4.png"
+      ],
+      "name": "Feather Dark Shoes",
+      "style": "Party",
+      "related_products": [
+        {
+          "id": "3"
+        },
+        {
+          "id": "8"
+        }
+      ]
+    },{
+      "id": 2,
+      "price": 0,
+      "price_sale": 14.22,
+      "image": "./img/sample-images/fashion/Fashion2-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion2-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion2_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion2_3-3.4.png"
+      ],
+      "name": "Dark Red Blouse",
+      "style": "Loose",
+      "related_products": [
+        {
+          "id": "1"
+        },
+        {
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "price": 0,
+      "price_sale": 16.35,
+      "image": "./img/sample-images/fashion/Fashion1-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion1-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion1_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion1_3-3.4.png"
+      ],
+      "name": "Cute Jean Shirt",
+      "style": "Regular",
+      "related_products": [
+        {
+          "id": "5"
+        },
+        {
+          "id": "6"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "price": 50.45,
+      "price_sale": 35,
+      "image": "./img/sample-images/fashion/Fashion8-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion8-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion8_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion8_3-3.4.png"
+      ],
+      "name": "Summer Yellow Dress",
+      "style": "Regular",
+      "related_products": [
+        {
+          "id": "6"
+        },
+        {
+          "id": "7"
+        }
+      ]
+    }, {
+      "id": 3,
+      "price": 0,
+      "price_sale": 15.00,
+      "image": "./img/sample-images/fashion/Fashion3-3.4.png",
+      "square_image": "./img/sample-images/fashion/Fashion3-1.1.png",
+      "showcase_images": [
+        "./img/sample-images/fashion_content/Fashion3_2-3.4.png",
+        "./img/sample-images/fashion_content/Fashion3_3-3.4.png"
+      ],
+      "name": "Army Green Shirt",
+      "style": "Regular",
+      "related_products": [
+        {
+          "id": "2"
+        },
+        {
+          "id": "4"
+        }
+      ]
+    }
+  ]
+}

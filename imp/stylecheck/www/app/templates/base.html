@@ -1,0 +1,28 @@
+<div class="button button-menu circle" ng-class="{'no-background': avatar && !showIcon}" id="usermenu" ng-click="openPopover($event)" ng-if="!first">
+    <div class="circle grayscale image" ng-if="avatar && !showIcon" ng-style="{'background-image':'url(' + avatar + ')'}"></div>
+    <div class="circle empty display-flex align-center" ng-if="!avatar || showIcon">
+        <i ng-if="showIcon" class="icon icon-{{showIcon}} light center"></i>
+        <span ng-if="!showIcon" class="light uppercase menu-label">{{dict.menu}}</span>
+    </div>
+</div>
+<ion-nav-bar>
+    <ion-nav-back-button class="button-clear button-dark">
+        <i class="icon icon-back"></i>
+    </ion-nav-back-button>
+    <ion-nav-title ng-click="goToAndReset('dashboard')"><img height="26" src="resources/images/logo.png"></ion-nav-title>
+</ion-nav-bar>
+<ion-nav-view></ion-nav-view>
+<script id="popover.html" type="text/ng-template">
+    <ion-popover-view class="popover-menu">
+        <ion-content scroll="false">
+            <ul class="list">
+                <li><button ng-click="onPopoverClick('dashboard', '');" class="button button-dark icon ion-android-home circle"></button></li>
+                <li><button ng-click="onPopoverClick('profile.overview', 'user');" class="button button-dark icon icon-user circle"></button></li>
+                <li><button ng-click="onPopoverClick('search', 'community');" class="button button-dark icon icon-community circle"></button></li>
+                <li><button ng-click="onPopoverClick('fashionFeed.overview', 'feed');" class="button button-dark icon icon-feed circle"></button></li>
+                <li><button ng-click="onPopoverClick('wishList.overview', 'favorite');" class="button button-dark icon icon-favorite circle"></button></li>
+                <li><button ng-click="onPopoverClick('settings', 'settings');" class="button button-dark icon icon-settings circle"></button></li>
+            </ul>
+        </ion-content>
+    </ion-popover-view>
+</script>

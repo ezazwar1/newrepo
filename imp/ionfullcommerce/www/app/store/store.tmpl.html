@@ -1,0 +1,44 @@
+<ion-view class="store-view" view-title="STORE">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon side-menu-icon icon ion-navicon"></button>
+		<!--Drawer Change-->
+	</ion-nav-buttons>
+	<div class="tabs tabs-top">
+		<a ng-click="getCategoryItem('all')" class="tab-item {{(idFilter=='all') ? 'active' : ''}}">
+			All
+		</a>
+		<a ng-repeat="cat in categories" ng-click="getCategoryItem('{{cat.id}}')" class="tab-item {{(idFilter==cat.id) ? 'active' : ''}}">
+			{{cat.name}}
+		</a>
+		
+	</div>
+	<ion-content class="store-home padding" has-subheader="true">
+		<div ng-if="isProductLoaded==0" class="row no-product">
+			<div class="col col-center">
+				<div class="no-product-details">
+					<i class="icon ion-ios-box"></i>
+					
+					<h3 class="info-text">
+						No product in the selected category
+					</h3>
+
+
+				</div>
+			</div>
+		</div>
+		<div ng-if="isProductLoaded==1" class="product-wrap">
+			<div ng-click="showDetails('{{product.name}}')" ng-repeat="product in products" class="card item-card">
+				<div class="card-image">
+					<img class="full-image preloadFade" img-preload 
+					src="img/loader.gif"
+					ng-src="./img/products/{{product.images[0].name}}" alt="">
+				</div>
+				<div class="card-title">
+					<h3>{{product.name}}</h3>
+					<p>{{product.price}}</p>
+				</div>				
+			</div>
+			
+		</div>
+	</ion-content>
+</ion-view>

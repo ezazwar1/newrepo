@@ -1,0 +1,176 @@
+<ion-view hide-nav-bar="true">
+	<ion-slide-box ng-init="disableSwipe()" show-pager="false">
+		<ion-slide class="walkthrough-background">
+			<div class="intro-content-wrapper">
+				<div class="title">
+					<div class="main-title">WELCOME</div>
+					<hr>
+				</div>
+				<div class="detail">
+					Get started in less <br/> than 15 seconds.
+				</div>
+				<div class="detail">
+					First, to help you save outfit ideas & <br/> recommend you fashion inspiration...
+				</div>
+				<div class="detail">
+					<br>
+					Tell us a little bit about yourself!
+				</div>
+				<div class="final-go-to">
+					<button class="btn-link" ng-click="nextStep()">
+						Let's start <img src="img/walkthrough/shortnext.png" />
+					</button>
+				</div>
+			</div>
+		</ion-slide>
+		<ion-slide class="walkthrough-background">
+			<div class="intro-content-wrapper">
+				<div class="title">
+					<div class="main-title">WHAT DO YOU SHOP FOR?</div>
+					<hr>
+				</div>
+				<div class="detail">
+					<ion-list>
+					  <ion-radio ng-click="selectGender('F')" icon="ion-ios-checkmark-empty">WOMEN'S FASHION</ion-radio>
+					  <ion-radio ng-click="selectGender('M')" icon="ion-ios-checkmark-empty">MEN'S FASHION</ion-radio>
+					</ion-list>
+				</div>
+			</div>
+		</ion-slide>
+		<ion-slide class="walkthrough-background">
+			<div class="intro-content-wrapper">
+				<div class="back">
+			        <button ng-click="prevStep()" class="btn-link link-16"><span class="icon ion-android-arrow-back"></span></button>
+			    </div>
+				<div class="title">
+					<div class="main-title">HOW AND WHAT DO YOU DRESS UP FOR?</div>
+					<hr>
+				</div>
+				<div class="detail">
+					Choose 3 or more occasions <br>
+					occasions/styles that apply to you.
+				</div>
+				<div class="chooser-wrapper">
+					<div class="row">
+						<div class="col-50">
+							<ion-list>
+								<ion-checkbox ng-change="styleChange(1, style.casual)" ng-model="style.casual">CASUAL</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(2, style.party)" ng-model="style.party">PARTY</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(3, style.feminine)" ng-model="style.feminine">FEMININE</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(4, style.ontrend)" ng-model="style.ontrend">ON TREND</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(5, style.sensual)" ng-model="style.sensual">SENSUAL</ion-checkbox>
+							</ion-list>
+						</div>
+						<div class="col-50">
+							<ion-list>
+								<ion-checkbox ng-change="styleChange(6, style.work)" ng-model="style.work">WORK</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(7, style.dating)" ng-model="style.dating">DATING</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(8, style.boyish)" ng-model="style.boyish">BOYISH</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(9, style.monochrome)" ng-model="style.monochrome">MONOCHROME</ion-checkbox>
+								<ion-checkbox ng-change="styleChange(10, style.active)" ng-model="style.active">ACTIVE</ion-checkbox>
+							</ion-list>
+						</div>
+					</div>
+				</div>
+				<div class="final-go-to" ng-show="isValidStyle">
+					<button class="btn-link" ng-click="nextStep()">
+						Almost there <img src="img/walkthrough/shortnext.png" />
+					</button>
+				</div>
+			</div>
+		</ion-slide>
+		<ion-slide class="walkthrough-background">
+			<div class="intro-content-wrapper">
+				<div class="back">
+			        <button ng-click="prevStep()" class="btn-link link-16"><span class="icon ion-android-arrow-back"></span></button>
+			    </div>
+				<div class="title">
+					<div class="main-title">WE'VE CREATED OUTFIT FOLDERS FOR YOU!</div>
+					<hr>
+				</div>
+				<div class="detail">
+					When you see an outfit idea you like on Getfash, you can save them into these folders!
+				</div>
+				<div class="selected-wrapper">
+					<div class="row" ng-repeat="s in preference.styleDisplay" ng-if="$index % 2 === 0">
+				        <div class="col col-50" ng-if="$index < preference.styleDisplay.length">
+				            <div class="selected-folder">
+								{{ preference.styleDisplay[$index] }}
+							</div>
+				        </div>
+				        <div class="col col-50" ng-if="$index + 1 < preference.styleDisplay.length">
+				        	<div class="selected-folder">
+								{{ preference.styleDisplay[$index + 1] }}
+							</div>
+				        </div>
+				    </div>
+				</div>
+				<div class="final-go-to" ng-show="isValidStyle">
+					<button class="btn-link" ng-click="nextStep()">
+						One last step <img src="img/walkthrough/shortnext.png" />
+					</button>
+				</div>
+			</div>
+		</ion-slide>
+		<ion-slide class="walkthrough-background">
+			<ion-content class="intro-content-top">
+			<div class="intro-content-wrapper">
+				<div class="back">
+			        <button ng-click="prevStep()" class="btn-link link-16"><span class="icon ion-android-arrow-back"></span></button>
+			    </div>
+				<div class="title">
+					<div class="main-title">GET YOUR BEST SIZE INSTANTLY</div>
+					<hr>
+				</div>
+				<div class="detail">
+					Store your measurements and <br/> we'll your best sizes for apparels.
+				</div>
+				<div class="form walkthrough">
+					<div class="item item-input item-select">
+						<div class="input-label">
+							<input type="number" class="form-control" placeholder="Bust Circumference*" ng-model="sizes.bustvalue">
+						</div>
+						<select ng-model="sizes.busttype">
+							<option value="CM">cm</option>
+							<option value="INCH" ng-selected="true">inch</option>
+						</select>
+					</div>
+					<div class="item item-input item-select">
+						<div class="input-label">
+							<input type="number" class="form-control" placeholder="Waist Circumference*" ng-model="sizes.waistvalue">
+						</div>
+						<select ng-model="sizes.waisttype">
+							<option value="CM">cm</option>
+							<option value="INCH" ng-selected="true">inch</option>
+						</select>
+					</div>
+					<div class="item item-input item-select">
+						<div class="input-label">
+							<input type="number" class="form-control" placeholder="Hip Circumference*" ng-model="sizes.hipvalue">
+						</div>
+						<select ng-model="sizes.hiptype">
+							<option value="CM">cm</option>
+							<option value="INCH" ng-selected="true">inch</option>
+						</select>
+					</div>
+					<div class="item item-input item-select">
+						<div class="input-label">
+							<input type="number" class="form-control" placeholder="Shoulder width" ng-model="sizes.shouldervalue">
+						</div>
+						<select ng-model="sizes.shouldertype">
+							<option value="CM">cm</option>
+							<option value="INCH" ng-selected="true">inch</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="final-go-to size">
+				<button class="btn-link" ng-click="getStarted()">
+					Finish by creating your account <img src="img/walkthrough/shortnext.png" />
+				</button>
+			</div>
+			</ion-content>
+		</ion-slide>
+	</ion-slide-box>
+
+</ion-view>

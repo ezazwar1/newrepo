@@ -1,0 +1,914 @@
+// import variables -> needed to overwrite ionic variables
+@import "_variables";
+// import ionic scss
+@import "ionic/ionic";
+
+/* general
+********************************************* */
+h2 {
+    font-family: $font-family-light;
+    font-size: $font-size-extra-large;
+}
+
+h3 {
+    font-size: $font-size-large;
+}
+
+a {
+    border-bottom: 1px dashed $dark;
+    color: $dark;
+    text-decoration: none;
+}
+
+.popup a {
+    color: $energized;
+}
+
+ion-nav-view {
+    background: transparent;
+}
+
+ion-view,
+.modal {
+    background-image: url('../img/background.jpg');
+}
+
+.circle {
+    @include border-radius(100%);
+}
+
+.price-container {
+    @extend .circle;
+    background-color: $light;
+    display: table;
+    opacity: 0.8;
+    top: $spacing-base;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+
+    & > div {
+        display: table-cell;
+        vertical-align: middle;
+
+        .price {
+            font-size: $font-size-small;
+            display: block;
+            text-align: center;
+            white-space: normal;
+        }
+
+        .old-price {
+            color: $calm;
+            text-decoration: line-through;
+        }
+    }
+}
+
+.card.info p {
+    margin: $spacing-base;
+}
+
+ion-infinite-scroll .icon {
+    display: none;
+}
+
+// general input styling
+.label {
+    display: block;
+    font-size: $font-size-large;
+    font-family: $font-family-light;
+    margin-top: 10px;
+}
+
+.item-input {
+    margin: 5px 0;
+    padding: 5px 10px;
+    padding-right: 0;
+
+    input {
+        height: 36px;
+        margin-top: 5px;
+        padding: 0 !important;
+    }
+}
+
+.item.item-radio {
+    border: none;
+
+    &.agreements {
+        input {
+            width: 45px;
+        }
+
+        .label {
+            white-space: normal;
+        }
+    }
+
+    input {
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+    }
+
+    .item-content {
+        background: transparent;
+        display: table;
+        padding: 10px 0;
+        width: 100%;
+
+        .label {
+            display: table-cell;
+            font-size: $font-size-large;
+            vertical-align: middle;
+            width: 100%;
+        }
+    }
+
+    i.icon {
+        @extend .button-circle;
+        background-color: $light;
+        display: inline-block;
+        margin-left: 1px;
+        margin-right: $spacing-base;
+        width: 28px;
+        height: 28px;
+        padding-left: 3px;
+    }
+
+    input:checked ~ .item-content {
+        background-color: transparent;
+
+        i.icon {
+            background-color: $dark;
+            border: 7px solid $light;
+        }
+    }
+}
+
+select {
+    border: none;
+    color: $dark;
+    width: 100%;
+    height: 49px;
+}
+
+/* helpers
+********************************************* */
+.transparent {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.margin-top-headers {
+    margin-top: 98px;
+}
+
+.margin-left-small {
+    margin-left: 5px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.float-right {
+    float: right;
+}
+
+.small {
+    font-size: $font-size-small;
+}
+
+.font-light {
+    font-family: $font-family-light;
+}
+
+.bold {
+    font-family: $font-family-bold;
+}
+
+.clear {
+    clear: both;
+}
+
+/* animationen
+********************************************* */
+.platform-android {
+    ion-tabs.hide-bars .tabs,
+    .bar-header.hide-bars,
+    .bar-subheader.hide-bars,
+    .price-container.hide-bars{
+        @include animation(fadeOut 0.5s forwards);
+    }
+
+    ion-tabs.show-bars .tabs,
+    .bar-header.show-bars,
+    .bar-subheader.show-bars,
+    .price-container.show-bars {
+        @include animation(fadeIn 0.5s forwards);
+    }
+}
+
+// simply hide / show elements on iOS because the rendering is really ugly
+.platform-ios {
+    ion-tabs.hide-bars .tabs,
+    .bar-header.hide-bars,
+    .bar-subheader.hide-bars,
+    .price-container.hide-bars{
+        opacity: 0;
+    }
+
+    ion-tabs.show-bars .tabs,
+    .bar-header.show-bars,
+    .bar-subheader.show-bars,
+    .price-container.show-bars {
+        opacity: 1;
+    }
+}
+
+.detail-image-container {
+    .imageonload {
+        opacity: 1;
+        @include transition(opacity 0.8s ease-in-out);
+    }
+}
+
+.list {
+    .imageonload {
+        @include animation(fadeIn 0.8s forwards);
+    }
+}
+
+.imageonload.ng-hide {
+    opacity: 0;
+}
+
+/* header
+********************************************* */
+.bar.bar-header {
+    &.bar-dark {
+        background-image: url('../img/background-header.jpg');
+        background-repeat: repeat;
+        background-size: 994px 45px;
+    }
+
+    .logo {
+        height: 30px;
+        margin-top: 5px;
+    }
+
+    h1.title {
+        font-family: $font-family-light;
+        font-size: $font-size-extra-large;
+        line-height: 54px;
+    }
+
+    .button .badge {
+        font-size: 10px;
+        line-height: 10px;
+        padding: 6px 6px 3px;
+        top: 5px;
+        left: -8px;
+    }
+}
+
+.bar.bar-header.filter-header {
+    .button {
+        font-family: $font-family-light;
+    }
+
+    .title {
+        font-family: $font-family-base;
+    }
+}
+
+.bar.bar-subheader {
+    font-family: $font-family-light;
+
+    .buttons {
+        margin: 6px $spacing-base 0;
+    }
+
+    .title {
+        color: $dark;
+        font-size: $font-size-small;
+    }
+
+    .button-checkout-back {
+        padding-right: $spacing-base;
+    }
+}
+
+.bar.bar-subheader.filter {
+    .title {
+        color: $base-color;
+        margin-top: $spacing-base;
+    }
+
+    .filter-label {
+        padding: 0 5px;
+        position: relative;
+        top: 8px;
+    }
+
+    .arrow-container {
+        margin: 0 auto;
+        width: 20px;
+
+        .icon {
+            position: relative;
+            top: -3px;
+            left: 4px;
+            z-index: 10;
+        }
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-top: 10px solid $light;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            position: relative;
+            top: -17px;
+            display: block;
+        }
+    }
+}
+
+.bar.bar-subheader.filter-subheader {
+    padding: 0;
+
+    .scroll-container,
+    .scroll,
+    .button-bar {
+        height: 100%;
+    }
+
+    .button-bar {
+        .button {
+            background: transparent;
+            border-top: none;
+            border-right: 2px dashed $light;
+            border-bottom: none;
+            border-left: none;
+            box-shadow: none;
+            font-family: $font-family-bold;
+            font-size: $font-size-small;
+            margin-top: 2px;
+            padding-top: 10px;
+            min-height: 24px;
+            line-height: 24px;
+            min-width: 150px;
+            overflow: visible;
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}
+
+/* side menu
+********************************************* */
+.item.search {
+    border: none;
+    height: 34px;
+    margin: 0;
+
+    .icon {
+        position: relative;
+        top: 2px;
+    }
+
+    input {
+        font-family: $font-family-light;
+        padding-top: 5px;
+    }
+}
+
+.menu .scroll-content.sidemenu {
+    z-index: 100;
+}
+
+.sidemenu {
+    background-image: url('../img/background-header.jpg');
+    background-repeat: repeat;
+
+
+    .active {
+        color: $energized;
+    }
+}
+
+.list.menu {
+    background: transparent;
+
+    .item.no-border {
+        border: none;
+    }
+
+    & > li.category:nth-child(3) > ng-include > .item,
+    & > li.category:nth-child(6) > ng-include > .item {
+        border-bottom: 2px dashed $light;
+    }
+
+    & > li .item {
+        background: transparent;
+        border: none;
+        color: $light;
+        font-family: $font-family-light;
+        font-size: $font-size-extra-large;
+        height: 52px;
+        margin-left:  $spacing-base;
+        padding-left: 0;
+
+        &.energized {
+            color: $energized;
+        }
+
+        &.border-top {
+            border-top: 2px solid $light;
+        }
+
+        .badge {
+            display: inline-block;
+            position: relative;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            top: -3px;
+            right: 0;
+            @include border-radius(100%);
+        }
+    }
+
+    .item-category {
+        border-bottom: 2px dashed $light;
+        padding-top: 16px;
+        padding-bottom: 17px;
+    }
+
+    li ul {
+        margin-bottom: $spacing-base;
+
+        .item {
+            border-bottom: 2px dashed $light;
+            font-family: $font-family-base;
+            font-size: $font-size-base;
+        }
+
+        li ul {
+            margin-left:  $spacing-base;
+
+            .item {
+                border: none;
+                font-family: $font-family-light;
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+
+            .item-icon-right {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+/* popups
+********************************************* */
+.popup {
+    h1, h2, h3, h4, h5, input {
+        color: $light !important;
+        font-family: $font-family-light;
+    }
+
+    .popup-head {
+        border-bottom: 2px dashed $light;
+        padding: 10px 0;
+    }
+
+    .popup-title {
+        @extend .bold;
+        font-size: $font-size-base;
+        padding-top: 10px;
+    }
+
+    .popup-sub-title {
+        font-size: $font-size-small;
+    }
+
+    .popup-body {
+        color: $light;
+    }
+
+    .button {
+        padding-top: 13px;
+    }
+}
+
+/* tabs
+********************************************* */
+.tabs-striped .tabs,
+.tabs {
+    background-color: transparent;
+    background-image: url('../img/background-header.jpg');
+    background-repeat: repeat;
+    background-size: 994px 45px;
+
+    .tab-item {
+        color: $light;
+        line-height: 40px;
+        opacity: 1;
+    }
+
+    .tab-item.only-text {
+        line-height: 50px;
+    }
+
+    .tab-item + .tab-item:before {
+        border: none;
+    }
+
+    .tab-item.tab-item-active {
+        color: $energized;
+    }
+
+    .tab-title {
+        position: relative;
+        top: -2px;
+    }
+}
+
+ion-tabs.hide-gallery .tabs > a:nth-child(8){
+    display: none;
+}
+
+/* start page
+********************************************* */
+.category-container {
+    background-position: center;
+    background-size: cover;
+    display: table;
+    width: 100%;
+    height: 105px;
+
+    .category-label {
+        background: rgba($dark, 0.3);
+        color: $light;
+        display: table-cell;
+        font-size: 40px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle;
+    }
+}
+
+.category-container:nth-child(3),
+.category-container:nth-child(6) {
+    border-bottom: 3px dashed $light;
+}
+
+/* category pages
+********************************************* */
+.product-container {
+    background: transparent;
+    border: none;
+    display: block;
+    float: left;
+    padding: $spacing-base;
+    width: 50%;
+    height: 150px;
+
+    .image {
+        width: 100%;
+        height: 125px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .price-container {
+        position: relative;
+        float: right;
+
+        .price {
+            font-size: 14px;
+            line-height: 13px;
+        }
+    }
+}
+
+.filter-container {
+    margin-left: $spacing-base;
+
+    & > .item-radio:not(:last-child) {
+        border-bottom: 2px dashed $dark;
+    }
+}
+
+/* product detail page
+********************************************* */
+.detail-container {
+    height: 95%;
+}
+
+.detail-container .details,
+.detail-container .details .slider {
+    height: 100%;
+}
+
+.detail-image-container {
+    height: 100%;
+    position: relative;
+    @include display-flex();
+    @include align-items(center);
+    @include justify-content(center);
+
+    .detail-image {
+        display: block;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+}
+
+div.pane {
+    .price-container {
+        float: right;
+        position: absolute;
+        opacity: 0.8;
+        right: $spacing-base;
+        top: 135px !important;
+        width: 100px;
+        height: 100px;
+
+        .price {
+            font-size: $font-size-large;
+            font-family: $font-family-bold;
+            line-height: 20px;
+            position: relative;
+        }
+    }
+}
+
+.details {
+    &:not(.no-padding) {
+        padding: $spacing-base;
+    }
+
+    .image {
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: $spacing-base;
+        padding: $spacing-base;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .filter-container {
+        margin-left: 0;
+    }
+
+    .item.active,
+    .item.activated {
+        background-color: transparent;
+    }
+}
+
+/* checkout
+********************************************* */
+.cart-list {
+    .header {
+        @include display-flex();
+
+        h2 {
+            font-size: $font-size-extra-large;
+            line-height: 30px;
+            white-space: normal;
+        }
+
+        .button.delete {
+            line-height: 34px;
+            min-width: 30px;
+            min-height: 30px;
+            width: 30px;
+            height: 30px;
+            padding: 0 8px;
+            margin-left: 5px;
+        }
+    }
+
+    .price-container {
+        position: absolute;
+        left: 40px;
+
+        .price {
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+
+    .item {
+        p {
+            margin-bottom: 5px;
+        }
+
+        div {
+            white-space: normal;
+        }
+    }
+}
+
+.button.button-checkout {
+    max-height: 90px;
+    font-family: $font-family-light;
+    font-size: $font-size-extra-large;
+
+    .circle {
+        background: $dark;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+
+        i.icon:before {
+            font-size: 48px;
+            line-height: 50px;
+        }
+    }
+}
+
+.has-cart-footer {
+    bottom: 150px;
+}
+
+.cart-footer {
+    height: 150px;
+    padding: 0;
+
+    .cart-info {
+        width: 100%;
+
+        .row, .col, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .total {
+            border-top: 2px dashed $base-color;
+            border-bottom: 2px dashed $base-color;
+            padding: 10px $spacing-base 0;
+            @include align-items(center);
+        }
+    }
+}
+
+.has-checkout-footer {
+    bottom: 110px;
+}
+
+.checkout-footer {
+    border-top: 2px dashed $base-color;
+    height: 110px;
+}
+
+/* media queries
+********************************************* */
+/* Super small devices (smartphones) */
+@media (max-width: 767px) {
+    .button.button-checkout {
+        font-family: $font-family-bold;
+        font-size: $font-size-large !important;
+
+        .circle {
+            display: none;
+        }
+    }
+
+    .has-cart-footer {
+        bottom: 96px;
+    }
+
+    .cart-footer {
+        height: 96px;
+    }
+
+    .has-checkout-footer {
+        bottom: 60px;
+    }
+
+    .checkout-footer {
+        height: 60px;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .category-container {
+        height: 225px;
+
+        .category-label {
+            font-size: 70px;
+        }
+    }
+
+    .product-container {
+        width: 33.3%;
+        height: 300px;
+
+        .image {
+            height: 100%;
+        }
+    }
+
+    div.pane {
+        .price-container {
+            float: none;
+            right: 35%;
+        }
+    }
+
+    .card.address {
+        float: left;
+        width: 48%;
+    }
+}
+
+/* form validation
+********************************************* */
+.form-invalid {
+    select.ng-invalid,
+    .input-invalid {
+        border: 1px solid $assertive;
+        background-color: lighten($assertive, 55%);
+    }
+}
+
+/* loading spinner
+********************************************* */
+.spinner {
+    display: inline-block;
+    margin: 0 auto;
+    width: 55px;
+    text-align: center;
+}
+
+.spinner > div {
+    width: 10px;
+    height: 10px;
+    background-color: $dark;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+    animation: bouncedelay 1.4s infinite ease-in-out;
+    /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0.0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 40% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}
+
+/* bug fixes
+********************************************* */
+// hide footer if keyboard is opened otherwise the footer may overlaps the input
+body.keyboard-open {
+    .bar.bar-footer {
+        display: none;
+    }
+
+    .has-footer,
+    .has-cart-footer {
+        bottom: 0;
+    }
+}

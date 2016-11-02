@@ -1,0 +1,46 @@
+/* line 3, appinvite.scss */
+.page-appinvite {
+  background: #815f57 url("../images/about/background_about.jpg") center center no-repeat;
+  background-size: cover;
+}
+/* line 7, appinvite.scss */
+.page-appinvite .appinvite-body {
+  position: relative;
+}
+/* line 10, appinvite.scss */
+.page-appinvite .appinvite-body h1 {
+  margin: 20px 20px;
+  width: 280px;
+  height: 40px;
+}
+/* line 16, appinvite.scss */
+.page-appinvite .appinvite-body h2 {
+  color: #ad252a;
+  margin: 40px 20px 10px;
+  font-family: HelveticaNeueBLK, sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+/* line 24, appinvite.scss */
+.page-appinvite .appinvite-body span {
+  color: #fff;
+  margin: 10px 20px;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 25px;
+  z-index: -1;
+}
+/* line 33, appinvite.scss */
+.page-appinvite .logo {
+  position: absolute;
+  left: 20px;
+  bottom: 70px;
+  width: 120px;
+  height: 120px;
+}
+@media only screen and (max-height: 480px) {
+  /* line 42, appinvite.scss */
+  .page-appinvite .logo {
+    left: auto;
+    right: 20px;
+  }
+}

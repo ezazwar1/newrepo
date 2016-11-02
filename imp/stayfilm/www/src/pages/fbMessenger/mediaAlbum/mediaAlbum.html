@@ -1,0 +1,40 @@
+<div class="album-page page">
+	<div class="bar bar-header">
+		<button class="button button-clear btn-back" ng-click="back()">
+			<img src="images/ico-arrow-left.svg">
+		</button>
+
+		<div class="title" translate>
+			{{ (album.name || 'Sem título') | translate}}
+		</div>
+
+		<button ng-if="album.network === 'sf_album_manager'" class="button button-clear btn-done" ng-click="use()">
+			<span translate>Usar</span>
+		</button>
+
+		<button class="button button-clear btn-done" ng-click="back()">
+			<span translate>pronto</span>
+		</button>
+	</div>
+
+	<div class="album-info has-header clearfix">
+		<button class="btn-select-all" ng-class="{'disabled': disableToggleButton, 'all-selected': selectAction == 'unselect'}" ng-click="toggleAll()">
+			<span class="select-box"></span><span translate>selecionar todas</span>
+		</button>
+
+		<button class="btn-refresh" ng-click="refresh()"><span class="ion-refresh"></span> <span translate>recarregar</span></button>
+	</div>
+
+	<ion-content class="has-header" style="top: 110px;">
+		<div class="grid-item" ng-click="toggleMedia(media)" on-hold="zoomImg(media)"
+			 collection-repeat="media in mediaList"
+			 collection-item-width="getItemSize()"
+			 collection-item-height="getItemSize()">
+
+			<div class="grid-item-inner" ng-style="{ width: getItemSize() + 'px', height: getItemSize() + 'px', 'background-image': 'url(' +  media.thumbnail + ')' }"></div>
+
+			<div ng-if="media.inAM" class="status" ng-class="{'selected': media.inAM}"></div>
+		</div>
+
+	</ion-content>
+</div>

@@ -1,0 +1,28 @@
+<ion-view>
+    <div class="page-layout">
+        <ion-content has-bouncing="true" class="news list-home" on-scroll="animate()">
+            <div class="top" >
+                <h1>My contacts ({{ contacts.length }})</h1>
+            </div>
+            <div class="content-scroll">
+                <div class="product-infos element">
+                    <div class="loading-icon pull-center" ng-if="(contacts.length) == 0"><em>No result found.</em></div>
+                    <div class="full-list">
+                        <div class="full-list-item profile" ng-repeat="contact in contacts">
+                            <div ng-click="goId(contact.element_type,contact.id)" class="back" ng-style="{ 'background-image': 'url(' + contact.img_banner__medium + ')' }">
+                                <img class="avatar" src="{{ contact.img_avatar__thumbnail }}">
+                            </div>
+                            <p>
+                                {{ contact.title }} <br>
+                                <small>
+                                    {{ contact.profession.name }} <br>
+                                    {{ contact.city }} - {{ contact.country.name }}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

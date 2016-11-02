@@ -1,0 +1,160 @@
+<ion-view>
+    <div class="scroll-top" ng-click="scrollToTop('scrollList')"></div>
+    <div class="search">
+        <span class="bts bts-search placeholder-icon"></span>
+        <span class="bts bts-close hide" ng-click="emptySearch()"></span>
+        <label class="item item-input">
+            <input id="searchInput" type="text" placeholder="Search" ng-model="searchText" ng-change="search()">
+        </label>
+    </div>
+
+    <div class="filter" ng-if="hasfilter == 'true'" ng-click="up('filters')">{{ order.label }} <span class="bts bts-select"></span></div>
+    <ion-content has-bouncing="true" class="news list-home" on-scroll="animate()" delegate-handle=" 'scrollList' ">
+        <div class="content-scroll">
+            <div class="product-infos element">
+                <div class="loading-icon pull-center" ng-if="items == null"><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></div>
+
+                <div class="loading-icon pull-center" ng-if="(items.length) == 0"><em>No result found.</em></div>
+
+                <div class="full-list" ng-if="items[0].element_type == 'brand'">
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items" ng-click="goFeed(key)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__medium + ')' }"></div>
+                        <p>
+                            {{ item.company_name }} <br>
+                            <small>
+                                {{ item.title_category }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                    </div>
+                    <div class="full-list-item more" ng-if="items.length == (offset + max)" ng-click="moreItem()">
+                        <strong>+</strong>
+                    </div>
+                    <div class="full-list-item more" ng-show="isLoading">
+                        <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                    </div>
+                </div>
+                <div class="full-list" ng-if="items[0].element_type == 'collection'">
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items" ng-click="goFeed(key)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__medium + ')' }"></div>
+                        <p>
+                            {{ item.title }} <br>
+                            <small>{{ item.category.name }}</small>
+                        </p>
+                    </div>
+
+                    <div class="full-list-item more" ng-if="items.length == (offset + max)" ng-click="moreItem()">
+                        <strong>+</strong>
+                    </div>
+                    <div class="full-list-item more" ng-show="isLoading">
+                        <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                    </div>
+                </div>
+                <div class="full-list" ng-if="items[0].element_type == 'product'">
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items"  ng-click="goFeed(key)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__medium + ')' }"></div>
+                        <p>{{ item.name }}</p>
+                    </div>
+
+                    <div class="full-list-item more" ng-if="items.length == (offset + max)" ng-click="moreItem()">
+                        <strong>+</strong>
+                    </div>
+                    <div class="full-list-item more" ng-show="isLoading">
+                        <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                    </div>
+                </div>
+
+                <div class="full-list" ng-if="items[0].element_type == 'news'">
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items" ng-click="goFeed(key)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__medium + ')' }"></div>
+                        <p>{{ item.title }} <br> <small>{{ item.category.title }}</small></p>
+                    </div>
+
+                    <div class="full-list-item more" ng-if="items.length == (offset + max)" ng-click="moreItem()">
+                        <strong>+</strong>
+                    </div>
+                    <div class="full-list-item more" ng-show="isLoading">
+                        <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                    </div>
+                </div>
+                <div class="full-list" ng-if="items[0].element_type == 'profile'">
+                    <div class="full-list-item {{ item.element_type }}" ng-repeat="(key,item) in items" ng-click="goFeed(key)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__medium + ')' }">
+                            <img class="avatar" src="{{ item.img_avatar__thumbnail }}">
+                        </div>
+                        <p>
+                            {{ item.first_name }} {{ item.last_name }} <br>
+                            <small>
+                                {{ item.profession.name }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                    </div>
+
+                    <div class="full-list-item more" ng-if="items.length == (offset + max)" ng-click="moreItem()">
+                        <strong>+</strong>
+                    </div>
+                    <div class="full-list-item more" ng-show="isLoading">
+                        <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="result slide-up">
+        <ion-content>
+            <ul class="list">
+                <li class="item" ng-click="searchData(item.tag)" ng-repeat="item in searchResult">
+                    {{ item.tag }}
+                </li>
+            </ul>
+        </ion-content>
+    </div>
+    <div id="filters" class="filters slide-down">
+        <div ng-click="close('filters')" class="close"><span class="bts bts-close"></span></div>
+        <br />
+        <br />
+        <h1>Sort by :</h1>
+        <ul class="list">
+            <li class="item" ng-if="isProductDiscover" ng-click="showProductCategory()">Product category</li>
+            <li class="item" ng-class="{active: order.type == orderItem.type }" ng-repeat="orderItem in orderList" ng-click="orderBy(orderItem)"> {{ orderItem.label }} <span class="bts bts-check"></span></li>
+        </ul>
+    </div>
+</ion-view>
+
+<div id="product-category" class="content slide-up">
+    <div ng-click="close('product-category')" class="close"><span class="bts bts-close"></span></div>
+    <div class="top">Pick a category</div>
+    <div>
+        <ion-content>
+            <ion-list>
+                <ion-item ng-repeat="productType in productTypes">
+                    <span ng-click="productsByCategory(0,productType.id)">{{ productType.title }}</span>
+                    <button class="more" ng-click="cat2 = !cat2">
+                        <i ng-if="!cat2" class="icon ion-ios7-arrow-down"></i>
+                        <i ng-if="cat2" class="icon ion-ios7-arrow-up"></i>
+                    </button>
+                    <ion-list ng-if="cat2">
+                        <ion-item ng-repeat="productTypeChildren1 in productType.children">
+                            <span ng-click="productsByCategory(1,productTypeChildren1.id)">{{ productTypeChildren1.title }}</span>
+                            <button class="more" ng-click="cat3 = !cat3">
+                                <i ng-if="!cat3" class="icon ion-ios7-arrow-down"></i>
+                                <i ng-if="cat3" class="icon ion-ios7-arrow-up"></i>
+                            </button>
+                            <ion-list ng-if="cat3">
+                                <ion-item ng-click="productsByCategory(2,productTypeChildren2.id)" ng-repeat="productTypeChildren2 in productTypeChildren1.children">
+                                    <span>{{ productTypeChildren2.title }}</span>
+                                </ion-item>
+                            </ion-list>
+                        </ion-item>
+                    </ion-list>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </div>
+</div>

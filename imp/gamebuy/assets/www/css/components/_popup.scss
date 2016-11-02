@@ -1,0 +1,144 @@
+
+// Darken the background when popup show up
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.popup {
+
+  border: 1px solid rgba(24, 229, 152, 0.5);
+
+  // @include outerGlow (
+  //         $blur: 10px,
+  //         $spread: 1px,
+  //         $color: $baseLinkColor,
+  //         $opacity: 0.48);
+
+  .popup-container & {
+    @include borderRadius;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+}
+
+.popup-head {
+  @extend %title;
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.popup-title {
+  @extend %title;
+  text-align: center;
+}
+
+.popup-price {
+
+  text-indent: 30px; // visually center the price and g-coin icon. Cooperate with the g-coin translateX property.
+
+  &.form-input {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: $lineheightBase;
+    height: inherit;
+    padding: 16px 0 4px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    @include fontLight;
+  }
+}
+
+.popup-tosell_unit {
+    position: absolute;
+    right: 0;
+    top: 24px;
+}
+
+
+
+
+.popup-body {
+  @extend %title;
+  padding-top: 15px; // add space between popup-head and popup-body
+  padding-bottom: 12px;
+  text-align: center;
+
+  .item {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+}
+
+.popup-notes {
+  font-size: $fontSizeSmall;
+  padding: 0 0 12px;
+  margin: 0;
+}
+
+.popup-tosell {
+  margin-top: -15px; // remove the space between popup-head and popup-body on popup-tosell
+}
+
+.popup-gamecode-add {
+  margin-top: -15px;
+}
+
+.popup-add-review {
+  margin-top: -15px;
+}
+
+
+// Popup to sell, choose a selling format, digital or disc
+
+.popup-tosell_sell-format {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.popup-tosell_sell-format_wrapper {
+    @include flexParentLayout;
+    @include justifyContent(space-around);
+}
+
+.popup-tosell_sell-format_group {
+    width: 33.333333%;
+    text-align: center;
+    padding: 12px 0 8px;
+    border: 1px solid $dividerColor;
+    @include animation;
+
+    &:active {
+        background-color: $baseFontColor;
+    }
+
+    &.activated {
+        background-color: $baseFontColor;
+    }
+}
+
+.popup-tosell_sell-format_group[disabled] {
+    border: 1px solid $baseLinkColor;
+    @include outerGlow (
+    $blur: 10px,
+    $spread: 1px,
+    $color: $baseLinkColor,
+    $opacity: 0.48);
+}
+
+.popup-tosell_sell-format_title {
+    @extend %title;
+    margin-top: 12px;
+}
+
+
+
+
+
+
+

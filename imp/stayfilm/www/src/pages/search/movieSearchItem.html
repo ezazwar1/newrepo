@@ -1,0 +1,10 @@
+<div class="sf-movie-search-item clearfix">
+	<img class="thumb" ng-src="{{ getImageUrl(movie, 'small') }}" ng-click="watch(movie.idMovie)">
+
+	<div class="title">{{ movie.title }}</div>
+
+	<div class="stats">
+		<span ng-if="movie.likeCount">{{ movie.likeCount }} Yes</span>
+		<span ng-if="movie.commentCount">{{ movie.commentCount }} Comments</span>
+	</div>
+</div>

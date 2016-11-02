@@ -1,0 +1,42 @@
+<div class="modal modal-popup" ng-controller="JobOpenedModalController">
+  <ion-header-bar class="bar-dark ninja-header-bar">
+    <h1 class="title">Shift Request</h1>
+  </ion-header-bar>
+
+  <ion-content class="has-header height-100 ninja-padding" scroll="false">
+    <div class="job-page">
+      <div class="job">
+        <div class="wave-t"></div>
+
+        <div class="picture">
+          <img src="img/placeholder.png" ng-src="{{ job.workplace.picture_original_url }}" imageonload="showEta()" alt=""/>
+          <div ng-show="etaVisible">
+            <div class="eta">
+              <div class="eta-mins">{{ eta }}<em>min</em></div>
+              <div class="eta-footer">away</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group">
+          <div class="title">{{ job.workplace.name }}</div>
+          <div class="address">{{ job.address }}</div>
+        </div>
+
+        <div class="group">
+          <div class="verified">verified</div>
+          <div class="rating">
+            <angular-ratings class="rating-stars" ng-model="job.workplace.stats_rating" readonly></angular-ratings>
+          </div>
+        </div>
+
+        <div class="wave-b"></div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar-stable popup-footer">
+    <a class="button button-borderless button-cancel" ng-click="rejectJob()"><i class="ion-ios7-close"></i></a>
+    <button class="button button-balanced button-borderless button-uppercase button-ok" ng-click="acceptJob()">I'm Ready</button>
+  </ion-footer-bar>
+</div>

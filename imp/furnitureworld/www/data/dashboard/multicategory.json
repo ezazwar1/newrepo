@@ -1,0 +1,40 @@
+{"success":true,"data":[
+	{"category_id":"1","topContent":"","bottomContent":"","title":"ACCENT","small_icon":"img/sideMenu/men-icons.png","large_icon":"img/sideMenu/men-icons.png","image":null,"subCollection":[
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Accent Tables","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"82"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Stroage Benches","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"93"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Blanket Racks","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"132"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Game Tables","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"27"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Nesting Tables","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"29"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Pedestals","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"51"}],"total":"652"},
+
+	{"category_id":"2","topContent":"","bottomContent":"","title":"DINING","small_icon":"img/sideMenu/women-icons.png","large_icon":"img/category/big/confectionery-120x120.png","image":null,"subCollection":[
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Bar Stools","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"6"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Room Chair","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"200"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Furniture Set","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"43"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Dinette Set","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"271"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Sideboards","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"224"}],"total":"1448"},
+
+	{"category_id":"3","topContent":"","bottomContent":"","title":"LIVING","small_icon":"img/sideMenu/kids-icons.png","large_icon":"img/category/big/households-120x120.png","image":null,"subCollection":[
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Sofa","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"88"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Club Chairs","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"158"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Rocking Chairs","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"79"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Futon Furniture","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"18"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Leather Recliners","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"56"}],"total":"505"},
+
+	{"category_id":"4","topContent":"","bottomContent":"","title":"OFFICE","small_icon":"img/sideMenu/offer-icons.png","large_icon":"img/category/big/beverages-120x120.png","image":null,"subCollection":[
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Computer Desk","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"65"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Meeting Tables","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"63"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Cubicles","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"46"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Reception Room","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"123"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Conference","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"28"}],"total":"341"},
+
+
+	{"category_id":"5","topContent":"","bottomContent":"","title":"STROAGE","small_icon":"img/sideMenu/stroage.png","large_icon":"img/category/big/beverages-120x120.png","image":null,"subCollection":[
+		{"category_id":"5","topContent":"","bottomContent":"","title":"Bookcases","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"65"},
+		{"category_id":"5","topContent":"","bottomContent":"","title":"Library Bookcases","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"63"},
+		{"category_id":"5","topContent":"","bottomContent":"","title":"Magazine Racks","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"46"},
+		{"category_id":"5","topContent":"","bottomContent":"","title":"Stroage Cabinets","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"123"},
+		{"category_id":"5","topContent":"","bottomContent":"","title":"Others","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"28"}],"total":"341"}
+
+		
+		]}

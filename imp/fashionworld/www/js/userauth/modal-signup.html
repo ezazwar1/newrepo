@@ -1,0 +1,64 @@
+<ion-modal-view class="common-login-modal">
+<button class="button button-icon button-clear ion-close" ng-click="userModal(2,'hide')"></button>
+<ion-content class="loginmodal">
+	<div class="login-container">
+		<div class = "col button-row text-center">
+			<h1 class="title">Signup in with</h1>
+			<button class="button icon ion-social-facebook custombtn" ng-click="fbLogin();"></button>
+		</div>
+		<div class="firstordiv">
+			<div  class="firstordiv-border"></div>
+			<span><strong>or</strong></span>
+		</div>
+		<form name="registerForm" class="formStyle padding" ng-submit="userRegister(registerForm);" novalidate >
+
+			<label class="item item-input" ng-class="{ 'has-errors' : registerForm.fullname.$invalid, 'no-errors' : registerForm.fullname.$valid}"><input type="text" placeholder="Full Name" name="fullname"  ng-minlength="4" ng-maxlength="30" maxlength="30" ng-model="userdata.fullname" required></label>
+			<div class="error-container" ng-show="registerForm.fullname.$error" ng-messages="registerForm.fullname.$error">
+				<div ng-messages-include="error-list.html"></div>
+			</div>
+
+
+			<label class="item item-input" ng-class="{ 'has-errors' : registerForm.useremail.$invalid, 'no-errors' : registerForm.useremail.$valid}"><input type="email" placeholder="Email Address" name="useremail"  ng-model="userdata.useremail" required></label>
+			<div class="error-container" ng-show="registerForm.useremail.$error" ng-messages="registerForm.useremail.$error">
+				<div ng-messages-include="error-list.html"></div>
+			</div>
+
+			<!-- Password -->
+			<label class="item item-input"  ng-class="{ 'has-errors' : registerForm.password.$invalid , 'no-errors' : registerForm.password.$valid}">
+				<input type="password" placeholder="Password" name="password" ng-minlength="4" ng-maxlength="15" maxlength="15" ng-model="userdata.password" >
+			</label>
+			<div class="error-container" ng-show="registerForm.password.$error" ng-messages="registerForm.password.$error">
+				<div ng-messages-include="password-validate.html"></div>
+			</div>
+
+			<label class="item item-input"  ng-class="{ 'has-errors' : registerForm.confirm_password.$invalid , 'no-errors' : registerForm.confirm_password.$valid}">
+				<input type="password" placeholder="Confirm Password" name="confirm_password" ng-minlength="4" ng-maxlength="15" maxlength="15" ng-model="userdata.confirm_password" >
+			</label>
+			<div class="error-container" ng-show="registerForm.confirm_password.$error" ng-messages="registerForm.confirm_password.$error">
+				<div ng-messages-include="password-validate.html"></div>
+			</div>
+
+			 <button class="button button-block  icon ion-log-in button-shadow" ng-disabled="registerForm.$invalid" id="submitbutton">Signup</button>
+
+			  <div class="row bottom-section">
+			 <div class = "col text-center" ng-click="userModal(3,'show')">Forgot Password</div>
+			 <div class = "col text-center link-color"><a ng-click="userModal(1,'show')">Login</a></div>
+			</div>
+
+			</form>
+	</div>
+
+		<script id="error-list.html" type="text/ng-template">
+		<div class="error" ng-message="minlength">  Minimum length of this field is 4 characters! </div>
+		<div class="error" ng-message="maxlength">  Maximum length of this field is 30 characters!	</div>
+		<div class="error" ng-message="email">  Please enter a valid email address	</div>
+		</script>
+
+		<script id="password-validate.html" type="text/ng-template">
+		<div class="error" ng-message="minlength">  Minimum length of this field is 4 characters! </div>
+		<div class="error" ng-message="maxlength">  Maximum length of this field is 15 characters!	</div>
+		</script>
+
+
+	 </ion-content>
+</ion-modal-view>

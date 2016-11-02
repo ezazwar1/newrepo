@@ -1,0 +1,67 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-assertive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-ios-search" ui-sref="app.video.search">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-content class="menu-left">
+            <div class="header-left" horizontal layout center center-justified>
+                <div class="text-center font-lg">
+                    <i class="mdi mdi-camera-iris"></i>
+                    <br/>
+                    sVideo
+                </div>
+            </div>
+            <div class="list">
+
+                <a class="item item-icon-left" ng-click="login()" menu-close>
+                    <i class="icon mdi mdi-login"></i>
+                    Login
+                </a>
+
+                <a class="item item-icon-left" ui-sref-active="active" ui-sref="app.video.feature" menu-close>
+                    <i class="icon mdi mdi-home"></i>
+                    Home
+                </a>
+
+                <a class="item item-icon-left" ui-sref-active="active" ui-sref="app.video.subscribe" menu-close>
+                    <i class="icon mdi mdi-looks"></i>
+                    Subscribe
+                    <span class="badge badge-assertive">4</span>
+                </a>
+
+                <a class="item item-icon-left" ui-sref-active="active" ui-sref="app.video.search" menu-close>
+                    <i class="icon mdi mdi-magnify"></i>
+                    Search
+                </a>
+
+                <a class="item item-icon-left" ui-sref="app.history" ui-sref-active="active" menu-close>
+                    <i class="icon mdi mdi-history"></i>
+                    History
+                </a>
+
+                <a class="item item-icon-left" href="#">
+                    <i class="icon mdi mdi-logout"></i>
+                    Logout
+                </a>
+
+
+            </div>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

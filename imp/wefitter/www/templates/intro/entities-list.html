@@ -1,0 +1,72 @@
+<ion-view>
+  <ion-nav-title>
+      <wf-intro-dots max="isRefer && !localData.referData.entity_id ? '4' : '3'" active="isRefer ? '3' : '2'"></wf-intro-dots>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+  </ion-nav-buttons>
+
+  <!-- <ion-nav-buttons side="right">
+        <button ui-sref="intro.entities" class="button button-clear button-skip">
+          {{ 'ACTION.SKIP' | translate }}
+        </button>
+    </ion-nav-buttons> -->
+
+      	<ion-content class="has-header padding">
+      		<ion-refresher
+              spinner="none"
+              pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+              on-refresh="pullRefresh()">
+            </ion-refresher>
+            <div class="card connect-getSupport addgroup-card">
+        			<div class="item item-text-wrap wrapper">
+        				<div class="ion-ios-people-outline icon-div people-icon"></div>
+        				<p translate="INTRO.GROUPS_INTRO"> Create Text</p>
+        				<!--<div class="support_btn_wrap"><span class="support_btn" translate="GROUPS.CREATE_GROUP">GET</span><span class="ion-ios-arrow-right"></span></div>-->
+        			</div>
+        		</div>
+          <div class="row thumb-bar-wf featured-main-wrapper" ng-repeat="entity in filteredItems = (entities | filter:search) | filter:search track by $index" ui-sref="intro.entity({id: entity.id})">
+              <div class="col col-40 thumb-back-img" ng-style="entity.image_url ? {'background-image':'url({{ entity.image_url }})'} : {'background':'#0b1e32 url(../img/avatar_group.svg) center no-repeat','background-clip':'content-box'} ">
+                <!-- <div class="thumb margin-top-9 img-thumb-size">
+                  <img class="img-responsive height-full" ng-src="{{ entity.image_url }}" alt="" />
+                </div> -->
+              </div>
+              <div class="col col-60 thumb-caption">
+                  <h4>{{ entity.name }}</h4>
+                  <p>
+                    <div class="c-level ng-binding">
+                      <div class="type-wrapper">{{ entity.type }}</div>
+                    </div>
+                  </p>
+                  <div  class="c-level ng-binding dark">
+                    <i class="wf wf-people"></i> {{entity.subscribers}}
+                      <i class="wf wf-time padding-left-15"></i> {{entity.active_challenges}}
+                        <i class="wf wf-trophy padding-left-15"></i> {{entity.active_rewards}}
+                  </div>
+              </div>
+                <div class="featured-wrapper" ng-if="entity.featured == '1'"><i class="ion-ios-star"></i>{{ 'CHALLENGE.FEATURED' | translate }}</div>
+          </div>
+          <ion-list>
+          <ion-item ng-click="giveEntityFeedback()" ng-show="search.name.length > 0 && filteredItems.length === 0">
+            <div class="item-content">
+              <i class="checker icon ion-ios-help"></i>
+              <p>{{ addEntityText }}</p>
+            </div>
+          </ion-item>
+
+          <ion-item ng-show="search.name.length > 0 && filteredItems.length === 0">
+            <p translate="GROUPS.EMPTY_SEARCH_RESULT_MSG"></p>
+          </ion-item>
+          <ion-item ng-show="search.name.length === 0 && items.length === 0">
+            <p translate="GROUPS.EMPTY_RESULT_MSG"></p>
+          </ion-item>
+        </ion-list>
+    		<div wf-pager params="params" distance="10" offset="10" dataset="entities" url="url"></div>
+
+    	</ion-content>
+    	<div class="bar-clear bar-soft-shadow"></div>
+      <button ng-if="showFilter" ng-click="openFilter(params)" class="button button-assertive button-round button-righ-bottom-sticky bottom-2-5em">
+                <i class="wf wf-filters"></i>
+        </button>
+    </ion-view>

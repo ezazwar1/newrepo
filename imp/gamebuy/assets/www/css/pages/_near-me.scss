@@ -1,0 +1,35 @@
+
+
+.nearme_wrapper {
+
+    .platform-ios & {
+        margin-top: 0; // give space to iPhone status bar
+    }
+	
+}
+
+.nearme_tabs {
+    .platform-ios & {
+        //padding-top: 32px;
+    }
+}
+
+.nearme_tab-content {
+	position: relative;
+}
+
+
+.default-message {
+	@extend %title;
+	width: 60%;
+	text-align: center;
+	margin: 45% auto;
+}
+
+
+
+// For some reason, ionic duplicates the item list when refreshing the page with pulling down the page
+// This is a hack for hiding the duplicated items
+.ng-leave {
+    display: none;
+}

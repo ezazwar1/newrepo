@@ -1,0 +1,38 @@
+<ion-view title="{{data.page_title}}">
+    <ion-content scroll="true" padding="false">
+        <div class="intro" ng-if="data.gamemetrics_placeholderpic_flag && data.metric==0">
+            <img class="intro_graphic" src="img/graphics/controllers/dreamcast.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.GamerMetricsListCtrl_message}}</p>
+        </div>
+        <div class="intro" ng-if="data.gamemetrics_placeholderpic_flag && data.metric==1">
+            <img class="intro_graphic" src="img/graphics/controllers/ps.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.GamerMetricsListCtrl_message}}</p>
+        </div>
+        <ion-list>
+            <ion-item class="item game-list" ng-repeat="record_detail_item in data.record_detail_list">
+
+                <div class="game-list-thumbnail">
+                    <img ng-src="{{record_detail_item.picture}}">
+                </div>
+
+                <div class="game-list_game-info">
+                    <h2 class="game-list_game-title">{{record_detail_item.title}} [{{record_detail_item.status}}]</h2>
+                    <p class="game-list_game-platform">{{record_detail_item.platform}}</p>
+                    <p class="game-list_game-deal">
+                        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            <span class="game-list_game-price">
+                                {{record_detail_item.price_sell}}
+                                <span class="game-list_price-unit">{{record_detail_item.price_unit}}</span>
+                            </span>
+                    </p>
+                </div>
+
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+            ng-if="data.there_is_more"
+            on-infinite="load_more()"
+            distance="0%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

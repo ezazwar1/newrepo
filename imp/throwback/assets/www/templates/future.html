@@ -1,0 +1,48 @@
+<ion-view class="opening-bg" title="Future" hide-nav-bar="true">
+  <ion-content scroll="false">
+    <div class="connect-container">
+
+      <h3 class="header">
+        Write to yourself in the future!
+      </h3>
+       <p class="description">
+        Share this now, and see it on Throwback in a year.
+      </p>
+
+      <div class="share-container">
+        <label class="item item-input share-message">
+          <textarea placeholder="Hey future. This is me from 1 year ago. I just signed up for http://throwbacknow.com. Cya!" ng-model="shareMessage"></textarea>
+        </label>
+        <!--
+        <div class="divider"></div>
+        <div class="share-toggle-container">
+          <label class="toggle toggle-positive share-block first">
+             <input type="checkbox" ng-model="$parent.shareWithFacebook" ng-change="$parent.handleFacebookToggle()">
+             <div class="track">
+               <div class="handle"><i class="icon ion-social-facebook toggle"></i></div>
+             </div>
+          </label>
+          <label class="toggle toggle-positive share-block">
+             <input type="checkbox" ng-model="$parent.shareWithTwitter" ng-change="$parent.handleTwitterToggle()">
+             <div class="track">
+               <div class="handle"><i class="icon ion-social-twitter toggle"></i></div>
+             </div>
+           </label>
+           <label class="toggle toggle-positive share-block">
+             <input type="checkbox" ng-model="$parent.shareWithInstagram" ng-change="$parent.handleInstagramToggle()">
+             <div class="track">
+               <div class="handle"><i class="icon ion-social-instagram toggle"></i></div>
+             </div>
+           </label>
+        </div>
+        --> 
+      <div class="share" ng-click="handleShare()" ng-disabled="isShareDisabled" ng-model="isShareDisabled">
+        <div class="title">Share</div>
+      </div>  
+    </div>
+
+  </ion-content>
+  <div class="bar bar-footer bar-calm" ng-click="handleSkip()">
+    <div class="title" style="color:#719ECC;">Skip</div>
+  </div>  
+</ion-view>

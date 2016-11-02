@@ -1,0 +1,116 @@
+<ion-view view-title="{{ title }}">
+	<ion-nav-buttons side="right">
+		<ion-spinner ng-show="blockDone" icon="ios-small"></ion-spinner>
+		<button class="btn-link done-button" ng-show="!blockDone" ng-click="doUpdate()">
+			<span class="ion-checkmark"></span> Update
+		</button> 
+	</ion-nav-buttons>
+
+	<ion-content class="edit-profile-wrapper">
+		<div class="row head-area">
+	      <div class="col">
+	        <div class="img-wrapper" ng-click="uploadProfile()">
+	          <img ng-src="{{ profilepic }}">
+	          <div class="ion-camera"></div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="row body">
+	      <div class="col more-wrapper">
+	        <ion-item>
+		      <div class="item-icon">
+		        <span class="ion-android-contact"></span>
+		      </div>
+		      <div class="item-label">
+		        <input type="text" class="form-control" placeholder="fullname" ng-model="users.fullname">
+		      </div>
+		      <div class="item-right edit">
+		        <span class="ion-edit"></span>
+		      </div>
+		    </ion-item>
+		    <ion-item>
+		      <div class="item-icon">
+		        <span class="ion-android-star"></span>
+		      </div>
+		      <div class="item-label">
+		        <input type="text" class="form-control" placeholder="username" ng-model="users.username">
+		      </div>
+		      <div class="item-right edit">
+		        <span class="ion-edit"></span>
+		      </div>
+		    </ion-item>
+		    <ion-item>
+		      <div class="item item-input item-select">
+			    <div class="input-label">
+			      <span class="ion-android-favorite"></span> Gender
+			    </div>
+			    <select ng-model="users.gender">
+			    	<option value="">- select -</option>  
+			      	<option value="M" ng-selected="'M' == users.gender">Male</option>
+			      	<option value="F" ng-selected="'F' == users.gender">Female</option>
+			    </select>
+			  </div>
+		    </ion-item>
+		    <ion-item>
+		      <div class="item item-input item-select">
+			    <div class="input-label">
+			      <span class="ion-earth"></span> Country
+			    </div>
+			    <select ng-model="users.country">
+			    	<option value="">- select -</option>
+			      	<option ng-repeat="ct in countries" value="{{ct.name}}" ng-selected="ct.name == users.country">{{ ct.name }}</option>
+			    </select>
+			  </div>
+		    </ion-item>
+		    <div class="item-title">
+		    	Size Setting:
+		    </div>
+		    <ion-item>
+		    	<div class="item item-input item-select">
+					<div class="item-label">
+						<input type="number" class="form-control" placeholder="Bust Circumference*" ng-model="users.sizes.bustvalue">
+					</div>
+					<select ng-model="sizes.busttype">
+						<option value="CM" ng-selected="'CM' == users.sizes.busttype">cm</option>
+						<option value="INCH" ng-selected="'INCH' == users.sizes.busttype">inch</option>
+					</select>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="item item-input item-select">
+					<div class="item-label">
+						<input type="number" class="form-control" placeholder="Waist Circumference*" ng-model="users.sizes.waistvalue">
+					</div>
+					<select ng-model="sizes.waisttype">
+						<option value="CM" ng-selected="'CM' == users.sizes.waisttype">cm</option>
+						<option value="INCH" ng-selected="'INCH' == users.sizes.waisttype">inch</option>
+					</select>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="item item-input item-select">
+					<div class="item-label">
+						<input type="number" class="form-control" placeholder="Hip Circumference*" ng-model="users.sizes.hipvalue">
+					</div>
+					<select ng-model="sizes.hiptype">
+						<option value="CM" ng-selected="'CM' == users.sizes.hiptype">cm</option>
+						<option value="INCH" ng-selected="'INCH' == users.sizes.hiptype">inch</option>
+					</select>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="item item-input item-select">
+					<div class="item-label">
+						<input type="number" class="form-control" placeholder="Shoulder width" ng-model="users.sizes.shouldervalue">
+					</div>
+					<select ng-model="users.sizes.shouldertype">
+						<option value="CM" ng-selected="'CM' == users.sizes.shouldertype">cm</option>
+						<option value="INCH" ng-selected="'INCH' == users.sizes.shouldertype">inch</option>
+					</select>
+				</div>
+			</ion-item>
+	      </div>
+	    </div>
+	</ion-content>
+
+</ion-view>

@@ -1,0 +1,159 @@
+<ion-view>
+<!-- title="{{ 'DASHBOARD.TITLE' | translate }}">-->
+    <ion-nav-title>
+      <img src="img/logowhite.svg">
+    </ion-nav-title>
+
+    <ion-content class="has-header no-border pad-top-0">
+        <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'DASHBOARD.UPDATE_ACTIVITIES' | translate }}"
+          on-refresh="pullRefresh('dashboard',1)">
+        </ion-refresher>
+        <div ng-if="dash">
+        <!-- <div ui-sref="app.profile" class="item item-image profile-bg">
+            <img ng-src="{{dash.user[0].image_url}}" >
+        </div>
+
+        <div ui-sref="app.profile" class="strip positive-bg">
+            <h3>{{ dash.user[0].first_name ? dash.user[0].first_name + ' ' + dash.user[0].last_name : 'DASHBOARD.YOUR_NAME' | translate }}</h3>
+        </div> -->
+
+        <div class="pan dark-bg">
+            <section class="darker-bg">
+
+                <wf-tabs style="dark-bg">
+                    <wf-pane title="{{ 'UNIT.THIS_WEEK' | translate }}" callback="tabCallback('week')" >
+                        <div wf-dash-stats  result="dash.stats.week"></div>
+                        <!--<div stat="dash.stats.week" title="{{ 'DASHBOARD.WEEKLY_STAT' | translate }}" wf-weekly-stat></div>-->
+                    </wf-pane>
+                    <wf-pane callback="tabCallback('month')" title="{{ 'UNIT.THIS_MONTH' | translate }}">
+                        <div wf-dash-stats result="dash.stats.month"></div>
+                        <!--<div stat="dash.stats.month"  title="{{ 'DASHBOARD.MONTHLY_STAT' | translate }}" wf-weekly-stat></div>-->
+                    </wf-pane>
+                    <!--
+                    <wf-pane callback="tabCallback('year')"  title="{{ 'UNIT.THIS_YEAR' | translate }}">
+                        <div wf-dash-stats result="dash.stats.year" title="This Year"></div>
+                        <div stat="dash.stats.year" title="{{ 'DASHBOARD.YEARLY_STAT' | translate }}" wf-weekly-stat></div>
+                    </wf-pane>
+                  -->
+                </wf-tabs>
+
+                <!--
+                TEMPORARY DISABLED
+
+                <h5 class="dash-header" ui-sref="app.achievements.progress">{{ 'DASHBOARD.ACHIEVEMENTS' | translate }}</h5>
+
+                <div class="dark-bg padding" style="height:130px">
+                  <div class="badges-container" style="margin-top:10px">
+                      <div ng-if="!dash.badges.length">
+                        <p class="text-center text-gray">{{ 'DASHBOARD.NO_ACHIEVEMENTS' | translate }}</p>
+                      </div>
+                      <div class="achievement-badges" ng-repeat="achievement in dash.badges">
+                              <wf-badge
+                                  icon="wf-ultra-fast"
+                                  img="true"
+                                  type="{{ achievement.type }}"
+                                  data="achievement"
+                                  title="{{ achievement.name }}"
+                                  ng-click="showInfo($event, achievement)"
+                                  active="achievement.locked === '0'"
+                                  locked="achievement.locked === '1'">
+                              </wf-badge>
+                      </div>
+                    </div>
+                </div>
+              -->
+
+                <!--
+                TEMPORARY DISABLED
+                <h5 class="dash-header">{{ 'UNIT.DAY_STREAK' | translate }}</h5>
+
+                <div class="dark-bg padding">
+                  <div class="row">
+                    <div class="col text-center">
+                      <span class="days-streak">
+                        <i class="wf wf-5x wf-days-streak"></i>
+                        <div class="col">
+                          <i class="wf wf-rocket wf-3x assertive"></i>
+                          <p>3 {{ 'UNIT.DAYS_STREAK' | translate }}</p>
+                        </div>
+                        <p class="text-gray"> <em>Keep going 7 more days to get extra <i class="wf wf-coins"></i> 100 </em></p>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              -->
+
+                <h5 class="dash-header" ui-sref="app.activities">{{ 'DASHBOARD.LATEST_ACTIVITY' | translate }}</h5>
+                <div class="light-bg">
+                  <div class="dark-bg padding dash-activity">
+                    <div wf-activity-list empty-msg="{{ deviceConnected ? 'DASHBOARD.EMPTY_ACTIVITY_MSG' : 'DASHBOARD.EMPTY_ACTIVITY_NODEVICE_MSG' | translate }}" data="dash.activity" manual-log="true"></div>
+                    <a ng-show="!deviceConnected &&
+                                !dash.activity.length"
+                                class="button big-button button-block button-positive"
+                                ui-sref="app.connect" translate="DASHBOARD.CONNECT_DEVICE"> Connect Device</a>
+
+                  </div>
+                  <!--<img src="img/slope.svg" class="slope" />-->
+                </div>
+            </section>
+        </div>
+
+        <div class="white-pane padding">
+            <section class="white-bg">
+
+              <h5 style="margin-top: 5px;" class="text-center dash-header-dark" ui-sref="app.challenges.all">{{ 'DASHBOARD.CHALLENGES' | translate }}</h5>
+
+                <div class="">
+                      <div class="padding text-center text-gray" ng-hide="dash.challenges.length">
+                        {{ 'CHALLENGE.EMPTY_MSG' | translate }}
+                      </div>
+
+                      <div ui-sref="app.challenge({id : challenge.id})" ng-repeat="challenge in dash.challenges">
+                        <wf-thumb-bar
+                          type="challenge"
+                          caption="{{ challenge.title | excerpt:false:200 }}"
+                          img="{{ challenge.cover_url }}"
+                          done="challenge.joined == '1'"
+                          soon="{{ challenge.coming_soon }}"
+                          title="<h5 class=light>{{ (challenge.coming_soon == '1') ? 'CHALLENGE.SOON': '' | translate }}</h5>"
+                          unit="{{ challenge.goal_unit }}"
+                          goal="challenge.goal"
+                          current="challenge.goal_current"
+                          joined="{{ challenge.joined }}"
+                          start="{{ challenge.start_date }}"
+                          end="{{ challenge.end_date }}"
+                          global="{{ challenge.global }}"
+                          ></wf-thumb-bar>
+                      </div>
+                </div>
+
+
+                <h5 class="text-center dash-header-dark" ui-sref="app.rewards.all">{{ 'DASHBOARD.REWARDS' | translate }}</h5>
+
+                <div class="">
+                      <div class="padding text-center text-gray" ng-hide="dash.rewards.length">
+                        {{ 'REWARDS.EMPTY_MSG' | translate }}
+                      </div>
+
+                      <div ui-sref="app.reward({id : reward.id})" ng-repeat="reward in dash.rewards">
+                        <wf-thumb-bar
+                          type="rewards"
+                          caption="{{ reward.title | excerpt:false:200 }}"
+                          done="(reward.goal | num) > totalPoints()"
+                          img="{{ reward.image_url }}"
+                          title="<h5 class=light>{{ (reward.goal | num) > totalPoints() ? 'REWARDS.LOCKED_MSG': '' | translate }}</h5>"
+                          unit="points"
+                          goal="reward.goal"
+                          current="totalPoints()"
+                          ></wf-thumb-bar>
+                      </div>
+                </div>
+
+            </section>
+        </div>
+
+     </div>
+    </ion-content>
+</ion-view>

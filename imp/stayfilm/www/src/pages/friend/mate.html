@@ -1,0 +1,26 @@
+<ion-content  on-scroll="onScroll()">
+
+	<ion-refresher pulling-text="{{'Puxe para atualizar' | translate}}" on-refresh="refresh()"></ion-refresher>
+
+	<div class="sf-loader" ng-if="loading">
+		<ion-spinner></ion-spinner>
+	</div>
+
+	<div class="empty-list" ng-if="bag.friends.length === 0 && bag.finished">
+		<span translate>{{user.firstName}} ainda não tem filmates.</span>
+	</div>
+
+
+	<div class="user-list">
+		<div
+				collection-repeat="friend in bag.friends"
+				collection-item-width="'100%'"
+				collection-item-height="55"
+				ng-style="{height: '55px'}">
+
+			<sf-user-item user="friend"></sf-user-item>
+
+		</div>
+	</div>
+
+</ion-content>

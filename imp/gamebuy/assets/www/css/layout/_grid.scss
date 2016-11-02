@@ -1,0 +1,13 @@
+
+.wrapper {
+    width: calc(100% - 2 * $colGutter); 
+    margin:0 auto; 
+    position: relative;
+    @include clearfix;
+}
+
+.clear {
+    @include clearfix;
+}
+
+

@@ -1,0 +1,181 @@
+@import "variables";
+
+.page-login {
+	.bar-header {
+		height: 75px !important;
+		background: $stayfilmColor;
+		border: none;
+
+		.title {
+			top: 13px;
+
+			img {
+				width: 126px;
+				height: 43px;
+			}
+		}
+
+		.button {
+			margin-top: 15px !important;
+		}
+	}
+ 
+	.has-header {
+		top: 85px !important;
+	}
+
+	.padding-sf {
+		margin: 0 20px;
+	}
+
+	.page-text {
+		font-family: HelveticaNeueLT, sans-serif;
+		font-size: 16px;
+		margin: 0px 20px 20px;
+		color: #787878;
+
+		a {
+			color: #b0252c;
+		}
+	}
+
+	.or-separator {
+		position: relative;
+		border-top: 2px dashed #d0d0d0;
+		text-align: center;
+		margin: 40px 15px 20px;
+
+		span {
+			position: relative;
+			padding: 0 20px;
+			font-family: HelveticaNeueLT, sans-serif;
+			font-size: 16px;
+			background: #fff;
+			top: -12px;
+			color: #7a7a7a;
+		}
+	}
+
+	.double-field {
+		border-radius: 5px;
+		background: #dedee1;
+		color: #969093;
+		padding: 5px;
+		margin-bottom: 20px;
+
+		.field {
+			position: relative;
+
+			&.invalid {
+				padding-right: 35px;
+
+				.feedback {
+					position: absolute;
+					width: 25px;
+					height: 100%;
+					right: 5px;
+					top: 0;
+					background: transparent url('../images/ico-required-errorcheck.svg') center center no-repeat;
+					background-size: 25px;
+				}
+			}
+
+			input {
+				background: #dedee1;
+				color: #969093;
+				padding: 20px 10px;
+				border-radius: 5px;
+				font-family: HelveticaNeueROMAN, sans-serif;
+				font-size: 16px;
+				width: 100%;
+
+				&::-webkit-input-placeholder, 
+				&:-moz-placeholder, 
+				&::-moz-placeholder, 
+				&:-ms-input-placeholder {  
+				   color: #969093;  
+				}
+			}
+		}
+
+		.field-separator {
+			border: 1px solid #fff;
+			background: #fff;
+			height: 2px;
+			margin: 3px 10px;
+		}
+	}
+
+	.half-field {
+		@include display(flex);
+		margin-bottom: 20px;
+
+		.field {
+			position: relative;
+			@include flex-grow(1);
+
+			&.invalid {
+				.feedback {
+					position: absolute;
+					width: 25px;
+					height: 70%;
+					right: 6px;
+					bottom: 0;
+					background: transparent url('../images/ico-required-errorcheck.svg') center center no-repeat;
+					background-size: 25px;
+				}
+			}
+
+			&.right-padding {
+				margin-right: 20px;
+			}
+
+			label {
+				color: #787878;
+				font-family: HelveticaNeueLT, sans-serif;
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
+
+			select, input {
+				width: 100%;
+				border-radius: 5px;
+				font-family: HelveticaNeueROMAN, sans-serif;
+				font-size: 16px;
+				background: #dedee1;
+				color: #969093;
+				margin-top: 5px;
+				border: none;
+			}
+
+			select {
+				padding: 18px 10px;
+
+				option {
+					padding: 10px;
+				}
+			}
+
+			input {
+				padding: 28px 10px;
+			}
+		}
+	}
+
+	.kana-button {
+		background: #9aa7b2;
+		color: #fff;
+	}
+
+	.make-it {
+		background: #12ad60;
+	}
+
+	.facebook-connect {
+		background: #3b5998;
+	}
+
+	.margin-top {
+		margin-top: 15px;
+	}
+}

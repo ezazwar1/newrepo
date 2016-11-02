@@ -1,0 +1,55 @@
+<ion-view cache-view="false" view-title="CORSOCOMO">
+  <ion-nav-bar class="bar-light coll">
+    <ion-nav-back-button></ion-nav-back-button>
+
+  </ion-nav-bar>
+  <ion-nav-buttons side="right">
+    <a href="#/tab/wishlist" class="button button-icon icon {{ wishlistStatusFull == 0 ? 'ion-ios-heart-outline' : 'ion-ios-heart' }}"><span ng-show="$parent.wishlistCount > 0" class="badge badge-assertive icon-badge">{{$parent.wishlistCount}}</span></a>
+        <a href="#/tab/cart" class="button button-icon icon {{shoppingCartStatusFull == 0 ? 'ion-ios-cart-outline' : 'ion-ios-cart'}}" ><span ng-show="CartCount > 0" class="badge badge-assertive icon-badge">{{CartCount}}</span></a>
+    </ion-nav-buttons>
+
+
+
+
+  <ion-header-bar align-title="left" class="bar-light bar-subheader item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input ng-enter="startSearch()" ng-model="searchArt" type="search" placeholder="Поиск по артикулу">
+    </label>
+    <button ng-click="startSearch()" class="button button-clear">
+      искать
+    </button>
+
+  </ion-header-bar>
+  <ion-content lazy-scroll id="contentBG">
+    <ion-list>
+      <div ng-repeat="group in groups" force-refresh-images="true">
+        <ion-item style="text-align: center;" delegate-handle="main_{{group.id}}" class="removeBorder item-light item-accordion-lazy"  ng-click="toggleGroup(group, group_id)" ng-class="{active: isGroupShown(group)}">
+
+
+          <div style="width:{{dev_width}};text-align:center; height:{{dev_height}}; background-repeat:no-repeat;background-size:contain;background-position:center;" image-lazy-loader="ios-small" image-lazy-distance-from-bottom-to-load="50" image-lazy-src="{{group.image}}"
+            image-lazy-background-image="true"></div>
+          <div class="item-accordion-name"> {{group.name}} &nbsp;&nbsp;&nbsp; <i class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-down' : 'ion-chevron-right'"></i></div>
+        </ion-item>
+
+        <ion-item class="removeBorder padding-left item-accordion-subitem" ng-repeat="item in group.items" class="item-accordion" ng-show="isGroupShown(group)">
+          <div ng-show="item.subitems">
+            <div ng-click="toggleSubGroup(item)" class="item-text-center  item-icon-right item-text-wrap">{{item.name}}<i class="icon" ng-show="item.subitems" style="font-size:10px;" ng-class="isSubGroupShown(item) ? 'ion-chevron-up' : 'ion-chevron-right'"></i></div>
+
+            <ion-item class="removeBorder padding-left item-accordion-subitem" ng-repeat="child in item.subitems" ng-href="#/tab/collection/{{child.id}}" ng-class="item-accordion" ng-show="isSubGroupShown(item)">
+              {{child.name}}
+            </ion-item>
+          </div>
+          <div ng-show="!item.subitems">
+
+              <ion-item ng-href="#/tab/collection/{{item.id}}" style="margin-left:-15px; padding-top:0px!important; padding-bottom:0px!important;" class="item-text-center  removeBorder item-icon-right item-text-wrap">{{item.name}}<i class="icon" ng-show="item.subitems" style="font-size:10px;" ng-class="isSubGroupShown(item) ? 'ion-chevron-up' : 'ion-chevron-right'"></i></ion-item>
+
+
+          </div>
+
+        </ion-item>
+
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

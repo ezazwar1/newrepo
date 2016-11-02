@@ -1,0 +1,89 @@
+<div class="scroll-content"><div class="content"><!--<div class="reminder-title">Remind<span class="second-part">Zapp</span>
+    </div>--><a href="javascript:;" class="logo"></a><form id="follower-details-form" novalidate><label class="hide" for="email-txt">Email</label><input id="email-txt" class="input-field" type="email" name="email-txt" value="" placeholder="Email" ng-class="{'error': isErrorEmail}" ng-keyup="inputKeyUpEmail()" ng-model="signUpObj.emailAddress" ng-change="onChange('email')" autocapitalize="off" autocorrect="off" ng-focus="showNote(false)" ng-blur="showNote(true)"><p class="unavailable" ng-if="isErrorEmail" ng-bind="errorEmailText">Invalid e-mail address</p><label class="hide" for="password-txt">Password</label><input id="password-txt" class="input-field" type="password" name="password-txt" value="" placeholder="Password" ng-class="{'error': isErrorPassword}" ng-keyup="inputKeyUpPassword()" ng-model="signUpObj.password" ng-change="onChange('password')" autocapitalize="off" autocorrect="off" ng-focus="showNote(false)" ng-blur="showNote(true)"><p class="unavailable" ng-if="isErrorPassword" ng-bind="errorPasswordText">Invalid Password</p><!-- <div class="password-indicator password-good">
+        <p>Password strength: <span class="password-strength">good</span>
+        </p>
+        <div class="bar small">
+          <span class="progress"></span>
+          <span class="overflow"></span>
+        </div>
+      </div> --><!--Change the following classes to change the password strength--><!--password-good password-fair password-strong password-weak--><!--
+        <div class="password-indicator password-fair">
+          <p>Password strength:
+            <span class="password-strength">fair</span>
+          </p>
+          <div class="bar small">
+            <span class="progress"></span>
+            <span class="overflow"></span>
+          </div>
+        </div>
+        --><!--
+      <label class="hide" for="evernym-txt">Contact Number</label>
+      <input id="contact-txt" ng-class="{'error': validateContact()}" class="input-field" type="tel" name="contact-txt" value="" placeholder="Contact Number Ex: +92XXXXXXXXXX" ng-model="signUpObj.contactNumber" ng-change="onChange('contact')" autocapitalize="off" autocorrect="off" ng-focus="showNote(false)" ng-blur="showNote(true)">
+
+      <p class='unavailable' ng-if="isErrorContact">Invalid Contact format: The format should be +92##########</p>
+--><p>Helps in finding your friends using this app</p><a id="btn-signup" class="button-default" href="javascript:;" ng-click="signUpSubmit()">Sign Up</a> <!--
+      <div class="terms-text center">
+        <p>I agree to the
+          <a href="javascript:;">Terms of Use </a>&
+          <a href="javascript:;"> Privacy Policy</a>
+        </p>
+      </div>
+--></form></div><!-- / content --><!--
+  <div class="privacy-signup-txt" ng-if="showPrivacyNote">
+
+    <span>RemindZapp, no more excuses. </span>
+    <ul class="privacy-points-text">
+      <li>We never share your information.</li>
+      <li>We never read your messages.</li>
+    </ul>
+
+
+  </div>
+--></div><!-- / scroll-content --><!--
+<div class="scroll-content">
+
+  <div class="content">
+
+    <div class="evernym-icon"></div>
+
+    <form id="follower-details-form" novalidate="novalidate">
+      
+      <label class="hide" for="username-txt">Username</label>
+      <input id="username-txt" class="input-field" type="text" name="username-txt" value="" placeholder="Userame" ng-class="{'error': isErrorUsername}" ng-keyup="inputKeyUpUsername()" ng-model="signUpObj.username" autocapitalize="off" autocorrect="off">
+      <p class="unavailable" ng-show="isErrorUsername" ng-bind="errorUsernameText"></p>
+
+      <label class="hide" for="email-txt">Email</label>
+      <input id="email-txt" class="input-field" type="text" name="email-txt" value="" placeholder="Email" ng-class="{'error': isErrorEmail}" ng-keyup="inputKeyUpEmail()" ng-model="signUpObj.emailAddress" autocapitalize="off" autocorrect="off">
+      <p class="unavailable" ng-show="isErrorEmail" ng-bind="errorEmailText"></p>
+      
+      <label class="hide" for="password-txt">Password</label>
+      <input id="password-txt" class="input-field" type="password" name="password-txt" value="" placeholder="Password" ng-class="{'error': isErrorPassword}" ng-keyup="inputKeyUpPassword()" ng-model="signUpObj.password" autocapitalize="off" autocorrect="off">
+      <div ng-show="isErrorPassword" class="password-indicator">
+        <p ng-bind="errorPasswordText"></p>
+      </div>
+
+      <label class="hide" for="contact-number-txt">Contact Number</label>
+      <input id="contact-number-txt" class="input-field" type="tel" name="contact-number-txt" value="" placeholder="Contact Number" ng-model="signUpObj.contactNumber" autocapitalize="off" autocorrect="off">
+
+      <a id="btn-login" class="button-default" href="javascript:;"  ng-click="signUpSubmit()">Sign Up</a>
+
+    </form>
+
+
+  </div>
+  <!-- / content 
+
+  <div class="privacy-signup-txt" ng-show='showsignupfooter'>
+
+    <span>Evernym is all about privacy.</span>
+    <ul class="privacy-points-text">
+      <li>We never share your information.</li>
+      <li>We never read your communications.</li>
+    </ul>
+
+
+  </div>
+
+</div>
+
+-->

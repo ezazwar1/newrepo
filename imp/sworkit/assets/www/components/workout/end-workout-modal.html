@@ -1,0 +1,202 @@
+<div class="modal end-workout-page modal-colors">
+    <ion-header-bar>
+        <h1 class="title title-center">{{'GREAT' | translate}} SWORK!</h1>
+    </ion-header-bar>
+    <ion-content has-bouncing="false" class="width-control-lite" scrollbar-y="false">
+        <div class="button-bar feature-popular padding-top">
+            <a class="button button-small button-outline button-energized"
+               ng-repeat="button in listOptions"
+               ng-click="optionSelected.listType = button.value;toggleLists()"
+               ng-class="{'active' : button.value === optionSelected.listType}"
+            >{{button.text | translate}}</a>
+        </div>
+        <ion-slide-box show-pager="false" on-slide-changed="updatedSlider()">
+            <ion-slide>
+                <div class="box screen2">
+                    <div class="stats-view">
+                        <div class="row">
+                            <div class="center new-medals" ng-class="{'unlocked-today' : unlockedToday == true}">
+                                <p ng-if="unlockedToday" class="unlocked-today-text">{{'EARNTODAY' | translate}}</p>
+
+                                <div class="gold medals" ng-if="unlockMedal == 'gold'">
+                                    <i class="icon ion-ribbon-a"></i>
+
+                                    <h3 ng-if="!unlockedToday">{{'GOLDMAIN' | translate}}</h3>
+                                    <h4>{{'GOLDSUB' | translate}}</h4>
+                                </div>
+                                <div class="silver medals" ng-if="unlockMedal == 'silver'">
+                                    <i class="icon ion-ribbon-a"></i>
+
+                                    <h3 ng-if="!unlockedToday">{{'SILVERMAIN' | translate}}</h3>
+                                    <h4>{{'SILVERSUB' | translate}}.</h4>
+                                </div>
+                                <div class="bronze medals" ng-if="unlockMedal == 'bronze'">
+                                    <i class="icon ion-ribbon-a"></i>
+
+                                    <h3 ng-if="!unlockedToday">{{'BRONZEMAIN' | translate}}</h3>
+                                    <h4>{{'BRONZESUB' | translate}}</h4>
+                                </div>
+                                <div class="blank medals" ng-if="unlockMedal == 'effort'">
+                                    <i class="icon ion-ribbon-a orange-text"></i>
+
+                                    <h3>{{'EFFORTMAIN' | translate}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row streak-board">
+                            <p class="current-streak">
+                                    <span ng-if="streakCount !== 0">
+                                        <span class="lead">{{'CURSTREAK' | translate}}:</span><span
+                                            class="streak-total"> {{streakCount}} {{streakCount === 1 ? 'WEEK' : 'WEEKS' | translate}}</span> {{'INAROW' | translate}}
+                                    </span>
+                                <span ng-if="streakCount === 0">{{'STARTSTREAK' | translate}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="box screen3">
+                    <div class="stats-view">
+                        <div class="row">
+                            <div class="col fill-height-or-more">
+                                <div class="stat-column flex-column flex-justify-center flex-align-center">
+                                    <div class="stat-calories">
+                                        <h2 class="stat-number flex-column flex-justify-center flex-align-center">
+                                            {{burnRounded}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col fill-height-or-more">
+                                <div class="stat-column flex-column flex-justify-center flex-align-center">
+                                    <div class="stat-minutes">
+                                        <h2 class="stat-number flex-column flex-justify-center flex-align-center">
+                                            {{timeToAddRounded}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="stat-label">{{'CALORIES_SM' | translate}}<span
+                                        ng-if="showWeightAdjust">*</span></p>
+                            </div>
+                            <div class="cal-in-min">
+                                <p>{{'IN' | translate}}</p>
+                            </div>
+                            <div class="col">
+                                <p class="stat-label">{{'MINUTES_SM' | translate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p ng-click="adjustWeight()" class="center adjust-weight uppercase" ng-if="showWeightAdjust">
+                        *{{'ADJUST' | translate}} {{'IN' | translate}} {{'SETTINGS_MENU' | translate}}
+                    </p>
+                </div>
+            </ion-slide>
+            <ion-slide class="temp-height">
+                <div class="box screen3">
+                    <div class="stats-view">
+                        <div class="row">
+                            <div class="col fill-height-or-more">
+                                <div class="stat-column flex-column flex-justify-center flex-align-center goal-circles">
+                                    <div class="timer-number">
+                                        <div class="inner-timer">
+                                            <h2 class="stat-number flex-column flex-justify-center flex-align-center">
+                                                {{totals.todayMinutesRounded}}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <progress-arc
+                                            size="100"
+                                            stroke="#dfdfdf"
+                                            stroke-width="7"
+                                            complete="calcComplete(totals.todayMinutes, goalSettings.dailyGoal)"
+                                            background="#FF8614"
+                                            counter-clockwise="true"
+                                    >
+                                    </progress-arc>
+
+                                </div>
+                            </div>
+                            <div class="col fill-height-or-more">
+                                <div class="stat-column flex-column flex-justify-center flex-align-center goal-circles">
+                                    <div class="timer-number">
+                                        <div class="inner-timer">
+                                            <h2 class="stat-number flex-column flex-justify-center flex-align-center">
+                                                {{weekGoalTotalRounded}}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <progress-arc
+                                            size="100"
+                                            stroke="#dfdfdf"
+                                            stroke-width="7"
+                                            complete="calcComplete(weekGoalTotal, goalSettings.weeklyGoal)"
+                                            background="#FF8614"
+                                            counter-clockwise="true"
+                                    >
+                                    </progress-arc>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="stat-label">{{'DAILY_SM' | translate}}<span
+                                        ng-if="showWeightAdjust">*</span></p>
+
+                                <p class="stat-label small-label">(<span
+                                        class="orange-text">{{goalSettings.dailyGoal}}</span>
+                                    {{'MIN_SM' | translate}}/{{'DAY' | translate}})</p>
+                            </div>
+                            <div class="col">
+                                <p class="stat-label">{{'WEEKLY_SM' | translate}}</p>
+
+                                <p class="stat-label small-label">(<span
+                                        class="orange-text">{{goalSettings.weeklyGoal}}</span>
+                                    {{'MIN_SM' | translate}}/{{'WEEK' | translate}})</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+
+        <div class="end-workout-buttons">
+            <button class="button button-block button-stable condense new-button" ng-click="cancelModal()"
+                    ng-if="!workoutComplete" id="continue-button">
+                {{'RESUME' | translate}}
+            </button>
+            <button class="button button-block button-energized new-button nexercise-orange condense no-border"
+                    ng-click="mainMenu()">
+                {{'MAIN_MENU' | translate}}
+            </button>
+            <button class="button button-block button-positive nexercise-blue condense no-border new-button"
+                    id="challenge-friend" ng-click="challengeFriend()">
+                {{'SHARE_W' | translate}}
+            </button>
+        </div>
+        <div class="end-workout-health padding" ng-if="healthKitData.showHealthKitOption">
+            <button class="button button-block button-assertive button-clear" ng-click="enableHealthKit()">
+                {{'ENABLE_H' | translate}}
+            </button>
+        </div>
+        <div class="end-workout-health"
+             ng-if="androidPlatform && !kindleDevice && !googleFitSettings.attempted && timeToAdd >= 1"
+             style="padding-left:0px;padding-right:0px">
+            <button class="button button-block button-assertive condense new-button" ng-click="enableGoogleFit()">
+                <img src="img/googleFit.png" style="height: 28px;margin-top: 6px;position: absolute;left: 10px;"/>
+                {{'CONNECT_FIT' | translate}}
+            </button>
+        </div>
+        <p class="centered health-red-text extra-top" ng-model="healthKitData.healthKitStatus">
+            {{healthKitData.healthKitStatus}}</p>
+
+        <div class="sponsored-end-workout center" ng-if="isEndAdCampaign">
+            <a class="icon close-ad" ng-click="closeEndWorkoutAd()"></a>
+            <img class="sponsor-image-end" ng-src="{{callToActionImage}}" ng-click="openCallToAction()"/>
+        </div>
+
+    </ion-content>
+</div>

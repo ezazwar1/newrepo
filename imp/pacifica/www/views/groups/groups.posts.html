@@ -1,0 +1,128 @@
+<ion-view id="groupPosts">
+
+  <ion-nav-title>
+    <a href="javascript:;" onclick="viewGroupUsers(event)" class="group-title-small"> {{getGroupTitle()}} ({{group.members}})<span class="members"> ></span></a>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right"> 
+    <a href="javascript:;" ng-click="showEditGroup($event, group)"><button class="button button-clear icon ion-ios-gear-outline"></button></a>
+    <a href="javascript:;" ng-click="showInvite()" ng-if="isOwner(group) || group.searchable"><button class="button button-clear icon ion-ios-personadd-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back is-white"></div>
+
+  <ion-content>
+    <ion-refresher
+      pulling-text="{{ 'PULL_TO_LOAD_PREVIOUS_TEXT' | translate }}"
+      on-refresh="loadMoreGroupsPosts()" ng-if="canLoadMore">
+    </ion-refresher>
+
+    <div ng-if="loadingPosts || loadingGroup" class="loading">
+      <ion-spinner class="icon-refreshing"></ion-spinner> 
+    </div>
+
+    <div ng-if="!loadingPosts && !loadingGroup" class="group-posts">
+
+      <div class="group-message-wrapper" ng-if="(!groupPosts || groupPosts.length == 0) && isOwner(group)">
+        <div class="creator">Pacifica</div>
+        <div class="pacifica avatar"></div>
+        <div class="group-post">
+          <span class="group-post-copy">{{ 'GROUP_EMPTY' | translate }} {{ getGroupCode() }}</span>
+        </div>
+      </div>
+
+
+      <div class="group-message-wrapper" ng-if="(!groupPosts || groupPosts.length == 0) && !isOwner(group)">
+        <div class="creator">Pacifica</div>
+        <div class="pacifica avatar"></div>
+        <div class="group-post">
+          <span class="group-post-copy">{{ 'INTRODUCE_YOURSELF' | translate }}</span>
+        </div>
+      </div>
+
+         <!-- <a href="javascript:;" ng-click="deletePost($event, post)" ng-if="isPostOwner(post)">{{ 'DELETE_POST' | translate }}</a>
+          <a href="javascript:;" ng-click="showReportPost($event, post)" ng-if="!isPostOwner(post)">{{ 'REPORT_POST' | translate }}</a>-->
+
+      <div ng-repeat="post in groupPosts" ng-if="groupPosts && groupPosts.length > 0" class="group-message-wrapper" ng-class="{'is-mood': isPostType(post, 'Mood')}">
+        <div class="creator">{{post.creatorNickname}} - {{getPostDate(post)}}</div>
+        <div class="{{getPostAvatar(post)}} avatar"></div> <!--{{post.creatorNickname}}-->
+      <div class="group-post">
+        <div class="group-message-button" ng-if="!isPostOwner(post)" ng-click="showReportPost($event, post)"></div>
+        <span class="group-post-copy" ng-bind-html="getPostTitle(post)"></span>
+        <div class="list">
+
+          <div ng-if="isPostType(post, 'Mood')" class="mood-row">
+            <div data-mooddata="{{getMoodData(post)}}" data-startdate="{{getMoodStartDate(post)}}" data-numberofdays="{{getMoodNumberOfDays(post)}}" data-postid="{{post.id}}" class="graph">
+              <canvas height="120" width="50"></canvas> <!-- The width needs to be less than 100. It will get rewritten. -->
+            </div>
+          </div>
+
+          <div ng-if="isPostType(post, 'Thought')" class="item recording expanded" ng-click="showTextThought(post)">
+            <span class="title">{{getThought(post).title}}</span>
+            <span class="date">{{getThoughtDate(post)}}</span>
+
+            <span ng-if="isThoughtExpired(post)">[{{ 'LISTENING_PERIOD_EXPIRED' | translate }}]</span>
+            <div class="counter-wrap" ng-show="isAudioThought(post) || isTextThought(post)">
+              <div class="negative">{{getNegativeFlags(post)}}</div>
+            </div>
+            <div ng-if="!isThoughtExpired(post)">
+
+              <div ng-if="isAudioJournal(post)">
+                <audio-line-item src="getRecordingSource(getThought(post), 'journal')" duration="getRecordingDuration(getThought(post), 'thought')" tags="getRecordingTags(getThought(post), 'journal')" class="thought-history"></audio-line-item>
+              </div>
+
+              <div ng-if="isAudioThought(post)">
+                <audio-line-item src="getRecordingSource(getThought(post), 'thought')" duration="getRecordingDuration(getThought(post), 'thought')" tags="getRecordingTags(getThought(post), 'thought')" class="thought-history"></audio-line-item>
+                <audio-line-item src="getRecordingSource(getThought(post), 'analysis')" duration="getRecordingDuration(getThought(post), 'analysis')" tags="getRecordingTags(getThought(post), 'analysis')" class="thought-history" bg-color="#60d293"></audio-line-item>
+              </div>
+
+              <div ng-if="isTextThought(post)" class="text-thought-shared">
+                {{ getTextThoughtDisplay(post) }}
+              </div>
+
+              <div ng-if="isTextJournal(post)" class="text-thought-shared">
+                {{ getTextJournalDisplay(post) }}
+              </div>
+              
+            </div>
+          </div>
+
+          <div ng-if="isPostType(post, 'Experiment')" class="item experiment-share">
+          {{getExperiment(post).title}}
+          <em>{{getExperimentCompletionDate(post)}}</em>
+          <span class="status goal true">{{getExperiment(post).difficulty}}</span>
+          </div>
+
+        </div>
+
+      </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+  <span class="newPosts" ng-click="scrollToNewPosts()" ng-show="hasNewPosts">{{ 'NEW_POSTS' | translate }}</span>
+  <span class="icon ion-android-textsms is-typing" ng-show="usersTyping > 0"></span>
+
+  <div class="write-message shadow" ng-class="{'is-focused': isInputFocused()}">
+
+    <textarea id="postText" placeholder="{{ 'GROUP_POST_PLACEHOLDER' | translate }}" ng-disabled="showingModal() || submittingPost" maxlength="512" style="{{ getGroupRemainingPostCharacters() < 20 ? 'color:red' : ''}}" ng-focus="inputFocused()" ng-blur="inputBlurred()" ng-model="groupPostData.postText" ng-change="inputChanged()"></textarea>
+    <!-- Placeholders to show that we have data that will be shared out with the (optional) message. -->
+    <div class="share-options-wrapper">
+      <a href="javascript:;" class="write-btn"></a>
+      
+      <a href="javascript:;" ng-if="!hasSharingData('Mood')" ng-click="showMoodShare()" class="mood-btn"></a>
+      <a href="javascript:;" ng-if="hasSharingData('Mood')" ng-click="showMoodShare()" class="mood-btn on"></a>
+
+      <a href="javascript:;" ng-if="!hasSharingData('Thought')" ng-click="showThoughtShare()" class="thoughts-btn"></a>
+      <a href="javascript:;" ng-if="hasSharingData('Thought')" ng-click="showThoughtShare()" class="thoughts-btn on"></a>
+
+      <a href="javascript:;" ng-if="!hasSharingData('Experiment')" ng-click="showExperimentShare()" class="experiments-btn"></a>
+      <a href="javascript:;" ng-if="hasSharingData('Experiment')" ng-click="showExperimentShare()" class="experiments-btn on"></a>
+        
+      <button ng-click="createPost($event)" ng-disabled="submittingPost || !hasPostText()" class="post-button" ng-class="{'is-on': hasPostText()}">{{ 'SEND' | translate }}</button>
+      <!--<a href="javascript:;" class="progress-btn"></a>-->
+    <div>
+  </div>
+
+</ion-view>

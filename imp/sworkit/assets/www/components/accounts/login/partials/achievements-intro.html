@@ -1,0 +1,28 @@
+<ion-modal-view class="modal-view auth-view auth-outer achievements-intro">
+    <ion-content scroll="false">
+        <div class="top-content row padding centered">
+            <div class="col col-center">
+                <h1>{{'EARNMEDALS' | translate}}</h1>
+                <div class="medals-inline">
+                    <div class="silver medal">
+                        <i class="icon ion-ribbon-a"></i>
+                    </div>
+                    <div class="gold medal">
+                        <i class="icon ion-ribbon-a"></i>
+                    </div>
+                    <div class="bronze medal">
+                        <i class="icon ion-ribbon-a"></i>
+                    </div>
+                </div>
+                <p class="achievement-value" ng-bind-html="earnText"></p>
+                <hr>
+                <p class="achievement-value" ng-bind-html="streakText"></p>
+                <a class="button button-block button-outline main-action button-stable"
+                   ng-click="hideAchievementsModal()">
+                    {{'GOTIT' | translate}}
+                </a>
+                <p class="achievement-value reminder-text" ng-if="!authData">{{'REMIND_ACCOUNT' | translate}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

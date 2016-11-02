@@ -1,0 +1,148 @@
+@import 'variables';
+
+.page-friendship {
+
+	.scroll-refresher {
+		top: 10px;
+	}
+
+	.scroll {
+		padding: 70px 20px;
+	}
+
+	.fs-header {
+		position: absolute;
+		left:0;
+		right: 0;
+		height: 70px;
+		@include display(flex);
+		text-align: center;
+		width: 100%;
+		background: white;
+		z-index: 10;
+
+		.cursor {
+			position: absolute;
+			height: 3px;
+			background: #ad252a;
+			top: 67px;
+			z-index: 2;
+			width: 100%;
+			left: 0;
+
+			@include transform-origin(0 0);
+			@include transition(all 0.8s ease 0.5s);
+		}
+
+		.tab {
+			display: block;
+			color: #9aa7b2;
+			border-bottom: 3px solid #9aa7b2;
+			padding: 15px 0;
+			font-size: 17px;
+			width: 50%;
+			@include transition(all 0.8s ease 0.5s);
+
+			&.active {
+
+				.label {
+					color: $stayfilmColor;
+				}
+			}
+		}
+
+		&.mate-active {
+			.cursor {
+				@include transform(translateX(0%) scaleX(.5));
+			}
+		}
+
+		&.request-active {
+			.cursor {
+				@include transform(translateX(50%) scaleX(.5));
+			}
+		}
+	}
+
+	.list-container {
+		margin-top: 20px;
+	}
+
+	.user-list {
+		margin-top: 20px;
+	}
+
+	.empty-list {
+		@include transition(all 1s ease);
+	}
+
+	.empty-list.ng-enter {
+		height: 0;
+		margin: 0;
+	}
+
+	.empty-list.ng-enter-active {
+		height: 20;
+		margin: 50px;
+	}
+
+	.request-item {
+		height: 90px;
+		@include transition(all 1s ease);
+
+		&.ng-leave-active {
+			height: 0;
+			@include transform(scaleY(0));
+		}
+	}
+
+	.friendship-request {
+		@include display(flex);
+		height: 90px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		background: white;
+		overflow: hidden;
+
+		.thumb {
+			height: 60px;
+			width: 60px;
+			vertical-align: top;
+			margin-right: 15px;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-color: #d2d2d2;
+		}
+
+		.fullname {
+			width: 100%;
+
+			.user-fullname, .action-accept, .action-reject {
+				color: $stayfilmColor;
+			}
+
+			.action-buttons {
+				width: 100%;
+
+				.action-accept, .action-reject {
+					display: block;
+					padding: 10px 40px 10px 10px;
+					float: left;
+				}
+			}
+		}
+
+		.ng-hide-add {
+			-webkit-animation:1s flipOutX;
+			animation:1s flipOutX;
+		}
+
+//		.ng-hide-remove {
+//			-webkit-animation:1s flipInX;
+//			animation:1s flipInX;
+//		}
+
+	}
+}

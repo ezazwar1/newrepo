@@ -1,0 +1,36 @@
+<ion-view class="cart-item-view" view-title="Cart">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon side-menu-icon icon ion-navicon"></button>
+		<!--Drawer Change-->
+	</ion-nav-buttons>
+	<ion-content class="padding-top" has-subheader="false">
+		<div ng-if="cartLoaded==1">
+			<div ng-repeat="itm in cartItems" class="card cart-item">
+				<img ng-src="./img/products/{{itm.images[0].name}}" alt="">
+				<div class="itm-details">
+					<h3>{{itm.name}}</h3>
+					<span>{{itm.price}}</span>
+
+					<div class="button-bar">
+						<button class="button button-clear">-</button>
+						<button class="button button-clear">2</button>
+						<button class="button button-clear">+</button>
+					</div>
+				</div>			
+			</div>
+			<div class="row subtotal-wrap">
+				<div class="col">
+					<span class="subtotal">SUBTOTAL</span>
+				</div>
+				<div class="col">
+					<span class="totalprice">$3200</span>
+				</div>
+			</div>
+			<div class="padding">
+				<button ng-click="startCheckout()" class="button checkout-btn button-positive button-block">
+					Check out
+				</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

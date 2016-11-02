@@ -1,0 +1,72 @@
+<ion-view cache-view="false" title="{{sidechat.user.name}}" ng-init="sideChat()">
+  <ion-nav-buttons side="left">
+    <ion-nav-back-button id="btnBackComment" class="button button-icon ion-chevron-left" style="color:white"></ion-nav-back-button>
+  </ion-nav-buttons>
+  <ion-content align="center" style="border:none" scroll="true" >
+    <div class="list list-chat">
+      <div class="item item-text" ng-repeat="comment in sidechat.comments">
+        <div class="row">
+          <div class="col col-50 col-bottom chat-text-name">
+            <span ng-bind="(comment.user.username | limitName)"></span>
+          </div>
+          <div class="col col-50 "></div>
+        </div>
+        <div class="chat-bubble" ng-class="{'chat-bubble-green': sidechat.owner == comment.user._id,'chat-bubble-blue': sidechat.user == comment.user._id}">
+          <span ng-bind="comment.comment"></span>
+          <div class="chat-text-date">
+            {{::comment.time | date:'MMM dd, yyyy @ h:mma'}}
+          </div>
+        </div>
+
+        <div class="chat_detail_box">
+          <div class="left_comment_area">
+            <div class="col col-10 col-pic" style="margin-top:5px;" ng-click="goSideChat(comment.user._id)">
+              <img class="feed-img" ng-src="{{::comment.user.pic}}" />
+              <img ng-if="!comment.user.pic" src="img/default_avatar.jpg" />
+            </div>
+          </div>
+          <div class="col chat-icons right_comment_area">
+            <div class="heart text-12-gray" ng-click="setHeart(comment, $event)">
+              <a href="javascript:void 0">
+                <img ng-if="!iconFilter(comment.hearts)" src="img/heart-grey.png" />
+                <img ng-if="iconFilter(comment.hearts)" src="img/heart.png" />
+              </a>
+              <span class="text-heart" ng-bind="comment.hearts.length" ng-if="comment.hearts.length"></span>
+            </div>
+            <div class="grey-hand-down text-12-gray" ng-click="setDislike(comment, $event)">
+              <a href="javascript:void 0">
+                <img ng-if="!iconFilter(comment.dislikes)" src="img/hand-down-grey.png" />
+                <img ng-if="iconFilter(comment.dislikes)" src="img/hand-down.png" />
+              </a>
+              <span ng-bind="comment.dislikes.length" ng-if="comment.dislikes.length"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar bar-footer bar-stable message-footer comment_footer_wrapper chat_mesg_footer_bar" >
+    <form name="sendMessageForm" class="chat_message_area">
+      <div class="list list-feed bottom_top-border">
+        <div class="item item-send-text">
+          <div class="row">
+            <div class="col col-center image_upload_icon" style="text-align:center;padding-left:5px;padding-right:5px;" ng-click="uploadPicture('LIBRARY')">
+              <img src="img/image_upload.png" style="width:100%" />
+            </div>
+
+            <div class="col col-75 col-center comment_input_box">
+              <input name="comment" type="text" style="font-size:20px" class="comment_input inputForm" ng-model="post.comment" placeholder="Say something..." required/>
+            </div>
+            <div class="col col-center camera_icon" style="text-align:center;padding-left:5px;padding-right:5px;" ng-show="post.comment" ng-click="addComment()">
+              <span class="send-msg-btn">Send</span>
+            </div>
+
+            <div ng-hide="post.comment" class="col col-center camera_icon" style="text-align:center;padding-left:5px;padding-right:5px;" ng-click="uploadPicture('CAMERA')">
+              <img style="width:120%" src="img/camera-icon.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ion-footer-bar>
+</ion-view>

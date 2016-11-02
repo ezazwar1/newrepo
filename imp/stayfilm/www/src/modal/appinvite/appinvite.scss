@@ -1,0 +1,123 @@
+@import "variables";
+
+.page-appinvite {
+	background: #815f57 url('../images/appinvite/invite_background.jpg') center center no-repeat;
+	background-size: cover;
+	z-index: 10;
+	text-align: center;
+
+	.appinvite-body {
+		button.close {
+			position: absolute;
+			width: 17px;
+			height: 17px;
+			padding: 0;
+			right: 15px;
+			top: 15px;
+		}
+
+		h1 {
+			margin: 20px auto;
+		}
+
+		button.action {
+			width: 380px;
+			height: 55px;
+			border: 2px solid #fff;
+			box-sizing: border-box;
+			margin: 0 auto 20px;
+			font-family: HelveticaNeueLT, sans-serif;
+			color: #fff;
+			font-size: 20px;
+		}
+
+		button.invite-friends {
+			background: #62c29c;
+		}
+
+		@media only screen and (orientation: portrait) {
+			h1 {
+				margin: 10px auto;
+			}
+
+			.vertical {
+				display: block;
+			}
+
+			.horizontal {
+				display: none;
+			}
+
+			button.action {
+				width: 250px;
+				margin: 0 auto 10px;
+			}
+		}
+
+		@media only screen and (orientation: landscape) {
+			h1 {
+				margin: 10px auto;
+			}
+
+			.vertical {
+				display: none;
+			}
+
+			.horizontal {
+				display: block;
+    			margin: 10px 120px 0;
+			}
+
+			button.action {
+				width: 170px;
+				height: 35px;
+				margin: 0 auto 10px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+
+@media only screen and (orientation: portrait) {
+	.platform-ios {
+		.page-appinvite {
+			.appinvite-body {
+				h1 {
+					margin: 20px auto 0;
+				}
+
+				button.action {
+					width: 170px;
+					height: 35px;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+
+
+@media only screen and (orientation: landscape) {
+	.platform-ios {
+		.page-appinvite {
+			.appinvite-body {
+				h1 {
+					&.horizontal {
+						margin: 10px auto;
+					}
+				}
+
+				button.action {
+				    display: inline-block;
+					float: none;
+					width: 35%;
+					margin: 0 10px 10px;
+				}
+			}
+		}
+	}
+}
+
+// precisa diminuir o tamanho do vertical
+// precisa verificar se o horizontal compila certo

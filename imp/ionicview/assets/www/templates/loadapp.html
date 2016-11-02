@@ -1,0 +1,21 @@
+<ion-view class="loadapp" view-title="Preview a shared app">
+  <ion-content class="content padding">
+    <div class="top-container">
+      <img class="ionitron-sm" src="img/ionitron-sm.png">
+      <div class="info-txt"> Here you can preview apps that are not your own. Enter the ID of an app that has been shared with you. </div>
+    </div>
+    <div class="bottom-container">
+      <form name="loadAppForm" ng-submit="modalLoadApp()">
+        <div class="error" ng-show="data.error" ng-model="data.error">
+          {{data.error | uppercase}}
+        </div>
+        <label class="item item-input item-floating-label item-md-input">
+          <span class="input-label">ENTER APP ID</span>
+          <input class="md-input" type="text" ng-model="data.appId" placeholder="ENTER APP ID" required>
+          <div class="highlight"></div>
+        </label>
+        <input type="submit" ng-disabled="loadAppForm.$invalid" class="button button-block button-positive view-button" value="VIEW APP">
+      </form>
+    </div>
+  </ion-content>
+</ion-view>

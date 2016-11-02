@@ -1,0 +1,98 @@
+<ion-view cache-view="false" view-title="Корзина">
+
+  <ion-content>
+
+    <!--<div collection-repeat="product in cart.items" class="list">
+
+    <a  class="item item-thumbnail-left" href="#">
+      <img src="cover.jpg">
+      <h2>{{product.model}}</h2>
+      <p>{{product.size}}</p>
+    </a>
+
+</div>-->
+<a ng-show="itemc.length==0" href="#/tab/menu" class="button button-full button-dark">
+ Начать покупки
+</a>
+<ion-list ng-show="itemc.length>0" >
+
+<a  ng-click="show({{product.id}})" ng-repeat="product in itemc" class="item item-thumbnail-left" href="#">
+  <img src="{{product.image}}">
+  <h2>{{product.name}}</h2>
+  <p>{{product.model}}</p>
+  <p ng-show="product.option_name"> размер: {{product.option_name}}</p><span class="item-note">{{product.price | currency:"&#x20bd;":0 }}</span>
+</a>
+
+  <div class="item  item-icon-left ">
+<i class="icon ion-bag"></i> Стоимость покупок<span class="item-note"> {{total | currency:"&#x20bd;":0 }}</span>
+</div>
+
+
+</ion-list>
+<div ng-show="isLogin && itemc.length>0">
+  <ion-list>
+    <div class="item item-divider">
+    Выберите адрес доставки
+  </div>
+  <ion-radio ng-model="$parent.adress_choise" ng-change="$parent.setNewDelivery(adress.address_id)" ng-value="adress.address_id" ng-repeat ="adress in adresses" >  <H2>{{adress.city}}</H2>
+    <p>{{adress.country}}</p>
+    <p>{{adress.postcode}}, {{adress.address_1}}, {{adress.address_2}}</p></ion-radio>
+    <div>  <a href="#/tab/customer/addadress" class="button button-full button-stable">
+      Добавить другой адрес доставки
+      </a> </div>
+<div ng-show="zone_id == 2761">
+
+  <a class="item" ng-click="openDatePicker()">
+    <span style="color:#444">Выберите дату доставки</span>
+     <span class="item-note">
+      {{deliveryDate}}
+     </span>
+   </a>
+
+<label class="item item-input item-select">
+    <div class="input-label">
+    Время доставки
+    </div>
+    <select ng-model="deliverytime">
+      <option ng-value="'Любое время'"selected>Любое время</option>
+      <option ng-value="'12:00 - 15:00'" >12:00 - 15:00</option>
+      <option ng-value="'15:00 - 18:00'" >15:00 - 18:00</option>
+    </select>
+  </label>
+
+</div>
+
+</ion-list>
+
+</div>
+<ion-list ng-show="itemc.length>0" >
+  <span class="item removeBorder"></span>
+  <div class="item  item-icon-left ">
+<i class="icon ion-plane"></i> Стоимость доставки<span class="item-note"> {{deliveryCost | currency:"&#x20bd;":0 }}</span>
+</div>
+<div ng-show="HaveCoupon" class="item  item-icon-left ">
+<i class="icon ion-happy-outline"></i> Cкидка по купону<span class="item-note"> {{ TotalDiscount | currency:"&#x20bd;":0 }}</span>
+</div>
+<div class="item  item-icon-left ">
+<i class="icon ion-card"></i> Итого к оплате<span class="item-note"> {{finalTotal | currency:"&#x20bd;":0 }}</span>
+</div>
+
+<label class="item item-input">
+<textarea ng-model='$parent.comment' placeholder="Комментарий"></textarea>
+</label>
+  </ion-list>
+  <a ng-show="itemc.length>0 && isLogin && !HaveCoupon"  ng-click="couponOpen()" class="button button-full button-dark">
+    Применить купон
+  </a>
+  <a ng-show="itemc.length>0 && isLogin"  ng-disable ="enableBuyButton()" ng-click="addOrder()" class="button button-full button-dark">
+    Купить
+  </a>
+  <a ng-show="itemc.length>0 && !isLogin"  href="#/tab/account" class="button button-full button-dark">
+  Войти и купить
+  </a>
+<!--<a ng-show="itemc.length>0" href="{{ !isLogin ? '#/tab/account' : '#/tab/newfeature'}}" ng-click="addOrder()" class="button button-full button-dark">
+  {{!isLogin ? 'Войти и купить' : 'Купить'}}
+</a>-->
+
+  </ion-content>
+</ion-view>

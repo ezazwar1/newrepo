@@ -1,0 +1,102 @@
+/* line 3, appinvite.scss */
+.page-appinvite {
+  background: #815f57 url("../images/appinvite/invite_background.jpg") center center no-repeat;
+  background-size: cover;
+  z-index: 10;
+  text-align: center;
+}
+/* line 10, appinvite.scss */
+.page-appinvite .appinvite-body button.close {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  right: 15px;
+  top: 15px;
+}
+/* line 19, appinvite.scss */
+.page-appinvite .appinvite-body h1 {
+  margin: 20px auto;
+}
+/* line 23, appinvite.scss */
+.page-appinvite .appinvite-body button.action {
+  width: 380px;
+  height: 55px;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  margin: 0 auto 20px;
+  font-family: HelveticaNeueLT, sans-serif;
+  color: #fff;
+  font-size: 20px;
+}
+/* line 34, appinvite.scss */
+.page-appinvite .appinvite-body button.invite-friends {
+  background: #62c29c;
+}
+@media only screen and (orientation: portrait) {
+  /* line 39, appinvite.scss */
+  .page-appinvite .appinvite-body h1 {
+    margin: 10px auto;
+  }
+  /* line 43, appinvite.scss */
+  .page-appinvite .appinvite-body .vertical {
+    display: block;
+  }
+  /* line 47, appinvite.scss */
+  .page-appinvite .appinvite-body .horizontal {
+    display: none;
+  }
+  /* line 51, appinvite.scss */
+  .page-appinvite .appinvite-body button.action {
+    width: 250px;
+    margin: 0 auto 10px;
+  }
+}
+@media only screen and (orientation: landscape) {
+  /* line 58, appinvite.scss */
+  .page-appinvite .appinvite-body h1 {
+    margin: 10px auto;
+  }
+  /* line 62, appinvite.scss */
+  .page-appinvite .appinvite-body .vertical {
+    display: none;
+  }
+  /* line 66, appinvite.scss */
+  .page-appinvite .appinvite-body .horizontal {
+    display: block;
+    margin: 10px 120px 0;
+  }
+  /* line 71, appinvite.scss */
+  .page-appinvite .appinvite-body button.action {
+    width: 170px;
+    height: 35px;
+    margin: 0 auto 10px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  /* line 86, appinvite.scss */
+  .platform-ios .page-appinvite .appinvite-body h1 {
+    margin: 20px auto 0;
+  }
+  /* line 90, appinvite.scss */
+  .platform-ios .page-appinvite .appinvite-body button.action {
+    width: 170px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+@media only screen and (orientation: landscape) {
+  /* line 106, appinvite.scss */
+  .platform-ios .page-appinvite .appinvite-body h1.horizontal {
+    margin: 10px auto;
+  }
+  /* line 111, appinvite.scss */
+  .platform-ios .page-appinvite .appinvite-body button.action {
+    display: inline-block;
+    float: none;
+    width: 35%;
+    margin: 0 10px 10px;
+  }
+}

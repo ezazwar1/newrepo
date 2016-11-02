@@ -1,0 +1,39 @@
+<ion-view title="{{'INFO_MENU_NAME' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+
+        <ion-tabs class="tabs-energized">
+            <ion-tab title="{{'HORARIOS' | translate}}">
+                <ion-content id="imagebg" has-header="true" padding="true" class="blurLayer">
+
+                   <div id="contentInfo" style="color: #FFFFFF !important;" ng-bind-html="page.tabDetailText1">
+
+                   </div>
+
+                </ion-content>
+
+
+
+
+            </ion-tab>
+            <ion-tab title="{{'TARIFAS' | translate}}">
+                <ion-content id="imagebg" has-header="true" padding="true" class="blurLayer">
+                    <div id="contentInfo" style="color: #FFFFFF !important;" ng-bind-html="page.tabDetailText2">
+
+                    </div>
+                </ion-content>
+            </ion-tab>
+            <ion-tab title="{{'MAPA' | translate}}">
+                <ion-content class="has-header" id="location" ng-click="openMap()">
+
+                </ion-content>
+            </ion-tab>
+        </ion-tabs>
+
+
+</ion-view>

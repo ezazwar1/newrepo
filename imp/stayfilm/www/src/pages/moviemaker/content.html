@@ -1,0 +1,72 @@
+<ion-view class="moviemaker-step moviemaker-content">
+	<div class="bar bar-header">
+
+		<button class="button button-clear" ng-click="goTo('main.home.feed')"><img src="images/ico-close.png"></button>
+
+		<div class="title" translate>
+			faça um filme
+		</div>
+
+		<button class="button button-clear button-text" ng-click="goToGenre()"><span translate>próximo</span><img src="images/ico-arrow-right.png"></button>
+	</div>
+
+	<ion-content class="has-sf-header">
+		<div class="moviemaker-wrapper">
+			<div class="circles">
+				<div class="step-circle active">1</div>
+				<div class="step-circle">2</div>
+				<div class="step-circle">3</div>
+			</div>
+
+			<div class="main-title" translate>
+				Suas fotos &amp; vídeos
+			</div>
+
+			<div>
+				<input type="text" maxlength="60" placeholder="{{ 'Escreva aqui o seu título' | translate }}" ng-model="data.title" name="title" required>
+			</div>
+
+			<div class="clearfix">
+				<h2 translate>Das redes sociais</h2>
+				<form name="$parent.$parent.$parent.socialStep">
+					<ion-toggle class="network-toggle" ng-repeat="network in networks" ng-model="data.selectedNetworks[network]" ng-change="toggleNetwork(network)">
+						<img ng-src="images/moviemaker/switch_{{network}}.png" class="network-icon" ng-if="data.integratedNetworks[network]" />
+						<img ng-src="images/moviemaker/switch_{{network}}_inactive.png" class="network-icon" ng-if=" ! data.integratedNetworks[network]" />
+					</ion-toggle>
+				</form>
+			</div>
+
+			<div class="tags">
+				<h3 translate>Filtre usando palavras-chave</h3>
+				<button class="tags-button" ng-click="openTagList()" ng-if="!data.tags.length"><span translate>Adicione aqui...</span></button>
+				<button class="tags-button" ng-click="openTagList()" ng-if="data.tags.length">{{ data.tags.join(", ") }}</button>
+			</div>
+
+		</div>
+
+		<hr />
+
+		<div class="moviemaker-wrapper media-instructions">
+			<h2 translate>Do meu dispositivo</h2>
+			<p translate>Selecione suas fotos</p>
+		</div>
+		<div class="square-upload">
+			<input type="file" id="btn-upload" multiple accept="image/*|video/*" onchange="angular.element(this).scope().handleFiles(this.files)">
+
+			<div ng-class="{'add-media':true, zeroed: uploadInfo.totalCount == 0}" ng-click="chooseMedias()">
+				<div class="status">{{ uploadInfo.uploadedCount }} / {{ uploadInfo.totalCount }}</div>
+				<div class="camera-icon"><img src="images/moviemaker/icon_camera.png" height="35" /></div>
+			</div>
+			<div class="upload-status" ng-click="openMediasOrUpload()">
+				<div class="progress-bar" style="width: {{ uploadPercentage }}%;"></div>
+				<div class="percentage">{{ uploadPercentage }}%</div>
+			</div>
+			<div class="media-rotator" ng-click="openMediasOrUpload()">
+				<div class="rotator" style="background-image: url('{{rotatorImgUrl}}');"></div>
+				<div class="instructions">
+					<div class="bottom-text" translate>Fotos e vídeos</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

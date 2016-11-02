@@ -1,0 +1,288 @@
+/* line 4, sourcezone.scss */
+.main-albummanager-sourcezone .bar.bar-header {
+  background: #efecec;
+}
+/* line 7, sourcezone.scss */
+.main-albummanager-sourcezone .bar.bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 14, sourcezone.scss */
+.main-albummanager-sourcezone .bar.bar-header .btn-back img {
+  height: 22px;
+}
+/* line 20, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks {
+  position: relative;
+  height: 150px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+/* line 26, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .instruction {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+  color: #797979;
+  margin: 10px 20px;
+  height: 40px;
+}
+/* line 34, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+}
+/* line 38, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container {
+  width: 600px;
+  height: 90px;
+  padding: 0 0 0 20px;
+}
+/* line 43, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network {
+  position: relative;
+  display: inline-block;
+  margin: 20px 20px 0 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-size: 40%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: .3;
+}
+/* line 56, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.hasSelectedMedias:before {
+  content: ' ';
+  height: 0px;
+  position: absolute;
+  width: 0;
+  border: 4px solid #12ad60;
+  top: -14px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
+  left: 36px;
+}
+/* line 70, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network:after {
+  border: 1px solid transparent;
+  border-width: 1px;
+}
+/* line 76, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.selected:after {
+  border: solid transparent;
+  content: ' ';
+  height: 0px;
+  position: absolute;
+  width: 0;
+  border-width: 10px 15px;
+  border-top-color: #fff;
+  border-bottom-color: #efecec;
+  top: 100%;
+  margin: 0 auto;
+  display: block;
+  left: 50%;
+  margin-left: -14px;
+}
+/* line 93, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.integrated {
+  opacity: 1;
+}
+/* line 97, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.facebook {
+  background-color: #294173;
+  background-image: url("../images/albummanager/facebook.svg");
+}
+/* line 101, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.facebook:after {
+  border-top-color: #294173;
+}
+/* line 106, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.sf_album_manager {
+  background-color: #ad252a;
+  background-image: url("../images/albummanager/stayfilm.svg");
+  background-size: cover;
+}
+/* line 111, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.sf_album_manager:after {
+  border-top-color: #ad252a;
+}
+/* line 116, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.sf_upload {
+  background-color: #aaa;
+  background-image: url("../images/albummanager/upload.svg");
+  background-size: cover;
+}
+/* line 121, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.sf_upload:after {
+  border-top-color: #aaa;
+}
+/* line 126, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.gplus {
+  background-color: #dc4a38;
+  background-image: url("../images/albummanager/gplus.svg");
+  background-size: cover;
+}
+/* line 131, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.gplus:after {
+  border-top-color: #dc4a38;
+}
+/* line 136, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.instagram {
+  background-color: #392110;
+  background-image: url("../images/albummanager/instagram.svg");
+}
+/* line 140, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.instagram:after {
+  border-top-color: #392110;
+}
+/* line 145, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.flickr {
+  background-color: #efecec;
+  background-image: url("../images/albummanager/flickr.svg");
+}
+/* line 149, sourcezone.scss */
+.main-albummanager-sourcezone .header-networks .network-list .network-container .network.flickr:after {
+  border-top-color: #efecec;
+}
+/* line 158, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container {
+  top: 194px;
+  background: #efecec;
+}
+/* line 162, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .zero-album {
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 167, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: flex-start;
+  -moz-align-content: flex-start;
+  align-content: flex-start;
+  -ms-flex-line-pack: start;
+  background: #efecec;
+  height: 100%;
+}
+/* line 176, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .album-list-item {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 100px;
+  -moz-flex: 0 0 100px;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  margin: 20px 20px 50px 20px;
+}
+/* line 183, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .btn-refresh {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background-image: url("../images/album_Refresh.png");
+  background-size: cover;
+}
+/* line 191, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .album-cover {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 100px;
+  -moz-flex: 0 0 100px;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  border: 3px double #98a6b1;
+  border-width: 0 0 3px 3px;
+}
+/* line 198, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .album-cover .frame {
+  position: relative;
+  top: -1px;
+  left: 1px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 3px;
+  border: 1px solid #98a6b1;
+}
+/* line 208, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .album-cover .frame .cover-image {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: padding-box;
+  background-clip: padding-box;
+}
+/* line 220, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .album-cover .frame .selected-medias {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 35px;
+  height: 35px;
+  background: #12ad60;
+  color: #fff;
+  text-align: center;
+  line-height: 3;
+  font-family: sans-serif;
+  font-size: 12px;
+  border-radius: 5px;
+}
+/* line 236, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .album-cover .media-count {
+  margin-top: 10px;
+}
+/* line 240, sourcezone.scss */
+.main-albummanager-sourcezone .album-list-container .album-list .album-cover .media-count, .main-albummanager-sourcezone .album-list-container .album-list .album-cover .album-name {
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+}

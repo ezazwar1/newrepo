@@ -1,0 +1,37 @@
+<ion-view>
+    <ion-content padding="15">
+        <h2>{{dict.login}}</h2>
+        <div class="content-wrapper center">
+            <button class="button button-block button-facebook button-positive icon icon-left ion-social-facebook" ng-click="facebookLogin('login')">{{dict.registerWithFacebook}}</button>
+            <div class="row padding-top padding-bottom">
+                <div class="col display-flex align-center"><hr></div>
+                <div class="col col-20">
+                    <div class="text-center uppercase stable">{{dict.or}}</div>
+                </div>
+                <div class="col display-flex align-center"><hr></div>
+            </div>
+            <form name="login.form" id="login.form" ng-submit="login.form.$valid && login()">
+                <div>
+                    <label class="item item-input">
+                        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" ng-model="auth.login" placeholder="{{dict.addEmailOrUsername}}" required>
+                    </label>
+                    <label class="item item-input">
+                        <input type="password" ng-model="auth.password" placeholder="{{dict.password}}" ng-pattern="/^\S{6,}/" required>
+                    </label>
+                    <button type="button" class="button button-block button-clear button-small" ng-click="resetPassword()">{{dict.forgotPassword}}</button>
+                    <button type="submit" ng-disabled="login.form.$invalid" style="visibility: hidden; height: 0; width: 0;"></button>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light hide-on-keyboard-open">
+        <div class="row">
+            <div class="col">
+                <button class="button button-block button-outline button-dark" ng-click="goTo('overview')">{{dict.cancel}}</button>
+            </div>
+            <div class="col">
+                <button type="submit" form="login.form" class="button button-block button-outline button-assertive" ng-disabled="login.form.$invalid">{{dict.login}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

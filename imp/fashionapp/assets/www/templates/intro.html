@@ -1,0 +1,511 @@
+
+<ion-slide-box>
+    <ion-slide ng-style="{'background-image':'url(./img/home1.jpg)'}">
+    </ion-slide>
+    <!-- <ion-slide ng-style="{'background-image':'url(./img/intro2.jpg)'}">
+    </ion-slide>
+    <ion-slide ng-style="{'background-image':'url(./img/intro3.jpg)'}">
+    </ion-slide> -->
+</ion-slide-box>
+
+<div class="intro-login">
+    <div ng-click="up('register')">
+        Register
+    </div>
+    <div ng-click="up('login')">
+        Login
+    </div>
+</div>
+
+<div id="login" class="content slide-up" ng-style="{'background-image':'url(./img/man.jpg)'}">
+    <div ng-click="close('login')" class="close"><span class="bts bts-close"></span></div>
+    <div>
+        <ion-content>
+            <h5>Log in</h5>
+            <label class="item item-input">
+                <input name="login" type="email" required="true" ng-model="log.email" placeholder="Email">
+            </label>
+            <label class="item item-input">
+                <input name="password" type="password" required="true" ng-model="log.password" placeholder="Password">
+            </label>
+            <div class="info-text">
+                <small ng-click="up('retreivePassword')">Forgot password ?</small>
+            </div>
+            <button class="button button-block" ng-click="validLogin(log)" type="submit">
+                <span ng-show="isLoading"><img src="./img/loading-bubbles-black.svg"></span>
+                Connect
+            </button>
+
+            <!-- <div class="separate">
+                <span><i class="line"></i></span>
+                <span>or</span>
+                <span><i class="line"></i></span>
+            </div>
+            <hr>
+            <button class="button button-block facebook" ng-click="callFb()" type="submit"><span class="bts bts-facebook"></span> Log in with facebook</button> -->
+        </ion-content>
+    </div>
+</div>
+
+<div id="retreivePassword" class="content slide-up" ng-style="{'background-image':'url(./img/man.jpg)'}">
+    <div ng-click="close('retreivePassword')" class="close"><span class="bts bts-close"></span></div>
+    <div>
+        <ion-content>
+            <h5>Forgot password ?</h5>
+            <label class="item item-input">
+                <input name="retreiveEmail" type="email" required="true" ng-model="retreive.email" placeholder="Email">
+            </label>
+            <button class="button button-block" ng-click="retreivePassword(retreive.email)" type="submit">
+                <span ng-show="isLoading"><img src="./img/loading-bubbles-black.svg"></span>
+                Confirm
+            </button>
+        </ion-content>
+    </div>
+</div>
+
+<div id="register" class="content slide-up" ng-style="{'background-image':'url(./img/man.jpg)'}">
+    <div ng-click="close('register')" class="close"><span class="bts bts-close"></span></div>
+    <div>
+        <ion-content>
+            <div class="step1" ng-show="!step2">
+                <h5>Registration</h5>
+                <label class="item item-input">
+                    <input type="text" placeholder="Firstname" required="true" ng-model="user.firstname">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Lastname" required="true" ng-model="user.lastname">
+                </label>
+                <label class="item item-input">
+                    <input type="email" placeholder="Email" required="true" ng-model="user.email">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" required="true" ng-model="user.password">
+                </label>
+                <label class="checkbox">
+                       <input type="checkbox" ng-model="user.isInFashion">
+                    I work in the fashion design industry
+                </label>
+                <p class="pull-center">
+                    By signing up, you accept the <br> <span ng-click="modal('terms')" class="underline">Terms and Conditions</span>
+                </p>
+                <button class="button button-block" ng-click="validStep1(user)" type="submit">Sign up</button>
+            </div>
+            <div class="step2" ng-show="step2">
+                <div class="list">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Who are you ?
+                        </div>
+                        <select required="true" ng-model="user.profile">
+                            <option value="{{ type.id }}" data-code="{{ type.code }}" ng-repeat="type in types">
+                                {{ type.title }}
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                <label class="item item-input" ng-show="user.profile == type.id" ng-repeat="type in types" ng-if="type.code == 'brand'">
+                    <input type="text" placeholder="Brand Name" ng-model="user.page">
+                </label>
+                <label class="item item-input" ng-show="user.profile == type.id" ng-repeat="type in types" ng-if="type.code == 'store'">
+                    <input type="text" placeholder="Store Name" ng-model="user.page">
+                </label>
+
+                <button class="button button-block" ng-click="register(user)" type="submit">Sign Up</button>
+            </div>
+        </ion-content>
+    </div>
+</div>
+
+<div id="terms" class="hide">
+    <hr>
+    <div class="element content">
+        <h1>Terms &amp; conditions</h1>
+        <p style="color:black;">
+            Bienvenue à BETOSEE, la première plate-forme virtuelle BtoC pour les marques tendances disponibles à tous.
+            <br>
+            Certaines parties du site ne sont accessibles qu’aux titulaires de codes et de mots de passes délivrés par BETOSEE dans les conditions prévues par les présentes.
+            <br>
+            <h2>A PROPOS DE BETOSEE</h2>
+            <br>
+            <strong>Qu’est-ce que BETOSEE ?</strong>
+            <br><br>
+            BETOSEE est dédié à la création et les personnes qui y participent, vont des concepteurs aux acheteurs au consommateur final. Il s'agit d'un réseau social, reliant les professionnels entre eux et le public, mais aussi, et surtout, une grande place de marché qui facilite les échanges de professionnels et la communication entre les concepteurs, les acheteurs et les agents.
+            <br>
+            <br>
+            <strong>Comment ça marche ?</strong>
+            <br>
+            <br>
+            WeSayFashion souhaite que les professionnels de la mode puisse rester en contact les uns avec les autres, de par le monde entier, à tout moment. Les professionnels peuvent proposer des partenariats commerciaux. Dès que votre demande a été acceptée, des messages peuvent être échangés et votre contact est ajouté à la liste Newsflash de l'autre professionnel. Les partenaires commerciaux sont automatiquement informés des événements organisés par l'autre. Les demandes de rendez-vous sont facilitées grâce au partage des calendriers entre partenaires.
+            Les marques et les magasins ont leurs propres pages, conceptualisées comme des pièces, où ils peuvent présenter leur univers au sein de la plate-forme
+            <br>
+            <br>
+            BETOSEE se compose de deux parties : le Profil personnel (BE) et tout ce qui se passe sur le réseau (SEE), correspondant à l’activité des marques, des boutiques, des évènements, les nouveautés, lancements et ouvertures.
+            <br>
+            <br>
+            BE est le profil privé,  la page de l’utilisateur, sa carte de visite, où il choisit ce qui doit être publié. C’est à la fois son profil et son bureau virtuel.
+            Cette page contient toutes ses informations mais aussi ses outils de travail, son carnet d’adresse, son agenda ainsi que ses publications.
+            Ces fonctionnalités sont facilement et rapidement accessibles pour gérer les commandes, trouver de nouveaux contacts, gérer la marque et la boutique, mettre à jour le showroom en ligne, rappeler les prochaines dates et informations importantes et bien plus encore…
+            <br>
+            <br>
+            <strong>En bref, vous pouvez :</strong><br><br>
+            Regrouper tous les magasins/marques avec lesquels vous travaillez, dans un seul endroit
+            Gérer les commandes : envoyer, recevoir et gérer les commandes 24h/24, 7j/7 de n’importe où et suivre les statuts et y accéder à tout moment
+            Gérer des Notebook : ajouter des produits et commentaires à visualiser plus tard,
+            Gérer les contacts : tous vos contacts sont accessibles facilement et rapidement,
+            Visualiser les actualités et les favoris
+            Gérer les emails : envoyer et recevoir des messages de clients actuels et futurs
+            Gérer les évènements : ajouter de futurs rendez vous à l’agenda (+nous fournissons automatiquement notre sélection de dates importantes).
+            <br><br>
+            SEE : Elle représente la vitrine du site, sa partie éditoriale et l’actualité des utilisateurs. Mais elle est aussi et surtout un outil de recherche vital pour les utilisateurs, par fonction, lieu, et produit. C’est là que l’on se connecte, crée de nouveaux contacts, découvre de nouveaux contacts et passe des commandes. Là apparaissent les dernières marques et enseignes, les pièces les plus demandées, l’actualité des marques ainsi que des articles ou évènements à venir présentés en flux constant.
+            La partie SEE prévoit aussi un outil de recherche très étendu. Les utilisateurs recherchent facilement boutiques/créateurs pour de nouveaux contacts. Etendre son réseau d’affaires n’a jamais été aussi facile !
+            <br><br>
+            La page d'accueil est accessible à tout le monde, c'est la fenêtre (shopping) pour le public. Ici, tous les visiteurs peuvent accéder à des informations générales sur les marques et les magasins et voir les collections actuelles.
+            <br><br>
+            <strong>Vous êtes designer</strong>
+            <br><br>
+            Créez votre propre page, présenter votre marque et sa philosophie, vos inspirations, vos actuelles, passées et futures collections, votre équipe et tout ce qui concerne votre marque avec du texte, des photos et des vidéos. Publiez vos nouvelles et événements sur votre page et envoyez-les à vos « followers » sur le réseau. Le public peut visiter votre page d'accueil, peut poster un « I like » (j’aime ) sur la marque et vos produits, peut trouver des informations sur votre marque et voir la collection actuelle. Votre sécurité est importante pour nous! Vous décidez ce que vous voulez montrer et à qui, via les paramètres de confidentialité. Certaines pages restent privées, accessibles uniquement aux partenaires commerciaux qui peuvent voir les collections à venir et gérer leurs achats avec vous.
+            <br><br>
+            Vous avez toujours souhaité et rêvés de travailler en partenariat commercial. Autorisez vos partenaires à accéder à vos pages «privées» afin de leur présenter les collections à venir, de leur fournir des informations détaillées sur chaque produit, et de leur permettre de faire une sélection de produits en vue de leur achat via les formulaires de commande en ligne. Plus besoin de  paperasse. Recevoir les commandes, passer des commande se fait désormais facilement depuis la maison, l'hôtel, le salon ou depuis tout autre lieu. Rechercher de nouveaux clients et les tenir informés régulièrement par l'intermédiaire de flashinfo sur votre actualité n'a jamais été aussi facile!
+            <br><br>
+            <strong>Vous êtes un acheteur</strong>
+            <br><br>
+            Créez la page de votre propre boutique. Présentez vos sites et adresses, votre philosophie et inspirations, les marques et collections avec lesquelles vous travaillez, votre équipe et tout ce qui concerne votre entreprise par des textes, des photos et des vidéos. Publier vos actualités  et événements sur votre page et envoyer-les dans des flashs actualités, à vos « followers » dans le cadre de BETOSEE . Les produits commandés auprès des créateurs répertoriés par notre site, peuvent être présentés sur votre page et être acheté directement par le public.
+            <br><br>
+            Demander l'accès aux pages "privées" des créateurs (professionnels ) permet de visualiser les collections à venir , trouver des informations détaillées sur chaque pièces, faire une sélection de produits préférés et finalement commander les pièces sélectionnées facilement grâce aux formulaires de commande en ligne. Plus aucune  paperasse n’est nécessaire. L'envoi de commande et la réception des formulaires de commande se fait facilement depuis la maison, l'hôtel ou tout autre lieu. Rechercher de nouveaux designers n'a jamais été aussi facile et les mises à jour et actualités de designers appartenant à votre sélection vous sont transmis régulièrement par l'intermédiaire nouvelles flash. Passer à côté de nouvelles importantes c'était hier!
+            <br><br>
+            <strong>Vous n’êtes pas dans la mode</strong>
+            <br><br>
+            Mais êtes vous impatient de découvrir de nouveaux designers et leurs créations? Devenez un initié de la mode en rejoignant BETOSEE !
+            <br><br>
+            Rechercher les créateurs, les boutiques et les produits. Ici, tout est réuni. Vous pouvez visiter toutes les pages en accès libre, voir les collections actuelles, savoir où trouver les produits que vous aimez, voir quels magasins a commandé votre produit et acheter directement chez eux sur BETOSEE.
+            <br><br>
+            Rejoignez BETOSEE maintenant! Il suffit de quelques clics et minutes ...
+            <br><br>
+            <strong>CONDITIONS DE CONSULTATION DU SITE BETOSEE</strong><br><br>
+            Les présentes Conditions d’Utilisation s’appliquent à tout internaute qui se connecte au site BETOSEE.
+            <br><br>
+            Propriété du site, licence d’utilisation consentie, sanction du non respect des Conditions d’Utilisation
+            <br><br>
+            Le site BETOSEE, localisé à l’adresse WWW.BETOSEE.COM , est la propriété exclusive de WE SAY FASHION, dont le siège est situé 29 bis rue des Francs Bourgeois 75004 PARIS.
+            <br><br>
+            Il est protégé par les règles du droit de la propriété intellectuelle, notamment le droit d’auteur et le droit des marques.
+            <br><br>
+            WAY SAY FASHION n’autorise l’utilisation du site BETOSEE que dans le respect des présentes Conditions d’Utilisation.
+            <br><br>
+            En conséquence, l’utilisation du site BETOSEE est interdite hors du cadre prévu par les présentes Conditions d’Utilisation ; est ainsi notamment interdite toute reproduction permanente ou provisoire, toute traduction, arrangement, adaptation ou toute modification quelconque du site BETOSEE ou de l’un de ses composants et notamment les logiciels, logos, présentations, textes, illustrations et photographies.
+            <br><br>
+            De même, est notamment interdite toute utilisation de la marque BETOSEE, enregistrée à l’INPI sous le numéro13 4 011 685, notamment toute suppression, altération, imitation, reproduction, est interdite et engage la responsabilité civile et pénale de son auteur, sauf dans les cas et selon les modalités prévues par les présentes Conditions d’Utilisation.
+            <br><br>
+            Les tribunaux français sont compétents pour sanctionner toute atteinte aux droits de WE SAY FASHION, dans les conditions et sous les peines prévues notamment par les articles L.335-3 et L.716 du Code de la Propriété Intellectuelle et 323-1 et suivants du Code Pénal, sans préjudice de toutes autres sanctions qui pourraient être prononcées, y compris par tout autre tribunal compétent.
+            <br><br>
+            En outre, WE SAY FASHION se réserve le droit de suspendre à tout instant l’accès aux parties du site relatives à la commande de produits ou de services à tout internaute qui ne se conforme pas aux obligations prévues aux présentes Conditions d’Utilisation.
+            <br><br>
+            <strong>Utilisation du site BETOSEE</strong>
+            <br><br>
+            L’utilisation du site BETOSEE n’est autorisée que pour sa consultation en ligne, et/ou pour l’utilisation des services qu’il propose, selon les Conditions applicables présentées plus bas.
+            <br><br>
+            L’accès à certaines parties du site BETOSEE est réservé aux titulaires de mots de passe et codes d’accès confidentiels délivrés par BETOSEE après identification de l’internaute au moyen du questionnaire figurant sur le site.
+            <br><br>
+            Les mots de passe et codes d’accès sont réservés aux personnes physiques auxquelles ils ont été attribués. Lorsque l’internaute qui demande l’attribution de codes d’accès et de mots de passe déclare  représenter une personne morale, il garantit à BETOSEE qu’il a les pouvoirs de représenter cette personne morale.
+            <br><br>
+            Lorsque des logiciels peuvent être téléchargés sur le site BETOSEE, leur utilisation n’est autorisée que sur l’ordinateur de l’utilisateur connecté au site lors du téléchargement. Cette autorisation est personnelle, non exclusive et incessible. Il est interdit de copier, modifier, vendre, redistribuer, donner en licence ou transférer de quelque manière que ce soit les logiciels disponibles sur le site.
+            <br><br>
+            WE SAY FASHION peut poser des règles générales et des limites quant à l’utilisation du site BETOSEE, et notamment sans que cette liste soit limitative, fixer le nombre de jours maximal d’affichage de tout contenu qui lui serait adressé aux fins de présentation sur le site, supprimer après avis tous codes d’accès et mots de passe restés inutilisés pendant un certain temps, fixer une durée maximale de connexion par période donnée, fixer une taille maximale aux fichiers et messages adressés sur le site.
+            <br><br>
+            <strong>Obligations de l’utilisateur</strong>
+            <br><br>
+            En utilisant les services proposés par le site BETOSEE, et notamment lors des demandes de mots de passe et codes d’accès, l’utilisateur s’engage à fournir des informations complètes et exactes, ainsi qu’à les remettre à jour régulièrement.
+            <br><br>
+            WE SAY FASHION peut à tout moment demander à l’utilisateur de justifier de l’exactitude de ses déclarations.
+            <br><br>
+            L’utilisateur s’engage à conserver strictement confidentiels les mots de passe et codes d’accès qui lui sont attribués. L’utilisateur s’interdit toute communication, cession ou transmission à quelque titre que se soit des codes et mots de passe qui lui ont été attribués par BETOSEE.
+            <br><br>
+            Toute connexion, transmission de données ou actes effectués sous ces codes d’accès sont réputés avoir été effectués pour le compte de l’utilisateur concerné.
+            <br><br>
+            L’utilisateur s’interdit tout comportement susceptible d’entraver ou de perturber le fonctionnement du site BETOSEE, des serveurs et des réseaux qui lui sont connectés.
+            <br><br>
+            Limitation de responsabilité
+            <br><br>
+            WE SAY FASHION ne peut être tenue pour responsable du caractère approprié ou non des services proposés sur le site BETOSEE à l’usage particulier recherché par l’utilisateur.
+            <br><br>
+            Les services proposés sur le site BETOSEE sont fournis en fonction de la disponibilité du site BETOSEE. WE SAY FASHION ne peut garantir que le service sera ininterrompu, opportun, sûr et dépourvu de toute erreur ou virus.
+            <br><br>
+            Le contenu, la présentation et le fonctionnement du site BETOSEE peut être modifié à tout instant par WE SAY FASHION en fonction de sa politique commerciale et du bon fonctionnement du site.
+            <br><br>
+            L’utilisateur accepte expressément de renoncer à rechercher la responsabilité de WE SAY FASHION pour tout dommage qu’il pourrait être amené à subir du fait de l’utilisation du site, et en particulier tout dommage résultant d’une perte de profits, perte de données ou interruption d’activité imputable à l’utilisation, à l’impossibilité d’utiliser ou aux résultats de l’utilisation du site BETOSEE, ou imputables à des documents ou informations contenus dans le site BETOSEE.
+            <br><br>
+            Enfin BETOSEE ne peut être tenu pour responsable de toute perte ou de tout dommage consécutif à des relations contractuelles conclues directement entre un utilisateur du site BETOSEE et un fournisseur de produits ou de service, notamment dans le cadre du service de mise en relation contractuelle offert sur le site BETOSEE.
+            <br><br>
+            Les membres et utilisateurs sont responsables de la réalité de leurs données communiquées ainsi que de leur capacité à contracter.
+            <br><br>
+            Utilisation des liens hypertextes présents sur le site BETOSEE
+            <br><br>
+            Des liens hypertextes permettant d’avoir accès à d’autres sites Web sont disponibles sur le site BETOSEE. Lorsque vous utilisez ces liens, vous quittez le site.
+            <br><br>
+            WE SAY FASHION ne pouvant contrôler le contenu, les produits et services, les publicités ou le matériel disponibles sur ces autres sites Web, WE SAY FASHION ne pourra être tenue pour responsable pour quelque cause que ce soit dans le cas où le contenu, les produits et services, les publicités ou le matériel sus-visés porteraient atteinte aux droits de tiers.
+            <br><br>
+            Dès lors, l’internaute qui utilise le site BETOSEE renonce à réclamer toute réparation à WE SAY FASHION pour tout dommage qu’il pourrait subir du fait de l’utilisation de l’un des liens hypertextes figurant sur le site.
+            <br><br>
+            <strong>DONNÉES PERSONNELLES</strong>
+            <br><br>
+            Finalité des traitements
+            <br><br>
+            Dans le cadre de l’utilisation des produits et services disponibles sur le site, l’internaute doit fournir à WE SAY FASHION des informations à caractère personnel, dont la finalité est de permettre à WE SAY FASHION de l’identifier et de pouvoir ainsi lui proposer ses services. Les réponses dont la collecte est obligatoire pour permettre à l’internaute d’accéder aux services sont signalés par un astérisque.
+            <br><br>
+            Les données personnelles collectées par WE SAY FASHION sont conservées pendant la durée de l’abonnement. Après résiliation par l’abonné utilisateur, les données seront conservées pendant une durée de un an..
+            <br><br>
+            La collecte et le traitement de ces données a fait l’objet d’une déclaration à la CNIL.
+            <br><br>
+            Droit d’accès et de rectification
+            <br><br>
+            Conformément à la loi n° 78-17 du 6 janvier 1978 dite «loi informatique et liberté », tout internaute dispose d’un droit d’accès, de modification et de suppression des données personnelles le concernant.
+            <br><br>
+            Vous pouvez exercer ce droit en adressant un e-mail à l’adresse suivante CONTACT@BETOSEE.COM ou envoyer un courrier à l’adresse suivante : 29 rue des Francs Bourgeois 75004 Paris à l’attention de Michael HADIDA.
+            WE SAY FASHION peut être conduite à adresser aux internautes des e-mails destinés à les informer sur ses produits et services. Il est possible de refuser de recevoir ces e-mail d’information, en adressant un e-mail, ou un courrier par voie postale, aux adresses indiquées ci-dessus, cette possibilité de désabonnement étant rappelée en fin de chaque email d’information.
+            <br><br>
+            Certaines pages du site peuvent utiliser des « cookies », qui sont de petits fichiers pouvant être stockés sur votre terminal, dont la finalité est de connaître les habitudes et les préférences afin de mieux cibler les attentes de l’utilisateur et ainsi lui faciliter le navigation sur le site. Ces « cookies », ou témoins de connexion, permettent à WE SAY FASHION de mieux vous connaître.
+            <br><br>
+            Vous avez la possibilité de configurer votre ordinateur afin de vous réserver le choix de les accepter ou non.
+            <br><br>
+            WESAYFASHION peut offrir des services grâce à des applications créées à l'aide de la plate-forme BETOSEE («applications BETOSEE). Exemples d'applications de WESAYFASHION notamment des applications sur les Smartphones (BETOSEE pour Blackberry ou BETOSEE pour iPhone), des liens de «partage» et d'autres plug-ins interactifs distribués sur des sites à travers le web. Si vous utilisez une application BETOSEE ou des liens interactifs avec un site web qui utilise un plugin, vous acceptez que les informations vous concernant, et relatives à votre utilisation des services, y compris, mais sans être limitatif, votre appareil, votre opérateur mobile, votre fournisseur d'accès à internet, votre emplacement physique et / ou les pages Web contenant des plugins WESAYFASHION enregistré dans votre navigateur puisse nous être communiquée.
+            <br><br>
+            <h2>CONDITIONS APPLICABLES AUX SERVICES FOURNIS AUX MEMBRES</h2>
+            <br><br>
+            <strong>Objet des services</strong>
+            <br><br>
+            Le site BETOSEE propose la fourniture d’une solution de présentation et de vente d’articles de mode par les membres ayant souscrits à ses services (ci-après les Membres), hébergée sur un portail dont BETOSEE assure le référencement et la promotion. BETOSEE fournit un réseau social des professionnels de la mode.
+            <br><br>
+            <strong>Eligibilité aux services</strong>
+            <br><br>
+            Pour être admissible à utiliser les Services, vous devez répondre aux critères suivants et déclarez et garantissez que vous: (1) êtes âgés de 18 ans ou plus; (2) n’êtes pas actuellement limité par les Services ou interdit de compte WESAYFASHION BETOSEE, (3) n’êtes  pas un concurrent de WESAYFASHION ou n’utilisez pas  les services pour des raisons qui sont en concurrence avec WESAYFASHION; (4) allez avoir qu’un seul  compte  WESAYFASHION BETOSEE à tout moment que ce soit, (5) avez  les pleins pouvoirs et l'autorité de conclure le présent accord et que cela ne  viole pas  toute autre convention à laquelle vous êtes partie; (6) ne violerez  aucun droit de WESAYFASHION, y compris les droits de propriété intellectuelle tels que les droits d'auteur ou de droits sur la marque, et (7) acceptez de fournir à vos frais tout le matériel, les logiciels et accès Internet nécessaire à l’utilisation des services.
+            <br><br>
+            <strong>Licence d’utilisation de la solution de présentation et vente</strong>
+            <br><br>
+            Les fonctionnalités proposées par BETOSEE sont réservées à une utilisation en ligne sur le site BETOSEE, par les Membres régulièrement inscrits au moyen du formulaire disponible sur le site. L’inscription est valablement souscrite dès l’instant où tous les champs désignés comme obligatoires sur ce formulaire ont été correctement renseignés par le Membre.
+            <br><br>
+            Pour permettre aux personnes intéressées l’usage de BETOSEE d’en apprécier les qualités et fonctionnalités, et notamment d’apprécier l’adéquation de BETOSEE à leurs besoins, une version de démonstration est disponible sur le site.
+            <br><br>
+            Pour utiliser le site BETOSEE, le Membre doit disposer des compétences habituellement nécessaires pour l’usage des réseaux sociaux et la création de pages personnelles.
+            <br><br>
+            Le Membre s’interdit notamment, sans que cette énumération ne soit limitative,
+            De tenter de procéder à  l’extraction des logiciels et données permettant le fonctionnement du site BETOSEE
+            De supprimer ou modifier aucune marque, mentions de propriété et/ ou de copyright du site,
+            De traduire, modifier, adapter, ou modifier en aucune façon logiciels et données permettant le fonctionnement du site BETOSEE,
+            De céder ou de mettre à disposition d’un tiers, même gratuitement et à quelque titre que ce soit les programmes constituant la solution BETOSEE,
+            De créer de nouveaux exemplaires des logiciels et données permettant le fonctionnement du site BETOSEE,
+            D’effectuer ou de faire effectuer la correction d’une anomalie ou d’une erreur, sans l’autorisation préalable et écrite de WE SAY FASHION,
+            De décompiler, traduire des logiciels et données permettant le fonctionnement du site BETOSEE de la solution BETOSEE en code source, lui-même ou par l’intermédiaire d’un tiers, sauf dans les conditions et limites strictement définies par la loi.
+            <br><br>
+            Les logiciels mis à la disposition des Membres pour héberger leur site restent la propriété de WE SAY FASHION. Le présent contrat n’entraîne aucun transfert de droits au bénéfice du client qui s’interdit de violer les droits de propriété intellectuelle de WE SAY FASHION sous quelque motif ou forme que ce soit.
+            <br><br>
+            <strong>Hébergement des données des Membres</strong>
+            <br><br>
+            La création de pages personnelles proposée par le site BETOSEE est strictement réservée aux professionnels, et moyennant le respect des présentes conditions.
+            <br><br>
+            Contenu de la prestation d’hébergement
+            <br><br>
+            La solution WE SAY FASHION à travers le site BETOSEE permet :
+            <br><br>
+            la mise en place du volume de stockage égale à 1Go ;
+            la visibilité des pages personnelles des Membres, par la connexion du public au site BETOSEE avec une capacité de 150 utilisateurs simultanés ;
+            la surveillance et la maintenance du fonctionnement du ou des serveurs ;
+            la sauvegarde des données des Membres pour les besoins de leur consultation sur le site BETOSEE par tout moyen approprié selon une fréquence égale à 1 fois par moiste ;
+            <br><br>
+            La prestation d'hébergement ne comprend pas les frais de télécommunication liés au téléchargement des fichiers entre les Membres et WE SAY FASHION ni les frais d'accès au réseau pour sa consultation.
+            <br><br>
+            Archivage des contenus hébergés / réversibilité
+            <br><br>
+            Aucune réversibilité des contenus et données hébergées ne sera organisée si l’hébergement prend fin pour quelle que raison que ce soit, l’hébergement proposé par WE SAY FASHION étant uniquement proposé aux fins de diffusion des pages personnelles sur internet et non à des fins d’archivage.
+            <br><br>
+            Il appartient aux  Membres de conserver systématiquement une copie de sauvegarde du contenu des pages personnelles hébergées, ainsi que de chaque mise à jour.
+            <br><br>
+            Disponibilité du service d’hébergement
+            <br><br>
+            WE SAY FASHION s'engage à faire ses meilleurs efforts pour mettre à la disposition des Membres le service d’hébergement de leurs pages personnelles, 24 heures sur 24 et 7 jours sur 7, sous réserve des périodes de maintenance et de pannes éventuelles.
+            <br><br>
+            WE SAY FASHION est soumis uniquement à une obligation de moyens de mettre à la disposition du client les ressources techniques et opérationnelles dont il dispose.
+            <br><br>
+            Sécurité
+            <br><br>
+            Chaque Membre s’engage à respecter et à appliquer toutes les réserves de sécurité préconisées par WE SAY FASHION.
+            <br><br>
+            Chaque Membre devra prendre toutes précautions utiles pour éviter la contamination par virus des données et contenus qu’il souhaite faire diffuser sur ses pages personnelles.
+            <br><br>
+            Maitrise du contenu et de la présentation
+            <br><br>
+            Qualité d’éditeur de contenus
+            <br><br>
+            BE : Chaque Membre est seul éditeur des contenus diffusés sur ses pages personnelles, à l’exception des espaces publicitaires mentionnés plus bas dont l’éditeur est WE SAY FASHION.
+            <br><br>
+            L’ensemble des informations apportées par un Membre (fichiers, images, pages HTML, sons, vidéo,…) restent la propriété de ce Membre qui doit s’assurer, sous sa responsabilité, des droits éventuels de tiers sur le contenu de son site.
+            Le créateur accepte que toutes photos, et informations affichées sur sa page personnelle  puissent être réutilisées par WE SAY FASHION et son site BETOSEE.
+            <br><br>
+            Module administrateur des pages personnelles
+            <br><br>
+            WE SAY FASHION a fourni à chaque Membre un accès à la modifcation de ses pages personnelles via le protocole HTTP ainsi qu'un "login" et un mot de passe lui permettant d'effectuer directement toutes mises à jour nécessaires du service Web hébergé, le Membre devant veiller à conserver en toute sécurité le "login" et le mot de passe ainsi attribués.
+            <br><br>
+            En cas de perte par un Membre de son mot de passe, il devra en informer immédiatement WE SAY FASHION. Un nouveau mot de passe lui sera alors attribué.
+            <br><br>
+            Masques et espaces publicitaires
+            <br><br>
+            BE : Chaque page personnelle se compose d’un ou plusieurs espaces mis à disposition du Membre et qu’il est invité à librement personnaliser.
+            SEE : Des bandeaux publicitaires verticaux et/ou horizontaux sont réservés à WE SAY FASHION.
+            <br><br>
+            Le choix de la nature et du contenu des messages diffusés sur les annonces publicitaires relève de la responsabilité exclusive de WE SAY FASHION. Compte tenu de la faculté de personnalisation laissée à chaque Membre sur ses pages personnelles, l’adéquation des messages publicitaires diffusés par WE SAY FASHION par rapport aux choix créatifs de chacun des Membres ne peut être garanti.
+            <br><br>
+            La personnalisation des pages personnelles par le Membre ne doit pas être susceptible de diminuer et/ou gêner la visibilité des espaces publicitaires réservés à WE SAY FASHION.
+            <br><br>
+            La présentation des pages personnelles ne devra pas être susceptible de nuire à la renommée de WE SAY FASHION et/ou de sa marque et site internet BETOSEE.
+            <br><br>
+            Contenus insérés par le Membre
+            <br><br>
+            Format
+            <br><br>
+            Les contenus susceptibles d’être insérés par les Membres sur leurs pages personnelles peuvent consister en des textes, images fixes (dessins, photographies…) et vidéos.
+            <br><br>
+            Lors de la première inscription, WE SAY FASHION propose de paramétrer elle-même leurs contenus sous format JPG ou PNG . Puis le Membre s’engage à respecter ses formats.
+            <br><br>
+            Chaque image fixe ou vidéo ne peut excéder un volume total de 1 Gora.
+            <br><br>
+            Respect de la législation
+            <br><br>
+            Chaque Membre, en sa qualité d'éditeur des pages personnelles hébergées, s'engage à respecter l'ensemble de la réglementation applicable à la diffusion d'informations et de services sur l'internet, notamment les dispositions impératives destinées à assurer la protection de l'ordre public, et ce de manière à ce que la responsabilité de WE SAY FASHION ne puisse en aucun cas être recherchée.
+            <br><br>
+            Notice légale
+            <br><br>
+            Chaque Membre s'engage également faire figurer sur ses pages personnelles les mentions d’identification prévues par la loi du 21 mai 2004 dite pour la confiance dans l’économique numérique et notamment :
+            le nom du directeur de publication,
+            sa dénomination sociale, son adresse et son numéro de téléphone
+            son numéro d'inscription au Registre du commerce et des sociétés.
+            <br><br>
+            Si le Membre propose la vente de produits, il fournira les informations suivantes devant notamment figurer sur le site : les conditions générales de vente, son numéro de TVA, le cas échéant son appartenance à une profession réglementée, les règles auxquelles cette profession est soumise, etc.
+            <br><br>
+            Relation avec les internautes
+            <br><br>
+            Les Membres sont seuls responsables des relations avec leurs clients, conditions de vente, commandes, livraisons, règlements, garantie,… Chaque Membre devra diffuser des conditions de vente claires, loyales et conformes aux droits des consommateurs. Chaque Membre prendra toutes les mesures de sécurité en matière de paiement électronique pour éviter toutes difficultés à ce sujet avec ses clients.
+            <br><br>
+            <strong>Loi informatique et libertés</strong>
+            <br><br>
+            Chaque Membre qui collecte et traite des données personnelles s'engage à effectuer préalablement une déclaration de site Web auprès de la Commission nationale de l'informatique et des libertés (CNIL), à rappeler aux personnes concernées par les données les droits d’accès, de rectification et d’opposition qui leur sont reconnus par la loi du 6 janvier 1978 et à les informer de la finalité, du responsable et des destinataires potentiel du traitement mis en œuvre.
+            <br><br>
+            Organisation des pages personnelles des Membres
+            <br><br>
+            WE SAY FASHION est chargée du classement des pages personnelles des Membres ; à l’aide de classement par thèmes et de questions posées aux visiteurs, elle les oriente automatiquement vers les sites cibles concernés.
+            <br><br>
+            WE SAY FASHION est chargée du bon fonctionnement du site et de la création des écrans graphiques permettant d’assurer l’orientation recherchée pour les internautes.
+            <br><br>
+            Licence des contenus des Membres
+            <br><br>
+            Pour les besoins de l’hébergement de ses pages personnelles et de l’organisation et de la promotion du site BETOSEE, chaque Membre autorise WE SAY FASHION à reproduire et à diffuser sur le site BETOSEE toute information, image, photographie, catalogue, et de façon générale toute information ou tout contenu, adressé par l’utilisateur à WE SAY FASHION, et relatif aux produits ou services qu’il souhaite présenter et/ou offrir par le biais du site BETOSEE.
+            <br><br>
+            Responsabilité et garanties des Membres
+            <br><br>
+            Lorsque l’utilisateur adresse un contenu ou une information à WE SAY FASHION, il garantit WE SAY FASHION contre toute action et/ ou réclamation qui pourrait être exercée à son encontre en raison de la diffusion sur le site WE SAY FASHION de toutes informations et/ ou de contenus.
+            <br><br>
+            Dans le cas où WE SAY FASHION serait inquiétée pour avoir fourni l’accès vers le site cible dont le contenu serait considéré comme illicite, tous les frais, honoraires, dommages-intérêts ou autres conséquences financières seront entièrement pris en charge par le Membre concerné.
+            <br><br>
+            D'une manière générale, le Membre garantit expressément WE SAY FASHION contre tout recours de quelque nature qu'il soit, émanant de tout utilisateur ou de tiers, et contre toute action ou réclamation qui pourrait être engagée à l'encontre de WE SAY FASHION au titre du contenu de ses pages personnelles, de son utilisation par lui-même ou par des tiers, et plus généralement au titre de la prestation d'hébergement, objet du présent contrat.
+            <br><br>
+            Absence d’exclusivité réciproque
+            <br><br>
+            Le Membre ne bénéficie d’aucune exclusivité pour l’hébergement de ses pages personnelles et WE SAY FASHION sera libre d’accueillir des pages concurrentes des siennes. De même, le Membre pourra présenter ses contenus sur tous autres sites de son choix.
+            <br><br>
+            Données de connexion
+            <br><br>
+            WE SAY FASHION conserve les données de connexion aux pages personnelles des Membres, selon les conditions et la durée légales en vigueur. Dans les cas et conditions prévues par  la loi, WE SAY FASHION avertira le Membre concerné, dans les meilleurs délais, de toute demande éventuelle d'informations relatives auxdites données de la part des autorités administratives ou judiciaires. WE SAY FASHION coopérera avec les autorités en cas de demande d'informations de leur part. Au terme de la durée légale de conservation desdites données de connexion, WE SAY FASHION s'engage à les détruire.
+            <br><br>
+            Le traitement des données de connexion par WE SAY FASHION fait l’objet d’une déclaration auprès de la Commission nationale de l'informatique et des libertés (CNIL).
+            <br><br>
+            Rappel des contraintes techniques de l’internet
+            <br><br>
+            Il est rappelé aux Membres que :
+            <br><br>
+            les transmissions de données sur l'Internet ne bénéficient que d'une fiabilité technique relative, celles-ci circulant sur des réseaux hétérogènes aux caractéristiques et capacités techniques diverses qui sont parfois saturés à certaines périodes de la journée ;
+            certains réseaux spécifiques peuvent dépendre d'accords particuliers et être soumis à des restrictions d'accès qui ne permettront pas l'accès au service Web hébergé sur le centre serveur de WE SAY FASHION ;
+            les utilisateurs du service Web hébergé sont susceptibles d'être localisés en tous lieux à travers le monde, et que partant, le contenu du service Web peut être reproduit, représenté ou, plus généralement, diffusé sans aucune limitation géographique ;
+            les données circulant sur l'Internet ne sont pas protégées contre des détournements éventuels et qu'ainsi la communication de mots de passe, codes confidentiels et plus généralement, de toutes informations à caractère sensible est effectuée par le Membre à ses risques et périls ;
+            la mise à disposition du contenu du service Web aux utilisateurs peut faire l'objet d'intrusion de tiers non autorisés, et être en conséquence, corrompue en dépit de la délivrance par WE SAY FASHION d'un accès protégé par mot de passe.
+            <br><br>
+            Messagerie électronique interne au site
+            <br><br>
+            Un service de messagerie interne au site est proposé aux Membres pour leur permettre de communiquer entre eux et/ou avec le site BETOSEE. Ce service ne permet pas d’expédier de messages à destination d’adresses emails hébergées hors du site.
+            <br><br>
+            Caractère personnel de la messagerie
+            <br><br>
+            Le bénéfice du service de messagerie est personnel, incessible et temporaire.
+            <br><br>
+            Caractéristiques techniques
+            <br><br>
+            Le service de messagerie est soumis aux contraintes techniques suivantes :
+            <br><br>
+            Le volume maximum de chaque message ne pourra dépasser 2 Mo, pièces jointes incluses. Au-delà de cette limite, les nouveaux courriers électroniques seront automatiquement refusés et ne pourront donc être déposés dans la boite au lettre du destinataire.
+            Seuls les formats suivants de pièces jointes sont pris en charge par la messagerie interne : JPG, PNG, PDF.<br><br>
+            Le service ne génère pas un accusé de réception puis, lorsque le message est ouvert, un accusé de lecture.
+            Il n’est pas possible de paramétrer les messages au cas par cas pour supprimer la génération de ces accusés.<br>
+            Le volume maximum de l’ensemble des messages stockés sur la messagerie ne pourra dépasser octet, pièces jointes incluses. Au-delà de cette limite, les nouveaux courriers électroniques seront automatiquement refusés et ne pourront donc être déposés dans la boite au lettre du Membre.
+            Les Membres restent seuls responsable de la vérification de l’absence de virus et plus généralement de l’innocuité des pièces jointes aux messages qu’ils adressent ou reçoivent via le site betosee.
+            Le service ne propose pas un générateur de message d’absence.
+            Le service ne propose pas le rejet des courriels dont les auteurs ont été identifiés comme indésirables par le destinataire.<br>
+
+            La messagerie n’est pas destinée à l’envoi de notifications officielles ou de correspondances destinées à produire des effets juridiques.
+            <br><br>
+            Conservation/ archivage
+            <br><br>
+            Les messages ne sont pas conservés lorsque le Membre perd sa qualité, quelle qu’en soit la raison. Les messages sont conservés pendant toute la durée de l’abonnement.
+            <br><br>
+            Les Membres sont invités à conserver une impression de leurs messages, en plus de leur archivage temporaire sur le service de messagerie.
+            <br><br>
+            WE SAY FASHION n’exerce aucun contrôle sur le contenu des messages envoyés ou reçus dans le cadre de la messagerie électronique et ne pourra, de ce fait, être tenu pour responsable des contenus échangés.
+            <br><br>
+            Respect de la législation
+            <br><br>
+            Les Membres s’engagent à n’utiliser le service de messagerie que :
+            dans le respect des lois relatives à la propriété littéraire et artistique;
+            dans le respect des lois relatives à l’Informatique aux fichiers et aux libertés;
+            dans le respect des règles relatives à la protection de la vie privée et notamment du droit à l’image d’autrui,
+            en s’assurant de ne pas envoyer de messages à caractère raciste, pornographique, pédophile, injurieux, diffamatoire.
+            Et de manière générale à ne pas diffuser d’informations présentant le caractère d’un délit
+            <br><br>
+            Préservation de l’intégrité du Service
+            <br><br>
+            Chaque Membre est responsable de l’usage qu’il fait du Service de messagerie. Il assure notamment, à son niveau, la sécurité de ce service et s’engage à ne pas apporter volontairement de perturbations à son fonctionnement.
+            <br><br>
+            L’utilisateur s’engage à ne pas effectuer, de manière volontaire, des opérations pouvant nuire au fonctionnement de la messagerie. Il s’engage notamment à :
+            limiter l’envoi de message qu’aux destinataires réellement intéressés ou concernés, pour éviter la saturation du réseau et des serveurs et ne pas obliger les destinataires à lire des messages sans intérêt pour eux ;
+            ne pas procéder à des envois massifs de courriers ;
+            prévenir le risque de saturation des boîtes aux lettres et des serveurs en évitant de joindre à un même message des documents trop volumineux et en utilisant chaque fois que possible des outils de compression ;
+            ne pas interrompre le fonctionnement normal du réseau ou d’un des systèmes connectés ;
+            ne pas développer, installer ou copier des programmes destinés à contourner la sécurité, saturer les ressources ;
+            ne pas introduire des virus.
+            <br><br>
+            Les Membres s’interdisent toute pratique de Spamming à savoir tout envoi de courriers électroniques non sollicités massif et répété, ou adressé à des personnes dont l’expéditeur a capté l’adresse électronique de façon irrégulière c’est-à-dire à l’insu de son titulaire.
+            <br><br>
+            Rémunération
+            <br><br>
+            Les services d’hébergement et de messagerie électronique sont proposés gratuitement.
+            <br><br>
+            Tout autre service est soumis aux conditions tarifaires annoncées lors de leur souscription.
+            <br><br>
+            Publicité
+            <br><br>
+            Les Membres sont autorisés à promouvoir leur entreprise et leurs produits et services sur l’espace librement personnalisable de leurs pages personnelles.
+            <br><br>
+            Toute autre publicité sur le site est strictement réservée à WE SAY FASHION, à son bénéfice ou à celui des annonceurs de son choix. WE SAY FASHION décide librement de la nature, du style et du contenu des messages diffusés, ainsi que des conditions techniques et financières de leur diffusion. WE SAY FASHION est seule bénéficiaire des rémunérations en résultant.
+            <br><br>
+            Notification
+            <br><br>
+            Les notifications relatives à l’exécution ou l’inexécution des présentes Conditions applicables aux services fournis aux membres seront valablement effectuées à l’adresse email communiquées par le Membre lorsqu’il a souscrit aux services.
+            <br><br>
+            Loi applicable
+            <br><br>
+            Les présentes conditions sont soumises au droit français.
+            <br><br>
+            Tribunal compétent
+            <br><br>
+            En cas de litige, compétence expresse est attribuée au Tribunal de Commerce de Paris (France).
+            <br><br>
+            Cette stipulation s’appliquera nonobstant pluralité de défendeurs ou appel en garantie, même pour les procédures d’urgence ou les procédures conservatoires, en référé ou sur requête
+        </p>
+    </div>
+
+</div>

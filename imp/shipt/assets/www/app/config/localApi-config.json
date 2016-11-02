@@ -1,0 +1,11 @@
+{
+  "ApiEndpoint": {
+    "authurl": "http://localhost:3000/api/v1/sessions.json",
+    "apiurl": "http://localhost:3000/",
+    "photoUploadUrl": "https://shipt-admin-staging.herokuapp.com/api/v1/photos.json"
+  },
+  "IonicAppConfig" : {
+    "ionic_app_id": "e6d84d5a",
+    "ionic_api_key": "acd8f37e92fca673063478dc9a9c180d1ff80b3bd3c136ed"
+  }
+}

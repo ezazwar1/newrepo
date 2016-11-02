@@ -1,0 +1,42 @@
+<ion-view class="moviemaker-step moviemaker-titlestep">
+	<div class="bar bar-header">
+
+		<button class="button button-clear" ng-click="cancel()" ng-if="showCancelButton"><span translate>cancelar</span></button>
+		<button class="button button-clear" ng-click="logout()" ng-if=" ! showCancelButton"><span translate>sair</span></button>
+
+		<div class="title">
+			stayfilm
+		</div>
+
+		<button class="button button-clear" ng-click="goToMediaStep()" translate>próximo</button>
+	</div>
+
+	<ion-content class="has-sf-header">
+		<div class="missing-permission" ng-if="missingPermission">
+			<button ng-click="givePermission()" translate>Por favor autorize o acesso de suas fotos do Facebook</button>
+		</div>
+		<!-- div class="movie-title">
+			<input type="text" maxlength="60" placeholder="{{ 'Escreva aqui o seu título' | translate }}" ng-model="data.title" name="title" required>
+		</div -->
+
+		<div class="choose-style">
+			<span class="sep"></span><span translate>ESCOLHA UM ESTILO</span><span class="sep"></span>
+		</div>
+
+		<div class="genre-list">
+			<button class="genre-item" ng-class="{selected: data.genre.slug === genre.slug && ! randomSelected}" ng-repeat="genre in genres" ng-click="selectGenre(genre)">
+				<img ng-src="{{ genre.imageUrl }}" onerror="this.remove()">
+				<!-- <span ng-if=" ! genre.imageUrl" class="genre-name">{{ genre.name }}</span> -->
+				<span ng-if=" ! genre.preloadedImage" class="genre-name">{{ genre.name }}</span>
+				<i class="icon ion-ios7-arrow-right"></i>
+				<div class="selection"></div>
+			</button>
+		</div>
+
+		<div class="big-button-footer">
+			<button ng-click="randomGenre()" ng-class="{selected: randomSelected}" class="random-genre kana-button png-fix"><img src="images/button_RandomStyle.png" /><span translate>estilo aleatório</span></button>
+
+			<button ng-click="openMyFilms()" class="my-films kana-button png-fix"><img src="images/button_MyFilms.png" /><span translate>meus filmes</span></button>
+		</div>
+	</ion-content>
+</ion-view>

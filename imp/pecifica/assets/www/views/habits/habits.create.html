@@ -1,0 +1,47 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr create-activity">
+  <div class="back"></div>
+  <ion-content>  
+    <go-back></go-back> 
+    <h1>{{ (editingHabit ? 'EDIT_HABIT' : 'CREATE_HABIT') | translate }}</h1>
+    <h2>{{ (editingHabit ? 'EDIT_HABIT_TAGLINE' : 'CREATE_HABIT_TAGLINE') | translate }}</h2>
+    <span class="is-label" style="margin-top: 10px;">{{ 'HABIT_NAME' | translate }}</span>
+    <span class="shadow" style="display: block;"><input type="text" ng-model="habit.name" ng-focus="createInputFocused($event)" placeholder="{{ 'HABIT_NAME_PLACEHOLDER' | translate }}" maxlength="32"></div></span>
+
+      <span class="is-label">{{ 'POSSIBLE_CHOICES' | translate }}<br> 
+      <button class="flip-goal" ng-click="toggleReorder()" ng-disabled="showDelete">
+        <i ng-show="!showReorder">{{ 'REORDER' | translate }}</i>
+        <i ng-show="showReorder">{{ 'SAVE' | translate }}</i>
+      </button>
+      <em>{{ 'GOAL' | translate }}<br><strong ng-click="toggleGoalMinimized()" ng-disabled="showReorder || showDelete">{{ 'FLIP_GOAL' | translate }}</strong></em></span>
+
+    <ion-list class="list" show-reorder="showReorder" show-delete="showDelete">
+
+      <ion-item ng-repeat="habitValue in habit.habitValues" class="item item-icon-right input-item shadow" ng-class="{goal: isGoalMet($index)}">
+
+        <ion-delete-button class="ion-minus-circled" ng-click="removeHabitValue($index)"></ion-delete-button>
+        
+        <input type="text" ng-model="habitValue.valueString" ng-focus="createInputFocused($event)" placeholder="{{ 'HABIT_VALUE_PLACEHOLDER' | translate }}" maxlength="32">
+
+        <i class="icon ion-android-sad" ng-show="!isGoalMet($index)" ng-click="setGoal($index)"></i>
+    		<i class="icon ion-android-happy" ng-show="isGoalMet($index)" ng-click="setGoal($index)"></i>
+        <!--<i class="icon ion-ios-minus" ng-click="removeHabitValue($index)" style="right: 70px;"></i>-->
+
+        <ion-reorder-button class="ion-navicon" on-reorder="moveHabitValue(habitValue, $fromIndex, $toIndex)" ></ion-reorder-button>
+
+      </ion-item>
+    </ion-list>
+    <div class="clearfix">
+      <button ng-click="addHabitValue()" class="add-choice" style="margin-left: 5px;" ng-disabled="showReorder || showDelete">+ {{ 'ADD_HABIT_VALUE' | translate }}</button>
+      <button ng-click="toggleDelete()" class="flip-goal" ng-disabled="showReorder" style="margin-right: 5px;">
+        <i ng-show="!showDelete">{{ 'DELETE' | translate }}</i>
+        <i ng-show="showDelete">{{ 'SAVE' | translate }}</i>
+      </button>
+    </div>
+    <div class="error" ng-show="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div ng-click="createHabit()" class="button-start" ng-disabled="updating"> 
+      {{ 'DONE' | translate }}
+    </div>
+  </ion-content>
+</ion-view>

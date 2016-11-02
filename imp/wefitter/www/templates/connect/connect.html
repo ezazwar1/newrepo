@@ -1,0 +1,55 @@
+<ion-view title="{{ 'CONNECT.TITLE' | translate }}">
+	<ion-nav-buttons side="left">
+    <wf-back></wf-back>
+  </ion-nav-buttons>
+	<ion-content>
+		<ion-refresher
+		      spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh('connections')">
+        </ion-refresher>
+		<div ng-if="connections">
+			<div class="spacer" style="height:22px"></div>
+			<div class="text-center connection">
+				<h3 translate="CONNECT.AVAILABLE_APPS">Available Apps &amp; Devices</h3>
+				<p class="padding" translate="CONNECT.CONNECT_FAV_APP">Connect your favorite apps and fittness devices to WeFitter to earn points and win prizes</p>
+				<!-- <p> <small>+<i class="wf wf-coins"></i>20</small></p> -->
+			</div>
+			<div class="card connect-getSupport">
+			  <div class="item item-text-wrap wrapper" ui-sref="app.connectionFAQ" ng-click="getSupport('connections','page')">
+			    <div class="ion-ios-help icon-div"></div>
+				<p translate="CONNECT.SUPPORT_TEXT"> Support Text</p>
+				<div class="support_btn_wrap">
+					<span class="support_btn" translate="CONNECT.GET_SUPPORT">GET</span><span class="ion-ios-arrow-right"></span>
+				</div>
+			  </div>
+      		</div>
+
+			<div class="pan connection-list">
+				<ion-list class="row-no-padding no-border">
+
+				  <ion-item href="#" ng-repeat="conn in connections">
+				  	<div ui-sref="app.connectIt({ id : conn.source_id })" class="row row-no-padding">
+	  					<div class="col">
+	  						<a><img width="50" ng-src="{{ conn.logo }}"></a>
+	  					</div>
+	  					<div class="col col-75 check-tick-wrapper">
+								<span>{{ conn.name }}</span>
+	  						<!-- <ion-toggle ng-model="conn.disabled"
+	  							ng-true-value="'0'"
+	  							ng-false-value="'1'"
+	  							ng-disabled="true"
+	  							toggle-class="toggle-calm">
+	  							{{ conn.name }}
+	  						</ion-toggle> -->
+					    	<i ng-class="conn.disabled == 0 ? 'ion-ios-checkmark positive':'ion-ios-plus-outline text-gray'" class="check-tick"></i>
+	  				 </div>
+					</div>
+				  </ion-item>
+
+				</ion-list>
+			</div>
+
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,83 @@
+<ion-view title="{{ 'MY_CUSTOM' | translate }}">
+    <ion-nav-buttons side="right">
+        <button class="button-icon icon ion-edit mixer-button" ng-click="editAll()"
+                ng-if="customWorkouts.savedWorkouts.length"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header custom-workout-page width-control full-length"
+                 ng-class="{'custom-not-premium' : !isPremiumCustomsUnlocked}">
+        <ion-slide-box on-slide-changed="" show-pager="true" style="height:180px">
+            <ion-slide ng-repeat="workout in [0,1,2] track by $index">
+                <div class="category-header" ng-class="downloadedWorkouts[workout].shortURI"
+                     ng-style="{'background-image': 'url({{ downloadedWorkouts[workout].campaign.featureImage }})'}">
+                    <span class="header-span"
+                          ng-class="{'hideWorkoutText': downloadedWorkouts[workout].campaign.featureImageStyled}">
+                        <h3>{{downloadedWorkouts[workout].name}}</h3>
+                        <h3 class="add-text"
+                            ng-click="addCustomWorkout(downloadedWorkouts[workout].shortURI, workout)">
+                            <i class="icon ion-ios-plus-outline"></i>
+                            {{'ADD_WORK' | translate}}
+                        </h3>
+                    </span>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+        <div>
+            <div class="choose-options">
+                <button class="button nexercise-orange"
+                        ng-click="createCustom()">+ {{'DESIGN_NEW' | translate}}
+                </button>
+                <button class="button discover-button"
+                        ng-click="showFeatured()">{{'DISCOVER_WORKOUTS' | translate}}
+                </button>
+            </div>
+            <p class="page-instructions" style="font-size:16px;margin-top:20px;padding-left:10px;padding-right:10px;"
+               ng-if="customWorkouts.savedWorkouts.length == 0">{{'DESIGN_FIRST' | translate}}</p>
+            <ion-list class="workout-type-list">
+                <div class="my-customs">
+                    <div ng-repeat="myWorkout in customWorkouts.savedWorkouts track by $index">
+                        <ion-item class="item-text-wrap item-icon-right" ng-click="selectCustom($index, myWorkout)">
+                            <div>
+                                <h2>{{(myWorkout.name | translate)}}</h2>
+                                <!--<span ng-repeat="myExercises in myWorkout.workout">
+                                 {{myExercises}},
+                                 </span> -->
+                                <span>{{myWorkout.total}} {{myWorkout.total == '1' ? ('EXERCISE' | translate)  : ('EXERCISES' | translate)}}</span>
+                                <i class="icon ion-chevron-right icon-accessory" ng-if="!hightlightLastWorkoutAsAdded || !$last"></i>
+                                <i class="icon ion-checkmark icon-accessory" ng-if="$last && hightlightLastWorkoutAsAdded"></i>
+                                <ion-option-button class="button-balanced"
+                                                   ng-click="editCustom($index, myWorkout)">
+                                    {{('EDIT' | translate)}}
+                                </ion-option-button>
+                                <ion-option-button class="button-calm"
+                                                   ng-click="shareCustom($index, myWorkout)">
+                                    {{('SHARE' | translate)}}
+                                </ion-option-button>
+                                <ion-option-button class="button-assertive"
+                                                   ng-click="deleteCustom($index, myWorkout)">
+                                    {{('DELETE' | translate)}}
+                                </ion-option-button>
+                            </div>
+                        </ion-item>
+                    </div>
+                </div>
+            </ion-list>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="premium-blue width-control" style="min-height: 60px; padding: 0;margin-bottom:0px;height: auto;"
+                    ng-if="!isPremiumCustomsUnlocked">
+        <div class="list workout-type-list" style="width:100%;">
+            <!-- TODO: Replace this hacked item layout with proper upsell components -->
+            <a class="item item-content item-text-wrap premium-blue flex-align-center"
+               style="border: 0; margin: 0;"
+               ng-click="showPremium('unlimited custom')"
+            >
+                <div class="upsell-text">
+                    {{customWorkouts.savedWorkouts.length | maxVal: numberOfAllowedCustomWorkouts}} {{ 'OF' | translate }} {{numberOfAllowedCustomWorkouts}} {{ 'CUSTOMS_USED' | translate }}
+                </div>
+                <div>
+                    <button class="button button-secondary" translate>UPGRADE</button>
+                </div>
+            </a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

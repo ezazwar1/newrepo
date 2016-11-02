@@ -1,0 +1,49 @@
+<ion-view title="{{ 'RELAX_VISUALIZE_TITLE' | translate }}" class="popoverr record-view">
+
+	<ion-nav-buttons side="right">
+    <a href="javascript:;" ng-click="showRecordHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back"></div>  
+	
+	<ion-content class="experiment is-record">
+
+		<h1>
+		  {{ 'RELAX_VISUALIZE_LINE_1' | translate }}
+		</h1>
+		
+		<h1>
+		  {{ 'RELAX_VISUALIZE_LINE_2' | translate }}
+		</h1>
+
+		<div class="list">
+		 <div class="item item-icon-left item-select" style="background-color: rgba(0,0,0,.3)">
+	      <select ng-model="playOptions.playOptionOrdinal" ng-options="playOptions.options.indexOf(item) as getPlayOptionDisplay(item) for item in playOptions.options" ng-change="updatePlayOption()">
+
+	      </select>
+	    </div>
+	   </div>
+
+		<h1 class="i-am">
+			{{ 'RELAX_VISUALIZE_I_AM' | translate }}
+		</h1>
+
+	</ion-content>
+	<div class="bar bar-footer">
+		<div class="record-button-wrapper">
+
+			<div ng-if="!recording" class="{{!canRecord() ? 'disabled' : ''}}">
+				<a ng-click="recordAudio();" class="record"></a>
+			</div>
+
+			<div ng-if="recording">
+				<a ng-click="stopRecording();" class="pause"></a>
+			</div>
+
+			<div ng-if="finishedRecording" ng-click="resetRecording();" class="reset-btn">{{ 'RESET' | translate }}</div>
+			<div ng-if="finishedRecording" ng-click="nextStep();" class="next-btn">{{ 'NEXT' | translate }}</div>
+			<div class="hint {{!canRecord() ? 'warn' : ''}}" ng-if="recording || finishedRecording">{{getElapsedTime()}}</div>
+			<div class="hint" ng-if="!recording && !finishedRecording">{{cycleLength}} {{ 'RELAX_VISUALIZE_SECONDS_MAX' | translate}}</div>
+		</div>	
+	</div>
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view class="new-feed" view-title="New Photo">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon icon ion-navicon-round"></button>
+	</ion-nav-buttons>
+	<div ng-if="isPageLoaded==true">
+
+		<div class="bar bar-subheader bar-stable">
+			<h2 style="text-align:center;margin:0;left:0 !important" class="title">
+				Post photo into {{theCirlce.name}} circle
+			</h2>
+		</div>
+		<ion-content class="has-subheader">
+			<div ng-click="choosePhoto()" ng-if="thereIsImage==false" class="postimg">
+				<div class="col col-center">
+					<p class="text-center">
+						<i class="icon ion-upload"></i>
+
+					</p>
+					<p style="color:#fff;margin-top:3px" class="text-center">
+						Choose Photo
+					</p>
+					
+				</div>			
+			</div>
+			<div ng-if="thereIsImage==true" class="card">
+				<img id="postImage" ng-src="{{imageUrl}}" alt="" class="full-image">
+			</div>
+
+			<div class="list">
+				<div class="padding">
+					<label class="item item-input">
+						<textarea ng-model="data.desc" placeholder="Photo Description"></textarea>
+					</label>
+
+					<button ng-disabled="!data.desc || !imageUrl" ng-click="postPhoto(data)" class="button button-block button-dark">
+						Post Photo
+					</button>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

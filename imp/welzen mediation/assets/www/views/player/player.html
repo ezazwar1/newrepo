@@ -1,0 +1,21 @@
+<ion-view class="bg-welzen player" view-title="Player">
+  <ion-header-bar align-title="center" class="header bg-clear">
+    <a class="header__back-button" ng-click="goBack()"><img src="img/btn-back.png"/></a>
+    <h1 class="title">{{media.title}}</h1>
+    <a class="header__close-button" ng-click="closeView()"><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+
+  <div class="player__controls--relative">
+    <div class="player__controls">
+      <div ng-if="!loadingSpinning" ng-class="{'player__play' : !playing, 'player__pause' : playing}" ng-click="togglePlay()"></div>
+      <ion-spinner ng-if="loadingSpinning" icon="android"></ion-spinner>
+      <span ng-if="!loadingSpinning" class="player__duration" ui-sref='rating'>{{duration | secondsToTime | date:'mm:ss' }}</span>
+      <span ng-if="loadingSpinning" class="player__duration" ui-sref='rating'>Loading...</span>
+    </div>
+  </div>
+
+  <ion-footer-bar class="bg-clear footer" ng-show="!media.hasSound">
+    <ion-toggle class="border-top" ng-model="nature" ng-change="onChangeNature()">Ambient Sounds</ion-toggle>
+  </ion-footer-bar>
+</ion-view>

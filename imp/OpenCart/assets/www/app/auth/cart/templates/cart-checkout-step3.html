@@ -1,0 +1,45 @@
+<ion-view view-title="{{ 'cart.title_invoice' | i18n }}" cache-view="false">
+    <ion-nav-buttons side="right">
+        <a class="button button-positive" ng-click="openLoginModal()"><i class="icon ion-ios-person-outline"></i></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item class="details-items"><p>Phone <span class="cart-item-total">{{checkout.telephone}}</span></p></ion-item>
+            <ion-item class="details-items"><p>Name <span class="cart-item-total">{{checkout.firstname}} {{checkout.lastname}}</span></p></ion-item>
+            <ion-item class="details-items"><p>Email <span class="cart-item-total">{{checkout.email}}</span></p></ion-item>
+            <ion-item class="details-items">
+                <p>
+                    <span i18n="cart.invoice_address"></span>
+                    <span class="cart-item-total">
+                        {{checkout.address_1}}<br />
+                        {{checkout.address_2}}<br />
+                        {{checkout.city}}<br />
+                        {{checkout.postal_code}}
+                    </span>
+                </p>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+            <ion-item class="item item-thumbnail-left cart-item" ng-repeat="item in items">
+                <img class="cart-image" ng-src="{{::item.thumb}}">
+                <h3 class="cart-item-title" ng-bind-html="::item.name"></h3>
+                <h5 class="cart-item-title" i18n="cart.product_code" data-code="item.model"></h5>
+                <ul class="cart-item-options">
+                    <li ng-repeat="opt in item.option">{{::opt.name}}:{{::opt.value}}</li>
+                </ul>
+                <p>{{::item.quantity}} x {{::item.price}} <span class="cart-item-total">{{::item.total}}</span></p>
+            </ion-item>
+            <ion-item class="cart-totals-item" ng-repeat="total in totals">
+                <p>{{::total.title}} <span class="cart-item-total">{{::total.text}}</span></p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer-bar align-title="left" class="bar-positive">
+        <h2 class="title">{{total_amount}}</h2>
+        <div class="buttons">
+            <a class="button" ng-click="confirmOrder()" i18n="cart.button_confirm"></a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

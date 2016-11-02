@@ -1,0 +1,33 @@
+<div class="reward-wrapper" ng-click="" ng-style="{'background-image': 'url({{ reward.background }})'}">
+	<div class="row">
+		<div class="col title-wrapper">
+			<div class="time-left" ng-style="{'border-bottom-color': '{{ reward.expirationColor }}'}">
+				{{ reward.expireDate }}
+			</div>
+			<div class="promo-wrapper">
+				<div class="campaign-text">{{ reward.campaignText }}</div>
+				<div class="promocode">
+	        		Use this promo code: <span>{{ reward.promoCode }}</span>
+	        	</div>
+			</div>
+			<div class="theme">
+        		<span class="wrapper">
+        			<span>{{ reward.contestName }}</span>
+        		</span>
+        	</div>
+        	<div class="tag-line">
+        		<div class="credit-to">Presented by <span>{{ reward.merchantName }}</span></div>
+        	</div>
+        </div>
+	</div>
+</div>
+<div class="reward-bottom-wrapper">
+	<div class="row">
+		<div class="col col-50 left">
+			<button class="btn-link" ng-style="{'color':'{{ reward.btnColor }}'}" ng-click="goToShop({{ reward.isValid }}, '{{ reward.merchantHomeUrl }}')">SHOP NOW</button>
+		</div>
+		<div class="col col-50 right">
+			<button class="btn-link" ng-style="{'color':'{{ reward.btnColor }}'}" ng-click="copyCode({{ reward.isValid }}, '{{ reward.promoCode }}')">COPY CODE</button>
+		</div>
+	</div>
+</div>

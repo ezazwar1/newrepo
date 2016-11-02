@@ -1,0 +1,170 @@
+<ion-view title="{{ 'ACTIVITY.TITLE' | translate }}">
+  <ion-nav-buttons side="left">
+    <wf-back></wf-back>
+  </ion-nav-buttons>
+    <wf-tabs class="tabs-top" style="dark-bg">
+        <wf-pane callback="getTabData('week')" title="{{ 'UNIT.THIS_WEEK' | translate }}" class="padding">
+
+        </wf-pane>
+        <wf-pane callback="getTabData('month')" title="{{ 'UNIT.THIS_MONTH' | translate }}" class="padding">
+
+        </wf-pane>
+
+        <wf-pane callback="getTabData('year')" title="{{ 'UNIT.YEAR' | translate }}" class="padding">
+
+        </wf-pane>
+   </wf-tabs>
+    <ion-content style="margin-top:44px" class="has-header darker-bg tabbed-content">
+
+        <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh('workouts')">
+        </ion-refresher>
+    <div ng-if="activity">
+		<div class="pan dark-bg">
+            <section class="darker-bg">
+                <div>
+                   <canvas wf-activity-chart
+                    data="activity.activity_graph"
+                    height="260"
+                    >
+                    </canvas>
+                    <!-- <canvas
+                        id="line"
+                        height="260"
+                        class="chart chart-line"
+                        chart-data="data"
+                        chart-labels="labels"
+                        chart-legend="false"
+                        chart-options="{datasetStroke: false, showTooltips : true, scaleShowLabels: false, datasetStrokeWidth: false, bezierCurveTension: .5}"
+                        chart-series="series"
+                        chart-click="onClick">
+                    </canvas> -->
+                </div>
+
+                <h5 class="dash-header">{{ 'ACTIVITY.MY_STATISTICS' | translate }}</h5>
+                <div class="dark-bg padding">
+                    <div class="row">
+                      <div class="col">
+                        <wf-icon title="{{ 'UNIT.POINTS' | translate }}"  icon="wf-coins" caption="{{ activity.user_stats.points | number }}"></wf-icon>
+                      </div>
+                      <div class="col">
+                        <wf-icon title="{{ 'UNIT.DISTANCE' | translate }}" icon="wf-distance" caption="{{ activity.user_stats.distance | number:0 }} {{ 'UNIT.KM' | translate }}"></wf-icon>
+                      </div>
+                      <div class="col">
+                        <wf-icon title="{{ 'UNIT.KCAL_BURNED' | translate }}" icon="wf-calorie" caption="{{ activity.user_stats.calories | number }}"></wf-icon>
+                      </div>
+                    </div>
+                    <div class="row">
+                    	<div class="col">
+                        	<wf-icon title="{{ 'UNIT.TIME' | translate }}" icon="wf-time" caption="{{ activity.user_stats.duration | number }} {{ 'UNIT.HRS' | translate }}"></wf-icon>
+                      	</div>
+                    	<div class="col">
+                    		<wf-icon title="{{ 'UNIT.TOTAL' | translate }}" icon="wf-star" caption="{{ activity.user_stats.total_activities | number }} {{ 'ACTIVITY.TITLE' | translate | lowercase}}"></wf-icon>
+                    	</div>
+                    	<div class="col">
+                    		<wf-icon title="{{ 'ACTIVITY.FAV_SPORT' | translate }}" icon="wf-activity-run" caption="{{ activity.user_stats.fav_sport_type || 'unknown' }}"></wf-icon>
+                    	</div>
+                    </div>
+                </div>
+
+                  <!--
+                TEMPORARY DISABLED
+
+                  <h5 class="dash-header">{{ 'UNIT.DAY_STREAK' | translate  }}</h5>
+
+                <div class="week-stat row row-no-padding">
+                    <div class="col">
+                        <h4>M</h4>
+                        <div class="wf wf-badge idle"></div>
+                    </div>
+                    <div class="col">
+                        <h4>T</h4>
+                        <div class="wf wf-badge idle"></div>
+                    </div>
+                    <div class="col">
+                        <h4>W</h4>
+                        <div class="wf wf-sad-face missed"></div>
+                    </div>
+                    <div class="col">
+                        <h4>T</h4>
+                        <div class="wf wf-badge streak"></div>
+                    </div>
+                    <div class="col">
+                        <h4>F</h4>
+                        <div class="wf wf-badge streak"></div>
+                    </div>
+                    <div class="col">
+                        <h4>S</h4>
+                        <div class="wf"></div>
+                    </div>
+                    <div class="col">
+                        <h4>S</h4>
+                        <div class="wf"></div>
+                    </div>
+                </div>
+
+                <div class="dark-bg padding">
+                    <div class="row">
+                      <div class="col text-center">
+                        <span class="days-streak">
+                            <i class="wf wf-5x wf-days-streak"></i>
+                            <div class="col">
+                                <i class="wf wf-rocket wf-3x assertive"></i>
+                                <p>2 {{ 'UNIT.DAYS_STREAK' | translate }}</p>
+                            </div>
+                            <p class="text-dark"> <em>Keep going 8 more days to get extra <i class="wf wf-coins"></i> 100 </em></p>
+                        </span>
+                      </div>
+                    </div>
+                </div>
+
+
+                <div class="row streak-foot row-no-padding">
+                    <div class="col">
+                        <h4>15</h4>
+                        <h3>{{ 'ACTIVITY.YOUR_RECORD' | translate }}</h3>
+                    </div>
+                    <div class="col">
+                        <h4>42</h4>
+                        <h3>{{ 'ACTIVITY.FRIENDS_RECORD' | translate }}</h3>
+                    </div>
+                    <div class="col">
+                        <h4>252</h4>
+                        <h3>{{ 'ACTIVITY.WORLD_RECORD' | translate }}</h3>
+                    </div>
+                </div>
+                -->
+
+				<h5 class="dash-header">{{ 'ACTIVITY.HISTORY' | translate }}</h5>
+
+                    <div class="dark-bg padding">
+                        <div wf-activity-list
+                            empty-msg="{{ deviceConnected ? 'DASHBOARD.EMPTY_ACTIVITY_MSG' : 'DASHBOARD.EMPTY_ACTIVITY_NODEVICE_MSG' | translate }}" data="activity.activity_history" show-detail="true"></div>
+
+                        <a ng-show="!deviceConnected &&
+                                    !activity.activity_history.length"
+                                    class="button big-button button-block button-positive"
+                                    ui-sref="app.connect" translate="DASHBOARD.CONNECT_DEVICE"> Connect Device</a>
+                	</div>
+
+
+                <ion-infinite-scroll
+                    ng-if="isDataAvailable"
+                    on-infinite="loadMore()"
+                    icon="none"
+                    distance="5%">
+                </ion-infinite-scroll>
+
+                <!--
+                TEMPORARY DISABLED
+                <div class="padding">
+                	<p class="text-dark">10{{ 'UNIT.KCAL' | translate }} = <i class="wf wf-coins"></i> 1</p>
+                </div>
+                -->
+            </section>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

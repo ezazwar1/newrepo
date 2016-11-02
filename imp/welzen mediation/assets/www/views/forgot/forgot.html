@@ -1,0 +1,22 @@
+<ion-view class="bg-welzen forgot" view-title="Sign in">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Forgot Password?</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+    <div class="info-box--purple-clear">
+      <div class="info-box__contents">
+        <span class="info-box__brief">In order to reset your password we need you to provide us with the email you used to sign up</span>
+      </div>
+    </div>
+
+    <form>
+      <welzen-input placeholder="Email" type="email" ng-model="user.email" ng-keyup="analyzeEnterForgot($event,user)"></welzen-input>
+    </form>
+    <a class="button button-block button-calm cta footer__cta" ng-click='sendForgotMail(user);'>Send Email</a>
+  </div>
+  </ion-content>
+</ion-view>

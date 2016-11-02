@@ -1,0 +1,25 @@
+<ion-view title="Card Detail">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios-trash-outline" ng-click="deleteCard(card)" role="button" aria-label="delete card details icon in top right"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+        <br/>
+        <div class="text-center">
+            <p class="faded">
+                Payment Methods are not editable. If you need to change one, delete it and then re-add it.
+            </p>
+        </div>
+        <form class="login-form large-padding" name="loginForm" ng-submit="deleteCard(card)">
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Card Number</span>
+                    <input type="text" ng-model="card.last_4_digits" placeholder="Credit Card #" required disabled>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Expiration Date</span>
+                    <input ng-model="card.exp_date" type="text" placeholder="Expiration Month" ng-required="true" required disabled>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

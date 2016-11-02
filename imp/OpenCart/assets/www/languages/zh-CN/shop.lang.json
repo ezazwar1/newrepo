@@ -1,0 +1,61 @@
+﻿{
+  "featured_title": "特色产品",
+  "latest_title": "最新产品",
+  "off": "{percent}%离",
+
+  "title_shop_search": "搜索",
+  "search_hint": "开始输入一些搜索",
+  "errors_search_no_results": "没有产品，符合搜索条件",
+
+  "title_list_page": "店",
+  "item_page_off": "{percent}%离",
+  "share_product_with_friends": "分享此产品与您的朋友",
+  "special_price": "价格为移动注册用户",
+  "item_description": "描述",
+  "item_view_all": "查看全部",
+  "item_view_less": "查看更少",
+  "item_specification": "规范",
+  "item_available_options": "可用选项",
+  "item_quantity": "数量",
+  "item_related_products": "相关产品",
+  "item_button_add_to_cart": "添加到购物车",
+  "item_button_buy_now": "立即购买",
+  "categories": "Categories",
+
+  "item_tabs_details": "Details",
+  "item_tabs_photos": "Photos",
+  "item_tabs_reviews": "Reviews",
+  "item_tabs_share": "Share",
+
+  "error_required_fields": "对于以下字段请输入值",
+
+  "item_rating_name": "Your Name",
+  "item_rating_comment": "Your Review",
+  "item_rating_load_more": "Load More",
+  "item_rating_author": "By {author} on {added}",
+  "item_rating_post_review": "Post Review",
+  "text_no_reviews": "No Reviews",
+  "reviewer_name_label": "Reviewer Name",
+  "review_label": "Review",
+  "review_added": "Review added and pending for approval",
+  "review_add_error": "Error occured while adding the review",
+
+  "error_not_connected_cache_failed": "Please connect to internet to load this item",
+  "error_not_connected_cache_success": "Item loaded from cache. Connect to internet to load live detials",
+
+  "wishlist_updated": "Wishlist updated",
+  "wishlist_item_added_to_list": "Item added to your wishlist",
+  "wishlist_item_added_to_list_login_to_save": "Item added to your wishlist. Please login or sign up to save your wishlist",
+  "wishlist_item_added_already": "Item already added to your wishlist",
+  "wishlist_go_to": "Go to Wishlist",
+
+  "item_view_button" :  "View",
+  "item_add_to_wishlist_button" :  "Add to Wishlist",
+  
+    "added_to_cart_title": "Added to Cart",
+  "added_to_cart_desc": "Item added to cart. What would you like to do?",
+  "button_shop_more": "Shop more",
+  "button_go_to_cart": "Go to cart",
+  "warning_options_missing": "Oops! Select following options",
+  "error_cant_add_to_cart" : "Error. Can't add to the cart"
+}

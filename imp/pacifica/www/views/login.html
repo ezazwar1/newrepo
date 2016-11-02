@@ -1,0 +1,72 @@
+
+<ion-view title="Login" hide-nav-bar="true" hide-back-button="true" class="intro-view">
+  <ion-content scroll="false">
+
+  	<ion-slide-box delegate-handle="login-slides" show-pager="{{!creatingAccount}}" on-slide-changed="slideHasChanged($index)">
+  		<ion-slide>
+  			<div class="box intro1">
+		    	<div class="slide-image"></div>
+		    	<p>{{ 'LOGIN_TAGLINE_2' | translate }}<br>
+		    	{{ 'LOGIN_TAGLINE_3' | translate }}</p>
+		    </div>
+  		</ion-slide>
+
+  		<ion-slide ng-if="creatingAccount">
+		    <div class="box intro2">
+	    		<div class="slide-image"></div>
+				<h1>{{ 'NUX_CHOOSE_GOAL' | translate }}</h1>
+				<h2>{{ 'NUX_CHOOSE_GOAL_SUBHEAD' | translate }}</h2>
+
+				<div ng-click="setGoal('mood')" class="{{getGoal() == 'mood' ? 'active' : ''}} goal-option">
+				    {{ 'NUX_GOAL_DEPRESSION' | translate }}
+				</div>
+				<div ng-click="setGoal('gad')" class="{{getGoal() == 'gad' ? 'active' : ''}} goal-option">
+				   	{{ 'NUX_GOAL_GAD' | translate }}
+				</div>
+				<div ng-click="setGoal('social')" class="{{getGoal() == 'social' ? 'active' : ''}} goal-option">
+				   	{{ 'NUX_GOAL_SOCIAL' | translate }}					   	
+				</div>
+				<div ng-click="setGoal('health')" class="{{getGoal() == 'health' ? 'active' : ''}} goal-option">
+				   	{{ 'NUX_GOAL_HEALTH' | translate }}				   	
+				</div>
+				<div class="error" ng-if="goalError">{{ 'NUX_GOAL_SELECT' | translate }}</div>
+		    	<div ng-click="startOver()" class="sign-in-top">{{ 'CANCEL_LOWER' | translate }}</div>
+					<div ng-click="showCreateUser()" class="button-bottom">{{ 'CONTINUE' | translate }}</div>
+		    </div>
+		  </ion-slide>
+
+  		<ion-slide ng-if="!creatingAccount">
+		    <div class="box intro3">
+	    		<div class="slide-image"></div>
+				<h1>{{ 'MOOD_SLIDE_HEADER' | translate }}</h1>
+				<p>{{ 'MOOD_SLIDE_DESC' | translate }}</p>
+		    </div>
+  		</ion-slide>
+   		<ion-slide ng-if="!creatingAccount">
+		    <div class="box intro4">
+	    		<div class="slide-image"></div>
+				<h1>{{ 'RELAX_SLIDE_HEADER' | translate }}</h1>
+				<p>{{ 'RELAX_SLIDE_DESC' | translate }}</p>
+		    </div>
+  		</ion-slide>
+   		<ion-slide ng-if="!creatingAccount">
+		    <div class="box intro5">
+	    		<div class="slide-image"></div>
+				<h1>{{ 'PROGRESS_SLIDE_HEADER' | translate }}</h1>
+				<p>{{ 'PROGRESS_SLIDE_DESC' | translate }}</p>
+		    </div>
+  		</ion-slide>
+   		<ion-slide ng-if="!creatingAccount">
+		    <div class="box intro6">
+	    		<div class="slide-image"></div>
+				<h1>{{ 'COMMUNITY_SLIDE_HEADER' | translate }}</h1>
+				<p>{{ 'COMMUNITY_SLIDE_DESC' | translate }}</p>
+		    </div>
+  		</ion-slide>
+
+  	</ion-slide-box>
+
+	</ion-content>
+	<div ng-click="showCreateSlides()" class="button-bottom" ng-if="!creatingAccount">{{ 'LOGIN_JOIN_NOW' | translate }}</div>
+	<div ng-click="showLogin()" class="button-bottom secondary" ng-if="!creatingAccount">{{ 'ALREADY_HAVE_AN_ACCOUNT' | translate }} <strong>{{ 'SIGN_IN_PERIOD' | translate }}</strong></div>
+</ion-view>

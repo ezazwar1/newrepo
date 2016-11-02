@@ -1,0 +1,22 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow">
+  <ion-content>
+
+	<ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+
+      <ion-slide class="habit-slide">
+        <div class="box1 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'HEALTH_ACTIVITY' | translate}}</h1>
+          <h2>{{ getHabitsHelpLine1() }}</h2>
+          <p> {{ getHabitsHelpLine2() }}<br><br>
+              {{ 'HABITS_HELP_LINE_3' | translate }}
+          </p>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+  <div class="bar bar-footer">
+    <button class="button-start" ng-click="confirm()">{{ (intro ? 'GET_STARTED' : 'OK_GOT_IT') | translate }}</button>
+  </div>
+</ion-view>

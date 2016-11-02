@@ -1,0 +1,39 @@
+<ion-popover-view class="category-dropdown-popover" ng-controller="shopCategoriesController as vm">
+    <ion-header-bar class="ignore-platform">
+        <div class="title-area">
+            <h4 class="faded category-heading" tabindex="0">
+                Categories
+            </h4>
+            <button ng-click="vm.closeClick()" class="button-clear button-icon" aria-label="close categories menu">
+                <i class="icon ion-android-close" aria-hidden="true"></i>
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="ignore-platform">
+        <div class="category-list top-items">
+            <ion-list>
+                <ion-item ng-click="vm.saleCategoryClick()"
+                          class="item category-list-item item-icon-right wrap text-positive">
+                    On Sale Today
+                    <i class="icon ion-ios-arrow-right faded" aria-hidden="true"></i>
+                </ion-item>
+                <ion-item ng-click="vm.yourRecentItemsClick()"
+                          class="item category-list-item item-icon-right wrap text-positive">
+                    Buy Again
+                    <i class="icon ion-ios-arrow-right faded" aria-hidden="true"></i>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="category-list">
+            <ion-list>
+                <ion-item ng-click="vm.categoryClick(category)"
+                          ng-repeat="category in vm.categories"
+                          ng-hide="category.products.count < 1 || category.name == 'On Sale'"
+                          class="item category-list-item item-icon-right dark wrap">
+                    {{category.name}}
+                    <i class="icon ion-ios-arrow-right faded" aria-hidden="true"></i>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+ </ion-popover-view>

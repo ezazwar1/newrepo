@@ -1,0 +1,54 @@
+<div class="col-sm-9 col-sm-offset-1" ng-controller="ContactCtrl">
+    <form class="form" name="contactForm" ng-submit="contact(contactForm)" novalidate>
+        <div class="row">
+
+            <div class="col-md-12">
+                <p class="titles">CONTACT US</h1>
+            </div>
+
+            <div class="col-xs-12 alert" ng-show="emailSent" ng-class="{'alert-success': emailSent, 'alert-danger': !emailSent}">
+                {{errors.result}}
+            </div>
+
+            <!-- CONTACT NAME -->
+            <div class="col-xs-4 form-group" ng-class="{ 'has-success': contactForm.name.$valid && submitted,
+                                                   'has-error': contactForm.name.$invalid && submitted }">
+                <input type="text" class="form-control" name="name" ng-model="contact.fullname" placeholder="Your Name" required />
+                <p class="help-block" ng-show="contactForm.name.$error.required && submitted">
+                    Please enter your name.
+                </p>
+            </div>
+
+            <!-- CONTACT EMAIL -->
+            <div class="col-xs-5 form-group" ng-class="{ 'has-success': contactForm.email.$valid && submitted,
+                                                   'has-error': contactForm.email.$invalid && submitted }">
+                <input type="email" class="form-control" name="email" ng-model="contact.email" placeholder="Email" required />
+                <p class="help-block" ng-show="contactForm.email.$error.email && submitted">
+                    Doesn't look like a valid email.
+                </p>
+                <p class="help-block" ng-show="contactForm.email.$error.required && submitted">
+                    What's your email address?
+                </p>
+            </div>
+
+            <!-- CONTACT PHONE -->
+            <div class="col-xs-5 form-group">
+                <input type="text" class="form-control" name="phone" ng-model="contact.phone" placeholder="Phone">
+            </div>
+
+            <!-- CONTACT MESSAGE -->
+            <div class="col-xs-10 form-group" ng-class="{ 'has-success': contactForm.message.$valid && submitted,
+                                                    'has-error': contactForm.message.$invalid && submitted }">
+
+                <textarea class="form-control" name="message" ng-model="contact.message" placeholder="Message" required></textarea>
+                <p class="help-block" ng-show="contactForm.message.$error.required && submitted">
+                    Please enter a question or comment.
+                </p>
+            </div>
+
+            <div class="col-xs-10 form-group">
+                <button type="submit" class="btn btn-default pull-right">SEND</button>
+            </div>
+        </div>
+    </form>
+</div>

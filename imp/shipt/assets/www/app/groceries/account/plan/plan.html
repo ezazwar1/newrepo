@@ -1,0 +1,98 @@
+<div class="modal plan-modal" style="background-color: #f8f8f8;" ng-controller="planController as vm" >
+    <ion-header-bar class="bar-stable">
+        <h1 class="title faded"> Plan</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="vm.cancel()" aria-label="close icon top right"><i class="icon ion-ios-close-empty" aria-hidden="true"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header darker-content has-footer" scroll="true" has-bouncing="true" >
+        <ion-refresher pulling-text="Pull to refresh..."
+        on-refresh="vm.populatePlan()"
+        pulling-icon="ion-ios-arrow-down"></ion-refresher>
+        <div class="plan-name-area text-center">
+            <div class="padding" ng-if="!vm.planLoaded">
+                <h3>
+                    <ion-spinner></ion-spinner>
+                </h3>
+            </div>
+            <div ng-if="vm.plan">
+                <h3 class="dark">
+                    {{vm.plan.plan.name}}
+                </h3>
+                <p class="faded">
+                    {{vm.planPrice(vm.plan.plan) | currency}} per {{vm.plan.plan.interval}}
+                </p>
+                <p class="text-positive" ng-if="vm.plan.status == 'trialing'">
+                    Your trial ends on {{vm.trialEnding()}}
+                </p>
+                <button ng-click="vm.changePlan()" class="button button-clear button-positive">
+                    Change Plan
+                </button>
+            </div>
+        </div>
+        <ion-list ng-if="vm.plan">
+            <div  class="history-list-separator">
+                <span style="padding:22px; padding-top:0px;"  class="faded padding">
+                    Current Period
+                </span>
+            </div>
+            <ion-item class="item">
+                <h2 class="dark">
+                    {{vm.currentPeriod()}}
+                </h2>
+                <small class="faded">
+                    Renews Automatically
+                </small>
+            </ion-item>
+            <div  class="history-list-separator">
+                <span style="padding:22px;"  class="faded padding">
+                    Payment Method
+                </span>
+            </div>
+            <ion-item ng-if="vm.defaultCard()" class="item item-icon-right" ng-click="vm.addEditCardForPlan()">
+                <h2 class="dark">
+                    <span class="faded">
+                        {{vm.defaultCard().brand}}
+                    </span>
+                    *{{vm.defaultCard().last_4_digits}}
+                    <br/>
+                    <span class="faded">
+                        Exp Date
+                    </span>
+                    {{vm.defaultCard().exp_date}}
+                </h3>
+                <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+            </ion-item>
+            <ion-item ng-if="!vm.defaultCard()" class="item item-icon-right" ng-click="vm.addPaymentMethod()">
+                <h2 class="dark">
+                    Add a Card
+                </h2>
+                <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+            </ion-item>
+            <div ng-if="vm.plan.plan.metadata.cancellation_instructions" class="padding text-center">
+                <p class="faded wrap">
+                    {{vm.plan.plan.metadata.cancellation_instructions}}
+                </p>
+            </div>
+        </ion-list>
+
+        <div ng-if="vm.planLoaded && !vm.plan">
+            <div class="padding text-center">
+                <h3 class="dark">
+                    Get a Plan!
+                </h3>
+                <button ng-click="vm.choosePlan(plan)" class="button button-full button-positive">
+                    Choose a Plan
+                </button>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar ng-if="vm.plan"
+                    class="bar-stable"
+                    style="background-image: linear-gradient(180deg, rgba(178, 178, 178, 0), rgba(178, 178, 178, 0) 50%, transparent 0%);">
+        <button style="width: 100%; color: #545454;" ng-click="vm.cancelPlan()" ng-if="vm.showCancelPlan()" class="button button-clear button-dark">
+          Cancel Your Plan
+        </button>
+    </ion-footer-bar>
+</div>

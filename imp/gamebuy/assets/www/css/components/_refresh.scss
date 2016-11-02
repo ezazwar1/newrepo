@@ -1,0 +1,26 @@
+.spinner svg {
+    width: 60px;
+    height: 60px;
+    stroke: $gbgGreen;
+    fill: $gbgGreen;
+
+    .chat-content & {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.scroll-refresher .ionic-refresher-content.ionic-refresher-with-text {
+    bottom: 15px;
+}
+
+.scroll-refresher .ionic-refresher-content {
+    font-size: $fontSizeSmall;
+    font-weight: 400;
+    color: white;
+}
+
+.scroll-refresher .ionic-refresher-content .text-refreshing,
+.scroll-refresher .ionic-refresher-content .text-pulling {
+    font-size: $fontSizeSmall;
+}

@@ -1,0 +1,39 @@
+<ion-view>
+  <ion-content has-bouncing="true" lazy-scroll data-image-lazy-distance-from-bottom-to-load="100" class="has-header" delegate-handle="exploreList">
+    <ion-list>
+        <ion-item ng-repeat="item in data track by $index" class="profile-card" ng-class="{true: 'featured-profile'}[item.isFeatured]">
+            <a class="profile-card-image" ng-click="viewProfile(item.Type, item.Alias)">
+                <span class="location" ng-show="item.Type === 0">{{item.City}}{{(item.City && item.State ? ', ' : '')}} {{item.State}}</span>
+                <img class="" image-lazy-src="{{item.Pic200X200}}" src="img/empty.png">
+            </a>
+                <div class="details">
+                    <p class="profile-card-title">
+                        <a class="profile-card-image" ng-click="viewProfile(item.Type, item.Alias)">{{item.Title}}</a>
+                    </p>
+                    <p class="sports" ng-if="item.Sports.length">
+                        <span data-ng-repeat="sport in item.Sports">
+                            <a ng-href="#explore/category/{{sport.trim().toLowerCase()}}">{{sport.trim().toLowerCase()}}
+                            </a>{{ $last ? '' : ','}}
+                        </span>
+                    </p>
+                </div>
+        </ion-item>
+    </ion-list>
+    <p ng-show="!canLoadMore && data.length <= 0" class="load-more-link no-results">No Results</p>
+
+    <div ng-if="!canLoadMore && data.length <= 10">
+        <hr/>
+        <h2 class="title-font text-center">Explore more</h2>
+
+        <!-- <h4 class="title-featured-section">Athletes <span>Featured</span></h4> -->
+        <featured-athletes></featured-athletes>
+
+        <sports-list></sports-list>
+
+    </div>
+    <ion-infinite-scroll
+        on-infinite="loadMore()"
+        ng-if="canLoadMore">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

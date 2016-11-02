@@ -1,0 +1,38 @@
+<ion-view title="Edit Profile">
+    <ion-content scroll="true" padding="false">
+        <div class="padding">
+            <div class="edit-profile_photo">
+                <div class="edit-profile_photo-preview">
+                    <img ng-src="{{data.image}}" />
+                </div>
+                <button class="button button-primary ion-ios-camera" ng-click="edit_photo()">Change Profile Picture</button>
+            </div>
+
+            <div class="form-group">
+                <i class="input-icon ion-android-contact"></i>
+                <input class="form-input" type="text" ng-model="data.gamer.name">
+            </div>
+
+            <div class="form-group">
+                <i class="input-icon ion-compose"></i>
+                <input class="form-input" type="text" ng-model="data.gamer.description">
+            </div>
+
+            <form class="form-group" name="email_form">                
+                <span class="form-label" ng-show='data.warning_flag'>{{data.emailalert}}</span>
+                <i class="input-icon ion-ios-email"></i>
+                <input class="form-input" type="email" ng-model="data.gamer.email" requried>
+            </form>
+
+            <div class="form-group">
+                <i class="input-icon ion-location"></i>
+                <input class="form-input" id="city-selector" type="text" placeholder={{data.gamer_city}} ng-model="data.city" googleplace="" citytap="">
+                <!-- googleplace -->
+            </div>
+
+            <div class="form-group button-bar">
+                <button class="button button-block button-primary ng-binding" type="submit" ng-disabled="!!email_form.$error.email" ng-click="gamer_editprofile()">Update My Profile</button>
+            </div> 
+        </div>
+    </ion-content>
+</ion-view>

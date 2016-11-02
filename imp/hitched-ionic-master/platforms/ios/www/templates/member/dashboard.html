@@ -1,0 +1,37 @@
+<div ng-Controller="DashboardCtrl" class="dashboard-wrapper">
+
+    <!-- SHARE SOCIAL APPS -->
+    <div class="social-share-btns">
+        <div class="twitter_cls"></div>
+        <iframe class="fb_cls" src=""></iframe>
+        <div class="pinterest_wrapper_cls"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <div ng-include="'components/navbar/navbar.html'" affix="" class="navbar navbar-inverse" id="nav"></div>
+    <div class="divider"></div>
+
+    <!-- BACKGROUND TOP -->
+    <section class="bg-2">
+        <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+    </section>
+
+    <!-- CONTENT -->
+    <div class="container dashboard-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="dashboard-navigation">
+                    <a ng-repeat="item in features" ng-hide="" class="dashboard-navigation-img pull-left" data-toggle="tooltip" data-placement="bottom" title="{{item.title}}" ng-click="selectFeature(item.template, item.idx)">
+                        <i class="glyphicon {{item.img}}" />
+                    </a>
+                </div>
+                <div ng-include src="currFeatureSrc"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND BOTTOM -->
+    <section class="bg-3">
+        <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+    </section>
+</div>

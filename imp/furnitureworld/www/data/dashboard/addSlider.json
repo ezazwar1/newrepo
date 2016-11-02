@@ -1,0 +1,9 @@
+{"success":true,"appbanners":{"slider":[
+{"banner_id":"1","banner_name":"Slider 1","banner_btype_id":"slider","banner_image":"img/trending/trending1.jpg","banner_cat_id":"1","b_cat":"ACCENT"},
+{"banner_id":"2","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/trending/trending2.jpg","banner_cat_id":"2","b_cat":"DINING"},
+{"banner_id":"3","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/trending/trending3.jpg","banner_cat_id":"3","b_cat":"LIVING"},
+{"banner_id":"4","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/trending/trending4.jpg","banner_cat_id":"4","b_cat":"OFFICE"},
+{"banner_id":"5","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/trending/trending5.jpg","banner_cat_id":"5","b_cat":"STROAGE"},
+{"banner_id":"5","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"img/trending/trending6.jpg","banner_cat_id":"1","b_cat":"ACCENT"}
+]
+}}

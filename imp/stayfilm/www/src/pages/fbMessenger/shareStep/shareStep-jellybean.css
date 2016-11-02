@@ -1,0 +1,20 @@
+@media only screen and (orientation: portrait) {
+  /* line 5, shareStep-jellybean.scss */
+  .platform-android4_1 .page-share-step .share-button img, .platform-android4_2 .page-share-step .share-button img, .platform-android4_3 .page-share-step .share-button img {
+    -webkit-transform: scaleY(1.7);
+    -moz-transform: scaleY(1.7);
+    -ms-transform: scaleY(1.7);
+    -o-transform: scaleY(1.7);
+    transform: scaleY(1.7);
+  }
+}
+@media only screen and (orientation: landscape) {
+  /* line 13, shareStep-jellybean.scss */
+  .platform-android4_1 .page-share-step .share-button img, .platform-android4_2 .page-share-step .share-button img, .platform-android4_3 .page-share-step .share-button img {
+    -webkit-transform: scaleX(2);
+    -moz-transform: scaleX(2);
+    -ms-transform: scaleX(2);
+    -o-transform: scaleX(2);
+    transform: scaleX(2);
+  }
+}

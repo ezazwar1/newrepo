@@ -1,0 +1,55 @@
+<ion-view class="popoverr mood" cache-view="false">
+
+  <ion-nav-bar class="pa-header mood-header">
+    <ion-nav-title ng-click="setMoodDate()">
+
+      <div ng-if="!editingHabitData">
+        {{ 'MOOD_TAGLINE' | translate }}
+        <span ng-show="!isUMNUser()">{{ getMoodDate() }}<div class="icon ion-ios-arrow-down"></div></span>
+      </div>
+
+      <div ng-if="editingHabitData" class="edit-mood">
+        {{ 'MOOD_TAGLINE' | translate }}
+      </div>
+    </ion-nav-title>
+
+    <ion-nav-back-button class="button-clear button-cancel hide-back">
+      <span class="nav-anchor">{{ 'CANCEL_LOWER' | translate }}</span>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="right">
+     <!-- <a href="javascript:;" ui-sref="app.habits-Mood-help"><button class="button button-clear icon ion-ios-help-empty"></button></a>-->
+      <button ng-click="submitData($event)" ng-disabled="submittingData" class="nav-anchor done-btn">{{ submittingData ? 'SAVING' : 'DONE' | translate}}</button>
+    </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+  <div class="back"></div>
+  
+  <!-- IMPORTANT -->
+  <!-- THIS CONTENT IS COPIED TO habits.mood.html -->
+
+  <ion-content>
+
+    <graph-selector values="habit.habitValues" value-data="valueData" selectable="true" colors="colors" color-percentages="colorPercentages" show-ticks="true" goal-percentage="goalPercentage" segmented="true" class="{{noDataError ? 'error' : ''}}" break-words="true"></graph-selector>
+    <span ng-if="!getInteracted()" class="tooltip-default">{{ 'HABITS_MOOD_TOOLTIP' | translate }}</span>
+
+    <div class="note-wrapper" style="height: 100%" ng-if="getInteracted()">
+
+      <div ng-click="showFeelingPopup()">
+
+        <div ng-show="!hasFeelings()" class="feeling-input empty">
+          <div class="icon ion-android-happy"></div>{{ 'ADD_FEELINGS' | translate }}
+        </div>
+
+        <div ng-show="hasFeelings()" class="feeling-input">
+          <div class="icon ion-android-happy"></div>{{ getFeelingText() | translate }}
+        </div>
+      </div>
+
+      <textarea ng-if="getInteracted()" ng-model="habitNotes.notes" ng-change="notesChanged()" placeholder="{{ 'WHATS_GOING_ON' | translate }} {{ 'HASHTAGS_DESC' | translate }}" id="habitNote"></textarea>
+
+    </div>
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

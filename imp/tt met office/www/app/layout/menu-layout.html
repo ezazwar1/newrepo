@@ -1,0 +1,27 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <!--This is the NAV Bar and the content area-->
+  <ion-pane ion-side-menu-content drag-content="true">
+
+      <ion-nav-view name="mainContent" view-title="Home" animation="slide-left-right"></ion-nav-view>
+  </ion-pane>
+
+
+  <!--This is the actual menu that is going to slide out-->
+  <ion-side-menu side="left" expose-aside-when="large">
+  <div class="bg-fade" id="menu-bg">
+    <div class="background-vignette"></div>
+  </div>
+    <ion-content class="has-hfeader menu-left menu-animated">
+      <ion-list>
+        <ion-item ui-sref-active="active" nav-clear menu-close ui-sref="app.home">TTMS</ion-item>
+        <ion-item ui-sref-active="active" nav-clear menu-close ui-sref="app.forecast">Forecast</ion-item>
+        <ion-item ui-sref-active="active" nav-clear menu-close ui-sref="app.bullettins">Bulletins</ion-item>
+        <ion-item ui-sref-active="active" nav-clear menu-close ui-sref="app.warnings">Warnings</ion-item>
+        <ion-item ui-sref-active="active" nav-clear menu-close ui-sref="app.services.home">Services</ion-item>
+        <ion-item ui-sref-active="active" nav-clear menu-close ui-sref="app.about">About</ion-item>
+        <ion-item ui-sref-active="active" nav-clear menu-close ui-sref="app.contact">Contact</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

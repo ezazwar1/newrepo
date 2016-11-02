@@ -1,0 +1,139 @@
+/* SYNTAX
+
+.to-state-substate, .from-state-substate {
+	&.ng-enter { -reset animation- }
+	&.ng-enter-active { -perform animation- }
+	
+	&.ng-leave { -reset animation- }
+	&.ng-leave-active { -perform animation- }
+}
+
+*/
+/* line 17, transitions-route-map.scss */
+ui-view:not(.index-html).ng-enter, ui-view:not(.index-html).ng-leave {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* line 27, transitions-route-map.scss */
+.slide-right ui-view.ng-enter {
+  -webkit-transform: translateX(-100%);
+}
+/* line 28, transitions-route-map.scss */
+.slide-right ui-view.ng-enter-active {
+  -webkit-transform: translateX(0);
+}
+/* line 30, transitions-route-map.scss */
+.slide-right ui-view.ng-leave {
+  -webkit-transform: translateX(0);
+}
+/* line 31, transitions-route-map.scss */
+.slide-right ui-view.ng-leave-active {
+  -webkit-transform: translateX(100%);
+}
+/* line 33, transitions-route-map.scss */
+.slide-right ui-view.ng-enter, .slide-right ui-view.ng-leave {
+  transition: all 0.5s ease-in-out;
+}
+
+/* line 39, transitions-route-map.scss */
+.slide-left ui-view.ng-enter {
+  -webkit-transform: translateX(100%);
+}
+/* line 40, transitions-route-map.scss */
+.slide-left ui-view.ng-enter-active {
+  -webkit-transform: translateX(0);
+}
+/* line 42, transitions-route-map.scss */
+.slide-left ui-view.ng-leave {
+  -webkit-transform: translateX(0);
+}
+/* line 43, transitions-route-map.scss */
+.slide-left ui-view.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+}
+/* line 45, transitions-route-map.scss */
+.slide-left ui-view.ng-enter, .slide-left ui-view.ng-leave {
+  transition: all 0.5s ease-in-out;
+}
+
+/* line 51, transitions-route-map.scss */
+.slide-up ui-view.ng-enter {
+  -webkit-transform: translateY(100%);
+}
+/* line 52, transitions-route-map.scss */
+.slide-up ui-view.ng-enter-active {
+  -webkit-transform: translateY(0);
+}
+/* line 54, transitions-route-map.scss */
+.slide-up ui-view.ng-leave {
+  -webkit-transform: translateY(0);
+}
+/* line 55, transitions-route-map.scss */
+.slide-up ui-view.ng-leave-active {
+  -webkit-transform: translateY(-100%);
+}
+/* line 57, transitions-route-map.scss */
+.slide-up ui-view.ng-enter, .slide-up ui-view.ng-leave {
+  transition: all 0.5s ease-in-out;
+}
+
+/* line 63, transitions-route-map.scss */
+.slide-down ui-view.ng-enter {
+  -webkit-transform: translateY(-100%);
+}
+/* line 64, transitions-route-map.scss */
+.slide-down ui-view.ng-enter-active {
+  -webkit-transform: translateY(0);
+}
+/* line 66, transitions-route-map.scss */
+.slide-down ui-view.ng-leave {
+  -webkit-transform: translateY(0);
+}
+/* line 67, transitions-route-map.scss */
+.slide-down ui-view.ng-leave-active {
+  -webkit-transform: translateY(100%);
+}
+/* line 69, transitions-route-map.scss */
+.slide-down ui-view.ng-enter, .slide-down ui-view.ng-leave {
+  transition: all 0.5s ease-in-out;
+}
+
+/* line 75, transitions-route-map.scss */
+.no-transition ui-view.ng-enter {
+  -webkit-transform: translateX(0);
+}
+/* line 76, transitions-route-map.scss */
+.no-transition ui-view.ng-enter-active {
+  -webkit-transform: translateX(0);
+}
+/* line 78, transitions-route-map.scss */
+.no-transition ui-view.ng-leave {
+  -webkit-transform: translateX(0);
+}
+/* line 79, transitions-route-map.scss */
+.no-transition ui-view.ng-leave-active {
+  -webkit-transform: translateX(0);
+}
+/* line 81, transitions-route-map.scss */
+.no-transition ui-view.ng-enter, .no-transition ui-view.ng-leave {
+  transition: all 0s linear;
+}
+
+/* line 89, transitions-route-map.scss */
+.slide-on-top-from-right ui-view.ng-enter {
+  -webkit-animation: moveFromRight 1s ease both;
+  -moz-animation: moveFromRight 1s ease both;
+  animation: moveFromRight 1s ease both;
+  z-index: 1;
+}
+/* line 98, transitions-route-map.scss */
+.slide-on-top-from-right ui-view.ng-leave {
+  -webkit-animation: fade 1s ease both;
+  -moz-animation: fade 1s ease both;
+  animation: fade 1s ease both;
+  z-index: 0;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html style="height:100%">
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' cdvfile://* gap://ready file:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline' http://www.google-analytics.com http://ajax.googleapis.com cdvfile://* wss://*;">
+    <title></title>
+
+    <link href="css/pacifica.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <!-- Do this towards the top so the cache gets populated. -->
+    <script src="js/pacifica.templates.js"></script>
+
+
+    <!-- These were copied from the bower install. -->
+    <script src="lib/ionic/js/ionic-core.js"></script>
+    <script src="lib/ionic/js/ionic-deploy.js"></script>
+
+    <script src="lib/angular-translate.js"></script>
+    <script src="lib/angular-translate-loader-static-files.min.js"></script>
+
+    <!--
+    <script src="lib/wavesurfer.min.js"></script>
+   
+    <script src="lib/wavesurfer/wavesurfer.js"></script>
+    <script src="lib/wavesurfer/webaudio.js"></script>
+    <script src="lib/wavesurfer/audioelement.js"></script>
+    <script src="lib/wavesurfer/drawer.js"></script>
+    <script src="lib/wavesurfer/drawer.canvas.js"></script>
+
+    <script src="lib/wavesurfer.timeline.js"></script>
+    <script src="lib/wavesurfer.regions.js"></script>
+    -->
+    <!-- Roll these up into a single file to reduce the number of requests. -->
+    <script src="lib/wavesurfer/wavesurfer.bundle.js"></script>
+
+    <script src="lib/moment-with-locales.js"></script>
+    
+    <script src="lib/jstz.min.js"></script>
+
+    <script src="lib/jquery-2.1.1.min.js"></script>
+
+    <!--
+    <script src="lib/jquery.caret.js"></script>
+    <script src="lib/jquery.atwho.js"></script>
+    -->
+
+    <script src="lib/linkify.min.js"></script>
+    <script src="lib/linkify-string.min.js"></script>
+
+    <script src="lib/highcharts.js"></script>
+
+    <script src="lib/mailcheck.min.js"></script>
+
+    <!-- Tracking -->
+
+    <!-- Need to host this ourselves so that offline mode works. -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','lib/analytics.js','ga');
+
+      // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      // })(window,document,'script','https://www.google-analytics.com/analytics_debug.js','ga');
+      
+      // window.ga_debug = {trace: true};
+    </script>
+
+    
+
+    <!-- Main Javascript files for the application -->
+    <script src="js/app.routes.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Helper functions. -->
+    <script src="js/helpers.js"></script>
+
+    <!-- Add our own directives. -->
+    <script src="js/directives/directives.js"></script>
+
+
+    <!-- Controllers -->
+    <!--
+    <script src="js/ctrl/helpCtrl.js"></script>
+    <script src="js/ctrl/nuxCtrl.js"></script>
+    <script src="js/ctrl/homeCtrl.js"></script>
+    <script src="js/ctrl/progressCtrl.js"></script>
+    <script src="js/ctrl/accountCtrl.js"></script>
+    <script src="js/ctrl/habitsCtrl.js"></script>
+    <script src="js/ctrl/relaxCtrl.js"></script>
+    <script src="js/ctrl/thoughtsCtrl.js"></script>
+    <script src="js/ctrl/goalsCtrl.js"></script> 
+    <script src="js/ctrl/loginCtrl.js"></script>
+    <script src="js/ctrl/notificationCtrl.js"></script>
+    <script src="js/ctrl/languageCtrl.js"></script>
+    <script src="js/ctrl/groupsCtrl.js"></script>
+    <script src="js/ctrl/timeZoneCtrl.js"></script>
+    -->
+    <script src="js/pacifica.controllers.js"></script>
+    
+    <!-- Services -->
+    <!--
+
+    <script src="js/service/tokenProvider.js"></script>
+
+    <script src="js/service/environmentService.js"></script>
+    <script src="js/service/generalService.js"></script>
+    <script src="js/service/mediaService.js"></script>
+    <script src="js/service/authService.js"></script>
+    <script src="js/service/accountService.js"></script>
+    <script src="js/service/errorService.js"></script>
+    <script src="js/service/habitsService.js"></script>
+    <script src="js/service/goalsService.js"></script>
+    <script src="js/service/audioService.js"></script>
+    <script src="js/service/notificationService.js"></script>
+    <script src="js/service/payService.js"></script>
+    <script src="js/service/groupsService.js"></script>
+    -->
+
+    <script src="js/pacifica.services.js"></script>
+    
+
+
+    <script>
+
+      // This happens here when the app is not in memory.
+      function handleOpenURL(url) {
+
+        console.log("Got url: " + url);
+
+        localStorage.setItem('externalLoadURL', url);
+      };
+    </script>
+
+  </head>
+  <body ng-app="pacifica">
+
+    <ion-nav-view animation="slide-left-right">
+      <!-- Center content -->
+    </ion-nav-view>
+
+    <!-- This should always be over the main screen there. -->
+
+  </body>
+</html>

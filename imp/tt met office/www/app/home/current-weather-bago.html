@@ -1,0 +1,40 @@
+<div id="current-weather">
+	<div class="row">
+		<div class="col col-50 uvc c1 bago uvi mock_uv_bago">
+			<div class="col text-center">
+				<span>{{ cdate | date : 'shortTime'}}</span>
+			</div>
+		</div>
+		<div class="col col-70 bago" id="today-block">
+			<p>{{ cdate | date : 'EEEE, MMM d'}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="icon">
+			<weather-icon-bago></weather-icon-bago>
+		</div>
+		<div class="col" id="present-cond" ui-sref="app.metars_bago">
+			<div>
+				<span class="block-support-text lowercase" id="day">
+					<span ng-if="current_temp == 'Loading..'" style="color: transparent; "> - </span>
+					<span ng-if="current_temp != 'Loading..'">
+						updated <time am-time-ago="updated_at"></time>
+						<!-- {{updated_at | amCalendar:referenceTime:formats}} -->
+					</span>
+				</span>
+				<div ng-class="{'current_no_data': current_temp == 'Loading..'}">
+					<span ng-if="current_temp == 'Loading..'" id="pw">Please wait</span>
+					<h1 class="current-temp">
+				  		<span id="today-temp">{{current_temp}}</span><span id="deg">&deg;<span>c</span></span>
+				  		<span class="block-support-text">/ <span>{{dew_point}}</span></span>
+				  	</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+  <h5 id="cw-summary" ui-sref="app.metars_bago">
+  	<!-- <weather-icon icon="current.icon" id="current-icon"></weather-icon>  -->
+  	{{summary_text}}
+  </h5>
+  <!-- <h5 id="cw-range"></h5> -->
+</div>

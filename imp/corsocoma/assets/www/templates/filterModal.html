@@ -1,0 +1,35 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Фильтр</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeFilter()">Закрыть</button>
+    </div>
+  </ion-header-bar>
+  <ion-content  has-header="true"  >
+    <label ng-show="showCleanFilterButton" class="item">
+      <button ng-click="clearfilter()" class="button button-block button-dark" >Очистить фильтры</button>
+    </label>
+    <form ng-submit="dofilter()">
+      <ion-list>
+        <div ng-repeat="filter in filters | orderBy: filterOreder">
+        <div ng-hide="filter.name == 'Пол' " class="item item-divider">
+          {{filter.name}}
+          </div>
+  <ion-checkbox ng-hide="filter.name == 'Пол' " class="checkbox-dark" ng-model="filtersSelected[filter.id +'_'+value]" ng-click="setUserfilter(filter.id, value)"  ng-repeat="value in filter.values | orderBy:value">{{value}}</ion-checkbox>
+
+</div>
+<label class="item">
+  <button class="button button-block button-dark" type="submit">Фильтровать</button>
+</label>
+
+</ion-list>
+
+    </form>
+    <!--    <pre> {{userFilter}}</pre>
+      <p>Другие фильтры</p>
+    <pre>{{filters }}</pre>-->
+
+  <!-- <pre>{{userFilter | json}}</pre>
+   <pre>{{products | json}}</pre>-->
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,38 @@
+<ion-view title="{{dict.search}}: {{searchQuery}}">
+    <ion-content>
+        <div class="card info" ng-show="products && !products.length"><p class="text-center">{{dict.noProductsWithQuery}}</p></div>
+        <ion-nav-view name="productList"></ion-nav-view>
+        <ion-infinite-scroll
+                ng-if="hasMoreItems"
+                icon="ion-loading-c"
+                on-infinite="loadProducts()">
+        </ion-infinite-scroll>
+    </ion-content>
+    <script id="searchFilter.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="transparent">
+                <button class="button button-clear button-light icon icon-close" ng-click="closeModal()"></button>
+                <h1 class="title light">{{filter.name}}</h1>
+            </ion-header-bar>
+            <ion-content>
+                <div class="card transparent">
+                    <p>{{dict.chooseOne}}</p>
+                    <label class="item item-radio" ng-repeat="value in filter.values" ng-click="setFilter(filter.code)">
+                        <input type="radio" ng-model="filterSettings[filter.code]" ng-value="value.id">
+                        <div class="item-content">
+                            <i class="icon circle icon-checkmark"></i>
+                            <div class="label">{{value.label}} ({{value.count}})</div>
+                        </div>
+                    </label>
+                    <label class="item item-radio" ng-click="setFilter(filter.code)">
+                        <input type="radio" ng-model="filterSettings[filter.code]" ng-value="'default'">
+                        <div class="item-content">
+                            <i class="icon circle icon-checkmark"></i>
+                            <div class="label">{{dict.notFilter}}</div>
+                        </div>
+                    </label>
+                </div>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>

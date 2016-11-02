@@ -1,0 +1,12 @@
+
+<h1 class="{{getMoodColor(habitRating)}}">{{ getHabitNameFromHabitRating(habitRating)}}: {{getHabitRatingDisplay(habitRating) }}</h1>
+
+<h2>{{getHabitRatingDateDisplay(habitRating)}}</h2>
+
+<div class="feeling-contain">
+<span ng-repeat="subValue in habitRating.habitSubValueIds" class="feeling {{getMoodColor(habitRating)}}">
+  {{getHabitSubValue(subValue)}}
+</span>
+</div>
+
+<p>{{habitRating.habitDataNotes.notes}}</p>

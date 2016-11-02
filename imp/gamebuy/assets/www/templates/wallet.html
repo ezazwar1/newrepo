@@ -1,0 +1,144 @@
+<ion-view title="My Wallet">
+    <script type="text/javascript">
+        // This identifies your website in the createToken call below
+        Stripe.setPublishableKey('pk_live_sUwJe611QZcBoSrgROUmJyKI');
+
+        var stripeResponseHandler = function (status, response) {
+            var $form = $('#payment-form');
+
+            if (response.error) {
+                // Show the errors on the form
+                $form.find('.wallet_error-message-wrapper').show();
+                $form.find('.wallet_error-message-wrapper p').text(response.error.message);
+                $form.find('#buy_coin_button').prop('disabled', false);
+
+                console.log('stripe error' + response.error.message);
+            } else {
+                // token contains id, last4, and card type
+                var token = response.id;
+
+                $form.find('.wallet_error-message-wrapper').hide();
+                $form.find('.wallet_error-message-wrapper p').text('');
+                $form.find('#buy_coin_button').prop('disabled', false);
+
+                console.log('stripe success got token: ' + token);
+                // send the token to backend
+                angular.element('#payment-form').scope().send_token(token);
+            }
+        };
+
+        jQuery(function ($) {
+            $('#payment-form').submit(function (e) {
+                var $form = $(this);
+
+                // Disable the submit button to prevent repeated clicks
+                $form.find('#buy_coin_button').prop('disabled', true);
+
+                Stripe.card.createToken($form, stripeResponseHandler);
+
+                // Prevent the form from submitting with the default action
+                return false;
+            });
+        });
+    </script>
+
+    <ion-nav-buttons side="right">
+        <button ui-sref="tab.me_wallet_sell" class="button button-clear button-positive button--top-bar-right" ng-disabled="!data.withdraw_flag">Withdraw</button>
+    </ion-nav-buttons>
+
+
+    <ion-content scroll="true" padding="true">
+
+        <div class="wallet_section">
+
+            <div class="wallet_coins">
+                <div class="data_box-wallet">
+                    <p class="data_num">
+                        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                        {{data.gamer.wallet}}
+                    </p>
+
+                    <p class="data_text">{{data.gamer.currency_unit}} Available</p>
+                </div>
+                <div class="data_box-wallet">
+                    <p class="data_num">
+                        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                        {{data.gamer.frozen}}
+                    </p>
+
+                    <p class="data_text">{{data.gamer.currency_unit}} Frozen</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="wallet_section">
+            <h4 class="wallet_section-title">Deposit</h4>
+
+            <form id="payment-form" action="/" method="POST">
+
+                <div class="form-group">
+                    <div class="form_credit-card">
+                        <img src="img/credit-card-icon-visa.svg" alt="Support Visa Card">
+                        <img src="img/credit-card-icon-mastercard.svg" alt="Support Master Card">
+                        <img src="img/credit-card-icon-american-express.svg" alt="Support American Express">
+                    </div>
+                    <label class="form-label" for="credit-card-num">Credit Card Number</label>
+                    <input id="credit-card-num" class="form-input" type="text" size="20" name="number" maxlength="16"
+                           ng-model="data.card_number" data-stripe="number" placeholder="0000-0000-0000-0000"/>
+                </div>
+
+                <div class="form-inline">
+
+                    <div class="form-group form-group-expiry">
+
+                        <label class="form-label">Expiry Date (MM/YYYY)</label>
+
+                        <div class="form-multi-element">
+
+                            <input class="form-input" type="text" maxlength="2" name="exp-month"
+                                   ng-model="data.expmonth" data-stripe="exp-month" placeholder="MM"/>
+
+                            <span class="form_input-divider">/</span>
+
+                            <input class="form-input" type="text" maxlength="4" name="exp-year" ng-model="data.expyr"
+                                   data-stripe="exp-year"
+                                   placeholder="YYYY"/>
+                        </div>
+
+                    </div>
+                    
+                    <div class="form-group form-group-cvc">
+                        <label class="form-label" for="cvc">CVV/CVC</label>
+                        <input id="cvc" class="form-input" type="text" maxlength="3" name="cvc" ng-model="data.cvc"
+                               data-stripe="cvc"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group form-group-last">
+                    <label class="form-label" for="amount">Select Amount to Deposit (minimum 1 dollar)</label>
+                    <p class="wallet_currency-unit">{{data.gamer.currency_unit}}</p>
+                    <input id="amount" class="form-input" type="text" name="amount" ng-model="data.amount"/>
+                </div>
+
+                <div class="wallet_error-message-wrapper" style="display: none;">
+                    <p class="wallet_error-message ion-alert-circled"></p>
+                </div>
+
+                <div class="form-group">
+                    <button id="buy_coin_button" class="button button-block button-primary ion-android-lock ng-binding" type="submit"
+                            ng-disabled="data.cvc.length<3 || data.expyr<4 || data.expmonth<2 || data.card_number<16 || deposit_submitconfirm_disabled">
+                        Deposit
+                    </button>
+                </div>
+            </form>
+            
+            <div class="wallet_credit">
+                <p class="wallet_security-notes">You can cash out when your GBG wallet balance reaches ${{ data.sell_credit_limit }}</p>
+                <p class="wallet_security-notes">This is a secure payment powered by Stripe</p>
+                <img class="wallet_stripe" src="img/powered-by-stripe.svg" alt="Powered by Stripe">
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

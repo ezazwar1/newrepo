@@ -1,0 +1,29 @@
+<ion-view hide-nav-bar="true" class="popoverr add-activity">
+  <div class="back"></div>
+  <ion-content>
+
+
+    <h1>{{ 'SET_DAILY_GOALS' | translate }}</h1>
+    <h3>{{ 'SET_DAILY_GOALS_TAGLINE' | translate }}</h3>
+
+    <div class="list habits-menu">
+
+      <ion-item ng-repeat="habit in habits track by habit.id" class="dragContainer">
+        <ion-reorder-button class="ion-navicon" on-reorder="moveHabit(habit, $fromIndex, $toIndex)" ng-show="editingGoals" >
+        </ion-reorder-button>
+        <div class="item {{habit.name}} item-icon-left">
+          <i class="icon icon-left ion-ios-star-outline"></i>
+          <span>{{getHabitName(habit)}}</span>
+          <span class="status">{{getTodaysDataDisplay(habit)}}</span>
+          <health-selector habit="habit" value="getTodaysData(habit).options.value" editing-goals="editingGoals" redraw="getTodaysData(habit).redraw" callbacks="callbacks" remove-empty-state="true"></health-selector>
+        </div>
+      </ion-item>
+    </div>
+    <div ng-click="finishNUX()" class="button-start">
+      {{ 'DONE' | translate }}
+    </div>
+  </ion-content>
+
+</ion-view>
+
+

@@ -1,0 +1,73 @@
+<ion-view id="groupPosts" class="profile">
+
+  <ion-nav-title>
+    {{ 'PROFILE' | translate }}
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+
+  </ion-nav-buttons>
+
+  <div class="back is-white"></div>
+
+  <ion-content> 
+  <div class="community-posts" ng-class="{otherProfile: viewingOtherUser}">
+  <div class="profile-main">
+
+    <div ng-if="!viewingOtherUser" class="{{getUserAvatar()}} avatar" ng-click="showChooseAvatar()"></div>
+
+    <div ng-if="viewingOtherUser" class="{{getUserAvatar()}} avatar"></div>
+
+    <strong ng-click="showUpdateNickname()" ng-if="!viewingOtherUser">{{ getUserName() }}</strong>
+    <strong ng-if="viewingOtherUser">{{ getUserName() }}</strong>
+    <br>
+    {{ 'JOINED' | translate }} {{ getJoinedDate() }}
+  </div>  
+  <div class="community-tabs" ng-if="!viewingOtherUser">
+    <a href="javascript:;" ng-click="setActiveTab('shares')" class="community-tab" ng-class="{active: activeTab == 'shares'}">{{ 'POSTS' | translate }}</a>
+    <a href="javascript:;" ng-click="setActiveTab('likes')" class="community-tab" ng-class="{active: activeTab == 'likes'}">{{ 'YOUR_LIKES' | translate }}</a>
+    <a href="javascript:;" ng-click="setActiveTab('comments')" class="community-tab" ng-class="{active: activeTab == 'comments'}">{{ 'COMMENTS' | translate }}</a>
+  </div>
+  <div class="community-tabs" ng-if="viewingOtherUser">
+    <a href="javascript:;" ng-click="setActiveTab('shares')" class="community-tab" ng-class="{active: activeTab == 'shares'}" style="width: 50%;">{{ 'POSTS' | translate }}</a>
+    <a href="javascript:;" ng-click="setActiveTab('comments')" class="community-tab" ng-class="{active: activeTab == 'comments'}"  style="width: 50%;">{{ 'COMMENTS' | translate }}</a>
+  </div>
+  <div ng-if="isLoading()" class="loading">
+    <ion-spinner class="icon-refreshing"></ion-spinner>
+  </div>
+    <div ng-if="!isLoading() && getActivePosts().length == 0">
+      <h2 class="quote">{{ 'PROFILE_EMPTY' | translate }}</h2>
+    </div>
+    <div ng-repeat="post in getActivePosts()" class="post" ng-click="showMore(post)" ng-class="{notify: hasPostNotification(post.id)}">
+        <div class="{{getPostAvatar(post)}} avatar"></div>
+        <span class="author"><strong>{{getPostCreatorNickname(post)}}</strong> {{ 'IN' | translate }} <strong>{{findPublicGroupName(post.groupId)}}</strong><br>
+          {{getPostDate(post)}}</span>
+        <div ng-bind-html="getPostTitle(post)"></div>
+  
+        <div class="community-actions-wrapper clearfix">
+
+        <a ng-if="!hasVote(post)" href="javascript:;" ng-click="voteUp($event, post)" class="row-options"><i class="icon ion-ios-heart-outline"></i><span class="tiny-label">{{post.score}}</span></a>
+        <a ng-if="hasVote(post)" href="javascript:;" ng-click="removeVote($event, post)" class="row-options"><i class="icon ion-ios-heart"></i><span class="tiny-label"><b>{{post.score}}</b></span></a>
+
+        <a href="javascript:;" ng-click="showMore(post)" class="row-options" ng-show="activeTab != 'comments'"><i class="icon ion-ios-chatbubble-outline"></i><span class="tiny-label">{{post.comments}}</span></a>
+
+        <a href="javascript:;" ng-click="sharePost($event, post)" class="row-options"><i class="icon ion-ios-redo-outline"></i><span class="tiny-label">{{ 'SHARE' | translate }}</span></a>
+        <a href="javascript:;" ng-click="showReportPost($event, post)" ng-if="!isPostOwner(post)" class="row-options"><i class="icon ion-ios-flag-outline"></i><span class="tiny-label">{{ 'REPORT' | translate }}</span></a>
+        <a href="javascript:;" ng-click="deletePost($event, post)" ng-if="isPostOwner(post)" class="row-options"><i class="icon ion-ios-trash-outline"></i><span class="tiny-label">{{ 'DELETE' | translate }}</span></a>
+        <!--<div class="badge-notif" ng-show="hasPostNotification(post.id)">{{ getPostNotificationCount(post.id) }}</div>-->
+        <a href="javascript:" class="more-options"><i class="icon ion-ios-arrow-right" style="font-size: 30px;"></i></a>
+      </div>
+
+    </div>
+
+    <div ng-if="canLoadMore() && getActivePosts().length > 0" class="load-more">
+      <a href="javascript:;" ng-click="loadMorePosts()">{{ 'LOAD_MORE' | translate }}</a> <!-- NEED TRANSLATED TEXT OR ICON -->
+    </div>
+    <div ng-if="!canLoadMore() && getActivePosts().length > 0" class='load-more'>
+      <em>{{ 'LOAD_EMPTY' | translate }}</em>
+    </div>
+
+  </div>
+    
+  </ion-content>
+</ion-view>

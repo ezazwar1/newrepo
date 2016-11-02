@@ -1,0 +1,94 @@
+/* line 4, movieItem.scss */
+.movie-list .movie-item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  height: 72px;
+  margin: 0 0 25px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-items: center;
+  font-size: 14px;
+  font-family: HelveticaNeue, 'sans-serif';
+  width: 100%;
+  overflow: hidden;
+}
+/* line 18, movieItem.scss */
+.movie-list .movie-item .thumb {
+  margin-right: 10px;
+  margin-left: 15px;
+  overflow: hidden;
+  height: 72px;
+  width: 127px;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+}
+/* line 28, movieItem.scss */
+.movie-list .movie-item .thumb img {
+  height: 72px;
+}
+/* line 33, movieItem.scss */
+.movie-list .movie-item .movie-info {
+  height: 72px;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  -webkit-flex-shrink: 1;
+  -moz-flex-shrink: 1;
+  flex-shrink: 1;
+  -ms-flex-negative: 1;
+}
+/* line 38, movieItem.scss */
+.movie-list .movie-item .movie-info .fullName {
+  line-height: 15px;
+  color: #ad252a;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+}
+/* line 49, movieItem.scss */
+.movie-list .movie-item .movie-info .movie-title {
+  color: #9aa7b2;
+  font-size: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  line-height: 25px;
+}
+/* line 59, movieItem.scss */
+.movie-list .movie-item .movie-info .movie-stats {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #9aa7b2;
+  font-size: 12px;
+  height: 25px;
+}
+/* line 67, movieItem.scss */
+.movie-list .movie-item .movie-info .movie-stats .stat-item {
+  height: 15px;
+  margin-right: 10px;
+}

@@ -1,0 +1,52 @@
+.gbg-currency {
+
+	img {
+        height: 14px;
+		vertical-align: middle;
+		position: relative;
+		top: -1px;
+	}
+
+	.wallet_coins & {
+		img {
+			top: -1px;
+		}
+	}
+
+	.popup-tosell & {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		@include translate(-46px, -50%); // visually center the price and g-coin icon. Cooperate with the popup-price text-indent property.
+
+		img {
+            height: 20px;
+            top: 0px;
+		}
+	}
+	
+}
+
+
+
+// Icons need to be a bit larger than the standard one. It currently applies to "Remove" button at the header of game profile
+.icon-header {
+    @extend %icon-normal;
+}
+
+
+.icon-arrow-right {
+    &::before {
+        font-size: 0.75rem;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        color: $gbgGreen;
+        z-index: 3;
+        @include translate(0, -50%);
+    }
+}
+
+
+
+

@@ -1,0 +1,188 @@
+/* line 3, startFb.scss */
+body, html {
+  height: 100%;
+}
+
+/* line 7, startFb.scss */
+.page-start-fb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  height: 100%;
+  background-color: #000;
+}
+/* line 19, startFb.scss */
+.page-start-fb .action-buttons {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+/* line 28, startFb.scss */
+.page-start-fb .action-buttons .kana-button {
+  background-color: #60a9c1;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 19px;
+}
+/* line 33, startFb.scss */
+.page-start-fb .action-buttons .kana-button.disabled {
+  opacity: .3;
+}
+/* line 37, startFb.scss */
+.page-start-fb .action-buttons .kana-button img {
+  left: auto;
+  right: 0;
+  width: 41px;
+  height: 35px;
+}
+/* line 46, startFb.scss */
+.page-start-fb .back-art {
+  background-color: #000;
+  background-image: url("../images/startfb.jpg");
+  background-position: center 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* line 56, startFb.scss */
+.page-start-fb.lang-en .back-art {
+  background-image: url("../images/startfb-en.jpg");
+}
+/* line 60, startFb.scss */
+.page-start-fb.lang-th .back-art {
+  background-image: url("../images/startfb-th.jpg");
+}
+/* line 64, startFb.scss */
+.page-start-fb.lang-es .back-art {
+  background-image: url("../images/startfb-es.jpg");
+}
+/* line 68, startFb.scss */
+.page-start-fb.lang-fr .back-art {
+  background-image: url("../images/startfb-fr.jpg");
+}
+/* line 72, startFb.scss */
+.page-start-fb.lang-pt .back-art {
+  background-image: url("../images/startfb-pt.jpg");
+}
+/* line 76, startFb.scss */
+.page-start-fb.lang-tr .back-art {
+  background-image: url("../images/startfb-tr.jpg");
+}
+/* line 80, startFb.scss */
+.page-start-fb.lang-vi .back-art {
+  background-image: url("../images/startfb-vi.jpg");
+}
+/* line 84, startFb.scss */
+.page-start-fb.lang-hu .back-art {
+  background-image: url("../images/startfb-hu.jpg");
+}
+/* line 88, startFb.scss */
+.page-start-fb.lang-it .back-art {
+  background-image: url("../images/startfb-it.jpg");
+}
+/* line 92, startFb.scss */
+.page-start-fb.lang-zh .back-art {
+  background-image: url("../images/startfb-zh.jpg");
+}
+/* line 96, startFb.scss */
+.page-start-fb .container {
+  position: relative;
+  height: 100%;
+}
+/* line 100, startFb.scss */
+.page-start-fb .container .scroll {
+  height: 100%;
+}
+/* line 104, startFb.scss */
+.page-start-fb .container .close-app {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  top: 10px;
+  left: 10px;
+}
+/* line 111, startFb.scss */
+.page-start-fb .container .close-app img {
+  width: 20px;
+  height: 20px;
+}
+/* line 118, startFb.scss */
+.page-start-fb .contents {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 400%;
+}
+/* line 123, startFb.scss */
+.page-start-fb .contents .snap-frame {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  padding-top: 50px;
+  -webkit-flex-basis: 25%;
+  -moz-flex-basis: 25%;
+  flex-basis: 25%;
+  -ms-flex-preferred-size: 25%;
+}
+/* line 130, startFb.scss */
+.page-start-fb .contents .snap-frame .round-number {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 24px;
+  line-height: 47px;
+}
+/* line 142, startFb.scss */
+.page-start-fb .contents .snap-frame .logo {
+  width: 150px;
+  height: 150px;
+  margin: 50px auto;
+}
+/* line 148, startFb.scss */
+.page-start-fb .contents .snap-frame h1 {
+  font-family: HelveticaNeueBLK, sans-serif;
+  font-size: 24px;
+  color: #fff;
+}
+/* line 154, startFb.scss */
+.page-start-fb .contents .snap-frame h2 {
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+/* line 163, startFb.scss */
+.page-start-fb .contents .snap-frame.frame-a .main-logo {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 170, startFb.scss */
+.page-start-fb .contents .snap-frame.frame-a .main-heading {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  background-color: rgba(0, 255, 255, 0.3);
+}

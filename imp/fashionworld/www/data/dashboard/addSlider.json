@@ -1,0 +1,9 @@
+{"success":true,"appbanners":{"slider":[
+{"banner_id":"1","banner_name":"Slider 1","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/trending-now/trending1.jpg","banner_cat_id":"28"},
+{"banner_id":"2","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/trending-now/trending2.jpg","banner_cat_id":"1"},
+{"banner_id":"3","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/trending-now/trending3.jpg","banner_cat_id":"2"},
+{"banner_id":"4","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/trending-now/trending4.jpg","banner_cat_id":"3"},
+{"banner_id":"5","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/trending-now/trending5.jpg","banner_cat_id":"4"},
+{"banner_id":"5","banner_name":"Slider 2","banner_btype_id":"slider","banner_image":"http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/trending-now/trending6.jpg","banner_cat_id":"4"}
+]
+}}

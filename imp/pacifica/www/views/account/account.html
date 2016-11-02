@@ -1,0 +1,103 @@
+<ion-view title="{{ 'ACCOUNT' | translate }}" id="account" ng-show="!loggedOut">
+
+  <div class="back"></div>
+  <ion-content> 
+    <div class="account-banner" ng-click="goToBackgrounds()">
+      {{ 'CHANGE_THEME' | translate}}</div>
+    <ion-list class="list"> 
+
+      <ion-item class="item item-divider">
+      {{ 'PROFILE_DETAILS' | translate}}
+      </ion-item>
+      <ion-item class="item no-active item-icon-right" ng-click="showUpdateNickname()">
+        <strong>{{ 'NICKNAME' | translate}}</strong> {{user.user.name}}
+        <i class="icon ion-ios-compose-outline"></i>
+      </ion-item>
+      <ion-item class="item no-active item-icon-right" ng-click="showUpdateEmail()">
+        <strong>{{ 'EMAIL' | translate }}</strong> {{user.user.email}} 
+
+        <i class="icon ion-ios-compose-outline"></i>
+        <i class="icon ion-ios-checkmark" ng-if="isEmailValidated()"></i>
+      </ion-item>
+      <ion-item class="item no-active doubleTap">
+        <strong>{{ 'ACCOUNT_TYPE' | translate }}</strong> {{getAccountType()}}  
+      </ion-item> 
+      <!--
+      <ion-item ng-click="goToTimeZones()" class="item no-active">
+        <strong>{{ 'TIMEZONE' | translate }}:</strong> {{getUserTimeZone()}} 
+      </ion-item>
+      -->
+      <ion-item class="item no-active" ng-if="isPremium()">
+        <strong>{{ 'EXPIRES_ON' | translate }}</strong> {{getPremiumExpiration()}} 
+      </ion-item>   
+      <ion-item class="item item-divider">
+      {{ 'ACCOUNT_SETTINGS' | translate}} 
+      </ion-item>
+      <ion-item ng-click="upgrade()" class="item item-icon-left item-icon-right logout" ng-if="canUpgrade()">
+        <i class="icon ion-ios-pricetag-outline"></i> 
+        <strong>{{'UPGRADE' | translate }} <!--{{ 'UPGRADE_FOR_FULL_ACCESS' | translate }} {{getShortTermPrice()}}--></strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item> 
+
+      <ion-item ng-click="goToBackgrounds()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-image"></i> 
+        <strong>{{'CHANGE_THEME' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item> 
+      
+      <ion-item ng-click="showPasscodeModal()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-locked-outline"></i>
+        <strong>{{ getPasscodeRowTitle() }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>  
+
+      <ion-item ng-click="goToNotifications()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-bell-outline"></i>
+        <strong>{{ 'NOTIFICATION_SETTINGS' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>  
+
+      <ion-item ng-click="goToLanguages()" class="item item-icon-left item-icon-right logout" ng-if="!isUMNUser()">
+        <i class="icon ion-ios-world-outline"></i>
+        <strong>{{ 'LANGUAGE' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>
+
+      <ion-item menu-close ng-click="goToTour()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-navigate-outline"></i> 
+        <strong>{{ 'TOUR' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>
+
+      <ion-item menu-close ng-click="viewHelp($event)" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-help-outline"></i> 
+        <strong>{{ 'HELP' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>
+
+      <ion-item ng-click="sharePacifica()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-color-wand-outline"></i>
+        <strong>{{ 'SHARE_PACIFICA' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>
+      <!--<ion-item ng-click="sharePacifica()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-redo-outline"></i>
+        <strong>{{ 'SHARE_PACIFICA' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>-->
+      <ion-item ng-click="sendFeedback()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-paperplane-outline"></i>
+        <strong>{{ 'GIVE_FEEDBACK' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+      </ion-item>
+      <ion-item ng-click="logout()" class="item item-icon-left item-icon-right logout">
+        <i class="icon ion-ios-arrow-thin-right"></i>
+        <strong>{{ 'SIGN_OUT' | translate }}</strong>
+        <i class="icon ion-ios-arrow-right"></i> 
+
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

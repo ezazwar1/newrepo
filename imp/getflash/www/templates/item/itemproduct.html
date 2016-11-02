@@ -1,0 +1,96 @@
+<ion-view view-title="{{ title }}">
+
+  	<ion-content>
+  		<ion-refresher pulling-text="Reload..." on-refresh="doReloadItemProduct()">
+		</ion-refresher>
+
+		<div class="loader-wrapper" ng-show="itemProductFirstTimeLoader">
+			<ion-spinner class="spinner-android"></ion-spinner>
+		</div>
+
+		<ion-item class="product-holder">
+			<div class="row" ng-repeat="sp in products" ng-if="$index % 3 === 0">
+
+				<div class="col col-33 catalog" ng-if="$index < products.length">
+					<div class="preview-wrapper" ng-click="goToProduct('{{ products[$index].productUrl }}', '{{ products[$index].productId }}', '{{ products[$index].productName }}')">
+						<img class="product-img" preload-image default-image="{{ products[$index].productPH }}" ng-src="{{ products[$index].productImage }}" />
+					</div>
+					<div class="info-wrapper">
+						<div class="name">{{ products[$index].productName }}</div>
+						<div class="original-price" ng-show="{{ !products[$index].displayPromo }}">
+							<span>{{ products[$index].productCurrency }}</span>
+							<span>{{ products[$index].productPrice }}</span>
+						</div>
+						<div class="original-price strike" ng-show="{{ products[$index].displayPromo }}">
+							<span>{{ products[$index].productCurrency }}</span>
+							<span>{{ products[$index].productPrice }}</span>
+						</div>
+						<div class="promo-price" ng-show="{{ products[$index].displayPromo }}">
+							<span>{{ products[$index].productPromoPrice }}</span>
+						</div>
+						<div class="suggested-size" ng-show="{{ products[$index].displayRecomemdedSize }}">
+							<span>Suggested size {{ products[$index].recomemdedSize }}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col col-33 catalog" ng-if="$index + 1 < products.length">
+					<div class="preview-wrapper" ng-click="goToProduct('{{ products[$index + 1].productUrl }}', '{{ products[$index + 1].productId }}', '{{ products[$index + 1].productName }}')">
+						<img class="product-img" preload-image default-image="{{ products[$index + 1].productPH }}" ng-src="{{ products[$index + 1].productImage }}" />
+					</div>
+					<div class="info-wrapper">
+						<div class="name">{{ products[$index + 1].productName }}</div>
+						<div class="original-price" ng-show="{{ !products[$index + 1].displayPromo }}">
+							<span>{{ products[$index + 1].productCurrency }}</span>
+							<span>{{ products[$index + 1].productPrice }}</span>
+						</div>
+						<div class="original-price strike" ng-show="{{ products[$index + 2].displayPromo }}">
+							<span>{{ products[$index + 1].productCurrency }}</span>
+							<span>{{ products[$index + 1].productPrice }}</span>
+						</div>
+						<div class="promo-price" ng-show="{{ products[$index + 1].displayPromo }}">
+							<span>{{ products[$index + 1].productPromoPrice }}</span>
+						</div>
+						<div class="suggested-size" ng-show="{{ products[$index + 1].displayRecomemdedSize }}">
+							<span>Suggested size {{ products[$index + 1].recomemdedSize }}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col col-33 catalog" ng-if="$index + 2 < products.length">
+					<div class="preview-wrapper" ng-click="goToProduct('{{ products[$index + 2].productUrl }}', '{{ products[$index + 2].productId }}', '{{ products[$index + 2].productName }}')">
+						<img class="product-img" preload-image default-image="{{ products[$index + 2].productPH }}" ng-src="{{ products[$index + 2].productImage }}" />
+					</div>
+					<div class="info-wrapper">
+						<div class="name">{{ products[$index + 2].productName }}</div>
+						<div class="original-price" ng-show="{{ !products[$index + 2].displayPromo }}">
+							<span>{{ products[$index + 2].productCurrency }}</span>
+							<span>{{ products[$index + 2].productPrice }}</span>
+						</div>
+						<div class="original-price strike" ng-show="{{ products[$index + 2].displayPromo }}">
+							<span>{{ products[$index + 2].productCurrency }}</span>
+							<span>{{ products[$index + 2].productPrice }}</span>
+						</div>
+						<div class="promo-price" ng-show="{{ products[$index + 2].displayPromo }}">
+							<span>{{ products[$index + 2].productPromoPrice }}</span>
+						</div>
+						<div class="suggested-size" ng-show="{{ products[$index + 2].displayRecomemdedSize }}">
+							<span>Suggested size {{ products[$index + 2].recomemdedSize }}</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</ion-item>
+
+		<div class="no-data-wrapper" ng-show="displayItemProductEmpty">
+			<div class="title">
+				No products found!
+			</div>
+		</div>
+
+		<ion-infinite-scroll ng-if="loadMore" on-infinite="doLoadMore()" distance="10%" class="ionic-load-more">
+		</ion-infinite-scroll>
+
+	</ion-content>
+</ion-view>

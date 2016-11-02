@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!-- Enable all requests, inline styles, and eval() -->
+
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="js/jquery.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+
+    <script src="js/sugar.js"></script>
+    <script src="js/later.min.js" type="text/javascript"></script>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-app="starter" ng-controller="myctrl" class="platform-android platform-cordova platform-webview">
+    <script src="js/move.min.js" type="text/javascript"></script>
+
+    <div on-swipe-left="closeEvent()" ng-click="closeEvent()" id="details">
+        <div class="content">
+            <div class="map">
+                <img src="{{event.map}}">
+            </div>
+            <div class="main">
+                <p class="othertimes"><span>Waypoint code:<span class="big">{{event.wp}}</span></span>
+                </p>
+
+                <p class="othertimes"><span ng-repeat="time in event.clocks">{{time}}</span>|<span> Ores:<span class="big">{{event.loot}}</span></span><span> Level:<span class="big">{{event.lvl}}</span></span>
+                </p>
+                <p class="name">{{event.translatedName}}</p>
+                <p class="desc">{{event.desc}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div on-swipe-left="closeSettings()" id="settings">
+        <div class="inside">
+            <ion-checkbox ng-model="config.twentyfour">24 Hour Clock</ion-checkbox>
+            <ion-checkbox ng-click="changeLang($index)" ng-repeat="lang in config.langs" ng-model="lang.active">{{lang.name}}</ion-checkbox>
+
+            <div ng-click="clearMarked()" class="padding btn">Clear Marked</div>
+            <br>
+            <div ng-click="emailMe()" class="padding btn">Email</div>
+            <div ng-click="rateApp()" class="padding btn">Rate App</div>
+            <p class="padding">Thanks for your feedback and reviews</p>
+            <!--
+            <div ng-click="donate()" class="padding donate btn">donate</div>
+-->
+        </div>
+    </div>
+    <div ng-click="showSettings()" id="settingsBtn"></div>
+
+    <div ng-class="{&apos;shaded&apos;:event.notify}" ng-click="toggleNotify()" id="notifyBtn"></div>
+
+    <div ng-click="eventDone()" id="crossBtn"></div>
+
+    <ion-pane>
+        <ion-content overflow-scroll="true">
+
+            <div id="events">
+                <div ng-class="{&apos;crossed&apos;:event.cross}" ng-show="event.ongoing" ng-click="openEvent(event)" ng-repeat="event in events" class="ongoing event">
+                    <img src="{{event.image}}">
+                    <p class="name">{{event.translatedName}}</p>
+                    <p class="time">Next {{event.clocks[0]}}</p>
+                    <p> {{event.translatedZone}}</p>
+                    <p class="shorttime">{{event.timeto}}</p>
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+                <div ng-show="!event.ongoing &amp;&amp; !event.cross" ng-click="openEvent(event)" ng-repeat="event in events | orderBy:[&apos;next[0]&apos;]" class="event">
+                    <img ng-show="event.notify" class="bell" src="/img/bell.png">
+                    <img src="{{event.image}}">
+                    <p class="name">{{event.translatedName}}</p>
+                    <p class="time">{{event.clocks[0]}}</p>
+                    <p> {{event.translatedZone}}</p>
+                    <p class="shorttime">{{event.timeto}}</p>
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+                <div ng-show="!event.ongoing &amp;&amp; event.cross" ng-click="openEvent(event)" ng-repeat="event in events | orderBy:[&apos;next[0]&apos;]" class="crossed event">
+                    <img src="{{event.image}}">
+                    <p class="name">{{event.translatedName}}</p>
+                    <p class="time">{{event.clocks[0]}}</p>
+                    <p> {{event.translatedZone}}</p>
+                    <p class="shorttime">{{event.timeto}}</p>
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+            </div>
+
+        </ion-content>
+    </ion-pane>
+
+</body>
+
+</html>

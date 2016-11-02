@@ -1,0 +1,22 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow">
+  <ion-content>
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+
+      <ion-slide class="goals-slide">
+        <div class="box1 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'EXPERIMENTS_ACTIVITY' | translate}}</h1>
+          <h2>{{ 'EXPERIMENTS_HELP_SLIDE_1' | translate }}</h2>
+          <p>{{ 'EXPERIMENTS_HELP_SLIDE_2' | translate }}<br><br>
+              {{ 'EXPERIMENTS_HELP_SLIDE_3' | translate }}<br><br>
+          </p>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+  <div class="bar bar-footer">
+    <button class="button-start" ng-click="confirm()">{{ (intro ? 'GET_STARTED' : 'OK_GOT_IT') | translate }}</button>
+  </div>
+</ion-view>

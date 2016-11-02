@@ -1,0 +1,19 @@
+
+<div class="modal input-modal" ng-controller="TextNotesModalController as viewModel" >
+    <ion-header-bar class="bar-stable ignore-platform">
+        <h2 class="title">{{viewModel.title}}</h2>
+    </ion-header-bar>
+    <ion-content class="has-header ignore-platform" has-bouncing="true" >
+        <textarea id="txtnotes" ng-model="viewModel.text" rows="5" placeholder="{{viewModel.placeholder}}"></textarea>
+    </ion-content>
+    <ion-footer-bar class="wrap">
+        <div class="row">
+            <div ng-click="viewModel.cancelNotes()" class="col button text-center left">
+                Cancel
+            </div>
+            <div ng-click="viewModel.saveNotes()" class="col button text-center right">
+                Save
+            </div>
+        </div>
+    </ion-footer-bar>
+</div>

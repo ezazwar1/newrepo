@@ -1,0 +1,57 @@
+<ion-view title="{{'MAP_ZOOM_TITLE' | translate}}" hide-back-button="false">
+
+    <ion-nav-buttons side="right"  >
+        <a style="top: 3px !important;" class="button icon-right button-icon" href="#/app/space/:37" animation="slide-in-up"><img src="img/listaNew.png"></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+
+
+
+    <ion-content  has-header="true" padding="false" scroll="false" class="blurLayer" style="margin-left: -33% !important;">
+
+
+
+        <div id="wrap">
+            <div class="parent">
+                <div class="panzoom">
+                    <img style="text-align:center;left:20%;border: none;height: auto;max-height: 100%;width: auto;" src="img/bigPlane2.png" usemap="#bigMap" alt="" />
+                </div>
+            </div>
+            <map id="map23" name="bigMap">
+
+                <area shape="circle" coords="660, 378, 37" ng-click="openModal(21)" />
+                <area shape="circle" coords="415, 269, 22" ng-click="openModal(20)" />
+                <area shape="circle" coords="530, 241, 20" ng-click="openModal(19)" />
+                <area shape="circle" coords="469, 241, 20" ng-click="openModal(18)" />
+                <area shape="circle" coords="535, 175, 19" ng-click="openModal(17)" />
+                <area shape="circle" coords="473, 200, 18" ng-click="openModal(16)" />
+                <area shape="circle" coords="430, 197, 20" ng-click="openModal(15)" />
+                <area shape="circle" coords="554, 276, 20" ng-click="openModal(14)" />
+                <area shape="circle" coords="470, 290, 21" ng-click="openModal(13)" />
+                <area shape="circle" coords="466, 397, 21" ng-click="openModal(12)" />
+                <area shape="circle" coords="632, 303, 20" ng-click="openModal(11)" />
+                <area shape="circle" coords="723, 296, 22" ng-click="openModal(10)"/>
+
+
+            </map>
+        </div>
+
+
+    </ion-content>
+    <div class="maplegend" >
+        <h4 style="color:#FFFFFF;"><img style="vertical-align: middle;" src="img/firstFloor.png" alt="" />   {{firstFloorText}}</h4>
+        <h4 style="color:#FFFFFF;"><img style="vertical-align: middle;" src="img/secondFloor.png" alt="" />   {{secondFloorText}}</h4>
+    </div>
+
+    <script id="modal.html" type="text/ng-template">
+        <div class="modal" ng-controller="ModalCtrl">
+            <ion-content>
+                <div id="infoView" ng-bind-html="page.description" style="padding: 15px 15px;color:#FFFFFF;font-size: 1.2em;"></div>
+                <br/>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>

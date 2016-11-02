@@ -1,0 +1,10 @@
+<div class="card info-box" ng-class="{energized: info.type === 'error', calm: info.type === 'success', dark: info.type === 'info'}" ng-if="info">
+    <div class="row row-center">
+        <div class="col icon-container">
+            <i class="icon" ng-class="{'ion-alert-circled': info.type === 'error', 'ion-checkmark-circled': info.type === 'success', 'ion-information-circled': info.type === 'info'}"></i>
+        </div>
+        <div class="col col-90">
+            {{info.message}}
+        </div>
+    </div>
+</div>

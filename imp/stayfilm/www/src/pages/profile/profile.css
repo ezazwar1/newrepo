@@ -1,0 +1,285 @@
+/* line 5, profile.scss */
+.page-profile .sf-retract-up {
+  -webkit-transform: translateY(-62%);
+  -moz-transform: translateY(-62%);
+  -ms-transform: translateY(-62%);
+  -o-transform: translateY(-62%);
+  transform: translateY(-62%);
+}
+/* line 12, profile.scss */
+.page-profile .bar-retractile-enabled.bar-retractile-up {
+  -webkit-transform: translateY(-62%);
+  -moz-transform: translateY(-62%);
+  -ms-transform: translateY(-62%);
+  -o-transform: translateY(-62%);
+  transform: translateY(-62%);
+}
+/* line 17, profile.scss */
+.page-profile .scroll-refresher {
+  top: 106px;
+}
+/* line 21, profile.scss */
+.page-profile .header-placeholder {
+  height: 166px;
+}
+/* line 25, profile.scss */
+.page-profile .profile-header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0;
+  border: 0;
+  z-index: 10;
+  background: white;
+}
+/* line 38, profile.scss */
+.page-profile .profile-header .user-info {
+  height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+}
+/* line 45, profile.scss */
+.page-profile .profile-header .user-info .info {
+  position: relative;
+  padding: 0px 20px 0 0;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  display: block;
+}
+/* line 51, profile.scss */
+.page-profile .profile-header .user-info .info h3 {
+  color: #35434d;
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 60, profile.scss */
+.page-profile .profile-header .user-info .info .edit-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+/* line 65, profile.scss */
+.page-profile .profile-header .user-info .info .edit-box .edit, .page-profile .profile-header .user-info .info .edit-box .location {
+  display: block;
+  color: #7a7a7a;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 12px;
+}
+/* line 72, profile.scss */
+.page-profile .profile-header .user-info .info .edit-box .edit {
+  -webkit-flex-basis: 100px;
+  -moz-flex-basis: 100px;
+  flex-basis: 100px;
+  -ms-flex-preferred-size: 100px;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+  white-space: nowrap;
+}
+/* line 77, profile.scss */
+.page-profile .profile-header .user-info .info .edit-box .edit span {
+  color: #ad252a;
+  text-decoration: none;
+  font-family: HelveticaNeueMD, sans-serif;
+}
+/* line 84, profile.scss */
+.page-profile .profile-header .user-info .info .edit-box .location {
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-flex-basis: 300px;
+  -moz-flex-basis: 300px;
+  flex-basis: 300px;
+  -ms-flex-preferred-size: 300px;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+}
+/* line 95, profile.scss */
+.page-profile .profile-header .user-info .user-thumb {
+  -webkit-flex-basis: 60px;
+  -moz-flex-basis: 60px;
+  flex-basis: 60px;
+  -ms-flex-preferred-size: 60px;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+  width: 60px;
+  margin: 0 20px;
+}
+/* line 101, profile.scss */
+.page-profile .profile-header .user-info .user-thumb img {
+  height: 60px;
+  width: 60px;
+}
+/* line 108, profile.scss */
+.page-profile .profile-header .title-tabs {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+/* line 113, profile.scss */
+.page-profile .profile-header .title-tabs .cursor {
+  position: absolute;
+  height: 3px;
+  background: #ad252a;
+  top: 64px;
+  z-index: 2;
+  width: 100%;
+  left: 0;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+/* line 126, profile.scss */
+.page-profile .profile-header .title-tabs a {
+  position: relative;
+  border-bottom: 3px solid #dedde0;
+  padding: 10px;
+  display: block;
+}
+/* line 132, profile.scss */
+.page-profile .profile-header .title-tabs a span {
+  font-family: HelveticaNeueLT, sans-serif;
+  color: #98a6b1;
+  font-size: 16px;
+}
+/* line 138, profile.scss */
+.page-profile .profile-header .title-tabs a strong {
+  font-family: HelveticaNeueMD, sans-serif;
+  font-weight: normal;
+  color: #9aa7b2;
+  font-size: 16px;
+}
+/* line 145, profile.scss */
+.page-profile .profile-header .title-tabs a.my-films {
+  width: 40%;
+  border-top: 3px solid #dedde0;
+}
+/* line 150, profile.scss */
+.page-profile .profile-header .title-tabs a.yes {
+  width: 20%;
+}
+/* line 153, profile.scss */
+.page-profile .profile-header .title-tabs a.yes .crown {
+  position: absolute;
+  background: transparent url("../images/ico-crown.png") center center no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  top: -16px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+/* line 166, profile.scss */
+.page-profile .profile-header .title-tabs a.pending {
+  width: 40%;
+  border-top: 3px solid #dedde0;
+}
+/* line 176, profile.scss */
+.page-profile .profile-header .title-tabs.movie-active .my-films strong {
+  color: #ad252a;
+}
+/* line 180, profile.scss */
+.page-profile .profile-header .title-tabs.movie-active .my-films span {
+  color: #35434d;
+}
+/* line 185, profile.scss */
+.page-profile .profile-header .title-tabs.movie-active .cursor {
+  -webkit-transform: translateX(0%) scaleX(0.4);
+  -moz-transform: translateX(0%) scaleX(0.4);
+  -ms-transform: translateX(0%) scaleX(0.4);
+  -o-transform: translateX(0%) scaleX(0.4);
+  transform: translateX(0%) scaleX(0.4);
+}
+/* line 193, profile.scss */
+.page-profile .profile-header .title-tabs.like-active .yes {
+  color: #35434d;
+}
+/* line 196, profile.scss */
+.page-profile .profile-header .title-tabs.like-active .yes .crown {
+  background-image: url("../images/ico-crown-red.png");
+  background-size: contain;
+}
+/* line 201, profile.scss */
+.page-profile .profile-header .title-tabs.like-active .yes strong {
+  color: #ad252a;
+}
+/* line 205, profile.scss */
+.page-profile .profile-header .title-tabs.like-active .yes span {
+  color: #35434d;
+}
+/* line 210, profile.scss */
+.page-profile .profile-header .title-tabs.like-active .cursor {
+  -webkit-transform: translateX(40%) scaleX(0.2);
+  -moz-transform: translateX(40%) scaleX(0.2);
+  -ms-transform: translateX(40%) scaleX(0.2);
+  -o-transform: translateX(40%) scaleX(0.2);
+  transform: translateX(40%) scaleX(0.2);
+}
+/* line 217, profile.scss */
+.page-profile .profile-header .title-tabs.pending-active .pending {
+  color: #35434d;
+}
+/* line 220, profile.scss */
+.page-profile .profile-header .title-tabs.pending-active .pending strong {
+  color: #ad252a;
+}
+/* line 224, profile.scss */
+.page-profile .profile-header .title-tabs.pending-active .pending span {
+  color: #35434d;
+}
+/* line 229, profile.scss */
+.page-profile .profile-header .title-tabs.pending-active .cursor {
+  -webkit-transform: translateX(60%) scaleX(0.4);
+  -moz-transform: translateX(60%) scaleX(0.4);
+  -ms-transform: translateX(60%) scaleX(0.4);
+  -o-transform: translateX(60%) scaleX(0.4);
+  transform: translateX(60%) scaleX(0.4);
+}

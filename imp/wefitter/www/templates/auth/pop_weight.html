@@ -1,0 +1,36 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+      <h1 class="title" translate="PROFILE.WEIGHT_AND_HEIGHT">Your Weight &amp; Height</h1>
+      <button class="button button-positive button-icon ion-android-close" ng-click="closeWeightModal()" />
+    </ion-header-bar>
+    <ion-content>
+
+    <div class="big-padding text-center">
+    	<div class="row">
+    		<div class="col text-center">
+    			<h4 translate="PROFILE.MY_WEIGHT_IS">My Weight is</h4>
+    			<p class="text-dark">{{ me.weight.units }}</p>
+                <div class="select-box on-light">
+                    <select ng-model="me.weight.value"  ng-options="n for n in [] | range:30:160 track by n" class="light">
+                </select>    
+                </div>
+    		</div>
+   
+			<div class="col text-center">
+				<h4 translate="PROFILE.AND_HEIGHT">and Height</h4>
+				<p class="text-dark">{{ me.height.units }}</p>
+                <div class="select-box on-light">
+				<select ng-model="me.height.value" ng-options="n for n in [] | range:130:230 track by n" class="light">
+			    </select>
+                </div>
+			</div>
+    	</div>
+        
+        <div class="padding">
+        <button ng-click="closeWeightModal()" class="button big-button button-block button-positive" translate="ACTION.CONFIRM">Confirm</button>    
+        </div>
+    	
+    </div>
+
+    </ion-content>
+</ion-modal-view>

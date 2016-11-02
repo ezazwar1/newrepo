@@ -1,0 +1,36 @@
+<ion-view class="auth-view auth-outer form-view extra-info-view">
+    <ion-nav-bar class="view-navigation">
+        <ion-nav-title>
+            <span>{{'EXTRAINFO' | translate}}</span>
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-content class="">
+        <ion-spinner ng-if="data.loading" class="spinner-on-load"></ion-spinner>
+        <div class="row why-box">
+            <div class="col">
+                <h2>{{'GOALSINFO' | translate}}</h2>
+            </div>
+        </div>
+        <div class="row form-wrapper">
+            <div class="col">
+                <form name="ExtraFormGoals" ng-submit="extraInfoSubmit()" novalidate>
+                    <div class="form-fields-outer list list-inset">
+                        <div class="item item-divider">
+                            <p>{{'WHATGOALS' | translate}}</p>
+                        </div>
+                        <ion-checkbox ng-repeat="item in goalList"
+                                      ng-model="item.checked"
+                                      ng-checked="item.checked">
+                            {{ item.short | translate }}
+                        </ion-checkbox>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="wizard-bar">
+        <button class="button button-block" style="margin-top: 0;" ng-click="extraInfoSubmit()">
+            {{'FINISH' | translate}}
+        </button>
+    </ion-footer-bar>
+</ion-view>

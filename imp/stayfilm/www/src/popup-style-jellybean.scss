@@ -1,0 +1,17 @@
+@import 'variables';
+
+@media only screen and (orientation: portrait) {
+	.popup-container .popup .popup-body img {
+		.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+			@include transform(scaleX(0.5) scaleY(2.3));
+		}
+	}
+}
+
+@media only screen and (orientation: landscape) {
+	.popup-container .popup .popup-body img {
+		.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+			@include transform(scaleX(0.5) scaleY(1.6));
+		}
+	}
+}

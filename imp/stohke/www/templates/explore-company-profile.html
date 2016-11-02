@@ -1,0 +1,61 @@
+<ion-view title="{{user.Title}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-icon button-clear ion-ios-upload-outline" ng-click="share()"></button>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="true" has-padding="true" lazy-scroll data-image-lazy-distance-from-bottom-to-load="100">
+        <div class="featured">
+            <img ng-src="{{user.LogoLarge}}" class="profile-image round bordered"/>
+            <img ng-src="{{userMedia.featured[0].ImageUrl540X304}}" alt="" class="bg-img"/>
+                <div class="profile-quote-wrapper">
+                    <div class="profile-quote">
+                        <span>{{::user.Info.TagLine}}</span>
+                    </div>
+                </div>
+
+        </div>
+        <div class="profile-details">
+            <p class="profile-name">{{::user.Title}} <a href="">
+                <!-- <i class="ion-ios-information-outline"></i> -->
+            </a></p>
+            <p ng-show="user.Sports.length">
+                <span data-ng-repeat="sport in user.Sports">{{($index > 0 ? ', ' : '') + sport}}</span>
+            </p>
+
+            <p>
+                <stohke-total data-user-id="user.Id" data-user-type="'user'"></stohke-total>
+            </p>
+            <div class="bio" ng-class="{true: 'expand', false: ''}[expandSummary]" ng-click="toggleSummaryCollapse()">
+                <p>{{::user.Info.Summary}}</p>
+            </div>
+
+        </div>
+        <div class="profile-gallery">
+                <img src="img/empty.png" alt="" data-image-lazy-src="{{media.ImageUrl270x152}}" ng-repeat="media in userMedia.images" class="" ng-click="showImage($index)" class="">
+        <div>
+        <a ng-click="getImages()" class="load-more-link" ng-show="canLoadMore.images">more photos</a>
+        <ion-list>
+            <ion-item ng-repeat="media in userMedia.videos" class="item-dark item-black no-pad" ng-click="showVideo($index)">
+                <img ng-src="{{media.ThumbnailLargeUrl}}" alt="" class="profile-video-thumb">
+                <i class="ion-android-arrow-dropright-circle play-button"></i>
+                <p class="video-description" data-ng-if="media.Caption">{{::media.Caption}}</p>
+            </ion-item>
+        <ion-list>
+        <a ng-click="getVideos()" class="load-more-link" ng-show="canLoadMore.videos">more videos</a>
+
+        <h3 class="section-title" ng-if="companyTeam.length">Team</h3>
+        <ion-list>
+            <ion-item ng-repeat="item in companyTeam" class="profile-card" ng-switch="item.Type">
+            
+                <a class="profile-card-image" ui-sref="app.explore.user({alias: item.Alias})" ng-switch-when="0">
+                    <img class="" image-lazy-src="{{::item.Pic200X200}}" src="img/empty.png">
+                    <p class="profile-card-title">{{::item.Title}}</p>
+                    <span class="location" ng-show="item.City || item.State">{{::item.City}}{{(item.City && item.State ? ', ' : '')}} {{::item.State}}</span>
+                </a>
+                <a class="profile-card-image" ui-sref="app.explore.company({alias: item.Alias})" ng-switch-when="1">
+                    <img class="" image-lazy-src="{{::item.Pic200X200}}" src="img/empty.png">
+                    <p class="profile-card-title">{{::item.Title}}</p>
+                </a>
+            </ion-item>
+        <ion-list>
+    </ion-content>
+</ion-view>

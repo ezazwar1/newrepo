@@ -1,0 +1,55 @@
+<div class="page-feed page">
+	<div class="bar bar-header bar-retractile bar-retractile-up">
+
+		<button class="button button-clear" ng-click="goTo('main.home.profile.movie', 'slide-right')">
+			<img src="images/profile.svg" />
+		</button>
+
+		<h1 class="title"><img src="images/logo-stayfilm.png" class="logo-title" /></h1>
+
+		<button class="button button-clear" ng-click="goTo('main.home.friendship.mate', 'slide-left')" >
+			<img src="images/friends.svg" />
+		</button>
+
+	</div>
+
+	<ion-content class="feed" on-scroll="onScroll()" style="bottom: 0">
+
+		<div class="header-placeholder"></div>
+
+		<div class="empty-list" ng-if="bag.stories.length === 0 && bag.finished">
+				<span translate>Você ainda não tem histórias no seu feed de notícias.</span>
+
+				<button ng-click="startMoviemaker()"><span translate>Criar Filme</span></button>
+		</div>
+
+		<ion-refresher pulling-text="{{'Puxe para atualizar' | translate}}" ng-if="bag.offset !== null" on-refresh="refresh()"></ion-refresher>
+
+		<div class="story-container {{animationName}}" >
+			<div class="list-item story-item" ng-repeat="story in bag.stories" >
+				<div ng-if="story.type === 'movie'">
+					<sf-movie-mosaic movie="story.value" user="story.value.user"></sf-movie-mosaic>
+				</div>
+				<div ng-if="story.type === 'movie-share'">
+					<sf-movie-mosaic movie="story.value" user="story.value.sharer" ></sf-movie-mosaic>
+				</div>
+				<div ng-if="story.type === 'friendship2'">
+					<div class="item item-avatar feed-header">
+						<img src="default-profile.png" ng-src="{{ story.value[0].photo }}" ng-click="ProfileModal.open(story.value[0].username)">
+						<h2 class="feed-author">{{ story.value[0].fullName }} fez amizade com
+							<span ng-repeat="friend in story.value">
+								<span ng-if="! $first">{{ friend.fullName }},</span>
+							</span>
+						</h2>
+						<p class="feed-created">{{ story.value[0].prettyCreated }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="bag.stories.length > 0 && bag.finished" class="feed-end"><span translate>Fim desta lista.</span></div>
+
+		<ion-infinite-scroll distance="1%" ng-if=" ! bag.finished" on-infinite="loadMore()"></ion-infinite-scroll>
+
+	</ion-content>
+</div>

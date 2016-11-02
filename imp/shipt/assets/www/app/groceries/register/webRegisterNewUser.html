@@ -1,0 +1,58 @@
+<div class="buttons" ng-controller="RegisterController">
+    <div class="modal login-modal fullscreen-modal"  >
+        <ion-content class=" darker-content" has-bouncing="true" >
+            <div class="login-area">
+                <div class="login-title-header">
+                    <img src="img/logo.png" alt="" aria-hidden="true">
+                </div>
+                <div class="contents">
+                    <div class="text-center assertive padding" ng-show="invalidLogin">
+                        {{invalidRegisterMessage}}
+                    </div>
+                    <div class="text-center assertive padding" ng-show="loginError">
+                        {{errorRegisterMessage}}
+                    </div>
+                    <form class="login-form" name="loginForm" ng-submit="registerSubmit(register)">
+                        <div class="list">
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">Full Name</span>
+                                <input type="text" ng-model="register.name" placeholder="Full Name" required>
+                            </label>
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">Email</span>
+                                <input type="email" ng-model="register.email" placeholder="Email" required>
+                            </label>
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">Password</span>
+                                <input ng-model="register.password" type="password" placeholder="Password" ng-required="true" required>
+                            </label>
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">Phone Number</span>
+                                <input ng-model="register.phone" type="tel" placeholder="Phone Number" ui-us-phone-number ng-required="true" required>
+                            </label>
+                            <label class="item item-input item-floating-label zip-input">
+                                <span class="input-label" aria-hidden="true">Delivery Zip Code</span>
+                                <input ng-model="register.zip" type="text" placeholder="Delivery Zip Code" ng-required="true" required>
+                            </label>
+                            <div class="text-center">
+                                <button
+                                        id="signup_user_button"
+                                        class="login-button button button-positive" type="submit">
+                                    Sign up
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="padding text-center" style="padding-top: 0px;padding-bottom: 0px;">
+                        <button ng-click="cancelRegister()"
+                                class=" button button-dark button-clear button-full  ">
+                            Log in
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </ion-content>
+    </div>
+</div>

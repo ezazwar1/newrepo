@@ -1,0 +1,65 @@
+<ion-view cache-view="false" view-title="Groups" class="bar-triby">
+  <!--<ion-nav-buttons side="left">-->
+  <!--<button class="button button-icon ion-ios7-search client-positive" ng-click="go('app/search')"></button>-->
+  <!--</ion-nav-buttons>-->
+  <ion-nav-buttons side="right">
+    <button class="button button-icon client-positive" ng-click="go('app/new_triby')">Create groups</button>
+  </ion-nav-buttons>
+
+  <ion-content style="background-color:white; min-height: 85%;" class="groups-content" padding="false" class="has-footer" overflow-scroll="false" has-bouncing="true">
+
+    <div class="row row-center tribys_circles walk-through" ng-if="tribes.length === 0">
+      <div class="col col-50 triby-title opacity-groups">
+        <div class="tribys_name_text">Squad</div>
+        <img class="group-image fixed-size no-shadow" ng-src="img/walk_through/Squad.png" />
+      </div>
+      <div class="col col-50 triby-title opacity-groups">
+        <div class="tribys_name_text">Family</div>
+        <img class="group-image fixed-size no-shadow" ng-src="img/walk_through/Family.png" />
+      </div>
+    </div>
+    <div class="row row-center tribys_circles walk-through" ng-if="tribes.length === 0">
+      <div class="col col-50 triby-title opacity-groups">
+        <div class="tribys_name_text">Gym</div>
+        <img class="group-image fixed-size no-shadow" ng-src="img/walk_through/Gym.png" />
+      </div>
+      <div class="col col-50 triby-title opacity-groups">
+        <div class="tribys_name_text">Soccer</div>
+        <img class="group-image fixed-size no-shadow" ng-src="img/walk_through/Soccer.png" />
+      </div>
+    </div>
+
+    <div class="row row-center tribys_circles walk-through" ng-if="tribes.length === 0">
+      <div class="col col-50 triby-title opacity-groups">
+        <div class="tribys_name_text">Dance Class</div>
+        <img class="group-image fixed-size no-shadow" ng-src="img/walk_through/Dance_Class.png" />
+      </div>
+      <div class="col col-50 triby-title opacity-groups">
+        <div class="tribys_name_text">Work</div>
+        <img class="group-image fixed-size no-shadow" ng-src="img/walk_through/Work.png" />
+      </div>
+    </div>
+
+    <div class="row row-center tribys_circles" ng-repeat="rows in tribes">
+      <div class="col col-50 triby-title" ng-repeat="item in rows">
+        <div class="tribys_name_text">
+          {{::item.name}}
+        </div>
+        <a ui-sref="app.news_feed({triby_id:item._id})">
+          <img class="group-image fixed-size no-shadow" ng-src="{{::item.pic}}" />
+          <span ng-hide="::!item.unreadNotifications" id="badge_{{::item._id}}" class="badge badge-positive">{{::item.unreadNotifications}}</span>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar  ng-cloak class="bar bar-footer msg-no-tribys"
+                  ng-if="tribes.length === 0"
+  >
+    <div class="bg-opacity"></div>
+    <div class="info-text"
+         ng-style="userAgent === 'Android' ? { 'top':'162px' } : { 'top':'190px' } ">
+      <p>Create Groups</p>
+      <!--<p>Start by pressing the blue Create groups text at the top right corner.</p>-->
+    </div>
+  </ion-footer-bar>
+</ion-view>

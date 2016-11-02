@@ -1,0 +1,25 @@
+<div ng-controller="filterSortModalController as vm">
+    <div class="modal filter-sort-modal">
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-clear" ng-show="filterSortOptions.isFilterSortActive()" ng-click="vm.clear()">Clear</button>
+            </div>
+            <h1 class="title">Filters</h1>
+            <div class="buttons">
+                <button class="button button-clear" ng-click="vm.cancel()"><i class="icon ion-ios-close-empty"></i></button>
+            </div>
+        </ion-header-bar>
+        <ion-content class="has-footer" has-bouncing="true">
+            <filter-sort filter-sort-options="filterSortOptions" categories="facets.categories_name" brands="facets.brand_name"></filter-sort>
+        </ion-content>
+        <ion-footer-bar  class="wrap footer-button-bar bar-no-border">
+            <button class="button button-full"
+                    ng-class="{'button-positive': filterSortOptions.isFilterSortActive(), 'button-dark': !filterSortOptions.isFilterSortActive()}"
+                    ng-click="vm.cancel()"
+                    ng-disabled = !filterSortOptions.isFilterSortActive()
+                    aria-label="Apply Filter And Sort Selection">
+                Apply
+            </button>
+        </ion-footer-bar>
+    </div>
+</div>

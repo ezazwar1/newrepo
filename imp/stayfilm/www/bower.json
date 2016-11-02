@@ -1,0 +1,21 @@
+{
+  "name": "fun",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular": "1.2.*",
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.13",
+    "angular-route": "1.2.*",
+    "angular-touch": "1.2.*",
+    "angular-mocks": "1.2.*",
+    "restangular": "1.2.*",
+    "angular-cache": "3.0.*",
+    "tracekit": "*",
+    "angular-gettext": "0.4.*",
+    "angular-ui-router": "0.2.*"
+  }
+}

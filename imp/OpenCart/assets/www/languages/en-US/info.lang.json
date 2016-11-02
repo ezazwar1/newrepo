@@ -1,0 +1,37 @@
+{
+  "title_info_home": "Information",
+  "title_info_orders": "Orders",
+  "title_info_order": "Order",
+  "title_info_wishlist":  "Wishlist",
+
+  "order_invoice_data": "Invoice Data",
+  "order_invoice_number": "Invoice #",
+  "order_order_number": "Order #",
+  "order_date": "Date",
+  "order_address": "Address",
+  "order_method": "Method",
+  "order_invoice_items": "Invoice Items",
+  "order_product_code": "Product Code:{code}",
+  "order_history": "Order History",
+
+
+  "buttons_logout": "Logout",
+  "buttons_login": "Login",
+  "buttons_orders": "Orders",
+  "buttons_notifications": "Notifications",
+  "buttons_contact": "Contact",
+  "buttons_about": "About",
+  "buttons_language": "Language",
+  "buttons_currency": "Currency",
+  "buttons_more": "More",
+  "buttons_wishlist": "Wishlist",
+
+  "errors_no_orders": "Your don't have any order yet!",
+  "errors_empty_wishlist": "Wishlist is empty!",
+  
+  "contact_success": "Your message sent successfully",
+  "contact_name": "Your Name",
+  "contact_email": "Your Email",
+  "contact_enquiry": "Enquiry",
+  "contact_send_button": "Send"
+}

@@ -1,0 +1,24 @@
+<ion-content class="search-user tab">
+
+	<div class="empty-list" ng-if="bag.user.list.length === 0 && bag.user.finished">
+		<span translate>Nenhum usuário encontrado.</span>
+	</div>
+
+	<div class="empty-list" ng-if="bag.user.list.length === 0 && ! bag.user.finished">
+		<span translate>Utilize o campo de busca acima.</span>
+	</div>
+
+	<div class="loading" ng-if=" loading && ! infiniteScrollActive">
+		<ion-spinner></ion-spinner>
+	</div>
+
+
+	<div class="list user-list">
+		<sf-user-item user="user" ng-repeat="user in bag.user.list"></sf-user-item>
+	</div>
+
+	<div ng-if="bag.user.list.length > 0 && bag.user.finished" class="feed-end"><span translate>Fim desta lista.</span></div>
+
+	<ion-infinite-scroll distance="1%" ng-if="infiniteScrollActive && ! bag.user.finished" on-infinite="loadMore('user')"></ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,19 @@
+<form ng-submit="connectLogin($event)" action="" class="list list-inset form-connection">
+	<label class="item item-input item-stacked-label on-light">
+		<span class="input-label">{{ 'LOGIN.USERNAME' | translate }}</span>
+		<input type="text" ng-model="params.username" required>
+	</label>
+	<label class="item item-input item-stacked-label on-light">
+		<span class="input-label">{{ 'LOGIN.PASSWORD' | translate }}</span>
+		<input type="password" ng-model="params.password" required>
+	</label>
+
+	<button class="button button-block button-positive" translate="LOGIN.LOGIN_BUTTON">
+	Login
+	</button>
+	<div class="spacer" style="height: 24px"></div>
+	<p class="text-center">
+		<button ng-click="closeModal({})" class="button button-clear">{{ 'ACTION.CANCEL' | translate }}</button>
+	</p>
+
+</div>

@@ -1,0 +1,176 @@
+[
+  {
+    "id": 1,
+    "name": "Feature",
+    "videos": [
+      {
+        "id": 1,
+        "name": "Pitch Perfect 2 (2015)",
+        "img": "http://videos.oneindia.com/image/120x70x60/2015/05/49362837-hollywood-news.jpg",
+        "url": "http://128.199.122.207:8080/static/pitch_perfect.mp4",
+        "time": "5:40",
+        "Author": "Elizabeth Banks",
+        "views": 347490,
+        "likes": 3873,
+        "comments": 283,
+        "description": "The Barden Bellas are a collegiate, all-girls a cappella singing group thriving on female pop songs and their perfect looks. After a disastrous failing at last year's finals, they are forced to regroup. Among the new recruits is freshman Beca, an independent, aspiring DJ with no interest in the college life. But after she meets Jesse, from the rival all-male a cappella group, Beca has a new outlook and takes it upon herself to help the Bellas find their new look and sound and get back into the competition."
+      },
+      {
+        "id": 1,
+        "name": "The lord of the rings (ep.3)",
+        "img": "http://vignette4.wikia.nocookie.net/lotr/images/9/91/Rohirrim_peq.jpg/revision/latest/scale-to-width-down/120?cb=20080520045119",
+        "url": "http://128.199.122.207:8080/static/the_lord_of_the_ring.mp4",
+        "time": "80:38",
+        "Author": "J. R. R. Tolkien",
+        "views": 347490,
+        "likes": 383,
+        "comments": 2823,
+        "description": "The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is the second best-selling novel ever written, with over 150 million copies sold.[1]"
+      },
+      {
+        "id": 1,
+        "name": "The Hunger Games (2012)",
+        "img": "http://videos.oneindia.com/image/120x70x60/2015/07/28553970-the-hunger-games-mockingjay-part-2-official-viral-video.jpg",
+        "url": "http://128.199.122.207:8080/static/the_hunger_game_1.mp4",
+        "time": "4:38",
+        "Author": "Gary Ross",
+        "views": 48475,
+        "likes": 3583,
+        "comments": 23823,
+        "description": "Katniss Everdeen voluntarily takes her younger sister's place in the Hunger Games, a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death."
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Movie",
+    "videos": [
+      {
+        "id": 1,
+        "name": "The walking dead (2015)",
+        "img": "http://www.alluc.ee/thumbnail/The-Walking-Dead-S05E10-HDTV-VOSE/98b8d24094fb03599cd7cd8be8db93ce",
+        "url": "http://128.199.122.207:8080/static/pitch_perfect.mp4",
+        "time": "5:40",
+        "Author": "Elizabeth Banks",
+        "views": 347490,
+        "likes": 3873,
+        "comments": 283,
+        "description": "The Barden Bellas are a collegiate, all-girls a cappella singing group thriving on female pop songs and their perfect looks. After a disastrous failing at last year's finals, they are forced to regroup. Among the new recruits is freshman Beca, an independent, aspiring DJ with no interest in the college life. But after she meets Jesse, from the rival all-male a cappella group, Beca has a new outlook and takes it upon herself to help the Bellas find their new look and sound and get back into the competition."
+      },
+      {
+        "id": 1,
+        "name": "The lord of the rings (ep.3)",
+        "img": "http://vignette4.wikia.nocookie.net/lotr/images/9/91/Rohirrim_peq.jpg/revision/latest/scale-to-width-down/120?cb=20080520045119",
+        "url": "http://128.199.122.207:8080/static/the_lord_of_the_ring.mp4",
+        "time": "80:38",
+        "Author": "J. R. R. Tolkien",
+        "views": 347490,
+        "likes": 383,
+        "comments": 2823,
+        "description": "The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is the second best-selling novel ever written, with over 150 million copies sold.[1]"
+      },
+      {
+        "id": 1,
+        "name": "The Hunger Games (2012)",
+        "img": "http://videos.oneindia.com/image/120x70x60/2015/07/28553970-the-hunger-games-mockingjay-part-2-official-viral-video.jpg",
+        "url": "http://128.199.122.207:8080/static/the_hunger_game_1.mp4",
+        "time": "4:38",
+        "Author": "Gary Ross",
+        "views": 48475,
+        "likes": 3583,
+        "comments": 23823,
+        "description": "Katniss Everdeen voluntarily takes her younger sister's place in the Hunger Games, a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death."
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Tv series",
+    "videos": [
+      {
+        "id": 1,
+        "name": "Pitch Perfect 2 (2015)",
+        "img": "http://videos.oneindia.com/image/120x70x60/2015/05/49362837-hollywood-news.jpg",
+        "url": "http://128.199.122.207:8080/static/pitch_perfect.mp4",
+        "time": "5:40",
+        "Author": "Elizabeth Banks",
+        "views": 347490,
+        "likes": 3873,
+        "comments": 283,
+        "description": "The Barden Bellas are a collegiate, all-girls a cappella singing group thriving on female pop songs and their perfect looks. After a disastrous failing at last year's finals, they are forced to regroup. Among the new recruits is freshman Beca, an independent, aspiring DJ with no interest in the college life. But after she meets Jesse, from the rival all-male a cappella group, Beca has a new outlook and takes it upon herself to help the Bellas find their new look and sound and get back into the competition.",
+        "ep": 17
+      },
+      {
+        "id": 1,
+        "name": "The lord of the rings (ep.3)",
+        "img": "http://vignette4.wikia.nocookie.net/lotr/images/9/91/Rohirrim_peq.jpg/revision/latest/scale-to-width-down/120?cb=20080520045119",
+        "url": "http://128.199.122.207:8080/static/the_lord_of_the_ring.mp4",
+        "time": "80:38",
+        "Author": "J. R. R. Tolkien",
+        "views": 347490,
+        "likes": 383,
+        "comments": 2823,
+        "description": "The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is the second best-selling novel ever written, with over 150 million copies sold.[1]",
+        "ep": 38
+      },
+      {
+        "id": 1,
+        "name": "The Hunger Games (2012)",
+        "img": "http://videos.oneindia.com/image/120x70x60/2015/07/28553970-the-hunger-games-mockingjay-part-2-official-viral-video.jpg",
+        "url": "http://128.199.122.207:8080/static/the_hunger_game_1.mp4",
+        "time": "4:38",
+        "Author": "Gary Ross",
+        "views": 48475,
+        "likes": 3583,
+        "comments": 23823,
+        "description": "Katniss Everdeen voluntarily takes her younger sister's place in the Hunger Games, a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.",
+        "ep": 8
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Animes",
+    "videos": [
+      {
+        "id": 1,
+        "name": "Pitch Perfect 2 (2015)",
+        "img": "http://videos.oneindia.com/image/120x70x60/2015/05/49362837-hollywood-news.jpg",
+        "url": "http://128.199.122.207:8080/static/pitch_perfect.mp4",
+        "time": "5:40",
+        "Author": "Elizabeth Banks",
+        "views": 347490,
+        "likes": 3873,
+        "comments": 283,
+        "description": "The Barden Bellas are a collegiate, all-girls a cappella singing group thriving on female pop songs and their perfect looks. After a disastrous failing at last year's finals, they are forced to regroup. Among the new recruits is freshman Beca, an independent, aspiring DJ with no interest in the college life. But after she meets Jesse, from the rival all-male a cappella group, Beca has a new outlook and takes it upon herself to help the Bellas find their new look and sound and get back into the competition.",
+        "ep": 17
+      },
+      {
+        "id": 1,
+        "name": "The lord of the rings (ep.3)",
+        "img": "http://vignette4.wikia.nocookie.net/lotr/images/9/91/Rohirrim_peq.jpg/revision/latest/scale-to-width-down/120?cb=20080520045119",
+        "url": "http://128.199.122.207:8080/static/the_lord_of_the_ring.mp4",
+        "time": "80:38",
+        "Author": "J. R. R. Tolkien",
+        "views": 347490,
+        "likes": 383,
+        "comments": 2823,
+        "description": "The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949, The Lord of the Rings is the second best-selling novel ever written, with over 150 million copies sold.[1]",
+        "ep": 38
+      },
+      {
+        "id": 1,
+        "name": "The Hunger Games (2012)",
+        "img": "http://videos.oneindia.com/image/120x70x60/2015/07/28553970-the-hunger-games-mockingjay-part-2-official-viral-video.jpg",
+        "url": "http://128.199.122.207:8080/static/the_hunger_game_1.mp4",
+        "time": "4:38",
+        "Author": "Gary Ross",
+        "views": 48475,
+        "likes": 3583,
+        "comments": 23823,
+        "description": "Katniss Everdeen voluntarily takes her younger sister's place in the Hunger Games, a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.",
+        "ep": 8
+      }
+    ]
+  }
+]

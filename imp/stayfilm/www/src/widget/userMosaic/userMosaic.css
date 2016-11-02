@@ -1,0 +1,27 @@
+/* line 1, userMosaic.scss */
+.sf-user-mosaic {
+  border: 0px solid red;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+/* line 7, userMosaic.scss */
+.sf-user-mosaic .thumb {
+  width: 100%;
+  display: block;
+}
+/* line 13, userMosaic.scss */
+.sf-user-mosaic .caption {
+  position: absolute;
+  height: 23px;
+  padding: 0 10px 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  bottom: 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  width: 100%;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,43 @@
+<ion-view view-title="Word Rush">
+    <ion-content class="allview" scroll="false">
+        
+        <div class="innerviewjey gamearea center">
+            <div>
+
+                <h1 class="padding-top animated bounce">Word Rush</h1>
+                <div class="homecontainer">
+
+                    <h3 class="padding-vertical">Best Score</h3> 
+
+                    <div class="col progress-wrapper">
+                        <div class="progress ng-cloak" ng-style="getStyle()">
+                            <span class="homescoreLabel">{{ bestscore }}</span>
+                        </div>
+                        <div class="round-progress" round-progress max="max" current="seconds" color="{{ getColor() }}" bgcolor="{{ bgColor }}" radius="{{ radius }}" semi="isSemi" rounded="rounded" stroke="{{ stroke }}" clockwise="clockwise" responsive="responsive" animation="{{ currentAnimation }}"
+                        offset="{{ offset }}">
+                        </div>
+                    </div>
+
+                    <div class="animated infinite pulse">
+                        <i class="icon ion-play playagain-icon" ng-click=play()></i>
+                    </div>
+
+                    <div class="padding-top row">
+                        <div class="col">
+                            <i class="icon ion-android-share-alt exit-icon" ng-click=shareApp()></i>
+                        </div>
+                        <div class="col">
+                            <i class="icon ion-person  exit-icon" ng-click=changeName()></i> 
+                        </div>
+                        <div class="col">
+                            <i class="icon ion-podium  exit-icon" ng-click=showRank()></i> 
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+       
+    </ion-content>
+</ion-view>

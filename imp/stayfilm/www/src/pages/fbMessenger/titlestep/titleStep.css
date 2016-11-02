@@ -1,0 +1,155 @@
+/* line 4, titleStep.scss */
+.moviemaker-titlestep .bar-header {
+  background: #eeebea;
+  color: #98a6b1;
+  height: 50px !important;
+  border-bottom: 2px solid #e1e4e8;
+}
+/* line 10, titleStep.scss */
+.moviemaker-titlestep .bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+}
+/* line 14, titleStep.scss */
+.moviemaker-titlestep .bar-header button.button {
+  color: #63c199;
+  width: auto;
+  height: 44px;
+  padding: 0 20px;
+  font-family: HelveticaNeueMD, sans-serif;
+}
+/* line 23, titleStep.scss */
+.moviemaker-titlestep .movie-title {
+  margin: 20px;
+}
+/* line 27, titleStep.scss */
+.moviemaker-titlestep .missing-permission {
+  padding: 10px;
+  background: red;
+}
+/* line 30, titleStep.scss */
+.moviemaker-titlestep .missing-permission button {
+  color: white;
+}
+/* line 35, titleStep.scss */
+.moviemaker-titlestep .choose-style {
+  padding: 20px 0;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #508093;
+  white-space: nowrap;
+}
+/* line 43, titleStep.scss */
+.moviemaker-titlestep .choose-style .sep {
+  display: inline-block;
+  border: 1px solid #508093;
+  width: 4%;
+  margin: 5px 4%;
+}
+/* line 51, titleStep.scss */
+.moviemaker-titlestep .genre-list {
+  margin-top: 10px;
+}
+/* line 54, titleStep.scss */
+.moviemaker-titlestep .genre-list .genre-item {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+  padding-bottom: 21.6%;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+/* line 64, titleStep.scss */
+.moviemaker-titlestep .genre-list .genre-item.selected img {
+  opacity: 0.5;
+}
+/* line 68, titleStep.scss */
+.moviemaker-titlestep .genre-list .genre-item.selected .selection {
+  display: block;
+  border-width: 10px;
+}
+/* line 74, titleStep.scss */
+.moviemaker-titlestep .genre-list .genre-item .selection {
+  position: absolute;
+  border: 0px solid #58bb72;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: none;
+}
+/* line 85, titleStep.scss */
+.moviemaker-titlestep .genre-list .genre-item img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  z-index: 1;
+}
+/* line 92, titleStep.scss */
+.moviemaker-titlestep .genre-list .genre-item .genre-name {
+  position: absolute;
+  font-size: 6vmin;
+  color: #666;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+/* line 102, titleStep.scss */
+.moviemaker-titlestep .genre-list .genre-item .icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 20px;
+  right: 15px;
+  color: #fff;
+  font-size: 20px;
+}
+/* line 115, titleStep.scss */
+.moviemaker-titlestep .big-button-footer {
+  margin: 0 20px;
+  padding: 20px 0;
+}
+/* line 119, titleStep.scss */
+.moviemaker-titlestep .big-button-footer .kana-button {
+  position: relative;
+  background: #fff;
+  border: 2px solid #60a9c1;
+  margin: 15px 0;
+  color: #60a9c1;
+  border-radius: 7px;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 18px;
+}
+/* line 129, titleStep.scss */
+.moviemaker-titlestep .big-button-footer .kana-button img {
+  left: auto;
+  right: 0;
+}
+/* line 135, titleStep.scss */
+.moviemaker-titlestep .big-button-footer .selected {
+  background-color: #58bb72;
+  color: #fff;
+}
+/* line 140, titleStep.scss */
+.moviemaker-titlestep .big-button-footer .go-to-messenger {
+  position: relative;
+  background: #238dfc;
+  margin-top: 20px;
+  border-radius: 7px;
+  color: #fff;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 20px;
+  padding: 5px;
+}
+/* line 150, titleStep.scss */
+.moviemaker-titlestep .big-button-footer .go-to-messenger .ion-chevron-left {
+  color: #fff;
+  position: absolute;
+  left: 12px;
+  top: 2px;
+}

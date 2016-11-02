@@ -1,0 +1,59 @@
+<ion-view title="{{managerMsg}}" class="customer-workplace-pane">
+    <div class="tabs-striped tabs-top tabs-background-dark tabs-color-light" style="z-index: 10000">
+    </div>
+    <ion-content class="has-header height-100" scroll="false">
+        <div class="button-bar bar-dark">
+            <button class="button" ng-click="selectDetails();" ng-class="(detailsActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px">DETAILS</button>
+            <button class="button" ng-click="selectWorkplaces();" ng-class="(workplacesActive) ? 'bottom-green' : 'border-no'" style="font-size: 10px;">WORKPLACES</button>
+        </div>
+        <div class="main-page" style="background-color: #fff">
+            <div class="list" style="width: 100%;height:100%" ng-show="workplacesActive">
+                <ion-content>
+                    <ul class="list" style="width: 100%;height:100%" ng-show="workplacesActive">
+                        <a class="item">
+                            <p style="margin-left: 70px; float: left;opacity: 0.4">Name</p>
+                            <p style="float: right;opacity: 0.4">Suburb</p>
+                            <hr style="margin-left: 70px;margin-top:40px;opacity: 0.2">
+                        </a>
+                        <li class="item item-checkbox" ng-repeat="n in workplaceList track by $index" ng-click="toggleWorkplace(n.id)" style="border:0">
+                            <label class="checkbox checkbox-balanced" style="margin-left: 10px;">
+                               <input type="checkbox" ng-checked="isInWorkplaces(n.id)">
+                            </label>
+                            <div style="font-size: 12px;margin-left: 70px; margin-top: 4px;float: left;opacity: 0.4">{{n.name}}</div> <div style="font-size: 12px;margin-top: 4px;float: right;opacity: 0.2">{{n.suburb}}</div>
+                        </li>
+                    </ul>
+                <ion-content>
+            </div>
+            <div class="profile" style="width: 100%;position:absolute;top: 60px" ng-show="detailsActive">
+                <div>
+                    <div style="padding-left: 15px; padding-right: 17px">
+                        <div class="form-group" style="margin-top: 10px;">
+                            <input id="first_name" type="text" ng-model="newmanager.first_name" wn-errors="errors.first_name" required="" placeholder="First name" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input">
+                        </div>
+                        <div class="form-group" style="padding-top:20px;">
+                            <input type="text" id="last_name" name="last_name" placeholder="Last name" ng-model="newmanager.last_name" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                        </div>
+                        <div class="form-group" style="padding-top:20px;" ng-hide="managerEditUpdate">
+                            <input type="text" id="last_name" name="last_name" placeholder="Email address" ng-model="newmanager.email" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input"/>
+                        </div>
+                        <div class="form-group" style="padding-top:20px;" ng-hide="managerEditUpdate">
+                            <input type="text" id="mobile" name="mobile" placeholder="Mobile phone" ng-model="newmanager.mobile" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                        </div>
+                        <div class="form-group" style="color: #7d7d7d;padding-top: 40px;">
+                            Allow admin rights
+                            <label class="toggle toggle-balanced" style="float:right;margin-top:-12px;">
+                               <input type="checkbox" ng-model="newmanager.customer_admin">
+                               <div class="track">
+                                 <div class="handle"></div>
+                               </div>
+                            </label>
+                        </div>
+                       <div class="form-group" style="margin-top:40px;margin-bottom:20px;width:100%">
+                        <button class="button border-no" ng-click="inviteManager()" style="font-size:16px;float: right;background: white;color:#01be6e;margin-top: 10px">{{btnMsg}}</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+   

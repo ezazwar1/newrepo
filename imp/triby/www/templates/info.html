@@ -1,0 +1,42 @@
+<ion-view cache-view="false" view-title="Info" ng-controller="InfoCtrl">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left client-positive" ui-sref="app.news_feed({triby_id: triby._id})" ng-bind="triby.name | groupName"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list list-info">
+            <div class="item item-avatar item-icon-right">
+                <img style="width: 60px; height: 60px" ng-src="{{triby.pic}}">
+                <br>
+                <span>{{triby.name}}</span>
+                <a class="icon ion-ios-compose-outline" ui-sref="app.edit_info({triby_id:triby._id})" style="text-decoration: none;color: #2695f9;"></a>
+            </div>
+        </div>
+        <div class="list" style="margin-bottom:0px;">
+            <div class="item item-icon-right" style="text-align:center;border-top:none;border-bottom:none;">
+                <!--<a ng-if="triby.admin_users.indexOf(currentAuthData.id) > -1" class="icon ion-ios-plus-outline" ui-sref="app.add_members" style="text-decoration: none;color: #2695f9;"></a>-->
+                <span style="font-size:24px;font-weight:400;color:black">Members</span>
+            </div>
+        </div>
+        <div class="list list-noti" ng-repeat="user in triby.users | orderBy:'username'">
+            <div ng-click="showMemberContextMenu($event, user._id, user.mobilenumber)" class="item item-avatar" >
+                <img image-size ng-src="{{user.pic || 'img/default_avatar.jpg'}}" />
+                <h2 style="width:75%;float:left;">{{user.username | limitName}}</h2>
+                <div style="float:left;" class="mobile-number" ng-if="user.mobilenumber && user.pending">{{user.mobilenumber}}</div>
+                <div class="clearfix"></div>
+                <span ng-if="user.pending" class="item-note">Pending</span>
+                <span ng-show="triby.admin_users.indexOf(user._id) > -1" class="item-note" style="color:red;">Admin</span>
+                <div ng-show="triby.admin_users.indexOf(currentAuthData.id) > -1" class="edit-user" ng-click="showMemberContextMenu($event, user._id, user.mobilenumber)">
+                  <i class="ion-android-more-horizontal"></i>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="list list-exit" style="text-align:center" >
+            <label class="item item-input item-text-wrap item-floating-label" ng-click="showExitConfirmPopup()">
+                <span>Exit Triby</span>
+            </label>
+        </div>
+        <br>
+        <br>
+    </ion-content>
+</ion-view>

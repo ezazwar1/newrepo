@@ -1,0 +1,77 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Restore</span>
+    <span class="welzen-popup__contents">All products restored</span>
+    <div class="welzen-popup__separator"></div>
+    <a  class="welzen-popup__cta" ng-click='togglePopUpActive()' href="#/unlock">Continue</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+
+<ion-view class="bg-welzen unlock" view-title="Unlock Happiness">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack()"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Unlock Welzen</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+<ion-content has-bouncing="false">
+    <div class="container">
+      <img class="unlock-img" src="img/characters1.svg"/>
+      <p class="paragraph included">Subscribe and receive access to all of Welzen’s premium Mindfulness tools.</p>
+      <a ng-class="{'info-box--calm': isPopularProduct(product), 'info-box--clear': !isPopularProduct(product)}" ng-click="buy(product);" ng-repeat="product in products" ng-if="product.price !== null">
+        <span class="tagline" ng-if="isPopularProduct(product)">Popular</span>
+        <div class="info-box__contents">
+          <span class="info-box__title">{{product.alias}} - {{product.price}}</span>
+          <span class="info-box__brief">{{product.description}}</span>
+        </div>
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar class="footer smaller">
+    <!--<a ng-class="{'info-box--calm': isPopularProduct(product), 'info-box--clear': !isPopularProduct(product)}" ng-click="buy(product);" ng-repeat="product in products" ng-if="product.price !== null">
+      <span class="tagline" ng-if="isPopularProduct(product)">Popular</span>
+      <div class="info-box__contents">
+        <span class="info-box__title">{{product.alias}} - {{product.price}}</span>
+        <span class="info-box__brief">{{product.description}}</span>
+      </div>
+      <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+    </a>-->
+  <p class="footer__terms footer-bottom-txt"><a class="footer__terms" ui-sref="login">Sign In</a> &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; <a class="footer__terms" ng-click="restore();">Restore Purchase</a></p>
+
+    <!--<a href='#/corporate/already' class="info-box--transparent info-box--transparent--border-top">
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">View Corporate Connect Rates</span>
+      </div>
+      <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+    </a>
+
+    <a ng-if="needShow()"  class="info-box--transparent" ng-click="restore();">
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">Restore Purchase</span>
+      </div>
+      <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+    </a>
+
+    <a href="#/unlock/billing-details" class="info-box--transparent">
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">View our billing details</span>
+      </div>
+      <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+    </a>
+
+    <a  ng-if="!isUserLogged()" href='#/login' class="info-box--transparent info-box--transparent--border-top">
+      <div class="info-box__contents info-box__contents--push-right">
+        <span class="info-box__subtitle">Already subscribed? Sign In</span>
+      </div>
+      <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+    </a> -->
+
+  </ion-footer-bar>
+
+</ion-view>

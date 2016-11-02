@@ -1,0 +1,28 @@
+<ion-content class="has-header height-100 ninja-padding" scroll="false">
+  <div class="job-page">
+    <div class="job">
+      
+
+      <img class="picture-nomedia" ng-show="job.hired_staff.staff.picture_original_url" ng-src="{{ job.hired_staff.staff.picture_original_url }}" alt=""/>
+      <img class="picture-nomedia" ng-show="!job.hired_staff.staff.picture_original_url" src="img/ninja-160x160.png" alt=""/>
+
+      <div class="group">
+        <div class="title">{{ job.hired_staff.name}}</div>
+        <div class="address">{{ job.role.name }}</div>
+      </div>
+
+      <div class="group">
+        <div class="verified">verified</div>
+        <div class="rating">
+          <angular-ratings class="rating-stars" ng-model="job.hired_staff.profile.stats_rating" readonly></angular-ratings>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer-bar class="bar-stable ninja-footer-bar">
+  <a class="button button-block button-balanced button-uppercase button-square" ng-href="tel:{{ job.hired_staff.mobile }}">Contact Ninja</a>
+</ion-footer-bar>

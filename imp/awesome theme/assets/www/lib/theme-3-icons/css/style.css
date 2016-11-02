@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Theme-3';
+  src:
+    url('../fonts/Theme-3.ttf?xlfw6x') format('truetype'),
+    url('../fonts/Theme-3.woff?xlfw6x') format('woff'),
+    url('../fonts/Theme-3.svg?xlfw6x#Theme-3') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.theme-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Theme-3' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chat:before {
+  content: "\e049";
+}
+.icon-rock-n-roll:before {
+  content: "\e900";
+}
+.icon-thumb-up:before {
+  content: "\e901";
+}
+.icon-thumb-up2:before {
+  content: "\e902";
+}
+.icon-bubble:before {
+  content: "\e903";
+}
+.icon-like:before {
+  content: "\e904";
+}
+.icon-megaphone:before {
+  content: "\e905";
+}
+.icon-message:before {
+  content: "\e906";
+}
+.icon-export-outline:before {
+  content: "\e907";
+}
+.icon-upload-outline:before {
+  content: "\e908";
+}
+.icon-message-typing:before {
+  content: "\e909";
+}
+.icon-thumbs-up:before {
+  content: "\e90a";
+}
+.icon-messages:before {
+  content: "\e90b";
+}
+.icon-chat2:before {
+  content: "\e90c";
+}
+.icon-chat-2:before {
+  content: "\e90d";
+}
+.icon-chat-3:before {
+  content: "\e90e";
+}
+.icon-comment:before {
+  content: "\e90f";
+}
+.icon-bullhorn:before {
+  content: "\e910";
+}
+.icon-share:before {
+  content: "\e911";
+}

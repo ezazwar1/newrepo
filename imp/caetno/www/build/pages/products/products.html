@@ -1,0 +1,31 @@
+<ion-navbar *navbar dark>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>{{category.name}}</ion-title>
+</ion-navbar>
+
+<ion-content class="products">
+  <ion-list inset>
+    <ion-item *ngFor="#item of products" (click)="itemTapped($event, item.id)">
+      <ion-thumbnail item-left>
+        <img src="{{item.thumbnail}}">
+      </ion-thumbnail>
+
+      <h2>{{item.name}}</h2>
+
+      <ion-row no-padding>
+        <ion-col>
+          <span secondary>
+            ${{item.price.toFixed(2)}}
+          </span>
+        </ion-col>
+        <ion-col text-right class="likes">
+          <ion-icon name="heart"></ion-icon>
+          {{item.likes}}
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/jr-crop/dist/jr-crop.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <script src="lib/mixpanel/angular-mixpanel.js"></script>
+    
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/angular-preload-image.min.js"></script>
+    <script src="lib/lazy-load.js"></script>
+
+    <!-- j-crop -->
+    <script src="lib/jr-crop/dist/jr-crop.min.js"></script>  
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/sha.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- toast -->
+    <link href="lib/ionic-toast/src/style.css" rel="stylesheet">
+    <script src="lib/ionic-toast/src/ionic-toast.js"></script>
+
+    <!-- loki js -->
+    <script src="lib/lokijs/src/lokijs.js"></script>  
+    <script src="lib/lokijs/src/loki-angular.js"></script> 
+    <script src="lib/loki-cordova-fs-adapter.js"></script> 
+
+    <!-- Moment JS -->
+    <script src="lib/moment.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="lib/jsOAuth-1.3.6.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+
+    <!-- utils -->
+    <script src="js/utils.js"></script>
+
+    <!-- models -->
+    <script src="js/models.js"></script>
+
+    <!-- Loki DB -->
+    <script src="js/lokidb.js"></script>
+
+    <!-- controllers -->
+    <script src="js/controllers/homecontroller.js"></script>
+    <script src="js/controllers/usercontroller.js"></script>
+    <script src="js/controllers/morecontroller.js"></script>
+    <script src="js/controllers/introcontroller.js"></script>
+    <script src="js/controllers/otherprofilecontroller.js"></script>
+    <script src="js/controllers/notificationcontroller.js"></script>
+    <script src="js/controllers/savedcontroller.js"></script>
+    <script src="js/controllers/itemcontroller.js"></script>
+    <script src="js/controllers/itemproductcontroller.js"></script>
+    <script src="js/controllers/articlecontroller.js"></script>
+    <script src="js/controllers/searchcontroller.js"></script>
+    <script src="js/controllers/streamcontroller.js"></script>
+
+    <!-- services -->
+    <script src="js/services.js"></script>
+    <script src="js/services/userservice.js"></script>
+    <script src="js/services/twitterservice.js"></script>
+    <script src="js/services/rewardservice.js"></script>
+    <script src="js/services/notificationservice.js"></script>
+    <script src="js/services/searchservice.js"></script>
+    <script src="js/services/itemgroupservice.js"></script>
+    <script src="js/services/itemservice.js"></script>
+    <script src="js/services/articleservice.js"></script>
+    <script src="js/services/streamservice.js"></script>
+
+    <!-- shared -->
+    <script src="js/shared/modalloginsignup.js"></script>
+    <script src="js/shared/modalcollection.js"></script>
+    <script src="js/shared/modaljoincontest.js"></script>
+    <script src="js/shared/modalunlockpromo.js"></script>
+    <script src="js/shared/modalprofile.js"></script>
+
+    <!-- factory -->
+    <script src="js/generalfactory.js"></script>
+    <script src="js/countries.js"></script>
+
+  </head>
+  <body ng-app="starter" class="platform-android platform-cordova platform-webview">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

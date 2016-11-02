@@ -1,0 +1,39 @@
+<div class="modal simple-modal" ng-controller="selectAddressModalController as vm" >
+    <ion-header-bar class="bar-stable">
+        <h1 class="title">Delivery Addresses</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="vm.cancel()"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header darker-content" scroll="true" has-bouncing="true" >
+        <ion-list class="delivery-time-radio">
+            <div class="text-center padding" style="margin-top: 20px;">
+                <span class="faded padding">
+                    Select delivery address for this order
+                </span>
+            </div>
+            <label class="item item-radio"
+                   ng-click="vm.clickAddress(address)"
+                   ng-repeat="address in vm.addresses" >
+                <input type="radio"
+                       ng-value="address" ng-model="vm.selectedAddress" name="group">
+                <div class="item-content">
+                    <h2>
+                        {{address.street1}}
+                    </h2>
+                    <p>
+                        {{address.city}}, {{address.state}} {{address.zip_code}}
+                    </p>
+                </div>
+                <i class="radio-icon ion-ios-checkmark"></i>
+            </label>
+        </ion-list>
+        <div class="history-list-separator">
+        </div>
+        <ion-item ng-click="vm.addAddressClick()" class="item-icon-right dark">
+            Add New Address
+            <i class="icon ion-ios-arrow-right text-positive"></i>
+        </ion-item>
+    </ion-content>
+</div>

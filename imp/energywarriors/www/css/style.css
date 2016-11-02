@@ -1,0 +1,637 @@
+/* Empty. Add your own CSS if you like */
+
+@font-face {
+font-family: 'Colaborate-Medium';
+font-style: normal;
+font-weight: normal;
+src: local('../lib/ionic/fonts/Colaborate-Medium.woff'), url('../lib/ionic/fonts/ColabMed.woff') format('woff');
+}
+
+/* TODO: Remove unused fonts */
+
+@font-face {
+font-family: 'Colaborate-Light';
+font-style: normal;
+font-weight: normal;
+src: local('../lib/ionic/fonts/Colaborate-Light.woff'), url('../lib/ionic/fonts/ColabLig.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Colaborate-Regular';
+font-style: normal;
+font-weight: normal;
+src: local('../lib/ionic/fonts/Colaborate-Regular.woff'), url('../lib/ionic/fonts/ColabReg.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Colaborate-Bold';
+font-style: normal;
+font-weight: normal;
+src: local('../lib/ionic/fonts/Colaborate-Bold.woff'), url('../lib/ionic/fonts/ColabBol.woff') format('woff');
+}
+
+@font-face {
+font-family:"Avante";
+src:url("../lib/ionic/fonts/avante.eot?") format("eot"),url("../lib/ionic/fonts/avante.woff") format("woff"),url("../lib/ionic/fonts/avante.ttf") format("truetype"),url("../lib/ionic/fonts/avante.svg#Avante") format("svg");
+font-weight:normal;
+font-style:normal;
+}
+
+
+/* Top& Bottom Nav Bar/Tabs */
+.bar.bar-stable .title {
+  color: #fff;
+  border-color: #082025;
+  border-bottom: none !important;
+  text-transform: uppercase;
+  font-family: 'Colaborate-Bold';
+  font-weight: 600;
+  font-size: 16px;
+  background-image: url(../img/ew.png);
+  background-repeat: no-repeat;
+  margin-top:5px;
+}
+
+body, .ionic-body {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Avante';
+  line-height: 20px;
+  word-wrap: normal;
+}
+
+.tabs {
+  padding-top: 10px;
+  border-top: none !important;
+  border-bottom: none;
+  height: 57px;
+  background-image: none;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top:-17px;
+  margin-bottom: 10px;
+}
+
+.bar .button.back-button.active, .bar .button.back-button.activated {
+  opacity: .8;
+}
+
+.bar-stable .button.button-clear {
+  color: #6e8382;
+  font-size: 14px;
+}
+
+ion-tabs.tabs-color-active-balanced .tab-item {
+  color: #6F8281;
+}
+
+/* Page Lists */
+.list {
+}
+
+.list .item, .list .item-complex .item-content {
+  border: 0;
+  border-top: 1px solid #A0CC3C;
+}
+
+.transparent-back{
+  background-color: rgba(8, 32, 37, 0.5);
+}
+
+.item-icon-right .icon-accessory {
+    right: 0px;
+}
+
+.item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
+  border-color: none;
+  background-color: rgba(7, 48, 62, 0.5);
+  }
+
+  .item{
+    margin: 0;
+  }
+
+  .item h2 {
+    color: #A0CC3D;
+    text-transform: uppercase;
+    font-family: 'Colaborate-Regular';
+    font-weight: 400;
+    line-height: 13px;
+    font-size: 13px;
+  }
+
+  .item-content p {
+    color: #f3f3f3;
+    font-family: 'Avante';
+  }
+
+  .item p {
+    color: #fff;
+    font-family:"Avante";
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+/* Profile main page items */
+
+.icon-profile {
+  /*margin-left:-145px;*/
+  /*position: fixed;*/
+  font-size: 20px;
+  color:#fff;
+  /*background-repeat: no-repeat;*/
+}
+
+.profile-main-content {
+  margin-left: 19px;
+  position: relative;
+  word-wrap: normal;
+  top: 78px;
+}
+
+.profile-main-image {
+  width: 115px;
+  float: left;
+  top: 65px;
+  position: absolute;
+  left: 0;
+}
+
+#chat-stat-name {
+  color:#6e8382;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right:5px;
+  font-family: 'Colaborate-Bold';
+  fot-size:14px;
+}
+
+.item-thumbnail-left > img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content > img:first-child, .item-thumbnail-left .item-content .item-image {
+  position: absolute;
+  max-width: 119px;
+  max-height: 119px;
+  left: 0;
+  top: 0;
+}
+
+.item-avatar > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+  top: 15px;
+  left: 20px;
+  padding-bottom: 20px;
+  padding-left:10px;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 0;
+}
+
+.item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+  padding-left: 168px;
+}
+
+.item-thumbnail-left, .item-thumbnail-left .item-content {
+  padding-top: 8px;
+  min-height: 180px;
+}
+
+.item-complex.item-icon-right .item-content {
+  padding-top: 10px;
+  height: 89px;
+  overflow-y:hidden;
+}
+
+.item-complex .item-content, .item-radio .item-content {
+  padding:4px 15px 8px 113px;
+}
+
+/* Chat main page items */
+.chat-image {
+  left: 8px;
+  position: absolute;
+  top: 12px;
+  overflow:hidden;
+  width: 115px;
+  height: 65px;
+}
+
+.chat-image-spec{
+  width:100%;
+}
+
+.chat-icons {
+  position: absolute;
+  float: left;
+  background-color: #a0cc3d;
+  padding: 5px;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25)
+}
+
+.chat-content{
+  width: 100%;
+  margin-left: 18px;
+}
+}
+
+.chat-title{
+  font-family: 'Colaborate-Bold';
+}
+
+/* icons for TYPE of articles */
+/*span[data-type="video"]{
+background-image:url(../img/icons/video.svg);
+}
+
+span[data-type="dyk"]{
+background-image:url(../img/icons/dyk.svg);
+}
+
+span[data-type="story"]{
+background-image:url(../img/icons/article.svg);
+}
+
+.slideshow {
+  background-image:url(../img/icons/images.svg);
+}*/
+
+
+/* icons for TYPE of articles FIXING THIS TO NOT USE DATA-URIO BECASUE OF IPAD*/
+
+.video {
+  background-image:url(../img/icons/video.svg);
+  background-repeat: no-repeat;
+}
+
+.dyk {
+  background-image:url(../img/icons/dyk.svg);
+  background-repeat: no-repeat;
+}
+
+.story {
+  background-image:url(../img/icons/article.svg);
+  background-repeat: no-repeat;
+}
+
+.slideshow {
+  background-image:url(../img/icons/images.svg);
+}
+
+/*DYK Stories */
+.item-divider {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  min-height: 30px;
+  background-color: rgba(8, 32, 37, 0.5);
+  border:none;
+  color: #fff;
+  text-align: center;
+  font-family: 'Colaborate-Bold';
+  text-transform: uppercase;
+  font-size:1.5em;
+}
+
+.bar {
+  z-index: 9;
+  padding: 5px;
+  height: 44px;
+  background-color:rgba(255, 0, 0, 0);
+  border-width: 0;
+  border-style: none;
+  border-top: none;
+  border-bottom: none;
+  /* border-width: 1px will actually create 2 device pixels on retina; */
+  background-size: 0;
+  position:relative;
+}
+
+.image-list-thumb {
+  width: 100%;
+  height:100%;
+}
+
+.dyk-title{
+  color:#a0cc3d;
+  font-family: 'Colaborate-Regular';
+  text-transform: uppercase;
+  font-size:1.5em;
+  overflow: visible;
+  position: relative;
+}
+
+.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
+  overflow: visible;
+  white-space: normal;
+}
+
+.dyk-content{
+  padding:6px 14px 14px 14px;
+  font-size: 14px;
+}
+
+.dyk-fact {
+  background-color:rgba(160, 204, 61, 0.5);
+  padding:10px;
+}
+
+.dyk-fact-title {
+  color:#fff;
+  font-family: Colaborate-Bold;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.ion-images:before {
+  content: "";
+}
+
+/* Profile Details Styles */
+#profile-name {
+  color: #A0CC3C;
+  font-size: 1.4em;
+  font-family: 'Colaborate-Bold';
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+#profile-detail-name {
+  color: #A0CC3C;
+  font-size: 1.8em;
+  font-family: 'Colaborate-Bold';
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom:0;
+  margin-left: 5px;
+}
+
+#profile-description {
+  font-size: 15px;
+  color: #888;
+}
+#profile-description a {
+  color: #888;
+}
+
+#profile-description {
+  color: #fff;
+  font-family: 'Colaborate-Regular';
+  font-size:1.2em;
+  text-transform:uppercase;
+  display:block;
+  position:relative;
+}
+
+#profile-detail-description {
+  color: #fff;
+  font-family: 'Colaborate-Regular';
+  font-size: 1.2em;
+  text-transform: uppercase;
+  display: block;
+  position: relative;
+  padding: 20px;
+  top: 65px;
+}
+
+#profile-image {
+  display: block;
+  border-radius: none;
+  border: none;
+  width:150px;
+  float: left;
+  padding-right:10px;
+  top: 71px;
+  position: absolute;
+  left: 0;
+}
+
+#profile-main-image{
+  border: none;
+  width: 50%;
+  float: left;
+  margin-right: 10px;
+}
+
+.profile-contents {
+  margin-top: 26px;
+  float: left;
+  padding: 20px;
+}
+
+.media-contents {
+  color:#fff;
+  font-family: 'Colaborate-Bold';
+  font-size:.9em;
+  text-transform:uppercase;
+}
+
+.profile-stats {
+  background-color: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  padding: 5px;
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid #A0CC3C;
+  left: 0;
+  top: 0;
+}
+
+.profile-stats-detail {
+  font-size:12px;
+}
+
+#profile-stat-name {
+  color:#6e8382;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right:5px;
+  margin-left:5px;
+  font-family: 'Colaborate-Bold';
+}
+
+.profile-details {
+  margin-left: 141px;
+  height: 211px;
+  background-color: rgba(59, 74, 74, 0.6);
+  margin-bottom: 20px;
+}
+
+.profile-stat-divider {
+  color:#ff4c00;
+  margin-left:5px;
+}
+
+/*profile page quotes */
+.quote{
+  width: 100%;
+  display: inline-block;
+}
+
+.quotation {
+  background-image:url(../img/icons/quote.svg);
+  background-repeat: no-repeat;
+  height: 30px;
+  margin-left:8px;
+  }
+
+.blurb {
+  color:#fff;
+  font-family: 'Colaborate-Light';
+  font-style: italic;
+  font-size: 18px;
+  margin:-16px 16px 16px 42px;
+  line-height: 20px;
+}
+
+.video-link {
+background-image:url(../img/icons/videocamera.svg);
+background-repeat: no-repeat;
+height: 40px;
+display:block;
+width: 36px;
+float: left;
+ }
+
+.slideshow-link{
+ background-image:url(../img/icons/slideshow.svg);
+ background-repeat: no-repeat;
+ height: 40px;
+ width: 40px;
+float: left;
+  }
+
+.question{
+   font-family: 'Colaborate-Bold';
+   font-size:18px;
+   color:#A0CC3C;
+   text-transform: uppercase;
+   margin-bottom:10px;
+ }
+
+ /* youtube video support */
+ .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+ /* changes the look of the loading spinner */
+/*.loading-container .loading {
+    background-color: white;
+    color: black;
+
+    width: 50% !important;
+    border-width: 2px !important;
+    border-color: black !important;
+    border-style: solid !important;
+}*/
+
+
+/*connect page */
+.list:last-child.card {
+  margin-bottom: 2px;
+  top: -18px;
+}
+
+.padding .card, .padding .list-inset {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.card {
+  padding: none;
+  box-shadow: none;
+}
+
+.card, .list-inset {
+  word-wrap:normal;
+  margin: 20px 10px;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: 'Avante';
+  line-height: 20px;
+}
+
+.connect {
+  font-family: 'Colaborate-Bold';
+  text-transform: uppercase;
+  font-size:1.05em;
+  text-decoration: none;
+  color:#d2cac9;
+}
+
+.connect-title{
+  font-family: 'Colaborate-Bold';
+  text-transform: uppercase;
+  font-size:1.5em;
+  color:#fff;
+  text-align: center;
+}
+
+.ion-social-twitter {
+  color:#ff4c00;
+  font-size:16px;
+}
+
+.ion-social-facebook {
+  color:#ff4c00;
+  font-size:16px;
+}
+
+.ion-social-youtube {
+  color:#ff4c00;
+  font-size:16px;
+}
+
+#connect-header {
+  font-size: 1.7em;
+  line-height: 25px;
+}
+
+.item{
+  background-color: rgba(8, 32, 37, 0.5);
+  border:0;
+}
+.connect-social {
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  display: block;
+  font-size: 12px;
+}
+
+.connect-list-items{
+  padding-bottom:10px;
+}
+
+/* makes list for the get connected section*/
+.my-list {
+ list-style-type: disc;
+ text-align: left;
+ color:#fff;
+ margin-left:16px;
+ font-size:14px;
+}
+
+/* Navy Logo*/
+.title-image {
+    float: right;
+}

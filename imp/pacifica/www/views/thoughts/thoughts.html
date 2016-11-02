@@ -1,0 +1,43 @@
+<ion-view title="{{ 'THOUGHTS_HEADER_NEW' | translate }}" class="intro rethink new-thought">
+
+  <ion-nav-buttons side="right">
+    <!--<a href="javascript:;" ng-click="goToGratitudeCommunity()"><button class="button button-clear icon ion-ios-people-outline"></button></a>-->
+    <a href="javascript:;" ui-sref="app.rethink-help"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back"></div>
+
+  <ion-content>
+  <h2></h2>
+  <p>{{ getActivityOptionDescription() }}</p>
+  <div class="item item-divider" style="border-top: none;">{{ 'CHOOSE_YOUR_ACTIVITY' | translate }}</div>
+  <div class="activity-wrapper">
+      <div class="clearfix">
+        <div class="activity-option" ng-class="{on: isActivityOption('THOUGHTS_ACTIVITY_COGNITIVE_DISTORTIONS'), suggested: isActivitySuggested('THOUGHTS_ACTIVITY_COGNITIVE_DISTORTIONS')}" ng-click="setActivityOption('THOUGHTS_ACTIVITY_COGNITIVE_DISTORTIONS')">{{ 'THOUGHTS_ACTIVITY_COGNITIVE_DISTORTIONS' | translate }}</div>
+        <div class="activity-option" ng-class="{on: isActivityOption('THOUGHTS_ACTIVITY_JOURNAL'), locked: !isPremiumEnabled(), suggested: isActivitySuggested('THOUGHTS_ACTIVITY_JOURNAL')}" ng-click="setActivityOption('THOUGHTS_ACTIVITY_JOURNAL')">{{ 'THOUGHTS_ACTIVITY_JOURNAL' | translate }}</div>
+      </div>
+      <div class="clearfix">
+        <div class="activity-option" ng-class="{on: isActivityOption('THOUGHTS_ACTIVITY_GRATITUDE'), locked: !isPremiumEnabled(), suggested: isActivitySuggested('THOUGHTS_ACTIVITY_GRATITUDE')}" ng-click="setActivityOption('THOUGHTS_ACTIVITY_GRATITUDE')">{{ 'THOUGHTS_ACTIVITY_GRATITUDE' | translate }}</div>
+        <div class="activity-option" ng-class="{on: isActivityOption('THOUGHTS_ACTIVITY_POSITIVITY'), locked: !isPremiumEnabled(), suggested: isActivitySuggested('THOUGHTS_ACTIVITY_POSITIVITY')}" ng-click="setActivityOption('THOUGHTS_ACTIVITY_POSITIVITY')">{{ 'THOUGHTS_ACTIVITY_POSITIVITY' | translate }}</div>
+      </div>
+  </div>
+    <div class="item item-divider" style="border-top: none;">{{ 'ACTIVITY_OPTIONS' | translate }}</div>
+    <div class="list">
+      <!--<div class="item item-icon-left item-select">
+        <i class="icon {{ activityOptions.activityOptionOrdinal == 0 ? 'ion-sad-outline' : 'ion-ios-paper-outline' }}" style="font-size: 28px;"></i>
+        <select ng-model="activityOptions.activityOptionOrdinal" ng-options="activityOptions.options.indexOf(item) as getActivityOptionDisplay(item) for item in activityOptions.options" ng-change="updateActivityOption()">
+        </select>
+      </div>-->
+      <div class="item item-icon-left item-select">
+        <i class="icon {{ inputOptions.inputOptionOrdinal == 0 ? 'ion-ios-paper-outline' : 'ion-ios-mic-outline' }}" style="font-size: 28px;"></i>
+        <select ng-model="inputOptions.inputOptionOrdinal" ng-options="inputOptions.options.indexOf(item) as getInputOptionDisplay(item) for item in inputOptions.options" ng-change="updateInputOption()">
+        </select>
+      </div>
+	  </div>
+  <!--<p>{{ getActivityOptionDescription() }}<!--<br><br>{{ 'THOUGHTS_INTRO_INSTRUCTIONS' | translate }}</p>-->
+    <!--<p class="privacy-text">{{ 'THOUGHTS_RECORDINGS_SECURE' | translate }}</p>-->
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+  <a href="javascript:;" ng-click="startActivity()" class="item button-start">{{ 'START' | translate }}</a>
+
+</ion-view>

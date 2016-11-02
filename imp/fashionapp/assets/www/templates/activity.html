@@ -1,0 +1,37 @@
+<ion-view>
+    <div class="page-layout">
+        <ion-content has-bouncing="true">
+            <div class="top" >
+                <h1>Activity</h1>
+            </div>
+            <div class="content activity">
+                <hr>
+                <div class="loading-icon pull-center" ng-if="activities == null"><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></div>
+
+                <div class="loading-icon pull-center" ng-if="activities.length == 0"><em>No activity yet.</em></div>
+
+                <div class="activity-item" ng-repeat="activity in activities track by $index">
+                    <div class="head">
+                        <div class="owner-profile">
+                            <img ng-click="goId('profile',activity.owner.id)" ng-src="{{ activity.owner.img_avatar__thumbnail }}">
+                        </div>
+                        <div class="owner-action">
+                            <h2 ng-click="goId('profile',activity.owner.id)">{{ activity.owner.title }}</h2>
+                            {{ activity.label }} <br>
+                            <small>{{ activity.created_age }}</small>
+                        </div>
+                    </div>
+                    <div class="items" ng-repeat="item in activity.items">
+                        <img ng-src="{{ item.image__large }}" ng-click="goId(item.element_type,item.id)">
+                        <p>{{ item.title }}</p>
+                     <!--    <p ng-if="item.element_type == 'brand'">{{ item.element_type }} {{ item.title }}</p>
+                        <p ng-if="item.element_type == 'news'">{{ item.element_type }} {{ item.title }}</p>
+                        <p ng-if="item.element_type == 'profile'">{{ item.element_type }} {{ item.title }}</p>
+                        <p ng-if="item.element_type == 'product'">{{ item.element_type }} {{ item.title }} from {{ item.brand.company_name }}</p>
+                        <p ng-if="item.element_type == 'collection'">{{ item.element_type }} {{ item.title }} from {{ item.brand.company_name }}</p> -->
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

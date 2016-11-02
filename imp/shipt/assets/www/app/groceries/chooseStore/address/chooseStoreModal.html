@@ -1,0 +1,148 @@
+<div class="address modal choose-store-modal" ng-controller="chooseStoreModalAddressController as vm" >
+    <ion-header-bar class="bar-stable" id="chooseStoreModalHeaderBar">
+        <h1 class="title faded delivery-address-header">Stores Near Your Address</h1>
+        <div class="buttons" ng-if="!vm.requireZip">
+            <button class="button button-clear" ng-click="alert('asdf');vm.cancel()" role="button" aria-label="Close icon in Top Right"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+    <ion-content overflow-scroll="false" has-bounce="true" class="has-header  darker-content">
+
+        <customer-address-list choose-address-function="vm.clickAddress(clickedAddress)"
+                               add-address-function="vm.addAddress()"
+                               ng-if="vm.editShoppingAddressMode">
+        </customer-address-list>
+
+        <div ng-if="!vm.editShoppingAddressMode">
+            <div ng-if="vm.selectedAddress">
+                <div class="padding"></div>
+                <ion-item ng-click="vm.changeAddress(address)" class="item dark edit-address-button"
+                          role="button" aria-label="{{vm.selectedAddress.street1}} {{vm.selectedAddress.street2}}, {{vm.selectedAddress.city}}, {{vm.selectedAddress.state}} {{vm.selectedAddress.zip_code}}, switch addresses or add a new one.">
+                    <div class="row">
+                        <div class="col col-80">
+                            {{vm.selectedAddress.street1}} {{vm.selectedAddress.street2}}
+                            <br>
+                            <small>
+                                {{vm.selectedAddress.city}}, {{vm.selectedAddress.state}} {{vm.selectedAddress.zip_code}}
+                            </small>
+                        </div>
+                        <div class="col">
+                            <span class="text-positive text-center col-center" id="change-address" ng-bind-html="vm.changeAddressText"></span>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>
+            <div class="top-area">
+                <form ng-if="!vm.selectedAddress" class="text-center address-input-form">
+                    <label class="item item-input">
+                        <i class="icon ion-ios-location-outline placeholder-icon" aria-hidden="true"></i>
+                        <input autocomplete="off"
+                                placeholder="{{vm.addressPlaceholder}}"
+                                ng-model="vm.addressText"
+                                ng-model-options="{ debounce: 500 }"
+                                id="chooseStoreAddressInput"
+                               autocorrect="off"
+                               autocapitalize="off"
+                               spellcheck="false"
+                               type="text"
+                               role="textbox"
+                               aria-label="{{vm.addressPlaceholder}}">
+                    </label>
+                </form>
+            </div>
+            <div class="text-center padding" ng-if="!vm.stores && vm.selectedAddress">
+                <ion-spinner></ion-spinner>
+            </div>
+            <div ng-if="vm.selectedAddress" class="text-center stores">
+                <div>
+                    <h4 ng-if="vm.stores && vm.stores.length == 0" class="faded padding" style="margin-top: 14px;" role="alert">
+                        No Available Stores In Your Area
+                    </h4>
+                </div>
+                <div ng-if="vm.stores && vm.stores.length > 0" ng-repeat="store in vm.stores">
+
+                    <div class="button button-light store padding"
+                            style="background-color: {{store.background_color}};"
+                            ng-click="vm.clickStore(store)"
+                            role="button" aria-label="{{store.name}}">
+                        <span ng-if="store.new_store" class="store-indicator new" style="color:{{store.background_color}}">NEW</span>
+                        <i ng-class="vm.selectedStore.id == store.id && !vm.requireZip ? 'ion-ios-checkmark-outline' : 'ion-ios-circle-outline'"
+                           class="store-indicator selected light icon"></i>
+                        <div class="item item-image" style="background-color: transparent;background-image: url({{store.image}});"></div>
+                    </div>
+                </div>
+                <p ng-click="vm.suggestStore()" class="button button-light store padding faded store-request">
+                    {{vm.suggestButtonText}}
+                </p>
+            </div>
+            <div class="address-list suggestions" ng-if="!vm.selectedAddress">
+                <div class="suggestions" ng-if="!vm.addressResults">
+                    <ion-list>
+                        <ion-item ng-click="vm.clickAddress(vm.currentLocationAddress)" class="item item-icon-left current-location-item"
+                                role="button" aria-label="Use Current Location">
+                            <i class="icon ion-navigate text-positive"></i>
+                            <h2 class="dark">
+                                Current Location
+                            </h2>
+                            <p ng-if="vm.currentLocationAddress" class="dark">
+                                {{vm.getAddressString(vm.currentLocationAddress)}}
+                            </p>
+                            <p ng-if="!vm.currentLocationAddress" class="dark">
+                                Locating...
+                            </p>
+                        </ion-item>
+                        <ion-item  ng-click="vm.clickAddress(address)"
+                                    ng-repeat="address in vm.customer_addresses"
+                                  class="item item-icon-left"
+                                  role="button" aria-label="Your Address, {{vm.getAddressString(address)}}">
+                            <i class="icon ion-home text-positive" aria-hidden="true" aria-label="address icon"></i>
+                            <h2 class="dark" aria-hidden="true">
+                                Your Address
+                            </h2>
+                            <p class="dark" aria-hidden="true">
+                                {{vm.getAddressString(address)}}
+                            </p>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+            <div class="address-list" ng-if="!vm.selectedAddress">
+                <ion-list ng-if="vm.addressResults">
+                    <ion-item class="item item-icon-left"
+                              ng-click="vm.clickAddress(address)"
+                              ng-repeat="address in vm.addressResults"
+                              role="button" aria-label="{{address.street1}},{{address.city}}, {{address.state}} {{address.zip_code}}">
+                        <i class="icon ion-ios-location text-positive" aria-hidden="true"></i>
+                        <h2 ng-if="address.street1" aria-hidden="true">
+                            {{address.street1}}
+                        </h2>
+                        <p aria-hidden="true">
+                            {{address.city}}, {{address.state}} {{address.zip_code}}
+                        </p>
+                    </ion-item>
+                </ion-list>
+                <div ng-if="vm.addressResults" class="powered-by-google-logo">
+                    <img src="img/powered_by_google.png" alt="">
+                </div>
+            </div>
+
+            <div ng-if="!vm.selectedAddress && !vm.addressResults" class="text-center padding address-explination">
+                <p class="faded">
+                    Sharing your address shows:
+                    <ul>
+                        <p class="faded">
+                            <i class="icon ion-ios-checkmark-empty"></i> Stores near you
+                        </p>
+                        <p class="faded">
+                            <i class="icon ion-ios-checkmark-empty"></i> Delivery time estimates
+                        </p>
+                        <p class="faded">
+                            <i class="icon ion-ios-checkmark-empty"></i> Pricing & availability
+                        </p>
+                    </ul>
+                </p>
+            </div>
+
+        </div>
+
+    </ion-content>
+</div>

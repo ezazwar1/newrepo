@@ -1,0 +1,101 @@
+
+
+.bar.search-bar {
+    top: 44px;
+    transition: all ease-in-out 250ms;
+    z-index: 15;
+    background-color: $stable;
+    button,input,form {
+        transition: all ease-in-out 250ms;
+    }
+
+    button.button.button-clear.button-positive.search-scanner-button {
+        padding-right: 1px;
+    }
+
+    label.item-input-wrapper {
+        background-color: $light;
+        //border: 1px solid rgba(232,232,232,1);
+        border: 0.01em solid #e8e8e8;
+        padding-right: 4px;
+        input {
+            font-size: 16px;
+            height: 24px !important;
+            line-height: 20px;
+            text-overflow: ellipsis;
+        }
+        input[placeholder] {
+            text-overflow:ellipsis;
+            overflow: hidden;
+        }
+    }
+    button.button.clear-text-button {
+        color: rgba(157, 157, 157, 0.68);
+        line-height: 14px;
+        height: 28px;
+        &:before {
+            line-height: 31px;
+        }
+    }
+    button.button.clear-text-button.show:before {
+      font-size: 14px;
+    }
+    button.button.clear-text-button.hide:before {
+      display:hidden;
+    }
+    button.ng-hide {
+        margin-right: -67px;
+    }
+}
+
+
+.has-search-bar {
+    margin-top: -2px;
+    top: 88px;
+    transition: top ease-in-out 250ms;
+
+    &.search-bar-focused {
+        //top: 44px;
+    }
+    &.has-filter-bar {
+        top: 132px;
+        &.platform-ios {
+            top: 152px !important;
+        }
+    }
+}
+.platform-ios.platform-cordova:not(.fullscreen) {
+    .search-bar.bar-header {
+        height: 44px;
+        top: 64px;
+        &.search-bar-focused {
+            height: 64px;
+            //top: 0;
+        }
+    }
+
+    .search-bar.bar-header.item-input-inset {
+        .item-input-wrapper {
+            transition: all ease-in-out 250ms;
+            margin-top: 0 !important;
+        }
+
+        button.button.button-clear.button-positive {
+            margin-top: 0 !important;
+        }
+    }
+
+    .search-bar.search-bar-focused.bar-header.item-input-inset {
+        .item-input-wrapper {
+            margin-top: 19px !important;
+        }
+    }
+
+    .has-search-bar {
+        top: 108px;
+
+        &.search-bar-focused {
+            //top: 64px;
+        }
+    }
+}

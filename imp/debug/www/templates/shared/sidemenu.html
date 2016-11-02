@@ -1,0 +1,52 @@
+<ion-side-menus enable-menu-with-back-views="false">
+	
+	<ion-nav-bar align-title="center" class="bar-assertive">
+
+	</ion-nav-bar>
+	<ion-pane drawer-menu-content>
+		<ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+	</ion-pane>
+
+	<drawer side="left" class="navDrawerLeft" canDrag="true">
+		<!-- <div class="menu-top-banner">
+			<h2>ibs AutoLog</h2>
+		</div> -->
+		<ion-content class="header-menu menu-outer" scroll="true">		
+			<div class="eCommerce-menu-item">
+				<div class="menu-top-banner">
+					<img ng-src="{{currUser.avatar}}" alt="">
+					<h2 class="username">{{currUser.fullname}}</h2>
+				</div>
+				<div class="list">
+					<a href="#/app/profile/{{currUser._id}}" menu-and-drawer-close class="item item-icon-left">
+						<i class="icon ion-person"></i>
+						PROFILE
+					</a>
+					<a href="#/app/posts" menu-and-drawer-close class="item item-icon-left">
+						<i class="icon ion-images"></i>
+						BROWSE PHOTOS
+					</a>
+					
+					<a href="#/app/newfeeds" menu-and-drawer-close class="item item-icon-left">
+						<i class="icon ion-plus-round"></i>
+						ADD PHOTO
+					</a>
+					
+					<a href="#/app/circles" menu-and-drawer-close class="item item-icon-left">
+						<i class="icon ion-cube"></i>
+						PHOTO CIRCLES
+					</a>
+
+					<!-- <a menu-and-drawer-close href="#/app/setting" class="item item-icon-left">
+						<i class="icon ion-gear-b"></i>
+						SETTINGS
+					</a> -->
+
+					
+				</div>
+
+			</div>
+		</ion-content>
+		
+	</drawer>
+</ion-side-menus>

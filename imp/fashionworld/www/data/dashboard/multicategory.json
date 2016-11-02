@@ -1,0 +1,37 @@
+{"success":true,"data":[
+	{"category_id":"1","topContent":"","bottomContent":"","title":"MEN","small_icon":"img/sideMenu/men-icons.png","large_icon":"img/sideMenu/men-icons.png","image":null,"subCollection":[
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Jeans","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"82"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Shirts","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"93"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"T-shirts","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"132"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Trousers","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"27"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Wallets","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"29"},
+		{"category_id":"1","topContent":"","bottomContent":"","title":"Watches","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"51"}],"total":"652"},
+
+	{"category_id":"2","topContent":"","bottomContent":"","title":"WOMEN","small_icon":"img/sideMenu/women-icons.png","large_icon":"img/category/big/confectionery-120x120.png","image":null,"subCollection":[
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Jeans","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"6"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Shirts","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"200"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Trousers","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"43"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Tops","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"271"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Sarees","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"224"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Kurtis","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"131"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Purse","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"113"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Handbags","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"69"},
+		{"category_id":"2","topContent":"","bottomContent":"","title":"Belts","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"89"}],"total":"1448"},
+
+	{"category_id":"3","topContent":"","bottomContent":"","title":"KIDS","small_icon":"img/sideMenu/kids-icons.png","large_icon":"img/category/big/households-120x120.png","image":null,"subCollection":[
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Jeans","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"88"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Watches","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"158"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Tops","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"79"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Shoes","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"18"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Sports Wear","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"61"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Ethnic wear","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"33"},
+		{"category_id":"3","topContent":"","bottomContent":"","title":"Party Wear","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"56"}],"total":"505"},
+
+	{"category_id":"4","topContent":"","bottomContent":"","title":"SALE","small_icon":"img/sideMenu/offer-icons.png","large_icon":"img/category/big/beverages-120x120.png","image":null,"subCollection":[
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Shirts","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"65"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Tops","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"63"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Kurtas","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"46"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Sarees","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"123"},
+		{"category_id":"4","topContent":"","bottomContent":"","title":"Others","small_icon":null,"large_icon":null,"image":null,"subCollection":null,"total":"28"}],"total":"341"}
+
+		]}

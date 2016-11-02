@@ -1,0 +1,26 @@
+sfLocal.defaultServer = 'artur';
+
+sfLocal.loginUsername = '';
+sfLocal.loginPassword = '';
+
+sfLocal.loginUsername = 'selenium';
+sfLocal.loginPassword = '12345';
+// sfLocal.loginPassword = 'SF!stayfilm1';
+
+sfLocal.debug = false;
+sfLocal.remoteLogging = false;
+
+// sfLocal.overloadCssUrl = 'http://artur.office.stayfilm.com.br/cool/assets/css/fun-overload.css';
+// sfLocal.overloadJsUrl = 'http://artur.office.stayfilm.com.br/cool/assets/scripts/fun-overload.js';
+
+// sfLocal.pushWooshId = 'B9548-43830'; // dev
+sfLocal.pushWooshId = 'C3E3E-09B6C'; // prod
+sfLocal.pushWooshIdTest = 'B9548-43830'; // test
+sfLocal.googleProjectId = '658119204746';
+
+sfLocal.maintenanceUrl = "http://ubu18.office.stayfilm.com.br/maintenance.php";
+
+//sfLocal.appContext = "stayfunny"
+// sfLocal.lang = 'en';
+
+sfLocal.gaTrackingIds = {web: 'UA-42284570-1', cordova: 'UA-42284570-2'};

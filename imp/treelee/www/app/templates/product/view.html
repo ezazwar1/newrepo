@@ -1,0 +1,95 @@
+<ion-view title="{{category.name}}">
+    <ion-header-bar class="bar-subheader bar-light bar-checkout no-padding-top-bottom" ng-class="{'hide-bars': bars.hide, 'show-bars': bars.show}">
+        <button class="button button-dark button-clear button-checkout-back icon ion-ios7-arrow-left" ng-click="goBack()"></button>
+        <h1 class="title">{{product.name}}</h1>
+    </ion-header-bar>
+
+    <ion-tabs tabs-type="" class="bar-dark tabs-icon-left" ng-class="{'hide-bars': bars.hide, 'show-bars': bars.show , 'hide-gallery': product.gallery_images.length <= 1}" ng-if="product">
+        <ion-tab icon-on="ion-image" icon-off="ion-image">
+            <ion-view>
+                <div class="detail-image-container">
+                    <img class="detail-image imageonload ng-hide"  ng-src="{{product.gallery_images[0]}}" ng-style="{'height': zoomImage.height, 'width': zoomImage.width}" pinch-zoom imageonload ng-click="toggleBars()">
+                </div>
+                <div class="price-container has-subheader ng-hide" ng-show="product.price['@attributes'].regular && !bars.hide" ng-class="{'hide-bars': bars.hide, 'show-bars': bars.show}">
+                    <div>
+                        <div ng-if="!product.price['@attributes'].special" class="price">
+                            {{product.price_currency}}
+                            {{product.price['@attributes'].regular}}
+                        </div>
+                        <div ng-if="product.price['@attributes'].special" class="price">
+                            {{product.price_currency}}
+                            <span class="old-price">{{product.price['@attributes'].regular}}</span>
+                            {{product.price['@attributes'].special}}
+                        </div>
+                    </div>
+                </div>
+            </ion-view>
+        </ion-tab>
+
+        <ion-tab icon-on="ion-information-circled" icon-off="ion-information-circled">
+            <ion-view>
+                <ion-content padding="true">
+                    <div ng-include="'app/templates/product/partials/info.html'"></div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+
+        <ion-tab icon-on="ion-images" icon-off="ion-images">
+            <ion-view>
+                <ion-content scroll="false">
+                    <div class="detail-container" ng-include="'app/templates/product/partials/gallery.html'"></div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+
+        <ion-tab title="{{dict.sizeOnly}}" class="only-text">
+            <ion-view>
+                <ion-content padding="true">
+                    <div ng-include="'app/templates/product/partials/size.html'"></div>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+
+        <ion-tab icon-on="ion-bag" icon-off="ion-bag" ng-click="addToBasket()">
+        </ion-tab>
+    </ion-tabs>
+</ion-view>
+
+<script id="chooseSize.html" type="text/ng-template">
+    <div class="modal">
+        <ion-header-bar class="transparent">
+            <button class="button button-clear button-dark icon ion-ios7-close-empty" ng-click="closeModal(0)"></button>
+        </ion-header-bar>
+        <ion-content>
+            <div class="details">
+                <div class="filter-container">
+                    <p>{{dict.chooseOption}}</p>
+                    <div class="label">{{product.options[0]['@attributes'].label}}</div>
+                    <label class="item item-radio transparent" ng-repeat="value in product.options[0].value">
+                        <div ng-click="showSetSubOptions(value.relation.value)">
+                            <input type="radio"
+                                   ng-model="options[product.options[0]['@attributes'].code]"
+                                   ng-value="value['@attributes'].code"
+                                    >
+                            <div class="item-content">
+                                <i class="icon circle"></i>
+                                <div class="label">{{value['@attributes'].label}}</div>
+                            </div>
+                        </div>
+                    </label>
+                    <!-- second level -->
+                    <div ng-if="product.options[1] && subOptions">
+                        <br><div class="label">{{product.options[1]['@attributes'].label}}</div>
+                        <label class="item item-radio transparent" ng-repeat="item in subOptions" ng-click="setOptions()">
+                            <input type="radio" ng-model="options[product.options[1]['@attributes'].code]" ng-value="item['@attributes'].code">
+                            <div class="item-content">
+                                <i class="icon circle"></i>
+                                <div class="label">{{item['@attributes'].label}}</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>

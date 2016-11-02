@@ -1,0 +1,1 @@
+cordova.define("cordova-plugin-sim.Sim",function(o,i,n){n.exports={getSimInfo:function(o,i){cordova.exec(o,i,"Sim","getSimInfo",[])}}});

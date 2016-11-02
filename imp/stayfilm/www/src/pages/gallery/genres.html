@@ -1,0 +1,28 @@
+<div class="page-gallery-genres">
+	<div class="bar bar-header">
+
+		<button class="button button-clear" ng-click="goTo('main.home.gallery.bestof', 'slide-right')">
+			<img src="images/ico-arrow-left.svg" />
+		</button>
+
+		<div class="title">
+			<img ng-src="{{ 'images/gallery/gallery-header-genres-' + currentLanguage + '.png' }}">
+			<div class="spots">
+				<b></b>
+				<b></b>
+				<b class="active"></b>
+			</div>
+		</div>
+
+	</div>
+
+	<ion-content>
+
+		<a class="item-genre" ng-click="goToGallery(gallery.slug, gallery.type)" ng-repeat="gallery in galleryList">
+			<img ng-src="{{ gallery.imageUrl || 'images/genre-template' }}">
+			<span ng-if=" ! gallery.imageUrl" class="genre-name">{{ gallery.name }}</span>
+		</a>
+		<br /><br /><br />
+
+	</ion-content>
+</div>

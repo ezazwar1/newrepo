@@ -1,0 +1,23 @@
+<ion-view title="{{ 'LANGUAGES' | translate }}" id="account" class="notifications">
+
+  <div class="back"></div>
+  <ion-content> 
+
+
+    <ion-list class="list habits-menu">
+      <div class="item item-divider">{{ 'LANGUAGE' | translate }}</div>
+
+      <ion-radio ng-model="data.locale" value="en-us" ng-change="updateLanguage()" name="languages">{{ 'ENGLISH' | translate }} (US)</ion-radio>
+      <ion-radio ng-model="data.locale" value="en-gb" ng-change="updateLanguage()" name="languages">{{ 'ENGLISH' | translate }} (GB)</ion-radio>
+      <ion-radio ng-model="data.locale" value="fr" ng-change="updateLanguage()" name="languages">{{ 'FRENCH' | translate }}</ion-radio>
+      <ion-radio ng-model="data.locale" value="es" ng-change="updateLanguage()" name="languages">{{ 'SPANISH' | translate }}</ion-radio>
+
+    </ion-list>
+
+    <div ng-if="notificationsUpdated" class="UI-alert">
+      {{ 'LANGUAGE_UPDATED' | translate }}
+    </div>
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

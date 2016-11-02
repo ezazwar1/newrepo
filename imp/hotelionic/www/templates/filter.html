@@ -1,0 +1,90 @@
+<ion-view title="Filter" >
+
+  <ion-nav-buttons side="left">
+	<p style="padding: 5px;color: white;">Cancel</p>
+  </ion-nav-buttons>
+  
+  <ion-nav-buttons side="right">   
+    <p style="padding: 5px;color: white;">Apply</p>
+  </ion-nav-buttons>
+  
+  <style>
+  .bg{
+    
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.col{
+	padding:0px;
+}	
+.text-center {
+    text-align: left;
+    padding-left: 10px;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+  </style>
+
+    <ion-content style="background-color:#fff;">
+		<div class="filter">
+			<h4>PRICE RANGE</h4>
+			<div style="padding: 10px;" class="row">
+				<div class="col">
+					<div id="ck-button">
+					   <label>
+						  <input type="checkbox" value="1"/><span>$</span>
+					   </label>
+					</div>
+				</div>
+				<div class="col">
+					<div id="ck-button">
+					   <label>
+						  <input type="checkbox" value="1"/><span>$$</span>
+					   </label>
+					</div>
+				</div>
+				<div class="col">
+					<div id="ck-button">
+					   <label>
+						  <input type="checkbox" value="1"/><span>$$$</span>
+					   </label>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+		<div class="filter-rating">
+			<h4>RATINGS</h4>
+			<ionic-ratings ratingsobj='ratingsObject'></ionic-ratings>
+		</div>
+		<div class="hotel-type">
+			<div id="accordion">
+				  <h3>Section 1</h3>
+				  <div>
+					<p>
+					Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+					ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+					amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+					odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+					</p>
+				  </div>
+				  <h3>Section 2</h3>
+				  <div>
+					<p>
+					Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+					purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+					velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+					suscipit faucibus urna.
+					</p>
+				  </div>
+			
+			</div>
+ 
+		</div>
+    </ion-content>
+	
+</ion-view>

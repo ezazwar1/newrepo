@@ -1,0 +1,21 @@
+<ion-view nav-direction="forward">
+	<ion-nav-title>
+      <wf-intro-dots max="isRefer && localData.referData ? '3' : '2'" active="0"></wf-intro-dots>
+    </ion-nav-title>
+
+    <ion-content padding="true" scroll="false">
+		<div class="welcome-text">
+      <div class="margin-top-20">
+        <div class="circle-avatar friends-info-img" style="background-image:url({{referData.friend_image_url}})"></div>
+      </div>
+      <div class="margin-top-20 text-center">
+        <h4 ng-bind-html="friend_request_text_head"></h4>
+      </div>
+      <div class="margin-20 text-center friend-info-content" ng-bind-html="friend_request_text">
+      </div>
+		</div>
+    </ion-content>
+    <ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+	    <button ui-sref="intro.start" ng-click="referPageDone()" class="button button-big-sticky button-full floating-footer-button">{{ 'ACTION.GOT_IT' | translate }}</button>
+	  </ion-footer-bar>
+</ion-view>

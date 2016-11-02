@@ -1,0 +1,90 @@
+<ion-view view-title="Main" class="main-wrapper">
+  <ion-content>
+    <div class="main-wrapper-header">
+        <div class="container">
+            <div class="row">
+                <div class="header-body col-md-12">
+                    <div class="header-login">
+                        <a class="text-muted" ng-hide="isLoggedIn()" href="" ng-click="open('login', 'LoginCtrl')">Have an account?</a>
+                    </div>
+
+                    <h1 class="header-title">Hitched</h1>
+                    <p class="header-description">because you're going to be</p>  <!-- need a better catch phrase -->
+
+                    <div class="header-signup">    
+                        <a ng-hide="isLoggedIn()" href="" ng-click="open('signup', 'SignupCtrl')" class="btn btn-default">Let's Get Started!</a>
+                    </div>
+
+                    <div class="header-about">
+                        <a class="text-muted" ng-click="scrollToAbout()">Learn More <i class="glyphicon glyphicon-chevron-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT APP -->
+    <div id="about" ng-include="'templates/guest/about'" class="row"></div>
+    <div class="divider"></div>
+
+    <!-- BACKGROUND 1 -->
+    <section class="bg-1">
+        <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+    </section>
+
+    <!-- GAMES -->
+    <div class="divider"></div>
+    <div ng-include="'templates/guest/games'" class="row"></div>
+    <div class="divider"></div>
+
+    <!-- BACKGROUND 5 -->
+    <section class="bg-5">
+        <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+    </section>
+
+    <!-- PHOTOS -->
+    <div class="divider"></div>
+    <div ng-include="'templates/guest/photos'" class="row"></div>
+    <div class="divider"></div>
+
+    <!-- BACKGROUND 5 -->
+    <section class="bg-5">
+        <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+    </section>
+
+    <!-- GUEST LIST -->
+    <div class="divider"></div>
+    <div ng-include="'templates/guest/guests'" class="row"></div>
+    <div class="divider"></div>
+
+    <!-- BACKGROUND 5 -->
+    <section class="bg-5">
+        <div class="col-sm-6 col-sm-offset-3 text-center"></div>
+    </section>
+
+    <!-- CONTACT US FORM -->
+    <div class="divider"></div>
+    <div ng-include="'templates/guest/contact'" class="row"></div>
+    <div class="divider"></div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">The Hitched App - Copyright ©<span id="copyrightYear"></span></p>
+        </div>
+    </div>
+
+    <ul id="scroll-top" class="nav pull-right scroll-top">
+        <li>
+            <a href="" ng-click="scrollTop()" title="Scroll to top">
+                <i class="glyphicon glyphicon-chevron-up"></i>
+            </a>
+        </li>
+    </ul>
+
+  </ion-content>
+</ion-view>
+
+
+<script type="text/javascript">
+    $("#copyrightYear").text(new Date().getFullYear());
+</script>

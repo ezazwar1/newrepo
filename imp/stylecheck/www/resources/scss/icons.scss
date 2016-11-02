@@ -1,0 +1,190 @@
+@font-face {
+    font-family: 'icons';
+    src: url('../fonts/icomoon.eot')  format('eot'),
+    url('../fonts/icomoon.woff')  format('woff'),
+    url('../fonts/icomoon.ttf')   format('truetype'),
+    url('../fonts/icomoon.svg')  format('svg');
+}
+
+.icon:before,
+.button-icon:before {
+    font-family: 'icons';
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon-share:before {
+    content: '\e600';
+}
+
+.icon-terms:before {
+    content: '\e605';
+}
+
+.icon-check:before {
+    content: '\e607';
+}
+
+.icon-edit:before {
+    content: '\e608';
+}
+
+.icon-camera:before {
+    content: '\e610';
+}
+
+.icon-community:before {
+    content: '\e60a';
+}
+
+.icon-privacy-police:before {
+    content: '\e60b';
+}
+
+.icon-settings:before {
+    content: '\e60c';
+}
+
+.icon-facebook:before {
+    content: '\e60d';
+}
+
+.icon-faq:before {
+    content: '\e60e';
+}
+
+.icon-feed:before {
+    content: '\e60f';
+}
+
+.icon-trash:before {
+    content: '\e61b';
+}
+
+.icon-report:before {
+    content: '\e61d';
+}
+
+.icon-user:before {
+    content: '\e61e';
+}
+
+.icon-instagram:before {
+    content: '\e613';
+}
+
+.icon-stylecheck:before {
+    content: '\e617';
+}
+
+.icon-comment:before {
+     content: '\e618';
+ }
+
+.icon-imprint:before {
+     content: '\e619';
+ }
+
+.icon-logout:before {
+    content: '\e61c';
+}
+
+.icon-close:before {
+    content: '\e622';
+}
+
+.icon-favorite:before {
+    content: '\e626';
+}
+
+.icon-search:before {
+    content: '\e627';
+}
+
+.icon-twitter:before {
+    content: '\e629';
+}
+
+.icon-forward:before {
+    content: '\e62a';
+}
+
+.icon-back:before {
+    content: '\e62c';
+}
+
+.icon-remove-comment:before {
+    content: '\e62d';
+}
+
+.icon-follow:before {
+    content: '\e62e';
+}
+
+.icon-follow-me:before {
+    content: '\e62f';
+}
+
+/* list of clothes
+********************************************* */
+
+// female
+.icon-female-jackets:before {
+    content: '\e614';
+}
+
+.icon-female-shirts:before {
+    content: '\e625';
+}
+
+.icon-female-trousers:before {
+    content: '\e612';
+}
+
+.icon-female-sweater:before {
+    content: '\e61f';
+}
+
+.icon-female-dresses:before {
+    content: '\e616';
+}
+
+.icon-female-skirts:before {
+    content: '\e621';
+}
+
+.icon-female-shoes:before {
+    content: '\e623';
+}
+
+.icon-female-accessories:before {
+    content: '\e601';
+}
+
+// male
+.icon-male-jackets:before {
+    content: '\e615';
+}
+
+.icon-male-shirts:before {
+    content: '\e611';
+}
+
+.icon-male-trousers:before {
+    content: '\e631';
+}
+
+.icon-male-sweater:before {
+    content: '\e620';
+}
+
+.icon-male-suits:before {
+    content: '\e630';
+}
+
+.icon-male-shoes:before {
+    content: '\e624';
+}
+
+.icon-male-accessories:before {
+    content: '\e604';
+}

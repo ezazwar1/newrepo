@@ -1,0 +1,1 @@
+var servicesModule=angular.module("httpTimeoutService",[]);servicesModule.factory("HttpTimeoutService",function(){return{}}),servicesModule.factory("timeoutHttpIntercept",["$q","$rootScope",function(){return{request:function(e){return e.timeout=15e3,e}}}]),servicesModule.config(["$httpProvider",function(e){e.interceptors.push("timeoutHttpIntercept")}]);

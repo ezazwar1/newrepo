@@ -1,0 +1,4 @@
+<div class="item item-divider">{{ q.question }} <span ng-show="q.required" class="assertive">*</span></div>
+<label class="item item-input">
+    <input ng-model="survey.question[q.question_id]" ng-init="survey.question[q.question_id] = q.last_answer" type="text" placeholder="{{ q.question }} ">
+</label>

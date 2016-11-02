@@ -1,0 +1,33 @@
+<ion-view view-title="guest book">
+  <ion-content class="view-guest-book">
+  <ion-refresher class="pull-to-refresh"
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresher()">
+  </ion-refresher>
+
+	<div class="view-header">
+   		<h1><span class="hash">#</span><span class="first">guest</span>book</h1>
+   		<P class="view-count">{{ greetCount }} Greetings</P>
+   </div>
+
+      <ion-list>
+      <ion-item item="item" ng-repeat="greet in greetings" class="item-remove-animate item-text-wrap">
+			{{ greet.text }}<BR>
+			<P ng-class='swipeHelper($first)'>- {{ greet.by }}</P>
+	
+          
+          <ion-option-button class="button-assertive deleteGreet" ng-click="deleteGreeting({{ greet.id }});">
+            Delete
+          </ion-option-button>
+        
+          
+        </ion-item>
+
+      </ion-list>
+
+  <div class="list" ng-show="nogreets">
+    <P class="no-items animated fadeInDown"><B>Bummer!</B> No greetings yet.<BR>Did you invite guests already?</P>
+  </div>
+
+  </ion-content>
+</ion-view>

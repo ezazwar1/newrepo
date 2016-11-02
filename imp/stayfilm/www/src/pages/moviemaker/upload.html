@@ -1,0 +1,35 @@
+<div class="moviemaker moviemaker-upload page">
+	<div class="bar bar-header">
+
+		<div class="title" translate>
+			editar mídias
+		</div>
+
+		<button class="button button-clear" ng-click="closeUploadState()" translate>
+			pronto
+		</button>
+
+	</div>
+	<div class="btn-upload">
+		<input type="file" id="btn-upload" multiple accept="image/*|video/*" onchange="angular.element(this).scope().handleFiles(this.files)">
+		<button ng-click="chooseMedias()" ng-class="{selected: data.subtheme.idsubtheme === allContentSubtheme.idsubtheme }"><img src="images/moviemaker/button_allcontent.png" /><span translate>adicionar mídias</span></button>
+	</div>
+	<ion-content>
+
+		<div class="grid-item" ng-click="zoomImg(image)"
+			  collection-repeat="image in mediaList"
+			  collection-item-width="getItemSize()"
+			  collection-item-height="getItemSize()">
+
+			<div class="grid-item-inner" ng-style="{width: getItemSize() + 'px', height: getItemSize() + 'px', 'background-image': 'url(' + image.thumbnail + ')'}">
+
+			</div>
+			<div class="status">
+				<ion-spinner ng-if="image.status === 'UPLOADING'"></ion-spinner>
+				<span ng-if="image.status !== 'UPLOADING'" ng-class="{'ion-checkmark-circled': image.status === 'UPLOADED', 'ion-upload': image.status === 'PENDING', 'ion-alert-circled': image.status === 'FAIL' }"></span>
+			</div>
+
+		</div>
+		
+	</ion-content>
+</div>

@@ -1,0 +1,17 @@
+<ion-view title="{{ 'CHALLENGE.TITLE' | translate }}">
+  	<ion-content class="has-header padding">
+  		<ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh()">
+        </ion-refresher>
+    <div ng-if="challenges">
+		<div ng-repeat="challenge in challenges track by $index" class="featured-main-wrapper">
+			<div wf-challenge-card data="challenge"></div>
+      <div class="featured-wrapper" ng-if="currentState == 'app.challenges.all' && challenge.featured == '1'"><i class="ion-ios-star"></i>{{ 'CHALLENGE.FEATURED' | translate }}</div>
+		</div>
+		<div wf-pager params="params" distance="10" offset="10" dataset="challenges" url="url"></div>
+  </div>
+	</ion-content>
+	<div class="bar-clear bar-soft-shadow"></div>
+</ion-view>

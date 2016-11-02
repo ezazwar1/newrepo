@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    #NEAR ME
+        * Collection Profile
+\*------------------------------------*/
+
+.collection-profile_gamer {
+    border-top: 1px solid $dividerColor;
+    margin: 25px 0 0;
+    padding: 12px 5px 0;
+}
+
+
+
+
+.popup-tobuy_option {
+    margin: 18px 0;
+}
+
+.popup-tobuy_option-title {
+    @extend %title;
+    text-align: left;
+}
+
+.popup-tobuy_option-info {
+    @extend %subtitle;
+    text-align: left;
+    line-height: $lineheightSpacious;
+}
+
+
+
+

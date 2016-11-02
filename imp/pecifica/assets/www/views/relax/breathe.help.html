@@ -1,0 +1,40 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow">
+  <ion-content>
+
+    <go-back ng-if="!intro"></go-back>
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+
+      <ion-slide class="breathe-slide">
+        <div class="box1 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'RELAX_BREATHE_HELP_TITLE' | translate }}</h1>
+          <h2>{{ 'RELAX_BREATHE_HELP_LINE_1' | translate }}</h2>
+          <p>{{ 'RELAX_BREATHE_HELP_LINE_2' | translate }}<br><br>
+            {{ 'RELAX_BREATHE_HELP_LINE_3' | translate }}</p>
+        </div>
+      </ion-slide>
+
+      <ion-slide class="breathe-slide">
+        <div class="box2 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'INHALE' | translate }}</h1>
+          <h2>{{ 'RELAX_INHALE_HELP_LINE_2' | translate }}</h2>
+          <p>{{ 'RELAX_INHALE_HELP_LINE_1' | translate }}</p> 
+        </div>
+      </ion-slide>
+
+      <ion-slide class="breathe-slide">
+        <div class="box3 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'EXHALE' | translate }}</h1>
+          <h2>{{ 'RELAX_EXHALE_HELP_LINE_2' | translate }}</h2>
+          <p>{{ 'RELAX_EXHALE_HELP_LINE_1' | translate }}<br><br>
+            <button class="button-start" ng-click="confirm()" ng-if="intro">{{ 'OK_GOT_IT' | translate }}</button>
+          </p>
+      </div>
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

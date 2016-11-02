@@ -1,0 +1,65 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Remember to cancel</span>
+    <span class="welzen-popup__contents">You currently have a subscription with us. Please make sure you cancel it on the app store to avoid double charging. Don’t worry, we’ll send you a reminder email too</span>
+    <div class="welzen-popup__separator"></div>
+    <a  class="welzen-popup__cta" ng-click='togglePopUpActive()' href="#/unlock/upgrade">Continue to Upgrade</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+<ion-view class="bg-welzen already-subscribed" view-title="Already Subscribed!">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Already Subscribed!</h1>
+    <a class="header__close-button" href='#/main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+
+  <div class="container">
+    <h1 class="title">Hey buddy, you belong here...</h1>
+    <p class="paragraph"> You subscribed to Welzen on {{paidDate | date:'mediumDate'}}</p>
+
+<!--     <p class="paragraph" ng-repeat="product in products" ng-if="product.owned">You subscribed to Welzen on {{paidDate | date:'mediumDate'}} and purchased a {{product.alias}} Subscription for {{product.price}}</p> -->
+
+<!--   <div class="container">
+    <h1 class="title">You belong here...</h1>
+    <div class="info-box--purple-clear">
+      <div class="info-box__contents">
+        <span class="info-box__brief" ng-repeat="product in products" ng-if="product.owned">You subscribed to Welzen on {{paidDate | date:'mediumDate'}} and purchased a {{product.alias}} for {{product.price}}</span>
+      </div>
+    </div> -->
+
+<!--     <a class="info-box--clear" ng-click='togglePopUpActive()'>
+      <div class="info-box__contents">
+        <span class="info-box__title">Monthly $12.99/month*</span>
+        <span class="info-box__brief">Recurring billing. Cancel anytime</span>
+      </div>
+      <span class="info-box__status--current">Current</span>
+    </a>
+
+    <a class="info-box--calm" ng-click='togglePopUpActive()'>
+      <div class="info-box__contents">
+        <span class="info-box__title">Yearly $8.44/month*</span>
+        <span class="info-box__brief">Payment of $99.99 every 12 months.<span/>
+        <span class="info-box__brief">Recurring billing. Cancel anytime</span>
+      </div>
+      <span class="info-box__status--upgrade">Upgrade</span>
+    </a>
+
+    <a class="info-box--clear" ng-click='togglePopUpActive()'>
+      <div class="info-box__contents">
+        <span class="info-box__title">Forever $399.99</span>
+        <span class="info-box__brief">Unlimited Access to Welzen forever.</span>
+      </div>
+      <span class="info-box__status--upgrade">Upgrade</span>
+    </a>
+ -->
+
+  </div>
+  <ion-footer-bar class="bg-clear footer">
+    <a ng-if="canCancelProduct();" class="button button-block button-clear cta" href='#/unlock/cancel'>Cancel Subscription</a>
+  </ion-footer-bar>
+</ion-view>

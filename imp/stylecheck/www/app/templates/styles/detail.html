@@ -1,0 +1,66 @@
+<ion-view>
+    <ion-nav-buttons side="left">
+        <button ng-if="showFilter" class="button button-clear" ng-class="{'button-dark': !filterSelected, 'button-assertive': filterSelected}" ng-click="showPopover($event)">
+            {{dict.filter}}
+            <i class="ion-arrow-down-b"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-content scroll="false" style="padding-left: 15px; padding-right: 15px;">
+        <div rate-style ng-if="showStyle && !showInfos && style" ng-class="{'do-not-fade': !fadeInStyle}"></div>
+        <div add-tag tag-style="style" show="showStyle" editing="false" ng-if="showStyle && showInfos"></div>
+        <div ng-if="styleNotFound" class="text-center padding"><br>{{dict.styleNotFound}}</div>
+    </ion-content>
+    <ion-footer-bar class="info-footer">
+        <div class="info-container">
+            <!-- MY STYLE -->
+            <div class="row" ng-if="user._id === style.user._id">
+                <div class="col display-flex align-center style-details">
+                    <div class="style-label stable small">
+                        <div>{{styleCreationDate}}</div>
+                        <div>{{styleCreationTime}} {{dict.time}}</div>
+                    </div>
+                </div>
+                <div class="col info-button-container" ng-class="{'assertive': showInfos}" ng-click="onInfoButtonClick()">
+                    <div class="info-button circle">
+                        <div class="progress-radial progress-{{style.averageRatingInPercent}}" ng-class="{'hide-progress': !showInfos}">
+                            <div class="overlay"><i class="icon icon-stylecheck"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col display-flex align-center button-container" ng-if="!showInfos">
+                    <button class="button button-clear button-dark button-large icon icon-comment" ng-click="showCommentsModal()"><span class="value">{{style.commentCount}}</span></button>
+                    <button class="button button-clear button-dark button-large icon icon-share" ng-click="shareStyle()"></button>
+                </div>
+                <div class="col display-flex align-center button-container" ng-if="showInfos">
+                    <button class="button button-clear button-dark button-large icon icon-edit" ng-click="editStyle()"></button>
+                    <button class="button button-clear button-dark button-large icon icon-trash" ng-click="deleteStyle()"></button>
+                </div>
+            </div>
+            <!-- OTHER STYLE -->
+            <div class="row" ng-if="user._id !== style.user._id">
+                <div class="col display-flex align-center style-details" ng-click="openUserProfile(style.user._id)">
+                    <div ng-if="style.user && style.user.thumbnail" class="circle thumbnail grayscale" style="background-image:url({{style.user.thumbnail}});"></div>
+                    <div ng-if="style.user && !style.user.thumbnail" class="circle thumbnail"></div>
+                    <div class="style-label">
+                        <div class="username uppercase truncate">{{style.user.username}}</div>
+                        <div class="category stable truncate" ng-if="showInfos">{{dict.categories[style.category]}}</div>
+                    </div>
+                </div>
+                <div class="col info-button-container" ng-class="{'assertive': showInfos}" ng-click="onInfoButtonClick()">
+                    <div class="info-button circle">
+                        <div class="progress-radial progress-{{style.averageRatingInPercent}}" ng-class="{'hide-progress': !showInfos}">
+                            <div class="overlay"><i class="icon icon-stylecheck"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="!showInfos" class="col display-flex align-center button-container">
+                    <button class="button button-clear button-dark button-large icon icon-comment" ng-click="showCommentsModal()"><span class="value">{{style.commentCount}}</span></button>
+                    <button class="button button-clear button-large icon icon-favorite" ng-click="toggleShoplist()" ng-class="{'button-dark': !isFav, 'button-assertive': isFav || style.isFav}"></button>
+                </div>
+                <div ng-if="showInfos" class="col display-flex align-center button-container">
+                    <button class="button button-clear button-dark button-large icon icon-report" ng-click="openReportStyle()"></button>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

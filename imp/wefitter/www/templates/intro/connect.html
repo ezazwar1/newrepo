@@ -1,0 +1,61 @@
+<ion-view>
+	<ion-nav-title>
+      <wf-intro-dots max="isRefer && localData.referData ? '3' : '2'" active="isRefer ? '2' : '1'"></wf-intro-dots>
+    </ion-nav-title>
+
+	<ion-content class="bottom-0">
+		<ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh('connections')">
+        </ion-refresher>
+		<div ng-if="connections">
+
+			<div class="spacer" style="height:22px"></div>
+			<div class="text-center connection">
+				<h3 translate="CONNECT.AVAILABLE_APPS">Connect a fitness tracking app</h3>
+				<p class="padding" style="margin-bottom:0" translate="INTRO.CONNECT_APP_INTRO">It takes two to tango. We want to reward you for being active, but first we need you to connect your favorite tracking app
+				</p>
+				<p> <small>+<i class="wf wf-coins"></i>20</small></p>
+			</div>
+
+			<div class="card connect-getSupport">
+			  <div class="item item-text-wrap wrapper" ui-sref="app.connectionFAQ" ng-click="getSupport('connections','intro')">
+			    <div class="ion-ios-help icon-div"></div>
+				<p translate="CONNECT.SUPPORT_TEXT"> Support Text</p>
+				<div class="support_btn_wrap">
+					<span class="support_btn" translate="CONNECT.GET_SUPPORT">GET</span><span class="ion-ios-arrow-right"></span>
+				</div>
+			  </div>
+      		</div>
+
+			<div class="pan connection-list">
+				<ion-list class="row-no-padding no-border">
+
+				  <ion-item href="#" ng-repeat="conn in connections">
+				  	<div ui-sref="intro.connectIt({ id : conn.source_id })" class="row row-no-padding">
+	  					<div class="col">
+	  						<a><img width="50" ng-src="{{ conn.logo }}"></a>
+	  					</div>
+	  					<div class="col col-75 check-tick-wrapper">
+								<span>{{ conn.name }}</span>
+	  						<!-- <ion-toggle ng-model="conn.disabled"
+	  							ng-true-value="'0'"
+	  							ng-false-value="'1'"
+	  							toggle-class="toggle-calm">
+	  							{{ conn.name }}
+	  						</ion-toggle> -->
+								<i ng-class="conn.disabled == 0 ? 'ion-ios-checkmark positive':'ion-ios-plus-outline text-gray'" class="check-tick"></i>
+	  					</div>
+					</div>
+				  </ion-item>
+
+				</ion-list>
+				<div class="footer-height"></div>
+			</div>
+		</div>
+	</ion-content>
+	<ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+     	<button ng-click="introCheckConnected()" class="button button-big-sticky button-full floating-footer-button">{{ 'ACTION.IM_DONE' | translate }}</button>
+	</ion-footer-bar>
+</ion-view>

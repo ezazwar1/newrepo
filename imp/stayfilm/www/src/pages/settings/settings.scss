@@ -1,0 +1,247 @@
+@import 'variables';
+
+.page-settings {
+
+	.scroll {
+		padding: 88px 20px;
+	}
+
+	.invalidated {
+		border: 1px solid red;
+	}
+
+	.bar-header {
+
+		background: white;
+
+		.close {
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		h1 {
+			color: #dedcdf;
+		}
+	}
+
+	.fs-header {
+		position: absolute;
+		top: 44px;
+		left:0;
+		right: 0;
+		height: 44px;
+		@include display(flex);
+		@include flex-direction(column);
+		text-align: center;
+		width: 100%;
+		background: white;
+		z-index: 10;
+
+		.cursor {
+			position: absolute;
+			height: 3px;
+			background: #ad252a;
+			top: 41px;
+			z-index: 2;
+			width: 100%;
+			left: 0;
+
+			@include transform-origin(0 0);
+			@include transition(all 0.8s ease 0.5s);
+
+			&.personal-active {
+				@include transform(translateX(0%) scaleX(.5));
+			}
+
+			&.credentials-active {
+				@include transform(translateX(50%) scaleX(.5));
+			}
+		}
+
+		.settings-tabs {
+			@include display(flex);
+			@include flex-direction(row);
+			@include align-items(center);
+
+			border-bottom: 3px solid #9aa7b2;
+			height: 44px;
+
+			.tab {
+				display: block;
+				color: #9aa7b2;
+				font-size: 17px;
+				width: 50%;
+				@include transition(all 0.8s ease 0.5s);
+
+				&.active {
+					color: $stayfilmColor;
+				}
+			}
+		}
+	}
+
+	.personal {
+		padding-top: 20px;
+
+		.btn-save-settings {
+			background: #35424d;
+		}
+	}
+
+	.credentials {
+		padding-top: 20px;
+
+		.btn-save-password {
+			background: #35424d;
+		}
+
+		.btn-save-settings {
+			background: #35424d;
+		}
+	}
+
+	.or-separator {
+		position: relative;
+		border-top: 1px dashed #d0d0d0;
+		text-align: center;
+		margin: 40px 0px 20px;
+
+		span {
+			position: relative;
+			padding: 0 20px;
+			font-family: HelveticaNeueLT, sans-serif;
+			font-size: 16px;
+			background: #fff;
+			top: -12px;
+			color: #7a7a7a;
+		}
+	}
+
+	.error-box {
+		border: 1px solid red;
+		padding: 20px;
+		margin: 20px 0;
+		color: #999;
+		font-family: HelveticaNeueLT, sans-serif;
+
+		ul {
+			list-style: inside disc;
+		}
+	}
+
+	form {
+		label {
+			color: $stayfilmColor;
+			font-family: HelveticaNeueROMAN, sans-serif;
+			font-size: 14px;
+
+			input {
+				background: #dedee1;
+				border-radius: 4px;
+				margin: 2px 0 15px;
+				padding: 10px;
+				width: 100%;
+			}
+
+			select {
+				width: 100%;
+				border-radius: 5px;
+				background: #dedee1;
+				margin: 2px 0 15px;
+				border: none;
+				padding: 8px 10px;
+
+				option {
+					padding: 10px;
+				}
+			}
+		}
+
+		.birthday-field {
+			@include display(flex);
+			width: 150px;
+			color: $stayfilmColor;
+			font-family: HelveticaNeueROMAN, sans-serif;
+			font-size: 14px;
+
+			input {
+				background: #dedee1;
+				border-radius: 4px;
+				margin: 2px 0 15px;
+				padding: 10px;
+				text-align: center;
+			}
+
+			[type="number"] {
+				&::-webkit-inner-spin-button, 
+				&::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+				}
+
+				box-sizing: content-box;
+			}
+
+			[name="birthdayDay"], [name="birthdayMonth"] {
+				@include flex(0 0 25%);
+			}
+			
+			[name="birthdayMonth"] {
+				margin-right: 1px;
+				margin-left: 1px;
+			}
+			
+			[name="birthdayYear"] {
+				@include flex(0 0 50%);
+			}
+		}
+
+		.email-toggle {
+			width: 100%;
+			background: #fff;
+			margin: 0 0 10px;
+			min-height: 45px;
+			padding: 0;
+			border: none;
+
+			> div {
+				white-space: normal;
+				margin: 10px 0 0 72px;
+				color: #787878;
+				font-family: HelveticaNeueLT, sans-serif;
+				font-size: 14px;
+			}
+
+			label.toggle { // ion-toggle
+				right: auto;
+				left: 6px;
+				top: 6px;
+
+				input { // unchecked
+					& + .track {
+						background: #dedcdf;
+						border-color: #dedcdf;
+
+						.handle { // circle
+							background: #fff;
+
+						}
+					}
+				}
+
+				input:checked { // checked
+					& + .track {
+						background: #12ad60;
+						border-color: #12ad60;
+
+						.handle { // circle
+							background: #fff;
+
+						}
+					}
+				}
+			}
+		}
+	}
+}

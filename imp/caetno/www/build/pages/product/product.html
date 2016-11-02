@@ -1,0 +1,35 @@
+<ion-content>
+  <ion-toolbar dark hideBackButton [ngStyle]="{'background': 'url(' + product.cover + ')'}">
+    <ion-title>
+      {{product.name}}
+      <div class="price">
+        <span secondary>${{product.price.toFixed(2)}}</span>
+      </div>
+    </ion-title>
+    <ion-buttons end>
+      <button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-card>
+    <ion-card-content>
+      <p>
+        {{product.description}}
+      </p>
+
+      <ion-list inset>
+        <ion-item>
+          <ion-label>Quantity</ion-label>
+          <ion-input type="number" min="1" step="1" [(ngModel)]="newItem.quantity"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <button block secondary (click)="addToCart(product, newItem.quantity)">
+        <ion-icon name="cart"></ion-icon>
+        Add to cart
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

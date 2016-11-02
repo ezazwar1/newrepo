@@ -1,0 +1,73 @@
+<ion-view title="{{user.FirstName}} {{user.LastName}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-icon button-clear ion-ios-upload-outline" ng-click="share()"></button>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="true" has-padding="true" lazy-scroll data-image-lazy-distance-from-bottom-to-load="500">
+        <div class="featured">
+            <img ng-src="{{user.AvatarUrl200x200}}" class="profile-image round bordered" />
+            <img ng-src="{{userMedia.featured[0].ImageUrl540X304}}" alt="" class="bg-img" />
+            <!-- <div class="profile-quote-wrapper">
+                <div class="profile-quote">
+                    
+                </div>
+            </div> -->
+        </div>
+        <div class="profile-details">
+            <p class="profile-name">{{::user.FirstName}} {{::user.LastName}} <a href="">
+                <!-- <i class="ion-ios-information-outline"></i> -->
+            </a></p>
+            <p class="sports" ng-if="user.Sports.length">
+                    <span data-ng-repeat="sport in user.Sports track by $index">
+                        <a ng-href="#explore/category/{{sport.trim().toLowerCase()}}">
+                            {{sport.trim().toLowerCase()}}
+                        </a>{{ $last ? '' : ','}}
+                    </span> 
+                </p>
+            <p ng-hide="!!!user.HomeTown || !!!user.HomeState">{{user.HomeTown}}{{(user.HomeTown ? ', ' : '')}} {{user.HomeState}} {{user.HomeCountry}}</p>
+            
+            <stohke-total data-user-id="user.UserId" data-user-type="'user'"></stohke-total>
+
+            <p ng-if="user.NickName.trim()" class="profile-quote">"{{user.NickName}}"</p>
+
+            <div class="bio" ng-class="{true: 'expand', false: ''}[expandSummary]" ng-click="toggleSummaryCollapse()" ng-hide="!!!user.About">
+                <p >{{::user.About}}</p>
+            </div>
+            <div class="bio text-center" ng-if="!user.About">No bio yet.</div>
+        </div>
+        <div class="profile-gallery">
+            <span ng-class="{true: 'featured-media'}[media.Featured]" ng-repeat="media in userMedia.images" >
+                <img src="img/empty.png" alt="" data-image-lazy-src="{{media.ImageUrl270x152}}" ng-click="showImage($index)" class="">
+            </span>
+        </div>
+        <a ng-click="getImages()" class="load-more-link" ng-show="canLoadMore.images">more photos</a>
+        <ion-list>
+            <ion-item ng-repeat="media in userMedia.videos" class="item-dark item-black no-pad" ng-click="showVideo($index)">
+                <span ng-class="{true: 'featured-media'}[media.Featured]">
+                    <img ng-src="{{media.ThumbnailSmallUrl|| media.ThumbnailLargeUrl}}" alt="" class="profile-video-thumb">
+                    <i class="ion-android-arrow-dropright-circle play-button"></i>
+                </span>
+                <p class="video-description" data-ng-if="media.Caption">{{::media.Caption}}</p>
+            </ion-item>
+        </ion-list>
+        <a ng-click="getVideos()" class="load-more-link" ng-if="userMedia.videos.length > 0" ng-show="canLoadMore.videos">more videos</a>
+
+        <h3 class="section-title" ng-if="following.length">Following</h3>
+        <ion-list>
+            <ion-item ng-repeat="item in following" class="profile-card" ng-switch="item.Type">
+            
+                <a class="profile-card-image" ui-sref="app.explore.user({alias: item.Alias})" ng-switch-when="0">
+                    <span>
+                        <img class="" image-lazy-src="{{::item.Pic200X200}}" src="img/empty.png">
+                    </span>
+                    <p class="profile-card-title">{{::item.Title}}</p>
+                    <span class="location" ng-show="item.City || item.State">{{::item.City}}{{(item.City && item.State ? ', ' : '')}} {{::item.State}}</span>
+                </a>
+                <a class="profile-card-image" ui-sref="app.explore.company({alias: item.Alias})" ng-switch-when="1">
+                    <img class="" image-lazy-src="{{::item.Pic200X200}}" src="img/empty.png">
+                    <p class="profile-card-title">{{::item.Title}}</p>
+                </a>
+            </ion-item>
+        <ion-list>
+
+    </ion-content>
+</ion-view>

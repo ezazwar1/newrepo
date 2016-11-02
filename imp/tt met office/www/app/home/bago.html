@@ -1,0 +1,96 @@
+ <ion-pane class="containerr black" id="home">
+ <!-- Tobago face -->
+            <div ng-controller="BagoCtrl as bc">
+                <background-cycler-bago class="bg-fade" id="ff"></background-cycler-bago>
+                <img crossorigin="Anonymous" style="display: none" id="i-bago" src="" />
+                <ion-header-bar frosted-bar type="bar-frosted" class="header bago bar bar-header bar-cdlear no-border">
+                    <!-- <button menu-toggle="left" class="button button-icon icon ion-navicon"></button> -->
+                    <button  menu-toggle="left" class="hamburger hamburger--spring" type="button" ng-class="$root.$ionicSideMenuDelegate.isOpen() ? 'is-active' : ''">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    <h1 class="title">
+                        <span class="city"><i class="city-nav-icon icon ion-navigate"></i>Tobago<br></span>
+                    </h1>
+                    <!-- <button ng-click="open_bago_popover($event)" class="button button-icon ion-arrow-swap"></button> -->
+                    <button ng-click="open_bago_popover($event); bc.show=!bc.show" class="button button-icon " ng-class="{'ion-ios-more': bc.show, 'ion-ios-more-outline': !bc.show}"></button>
+                    <!-- <button ng-click="flip('bagoidad')" class="button button-icon ion-arrow-swap"></button> -->
+                    <!-- <button ng-click="open_bago_popover($event)" class="button button-icon ion-arrow-swap"></button> -->
+                </ion-header-bar>
+
+                <ion-content scroll-event-interval="20" scroll-effects scrollbar-y="false" class="no-header">
+                    <ion-refresher pulling-text="Pull to refresh..." on-refresh="bc.refreshData(); globalRefresh();" style="/*margin-top: -20px;*/"></ion-refresher>
+                    <div class="main-content">
+                        <current-weather-bago></current-weather-bago>
+                    </div>
+                    <div class="clearfix"></div><br><br><br><br>
+                     <!-- <div class="row" id="home-reload">
+                        <div class="col">
+                            <button class="button button-icon ion-ios-reload home-reload" ng-click="bc.refreshData();"></button>
+                        </div>
+                    </div> -->
+                </ion-content>
+
+                <div class="d3 threeDay bago" ui-sref="app.forecast_home">
+                    <div class="row">
+                        <!-- col hold days -->
+                        <div class="col col-25">
+                            <div class="col"><p>{{t}}</p></div>
+                            <div class="col"><p>{{tm}}</p></div>
+                            <div class="col"><p>{{nd}}</p></div>
+                        </div>
+
+                        <!-- col hold icons -->
+                        <div class="col col-20 no_flex_zone">
+                            <span class="icon-size">
+                                <div ng-if="!bago_today_icon_ready"><br><br></div>
+                                <bago-today-icon ng-show="bago_today_icon_ready"></bago-today-icon>
+
+                                <div ng-if="!bago_tm_icon_ready"><br><br></div>
+                                <bago-tom-icon ng-show="bago_tm_icon_ready"></bago-tom-icon>
+
+                                <div ng-if="!bago_nd_icon_ready"><br><br></div>
+                                <bago-ndi-icon ng-show="bago_nd_icon_ready"></bago-ndi-icon>
+                            </span>
+                        </div>
+
+                        <!-- col hold temp values-->
+                        <div class="col col-60" style="position: absolute; right: 0; padding-left: 0px; ">
+                            <div class="col" style="padding-left: 0px; ">
+                                 <p ng-if="!bago_today_icon_ready" class="d3-svg-holder text-right">
+                                    <ion-spinner style="" class="holder light" icon="dots"></ion-spinner>
+                                </p>
+                                <p class="text-right fc-high" ng-class="{wider_p: t=='Today'}" ng-if="bago_today_icon_ready">
+                                    <span ng-if="t == 'Today'">
+                                        <span class="small">Day</span>
+                                        {{bc.th}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-up"></i></span> •
+                                    </span>
+                                    Night {{bc.tl}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-down"></i></span>
+                                </p>
+                            </div>
+                            <div class="col">
+                                 <p ng-if="!bago_tm_icon_ready || !bc.maxtm && !bc.mintm" class="d3-svg-holder text-right">
+                                    <ion-spinner style="" class="holder light" icon="dots"></ion-spinner>
+                                </p>
+                                <p class="text-right fc-high wider_p" ng-if="bago_tm_icon_ready && bc.maxtm && bc.mintm">
+                                    <span class="small">Day</span>
+                                    {{bc.maxtm}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-up"></i></span> •
+                                    Night {{bc.mintm}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-down"></i></span>
+                                </p>
+                            </div>
+                            <div class="col">
+                                 <p ng-if="!bago_nd_icon_ready || !bc.max24 && !bc.min24" class="d3-svg-holder text-right">
+                                    <ion-spinner style="" class="holder light" icon="dots"></ion-spinner>
+                                </p>
+                                <p class="text-right fc-high wider_p" ng-if="bago_nd_icon_ready && bc.max24 && bc.min24">
+                                    <span class="small">Day</span>
+                                    {{bc.max24}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-up"></i></span> •
+                                    Night {{bc.min24}}<sup>&deg;</sup><span>c<i class="icon ion-ios-arrow-thin-down"></i></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-pane>

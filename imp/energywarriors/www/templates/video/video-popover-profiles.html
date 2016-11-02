@@ -1,0 +1,49 @@
+<!-- TODO: KARA SHOULD MAKE A BETTER BACKGROUND THEN transparent-back FOR THIS VIEW-->
+
+
+
+<div class="modal fullscreen-player transparent-back" ng-click="closeModal()">
+
+
+    <div class="video-container" ng-repeat="profiles in profile | filter:{id: ind}">
+      <iframe src="{{profiles.video}}" frameborder="0" allowfullscreen width="560" height="315"></iframe>
+    </div>
+
+</div>
+
+
+
+
+<!-- <section class="modal fullscreen-player transparent-back">
+    <button play-video ng-class="{'active': mainVideoDisplay}">Toggle Video display [play/pause]</button>
+    <article class="video-wrapper" ng-class="{'active': mainVideoDisplay}">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/jq_OPKJPs_k?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+    </article>
+</section> -->
+
+
+<!-- get ready to delete this -->
+<!-- <div play-video ng-class="{'active': mainVideoDisplay}" class="modal fullscreen-player transparent-back" ng-repeat="profiles in profile | filter:{id: ind}">
+  <button ng-click="closeModal()">Toggle Video display [play/pause] </button>
+  <article class="video-wrapper" ng-class="{'active': mainVideoDisplay}">
+    <iframe width="560" height="315" src="{{profiles.video}}" frameborder="0" allowfullscreen></iframe>
+  </article>
+
+</div> -->
+
+
+
+
+<!-- <div play-video ng-class="{'active': mainVideoDisplay}" ng-click="closeModal()" class="modal fullscreen-player transparent-back" ng-repeat="profiles in profile | filter:{id: ind}">
+  <button ng-click="controlVideo()">Toggle Video display [play/pause] </button>
+  <div  class="video-container" ng-class="{'active': mainVideoDisplay}" ng-repeat="profiles in profile | filter:{id: ind}">
+    <iframe src="{{profiles.video}}" frameborder="0" allowfullscreen width="560" height="315"></iframe>
+  </div>
+</div> -->
+
+
+
+
+  <!-- <div  class="modal video-container" ng-repeat="profiles in profile | filter:{id: ind}">
+    <iframe src="{{profiles.video}}" frameborder="0" allowfullscreen width="560" height="315"></iframe>
+  </div> -->

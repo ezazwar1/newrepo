@@ -1,0 +1,87 @@
+<!--
+  Generated template for the PostDetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+  <!-- Pull to refresh -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Error Dialog -->
+  <div class="mg-error-box" *ngIf="didNotLoad">
+    <h1>
+      <ion-icon name="alert"></ion-icon>
+    </h1>
+    <h3 class="bold-weight">Hmmm. Something's not right.</h3>
+    <p>Data didn't load. Try again</p>
+    <button primary (click)="loadPost()">Reload</button>
+    <button primary navPop>Go Back</button>
+  </div>
+  <!-- End Error Dialog -->
+
+<!--
+Single Post Component.
+Refer to app/custom-components/single-post/single-post.component.ts
+-->
+<post *ngIf="!didNotLoad" postImage="{{singlePostData.postImage}}"
+  postTitle="{{singlePostData.postTitle}}"
+  postCategory="{{singlePostData.postCategory}}"
+  postCommentCount="{{singlePostData.postCommentCount}}"
+  postNumberOfShares="{{singlePostData.postNumberOfShares}}"
+  postNumberOfLikes="{{singlePostData.postNumberOfLikes}}"
+>
+  {{singlePostData.postContent}}
+</post>
+
+<!-- Single Post Component. Refer to
+app/custom-components/like/like.component.ts
+-->
+<like (onVote)="likePost($event)" [isClicked]="true" voteCount="{{singlePostData.postNumberOfLikes}}" PostID="{{PostID}}">
+</like>
+
+<!-- Comment Section -->
+<div class="mg-comment-section">
+
+  <!-- Load Comment Button -->
+  <button primary block large (click)="showComments()">
+    <ion-icon name="chatboxes"></ion-icon>
+    Load Comments
+  </button>
+
+  <!--
+    LoaderBlock. Shows an activity animate while fetching the data for its
+    contents. Takes an Input [loaderEnabled] Property to either true/false
+  -->
+  <mg-loader-block [displayLoader]="loaderDisplayStatus" [loaderComplete]="loaderComplete">
+    <h6 class="divider divider-text-center">Comments</h6>
+    <mg-comment
+      *ngFor="let comment of postComments"
+      commentAuthor="{{comment.commentAuthor}}"
+      commentTime="{{comment.commentTime}}">
+      {{comment.commentText}}
+    </mg-comment>
+  </mg-loader-block>
+
+  <!-- Comment List. Don't show unless postComments Property lenght is more than 1 -->
+  <div *ngIf="postComments.length > 1">
+  </div>
+
+</div>
+<!-- End Comment Section -->
+
+<div class="mini-post-section">
+  <h6 class="mini-post-section--title">related articles</h6>
+  <ion-list>
+    <mini-post *ngFor="let relatedPost of relatedPostsData"
+    miniPostTitle="{{relatedPost.miniPostTitle}}"
+    miniPostImage="{{relatedPost.miniPostImage}}"
+    miniPostID="{{relatedPost.miniPostID}}"
+    (onPostClick)="gotoDetailPost($event)"></mini-post>
+  </ion-list>
+</div>
+
+</ion-content>

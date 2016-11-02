@@ -1,0 +1,1 @@
+var db,authObj;angular.module("app",["ionic","templates","ngSanitize","timer","ngStorage","angular-loading-bar","angularMoment","app.controllers","app.routes","app.services","app.directives","pascalprecht.translate","angular-svg-round-progress","chart.js","jrCrop","satellizer","wyvernzora.un-svg","ngCordova","monospaced.elastic","angular-preload-image","ionic-ratings"]);

@@ -1,0 +1,547 @@
+/*------------------------------------*\
+    #Data group
+         * Data group version 1. Num is at the top of the text.
+\*------------------------------------*/
+//
+//.gamer_data {
+//    @extend %data-show;
+//    @include justifyContent($var: space-around);
+//
+//}
+//
+//.gamer_data-gamer-profile {
+//    border-top: 1px solid $dividerColor;
+//    border-bottom: 1px solid $dividerColor;
+//}
+//
+//.data_box {
+//    text-align: center;
+//}
+//
+//.data_box-collection-profile {
+//    @include dataBox(4);
+//}
+//
+//.data_box-me-profile {
+//    @extend .data_box-collection-profile;
+//}
+//
+//.data_box-wallet {
+//    @include dataBox(2);
+//}
+//
+//.data_box-game-profile {
+//    @include dataBox(3);
+//}
+//
+//.data_num {
+//    @include fontRegular;
+//    font-size: $fontSizeTitle;
+//    color: $baseLinkColor;
+//    margin-bottom: 6px;
+//}
+//
+//.data_text {
+//    @extend %subtitle;
+//    margin-bottom: 0;
+//    letter-spacing: 0.5px;
+//}
+//
+//.data_box-gamer-profile {
+//    @include dataBox(4);
+//}
+
+/*------------------------------------*\
+    #Data group
+         * Data group version 2. With 5 starts
+\*------------------------------------*/
+
+.gamer_data {
+    @extend %data-show;
+    @include justifyContent($var: space-around);
+
+    .collection-profile_gamer & {
+        border-top: 1px solid $dividerColor;
+        border-bottom: 1px solid $dividerColor;
+    }
+}
+
+.gamer_data-gamer-profile {
+    border-top: 1px solid $dividerColor;
+    border-bottom: 1px solid $dividerColor;
+}
+
+.data_box {
+    text-align: center;
+}
+
+.data_box-collection-profile {
+    @include dataBox(3);
+}
+
+.data_box-me-profile {
+    @include dataBox(3);
+}
+
+.data_box-wallet {
+    @include dataBox(2);
+}
+
+.data_box-game-profile {
+    width: 32%;
+    @include dataBox(3);
+}
+
+.data_num {
+    @include fontRegular;
+    font-size: $fontSizeSmall;
+    color: $baseLinkColor;
+    float: left;
+
+    &.data_disable {
+        color: white;
+    }
+
+    .data_box-wallet & {
+        float: none;
+        font-size: $fontSizeBase;
+    }
+
+    .data_box-game-profile & {
+        float: none;
+        font-size: $fontSizeBase;
+    }
+}
+
+.data_text {
+    @extend %subtitle;
+    font-size: $fontSizeSmall;
+    letter-spacing: 0.5px;
+    float: left;
+    margin-left: 4px;
+
+    .data_box-wallet & {
+        float: none;
+        margin-left: 0;
+    }
+
+    .data_box-game-profile & {
+        float: none;
+        margin-left: 0;
+    }
+
+    .review_box & {
+        line-height: 1.1em;
+    }
+}
+
+.data_box-gamer-profile {
+    text-align: center;
+    display: block;
+
+    .gamer_data & {
+        &:first-child {
+            min-width: 140px;
+        }
+    }
+}
+
+
+
+// Only apply to the star count
+.data_highlight {
+    color: $gbgGreen;
+}
+
+
+
+
+
+
+.popup-add-review__star {
+    width: 60%;
+    margin: 20px auto;
+}
+
+
+.data_star {
+    background: url("../img/icons/star-000.svg") center center no-repeat;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 3px;
+    position: relative;
+    top: -1px;
+
+    .popup-add-review__star & {
+        width: 26px;
+        height: 26px;
+        margin-right: 0;
+        top: 0;
+        float: none;
+    }
+}
+
+.data_star-list {
+    @include flexParentLayout;
+    @include justifyContent(space-between);
+}
+
+.data_star-000 {
+    .data_star {
+        @extend %star-000;
+    }
+}
+
+.data_star-025 {
+    .data_star:nth-child(1) {
+        @extend %star-025;
+    }
+}
+
+.data_star-050 {
+    .data_star:nth-child(1) {
+        @extend %star-050;
+    }
+}
+
+.data_star-075 {
+    .data_star:nth-child(1) {
+        @extend %star-075;
+    }
+}
+
+.data_star-100 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+}
+
+.data_star-125 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-025;
+    }
+}
+
+.data_star-150 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-050;
+    }
+}
+
+.data_star-175 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-075;
+    }
+}
+
+.data_star-200 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+}
+
+.data_star-225 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-025;
+    }
+}
+
+.data_star-250 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-050;
+    }
+}
+
+.data_star-275 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-075;
+    }
+}
+
+.data_star-300 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+}
+
+.data_star-325 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-025;
+    }
+}
+
+.data_star-350 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-050;
+    }
+}
+
+.data_star-375 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-075;
+    }
+}
+
+.data_star-375 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-075;
+    }
+}
+
+.data_star-400 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-100;
+    }
+}
+
+.data_star-425 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(5) {
+        @extend %star-025;
+    }
+}
+
+.data_star-450 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(5) {
+        @extend %star-050;
+    }
+}
+
+.data_star-475 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(5) {
+        @extend %star-075;
+    }
+}
+
+.data_star-500 {
+    .data_star:nth-child(1) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(2) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(3) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(4) {
+        @extend %star-100;
+    }
+    .data_star:nth-child(5) {
+        @extend %star-100;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// Data Table
+.data_table {
+    display: table;
+    width: 100%;
+    margin: 8px 0;
+    border-collapse: collapse;
+}
+
+.data_table_header {
+    display: table-header-group;
+    color: white;
+}
+
+//.data_table_row {
+//    display: table-row;
+//    border-top: 1px solid $dividerColor;
+//    border-bottom: 1px solid $dividerColor;
+//
+//    &:last-child {
+//        border-bottom: none;
+//    }
+//}
+//
+//.data_table_cell {
+//    display: table-cell;
+//    vertical-align: middle;
+//    text-align: center;
+//    width: 33%;
+//    padding: 4px 0;
+//
+//    &:first-child {
+//        text-align: right;
+//    }
+//}
+//
+//.data_table_price {
+//    display: block;
+//    font-size: 0.875rem;
+//    color: $gbgGreen;
+//}
+//
+//.data_table_no-price {
+//    color: white;
+//}
+//
+//.data_table_img {
+//    width: 70px;
+//}
+
+
+
+.data_table_row {
+    display: table-row;
+}
+
+.data_table_cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 33%;
+    padding: 4px;
+
+    &:first-child {
+        width: 100px;
+    }
+}
+
+.data_table_price {
+    display: block;
+    font-size: 0.875rem;
+    color: $gbgGreen;
+    border: 1px solid $dividerColor;
+    padding: 6px 0;
+    @include borderRadius(2px);
+
+    &.activated {
+        border-color: $gbgGreen;
+    }
+}
+
+.data_table_no-price {
+    color: white;
+    border: none;
+}
+
+.data_table_img {
+    width: 70px;
+}

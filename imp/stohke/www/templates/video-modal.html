@@ -1,0 +1,40 @@
+<ion-modal-view no-scroll>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-icon icon ion-ios-close-outline" ng-click="mediaModal.hide()"></button>
+        <h1 class="title" ng-if="user">{{user.UserName}} {{user.FirstName}} {{user.LastName}}</h1>
+        <h1 class="title" ng-if="!modalTitle">Featured Video</h1>
+        <div class="buttons">
+
+        </div>
+    </ion-header-bar>
+    <ion-content no-scroll>
+        <ion-refresher pulling-text="" on-refresh="mediaModal.hide()" pulling-icon="ion-ios-close-outline"></ion-refresher>
+        <ion-slide-box on-slide-changed="slideChanged(index, 'videos')" show-pager="false" active-slide="activeSlide" does-continue="false" class="media-slider">
+            <ion-slide ng-repeat="video in userMedia.videos" on-tap="showHotspots(userMedia.videos[activeSlide].HotSpots)" on-hold="share(userMedia.videos[activeSlide])">
+                <div class="box" ng-show="$index >= (activeSlide-1) && $index <= (activeSlide+1)">
+                    <div class="video-container" ng-if="$index == activeSlide">
+                        <a ng-click="watchVideo(video.Url)">
+                            <img ng-src="{{video.ThumbnailLargeUrl}}" class="profile-video-thumb">
+                            <i class="ion-android-arrow-dropright-circle play-button middle"></i>
+                        </a>
+                    </div>
+
+                    <p class="caption">{{video.Caption}}</p>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <ion-footer-bar class="bar-dark">
+        <div class="buttons">
+            <button class="button button-icon ion-ios-upload-outline" ng-click="share(userMedia.videos[activeSlide])"></button>
+        </div>
+        <div class="title">
+            <stohke-button data-media-owner="(user.UserId || user.Id || userMedia.videos[activeSlide].UserId) + '_' + userMedia.videos[activeSlide].Id" data-media-type="userMedia.videos[activeSlide].Type">
+            </stohke-button>
+            <stohke-count data-media-owner="(user.UserId || user.Id || userMedia.videos[activeSlide].UserId) + '_' + userMedia.videos[activeSlide].Id" data-media-type="userMedia.videos[activeSlide].Type" data-counter-only="true"></stohke-count>
+        </div>
+        <div class="buttons" ng-if="!disableFlagging">
+            <button class="button button-icon ion-ios-flag-outline" ng-click="flag(userMedia.videos[activeSlide])"></button>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

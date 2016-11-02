@@ -1,0 +1,25 @@
+<ion-view view-title="{{ title }}">
+
+	<ion-content class="article-pick-wrapper">
+    	<div class="loader-wrapper" ng-show="feedLoader">
+			<ion-spinner class="spinner-android"></ion-spinner>
+		</div>
+		<ion-refresher pulling-text="Reload..." on-refresh="doReloadFeed()">
+		</ion-refresher>
+
+		<ion-item ng-repeat="ar in feeds | orderBy:['-articleCreatedDate']"  class="article-stream-holder">
+			<div ng-include src="'templates/article/articlelisttemplate.html'"></div>
+		</ion-item>
+
+		<div class="no-data-wrapper" ng-show="displayFeedEmpty">
+			<div class="title">
+				Article is not available at the moment
+			</div>
+		</div>
+
+		<ion-infinite-scroll ng-if="f_loadmore" on-infinite="loadMore()" distance="10%" class="ionic-load-more">
+	  	</ion-infinite-scroll>
+
+    </ion-content>
+
+</ion-view>

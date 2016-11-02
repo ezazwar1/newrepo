@@ -1,0 +1,82 @@
+<ion-view view-title="{{ title }}">
+  <ion-content class="search-background">
+    <div class="bar bar-header search-bar item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-model="model.search" ng-change="onTextChanged()">
+      </label>
+    </div>
+
+    <!-- content here -->
+    <div class="search-wrapper">
+      <div class="loader-wrapper" ng-show="searchLoader">
+        <ion-spinner class="spinner-android"></ion-spinner>
+      </div>
+
+      <ion-item ng-repeat="f in feeds" ng-click="goToArticle('{{ f.articleId }}', {{ f.articleType }}, '{{ f.articleLink }}')">
+        <div class="search-headline">
+          {{ f.articleHeadline }}
+        </div>
+        <div class="search-by">
+          {{ f.articleCreatedBy }}
+          <div class="period">{{ f.articleTimeSpan }}</div>
+        </div>
+      </ion-item>
+
+      <div class="no-data-wrapper" ng-show="displayEmptySearch">
+        <div class="title">
+          No records found
+        </div>
+      </div>
+
+      <div class="search-category" ng-show="displayListCategory">
+        <ion-item ng-click="goToCategory('style')">
+          <div class="item-label">
+            Style
+          </div>
+          <div class="item-right">
+            <span class="ion-chevron-right"></span>
+          </div>
+        </ion-item> 
+        <ion-item ng-click="goToCategory('people')">
+          <div class="item-label">
+            People
+          </div>
+          <div class="item-right">
+            <span class="ion-chevron-right"></span>
+          </div>
+        </ion-item> 
+        <ion-item ng-click="goToCategory('bags')">
+          <div class="item-label">
+            Bags
+          </div>
+          <div class="item-right">
+            <span class="ion-chevron-right"></span>
+          </div>
+        </ion-item> 
+        <ion-item ng-click="goToCategory('jewellery')">
+          <div class="item-label">
+            Jewellery
+          </div>
+          <div class="item-right">
+            <span class="ion-chevron-right"></span>
+          </div>
+        </ion-item>
+        <ion-item ng-click="goToCategory('watches')">
+          <div class="item-label">
+            Watches
+          </div>
+          <div class="item-right">
+            <span class="ion-chevron-right"></span>
+          </div>
+        </ion-item> 
+      </div>
+      
+
+      <ion-infinite-scroll ng-if="loadmore" on-infinite="loadMore()" distance="10%" class="ionic-load-more">
+      </ion-infinite-scroll> 
+    </div>
+    
+
+  </ion-content>
+</ion-view>

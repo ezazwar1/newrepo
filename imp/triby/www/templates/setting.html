@@ -1,0 +1,27 @@
+<ion-view cache-view="false" view-title="Settings" ng-controller="AppCtrl">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left client-positive" ng-click="openPrevious()"> {{::prevPage}}</button>
+    </ion-nav-buttons>
+    <ion-content padding="true">
+        <div class="list list-settings" style="-webkit-tap-highlight-color: rgba(0,0,0,0);">
+            <a class="item item-icon-left" href="#/app/profile">
+                <i class="icon ion-person"></i>
+                Profile
+            </a>
+            <a class="item item-icon-left" href="#/app/notifications">
+                <i class="icon ion-radio-waves"></i>
+                Notifications
+            </a>
+
+            <a class="item item-icon-left" href="#/app/feedback">
+                <i class="icon ion-chatboxes"></i>
+                Feedback
+            </a>
+
+            <a class="item item-icon-left" href="#/app/terms">
+                <i class="icon ion-information-circled"></i>
+                Terms of service
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

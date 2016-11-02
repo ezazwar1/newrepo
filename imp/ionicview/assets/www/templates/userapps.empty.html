@@ -1,0 +1,31 @@
+<ion-view class="userapps-empty" can-swipe-back="false" hide-back-button="true" view-title="My apps">
+    <ion-nav-buttons side="right">
+      <button class="button button-clear button-dark pull-right" ng-click="goToSettings()">
+        <i class="icon ion-android-settings"></i>
+      </button>
+    </ion-nav-buttons>
+  <ion-content class="content" scroll="true" scrollbar-y="false" >
+    <view-refresher on-refresh="reloadAppList()"></view-refresher>
+    <div class="container">
+      <img class="ionitron-img" src="img/ionitron-lg.png">
+      <div class="no-apps-title">
+        Woah! No apps yet?
+      </div>
+      <div class="no-apps-text">
+        I have no apps to show you here.
+        Preview an app by<br> entering its ID, or load
+        your own using the Ionic CLI.
+      </div>
+      <div class="buttons">
+        <button class="button button-outline button-positive view-button-white" ng-click="goToLoadAppPage()">
+          <span>PREVIEW APP</span>
+        </button>
+        <button class="button button-positive view-button-blue" ng-click="goToInstructions()">
+          <span>LOAD APP</span>
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+

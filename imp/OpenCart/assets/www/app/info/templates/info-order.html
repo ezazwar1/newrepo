@@ -1,0 +1,43 @@
+<ion-view view-title="{{ 'info.title_info_order' | i18n }}">
+    <ion-content>
+        <div class="item item-divider" i18n="info.order_invoice_data"></div>
+        <div class="item">
+            <span i18n="info.order_invoice_data"></span> <span class="invoice-item">{{::invoice_no}}</span>
+        </div>
+        <div class="item">
+            <span i18n="info.order_order_number"></span> <span class="invoice-item">{{::order_id}}</span>
+        </div>
+        <div class="item">
+            <span i18n="info.order_date"></span> <span class="invoice-item">{{::date_added}}</span>
+        </div>
+        <div class="item">
+            <span i18n="info.order_address"></span> <span class="invoice-item" ng-bind-html="shipping_address"></span>
+        </div>
+        <div class="item">
+            <span i18n="info.order_method"></span> <span class="invoice-item">{{::shipping_method}}</span>
+        </div>
+
+        <div class="item item-divider" i18n="info.order_invoice_items"></div>
+        <ion-list ng-if="products.length > 0">
+            <ion-item class="item" ng-repeat="item in products">
+                <h3 class="cart-item-title">{{::item.name}}</h3>
+                <h5 class="cart-item-title" i18n="info.order_product_code" data-code="{{::item.model}}"></h5>
+                <ul class="cart-item-options">
+                    <li ng-repeat="opt in item.option">{{::opt.name}}:{{::opt.value}}</li>
+                </ul>
+                <p>{{::item.quantity}} x {{::item.price}} <span class="cart-item-total">{{::item.total}}</span></p>
+            </ion-item>
+            <ion-item class="cart-totals-item" ng-repeat="total in totals">
+                <p>{{::total.title}} <span class="cart-item-total">{{::total.text}}</span></p>
+            </ion-item>
+        </ion-list>
+
+        <div class="item item-divider" i18n="info.order_history"></div>
+        <div class="item" ng-repeat="history in histories">
+            {{::history.date_added}}
+            <span class="invoice-item">{{::history.status}}</span>
+            <div ng-bind-html="history.comment"></div>
+        </div>
+
+    </ion-content>
+</ion-view>

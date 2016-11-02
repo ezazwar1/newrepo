@@ -1,0 +1,45 @@
+<ion-modal-view class="touchpoint popoverr actions">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeActionsModal()" class="go-back">X</a>
+    <h1>{{ 'ENERGY' | translate }}</h1>
+    <h2>{{ 'ENERGY_BLURB' | translate }}</h2>
+    <div class="button-wrapper">
+      <button ng-class="{active: energyLevel == 'low'}" ng-click="setEnergyLevel('low')" style="border-radius: 5px 0px 0px 5px;">{{ 'LOW' | translate }}</button>
+      <button ng-class="{active: energyLevel == 'medium'}" ng-click="setEnergyLevel('medium')">{{ 'MEDIUM' | translate }}</button>
+      <button ng-class="{active: energyLevel == 'high'}" ng-click="setEnergyLevel('high')" style="border-radius: 0 5px 5px 0;">{{ 'HIGH' | translate }}</button> 
+    </div>
+
+  <div class="actions-wrapper">
+    <div class="divider">{{ 'HOME_ACTIVITIES_TAGLINE' | translate }}</div>
+    <div ng-click="goToRelax(getSuggestedActivityId('relax'))" class="action relax" ng-class="{suggested: checkSuggestSub('relax')}">
+      <i class="icon activity-icon ion-ios-flame"></i><span>{{ 'RELAX_ACTION_DESCRIPTION' | translate}}</span><br>
+      <strong>{{ getSuggestedActivities('relax') }}</strong>
+      <i class="icon item-icon-right ion-ios-arrow-right"></i>
+    </div>
+    <div ng-click="goToThoughts(getSuggestedActivityId('thoughts'))" class="action thoughts" ng-class="{suggested: checkSuggestSub('thoughts')}">
+      <i class="icon activity-icon ion-ios-lightbulb"></i><span>{{ 'THOUGHTS_ACTION_DESCRIPTION' | translate}}</span><br>
+      <strong>{{ getSuggestedActivities('thoughts') }}</strong>
+      <i class="icon item-icon-right ion-ios-arrow-right"></i>
+    </div>
+    <div ng-click="goToGoals(getSuggestedActivityId('goals'))" class="action goals" ng-class="{suggested: checkSuggestSub('goals')}">
+      <i class="icon activity-icon activity-icon ion-ios-bolt"></i><span>{{ 'GOALS_ACTION_DESCRIPTION' | translate}}</span><br>
+      <strong>{{ getSuggestedActivities('goals') }}</strong>
+      <i class="icon item-icon-right ion-ios-arrow-right"></i>
+    </div>
+    <div ng-click="goToHabits(getSuggestedActivityId('habits'))" class="action habits" ng-class="{suggested: checkSuggestSub('habits')}">
+      <i class="icon activity-icon ion-heart"></i><span>{{ 'HABITS_ACTION_DESCRIPTION' | translate}}</span><br>
+      <strong>{{ getSuggestedActivities('habits') }}</strong>
+      <i class="icon item-icon-right ion-ios-arrow-right"></i>
+    </div>
+    <div ng-click="goToCommunities(getSuggestedActivityId('social'))" class="action social" ng-class="{suggested: checkSuggestSub('social')}">
+      <i class="icon activity-icon ion-ios-people"></i>{{ 'COMMUNITY_ACTION_DESCRIPTION' | translate}}<br>
+      <strong>{{ getSuggestedActivities('social') }}</strong>
+      <i class="icon item-icon-right ion-ios-arrow-right"></i>
+    </div>
+    <!--<div class="action cancel" ng-click="closeActionsModal()">
+       <i class="icon activity-icon ion-ios-close-empty"></i>
+    </div>-->
+  </div>
+
+  </ion-content>
+</ion-modal-view>

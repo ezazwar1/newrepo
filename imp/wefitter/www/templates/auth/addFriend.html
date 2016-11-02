@@ -1,0 +1,90 @@
+<ion-view  title="{{ 'ADD_FRIEND.TITLE' | translate }}">
+  <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+  </ion-nav-buttons>
+  <div class="bar bar-header item-input-inset add-friend-search-bar">
+    <label class="item-input-wrapper">
+      <input type="search" ng-model="search.params" class="dark-plc" placeholder="{{ searchPlaceholder }}" ng-change="(search.params.length > 2 || search.params == '') && updateInterface()">
+      <i class="icon ion-ios-search placeholder-icon search-icon-friend"></i>
+    </label>
+    <button ng-click="search.params = ''" ng-show="search.params.length > 0" class="button button-clear">
+      <i class="ion-android-close"></i>
+    </button>
+  </div>
+  <ion-content class="has-subheader">
+    <div class="friend-list add-friend-list" ng-if="!(search.params.length > 2)">
+
+    <!--
+      <div class="row friend-row" ui-sref="app.findFriend({type:'contact'})">
+        <div class="col col-20 icon-wrapper">
+          <div class="profile-user-image background-positive light text-center"><i class="ion-iphone addfriend-icon"></i></div>
+        </div>
+        <div class="col col-50 name-wrapper">
+          {{ 'ADD_FRIEND.CONTACTS' | translate }}
+        </div>
+        <div class="col right-arrow-wrap">
+          <i class="ion-ios-arrow-forward"></i>
+        </div>
+      </div>
+    -->
+
+      <div class="row friend-row" ng-click="openEmail()">
+        <div class="col col-20 icon-wrapper">
+          <div class="profile-user-image background-positive light text-center"><i class="ion-ios-email addfriend-icon"></i></div>
+        </div>
+        <div class="col col-50 name-wrapper">
+          {{ 'ADD_FRIEND.EMAIL' | translate }}
+        </div>
+        <div class="col right-arrow-wrap">
+          <i class="ion-ios-arrow-forward"></i>
+        </div>
+      </div>
+
+      <div class="row friend-row fb-row" ng-click="trackFbFriends()"><!--ui-sref="app.findFriend({type:'fb'})">--> 
+        <div class="col col-20 icon-wrapper">
+          <div class="profile-user-image fb-bg-color text-center"><i class="ion-social-facebook addfriend-icon"></i></div>
+        </div>
+        <div class="col col-50 name-wrapper" style="color: #5e6875;">
+          {{ 'ADD_FRIEND.FACEBOOK' | translate }}
+        </div>
+        <!--<div class="col right-arrow-wrap">
+          <i class="ion-ios-arrow-forward"></i>
+        </div>-->
+      </div>
+
+      <div class="big-padding text-center add-referral-code-wrap">
+        <p>{{ 'ADD_FRIEND.REFERRAL_CODE_TEXT' | translate }}</p>
+        <div class="vcode padding-bottom">
+          <div style="height:auto" class="button selectable-text big-button button-block button-positive padding margin-bottom" >{{me.referral_code}}</div>
+          <p class="text-referral text-center"><em translate="ACTION.TAP_COPY">tap to copy your invitation code</em></p>
+        </div>
+
+
+        <div class="text-center padding-top" style="position:relative">
+          <a ng-click="shareIt(share)" class="button button-assertive button-round">
+            <i class="wf wf-shared"></i>
+          </a>
+          <span class="share-ribbon"><span> <i class="wf-coins"></i> +20</span></span>
+        </div>
+
+      </div>
+
+    </div>
+    <div ng-if="search.params.length > 2">
+      <div class="friend-list">
+      <div class="row friend-row" ng-repeat = "friend in searchResult track by $index">
+       <div class="col col-20 icon-wrapper" ui-sref="app.publicProfile({id:friend.id})">
+         <div class="profile-user-image" style="background-image: url({{friend.image_url ?  friend.image_url : 'img/avatar.svg'}})"></div>
+       </div>
+        <div class="col col-50 name-wrapper" ui-sref="app.publicProfile({id:friend.id})">
+          {{friend.first_name ? friend.first_name : friend.email }}  {{friend.first_name ? friend.last_name : ''}}
+        </div>
+        <div class="col follow_btn_wrap">
+          <button class="button button-clear" ng-class="friend.following_him == 0 ? 'button-positive' : 'button-assertive' " ng-bind-html="friend.following_him == 0 ? follow_btn_txt : unfollow_btn_txt " ng-click="changeFollow($index)" ng-disabled="friend.follow_btn_disable">Follow</button>
+        </div>
+      </div>
+    </div>
+      	<div wf-pager params="params" distance="10" offset="10" dataset="searchResult" url="url"></div>
+    </div>
+  </ion-content>
+</ion-view>

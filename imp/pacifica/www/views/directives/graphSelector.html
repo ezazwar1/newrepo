@@ -1,0 +1,5 @@
+<div class="chart-wrap">
+	<canvas id="moodChart" width="270" height="270"></canvas>
+	<div class="val ignore-mouse habitSelector" ng-class="{nodata: (selectable && !valueData.userInteracted)}">{{getDisplayValue()}}</div>
+	<div class="text ignore-mouse habitSelector" ng-class="{nodata: (selectable && !valueData.userInteracted)}" ng-bind-html="getDisplayText()"></div>
+</div>

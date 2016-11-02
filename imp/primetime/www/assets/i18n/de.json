@@ -1,0 +1,150 @@
+{
+  "general": {
+    "appSlogan": "Entdecke fantastische Dating Ideen",
+    "by": "von",
+    "cancel": "Abbrechen",
+    "new": "neu",
+    "promotion": "",
+    "tellAFriend": "Probiere die {appName} App aus: {appUrl}"
+  },
+  "about": {
+    "title": "Über",
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "disclaimer": "Alle in dieser App veröffentlichten Fotos wurden sorgfältig ausgewählt und sind unter Creative Commons Zero (CC0) lizenziert. Falls du denkst, ein Foto wurde ausversehen verwendet und sollte entfernt werden, sende uns bitte eine kurze Beschreibung mit dem Problem.",
+    "inSwitzerland": "in der Schweiz",
+    "madeWith": "Erstellt mit viel",
+    "releaseNotes": "Versionshinweise",
+    "sendFeedbackViaEmail": "Sende uns deine Vorschläge für zukünftige Updates an"
+  },
+  "account": {
+    "email": "E-Mail",
+    "login": "Einloggen",
+    "logout": "Ausloggen",
+    "logoutQuestion": "Möchtest du wirklich ausloggen? Alle relevanten Daten werden gelöscht.",
+    "password": "Passwort"
+  },
+  "browse": {
+    "discover": "Entdecken",
+    "notificationDescription": "Erhalte morgen eine Benachrichtigung mit einer weitere grossartigen Idee für deinen nächsten Trip.",
+    "notifyMe": "Benachrichtigen",
+    "successfulSubmit": "Hurra! Vielen Dank für diese wunderbare Idee.",
+    "title": "Stöbern"
+  },
+  "detail": {
+    "getIt": "Los geht’s",
+    "insights": "Einblicke",
+    "insightsFemale": "Damen",
+    "insightsMale": "Herren",
+    "likes": "{likesCount, plural, one{Like} other{Likes}}",
+    "locationServiceError": "Whoop-Whoop! Bitte aktiviere die Standort-Dienste.",
+    "nearPlaces": "In deiner Nähe",
+    "photo": "Foto",
+    "sendInvitation": "Einladung senden",
+    "thanksForFeedback": "Vielen Dank für dein Feedback.",
+    "views": "{viewsCount, plural, one{Zugriff} other{Zugriffe}}"
+  },
+  "error": {
+    "noInternetTitle": "Keine Internetverbindung",
+    "noInternetMessage": "Es konnte keine Verbindung zum Internet aufgebaut werden. Bitte verbinden und neu versuchen.",
+    "retry": "Wiederholen",
+    "somethingWentWrong": "Hoppla, etwas ist schief gelaufen.",
+    "tryAgainLater": "Bitte versuche es später noch einmal.",
+    "unknownError": "Unbekannter Fehler"
+  },
+  "favorites": {
+    "title": "Meine Favoriten",
+    "emptyState": "Deine favorisierten Ideen erscheinen hier",
+    "emptyStateLink": "Like jetzt deine Favoriten"
+  },
+  "invitation": {
+    "closingWords": {
+      "alright": "Alles klar?",
+      "areYouIn?": "Bist du dabei?",
+      "hmmkay": "Hmmkay?",
+      "huhOhhhhTalkToMe!": "Mmmmh?? ohhhh....melde dich!",
+      "ok": "Ok?",
+      "okay": "Okay?",
+      "readyForIt?": "Bereit? 😊",
+      "rockNRoll": "Rock’n’Roll?",
+      "talkToMe": "Melde dich bei mir..."
+    },
+    "hereAndNow": "hier und jetzt",
+    "inALittleWhile": "demnächst",
+    "inASecond": "in einer Sekunde",
+    "nextWeek": "nächste Woche",
+    "nextWeekend": "nächstes Wochenende",
+    "salutation": {
+      "aloha": "Aloha",
+      "bonjour": "Bonjour",
+      "buenosDias": "Buenos Días",
+      "hello": "Hallo",
+      "hey": "Hey",
+      "hi": "Hi",
+      "hiya": "Hoi",
+      "hola": "Hola",
+      "salut": "Salut",
+      "saluti": "Saluti",
+      "whatsUp": "Was geht",
+      "yo": "Yo"
+    },
+    "theseDays": "in diesen Tagen",
+    "thisEvening": "heute Abend",
+    "thisTime": "dieses Mal",
+    "today": "heute",
+    "todayEvening": "heute Abend",
+    "tomorrow": "morgen",
+    "tomorrowNight": "morgen Abend",
+    "tonight": "heute Nacht",
+    "tonightAtEight": "heute Nacht um 20:03 Uhr"
+  },
+  "notifications": {
+    "weMissYou": "Wir vermissen dich! Klicke hier und erhalte jetzt deine Spezialidee."
+  },
+  "onboarding": {
+    "gender": {
+      "title": "Wer bist du?",
+      "subTitle": "Nur noch ein Schritt bis zu individuellen Ideen.",
+      "selectMale": "Ich bin ein Mann",
+      "selectFemale": "Ich bin eine Frau"
+    },
+    "disclaimer": "Für abenteuerlustige Paare und Singles",
+    "getStarted": "Jetzt starten"
+  },
+  "popular": {
+    "title": "Beliebte Ideen",
+    "allTimeTab": "Top 15",
+    "trendingTab": "Im Trend"
+  },
+  "search": {
+    "applyFilters": "Suche starten",
+    "day": "Tag",
+    "indoors": "Drinnen",
+    "introduction": "Hey {gender, select, male{Bro} female{Lady} other{there}}, wann geht’s los?",
+    "night": "Nacht",
+    "outdoors": "Draussen",
+    "reset": "Zurücksetzen",
+    "someday": "Voraus planen",
+    "title": "Finde Ideen",
+    "today": "Heute",
+    "when": "Um welche Zeit?",
+    "where": "Wo?"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "dailyInspiration": "Tägliche Inspiration",
+    "general": "Allgemein",
+    "language": "Sprache",
+    "notifications": "Benachrichtigungen"
+  },
+  "version": {
+    "update": "Jetzt aktualisieren",
+    "updateMessage": "Hallo, wir haben eine neue Version für dic. Jetzt aktualisieren, damit sie dir gehört.",
+    "updateTitle": "Neue Version verfügbar"
+  },
+  "walkthrough": {
+    "finalize": "Finde Ideen",
+    "slide0": "Wische hier, um inspiriert zu werden.",
+    "slide1": "Entdecke jeden Tag eine Aktivität.",
+    "slide2": "Finde jetzt deine perfekte Date Idee."
+  }
+}

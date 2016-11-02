@@ -1,0 +1,28 @@
+<ion-modal-view class="report-modal">
+    <ion-header-bar class="bar-positive">
+        <button ng-click="closeReportModal()" class="button back-button buttons button-clear header-item">
+            <span class="back-text">Cancel</span>
+        </button>
+        <h1 class="title">Report</h1>
+    </ion-header-bar>
+    <ion-content>
+        <p class="report-text">This Photo shouldn't be on InstaCafe.<br>Please choose a category of report below.</p>
+        <p class="report-text">After your sending report, this photo will be removed.</p>
+        <form ng-submit="sendReport(formData.category)">
+            <div class="report-body">
+            <label class="item item-input item-select">
+                <div class="input-label">Category</div>
+                <select name="category" ng-model="formData.category" required>
+                    <option value="1">Nudity or pornography</option>
+                    <option value="2">Graphic violence</option>
+                    <option value="3">Hate speech or symbol</option>
+                    <option value="4">Intellectual property violation</option>
+                </select>
+            </label>
+            </div>
+            <div class="padding">
+                <input type="submit" value="Report" class="button button-block button-balanced" ng-disabled="!formData.category">
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

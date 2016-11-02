@@ -1,0 +1,14 @@
+<ion-view title="<img class='logo' src='resources/img/logo.png' />">
+    <ion-content class="start">
+        <div class="container category-container" ng-repeat="category in categories" ng-style="{'background-image': 'url(resources/img/' + category.label + '.jpg)'}" ng-click="openMenu($event, category.entity_id)">
+            <div class="category-label">{{category.label}}</div>
+        </div>
+        <img class="ng-hide" src="resources/img/Freeski.jpg">
+        <img class="ng-hide" src="resources/img/Snowboard.jpg">
+        <img class="ng-hide" src="resources/img/Skateboard.jpg">
+        <img class="ng-hide" src="resources/img/Men.jpg">
+        <img class="ng-hide" src="resources/img/Women.jpg">
+        <img class="ng-hide" src="resources/img/Kids.jpg">
+        <img class="ng-hide" src="resources/img/Brand.jpg">
+    </ion-content>
+</ion-view>

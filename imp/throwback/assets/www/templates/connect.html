@@ -1,0 +1,30 @@
+<ion-view class="opening-bg" title="Connect" hide-nav-bar="true">
+  <ion-content>
+    <div class="connect-container">
+
+      <h3 class="header">
+        See your Tweets and Instagrams as well!
+      </h3>
+
+      <button class="button button-block button-fb connected" style="margin-top:40%;">
+        <i class="icon ion-social-facebook"></i>
+        &nbsp;Done
+        <i class="icon ion-checkmark-round align-right"></i>
+      </button>
+      <button class="button button-block button-twtr" ng-click="handleTwitterAuth()" ng-class="{'connected': connectedTwitter}">
+        <i class="icon ion-social-twitter"></i>
+        &nbsp;{{ twitterConnectStatus }}
+        <i class="icon ion-checkmark-round align-right" ng-if="connectedTwitter"></i>
+      </button>
+      <button class="button button-block button-ig" ng-click="handleInstagramAuth()" ng-class="{'connected': connectedInstagram}">
+        <i class="icon ion-social-instagram"></i>
+        &nbsp;{{ instagramConnectStatus }}
+        <i class="icon ion-checkmark-round align-right" ng-if="connectedInstagram"></i>
+      </button>
+
+    </div>
+  </ion-content>
+  <div class="bar bar-footer bar-positive" ng-click="handleNext()">
+    <div class="title">Next</div>
+  </div>  
+</ion-view>

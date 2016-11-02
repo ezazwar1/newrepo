@@ -1,0 +1,33 @@
+<ion-view view-title="{{ title }}">
+  <ion-content>
+      <ion-refresher pulling-text="Reload..." on-refresh="doReloadArticle()">
+      </ion-refresher>
+
+      <div class="loader-wrapper" ng-show="feedLoader">
+          <ion-spinner class="spinner-android"></ion-spinner>
+      </div>
+
+      <ion-item class="photo-grid-stream-holder">
+          <div class="row" ng-repeat="fd in feeds" ng-if="$index % 3 === 0">
+              <div class="col col-33" ng-if="$index < feeds.length" ng-click="goToZoomIn('{{ feeds[$index].itemId }}')">
+                  <img preload-image default-image="{{ feeds[$index].itemImagePH }}" ng-src="{{ feeds[$index].itemImage }}" />
+              </div>
+              <div class="col col-33" ng-if="$index + 1 < feeds.length" ng-click="goToZoomIn('{{ feeds[$index + 1].itemId }}')">
+                  <img preload-image default-image="{{ feeds[$index + 1].itemImagePH }}" ng-src="{{ feeds[$index + 1].itemImage }}" />
+              </div>
+              <div class="col col-33" ng-if="$index + 2 < feeds.length" ng-click="goToZoomIn('{{ feeds[$index + 2].itemId }}')">
+                  <img preload-image default-image="{{ feeds[$index + 2].itemImagePH }}" ng-src="{{ feeds[$index + 2].itemImage }}" />
+              </div>
+          </div>
+      </ion-item>
+
+      <div class="no-data-wrapper" ng-show="displayFeedEmpty">
+          <div class="title">
+              Style stream is not available at the moment.
+          </div>
+      </div>
+
+      <ion-infinite-scroll ng-if="loadmore" on-infinite="loadMore()" distance="10%" class="ionic-load-more">
+      </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

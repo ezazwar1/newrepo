@@ -1,0 +1,22 @@
+<ion-view cache-view="false" view-title="Search">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon ion-chevron-left client-positive" ng-click="go('app/main/home')">Groups</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div id="search_triby_div">
+            <label class="item item-input" style="border-width:0px;" focus-me>
+                <input type="text" id="search_triby_input" placeholder="Search Triby" ng-model="searchTribyName">
+            </label>
+        </div>
+        <div class="row row-center tribys_circles" ng-repeat="rows in tribes">
+            <div class="col col-50 triby-title" style="text-align:center;" ng-repeat="item in rows | searchTriby:searchTribyName">
+                <div class="tribys_name_text" style="text-align: center">
+                    {{::item.name}}
+                </div>
+                <a ui-sref="app.news_feed({triby_id:item._id})">
+                    <img class="group-image fixed-size no-shadow" ng-src="{{::item.pic}}" />
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

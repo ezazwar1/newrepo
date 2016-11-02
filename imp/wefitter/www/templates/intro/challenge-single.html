@@ -1,0 +1,209 @@
+<ion-view>
+
+  <ion-nav-title>
+      <wf-intro-dots max="isRefer && localData.referData ? '3' : '2'" active="0"></wf-intro-dots>
+  </ion-nav-title>
+
+
+
+  <ion-nav-buttons side="right">
+        <button ui-sref="intro.start" ng-click="referPageDone()" class="button button-clear button-skip">
+          {{ 'ACTION.NEXT' | translate }}
+        </button>
+    </ion-nav-buttons>
+	<div wf-validation-msg show="showError" type="alert-danger" msg="{{ errorMsg }}"></div>
+  <ion-content class="has-header no-border bottom-0" scroll="false">
+      <!-- <ion-refresher
+        spinner="none"
+        pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+        on-refresh="pullRefresh()">
+      </ion-refresher> -->
+      <div ng-if="challenge">
+        <section class="white-bg">
+          <wf-tabs style="light-bg">
+          <wf-pane title="{{ 'CHALLENGE.DESCRIPTION' | translate }}" callback="tabCallback('desc')">
+            <ion-scroll direction="y" style="height: {{wHeight}}px">
+              <ion-refresher
+                spinner="none"
+                pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+                on-refresh="pullRefresh()">
+              </ion-refresher>
+              <div class="img-cover item item-image">
+
+                  <!-- coming soon block -->
+                  <div class="positive-overlay" ng-show="challenge.coming_soon == '1'">
+                    <h3 class="unlock-text">{{ 'CHALLENGE.SOON' | translate }}</h3>
+                  </div>
+
+                  <!-- joined and completed  -->
+                  <div class="positive-overlay completed" ng-if="challenge.completed == '1'">
+                      <div class="">
+                          <i class="wf wf-premium-two wf-5x positive"></i>
+                          <h3 class="unlock-text">{{ 'CHALLENGE.GREAT_DIT_IT' | translate }}</h3>
+                      </div>
+                  </div>
+
+                  <!-- joined and failed  -->
+                  <div class="positive-overlay completed" ng-if="challenge.completed == '0' && challenge.active == '0' && challenge.joined == '1' && challenge.coming_soon == '0' ">
+                      <div class="">
+                          <i class="wf wf-fail wf-5x positive"></i>
+                          <h3 class="unlock-text">{{ 'CHALLENGE.NOT_DONE' | translate }}</h3>
+                      </div>
+                  </div>
+
+                  <!-- joined state -->
+                  <div class="positive-overlay" ng-show="challenge.joined == '1' && challenge.coming_soon == '0' && challenge.completed == '0' && challenge.active == '1'">
+
+                      <!-- joined and active  -->
+                      <div>
+                        <timer end-time="challenge.end_date">
+                <!--  <div class="darker-overlay" ng-show="challenge.joined == '1'">
+
+                      <div ng-if="(challenge.goal_current | num) < (challenge.goal | num)">
+                        <timer ng-if="(challenge.end_date | amDifference : null : 'seconds') > 0" end-time="challenge.end_date">
+                        -->
+                          <ul class="countdown dark-mode">
+                            <li>
+                              <p class="days_ref" translate="UNIT.DAYS">days</p>
+                              <span class="days">{{ddays}}</span>
+                            </li>
+                            <li>
+                              <p class="hours_ref light" translate="UNIT.HOURS">hours</p>
+                              <span class="hours">{{hhours}}</span>
+                            </li>
+                            <li>
+                              <p class="minutes_ref" translate="UNIT.MINUTES">minutes</p>
+                              <span class="minutes">{{mminutes}}</span>
+                            </li>
+                            <li>
+                              <p class="seconds_ref" translate="UNIT.SECONDS">seconds</p>
+                              <span class="seconds">{{sseconds}}</span>
+                            </li>
+                          </ul>
+                        </timer>
+                    </div> <!-- end active timer -->
+                  </div> <!-- end joined state -->
+
+                  <img class="img-responsive" ng-src="{{ challenge.cover_url }}" default-image="img/placeholder-broken.svg" preload-image>
+
+                  <div class="row top-btns">
+                    <div class="col text-right">
+                      <i ng-show="challenge.global == '1'" class="wf wf-globe"></i>
+                    </div>
+                  </div>
+
+                  <div class="row bottom-top-gradient bot-btns">
+                    <div ng-show="challenge.joined == '0' && challenge.coming_soon == '0'" class="col text-left">
+                      <i class="wf wf-accept"></i> {{ 'ACTION.ACCEPT' | translate }}
+                    </div>
+                    <div ng-show="challenge.joined == '1'" class="col text-left">
+                      <i class="wf wf-bar-chart"></i> {{ challenge['user-stats'].ranking | number }}º
+                    </div>
+
+                    <div class="col text-right">
+                      <i class="wf wf-people"></i> {{ challenge.participants | number }}
+                    </div>
+                  </div>
+              </div>
+
+
+              <div class="desc-card">
+                <div ng-show="challenge.global == '1'" class="positive c-level"><i class="wf wf-globe"></i> {{ 'CHALLENGE.GLOBAL' | translate }}</div>
+                <h3>{{ challenge.title }}</h3>
+                <div class="row positive row-no-padding-sides">
+                  <div class="col col-center">
+                      <wf-meter color="positive-bg" value="challenge.goal_current" limit="challenge.goal"></wf-meter>
+                  </div>
+                </div>
+                <div class="row positive row-no-padding-sides">
+                    <div class="col text-left dark">
+                      <i class="wf" ng-class="{'wf-coins' : challenge.goal_unit == 'points', 'wf-calorie' : challenge.goal_unit == 'kcal', 'wf-distance' : challenge.goal_unit == 'distance', 'wf-time' : challenge.goal_unit == 'duration'}"></i> {{ challenge.goal_current | number:0 }} {{unit}}
+                    </div>
+                    <div class="col text-right">
+                      <i class="wf" ng-class="{'wf-coins' : challenge.goal_unit == 'points', 'wf-calorie' : challenge.goal_unit == 'kcal', 'wf-distance' : challenge.goal_unit == 'distance', 'wf-time' : challenge.goal_unit == 'duration'}"></i> {{ challenge.goal | number }} {{unit}}
+                    </div>
+                </div>
+              </div>
+          <div class="big-padding">
+          <div class="countdown-box text-center">
+            <h4 style="letter-spacing:0">{{ challenge.slogan }}</h4>
+            <div ng-if="(challenge.joined == '0')">
+              <timer ng-if="(challenge.end_date | amDifference : null : 'days') > 0" end-time="challenge.end_date">
+                <ul class="countdown light-mode">
+                  <li>
+                    <span class="days">{{ddays}}</span>
+                    <p class="days_ref" translate="UNIT.DAYS">days</p>
+                  </li>
+                  <li>
+                    <span class="hours">{{hhours}}</span>
+                    <p class="hours_ref" translate="UNIT.HOURS">hours</p>
+                  </li>
+                  <li>
+                    <span class="minutes">{{mminutes}}</span>
+                    <p class="minutes_ref" translate="UNIT.MINUTES">minutes</p>
+                  </li>
+                  <li>
+                    <span class="seconds">{{sseconds}}</span>
+                    <p class="seconds_ref" translate="UNIT.SECONDS">seconds</p>
+                  </li>
+                </ul>
+              </timer>
+            </div>
+          </div>
+
+          <div ext-links class="content-box padding-top">
+
+            <div ng-if="challenge.logo_url" class="text-center padding-top"><img width="100" src="{{challenge.logo_url}}"/></div>
+
+            <div class="padding-bottom" ng-bind-html="challenge.description | toTrusted"></div>
+
+            <div ng-if="challenge.sponsor_url" class="text-center padding-top"><img  width="100" src="{{challenge.sponsor_url}}"/></div>
+          <div><p><strong>Start Date:</strong><span class="margin-left-10">{{challenge.start_date | amDateFormat:'L'}}</span></p></div>
+          <div><p><strong>End Date:</strong><span class="margin-left-10">{{challenge.end_date | amDateFormat:'L'}}</span></p></div>
+           <div><p>{{ challengeExTxt }}</p></div>
+
+            <div ng-show="challenge.joined == '0'"  class="padding-bottom">
+              <button ui-sref="app.challengeHow" class="button big-button button-assertive button-block" translate="CHALLENGE.HOW_IT_WORKS">HOW it works</button>
+            </div>
+            <div class="spacer" style="height:32px"></div>
+            <div class="text-center" style="position: relative;">
+              <button ng-click="shareIt(share)" class="button button-assertive button-round">
+                <i class="wf wf-shared"></i>
+              </button>
+
+              <span class="share-ribbon" style="top: 23px;"><span> <i class="wf-coins"></i> +20</span></span>
+            </div>
+
+                    <!--
+                    TEMPORARY DISABLED
+                    <a href="#"
+                      ng-show="challenge.joined == '1'"
+                      ng-click="joinChallengeToggle(challenge)"
+                      class="leave-challenge-link">
+                      <i class="ion-close"></i> {{ 'CHALLENGE.LEAVE_CHALLENGE' | translate}}
+                    </a>
+                  -->
+
+                </div>
+              </div>
+                <div class="footer-height"></div>
+              </ion-scroll>
+              </wf-pane>
+              <wf-pane title="{{ 'LEADERBOARD.TITLE' | translate }}" callback="tabCallback('leaderboard')">
+              <ion-scroll direction="y" style="height: {{wHeight}}px">
+                <ion-refresher
+                    spinner="none"
+                    pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+                    on-refresh="refreshLeaderboard()">
+                </ion-refresher>
+              <div ng-if="activeTab == 'leaderboard'" wf-leaderboard result="challenge" url="url" has-footer="true" per-page="5" refresh="refresh"></div>
+            </ion-scroll>
+            </wf-pane>
+          </wf-tabs>
+        </section>
+      </div>
+  </ion-content>
+    <ion-footer-bar  class="bar-positive floating-footer floating-footer-button" ng-show="challenge.joined == '0'" >
+        <button ng-disabled="loading" ng-click="joinChallengeToggle(challenge)" class="button button-big-sticky button-full floating-footer-button" translate="CHALLENGE.ACCEPT_CHALLENGE">Accept the Challenege</button>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,127 @@
+@import 'variables';
+
+.album-page {
+
+	.bar.bar-header {
+		background: #efecec;
+
+		.title {
+			font-family: HelveticaNeueLT, sans-serif;
+			font-size: 16px;
+			color: #9aa7b2;
+		}
+
+		.btn-done {
+			font: bold 16px HelveticaNeueLT, sans-serif;
+			color: #9aa7b2;
+			width: auto;
+			height: auto;
+		}
+
+		.btn-back {
+			img {
+				height: 22px;
+			}
+		}
+	}
+
+	.album-content {
+		top: 155px;
+	}
+
+	.album-info {
+		font: normal 16px HelveticaNeueLT, sans-serif;
+		position: relative;
+		margin: 10px;
+
+		.title {
+			color: #35434d;
+			margin-bottom: 10px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.instruction {
+			color: #9aa7b2;
+			margin-bottom: 10px;
+		}
+
+		.btn-select-all {
+			font: normal 16px HelveticaNeueMD, sans-serif;
+			color: #9aa7b2;
+			text-align: left;
+
+			.select-box {
+				display: block;
+				float: left;
+				margin-right: 10px;
+				width: 25px;
+				height: 25px;
+				border: 1px solid #9aa7b2;
+				border-radius: 3px;
+			}
+
+			&.all-selected .select-box {
+				background-image: url('../images/albummanager/check-green.svg');
+			}
+		}
+	}
+
+	.grid-item {
+
+		.grid-item-inner {
+			background-color: #e5e5e5;
+			background-position: center center;
+			background-position: cover;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border: 1px solid #fff;
+		}
+
+		.status {
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			width: 50px;
+			height: 50px;
+			padding: 0px;
+			font-size: 40px;
+			color: #fff;
+			background-color: #12ad60;
+			background-size: cover;
+
+			&.selected {
+				background-image: url('../images/albummanager/check-green.svg');
+			}
+		}
+	}
+
+	.big-button-footer {
+		height: 60px;
+		padding: 10px 20px 17px;
+		background: #fff;
+		border: 0;
+
+		.make-it {
+			position: relative;
+			background: #12ad60;
+			text-align: center;
+			padding: 12px;
+			color: #fff;
+			font-family: HelveticaNeueBD, sans-serif;
+			font-size: 16px;
+			border-radius: 3px;
+			line-height: 10px;
+
+			img {
+				height: 35px;
+				position: absolute;
+				top: -1px;
+				left: -1px;
+			}
+		}
+	}
+
+
+}

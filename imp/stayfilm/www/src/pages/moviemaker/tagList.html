@@ -1,0 +1,31 @@
+<div class="tag-list modal">
+	<!-- *** tag-list *** -->
+	<ion-header-bar align-title="center">
+		<h1 class="title" translate>Filtre por Tags</h1>
+		<button class="button btn-close" ng-click="closeTagList()"><img src="images/ico-close.png"></button>
+	</ion-header-bar>
+	<ion-content class="content">
+		<form name="$parent.$parent.$parent.tagStep">
+			<div class="list">
+				<div class="item item-input-inset">
+					<label class="item-input-wrapper">
+						<input type="text" placeholder="Tag" ng-model="tagStep.tagItem">
+					</label>
+					<button class="button button-small ion-plus add-tag" ng-click="addTag()"></button>
+				</div>
+			</div>
+			<ul class="list">
+				<li class="item" ng-show=" ! data.tags.length">
+					<span translate>Adicione tags usando o campo acima</span>
+				</li>
+				<li class="item item-divider" ng-hide=" ! data.tags.length">
+					<span translate>Tags adicionadas</span>
+				</li>
+				<li class="item item-icon-right tag-list" ng-repeat="tag in data.tags track by $index">
+					{{ tag }}
+					<a ng-click="removeTag($index)"><i class="icon ion-close-circled"></i></a>
+				</li>
+			</ul>
+		</form>
+	</ion-content>
+</div>

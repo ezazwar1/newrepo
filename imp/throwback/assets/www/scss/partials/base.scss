@@ -1,0 +1,60 @@
+$main-blue-color: #34495e;
+$off-text-color: #9e9e9e;
+$accent-color: #719ECC;
+$hover-color: #F9E19B;
+$orange-color: #E67E22;
+
+$facebook-color: #3b5998;
+$twitter-color: #4099FF;
+$instagram-color: #3f729b;
+
+.title {
+	color: #fff;
+}
+
+button.button-fb {
+	background-color: $facebook-color;
+	border: none;
+	color: #fff;
+}
+
+button.button-twtr {
+	background-color: $twitter-color;
+	margin: 0;
+	border: none;
+	color: #fff;
+}
+
+button.button-ig {
+	background-color: $instagram-color;
+	margin: 0;
+	border: none;
+	color: #fff;
+}
+
+button.connected {
+	color: $off-text-color;
+}
+
+button.button-fb:active {
+	background-color: $hover-color;
+	color: #000;
+}
+
+button.button-twtr:active {
+	background-color: $hover-color;
+	color: #000;
+}
+
+button.button-ig:active {
+	background-color: $hover-color;
+	color: #000;
+}
+
+i.align-left {
+	float: left;
+}
+
+i.align-right {
+	float: right;
+}

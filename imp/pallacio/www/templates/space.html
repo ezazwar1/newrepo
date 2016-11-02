@@ -1,0 +1,84 @@
+<ion-view title="{{'VISIT_MENU_NAME' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon" ></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right"  >
+        <a style="top: 3px !important;" class="button icon-right button-icon"  ng-click="goToMap()" animation="slide-right-left-ios7"><img src="img/mapa.png"></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header" has-bouncing="false" scroll="false" >
+        <div class="bar-subheader" id="infonextprev" style="border-bottom: 1px solid transparent  !important;border-top: 1px solid transparent  !important;" >
+
+            <h3 style="background-color: rgba(0, 0, 0, 0.3) !important;margin-left:-3%;width: 103%;text-align: center;font-size: 7.5vw !important;padding-top:10px;padding-bottom:10px;padding-left:15%;padding-right:15%;border-bottom:1px solid transparent !important;border-top:1px solid transparent !important;">
+
+                {{page.title}}
+
+            </h3>
+
+            <!--<div class="h3 title" style="color:#FFFFFF !important;width:80%; margin-left:10%; margin-right:10%;">{{page.title}}</div>-->
+
+            <button id ="leftNavButton" class="button button-icon ion-chevron-left icon-left" ng-click="goPrevious()" style="color:#FFFFFF !important;font-size: 5vw !important;"></button>
+            <button id ="rightNavButton" class="button button-icon ion-chevron-right icon-right" ng-click="goNext()" style="color:#FFFFFF !important;font-size: 5vw !important;"></button>
+        </div>
+
+
+        <div id="compassContainer1">
+            <img src="img/compass.png" id="compassContainer"/>
+            <h3 id="compassContainerDistance"></h3>
+        </div>
+
+        <div id="infoButtonDiv">
+            <!--<button id ="leftNavButton" class="button button-icon ion-chevron-left" ng-click="goPrevious()" style="color:#FFFFFF !important;"></button>-->
+            <a id ="infoButton" class="button icon-right button-icon" ng-click="openModal({{page.Id}})" animation="slide-right-left-ios7"><img src="img/info.png"></a>
+            <!--<button id ="rightNavButton" class="button button-icon ion-chevron-right" ng-click="goNext()" style="color:#FFFFFF !important;"></button>-->
+        </div>
+
+        <!--
+                <div id="coverAnimated" style="background-image: url('img/Untitled.gif') !important;background-repeat: no-repeat;background-position: center center;background-color: rgba(0, 0, 0, 0.4) !important;z-index:9999;display:none;margin-top: 0px !important; background-size: cover; height: 100%;" >
+                </div>-->
+
+
+        <ion-slide-box class="spaceVisit" style="height: 100% !important;" show-pager="true" disable-scroll="false"  does-continue="true" slide-interval="20000">
+
+            <!--            <ion-slide style="background-color: rgba(0, 0, 0, 0.4) !important;">
+                            <div id="bgspace" style="" ng-style="style()">
+                            <img src="img/homeImages/{{imagesSpace[0].imageName}}">
+                                </div>
+                        </ion-slide>-->
+
+            <ion-slide style="background-image: url({{imagesSpace[0].imageName}}) !important;background-repeat: no-repeat;background-position: center center;background-color: rgba(0, 0, 0, 0.4) !important;background-size:cover !important;" ng-style="style()">
+
+            </ion-slide>
+            <ion-slide style="background-image: url({{imagesSpace[1].imageName}}) !important;background-repeat: no-repeat;background-position: center center;background-color: rgba(0, 0, 0, 0.4) !important;background-size:cover !important;" ng-style="style()">
+
+            </ion-slide>
+            <ion-slide style="background-image: url({{imagesSpace[2].imageName}}) !important;background-repeat: no-repeat;background-position: center center;background-color: rgba(0, 0, 0, 0.4) !important;background-size:cover !important;" ng-style="style()">
+
+            </ion-slide>
+
+            <!--            <ion-slide id="imageSlideBG">
+                        </ion-slide>
+                        <ion-slide id="imageSlideBG">
+                        </ion-slide>
+                        <ion-slide id="imageSlideBG">
+                        </ion-slide>-->
+
+        </ion-slide-box>
+
+    </ion-content>
+
+
+    <script id="modal.html" type="text/ng-template">
+        <div class="modal" ng-controller="ModalCtrl">
+            <ion-content style="margin-top:1px !important;">
+                <a id="shareButton" class="button icon-right ion-android-share button-clear" ng-click="sharePage()" style="font-size: 12px !important;right:0px;position: absolute;"></a>
+                <br/>
+                <div id="infoView" ng-bind-html="page.description" style="padding: 15px 15px;color:#FFFFFF;font-size: 6.5vw !important;line-height: 6.0vw;"></div>
+                <br/>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>

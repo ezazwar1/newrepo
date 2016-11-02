@@ -1,0 +1,30 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr add-activity">
+  <div class="back"></div>
+  <ion-content>
+
+    <!-- Need to override the goBack call here to change the status bar color. -->
+    <a href="javascript:;" ng-click="goBack()" class="go-back">X</a>
+
+    <h1>{{ 'HABITS_ADD_DAILY_ACTIVITY' | translate }}</h1>
+    <h3>{{ 'HABITS_ADD_DAILY_ACTIVITY_DESCRIPTION' | translate }}</h3>
+    
+    <div class="list habits-menu">
+      <div ng-repeat="habit in potentialHabits | filter:name='!mood' " class="item {{habit.name}} item-icon-left item-icon-right inactive" ng-class="{custom: isOwnedHabit(habit)}" ng-click="toggleHabit(habit)">  
+        <i class="icon icon-left ion-ios-star-outline"></i>		
+        <span>{{ getHabitName(habit) }}</span>
+    		<i class="icon ion-ios-checkmark" ng-show="isAddingHabit(habit)"></i>
+        <i class="icon ion-minus-circled" ng-show="isOwnedHabit(habit)" ng-click="deleteCustomHabit($event, habit)"></i>
+      </div>
+      <!--<div class="item item-icon-left item-icon-right add-activity" ng-click="createHabit()">
+        <i class="icon icon-left ion-ios-star-outline"></i> 
+        {{ 'CREATE_HABIT' | translate }}
+        <i class="icon icon-right ion-ios-locked-outline" ng-show="!canCreateHabit()"></i> 
+      </div>-->
+    </div>
+    <!--
+    <div ng-click="addHabits(true)" class="button-start">
+      {{ 'DONE' | translate }}
+    </div>
+  -->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-modal-view class="touchpoint popoverr new-level {{ newLevel }}">
+  <ion-content class="filter-popover">
+
+    <h1 class="activityTitle">{{ getLevelUpTitle() }}<br><strong>{{ getLevelUpActivity() }}</strong></h1>
+
+    <p ng-show="newLevel == 'goals'">{{ 'LEVEL_UP_GOALS_LINE_1' | translate }}</p>
+    <p ng-show="newLevel == 'goals'">{{ 'LEVEL_UP_GOALS_LINE_2' | translate }}</p>
+
+    <p ng-show="newLevel == 'habits'">{{ 'LEVEL_UP_HABITS_LINE_1' | translate }}</p>
+    <p ng-show="newLevel == 'habits'">{{ 'LEVEL_UP_HABITS_LINE_2' | translate }}</p>
+
+    <p ng-show="newLevel == 'relax'">{{ 'LEVEL_UP_RELAX_LINE_1' | translate }}</p>
+    <p ng-show="newLevel == 'relax'">{{ 'LEVEL_UP_RELAX_LINE_2' | translate }}</p>
+
+    <p ng-show="newLevel == 'social'">{{ 'LEVEL_UP_SOCIAL_LINE_1' | translate }}</p>
+    <p ng-show="newLevel == 'social'">{{ 'LEVEL_UP_SOCIAL_LINE_2' | translate }}</p>
+
+    <p ng-show="newLevel == 'thoughts'">{{ 'LEVEL_UP_THOUGHTS_LINE_1' | translate }}</p>
+    <p ng-show="newLevel == 'thoughts'">{{ 'LEVEL_UP_THOUGHTS_LINE_2' | translate }}</p>
+
+
+    <div class="button-start" ng-click="closeNewLevelModal()">
+      {{ getLevelUpButtonText() }}
+    </div>
+
+  </ion-content>
+</ion-modal-view>

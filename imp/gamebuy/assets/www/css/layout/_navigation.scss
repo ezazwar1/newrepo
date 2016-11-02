@@ -1,0 +1,64 @@
+
+
+
+
+/*------------------------------------*\
+    #COMPONENTS
+         * Bottom Tabs
+\*------------------------------------*/
+
+.tabs {
+    @include flexParentLayout;
+    color: $baseFontColor;
+    background-color: $baseBgColor;
+    height: 48px;
+    padding-top: 4px;
+    // Rewrite the tabs "gitborder top"
+    background-image: linear-gradient(0deg, $dividerColor, $dividerColor 100%, transparent 100%);
+    // Rewrite the tabs "border top" on iPhone 3GS
+    border-color: $dividerColor;
+}
+
+.tab-item {
+    opacity: 1;
+
+    .icon {
+        font-size: 1.75rem;
+        height: 25px;
+
+        .platform-android & {
+            font-size: 2rem;
+            height: 30px;
+        }
+    }
+
+    &.tab-item-active {
+        color: $baseLinkColor;
+    }
+}
+
+.tabs-striped {
+    .tab-item.tab-item-active {
+        border-color: $baseBgColor;
+        @extend .tab-item.activated;
+    }
+    .tab-item.activated {
+        margin-top: 0;
+        border: none;
+    }
+
+    // Android fix
+    .tabs {
+        background-color: $baseBgColor;
+        height: 48px;
+        padding-top: 4px;
+        background-image: linear-gradient(0deg, $dividerColor, $dividerColor 50%, transparent 50%);
+    }
+} 
+
+.tab-title {
+    font-size: $fontSizeTabs;
+}
+
+
+

@@ -1,0 +1,181 @@
+@import "variables";
+
+body, html {
+	height: 100%;
+}
+
+.page-start-fb {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	height: 100%;
+
+	// fix for the 1px white line in the bottom
+	background-color: #000;
+
+	.action-buttons {
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+		text-align: center;
+		@include display(flex);
+		padding: 10px;
+
+		.kana-button {
+			background-color: #60a9c1;
+			font-family: HelveticaNeueROMAN, sans-serif;
+			font-size: 19px;
+
+			&.disabled {
+				opacity: .3;
+			}
+
+			img {
+				left: auto;
+				right: 0;
+				width: 41px;
+				height: 35px;
+			}
+		}
+	}
+
+	.back-art {
+		background-color: #000;
+		background-image: url('../images/startfb.jpg');
+		background-position: center 0px;
+		background-repeat: no-repeat;
+		//background-size: auto 100%;
+		background-size: cover;
+
+	}
+
+	&.lang-en .back-art {
+		background-image: url('../images/startfb-en.jpg');
+	}
+
+	&.lang-th .back-art {
+		background-image: url('../images/startfb-th.jpg');
+	}
+
+	&.lang-es .back-art {
+		background-image: url('../images/startfb-es.jpg');
+	}
+
+	&.lang-fr .back-art {
+		background-image: url('../images/startfb-fr.jpg');
+	}
+
+	&.lang-pt .back-art {
+		background-image: url('../images/startfb-pt.jpg');
+	}
+
+	&.lang-tr .back-art {
+		background-image: url('../images/startfb-tr.jpg');
+	}
+
+	&.lang-vi .back-art {
+		background-image: url('../images/startfb-vi.jpg');
+	}
+
+	&.lang-hu .back-art {
+		background-image: url('../images/startfb-hu.jpg');
+	}
+
+	&.lang-it .back-art {
+		background-image: url('../images/startfb-it.jpg');
+	}
+
+	&.lang-zh .back-art {
+		background-image: url('../images/startfb-zh.jpg');
+	}
+
+	.container {
+		position: relative;
+		height: 100%;
+
+		.scroll {
+			height: 100%;
+		}
+
+		.close-app {
+			position: absolute;
+			width: 44px;
+			height: 44px;
+			top: 10px;
+			left: 10px;
+
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+
+	.contents {
+		@include display(flex);
+		height: 100%;
+		width: 400%;
+
+		.snap-frame {
+			width: 25%;
+			height: 100%;
+			text-align: center;
+			padding-top: 50px;
+			@include flex-basis(25%);
+
+			.round-number {
+				border: 1px solid #fff;
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+				margin: 0 auto;
+				color: #fff;
+				font-family: HelveticaNeueTH, sans-serif;
+				font-size: 24px;
+				line-height: 47px;
+			}
+
+			.logo {
+				width: 150px;
+				height: 150px;
+				margin: 50px auto;
+			}
+
+			h1 {
+				font-family: HelveticaNeueBLK, sans-serif;
+				font-size: 24px;
+				color: #fff;
+			}
+
+			h2 {
+				font-family: HelveticaNeueROMAN, sans-serif;
+				font-size: 14px;
+				color: #fff;
+			}
+
+			&.frame-a {
+				// background: rgba(255, 0, 0, 0.1);
+
+				.main-logo {
+					position: absolute;
+					top: 0;
+					width: 100%;
+					height: 100%;
+				}
+
+				.main-heading {
+					position: absolute;
+					top: 40%;
+					width: 100%;
+					height: 100%;
+					border: 1px solid red;
+					background-color: rgba(0,255,255,.3);
+				}
+			}
+		}
+	}
+}

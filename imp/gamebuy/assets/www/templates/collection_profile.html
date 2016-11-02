@@ -1,0 +1,119 @@
+<ion-view title="">
+    <ion-nav-buttons side="right">
+        <button class="button button--top-bar-right ion-ios-upload-outline" ng-click="share_collection()">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="padding collection-profile" scroll="true" padding="false">
+        <div class="text-center">
+            <h4 class="game-profile_title">{{data.collection.title}}</h4>
+            <h5 class="game-profile_platform">{{data.collection.platform}}</h5>
+        </div>
+
+        <div class="game-profile_cover">
+            <div class="game-profile_thumbnail">
+                <img class="game-profile_thumbnail-image" ng-src="{{data.collection.picture}}">
+            </div>
+        </div>
+
+        <div class="game-profile_section">
+            <div class="game-profile_collection-data">
+                <div class="game-profile_price" ng-if="data.collection.collect_as == 'sell'">
+                    Price:
+                    <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                    <span class="price-highlight">{{data.collection.price_sell}}</span> {{data.collection.price_unit}}
+                </div>
+                <div class="game-profile_game-format" ng-if="data.collection.platform != 'console'">
+                    {{data.collect_format_message}}
+                </div>
+            </div>
+            <div class="game-profile_collection-data">
+                <div class="data_box-collection-data">
+                    <span class="data_num data_disable">{{data.collection.view_count}}</span>
+                    <span class="data_text">Views</span>
+                </div>
+                <div class="data_box-collection-data">
+                    <span class="data_num data_disable">{{data.collection.watch_count}}</span>
+                    <span class="data_text">Watching</span>
+                </div>
+            </div>
+            <div class="game-profile_description"
+                 ng-class="{'game-profile_description-empty': !data.collection.collection_description}">
+                <p class="game-profile_description_content">
+                    {{data.collection.collection_description}}
+                </p>
+            </div>
+        </div>
+
+        <div class="button-multi">
+            <button class="button button-primary button-multi_item ion-ios-game-controller-b"
+                    ng-disabled="data.collection.collect_as!='sell' || data.collection.in_deal_status==1"
+                    ng-click="show_popup_choose_how_to_pay()">{{data.buy_button_message}}
+            </button>
+            <button class="button button-primary button-multi_item ion-ios-eye"
+                    ng-disabled="data.collection.collect_as!='sell' || data.me_id==data.collection.gamer_id"
+                    ng-click="deal_watch()" ng-class="{'button-pressed': data.collection.is_watching}">
+                {{data.watch_button_message}}
+            </button>
+        </div>
+
+
+        <div class="collection-profile_gamer">
+            <div class="gamer-profile">
+                <div class="gamer-profile_main">
+                    <div class="gamer-profile_avatar">
+                        <img class="image-left gamer_avatar-list" ng-src={{data.gamer_profile_pic_link}}>
+                    </div>
+                    <div class="gamer-profile_brief">
+                        <p class="gamer-profile_name" ng-if="data.collection.collect_as == 'sell'">Seller:
+                            {{data.collection.name}}</p>
+
+                        <p class="gamer-profile_name" ng-if="data.collection.collect_as != 'sell'">Gamer:
+                            {{data.collection.name}}</p>
+
+                        <p class="gamer-profile_city ion-location">{{data.collection.city}}
+                            {{data.collection.miles}}</p>
+
+                        <div class="button-multi">
+                            <button class="button button-primary button-multi_item ion-person"
+                                    ng-click="goto_gamer_profile_by_tab(data.collection.gamer_id)">Profile
+                            </button>
+                            <button class="button button-primary button-multi_item ion-chatbubbles"
+                                    ng-click="goto_chat_thread_add(data.collection.gamer_id)"
+                                    ng-disabled="data.me_id==data.collection.gamer_id">Chat now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="gamer-profile_description" ng-if="data.collection.description!=null">
+                    {{data.collection.description}}</p>
+            </div>
+
+            <div class="gamer_data">
+                <a class="data_box-collection-profile" ng-click="goto_gamer_gamemetrics_by_type('rate')">
+                    <div class="data_num">
+                        <ul class="data_star-{{ data.rate_score }}">
+                            <li class="data_star"></li>
+                            <li class="data_star"></li>
+                            <li class="data_star"></li>
+                            <li class="data_star"></li>
+                            <li class="data_star"></li>
+                        </ul>
+                    </div>
+                    <p class="data_text"><span class="data_highlight">{{ data.collection.rate_score }}</span> ({{
+                        data.collection.rate_count }} <i class="ion-person"></i>)</p>
+                </a>
+                <a class="data_box-collection-profile" ng-click="goto_gamer_gamemetrics_by_type('sold')">
+                    <p class="data_num">{{data.collection.sold_count}}</p>
+
+                    <p class="data_text">Sold</p>
+                </a>
+                <a class="data_box-collection-profile" ng-click="goto_gamer_gamemetrics_by_type('bought')">
+                    <p class="data_num">{{data.collection.bought_count}}</p>
+
+                    <p class="data_text">Bought</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

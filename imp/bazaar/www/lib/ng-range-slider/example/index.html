@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>ngRangeSlider</title>
+
+    <!-- Dependencies! -->
+    <script type="text/javascript" src="js/vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="js/vendor/underscore/underscore.js"></script>
+    <script type="text/javascript" src="js/vendor/ng-range-slider/ng-range-slider.js"></script>
+
+    <!-- Application! -->
+    <script type="text/javascript" src="js/Default.js"></script>
+
+    <!-- Stylesheets! -->
+    <link rel="stylesheet" type="text/css" href="css/Default.css" />
+
+</head>
+<body ng-app="rangeApp" ng-controller="IndexController">
+
+    <section data-ticks="true" data-range-slider class="range-slider" step="0.5" ng-model="range" min="0" max="max"></section>
+
+    <code>Current model: {{range}}</code>
+
+    <ul class="from-to">
+        <li><label>From:</label><input type="number" ng-model="range.from" /></li>
+        <li><label>To:</label><input type="number" ng-model="range.to" /></li>
+    </ul>
+
+</body>
+</html>

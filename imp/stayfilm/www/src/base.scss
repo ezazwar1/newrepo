@@ -1,0 +1,492 @@
+@import 'variables';
+
+// overwrite some ionic styles
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
+	height: 44px; }
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
+	margin-top: 0px; }
+.platform-ios.platform-cordova:not(.fullscreen) .has-header {
+	top: 44px; }
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: HelveticaNeueMD;
+}
+
+button {
+	border: 0;
+	background: none;
+	display: block;
+	width: 100%;
+}
+
+textarea {
+	border: 1px solid #ddd;
+}
+
+textarea, input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"], input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+	height: auto;
+}
+
+input:invalid {
+	box-shadow: none;
+}
+
+.bar-header {
+	border-color: $stayfilmColor;
+	background: $stayfilmColor;
+	color: #fff;
+
+	.button {
+		img {
+			height: 32px;
+		}
+	}
+}
+
+.bar-footer {
+	@include display(flex);
+	@include justify-content(space-around);
+	@include align-items(center);
+	border-color: $stayfilmColor;
+	background: $stayfilmColor;
+	color: #fff;
+	height: 50px;
+
+	.button {
+		width: 44px;
+		height: 44px;
+		margin: 0;
+		padding: 0;
+		color: #fff;
+		background-color: transparent;
+		background-position: center center;
+		background-position: no-repeat;
+		background-size: cover;
+		border: none;
+
+		&.selected.selected-add {
+			//@include animation(bounceIn 1s 0 1);
+		}
+	}
+}
+
+.bar-footer-home {
+	position: absolute;
+	bottom:0;
+
+	// right: 0;
+	// left: 0;
+	width: 100%;
+
+//	to fix the bug at the bottom the page, do not use flex !!!
+//	@include display(flex);
+//	@include justify-content(space-around);
+//  @include align-items(center);
+	border-color: #232629;
+	background: #232629;
+	color: #fff;
+	height: 50px;
+	padding: 0px;
+	border:0;
+	display: block;
+	overflow: hidden;
+
+	// apparently not needed anymore, BUT
+	// uh oh, this bug came back, so...
+	-webkit-transform: translateY(1px); // TEMPORARY FIX FOR IOS 1px MOVING WEBVIEW BUG
+
+	button {
+		width: 20%;
+		height: 50px;
+		margin: 0;
+		padding: 0;
+		color: #fff;
+		background-color: transparent;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		border: none;
+		float: left;
+
+		&.selected.selected-add {
+			//@include animation(bounceIn 1s 0 1);
+		}
+
+		&.activated {
+			background-color: transparent;
+			border: none;
+		}
+	}
+
+
+	.btn-feed {
+		background-image: url('../images/footer/home.svg');
+
+		&.selected {
+			background-image: url('../images/footer/home-active.svg');
+		}
+	}
+
+	.btn-gallery {
+		background-image: url('../images/footer/gallery.svg');
+
+		&.selected {
+			background-image: url('../images/footer/gallery-active.svg');
+		}
+	}
+
+	.btn-moviemaker {
+		background-image: url('../images/footer/moviemaker.svg');
+
+		&.selected {
+			background-image: url('../images/footer/moviemaker-active.svg');
+		}
+	}
+
+	.btn-notification {
+		position: relative;
+
+		.notif-count {
+			position: absolute;
+			top: 7px;
+			right: 50%;
+			margin-right: -25px;
+			padding: 0 3px;
+			height: 15px;
+			background: #fff;
+			color: #232629;
+			border-radius: 10px;
+			border: 1px solid #888;
+			font-size: 12px;
+			line-height: 1.3;
+			text-align: center;
+			z-index: 5;
+			word-wrap: nowrap;
+			@include animation(powerpulse 1s);
+
+			.platform-ios & {
+				line-height: 1.1;
+			}
+		}
+	}
+
+	.btn-notification {
+		background-image: url('../images/footer/notification.svg');
+
+		&.selected {
+			background-image: url('../images/footer/notification-active.svg');
+		}
+	}
+
+	.btn-options {
+		background-image: url('../images/footer/menu.svg');
+
+		&.selected {
+			background-image: url('../images/footer/menu-active.svg');
+		}
+	}
+}
+
+.has-sf-header {
+	top: 50px;
+	position: absolute;
+	width: 100%;
+}
+
+.button {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+	&:before {
+		font-family: Ionicons;
+	}
+}
+
+.feed-end {
+	color: #ccc;
+	text-align: center;
+	padding: 40px 0 80px 0;
+}
+
+.kana-button {
+	position: relative;
+	background: #9aa7b2;
+	text-align: center;
+	color: #fff;
+	font-family: sans-serif;
+	font-size: 16px;
+	border-radius: 3px;
+	line-height: 35px;
+	padding: 0;
+
+	img {
+		width: 41px;
+		height: 35px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+}
+
+.activated {
+	opacity: 0.5;
+}
+
+.page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+}
+
+.sf-loading {
+	text-align: center;
+	font-size: 40px;
+	margin: 40px 0 0 0;
+}
+
+
+.bootstrap-box {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	text-align: center;
+
+	color: #fff;
+
+	.loading-box {
+		padding: 100px 0;
+		text-align: center;
+	}
+
+	.button {
+		margin: 20px 0;
+		width: auto;
+	}
+	.btn-toggle-debug {
+		&.active {
+			background: darken(red, 30%);
+			color: white;
+		}
+	}
+
+	.first-start-error {
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		text-align: center;
+
+		a {
+			color: #fff;
+		}
+	}
+}
+
+.page {
+	background: #fff;
+}
+
+.my-item {
+	left: 0;
+	right: 0;
+}
+
+.has-footer {
+	bottom: 50px;
+}
+
+.bar-header {
+	border: 0;
+
+	button.button {
+		width: 44px;
+		height: 44px;
+		margin: 0;
+		padding: 0;
+		color: #fff;
+		background: transparent;
+		border: none;
+	}
+}
+
+.bar-header .title {
+	svg {
+		height: 30px;
+		margin-top: 5px;
+	}
+}
+
+.logo-title {
+	width: 95px;
+	height: 32px;
+	display: block;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+.friend-list {
+	.friend-item {
+		@include display(flex);
+		height: 60px;
+		padding: 15px 0 0px 20px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		align-items: center;
+
+		.thumb
+		{
+			margin-right: 15px;
+			overflow: hidden;
+			height: 30px;
+			width: 30px;
+
+			img {
+				height: 30px;
+			}
+		}
+
+		color: $stayfilmColor;
+	}
+}
+
+.sf-loader {
+	font-size: 24px;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.empty-list {
+	text-align: center;
+	margin: 50px 20px;
+	color: #aaa;
+}
+
+.list-item.ng-leave {
+	@include animation(zoomOutLeft 1s linear);
+}
+
+.list-item.ng-move {
+	@include transition(all 10s ease);
+}
+
+.swingAnim {
+	@include animation(swing 1s 0 infinite);
+}
+
+.header-placeholder {
+	height: 50px;
+}
+
+.bar-retractile {
+	@include transition(all 0.4s ease 0.4s);
+}
+
+.bar-retractile-enabled {
+	&.bar-retractile-down {
+		@include transform(translateY(100%));
+	}
+
+	&.bar-retractile-up {
+		@include transform(translateY(-100%));
+	}
+}
+
+.has-footer {
+	bottom: 0;
+}
+
+.sf-icon-action-sheet {
+	height: 25px;
+	margin-top: 10px;
+}
+
+.btn-disabled {
+	opacity: 0.5;
+}
+
+.network-toggle {
+	width: 49%;
+	background: #dedcdf;
+	border-radius: 5px;
+	margin: 0 0 10px;
+	padding: 0;
+	height: 45px;
+	float: left;
+
+	&:nth-child(even) {
+		float: right;
+	}
+
+	&.disabled {
+		opacity: 0.2;
+	}
+
+	label.toggle { // ion-toggle
+		right: auto;
+		left: 6px;
+		top: 6px;
+
+		input { // unchecked
+			& + .track {
+				background: #fff;
+				border-color: #fff;
+
+				.handle { // circle
+					background: #dedcdf;
+				}
+			}
+		}
+
+		input:checked { // checked
+			& + .track {
+				background: #12ad60;
+				border-color: #12ad60;
+
+				.handle { // circle
+					background: #fff;
+				}
+			}
+		}
+	}
+
+	.network-icon {
+		position: absolute;
+		height: 100%;
+		right: -1px;
+		top: 0;
+	}
+}
+
+.action-sheet, .action-sheet-group {
+	.button:hover {
+		color: #4a87ee;
+	}
+}
+
+.platform-android .action-sheet .button {
+	padding: 10px 20px;
+}
+
+ion-infinite-scroll {
+	margin-bottom: 50px;
+}

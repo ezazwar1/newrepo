@@ -1,0 +1,23 @@
+<ion-menu id="sidebarMenu" [content]="content" class="app-sidemenu">
+
+  <ion-content>
+    <div class="profile-button">
+      <button clear menuToggle><ion-icon name="close"></ion-icon></button>
+    </div>
+    <div class="profile-details">
+      <h6 class="profile-salutation animated fadeInDown">Hello,</h6>
+      <h1 class="profile-title animated fadeInUp">Michelle Cookie</h1>
+      <img class="profile-picture" src="build/assets/profile-pic.jpg" alt="">
+    </div>
+    <ion-list>
+      <ion-item menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">
+        {{page.title}}
+      </ion-item>
+      <ion-item>Favored <ion-badge danger item-right>5</ion-badge></ion-item>
+      <ion-item>All categories</ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

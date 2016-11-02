@@ -1,0 +1,29 @@
+<ion-view>
+    <ion-content padding="15">
+        <h2>{{dict.accountSettings}}</h2>
+        <p ng-if="!isSocial">{{dict.accountSettingsHint}}</p>
+        <form id="form.accountSettings" name="form.accountSettings" ng-submit="form.accountSettings.$valid && save()">
+            <div class="select-wrapper">
+                <select ng-model="user.language" ng-change="changeLanguage()">
+                    <option value="de">{{dict.german}}</option>
+                    <option value="en">{{dict.english}}</option>
+                </select>
+                <i class="icon ion-arrow-down-b"></i>
+            </div>
+            <label class="item item-input" ng-if="!isSocial">
+                <input type="text" placeholder="{{dict.addEmail}}" ng-model="form.email">
+            </label>
+            <label class="item item-input" ng-if="!isSocial">
+                <input type="password" placeholder="{{dict.addPassword}}" ng-model="form.password" >
+            </label>
+            <button class="button button-block button-clear button-dark" ng-click="changePassword()" type="button" ng-if="!isSocial">{{dict.changePassword}}</button>
+        </form>
+    </ion-content>
+    <ion-footer-bar class="bar-light hide-on-keyboard-open">
+        <div class="row">
+            <div class="col">
+                <button form="form.accountSettings" type="submit" class="button button-assertive button-outline button-send center" ng-disabled="(!form.password && !isSocial) || form.email === user.email || form.accountSettings.$invalid || form.accountSettings.$pristine">{{dict.save}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

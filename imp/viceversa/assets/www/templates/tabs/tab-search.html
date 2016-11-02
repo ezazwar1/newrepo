@@ -1,0 +1,32 @@
+<ion-view><ion-nav-title class="item-input-inset" id="search"><form ng-submit="hideKeyboard()"><label class="item-input-wrapper"><i class="icon ion-search placeholder-icon"></i><input type="search" ng-model="search.text" placeholder="Search for your friends..." ng-change="search()"></label><button type="submit" on-tap="search" style="display:none !important"></button></form></ion-nav-title><div class="bar bar-subheader bar-list" id="subheader-search"><a ng-class="{'active' : slideIndex == 0}" class="waves-effect waves-classic" on-tap="slideTo(0)"><i class="ion-person"></i></a> <a ng-class="{'active' : slideIndex == 1}" on-tap="slideTo(1)" class="waves-effect waves-classic"><i class="ion-social-facebook"></i></a> <!--   <a ng-class="{'active' : slideIndex == 2}" on-tap="slideTo(2)" class="waves-effect waves-classic"><i class="ion-social-twitter"></i></a> --></div><ion-slide-box show-pager="false" class="regularslide" delegate-handle="slideboxSearch" on-slide-changed="slideChanged()"><!-- SUGGESTED --><ion-slide><ion-content class="shrink full-height" header-shrink="subheader-search" ng-controller="SearchCtrl" id="search"><div style="height: 183px"></div><div class="search-explain bg-grey"><span>Suggested people on Viceversa</span></div><ion-list><div id="suggested" ng-class="{'show-it' : displayList}"><div on-tap="goToUser(user.objectId)" class="item item-button-right item-avatar follow-box waves-effect waves-classic" ng-repeat="user in suggestedList" stop-event=""><img ng-src="{{ user.Thumbnail }}"><h2>{{user.displayName}}</h2><button class="button button-follow button-followed" ng-hide="user.isFollowed != User.followStatus.FOLLOWED" on-tap="UserService.currentAuthUser.unFollow(user)" stop-event=""><i class="ion-checkmark"></i><i class="ion-person"></i></button> <button class="button button-follow" ng-hide="user.isFollowed != User.followStatus.NOTFOLLOWED" on-tap="UserService.currentAuthUser.follow(user)" stop-event=""><i class="ion-plus"></i><i class="ion-person"></i></button></div></div></ion-list></ion-content></ion-slide><!-- FACEBOOK --><ion-slide><ion-content class="shrink full-height" header-shrink="subheader-search" ng-controller="SearchCtrl" id="search"><div style="height: 183px"></div><div class="search-explain bg-grey"><span>Facebook friends on Viceversa</span></div><div class="connect-box" ng-if="UserService.currentAuthUser.isFacebookUser == false"><h3><span>Add friends from Facebook</span> <span>by connecting your account</span></h3><div class="padding"><a class="btn-link social facebook waves-effect waves-light" on-tap="linkFacebook()">Connect to Facebook</a></div></div><div class="connect-box" ng-if="UserService.currentAuthUser.isFacebookUser == true"><div class="padding"><a class="btn-link social facebook waves-effect waves-light" on-tap="inviteFacebook()">Invite your firends</a></div></div><ion-list><div id="facebook" ng-class="{'show-it' : displayList}"><div on-tap="goToUser(user.objectId)" class="item item-button-right item-avatar follow-box" ng-repeat="user in facebbokList" stop-event=""><img ng-src="{{ user.Thumbnail }}"><h2>{{user.displayName}}</h2><button class="button button-follow button-followed" ng-hide="user.isFollowed != User.followStatus.FOLLOWED" on-tap="UserService.currentAuthUser.unFollow(user)" stop-event=""><i class="ion-checkmark"></i><i class="ion-person"></i></button> <button class="button button-follow" ng-hide="user.isFollowed != User.followStatus.NOTFOLLOWED" on-tap="UserService.currentAuthUser.follow(user)" stop-event=""><i class="ion-plus"></i><i class="ion-person"></i></button></div></div></ion-list></ion-content></ion-slide><!-- TWITTER 
+      <ion-slide>
+        <ion-content class="shrink full-height" header-shrink ng-controller="SearchCtrl" data-id="search">
+          <div style="height: 183px;"></div>
+          <div class="search-explain bg-grey">
+            <span>Twitter followers on Viceversa</span>
+          </div>
+          <div class="connect-box" ng-if="UserService.currentAuthUser.isTwitterUser == false">
+            <h3><span>Add friends from Twitter</span> <span>by connecting your account</span></h3>
+            <div class="padding">
+              <a class="btn-link social twitter" on-tap="linkTwitter()">Connect to Twitter</a>
+            </div>
+            <small>We don't store your password and will never post anything without your permission</small>
+          </div>
+          <ion-list>
+            <div id="twitter" ng-class="{'show-it' : displayList}">              
+              <div on-tap="goToUser(user.objectId)" class="item item-button-right item-avatar follow-box" ng-repeat="user in twitterList" stop-event>
+                <img ng-src="{{ user.Thumbnail }}">
+                <h2>{{user.displayName}}</h2>
+                <div ng-if="user.hasOwnProperty('isTwitterUser') == true">
+                  <button class="button button-follow button-followed" ng-hide='user.isFollowed != User.followStatus.FOLLOWED' on-tap="UserService.currentAuthUser.unFollow(user)" stop-event> <i class="ion-checkmark"></i><i class="ion-person"></i> </button>
+                  <button class="button button-follow" ng-hide='user.isFollowed != User.followStatus.NOTFOLLOWED' on-tap="UserService.currentAuthUser.follow(user)" stop-event> <i class="ion-plus"></i><i class="ion-person"></i> </button>
+                </div>
+                <div ng-if="user.hasOwnProperty('isOnViceversa') == true">
+                  <button on-tap="inviteTwitter(user)" stop-event> <i class="ion-checkmark">INVITE</i> </button>
+                </div>
+
+              </div>
+            </div>
+          </ion-list>
+        </ion-content>
+      </ion-slide>--></ion-slide-box></ion-view>

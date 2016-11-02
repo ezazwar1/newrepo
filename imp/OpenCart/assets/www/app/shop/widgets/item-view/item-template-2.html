@@ -1,0 +1,18 @@
+﻿<a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="item-template-link">
+    <img preload-image class="full-image" ng-src="{{item.thumb}}" default-image="app/shop/images/placeholder.png" fallback-image="app/shop/images/placeholder.png" />
+    <h2 ng-bind-html="item.name"></h2>
+    <p class="product-description" ng-bind-html="item.description"></p>
+    <span class="badge badge-assertive" ng-if="item.off" i18n="shop.off" data-percent="{{item.off}}"></span>
+</a>
+<div class="row">
+    <a analytics-click="Product" href="#/app/menu/shop/item/{{::item.product_id}}" class="col-80 button button-full item-price-button button-positive">
+        <span ng-if="item.special">{{::item.special}}</span>
+        <span ng-class="{'has-special' : item.special}">{{::item.price}}</span>
+        <span ng-if="item.special != item.mobile_special && item.mobile_special" class="mobile-offer-item">
+            <i class="icon ion-iphone"></i> {{::item.mobile_special}}
+        </span>
+    </a>
+    <button analytics-click="Wishlist" data-product-name="{{item.name}}" class="col-20 button button-full button-clear item-price-button" ng-click="addToWishlist(item.product_id)">
+        <i class="icon ion-ios-heart-outline"></i>
+    </button>
+</div>

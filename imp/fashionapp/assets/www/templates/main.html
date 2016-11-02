@@ -1,0 +1,72 @@
+<ion-view>
+    <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
+        <ion-slide>
+            <div class="loading-icon"><img src="./img/loading-bubbles.svg" alt="Loading icon" /></div>
+        </ion-slide>
+        <ion-slide id="slide{{$index}}" class="feed" ng-repeat="item in feed track by $index">
+            <div id="back{{$index}}" class="async picture full" ng-style="{ 'background-image': 'url(' + item.image__large + ')' }"></div>
+            <div id="title{{$index}}" class="head" ng-click="toggleButton()">
+                <h1>
+                    <small ng-if="item.element_type == 'news'"><hr class="line"> {{ item.category.title }}</small>
+                    <br>
+                    <b>{{ item.title.slice(0,34) }}</b> <br>
+                </h1>
+            </div>
+            <ion-content has-bouncing="true" id="content{{$index}}"  delegate-handle=" 'scroll' + $index "  class="news" on-scroll="off($index)">
+                <div class="content-scroll">
+                    <h1>
+                        <span>
+                            <small ng-if="item.element_type == 'news'"><hr class="line"></hr>{{ item.category.title }}</small>
+                            <br>
+                            <b>{{ item.title.slice(0,34) }}</b> <br/>
+                        </span>
+                    </h1>
+                    <div class="product-infos element">
+                        <!-- News -->
+                        <div ng-if="item.element_type == 'news'">
+                            <div class="social row">
+                                <div class="col">
+                                    <span class="bts"></span>
+                                    {{ item.dateNews | date:'longDate' }}
+                                </div>
+                                <div class="col">
+                                </div>
+                                <div class="col">
+                                    <span class="bts bts-seen"></span>
+                                    {{ item.likes_count }}
+                                </div>
+                            </div>
+                            <hr class="outline"></hr>
+                            <div class="row">
+                                <div class="col"> <strong ng-bind-html="item.excerpt"></strong></div>
+                            </div>
+                            <div class="row news-content">
+                                <div class="col" ng-bind-html="item.content"></div>
+                            </div>
+                            <hr>
+                            <div class="full-list" id="list{{$index}}">
+                                <div class="full-list-item" ng-repeat="link in item.links.slice(0,3)">
+                                    <div class="back" ng-click="goId(link.element_type,link.id)" ng-style=
+                                        "{ 'background-image': 'url(' + link.image_banner__thumbnail + ')' }"></div>
+                                    <p>{{ link.title.slice(0,16) }}</p>
+                                </div>
+                                <div class="full-list-item hide" ng-click="goId(link.element_type,link.id)" ng-repeat="link in item.links.slice(3,item.links.length)">
+                                    <div class="back" ng-style=
+                                        "{ 'background-image': 'url(' + link.image_banner__thumbnail + ')' }"></div>
+                                    <p>{{ link.title }}</p>
+                                </div>
+                                <div class="row">
+                                    <button class="button button-block more-item" ng-click="seeMore($index)" ng-show="item.links.length > 3" type="submit">See all ({{ item.links.length }})</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="loading-icon"><img src="./img/loading-bubbles.svg" alt="Loading icon" /></div>
+        </ion-slide>
+    </ion-slide-box>
+</ion-view>

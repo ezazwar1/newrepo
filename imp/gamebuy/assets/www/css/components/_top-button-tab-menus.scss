@@ -1,0 +1,43 @@
+
+.top-nav {
+    width: 100%;
+    margin: 12px 0;
+    @include flexParentLayout;
+    @include justifyContent(center);
+
+    .platform-ios & {
+        margin: 0;
+    }
+}
+
+.button--tab-menu {
+    margin-left: -1px;
+    height: 30px;
+    width: 100px;
+
+    &:first-child {
+        @include borderRadius (
+        $radiusTopRight: 0,
+        $radiusBtmRight: 0);
+    }
+
+    &:last-child {
+        @include borderRadius (
+        $radiusTopLeft: 0,
+        $radiusBtmLeft: 0);
+    }
+
+    &:after {
+        content: '';
+    }
+
+    &.button--current {
+        color: $colorReverse;
+        background-color: $colorReverseBkg;
+    }
+
+    &.activated {
+        color: $colorReverse;
+        background-color: $colorReverseBkg;
+    }
+}

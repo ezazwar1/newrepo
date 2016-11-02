@@ -1,0 +1,34 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center">
+        <button class="button button-clear button-dark icon icon-close" ng-click="closeModal('comments')"></button>
+        <h1 class="title">{{dict.comments}}</h1>
+    </ion-header-bar>
+    <ion-content padding="true">
+        <div class="padding">
+            <div class="list comment-list" ng-if="styleComments.entries.length !== 0">
+                <div class="item" ng-repeat="comment in styleComments.entries">
+                    <div class="display-flex align-center uppercase" ng-click="openUserProfile(comment.user._id)">
+                        <div class="circle thumbnail" ng-class="{'grayscale': comment.user.avatar.path}" ng-style="{'background-image':'url(' + comment.user.avatar.path + ')'}"></div>
+                        <div class="flex-1">{{comment.user.removed ? dict.removedUser : comment.user.username}}</div>
+                        <button class="button button-clear button-dark icon icon-remove-comment" ng-if="comment.user._id === user._id" ng-click="deleteComment(comment._id, $index, $event)"></button>
+                    </div>
+                    <p ng-if="!comment.user.removed">{{comment.text}}</p>
+                    <p ng-if="comment.user.removed">{{dict.commentFromRemovedUser}}</p>
+                </div>
+            </div>
+            <div ng-if="styleComments.entries.length === 0" class="text-center">
+                {{dict.noComments}}
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light">
+        <div class="row">
+            <div class="col display-flex align-center">
+                <label class="item item-input input-comment flex-1">
+                    <input type="text" placeholder="{{dict.addComment}}" ng-model="newComment.text">
+                </label>
+                <button class="button button-assertive button-send" ng-click="createComment()" ng-disabled="newComment.text.length < 1">{{dict.send}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

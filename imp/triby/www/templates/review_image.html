@@ -1,0 +1,23 @@
+<ion-view cache-view="false" class="bar-triby modal-add-image-caption">
+  <!-- Content -->
+  <ion-content style="border:none; background-color: #2b2b2b;" class="full-height">
+    <div class="list">
+      <div class="item item-image" style="margin: 50px 0; border:none;">
+        <img style="width:100%; height:auto;" ng-src="{{urls.imgForUploadingUrl}}">
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar bar-footer bar-dark">
+    <div class="buttons buttons-left">
+      <span class="left-buttons">
+        <button class="button client-positive" style="font-size: 18px; border: none; background: transparent;" ng-click="cancelUploading()">Cancel</button>
+      </span>
+    </div>
+    <div class="buttons buttons-right" style="position: absolute; right: 0; ">
+      <span class="right-buttons">
+        <button class="button client-positive" style="font-size: 18px; border: none; background: transparent;" ng-click="confirmUploading()">Confirm</button>
+      </span>
+    </div>
+  </ion-footer-bar>
+</ion-view>

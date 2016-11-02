@@ -1,0 +1,7 @@
+<div class="details no-padding">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" does-continue="false">
+        <ion-slide ng-repeat="image in product.gallery_images">
+            <div class="image" ng-style="{'background-image': 'url(' + image + ')'}" ng-click="showModal(1, image)"></div>
+        </ion-slide>
+    </ion-slide-box>
+</div>

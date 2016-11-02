@@ -1,0 +1,17 @@
+@import 'variables';
+
+@media only screen and (orientation: portrait) {
+	.page-share-step .share-button img {
+		.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+			@include transform(scaleY(1.7));
+		}
+	}
+}
+
+@media only screen and (orientation: landscape) {
+	.page-share-step .share-button img {
+		.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+			@include transform(scaleX(2));
+		}
+	}
+}

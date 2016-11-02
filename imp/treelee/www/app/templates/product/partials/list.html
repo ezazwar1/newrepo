@@ -1,0 +1,19 @@
+<div class="list">
+    <div class="item container product-container" ng-click="showProduct(product.entity_id)" collection-repeat="product in products" collection-item-height="getItemHeight()" collection-item-width="getItemWidth()">
+        <div class="price-container">
+            <div>
+                <div ng-if="!product.price['@attributes'].special" class="price">
+                    {{product.price_currency}}
+                    {{product.price['@attributes'].regular}}
+                </div>
+                <div ng-if="product.price['@attributes'].special" class="price">
+                    {{product.price_currency}}
+                    <span class="old-price">{{product.price['@attributes'].regular}}</span>
+                    {{product.price['@attributes'].special}}
+                </div>
+            </div>
+        </div>
+        <div class="image imageonload ng-hide" ng-style="{'background-image': 'url(' + product.icon + ')'}" imageonload image-src="{{product.icon}}"></div>
+    </div>
+</div>
+<div class="clear"></div>

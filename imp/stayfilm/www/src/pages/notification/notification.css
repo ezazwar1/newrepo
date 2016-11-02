@@ -1,0 +1,105 @@
+/* line 4, notification.scss */
+.page-notification .empty-list {
+  margin-top: 0;
+}
+/* line 7, notification.scss */
+.page-notification .notification-list {
+  padding-top: 20px;
+}
+/* line 11, notification.scss */
+.page-notification .notification-list .notification-item {
+  border: none;
+  margin-bottom: 20px;
+}
+/* line 15, ../../bourbon/addons/_clearfix.scss */
+.page-notification .notification-list .notification-item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 16, notification.scss */
+.page-notification .notification-list .notification-item .item-content {
+  /* ionic auto-generated component */
+  padding: 0;
+}
+/* line 20, notification.scss */
+.page-notification .notification-list .notification-item .avatar {
+  margin: 0 5px;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  padding: 0;
+  float: left;
+}
+/* line 28, notification.scss */
+.page-notification .notification-list .notification-item .avatar button {
+  padding: 0;
+}
+/* line 32, notification.scss */
+.page-notification .notification-list .notification-item .avatar img {
+  height: 40px;
+}
+/* line 37, notification.scss */
+.page-notification .notification-list .notification-item .content {
+  margin-left: 50px;
+  width: auto;
+  padding: 0 5px;
+}
+/* line 43, notification.scss */
+.page-notification .notification-list .notification-item .content a {
+  color: #ad252a;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: inherit;
+  display: inline;
+  width: auto;
+  padding: 0;
+  text-decoration: none;
+}
+/* line 53, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-info {
+  margin-bottom: 4px;
+}
+/* line 56, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-info .name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ad252a;
+  margin: 0px 0px 0;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 16px;
+}
+/* line 65, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-info .name .status {
+  margin-left: 5px;
+}
+/* line 68, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-info .name .status.ion-checkmark {
+  font-size: 12px;
+  color: #0b0;
+}
+/* line 73, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-info .name .status.ion-loading-c {
+  color: #888;
+}
+/* line 77, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-info .name .status.ion-alert-circled {
+  color: #b00;
+}
+/* line 83, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-info .notification-date {
+  width: 80px;
+  float: right;
+  text-align: right;
+  margin: 0px 20px 0;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+/* line 95, notification.scss */
+.page-notification .notification-list .notification-item .content .notification-body .notification {
+  white-space: normal;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+  color: #7a7a7a;
+}

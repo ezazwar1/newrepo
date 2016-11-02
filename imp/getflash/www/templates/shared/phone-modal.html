@@ -1,0 +1,34 @@
+<ion-modal-view class="modal-collection">
+  
+  <div class="main-area phone">
+
+    <ion-header-bar class="header">
+      <div class="close">
+        <button class="btn-link" ng-click="closeModal()"><span class="ion-close"></span></button>
+      </div>
+      <div class="title">
+          ADD YOUR PHONE NUMBER
+      </div>
+    </ion-header-bar>
+
+    <ion-content class="add-collection-raw">
+      <div class="item item-input item-select">
+        <select ng-model="user.code">
+          <option value="+65">+65</option>
+        </select>
+      </div>
+      <input type="text" ng-model="user.phone" ng-change="onPhoneChanged()"/>
+    </ion-content>
+    <ion-footer-bar class="footer">
+      <div class="row">
+        <div class="col">
+          <ion-spinner ng-show="blockSubmit" icon="ios-small"></ion-spinner>
+          <button ng-show="!blockSubmit" class="btn-link" ng-click="doSubmit()">
+            <span ng-class="allowToSubmit ? 'active' : ''">SUBMIT</span>
+          </button>
+        </div>
+      </div>
+    </ion-footer-bar>
+
+  </div>
+</ion-modal-view>

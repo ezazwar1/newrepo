@@ -1,0 +1,27 @@
+<div class="reward-wrapper" ng-click="" ng-style="{'background-image': 'url({{ prize.background }})'}">
+	<div class="row">
+		<div class="col title-wrapper">
+			<div class="time-left" ng-style="{'border-bottom-color': '{{ prize.statusColor }}'}">
+				{{ prize.statusText }}
+			</div>
+			<div class="promo-wrapper">
+				<div class="campaign-text">{{ prize.description }}</div>
+			</div>
+			<div class="theme padding">
+        		<span class="wrapper">
+        			<span>{{ prize.contestName }}</span>
+        		</span>
+        	</div>
+        	<div class="tag-line remove-padding-top">
+        		<div class="credit-to">Presented by <span>{{ prize.merchantName }}</span></div>
+        	</div>
+        </div>
+	</div>
+</div>
+<div class="reward-bottom-wrapper">
+	<div class="row">
+		<div class="col col-50 left">
+			<button class="btn-link" ng-style="{'color':'{{ prize.btnColor }}'}" ng-click="claimPrize({{ prize.isValid }}, {{ prize.isVerified }}, '{{ prize.prizeId }}')">CLAIM PRIZE</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+<div class="scroll-content"><div class="content" content-ios=""><ul class="white-lists"><li><div class="white-lists-mainDiv"><div class="white-lists-title"><h2>{{selectedContactsCount}} recipient(s) selected</h2></div><!--
+          <div class="white-lists-icon">
+            <a class="" href="javascript:;">
+
+            </a>
+          </div>
+--></div></li></ul><ul class="buttons vertical people"><li ng-repeat="contact in contacts"><a href="javascript:;" class="contact-anchor" ng-click="selectContact($index)"><span class="checkbox" ng-class="contact.isTick ? 'selected': ''"><span></span></span><div class="receiver-div"><h2 class="name contact-name name-strip" ng-if="contact.name">{{contact.name}}</h2></div><span class="inner-border" ng-if="!$last"></span></a></li></ul><!-- / buttons vertical people --><a id="description-btn" class="button-default" href="javascript:;" ng-click="moveToContact()">Add More Contacts</a></div><!-- / content --></div><!-- / scroll-content -->

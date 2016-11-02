@@ -1,0 +1,38 @@
+<ion-view view-title="{{ 'PARTY_ADMIN.TAB_TITLE' | translate }}"><ion-content class="has-subheader"><div class="list"><div class="padding-horizontal"><div class="padding-horizontal party-info"><div class="row"><div class="col"><h4 translate>PARTY_ADMIN.PARTY_INFO</h4></div></div><div class="row"><div class="col col-50" translate="PARTY_ADMIN.NUM_PICTURES" translate-value-pictures="{{partySettings.info.pictures}}/{{currentPlan.pictures_text}}"></div><div class="col col-50" translate="PARTY_ADMIN.NUM_GUESTS" translate-value-guests="{{partySettings.info.guests}}/{{currentPlan.guests_text}}"></div></div><div class="padding-horizontal"> <button ng-click="upgradeParty()" class="button icon-left ion-arrow-up-a button-block button-positive" translate>PARTY_ADMIN.UPGRADE</button></div></div></div><div class="padding-horizontal"><div class="padding-horizontal party-info"><div class="row"><div class="col"><h4 translate>PARTY_ADMIN.WEBSITE_SETTINGS</h4></div></div><label class="item item-input item-select"><div class="input-label" translate> PARTY_ADMIN.DISPLAY_MODE</div> <select ng-model="partySettings.displayMode" ng-options="mode.name for mode in displayMode"></select></label><div ng-if="partySettings.displayMode.value == 'repeat'" class="item item-child range range-positive"><i class="icon ion-ios7-stopwatch-outline"></i> <input ng-model="partySettings.displayTime" type="range" name="volume" min="1" max="30" value="5"> {{partySettings.displayTime}}<i class="icon ion-ios7-stopwatch"></i></div><div ng-if="partySettings.displayMode.value == 'selectedImage'" class="item item-child" translate> PARTY_ADMIN.BACKGROUND_SELECT</div><ion-toggle ng-model="partySettings.displayRecentImages" toggle-class="toggle-balanced"><span translate>PARTY_ADMIN.DISPLAY_RECENT_IMAGES</span></ion-toggle><label ng-if="partySettings.displayRecentImages" class="item item-child item-input item-select"><div class="input-label" translate> PARTY_ADMIN.POSITION</div> <select ng-model="partySettings.positionRecentImages" ng-options="position.name for position in positionRecentImages"></select></label><div ng-if="partySettings.displayRecentImages" class="item item-child range range-positive"><i class="icon ion-image"></i> <input ng-model="partySettings.numRecentImages" type="range" name="volume" min="1" max="10" value="5"> {{partySettings.numRecentImages}}<i class="icon ion-images"></i></div><div ng-if="partySettings.displayRecentImages" class="item item-child range range-positive"><i class="icon ion-ios7-keypad-outline"></i> <input ng-model="partySettings.sizeRecentImages" type="range" name="volume" min="50" max="150" value="100"><i class="icon ion-ios7-keypad"></i></div><label class="item item-input item-select"><div class="input-label" translate> PARTY_ADMIN.BACKGROUND</div> <select ng-model="partySettings.background" ng-options="bg.name for bg in background"></select></label><label ng-if="partySettings.background.value == 'color'" class="item item-input item-select item-child"><div class="input-label" translate> PARTY_ADMIN.BACKGROUND_COLOR</div> <select ng-model="partySettings.backgroundColor" ng-options="color.name for color in backgroundColor"></select></label><div ng-if="partySettings.background.value == 'image'" class="item background-image item-avatar"> <img ng-if="partySettings.backgroundImage.filename" ng-cache ng-src="{{ ViewBackgroundImageService.getImageUrl(partySettings.backgroundImage, 'small') }}" /> <button ng-click="selectBgImage()" class="button button-small button-stable" translate>PARTY_ADMIN.BACKGROUND_SELECT_BUTTON</button></div><div class="padding-horizontal"> <button ng-click="updateParty()" class="button icon-left ion-checkmark button-block button-balanced" translate>PARTY_ADMIN.SAVE_BUTTON</button></div></div></div><div class="padding-horizontal"> <button ng-click="deleteParty()" class="button icon-left ion-android-trash button-block button-assertive" translate>PARTY_ADMIN.DELETE_PARTY_BUTTON</button></div></div></ion-content></ion-view><script id="upgrade-modal.html" type="text/ng-template">
+  <ion-modal-view class="party-upgrade">
+    <ion-header-bar>
+      <h1 class="title" translate>PARTY_ADMIN.UPGRADE</h1>
+    </ion-header-bar>
+    <ion-content>
+
+      <div class="row">
+        <div class="col" translate>
+          PARTY_ADMIN.UPGRADE_TEXT
+        </div>
+      </div>
+
+      <div ng-repeat="plan in plans" class="row">
+        <div class="col">
+          <div ng-if="plan.id != currentPlan.id && (plan.guests > currentPlan.guests || plan.guests == -1)">
+
+            <div class="row">
+              <div class="col col-50" translate="PARTY_ADMIN.NUM_PICTURES" translate-value-pictures="{{plan.pictures_text}}"></div>
+              <div class="col col-50" translate="PARTY_ADMIN.NUM_GUESTS" translate-value-guests="{{plan.guests_text}}"></div>
+            </div>
+
+            <button ng-click="upgradeToPlan(plan)" ng-if="upgradePossible && plan.storeProduct.price != 0" class="button icon-left ion-arrow-up-a button-block button-positive" translate="PARTY_ADMIN.UPGRADE_BUTTON" translate-value-plan="{{ plan.displayName}}" translate-value-price="{{plan.storeProduct.price}}"></button>
+            <button ng-click="upgradeToPlan(plan)" ng-if="upgradePossible && (plan.storeProduct.price == 0 || plan.storeProduct.price == '')" class="button icon-left ion-arrow-up-a button-block button-positive" translate="PARTY_ADMIN.UPGRADE_BUTTON_FREE" translate-value-plan="{{ plan.displayName}}"></button>
+
+          </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button ng-click="closeUpgradeModal()" class="button icon-left ion-close button-block button-transparent" translate>GENERIC.CANCEL</button>
+        </div>
+      </div>
+
+    </ion-content>
+  </ion-modal-view>
+</script>

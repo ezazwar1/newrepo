@@ -1,0 +1,51 @@
+<ion-modal-view class="order-detail-modal">
+    <div class="modal transparent first-modal">
+		<ion-header-bar class="bar-stable bar bar-header">
+			<h1 class="title" style="">Order Detail</h1>
+			<div class="buttons"><button class="button icon ion-android-close" ng-click="closeModal()"></button></div>
+		</ion-header-bar><!--end of the header structure of the modal 1-->
+    <ion-content class="orderlist-modal" >
+      <div class="card" ng-repeat="Ordobj in myorderDetail">
+        <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col heading-col">{{Ordobj.productname}}</div>
+          </div>
+          <div class="row">
+            <div class="col">{{Ordobj.price}}</div>
+            <div class="col center-align">{{Ordobj.cartitem}}</div>
+            <div class="col right-align">{{Ordobj.grosstotal}}</div>
+          </div>
+        </div>
+      </div>
+       <div class="card" ng-repeat="Ordobj in myorderDetail">
+        <div class="item item-text-wrap">
+          <div class="row"><div class="col heading-col">Order Information</div></div>
+          <div class="row"><div class="col">Payment Method</div><div class="col right-align">{{Ordobj.paymentMethod}}</div></div>
+          <div class="row"><div class="col">Sub Total</div><div class="col right-align">{{Ordobj.SubTotal}}</div></div>
+          <div class="row" ><div class="col">{{Ordobj.shippingMethod}}</div><div class="col right-align">${{Ordobj.shippingCost}}</div></div>
+          <div class="row" ng-if="cartProducts!=''"><div class="col">Gross Total</div><div class="col right-align">{{Ordobj.grosstotal}}</div></div>
+        </div>
+      </div> 
+      <div class="card" ng-repeat="Ordobj in myorderDetail">
+        <div class="item item-text-wrap">
+          <div class="row"><div class="col heading-col">Billing Address</div></div>
+          <div class="row"><div class="col">{{Ordobj.firstname}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.lastname}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.bill_address}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.country}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.postcode}}</div></div>
+        </div>
+      </div> 
+      <div class="card" ng-repeat="Ordobj in myorderDetail">
+        <div class="item item-text-wrap">
+          <div class="row"><div class="col heading-col">Shipping Address</div></div>
+          <div class="row"><div class="col">{{Ordobj.firstname}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.lastname}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.shipping_address}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.country}}</div></div>
+          <div class="row"><div class="col">{{Ordobj.shippingpostal}}</div></div>
+        </div>
+      </div> 
+    </ion-content>
+   </div><!--end of modal transparent div-->
+</ion-modal-view>

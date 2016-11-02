@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-85.8 16 273.6 530" style="enable-background:new -85.8 16 273.6 530;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);fill:url(#XMLID_2_);}
+</style>
+<g id="XMLID_3_">
+	<g>
+		<defs>
+			<path id="SVGID_1_" d="M86.7,25.8v58.1c16.7,1.2,51.8,6.9,87.5,36.8l-38.5,61.6c-17.3-15.5-38.5-27-62.7-27
+				c-16.1,0-28.8,4-36.2,10.9c-6.3,5.8-11.5,14.4-11.5,24.2s4,16.7,10.9,22.4c9.2,8.1,23,12.1,38.5,19l32.2,13.8
+				c19.6,8.6,39.1,17.8,54.1,32.8c19,19.6,27,43.2,27,70.8c0,36.2-13.2,66.2-31.6,85.7c-16.7,17.8-40.9,31.1-69.6,35.7v65.6H35
+				v-63.3c-23-1.2-44.9-6.3-69-19c-19.6-10.4-36.8-23-51.8-39.1l42.6-63.3c4.6,4.6,18.4,18.4,37.4,29.9c15,9.2,31.6,15.5,53.5,15.5
+				c12.7,0,27-2.3,38.5-12.1c7.5-6.3,13.8-15.5,13.8-29.3s-6.3-23.6-17.3-31.1c-9.2-6.3-19-9.2-39.7-17.3L22.9,299
+				c-20.1-8.1-40.9-17.8-58.1-35.1c-17.8-18.4-25.9-37.4-25.9-63.3c0-33.9,12.7-65,32.8-85.2C-12.8,99.9,10.2,87.8,35,83.8v-58H86.7
+				z"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		
+			<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="-107.4361" y1="124.5639" x2="209.4361" y2="441.4361" gradientTransform="matrix(1 0 0 -1 0 564)">
+			<stop  offset="0" style="stop-color:#653D3B"/>
+			<stop  offset="3.717807e-03" style="stop-color:#6C433E"/>
+			<stop  offset="2.615326e-02" style="stop-color:#94664D"/>
+			<stop  offset="4.933833e-02" style="stop-color:#B4835A"/>
+			<stop  offset="7.310779e-02" style="stop-color:#CE9964"/>
+			<stop  offset="9.771115e-02" style="stop-color:#E0A96B"/>
+			<stop  offset="0.1237" style="stop-color:#EBB26F"/>
+			<stop  offset="0.1532" style="stop-color:#EEB570"/>
+			<stop  offset="0.2518" style="stop-color:#F9E99C"/>
+			<stop  offset="0.335" style="stop-color:#F5E283"/>
+			<stop  offset="0.3586" style="stop-color:#F5E289"/>
+			<stop  offset="0.3889" style="stop-color:#F5E299"/>
+			<stop  offset="0.4231" style="stop-color:#F4E3B3"/>
+			<stop  offset="0.4597" style="stop-color:#F4E3D8"/>
+			<stop  offset="0.4922" style="stop-color:#F3E4FF"/>
+			<stop  offset="0.5126" style="stop-color:#F3E4EE"/>
+			<stop  offset="0.5533" style="stop-color:#F2E5C0"/>
+			<stop  offset="0.6069" style="stop-color:#F1E67C"/>
+			<stop  offset="0.7217" style="stop-color:#FFFCB3"/>
+			<stop  offset="0.91" style="stop-color:#E0BD61"/>
+			<stop  offset="1" style="stop-color:#CD8F52"/>
+		</linearGradient>
+		<ellipse id="XMLID_123_" class="st0" cx="51" cy="281" rx="160.6" ry="273.1"/>
+	</g>
+</g>
+</svg>

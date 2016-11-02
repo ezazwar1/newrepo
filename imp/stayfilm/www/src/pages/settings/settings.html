@@ -1,0 +1,24 @@
+<div class="page-settings page">
+	<div class="bar bar-header">
+		<button ng-click="goTo('main.home.profile.movie', 'slide-left')" class="button button-clear close">
+			<img src="images/ico-close.svg">
+		</button>
+		<h1 class="title"><span translate>Configurações</span></h1>
+	</div>
+	<div class="fs-header">
+
+		<div class="cursor" ng-class="{'personal-active': currentState === 'main.home.settings.personal', 'credentials-active': currentState === 'main.home.settings.credentials'}"></div>
+
+		<div class="settings-tabs">
+			<a class="tab" ng-click="goTo('main.home.settings.personal', 'slide-right')" ng-class="{'active': currentState === 'main.home.settings.personal'}">
+				<span translate>pessoal</span>
+			</a>
+			<a class="tab" ng-click="goTo('main.home.settings.credentials', 'slide-left')" ng-class="{'active': currentState === 'main.home.settings.credentials'}">
+				<span translate>credenciais</span>
+			</a>
+		</div>
+	</div>
+
+	<ui-view class="main-home-settings"></ui-view>
+
+</div>

@@ -1,0 +1,20 @@
+<div class="sf-story-mosaic clearfix">
+
+	<div ng-if="story.type === 'movie'" class="story-movie">
+
+		<div class="item item-body feed-body">
+			<img class="full-image" ng-src="{{ story.value.thumbnailURL }}" ui-sref="main.watch({idmovie: story.value.idmovie})">
+			<h2 class="feed-title">{{ story.value.title }}</h2>
+			<p class="feed-synopsis">{{ story.value.synopsis }}</p>
+			<p>
+				<a href="#" class="subdued">{{ story.value.likes }} Yes</a>
+				<a href="#" class="subdued">X Comments</a>
+			</p>
+		</div>
+	</div>
+
+	<div ng-if="story.type === 'friendship'" class="story-friendship">
+		{{story.value[0].fullName}} is now friend with {{story.value[1].fullName}}
+		<img src="{{story.value[1].userPhoto}}">
+	</div>
+</div>

@@ -1,0 +1,75 @@
+<div class="modal fullscreen-modal"  >
+    <ion-content class="text-center intro-content">
+
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+            <ion-slide>
+                <div class="intro-slide-title padding">
+                    <div class=" welcome-center">
+                        <div class="intro-welcome-bag">
+                            <img src="img/applogo_white.png" alt="shipt logo" aria-hidden="true" />
+                        </div>
+                        <h4 id="grocery-welcome">
+                            Welcome!
+                        </h4>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="intro-slide-title padding">
+                    <div class=" welcome-center">
+                        <div class="intro-welcome-bag">
+                            <img src="img/how1.png" alt="customer holding iphone" aria-hidden="true" />
+                        </div>
+                        <h1 aria-hidden="true">
+                            You Order.
+                        </h1>
+                        <h4>
+                            Just select your groceries, choose delivery options and checkout.
+                        </h4>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="intro-slide-title padding">
+                    <div class=" welcome-center">
+                        <div class="intro-welcome-bag">
+                            <img src="img/how2.png" alt="shopping basket with groceries" aria-hidden="true" />
+                        </div>
+                        <h1 aria-hidden="true">
+                            We Shop.
+                        </h1>
+                        <h4>
+                            A trained Shopper will shop your order.
+                        </h4>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="intro-slide-title padding">
+                    <div class=" welcome-center">
+                        <div class="intro-welcome-bag">
+                            <img src="img/how3.png" alt="groceries at the front door" aria-hidden="true" />
+                        </div>
+                        <h1 aria-hidden="true">
+                            We Deliver.
+                        </h1>
+                        <h4>
+                            We deliver when you have scheduled.
+                        </h4>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+
+        <div class="bottom-area">
+            <button style="" id="welcome_nav_button" ng-click="closeIntro()" class="button button-light button-large">
+                <span ng-if="slideIndex != 3" role="button" aria-label="next">
+                    <i class="icon ion-android-arrow-forward" aria-hidden="true" aria-label=""></i>
+                </span>
+                <span ng-if="slideIndex == 3">
+                    Start Using Shipt!
+                </span>
+            </button>
+        </div>
+    </ion-content>
+</div>

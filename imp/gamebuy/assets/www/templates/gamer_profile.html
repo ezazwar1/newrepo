@@ -1,0 +1,181 @@
+<ion-view title="">
+    <ion-nav-buttons side="left">
+        <button ng-click="goto_chat_thread_add()" ng-if="data.backchat_flag"
+                class="button button-clear button-positive ion-chevron-left button--top-bar-left">Back to Chat
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="padding" scroll="true" padding="false">
+        <div class="gamer-profile">
+            <div class="gamer-profile_main">
+                <div class="gamer-profile_avatar">
+                    <img class="gamer_avatar-list" ng-src={{data.gamer_profile_pic_link}}>
+                </div>
+
+                <div class="gamer-profile_brief">
+                    <p class="gamer-profile_name">{{data.gamer.name}}</p>
+
+                    <p class="gamer-profile_city">{{data.gamer.city}} {{data.gamer.miles}}</p>
+
+                    <p class="gamer-profile_description" ng-if="data.gamer.description!=null">
+                        {{data.gamer.description}}</p>
+                </div>
+
+            </div>
+            <div class="button-multi">
+                <button class="button button-primary button-profile button-multi_item ion-person-add "
+                        ng-class="{'button-pressed': data.gamer.fav_added}"
+                        ng-click="click_favourite_unfavourite_button()" ng-disabled="data.me_id==data.gamer.gamer_id">
+                    {{data.favbutton}}
+                </button>
+                <button class="button button-primary button-profile button-multi_item ion-chatbubbles"
+                        ng-click="goto_chat_thread_add()" ng-disabled="data.me_id==data.gamer.gamer_id">Chat
+                </button>
+            </div>
+            <!--<p>Number of Rates: {{ data.gamer.rate_count }}</p>-->
+            <!--<p>Rating: {{ data.gamer.rate_score }}</p>-->
+        </div>
+
+        <div class="gamer_data gamer_data-gamer-profile">
+            <a class="data_box-gamer-profile" ng-click="goto_gamer_gamemetrics_by_type('rate')">
+                <div class="data_num">
+                    <ul class="data_star-{{ data.rate_score }}">
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                    </ul>
+                </div>
+                <p class="data_text"><span class="data_highlight">{{ data.gamer.rate_score }}</span> ({{
+                    data.gamer.rate_count }} <i class="ion-person"></i>)</p>
+            </a>
+            <a class="data_box-gamer-profile" ng-click="goto_gamer_gamemetrics_by_type('sold')">
+                <p class="data_num">{{data.gamer.sold_count}}</p>
+
+                <p class="data_text">Sold</p>
+            </a>
+            <a class="data_box-gamer-profile" ng-click="goto_gamer_gamemetrics_by_type('bought')">
+                <p class="data_num">{{data.gamer.bought_count}}</p>
+
+                <p class="data_text">Bought</p>
+            </a>
+        </div>
+
+        <div class="gamer-profile_tabs tabs-style-iconbox">
+            <nav class="tabs_nav tabs_nav--has-3-tabs">
+                <ul class="tabs_list-group">
+                    <li class="tabs_list">
+                        <a class="tabs_item" ng-class={'tab-current':data.offer_tab_active}
+                           ng-click="decide_shown_list('sell')">
+                            <span>For sale {{data.gamer.sell_count}}</span>
+                        </a>
+                    </li>
+                    <li class="tabs_list">
+                        <a class="tabs_item" ng-class={'tab-current':data.wish_tab_active}
+                           ng-click="decide_shown_list('buy')">
+                            <span>Wish list {{data.gamer.buy_count}}</span>
+                        </a>
+                    </li>
+                    <li class="tabs_list">
+                        <a class="tabs_item" ng-class={'tab-current':data.own_tab_active}
+                           ng-click="decide_shown_list('have')">
+                            <span>Own {{data.gamer.have_count}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div ng-if="data.offer_tab_active">
+                <div class="intro intro-small" ng-if="data.sell_placeholderpic_flag">
+                    <img class="intro_graphic" src="img/graphics/controllers/nintendo-wii.png"
+                         alt="Start trading video games on GBG">
+
+                    <p class="intro_tips">{{data.collection_by_gamer_message}}</p>
+                </div>
+                <ion-list>
+                    <ion-item class="item game-list" ng-click="goto_collection_profile_by_tab(collection.collection_id)"
+                              collection-repeat="collection in data.collections | orderBy:['-updated_on']">
+                        <div class="game-list-thumbnail"><img ng-src="{{collection.picture}}"></div>
+                        <div class="game-list_game-info">
+                            <h2 class="game-list_game-title">{{collection.title}}</h2>
+
+                            <p class="game-list_game-platform" ng-if="collection.collect_format != 'console'">
+                                {{collection.platform}} | {{collection.collect_format_message}}</p>
+
+                            <p class="game-list_game-platform" ng-if="collection.collect_format == 'console'">
+                                {{collection.platform}}</p>
+
+                            <p class="game-list_game-deal">
+                                <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                <span class="game-list_game-price">
+                    {{collection.price_sell}}
+                    <span class="game-list_price-unit">{{collection.price_unit}}</span>
+                </span>
+                            </p>
+
+                            <p class="deals-list_status ion-ios-information-outline deals-list_update-alart">
+                                {{collection.collect_as_message}}</p>
+                        </div>
+                </ion-list>
+                <ion-infinite-scroll
+                        ng-if="data.collections_there_is_more"
+                        on-infinite="load_more_collections()"
+                        distance="0%">
+                </ion-infinite-scroll>
+            </div>
+            <!-- /content -->
+
+            <div ng-if="data.wish_tab_active">
+                <div class="intro intro-small" ng-if="data.wish_placeholderpic_flag">
+                    <img class="intro_graphic" src="img/graphics/controllers/psp.png"
+                         alt="Start trading video games on GBG">
+
+                    <p class="intro_tips">{{data.collection_by_gamer_message}}</p>
+                </div>
+                <ion-list>
+                    <ion-item class="item game-list" ng-click="goto_collection_profile_by_tab(collection.collection_id)"
+                              ng-repeat="collection in data.collections | orderBy:['-updated_on']">
+                        <div class="game-list-thumbnail"><img ng-src="{{collection.picture}}"></div>
+                        <div class="game-list_game-info">
+                            <h2 class="game-list_game-title">{{collection.title}}</h2>
+
+                            <p class="game-list_game-platform">Platform: {{collection.platform}}</p>
+                        </div>
+                </ion-list>
+                <ion-infinite-scroll
+                        ng-if="data.collections_there_is_more"
+                        on-infinite="load_more_collections()"
+                        distance="0%">
+                </ion-infinite-scroll>
+            </div>
+            <!-- /content -->
+
+            <div ng-if="data.own_tab_active">
+                <div class="intro intro-small" ng-if="data.own_placeholderpic_flag">
+                    <img class="intro_graphic" src="img/graphics/controllers/wii-u.svg"
+                         alt="Start trading video games on GBG">
+
+                    <p class="intro_tips">{{data.collection_by_gamer_message}}</p>
+                </div>
+                <ion-list>
+                    <ion-item class="item game-list" ng-click="goto_collection_profile_by_tab(collection.collection_id)"
+                              ng-repeat="collection in data.collections | orderBy:['-updated_on']">
+                        <div class="game-list-thumbnail"><img ng-src="{{collection.picture}}"></div>
+                        <div class="game-list_game-info">
+                            <h2 class="game-list_game-title">{{collection.title}}</h2>
+
+                            <p class="game-list_game-platform">Platform: {{collection.platform}}</p>
+                        </div>
+                </ion-list>
+                <ion-infinite-scroll
+                        ng-if="data.collections_there_is_more"
+                        on-infinite="load_more_collections()"
+                        distance="0%">
+                </ion-infinite-scroll>
+            </div>
+            <!-- /content -->
+
+        </div>
+        <!-- /tabs -->
+    </ion-content>
+</ion-view>

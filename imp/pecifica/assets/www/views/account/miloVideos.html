@@ -1,0 +1,16 @@
+<ion-view title="{{ 'TOUR' | translate }}" id="account">
+
+  <div class="back"></div>
+  <ion-content> 
+
+  <div class="list habits-menu"> 
+    <div ng-click="viewMoodVideo()" class="item item-icon-left logout"><i class="icon ion-ios-play-outline"></i> {{ 'WATCH_MILO_IS_MOODY' | translate }}</div>
+    <div ng-click="viewRelaxVideo()" ng-show="!isPacificaLiteUser()" class="item item-icon-left logout"><i class="icon ion-ios-play-outline"></i> {{ 'WATCH_MILO_IS_STRESSED' | translate }}</div>
+    <div ng-click="viewThoughtsVideo()" ng-show="!isPacificaLiteUser()" class="item item-icon-left logout"><i class="icon ion-ios-play-outline"></i> {{ 'WATCH_MILO_HAS_DOUBTS' | translate }}</div>
+    <div ng-click="viewGoalsVideo()" ng-show="!isPacificaLiteUser()" class="item item-icon-left logout"><i class="icon ion-ios-play-outline"></i> {{ 'WATCH_MILO_IS_SCARED' | translate }}</div>
+    <div ng-click="viewHealthVideo()" class="item item-icon-left logout"><i class="icon ion-ios-play-outline"></i> {{ 'WATCH_MILO_IS_BUSY' | translate }}</div>
+    <div ng-click="viewCommunityVideo()" ng-show="!isUMNUser()" class="item item-icon-left logout"><i class="icon ion-ios-play-outline"></i> {{ 'WATCH_MILO_IS_LOST' | translate }}</div>
+  </div>
+
+  </ion-content>
+</ion-view>

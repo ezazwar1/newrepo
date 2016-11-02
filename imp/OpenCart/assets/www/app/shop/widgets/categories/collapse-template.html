@@ -1,0 +1,26 @@
+﻿<ion-list>
+    <div class="item item-divider" i18n="shop.categories"></div>
+    <div ng-repeat="category in categories">
+        <ion-item ng-href="{{ category.categories.length == 0 ? '#/app/menu/shop/category/' + category.category_id : '#'}}" ng-click="toggleGroup(category);" class="item item-icon-right" ng-class="{active: category.visible}">
+
+            <img ng-src="{{category.image}}" style="vertical-align:middle;" ng-if="thumbnail == 'true'" />
+            <span ng-bind-html="category.name"></span>
+
+            <i ng-if="category.categories.length > 0" ng-href="#" class="icon" ng-class="category.visible ? 'ion-ios-minus-empty' : 'ion-ios-plus-empty'"></i>
+        </ion-item>
+        <div ng-repeat="category_l2 in category.categories" class="item-accordion" ng-show="category.visible">
+            <ion-item ng-href="{{ category_l2.categories.length == 0 ? '#/app/menu/shop/category/' + category_l2.category_id : '#'}}" ng-click="toggleGroup(category_l2);" class="item item-icon-right" ng-class="{active: category_l2.visible}">
+                &nbsp;&nbsp;
+                <img ng-src="{{category_l2.image}}" style="vertical-align:middle;" ng-if="thumbnail == 'true'" />
+                <span ng-bind-html="category_l2.name"></span>
+
+                <i ng-if="category_l2.categories.length > 0" ng-href="#" class="icon" ng-class="category_l2.visible ? 'ion-ios-minus-empty' : 'ion-ios-plus-empty'"></i>
+            </ion-item>
+            <ion-item ng-href="#/app/menu/shop/category/{{::category_l3.category_id}}" class="item-accordion" ng-repeat="category_l3 in category_l2.categories" ng-show="category_l2.visible">
+                &nbsp;&nbsp;&nbsp;
+                <img ng-src="{{category_l3.image}}" style="vertical-align:middle;" ng-if="thumbnail == 'true'" />
+                <span ng-bind-html="category_l3.name"></span>
+            </ion-item>
+        </div>
+    </div>
+</ion-list>

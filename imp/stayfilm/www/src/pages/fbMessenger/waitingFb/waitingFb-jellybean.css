@@ -1,0 +1,20 @@
+@media only screen and (orientation: portrait) {
+  /* line 5, waitingFb-jellybean.scss */
+  .platform-android4_1 .waiting-page-fb .scroll-content .logo img, .platform-android4_2 .waiting-page-fb .scroll-content .logo img, .platform-android4_3 .waiting-page-fb .scroll-content .logo img {
+    -webkit-transform: scaleY(4.6);
+    -moz-transform: scaleY(4.6);
+    -ms-transform: scaleY(4.6);
+    -o-transform: scaleY(4.6);
+    transform: scaleY(4.6);
+  }
+}
+@media only screen and (orientation: landscape) {
+  /* line 13, waitingFb-jellybean.scss */
+  .platform-android4_1 .waiting-page-fb .scroll-content .logo img, .platform-android4_2 .waiting-page-fb .scroll-content .logo img, .platform-android4_3 .waiting-page-fb .scroll-content .logo img {
+    -webkit-transform: scaleY(2.4);
+    -moz-transform: scaleY(2.4);
+    -ms-transform: scaleY(2.4);
+    -o-transform: scaleY(2.4);
+    transform: scaleY(2.4);
+  }
+}

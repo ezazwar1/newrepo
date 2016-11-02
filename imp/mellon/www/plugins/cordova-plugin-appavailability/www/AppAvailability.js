@@ -1,0 +1,1 @@
+cordova.define("cordova-plugin-appavailability.AppAvailability",function(i,a,c){var o={check:function(i,a,c){cordova.exec(a,c,"AppAvailability","checkAvailability",[i])},checkBool:function(i,a){cordova.exec(function(i){a(i)},function(i){a(i)},"AppAvailability","checkAvailability",[i])}};c.exports=o});

@@ -1,0 +1,1 @@
+Leave this directory. The setup will copy audio files into it.

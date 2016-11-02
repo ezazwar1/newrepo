@@ -1,0 +1,52 @@
+<ion-view title="{{ 'DISCOVER_WORKOUTS' | translate }}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios-information-outline right"
+                ng-click="view.showPreviewOption = !view.showPreviewOption"
+                ng-if="!showUnableToConnect">
+        </button>
+        <button class="button-icon icon mixer-button ion-refresh"
+                ng-click="getWorkouts()"
+                ng-if="showUnableToConnect">
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="has-header discover-page width-control full-length" overflow-scroll="true">
+        <div class="workout-scrollers">
+            <div ng-repeat="workoutSeries in discoverWorkouts" class="discover-series">
+                <h1>{{workoutSeries.seriesName}}</h1>
+                <hr>
+
+                <div class="hscroller">
+                    <hcard ng-repeat="individualWorkout in workoutSeries.workouts" index="{{$index}}" desc="{{individualWorkout.name}}" image="{{individualWorkout.images.thumbnail}}">
+                        <div class="add-discover-workout preview-discover-workout"
+                             ng-click="showWorkoutPreview(individualWorkout)"
+                             ng-if="view.showPreviewOption">
+                            <i class="icon ion-eye"></i>
+                        </div>
+                        <div class="add-discover-workout"
+                             ng-click="addCustomWorkout(individualWorkout, workoutSeries.seriesName)"
+                             ng-if="(!individualWorkout.isPremiumOnly || isPremiumCustomsUnlocked) && !individualWorkout.justAdded && true">
+                            <i class="icon ion-android-add"></i>
+                        </div>
+                        <div class="add-discover-workout"
+                             ng-click="addCustomWorkout(individualWorkout, workoutSeries.seriesName)"
+                             ng-if="individualWorkout.justAdded">
+                            <i class="icon ion-checkmark"></i>
+                        </div>
+                        <div class="add-discover-workout"
+                             ng-click="warnPremiumOnly(individualWorkout, workoutSeries.seriesName)"
+                             ng-if="(individualWorkout.isPremiumOnly && !isPremiumCustomsUnlocked) && !individualWorkout.justAdded && true">
+                            <i class="icon ion-locked"></i>
+                        </div>
+                        <div class="share-discover-workout"
+                             ng-click="shareCustomWorkout(individualWorkout)">
+                            <i class="icon ion-android-share"></i>
+                        </div>
+                    </hcard>
+                </div>
+            </div>
+            <p ng-if="showUnableToConnect" class="page-instructions">
+                {{'CONNECTION_UNAVAILABLE' | translate}}
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

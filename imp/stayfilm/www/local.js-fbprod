@@ -1,0 +1,5 @@
+sfLocal.defaultServer = 'prod';
+sfLocal.appContext    = 'fbmessenger';
+//sfLocal.logLevel = 2;
+
+sfLocal.gaTrackingIds = {web: 'UA-42284570-1', cordova: 'UA-27903424-1'};

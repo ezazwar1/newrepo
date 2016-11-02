@@ -1,0 +1,22 @@
+<ion-view title="Contact Us" ng-controller="ContactUsController as viewModel">
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+        <br/>
+        <br/>
+        <div class="list light-item-list">
+            <ion-item ng-click="viewModel.emailClick()" class="item order-history-item help item-icon-right  item-icon-left"
+                    role="button" aria-label="Email support@shipt.com">
+                <i class="icon ion-ios-email-outline" aria-hidden="true" aria-label="email icon"></i>
+                Email
+                <p>support@shipt.com</p>
+                <i class="icon ion-ios-arrow-right" aria-hidden="true" aria-label="arrow right icon"></i>
+            </ion-item>
+            <ion-item ng-click="viewModel.callClick()" class="item order-history-item help item-icon-right item-icon-left"
+                    role="button" aria-label="Call 2055022500">
+                <i class="icon ion-ios-telephone-outline" aria-hidden="true" aria-label="phone icon"></i>
+                Call
+                <p>205-502-2500</p>
+                <i class="icon ion-ios-arrow-right" aria-hidden="true" aria-label="arrow right icon"></i>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

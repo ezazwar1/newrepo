@@ -1,0 +1,74 @@
+<ion-view title="{{ 'ACTION.SHARE' | translate }}">
+	<ion-nav-buttons side="left">
+      <wf-back></wf-back>
+    </ion-nav-buttons>
+
+    <ion-content padding="false" class="has-header no-border">
+		<div class="big-padding">
+			<div class="card-wf">
+				<div ng-if="share.img && share.img != '0'" class="img-holder">
+					<div class="card-wf-overylay"></div>
+					<img class="img-responsive" ng-src="{{ share.img }}">
+				</div>
+
+				<div ng-if="share.subject && share.subject != '0'" class="card-footer-wf">
+					<div class="row">
+						<div class="col" style="padding-top:0">
+							<h4 class="card-title-wf">{{ share.subject }}</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="list share-items">
+				<div class="item item-input">
+	    			<textarea class="text-dark input-border" rows="3" ng-model="share.text" placeholder="Message">{{ share.text }}</textarea>
+	  			</div>
+
+				  <!-- <ion-toggle ng-model="shareVia.fb" toggle-class="toggle-calm">{{ 'SHARE.FB' | translate }}</ion-toggle> -->
+				  <!-- <ion-toggle ng-model="shareVia.twitter" toggle-class="toggle-calm">{{ 'SHARE.TW' | translate }}</ion-toggle> -->
+         <div class="row share-items-wrapper" ng-click="shareFb()">
+						<div class="col col-20 margin-top-10">
+	 					 <a><i class="ion-social-facebook sharing-icon fb-color"></i></a>
+	 				 </div>
+	 				 <div class="col check-tick-wrapper">
+	 					 <span>{{ 'SHARE.FB' | translate }}</span>
+					 </div>
+			 </div>
+
+			 <div class="row share-items-wrapper" ng-click="shareTwitter()">
+					<div class="col col-20 margin-top-10">
+					 <a><i class="ion-social-twitter sharing-icon twitter-color"></i></a>
+				 </div>
+				 <div class="col check-tick-wrapper">
+					 <span>{{ 'SHARE.TW' | translate }}</span>
+				 </div>
+		 </div>
+
+		 <div class="row share-items-wrapper" ng-click="shareWhatsApp()">
+				<div class="col col-20 margin-top-10">
+				 <a><i class="ion-social-whatsapp sharing-icon whatsapp-color"></i></a>
+			 </div>
+			 <div class="col check-tick-wrapper">
+				 <span>{{ 'SHARE.WA' | translate }}</span>
+			 </div>
+	  </div>
+
+		<div class="row share-items-wrapper" ng-click="shareOther()">
+	 		<div class="col col-20 margin-top-10">
+	 		 <a><i class="wf wf-shared sharing-icon other-color"></i></a>
+	 	 </div>
+	 	 <div class="col check-tick-wrapper">
+	 		 <span>{{ 'SHARE.OTHERS' | translate }}</span>
+	 	 </div>
+	 </div>
+
+
+			</div>
+		</div>
+
+    </ion-content>
+    <!-- <ion-footer-bar class="bar-positive">
+        <button ng-click="shareNow()" class="button button-big-sticky button-full" translate="ACTION.SHARE">Confirm</button>
+    </ion-footer-bar> -->
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view view-title="wedding album">
+  <ion-content class="view-wedding-album">
+   <ion-refresher class="pull-to-refresh"
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresher()">
+  </ion-refresher>
+   <div class="view-header">
+   		<h1 style="letter-spacing: -2px;"><span class="hash">#</span><span class="first">wedding</span>album</h1>
+   		<P class="view-count">{{ photoCount }} Photos</P>
+   </div>
+
+
+
+   <div ng-repeat="category in categories">
+		<div class="item item-divider">
+		    {{ category }}
+		</div>
+			<div class="album-photos">
+				<div ng-repeat="photo in photos | orderBy:'category' | filter: category">
+					<a href="#/app/photo/{{ photo.id }}" class="swipebox" title="{{ photo.category }}">
+						<img img-preload src="{{ photo.thumb }}" alt="image" class="is-loading">
+					</a>
+				</div>
+			</div>
+	</div>
+
+
+
+ <div class="list" ng-show="nophotos">
+    <P class="no-items animated fadeInDown"><B>Argh!</B> No photos yet.</P>
+  </div>
+
+
+<!-- <div class="image-tools">
+		    <i class="icon ion-refresh"></i>
+		    <i class="icon ion-trash-a"></i>
+</div> -->
+
+  </ion-content>
+</ion-view>
+

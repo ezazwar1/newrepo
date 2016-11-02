@@ -1,0 +1,27 @@
+<ion-modal-view>
+   <div ng-if="item">
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">{{ 'GROUPS.TITLE' | translate }}</h1>
+    <button class="button button-positive button-icon ion-android-close" ng-click="closeModal()" />
+  </ion-header-bar>
+  <ion-content class="big-padding">
+
+    <div ng-show="item.subcribe_survey.length > 0">
+  <h5 style="margin-top: 5px;" class="text-center dash-header-dark">{{ 'ACTION.JOIN' | translate }}</h5>
+
+  <div class="form-survay">
+  <div class="list">
+    <div ng-repeat="q in item.subcribe_survey">
+      <ng-include src="'templates/entity/form/' + q.question_type + '.html'"></ng-include>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  </ion-content>
+
+  <ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+    <wf-join-btn url="entities" callback="closeModal()" update="false" answers="survey" data="item" title="{{ 'ACTION.JOIN' | translate }}|{{ 'ACTION.LEAVE' | translate }}" class="width-full height-full"></wf-join-btn>
+  </ion-footer-bar>
+</div>
+</ion-modal-view>

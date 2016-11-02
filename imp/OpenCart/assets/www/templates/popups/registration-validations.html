@@ -1,0 +1,40 @@
+﻿<div ng-repeat="msg in validations.registrationErrors" role="alert">
+    <div>{{ msg }}</div>
+</div>
+
+<div ng-messages="forms.registerForm.firstname.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_firstname_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.lastname.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_lastname_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.email.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_email_required' | i18n }}</div>
+    <div ng-message="email">{{ 'modals.error_email_invalid' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.telephone.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_telephone_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.password.$error" role="alert">
+    <div ng-message="required">Password Required</div>
+</div>
+<div ng-messages="forms.registerForm.confirm.$error" role="alert">
+    <div ng-message="required">Confirm the password</div>
+</div>
+<div ng-messages="forms.registerForm.address_1.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_address_1_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.city.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_city_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.postal_code.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_postal_code_required' | i18n }}</div>
+    <div ng-message="minlength">{{ 'modals.error_postal_code_minlength' | i18n }}</div>
+    <div ng-message="maxlength">{{ 'modals.error_postal_code_maxlength' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.country_id.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_country_id_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.registerForm.zone_id.$error" role="alert">
+    <div ng-message="required">{{ 'modals.error_zone_id_required' | i18n }}</div>
+</div>

@@ -1,0 +1,97 @@
+<div class="waiting-page page" ng-class="{'waiting-page-fb':appContext === 'fbmessenger'}">
+	<ion-header-bar align-title="center" class="bar bar-header">
+		<button class="button button-clear" ng-click="cancel()">
+			<span translate>cancelar</span>
+		</button>
+		<h1 class="title" ng-if="appContext !== 'fbmessenger'"><img src="images/logo-stayfilm.png" class="logo-title" /></h1>
+	</ion-header-bar>
+
+	<ion-content class="has-header">
+		<h3 ng-if="action === 'uploading'"><span translate>Por favor aguarde, estamos transferindo as suas fotos.</span></h3>
+		<h3 ng-if="action === 'gathering'"><span translate>Por favor aguarde, estamos organizando o seu conteúdo.</span></h3>
+		<h3 ng-if="action === 'producing'"><span translate>Por favor aguarde, estamos produzindo o seu filme.</span></h3>
+
+		<div ng-if="appContext === 'fbmessenger'" class="logo">
+			<img src="images/LOGO_Stayfilm_shadow.svg" width="100" height="100"/>
+		</div>
+
+		<hr ng-if="appContext === 'fbmessenger'" style="clear:both" />
+
+		<div ng-if="action === 'uploading'" class="progress-wrapper" ng-class="{'upload-bar': action === 'uploading', 'removeTransition': removeTransitionClass}">
+			<div class="progress-info">
+				<div class="progress-helper" style="width: {{ totalUploadProgress || 0 }}%">
+					<div class="progress-circle">
+						<span>{{ totalUploadProgress || 0 }}%</span>
+					</div>
+				</div>
+			</div>
+			<div class="progress-bar">
+				<span class="stretch-bar" style="width: {{ totalUploadProgress || 0 }}%;"></span>
+				<span class="centralizer"></span>
+			</div>
+		</div>
+
+		<div ng-if="action !== 'uploading'" class="progress-wrapper" ng-class="{'upload-bar': action === 'uploading', 'removeTransition': removeTransitionClass}">
+			<div class="progress-info">
+				<div class="progress-helper" style="width: {{ totalProgress || 0 }}%">
+					<div class="progress-circle">
+						<span>{{ totalProgress || 0 }}%</span>
+					</div>
+				</div>
+			</div>
+			<div class="progress-bar">
+				<span class="stretch-bar" style="width: {{ totalProgress || 0 }}%;"></span>
+				<span class="centralizer"></span>
+			</div>
+		</div>
+		<div ng-if="adImage" class="ad-box">
+			<img ng-src="{{adImage}}" class="ad" />
+		</div>
+		<div ng-if="adMovie" class="ad-player">
+			<jwplayer movie="adMovie" autostart="adMovie.auto_start"></jwplayer>
+		</div>
+		<!--
+		<script type='text/javascript'>
+			var googletag = googletag || {};
+			googletag.cmd = googletag.cmd || [];
+			(function() {
+				var gads = document.createElement('script');
+				gads.async = true;
+				gads.type = 'text/javascript';
+				var useSSL = 'https:' == document.location.protocol;
+				gads.src = (useSSL ? 'https:' : 'http:') +
+					'//www.googletagservices.com/tag/js/gpt.js';
+				var node = document.getElementsByTagName('script')[0];
+				node.parentNode.insertBefore(gads, node);
+			})();
+		</script>
+		<div class="ad-network">
+			<div ng-if="adAlternator == 0" id='div-gpt-ad-1426121858084-0' class="ad-slot">
+				- - Mobile_Messenger_Tela-Trailer_Sem-video - -
+				<script type='text/javascript'>
+					googletag.cmd.push(function() {
+						googletag.defineSlot('/16542456/Mobile_Messenger_Tela-Trailer_Sem-video', [300, 250], 'div-gpt-ad-1426121858084-0').addService(googletag.pubads());
+						googletag.pubads().enableSingleRequest();
+						googletag.enableServices();
+					});
+
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1426121858084-0'); });
+				</script>
+			</div>
+
+			<div ng-if="adAlternator == 1" id='div-gpt-ad-1427472423521-0' class="ad-slot">
+				- - Mobile_Messenger_Tela-Trailer_Sem-video_2 - -
+				<script type='text/javascript'>
+					googletag.cmd.push(function() {
+						googletag.defineSlot('/16542456/Mobile_Messenger_Tela-Trailer_Sem-video_2', [300, 250], 'div-gpt-ad-1427472423521-0').addService(googletag.pubads());
+						googletag.pubads().enableSingleRequest();
+						googletag.enableServices();
+					});
+					
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1427472423521-0'); });
+				</script>
+			</div>
+		</div>
+		-->
+	</ion-content>
+</div>

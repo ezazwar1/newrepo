@@ -1,0 +1,25 @@
+<div class="popup-add-review">
+    <h2 class="popup-title">Rate {{data.partner.name}}</h2>
+
+    <div class="popup-add-review__star">
+        <ul class="data_star-list {{ data.css_rate_class }}">
+            <li class="data_star" ng-click="rate_display(1)"></li>
+            <li class="data_star" ng-click="rate_display(2)"></li>
+            <li class="data_star" ng-click="rate_display(3)"></li>
+            <li class="data_star" ng-click="rate_display(4)"></li>
+            <li class="data_star" ng-click="rate_display(5)"></li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+    <label class="form-label">Review Comments(optional)</label>
+    <textarea class="form-textarea form-textarea-review" cols="30" rows="5" ng-model="data.rate_comment" autofocus></textarea>
+    </div>
+
+    <div class="button-multi">
+        <button class="button button-block button-primary button-multi_item-uneven" ng-click="cancel_button()">Cancel
+        </button>
+        <button class="button button-block button-primary button-multi_item-uneven" ng-disabled="data.rate_score < 1" ng-click="gamer_rate()">Confirm
+        </button>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<ion-view title="{{ 'PROFILE.TITLE' | translate }}">
+  <ion-content class="pad-top-0">
+   <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh()">
+        </ion-refresher>
+    <div ng-if="publicData">
+    <div class="darker-bg">
+      <div class="pad-top-15"><div class="profile-user-image" style="background-image: url({{publicData.user[0].image_url ? publicData.user[0].image_url : 'img/avatar.svg'}})"></div></div>
+      <div class="big-padding user-info-wrappper">
+        <div class="loginInfo margin-bottom-15">
+          <h4 class="light profile-user-name">{{ publicData.user[0].first_name ? publicData.user[0].first_name + ' ' +publicData.user[0].last_name: 'DASHBOARD.YOUR_NAME' | translate }}</h4>
+          <i class="ion-location"></i><span class="light profile-user-location">{{publicData.user[0].city ? publicData.user[0].city + ' ,' : '' }}  {{publicData.user[0].country}}</span>
+        </div>
+        <p class="profile-user-descp">{{publicData.user[0].description}}</p>
+        </div>
+        <div class="row user-profile-stat">
+            <div class="col text-overflow-ellipsis" ui-sref="app.friends.following({id: publicData.user[0].user_id,name: ''})">
+             <div>{{publicData.friends_summary[0].following}}</div>
+             <span>{{ 'PROFILE.FOLLOWING' | translate }}</span>
+           </div>
+           <div class="col text-overflow-ellipsis" ui-sref="app.friends.followers({id: publicData.user[0].user_id,name: ''})">
+            <div>{{publicData.friends_summary[0].followers}}</div>
+             <span>{{ 'PROFILE.FOLLOWERS' | translate }}</span>
+           </div>
+            <div class="col text-overflow-ellipsis" ui-sref="app.entities.mine">
+             <div>{{publicData.groups_summary}}</div>
+             <span>{{ 'PROFILE.GROUPS' | translate }}</span>
+           </div>
+         </div>
+        <div class="big-padding user-profile-btn">
+          <button class="button button-positive text-overflow-ellipsis" ng-bind-html="profileEdit_btn_txt" ui-sref="app.profile">Edit Profile</button>
+          <button class="button button-positive text-overflow-ellipsis" ng-bind-html="setting_btn_txt" ui-sref="app.settings">Settings</button>
+        </div>
+    </div>
+    <div class="user-profile-nav-wrapper">
+      <div class="row" ui-sref="app.activities">
+        <div class="col col-33 icon-wrapper">
+          <i class="wf wf-activity-run"></i>
+        </div>
+        <div class="col item-name">
+          <span>{{ 'NAV.ACTIVITIES' | translate}}</span>
+        </div>
+      </div>
+      <div class="row" ui-sref="app.connect">
+        <div class="col col-33 icon-wrapper">
+          <i class="wf wf-used-app"></i>
+        </div>
+        <div class="col item-name">
+          <span>{{ 'NAV.CONNECTIONS' | translate}}</span>
+        </div>
+      </div>
+      <div class="row" ui-sref="app.achievements.progress">
+        <div class="col col-33 icon-wrapper">
+          <i class="wf wf-premium-two"></i>
+        </div>
+        <div class="col item-name">
+          <span>{{ 'NAV.ACHIEVEMENTS' | translate}}</span>
+        </div>
+      </div>      
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

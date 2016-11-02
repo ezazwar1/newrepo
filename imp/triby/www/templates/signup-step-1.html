@@ -1,0 +1,26 @@
+<ion-view cache-view="false" view-title="Sign Up" ng-controller="UserCtrl">
+  <ion-content scroll="true">
+    <div class="singup_first_step_wrapper">
+      <div class="signup_first_step_title">
+        Please select your country and enter your phone number
+      </div>
+      <div class="signup_first_step_form">
+        <form ng-submit="showPopup()">
+          <select ng-model="signupData.countryCode" required ng-options="country.key for country in countries">
+          </select>
+          <div class="select_arrow"> > </div>
+          <div class="phone_number">
+            <label class="country_code">
+              <span ng-if="!signupData.countryCode && !signupData.countryCode.value"> +1 </span>
+              <span>{{signupData.countryCode.value}}</span>
+            </label>
+            <number-only-input input-value="signupData.phone" input-name="phone" class="number" placeholder="'Enter your number'" />
+          </div>
+          <div class="next_button_box">
+            <input type="submit" class="next_step_button" value="Next" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

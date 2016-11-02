@@ -1,0 +1,57 @@
+
+
+<ion-view>
+    <div class="page-layout">
+        <ion-content has-bouncing="true" delegate-handle=" 'scrollList' ">
+
+            <div class="top">
+                <h1>My Seen</h1>
+            </div>
+            <div class="element">
+                <div class="no-seen" ng-if="profile.likes.length == 0">
+                    <p class="pull-center"><span class="bts bts-seen"></span></p>
+                    <h1 class="pull-center">
+                        REVIEW HERE YOUR <br> FAVORITES ITEMS YOU <br> TAGGED AS "TO BE SEEN".
+                        <br><br> DON'T FORGET:
+                        YOU CAN <br> DOUBLE TAP ON ANY <br> PICTURE TO SAVE THEM.
+                    </h1>
+                </div>
+                <div class="full-list seen">
+                    <div class="full-list-item {{item.element_type}}" ng-repeat="item in profile.likes" ng-click="goId(item.element_type,item.id)">
+                        <div class="back" ng-style=
+                            "{ 'background-image': 'url(' + item.image__medium + ')' }">
+                            <img class="avatar" src="{{ item.img_avatar__thumbnail }}" ng-if="item.element_type == 'profile'">
+                        </div>
+                        <p ng-if="item.element_type == 'product'">{{ item.name }}</p>
+
+                        <p ng-if="item.element_type == 'profile'">
+                            {{ item.first_name }} {{ item.last_name }} <br>
+                            <small>
+                                {{ item.profession.name }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                        <p ng-if="item.element_type == 'news'">{{ item.title }} <br> <small>{{ item.category.title }}</small></p>
+                        <p ng-if="item.element_type == 'collection'">
+                            {{ item.title }} <br>
+                            <small>{{ item.category.name }}</small>
+                        </p>
+                        <p ng-if="item.element_type == 'brand'">
+                            {{ item.company_name }} <br>
+                            <small>
+                                {{ item.title_category }} <br>
+                                {{ item.city }} - {{ item.country.name }}
+                            </small>
+                        </p>
+                    </div>
+                    <div class="full-list-item more" ng-if="profile.likes.length == (offset + max)" ng-click="moreItem()">
+                        <strong>+</strong>
+                    </div>
+                    <div class="full-list-item more" ng-show="isLoading">
+                        <strong><img src="./img/loading-bubbles-black.svg" alt="Loading icon" /></strong>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

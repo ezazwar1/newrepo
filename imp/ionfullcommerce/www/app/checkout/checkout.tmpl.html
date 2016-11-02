@@ -1,0 +1,45 @@
+<ion-view class="checkout-view" view-title="CHECKOUT">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon side-menu-icon icon ion-navicon"></button>
+		<!--Drawer Change-->
+	</ion-nav-buttons>
+	<ion-content has-subheader="false">
+		<div class="col total-card text-center">
+			<p>TOTAL PRICE</p>
+			<h2><span>$</span>2314</h2>
+		</div>
+
+		<div class="list card-details">
+			<p>NAME ON CARD</p>
+			<label class="item item-input">
+				<input type="text">
+			</label>
+			<p class="card-no"> CARD NUMBER</p>
+			<label class="item item-input">
+				<input type="text">
+			</label>
+
+			<div class="row">
+				<div class="col">
+					<p class="card-no">EXPIRY DATE</p>
+					<label class="item item-input">
+						<input type="text">
+					</label>
+				</div>
+				<div class="col">
+					<p class="card-no">SECURITY CODE</p>
+					<label class="item item-input">
+						<input type="text">
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="padding">
+			<button ng-click="makePayment()" class="button checkout-btn  button-block">
+				PAY $2314
+			</button>
+		</div>
+
+	</ion-content>
+</ion-view>

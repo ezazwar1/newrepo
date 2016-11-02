@@ -1,0 +1,59 @@
+<div class="stats-wrap">
+  <!-- <div class="big-padding text-center dash-progress-wrap">
+    <div>
+      <div class="progres-wrap">
+        <div class="row">
+          <div class="col col-20">
+            <div class="badge-wf"><span class="icon-wf-box">
+              <span class="wf-stack wf-progress-wrap wf-lg">
+                 <un-svg svg-src="{{ result.current_level_img }}"></un-svg>
+                 <i class="wf wf-stack-2x wf-badge assertive"></i>
+                 </span>
+            </span></div>
+          </div>
+          <div class="col pad-0 bar-wrap">
+            <div class="level-name"><span>{{result.current_level_name}}</span></div>
+            <div class="stat">
+              <span class="points">{{result.current_activity_level_points}} {{'UNIT.POINTS' | translate}}</span>
+              <span>{{next_level_point_left}} {{'UNIT.POINTS_TO' | translate}} {{result.next_level_name}}</span>
+            </div>
+            <div class="loader-bg"><div class="loader" style="width: {{current_level_progress}}%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="big-padding text-center">
+ <div class="knob">
+   <div
+     round-progress
+     max="100"
+     current="result.val"
+     color="#e84d51"
+     bgcolor="#623a45"
+     radius="100"
+     responsive="true"
+     animation-delay="500"
+     stroke="2">
+   </div>
+   <span class="top-circle">{{ result.val }}%</span>
+   <div class="knob-inner">
+       <span class="wf-stack wf-lg invisible">
+       <i class="wf wf-badge assertive wf-stack-2x"></i>
+       <i class="wf wf-superhero wf-stack-1x"></i>
+     </span>
+     <div class="stats">
+       <h5 class="ng-hide">LVL 3: Superhero</h5>
+       <p class="title-coin">
+         <i class="wf wf-coins wf-3x light"></i> <span class="light">{{ result.points | number }} </span>
+         <br><br>
+         <span class="sm"> <i class="wf wf-calorie"></i> {{ result.calories.value | number }} </span>
+         <span class="sm goal"> <i class="icon ion-pinpoint"></i> {{DASHBOARD.GOAL | translate }} {{result.goal | number }}</span>
+       </p>
+       <i class="icon checker ion-ios-help-outline wf-2x" ui-sref="app.dashboardHow"></i>
+       <i class="wf wf-arrow-up" ng-hide="true" ng-show="result.progress"></i>
+     </div>
+   </div>
+ </div>
+</div>
+</div>

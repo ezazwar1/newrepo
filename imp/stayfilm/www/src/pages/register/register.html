@@ -1,0 +1,90 @@
+<ion-view class="page-register">
+	<div class="bar bar-header">
+		<button class="button button-clear" ng-click="goTo('welcome.start')">
+			<img src="images/ico-arrow-left-white.svg" style="width: 25px; height: 25px;" />
+		</button>
+		<h1 class="title">
+			<img src="images/logo-stayfilm.png" class="logo-title"/>
+		</h1>
+	</div>
+
+	<ion-content class="has-header">
+		<div class="page-text padding-sf">
+			<span translate>Registre-se e faça seu filme. É grátis.</span>
+		</div>
+
+		<div class="padding-sf margin-top">
+			<button ng-click="loginWithFacebook()" class="kana-button facebook-connect"><img src="images/kana-facebook.png" />Facebook Connect</button>
+		</div>
+
+		<div class="or-separator"><span translate>ou</span></div>
+
+		<form name="registerForm">
+			<div class="double-field padding-sf">
+				<div class="field" ng-class="{'invalid': registerForm.name.$invalid && formNotVerified}">
+					<input disabled required type="text" name="name" placeholder="{{ 'Nome' | translate }}" ng-model="userInfo.name" maxlength="60" valid-name />
+					<div class="feedback"></div>
+				</div>
+				<div class="field-separator"></div>
+				<div class="field" ng-class="{'invalid': registerForm.lastName.$invalid && formNotVerified}">
+					<input disabled required type="text" name="lastName" placeholder="{{ 'Sobrenome' | translate }}" ng-model="userInfo.lastName" maxlength="60" valid-name />
+					<div class="feedback"></div>
+				</div>
+			</div>
+
+			<div class="one-field padding-sf">
+				<div class="field" ng-class="{'invalid': invalidBirthday}">
+					<label translate>Aniversário</label>
+					<div class="feedback birthday"></div>
+					<div class="birthday-field">
+						<div class="field-onethird">
+							<label translate>Dia</label>
+							<select disabled required name="birthdayDay" ng-model="userInfo.birthdayDay" ng-options="dayNum for dayNum in dayList"><option value=""></option></select>
+						</div>
+						<div class="field-onethird space-around">
+							<label translate>Mês</label>
+							<select disabled required name="birthdayMonth" ng-model="userInfo.birthdayMonth" ng-options="monthNum for monthNum in monthList"><option value=""></option></select>
+						</div>
+						<div class="field-onethird">
+							<label translate>Ano</label>
+							<select disabled required name="birthdayYear" ng-model="userInfo.birthdayYear" ng-options="yearNum for yearNum in yearList"><option value=""></option></select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="one-field padding-sf">
+				<div class="field" ng-class="{'invalid': registerForm.gender.$invalid && formNotVerified}">
+					<label translate>Sexo</label>
+					<select disabled name="gender" ng-model="userInfo.gender">
+						<option value="m" translate>Masculino</option>
+						<option value="f" translate>Feminino</option>
+						<option value="n" translate>Não especificado</option>
+					</select>
+					<div class="feedback"></div>
+				</div>
+			</div>
+
+			<div class="double-field padding-sf">
+				<div class="field" ng-class="{'invalid': registerForm.email.$invalid && formNotVerified}">
+					<input disabled required type="email" name="email" placeholder="E-mail" ng-model="userInfo.email" />
+					<div class="feedback"></div>
+				</div>
+				<div class="field-separator"></div>
+				<div class="field" ng-class="{'invalid': registerForm.password.$invalid && formNotVerified}">
+					<input disabled required type="password" name="password" placeholder="{{ 'Senha' | translate }}" ng-model="userInfo.password"  ng-minlength="5" maxlength="16" />
+					<div class="feedback"></div>
+				</div>
+			</div>
+		</form>
+
+		<div class="padding-sf">
+			<button ng-click="register(registerForm)" class="make-it kana-button"><img src="images/kana-check.png" /><span translate>Criar conta</span></button>
+		</div>
+
+		<div class="page-text terms-links">
+			<p><span translate>Clicando em "Criar conta" você concorda com:</span></p>
+			<p><a ng-click="showLegalTerms()" translate>Termos Legais Stayfilm</a></p>
+			<p><a ng-click="showPrivacyTerms()" translate>Privacidade e Copyright</a></p>
+		</div>
+	</ion-content>
+</ion-view>

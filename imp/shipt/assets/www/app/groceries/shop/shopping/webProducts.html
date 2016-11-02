@@ -1,0 +1,168 @@
+<ion-view hide-back-button="true" title="{{categoryName}}">
+        <ion-nav-buttons side="left">
+            <web-home-logo-button></web-home-logo-button>
+        </ion-nav-buttons>
+        <ion-nav-title class="">
+            <div class="bar bar-light item-input-inset">
+                <form ng-submit="searchSubmit()" role="search" class="text-center">
+                    <label class="item-input-wrapper category-search-label" stop-event="click">
+                        <i class="icon ion-ios-search placeholder-icon" aria-hidden="true"></i>
+                        <input type="search"
+                               placeholder="Search {{categoryName}}"
+                               ng-model="search.text"
+                               ng-model-options="{debounce: 700}"
+                               ng-focus="searchFocus()"
+                               ng-blur="searchUnFocus()">
+                    </label>
+                </form>
+            </div>
+        </ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <web-cart-button></web-cart-button>
+        </ion-nav-buttons>
+    <ion-content id="productsIonContent" class="has-header darker-content" on-scroll="scrollList()" has-bouncing="true" >
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div class="text-center padding" style="margin-top:20px;" ng-if="showNoProductsMessage()">
+            <h1 class="faded">
+                <i class="icon ion-bag" aria-hidden="true">
+                </i>
+            </h1>
+            <h2 class="faded">
+                No Recent Products
+            </h2>
+            <p class="faded">
+                Products will show here once you order them.
+            </p>
+        </div>
+        <div class="row responsive-lg">
+            <div class="col col-25">
+                <div class="side-category-menu dark" ng-show="!showingProductHistory && (subCategories || subCategories.length == 0)">
+                    <div style="display:inline;" ng-class="parentCategory.id == subCategory.id ? '':''"
+                          ng-click="clickHome()" class="sub-category dark ">
+                        Home
+                   </div> <i class="icon ion-chevron-right" aria-hidden="true"></i> <div style="display:inline;" ng-class="parentCategory.id == subCategory.id ? 'active':''"
+                          ng-click="clickSubCategory(parentCategory)" class="sub-category dark">
+                       All {{categoryName}}
+                   </div>
+                   <hr>
+                    <div ng-click="clickSubCategory(subCat)"
+                         class="sub-category dark"
+                         ng-class="subCategory.id == subCat.id ? 'active':''"
+                         ng-repeat="subCat in subCategories">
+                        {{subCat.name}}
+                    </div>
+                </div>
+                <div class="side-category-menu dark" ng-show="showingProductHistory">
+                    <div style="display:inline;" ng-class="parentCategory.id == subCategory.id ? '':''"
+                          ng-click="clickHome()" class="sub-category dark ">
+                        Home
+                   </div> <i class="icon ion-chevron-right" aria-hidden="true"></i> <div style="display:inline;" ng-class="parentCategory.id == subCategory.id ? 'active':''"
+                          ng-click="clickSubCategory(parentCategory)" class="sub-category dark">
+                       All {{categoryName}}
+                   </div>
+                   <hr>
+                    <div ng-click="viewRecentSpecialRequestsClick()"
+                         class="sub-category dark">
+                        Recent Special Requests
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div ng-if="!products" class="padding text-center" style="margin-top: 140px;">
+                    <ion-spinner ng-init="loadMoreItems()"></ion-spinner>
+                </div>
+                <div class="products-list-container" ng-if="!showNoProductsMessage()">
+                    <div class="row responsive-md">
+                        <div class="col col-25 web-product-item" ng-repeat="product in products | filter:searchForProduct ">
+                            <ion-item class=" "
+                                      force-refresh-images="true"
+                                      item-render-buffer="6"
+                                      ng-class="getItemClass(product)"
+                                      ng-click="productDetail(product)"
+                                      aria-label= "{{product.brand_name}} {{product.name}} {{product.size}} {{getPrice(product)}} {{product.description}}">
+                                <div ng-show="!product.addButton && !product.loadingMore && product.product_type != 'custom'" class="product-inside-box">
+                                    <div class="detail-img-wrapper text-center">
+                                        <img class="img-products-list" ng-src="{{product.images[0].url}}" />
+                                    </div>
+                                    <div ng-show="product.on_sale && !product.bogo" class="on-sale-web-banner" tabindex="0" aria-label="on sale">
+                                        SALE
+                                    </div>
+                                    <div ng-show="product.bogo" class="on-sale-web-banner bogo" tabindex="0" aria-label="bogo">
+                                        BOGO
+                                    </div>
+                                    <div class="qty-buttons">
+                                        <button ng-show="productInCart(product)" type="button" stop-event="click" ng-click="removeItemFromCart(product)" class="button button-positive button-small qty-button minus-button if-fade" aria-hidden="true">
+                                            <i class="icon ion-minus"></i>
+                                        </button>
+                                        <button class="button button-positive button-small qty-button add-button if-fade" type="button" stop-event="click" ng-click="addItem(product)" aria-hidden="true">
+                                            <i class="icon ion-plus"></i> Add
+                                        </button>
+                                    </div>
+                                    <span ng-if="productInCart(product)" class="badge badge-positive product-grid-cart-count-badge if-bounce" aria-hidden="true">
+                                        {{cartItemCountForProduct(product)}} {{inCartText(product)}}
+                                    </span>
+                                    <p class="wrap grid-product-name" ng-class="product.on_sale ? 'grid-product-name-sale':''" aria-hidden="true">
+                                        {{product.brand_name}} {{product.name}}
+                                    </p>
+                                    <div class="grid-product-info">
+                                        <p ng-if="product.product_type == 'normal'">
+                                            {{product.size}}
+                                        </p>
+                                        <p class="price">
+                                            <span ng-class="product.on_sale ? 'strike-through':''">{{getPrice(product)}} </span>
+                                            <br ng-if="product.on_sale">
+                                            <span class="positive" ng-show="product.on_sale">{{getSalePrice(product)}} </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div ng-show="product.product_type == 'custom'" class="product-inside-box">
+                                    <div class="custom-product-banner">
+                                        Special Request
+                                    </div>
+                                    <div class="qty-buttons">
+                                        <button ng-show="productInCart(product)"  stop-event="click" ng-click="removeItemFromCart(product)" class="button button-positive button-small qty-button minus-button if-fade" aria-hidden="true">
+                                            <i class="icon ion-minus" aria-hidden="true" ></i>
+                                        </button>
+                                        <button class="button button-positive button-small qty-button add-button if-fade" stop-event="click" ng-click="addItem(product)" aria-hidden="true">
+                                            <i class="icon ion-plus" aria-hidden="true" ></i> Add
+                                        </button>
+                                    </div>
+                                    <span ng-show="productInCart(product)" class="badge badge-positive product-grid-cart-count-badge if-bounce">
+                                        {{cartItemCountForProduct(product)}} in cart
+                                    </span>
+                                    <p class="wrap grid-product-name-custom" ng-class="product.on_sale ? 'grid-product-name-sale':''">
+                                        {{product.description}}
+                                    </p>
+                                </div>
+                                <div ng-show="product.addButton"  class="text-center add-special-item">
+                                    <div class="">
+                                        <h1>
+                                            <i class="icon ion-ios-plus-empty dark" aria-hidden="true"></i>
+                                        </h1>
+                                    </div>
+                                    <p class="light-weight">Add Special Request</p>
+                                </div>
+                                <div ng-if="product.loadingMore" class="text-center loading-more-item">
+                                    <div ng-init="loadMoreItems()">
+                                        <ion-spinner></ion-spinner>
+                                    </div>
+                                    <p class="light-weight">Loading...</p>
+                                </div>
+                            </ion-item>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ion-infinite-scroll
+                ng-if="moreDataCanBeLoaded()"
+                on-infinite="loadMoreItems()"
+                immediate-check="true"
+                spinner="none"
+                distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

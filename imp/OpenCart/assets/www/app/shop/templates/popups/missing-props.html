@@ -1,0 +1,46 @@
+﻿<div>
+    <div i18n="shop.error_required_fields"></div>
+
+    <label ng-if="::shop.shopItemForm['options_' + option.product_option_id].$invalid" class="item item-input item-select" ng-repeat="option in ::item.options | filter: selectableOptions">
+        <div class="input-label" ng-bind-html="::option.name"></div>
+        <select ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+            <option ng-repeat="value in ::option.product_option_value" value="{{::value.product_option_value_id}}">{{::value.name}}</option>
+        </select>
+    </label>
+
+    <div ng-if="::shop.shopItemForm['options_' + option.product_option_id].$invalid" class="item item-input" ng-repeat="option in ::item.options | filter: multipleOptions">
+        <div class="input-label" ng-bind-html="::option.name"></div>
+        <select multiple ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+            <option ng-repeat="value in ::option.product_option_value" value="{{::value.product_option_value_id}}">{{::value.name}}</option>
+        </select>
+    </div>
+
+    <div ng-if="::shop.shopItemForm['options_' + option.product_option_id].$invalid" class="item item-input" ng-repeat="option in ::item.options | filter: textOptions">
+        <div class="input-label" ng-bind-html="::option.name"></div>
+        <input type="{{::option.type}}" ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+    </div>
+
+    <div ng-if="::shop.shopItemForm['options_' + option.product_option_id].$invalid" class="item item-input" ng-repeat="option in ::item.options | filter: fileOptions">
+        <div class="input-label" ng-bind-html="::option.name"></div>
+        <input type="file" ng-model="cart.options[option.product_option_id]" fileread="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+    </div>
+
+    <div ng-if="::shop.shopItemForm['options_' + option.product_option_id].$invalid" class="item item-input" ng-repeat="option in ::item.options | filter: datetimeOptions">
+        <div class="input-label" ng-bind-html="::option.name"></div>
+        <input type="datetime-local" ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required">
+    </div>
+
+    <div ng-if="::shop.shopItemForm['options_' + option.product_option_id].$invalid" class="item item-input" ng-repeat="option in ::item.options | filter: textareaOptions">
+        <div class="input-label" ng-bind-html="::option.name"></div>
+        <textarea ng-model="cart.options[option.product_option_id]" name="options_{{::option.product_option_id}}" ng-required="::option.required"></textarea>
+    </div>
+
+    <label ng-if="::shop.shopItemForm['quantity'].$invalid" class="item item-input item-select">
+        <div class="input-label" ng-class="{'assertive':shop.shopItemForm.quantity.$invalid}">
+            Quantity
+        </div>
+        <select ng-model="cart.quantity" name="quantity" required>
+            <option value="{{::n}}" ng-repeat="n in range(item.minimum, 15)">{{::n}}</option>
+        </select>
+    </label>
+</div>

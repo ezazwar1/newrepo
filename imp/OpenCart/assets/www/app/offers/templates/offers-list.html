@@ -1,0 +1,38 @@
+<ion-view view-title="{{ 'offers.title_list_page' | i18n }}">
+
+    <ion-pane class="pane has-tabs-top">
+        <ion-tabs class="sub-tab-top tabs-color-active-standard tabs-positive tabs-icon-left">
+
+            <ion-tab title="{{ 'offers.title_special_offers' | i18n }}" icon-off="ion-ios-pricetag-outline" icon-on="ion-ios-pricetag-outline">
+                <ion-nav-view name="tab-tab1">
+                    <ion-content class="has-sub-tabs-top">
+                        <ion-list class="recent-items-list">
+                            <ion-item ng-repeat="item in items" ng-href="{{::item.link}}" ng-click="clicked()">
+                                <div class="offer-image-wrapper">
+                                    <img preload-image class="full-image" ng-src="{{::item.image}}" default-image="app/offers/images/slide.png" fallback-image="app/offers/images/slide.png" />
+                                </div>
+                                <h2><a>{{::item.name}}</a></h2>
+                            </ion-item>
+                            <ion-item ng-if="items && items.length < 1">{{text_empty}}</ion-item>
+                        </ion-list>
+                    </ion-content>
+                </ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="{{ 'offers.title_special_items' | i18n }}" icon-off="ion-ios-lightbulb-outline" icon-on="ion-ios-lightbulb-outline">
+                <ion-nav-view name="tab-tab2">
+                    <ion-content class="has-sub-tabs-top">
+                        <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
+                        <ion-list class="recent-items-list">
+                            <ion-item ng-repeat="item in data.items">
+                                <item-template item="item" mode="2" ng-click="clicked()"></item-template>
+                            </ion-item>
+                            <ion-item ng-if="data.items && data.items.length < 1">{{::text_empty}}</ion-item>
+                            <ion-infinite-scroll ng-if="!endOfOfferItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
+                        </ion-list>
+                    </ion-content>
+                </ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-pane>
+</ion-view>

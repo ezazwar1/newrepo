@@ -1,0 +1,19 @@
+<ion-view title="{{getExerciseTitle()}}" class="popoverr breathe" hide-nav-bar="true">
+
+  <ion-content scroll="false">
+
+    <go-back ng-if="!intro"></go-back>
+
+    <span ng-if="!finishedExercise()" ng-show="showElapsedTime()" class="time-elapsed">{{ getElapsedTime() }}</span>
+
+    <span class="pause {{paused ? '' : 'play'}}" ng-if="!finishedExercise()" ng-click="pause()"></span> 
+
+    <input type="range" name="volume" min="0" max="1" step="0.01" ng-model="volumeData.bgVolume"  ng-change="bgVolumeChanged()" class="volume-slider">
+
+    <div class="bar bar-footer" ng-if="finishedExercise() && enableMeditationMode">
+      <a href="javascript:;" ng-click="finishExercise()" class="item button-start">{{ 'IM_DONE' | translate }}</a>
+    </div>
+  
+  </ion-content>
+
+</ion-view>

@@ -1,0 +1,216 @@
+@import "variables";
+
+body, html {
+	height: 100%;
+}
+
+.page-start {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	height: 100%;
+
+	// fix for the 1px white line in the bottom
+	background-color: #000;
+
+	.breadcrumb {
+		position: absolute;
+		bottom: 80px;
+		left: 0;
+		width: 100%;
+		@include display(flex);
+		@include justify-content(center);
+
+		b {
+			display: block;
+			border: 2px solid #fff;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			margin: 13px;
+
+			&.active {
+				background: #fff;
+			}
+		}
+	}
+
+	.action-buttons {
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+		text-align: center;
+		@include display(flex);
+
+		div {
+			@include flex-grow(1);
+			display: block;
+			width: 50%;
+			padding: 20px;
+
+			button {
+				padding: 10px 20px;
+				border-radius: 5px;
+				color: #fff;
+				font-family: HelveticaNeueMD, sans-serif;
+				font-size: 14px;
+			}
+
+			&.login button {
+				background: transparent;
+				border: 2px solid #fff;
+			}
+
+			&.signup button {
+				background: #12ac5f;
+				border: 2px solid transparent;
+			}
+		}
+	}
+
+	.back-art {
+		background-color: #000;
+		background-image: url('../images/start.jpg');
+		background-position: 0px 0px;
+		background-repeat: repeat-x;
+		background-size: auto 100%;
+	}
+
+	.container {
+		position: relative;
+		height: 100%;
+
+		.scroll {
+			height: 100%;
+		}
+	}
+
+	.contents {
+		@include display(flex);
+		height: 100%;
+		width: 400%;
+
+		.snap-frame {
+			width: 25%;
+			height: 100%;
+			text-align: center;
+			padding-top: 50px;
+			@include flex-basis(25%);
+
+			.round-number {
+				border: 1px solid #fff;
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+				margin: 0 auto;
+				color: #fff;
+				font-family: HelveticaNeueTH, sans-serif;
+				font-size: 24px;
+				line-height: 47px;
+			}
+
+			.logo {
+				width: 25%;
+				height: 30%;
+				margin: 5% auto;
+			}
+
+			h1 {
+				font-family: HelveticaNeueBLK, sans-serif;
+				font-size: 24px;
+				color: #fff;
+			}
+
+			h2 {
+				font-family: HelveticaNeueROMAN, sans-serif;
+				font-size: 14px;
+				color: #fff;
+			}
+
+			&.frame-a {
+				// background: rgba(255, 0, 0, 0.1);
+
+				.main-logo {
+					position: absolute;
+					top: 0;
+					width: 100%;
+					height: 100%;
+
+					.logo {
+						width: 35%;
+					}
+				}
+
+				.main-heading {
+					position: absolute;
+					top: 40%;
+					width: 100%;
+					height: 100%;
+
+					.upgrade {
+						width: 75%;
+						height: 5%;
+					}
+				}
+			}
+
+			&.frame-b {
+				// background: rgba(0, 255, 0, 0.1);
+			}
+
+			&.frame-c {
+				// background: rgba(0, 0, 255, 0.1);
+			}
+
+			&.frame-d {
+				// background: rgba(255, 0, 255, 0.1);
+			}
+		}
+	}
+}
+
+@media only screen and (max-height: 479px) {
+	.page-start {
+		.contents {
+			.snap-frame {
+				padding-top: 20px;
+
+				.round-number {
+					width: 25px;
+					height: 25px;
+					font-size: 11px;
+					line-height: 22px;
+				}
+
+				.logo {
+					width: 15%;
+					height: 15%;
+					margin: 3% auto 0%;
+				}
+
+				h1 {
+					font-size: 20px;
+				}
+
+				h2 {
+					font-size: 12px;
+				}
+
+				&.frame-a {
+					.main-heading {
+						top: 50%;
+					}
+
+					.logo {
+						height: 40%;
+						margin: 2% auto 0%;
+					}
+				}
+			}
+		}
+	}
+}

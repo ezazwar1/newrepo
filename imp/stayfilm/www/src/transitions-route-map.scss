@@ -1,0 +1,110 @@
+/* SYNTAX
+
+.to-state-substate, .from-state-substate {
+	&.ng-enter { -reset animation- }
+	&.ng-enter-active { -perform animation- }
+	
+	&.ng-leave { -reset animation- }
+	&.ng-leave-active { -perform animation- }
+}
+
+*/
+
+@import 'variables';
+
+ui-view:not(.index-html) {
+
+	&.ng-enter, &.ng-leave {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+.slide-right ui-view {
+	&.ng-enter { -webkit-transform: translateX(-100%); }
+	&.ng-enter-active { -webkit-transform: translateX(0); }
+
+	&.ng-leave { -webkit-transform: translateX(0); }
+	&.ng-leave-active { -webkit-transform: translateX(100%); }
+
+	&.ng-enter, &.ng-leave {
+		transition:all 0.5s ease-in-out;
+	}
+}
+
+.slide-left ui-view {
+	&.ng-enter { -webkit-transform: translateX(100%); }
+	&.ng-enter-active { -webkit-transform: translateX(0); }
+
+	&.ng-leave { -webkit-transform: translateX(0); }
+	&.ng-leave-active { -webkit-transform: translateX(-100%); }
+
+	&.ng-enter, &.ng-leave {
+		transition:all 0.5s ease-in-out;
+	}
+}
+
+.slide-up ui-view {
+	&.ng-enter { -webkit-transform: translateY(100%); }
+	&.ng-enter-active { -webkit-transform: translateY(0); }
+
+	&.ng-leave { -webkit-transform: translateY(0); }
+	&.ng-leave-active { -webkit-transform: translateY(-100%); }
+
+	&.ng-enter, &.ng-leave {
+		transition:all 0.5s ease-in-out;
+	}
+}
+
+.slide-down ui-view {
+	&.ng-enter { -webkit-transform: translateY(-100%); }
+	&.ng-enter-active { -webkit-transform: translateY(0); }
+
+	&.ng-leave { -webkit-transform: translateY(0); }
+	&.ng-leave-active { -webkit-transform: translateY(100%); }
+
+	&.ng-enter, &.ng-leave {
+		transition:all 0.5s ease-in-out;
+	}
+}
+
+.no-transition ui-view {
+	&.ng-enter { -webkit-transform: translateX(0); }
+	&.ng-enter-active { -webkit-transform: translateX(0); }
+
+	&.ng-leave { -webkit-transform: translateX(0); }
+	&.ng-leave-active { -webkit-transform: translateX(0); }
+
+	&.ng-enter, &.ng-leave {
+		transition:all 0s linear;
+	}
+}
+
+
+.slide-on-top-from-right ui-view {
+
+	&.ng-enter {
+		@include animation(moveFromRight 1s ease both);
+		z-index: 1;
+	}
+
+	&.ng-enter-active {
+
+	}
+
+	&.ng-leave {
+		@include animation(fade 1s ease both);
+		z-index: 0;
+	}
+
+	&.ng-leave-active {
+
+	}
+
+	&.ng-enter, &.ng-leave {
+	}
+
+}

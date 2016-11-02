@@ -1,0 +1,53 @@
+<ion-view view-title="Delivery Options  ">
+<ion-nav-bar class="bar-stable">
+	<ion-nav-buttons side="left">
+	<button ng-click="$ionicGoBack()" class="button back-button button-icon button-clear header-item ion-android-arrow-back"></button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+
+<!-- <div class="checkoutBar" ng-if="cartProducts!=''"> -->
+<div class="checkoutBar">
+	<div class="bar bar-footer">
+		<div class="row">
+			<div class="col">
+				<div class="centerAlign"><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{cartTotal}}</div>
+			</div>
+			<div class="col"><div class="chckout" ng-click="placeOrder()">Continue <i class="ion-chevron-right"></i></div></div>
+		</div>
+	</div>
+</div>
+<ion-content class="shoppingCart" >
+		<div class="cartStatus">
+			<span class="first completed"><i class="ion-checkmark"></i> <label>Address</label></span>
+			<span class="second active"><i class="ion-checkmark"></i> <label>Options</label></span>
+			<span class="third"><i class="ion-checkmark"></i> <label>Order</label></span>
+		</div>
+
+		<div class="deliveryBox">
+			<div class="list deliveryOptions">
+				  <div class="item item-divider">Choose Shipping Method </div>
+				  <div class="item rmovePadding" ng-repeat="obj in shippingData">
+						  <ion-radio ng-model="shppingMethod" ng-repeat="sobj in obj.quote" ng-value="'{{sobj.code}}'" ng-click="selectShipMethod(sobj);"  >
+							 <span class="icon {{currencyIcon}}">{{sobj.cost}}</span> {{sobj.title}} <label></label>
+						  </ion-radio>
+				  </div>
+
+				  <div class="item item-divider">Delivery </div>
+				  <div class="item">
+						<p>Date</p>
+						<div class="datepick" ng-model="currntDate" ng-click="openDatePicker()" >{{currntDate}}</div>
+						<p>Time</p>
+						 <label class="item item-input item-select">
+							<select>
+							  <option>9 AM - 10 Am</option>
+							  <option>10 AM - 11 Am</option>
+							  <option>12 PM - 1 PM</option>
+							</select>
+						  </label>
+				  </div>
+
+			</div>
+		</div>
+
+</ion-content>
+</ion-view>

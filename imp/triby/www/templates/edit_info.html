@@ -1,0 +1,20 @@
+<ion-view cache-view="false" view-title="Edit Info" ng-controller="InfoEditCtrl">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left client-positive" ng-click="goBack()">Info</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon" style="color:#2695f9" ng-click="saveTribyInfo()">{{showDone}}</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="triby-picture" ng-click="uploadPicture()">
+          <img class="triby-pic" ng-src="{{ triby.pic }}"/>
+          <i class="edit_info_plus icon ion-ios7-plus-outline" style=""></i>
+        </div>
+        <div class="list list-inset list-profile">
+            <label class="item item-input">
+                &nbsp;
+                <input type="text" placeholder="Triby name" ng-model="triby.name">
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

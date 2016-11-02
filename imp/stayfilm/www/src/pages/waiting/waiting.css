@@ -1,0 +1,156 @@
+/* line 4, waiting.scss */
+.waiting-page .bar-header {
+  height: 75px !important;
+  background: #ad252a;
+  border: none;
+}
+/* line 9, waiting.scss */
+.waiting-page .bar-header .title {
+  top: 13px;
+}
+/* line 12, waiting.scss */
+.waiting-page .bar-header .title img {
+  width: 126px;
+  height: 43px;
+}
+/* line 18, waiting.scss */
+.waiting-page .bar-header .button {
+  margin-top: 10px !important;
+  width: auto;
+}
+/* line 24, waiting.scss */
+.waiting-page .has-header {
+  top: 75px !important;
+}
+/* line 28, waiting.scss */
+.waiting-page .has-bar-big-stayfilm {
+  top: 75px !important;
+}
+/* line 32, waiting.scss */
+.waiting-page .scroll-content {
+  background: #171717;
+}
+/* line 35, waiting.scss */
+.waiting-page .scroll-content h3 {
+  margin: 20px;
+  color: #fff;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+/* line 45, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper .progress-info {
+  text-align: right;
+}
+/* line 48, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper .progress-info .progress-helper {
+  height: 40px;
+  width: 0%;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+}
+/* line 55, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper .progress-info .progress-circle {
+  position: relative;
+  display: inline-block;
+  background: #ad252a;
+  text-align: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+}
+/* line 66, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper .progress-info .progress-circle span {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 12px;
+  text-align: center;
+  line-height: 40px;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+/* line 84, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper .progress-bar {
+  margin-top: 10px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  overflow: hidden;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+}
+/* line 93, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper .progress-bar .stretch-bar {
+  float: left;
+  display: block;
+  height: 2px;
+  background: #ad252a;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+}
+/* line 101, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper .progress-bar .centralizer {
+  float: left;
+  display: block;
+  height: 2px;
+  width: 20px;
+  background: #fff;
+  position: relative;
+  left: -20px;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+}
+/* line 117, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper.upload-bar .progress-info .progress-circle {
+  background: #fff;
+}
+/* line 120, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper.upload-bar .progress-info .progress-circle span {
+  color: #171717;
+}
+/* line 126, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper.upload-bar .progress-bar {
+  background: #171717;
+}
+/* line 129, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper.upload-bar .progress-bar .stretch-bar {
+  background: #fff;
+}
+/* line 133, waiting.scss */
+.waiting-page .scroll-content .progress-wrapper.upload-bar .progress-bar .centralizer {
+  background: #171717;
+}
+/* line 141, waiting.scss */
+.waiting-page .ad-box {
+  padding: 40px 0 0 0;
+}
+/* line 145, waiting.scss */
+.waiting-page .ad-box .ad {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+/* line 152, waiting.scss */
+.waiting-page .ad-player {
+  margin-top: 50px;
+}
+/* line 157, waiting.scss */
+.waiting-page .ad-network .ad-slot {
+  width: 300px;
+  height: 250px;
+  margin: 20px auto;
+}

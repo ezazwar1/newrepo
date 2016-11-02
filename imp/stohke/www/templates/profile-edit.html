@@ -1,0 +1,72 @@
+<ion-view view-title="Your Profile" can-swipe-back="false">
+    <ion-header-bar class="bar-dark">
+        <ion-nav-title>Your Profile</ion-nav-title>
+    </ion-header-bar>
+    <ion-content has-bouncing="true" has-padding="true" class="padded">
+        <ion-list>
+
+            <ion-item class="item-input">
+
+                <span class="input-label">First Name</span>
+                <input type="text" data-ng-model="user.FirstName" maxlength="50" placeholder="" required>
+            </ion-item>
+            <ion-item class="item-input">
+                <span class="input-label">Middle Name</span>
+                <input type="text" data-ng-model="user.MiddleName"  maxlength="50" placeholder="">
+            </ion-item>
+            <ion-item class="item-input">
+                <span class="input-label">Last Name</span>
+                <input type="text" data-ng-model="user.LastName" maxlength="50" placeholder="" required>
+            </ion-item>
+        </ion-list>
+        <br>
+        <ion-list>
+            <ion-item class="item-input">
+                <span class="input-label">Quote</span>
+                <input type="text" data-ng-model="user.NickName" placeholder="Your life motto">
+            </ion-item>
+            <ion-item class="item-input item-large">
+                <span class="input-label">Bio</span>
+                <textarea name="" id="" cols="30" rows="10" ng-model="user.About" ng-trim="false" maxlength="1250" placeholder="Tell us a bit about you! What gets you stohked?"></textarea>
+                <div class="character-limit">{{user.About.length}} / 1250</div>
+            </ion-item>
+        </ion-list>
+        <br>
+        <ion-list>
+            <ion-item class="item-input">
+                <span class="input-label">Home Town</span>
+                <input type="text" data-ng-model="user.HomeTown">
+            </ion-item>
+            <ion-item class="item-input">
+                <span class="input-label">Home State</span>
+                <input type="text" data-ng-model="user.HomeState">
+            </ion-item>
+            <ion-item class="item-input">
+                <span class="input-label">Home Country</span>
+                <input type="text" data-ng-model="user.HomeCountry">
+            </ion-item>
+        </ion-list>
+        <br>
+        <ion-list>
+            <ion-item class="item-input item-button-right" ng-click="pickSports()">
+                <span class="input-label">Sports <span ng-if="user.Sports.length">({{user.Sports.length}})</span></span>
+                <p class="sports-list-input">{{user.Sports.join(', ') || 'Choose your sports'}}</p>
+                <button class="button button-icon icon ion-android-arrow-dropright"></button>
+            </ion-item>
+        </ion-list>
+        <br>
+        <ion-list>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Gender
+                </div>
+                <select data-ng-model="user.Gender">
+                    <option value="1">Female</option>
+                    <option value="2">Male</option>
+                </select>
+            </label>
+        </ion-list>
+        <br>
+        <button class="button button-block button-balanced" ng-click="saveProfile()">Save</button>
+    </ion-content>
+</ion-view>

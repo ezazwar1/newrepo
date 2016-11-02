@@ -1,0 +1,76 @@
+<div class="customer-address-list">
+    <div class="text-center padding" ng-if="showLoading">
+        <ion-spinner></ion-spinner>
+    </div>
+    <div class="" ng-if="chooseStoreEnabled">
+        <div class="padding faded" aria-label="Currently Delivering To:">
+            Delivering to:
+        </div>
+        <div class="customer-address-list-list">
+            <ion-item ng-click="clickAddress(defaultShoppingAddress)"
+                      ng-class="showEditButtons ? 'item-icon-right delivering-to':'delivering-to'"
+                      class="item item-icon-left customer-address-list-item text-positive"
+                      role="button"
+                      aria-label="{{defaultShoppingAddress.street1}} {{defaultShoppingAddress.street2}}">
+                <i class="icon ion-ios-checkmark" aria-hidden="true" aria-label="checked icon"></i>
+                {{defaultShoppingAddress.street1}} {{defaultShoppingAddress.street2}}
+                <br>
+                <small>
+                    {{defaultShoppingAddress.city}}, {{defaultShoppingAddress.state}} {{defaultShoppingAddress.zip_code}}
+                </small>
+                <i ng-if="showEditButtons" stop-event="click" ng-click="clickEditAddress(defaultShoppingAddress)" class="icon ion-edit text-positive" aria-hidden="true"></i>
+            </ion-item>
+        </div>
+        <div class="padding faded" aria-label="Change to:">
+            Change to:
+        </div>
+        <div class="customer-address-list-list">
+            <ion-item ng-click="addAddressClick()"
+                      class="item item-icon-right dark" role="button" aria-label="Add New Address">
+                <h2 class="dark">Add New Address</h2>
+                <i class="icon ion-ios-arrow-right text-positive"></i>
+            </ion-item>
+        </div>
+
+        <div class="padding"></div>
+        <div class="customer-address-list-list">
+            <ion-item ng-repeat="address in customer.customer_addresses"
+                      class="item item-icon-left customer-address-list-item dark"
+                      ng-class="showEditButtons ? 'item-icon-right':''"
+                      ng-if="address.id != defaultShoppingAddress.id"
+                      ng-click="clickAddress(address)"
+                      role="button" aria-label="Switch to {{address.street1}} {{address.street2}}, {{address.city}}, {{address.state}} {{address.zip_code}}">
+                <i class="icon ion-ios-circle-outline faded" aria-hidden="true" aria-label="unchecked icon"></i>
+                {{address.street1}} {{address.street2}}
+                <br>
+                <small>
+                    {{address.city}}, {{address.state}} {{address.zip_code}}
+                </small>
+                <i ng-if="showEditButtons" stop-event="click" ng-click="clickEditAddress(address)" class="icon ion-edit text-positive" aria-hidden="true"></i>
+            </ion-item>
+        </div>
+    </div>
+    <div ng-if="!chooseStoreEnabled">
+        <div class="padding"></div>
+        <div class="customer-address-list-list">
+            <ion-item ng-click="addAddressClick()"
+                      class="item item-icon-right dark">
+                <h2 class="dark">Add New Address</h2>
+                <i class="icon ion-ios-arrow-right text-positive"></i>
+            </ion-item>
+        </div>
+        <div class="padding"></div>
+        <div class="customer-address-list-list">
+            <ion-item ng-repeat="address in customer.customer_addresses"
+                      class="item customer-address-list-item item-icon-right dark">
+                {{address.street1}} {{address.street2}}
+                <br>
+                <small>
+                    {{address.city}}, {{address.state}} {{address.zip_code}}
+                </small>
+                <i ng-if="showEditButtons" stop-event="click" ng-click="clickEditAddress(address)" class="icon ion-edit text-positive" aria-hidden="true"></i>
+            </ion-item>
+        </div>
+    </div>
+
+</div>

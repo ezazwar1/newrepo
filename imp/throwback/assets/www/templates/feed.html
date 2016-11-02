@@ -1,0 +1,75 @@
+<ion-view title="{{ navTitle }}">
+  <ion-nav-buttons side="left">
+    <a ui-sref="settings"><button class="button button-icon icon ion-navicon" style="color: #fff;"></button></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" style="background-color:#f2f2f2;">
+    <!--
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    -->
+
+    <p class="today">{{ firstName }}'S DAY IN HISTORY: {{ date }}</p>
+    
+    <div class="card feed-card" ng-repeat="activity in activities">
+
+      <!-- Empty Feed -->
+      <div ng-if="activity.activityType == 6">
+        <div class="item item-divider feed-card-header">
+          <div class="profile-pic" style="background-image: url('./img/throwback.jpg');"></div>
+          <p class="username">Team Throwback</p>
+          <p class="time">{{ activity.getPrettyTime() }} via tb</p>
+          <p class="ago">Today</p>
+        </div>
+        <div class="content">
+          <h3 class="status">
+            No Throwbacks found for today. Check back tomorrow!
+          </h3>
+        </div>
+      </div>
+
+      <!-- Feed Content -->
+      <div ng-if="activity.activityType != 4 && activity.activityType != 5 && activity.activityType != 6">
+        <div class="item item-divider feed-card-header">
+          <div class="profile-pic" style="background-image: url({{ activity.forUserProfilePictureURL }});"></div>
+          <p class="username">{{ activity.forUserName }}</p>
+          <p class="time" ng-if="activity.activityType === 0">{{ activity.getPrettyTime() }} via fb</p>
+          <p class="time" ng-if="activity.activityType === 1">{{ activity.getPrettyTime() }} via twtr</p>
+          <p class="time" ng-if="activity.activityType === 2">{{ activity.getPrettyTime() }} via ig</p>
+          <p class="ago">{{ activity.getPrettyYearsAgo() }}</p>
+        </div>
+        <div class="content" ng-if ="!activity.mediaURL">
+          <h3 class="status">
+            {{ activity.message }}
+          </h3>
+        </div>
+        <div class="content-img" ng-if="activity.mediaURL && activity.message">
+          <div class="img" style="background-image: url({{ activity.mediaURL }});"></div>
+          <div class="caption">
+            <h3 class="caption">{{ activity.message }}</h3>
+          </div>
+        </div>
+        <div class="content-img no-caption" ng-if="activity.mediaURL && !activity.message">
+          <div class="img" style="background-image: url({{ activity.mediaURL }});"></div>
+        </div>
+        <div class="item item-divider feed-card-footer">
+          <div class="share" ng-click="handleShare(activity)">
+            Share This
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+<!--     <ion-infinite-scroll
+      ng-if="isInfiniteScrollReady()"
+      on-infinite="handleInfiniteScroll()"
+      distance="5%">
+    </ion-infinite-scroll> -->
+  </ion-content>
+
+  <canvas id="myCanvas" width="600" height="600" ng-hide="true"></canvas>
+</ion-view>

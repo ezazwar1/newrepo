@@ -1,0 +1,37 @@
+<ion-view view-title="Address">
+    <ion-nav-buttons side="right">
+        <button ng-if="!addingNewAddressMode" class="button button-icon icon ion-ios-trash-outline" ng-click="deleteAddress(address)"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header stable-content" has-bouncing="true" >
+        <br/>
+        <form class="login-form large-padding" name="addressForm" novalidate="novalidate" on-valid-submit="saveAddress(address)">
+            <div class="list">
+                <label class="item item-input item-floating-label validated">
+                    <span class="input-label">Street</span>
+                    <input type="text" ng-change="streetInputChanged()" ng-model="address.street1" name="streetone" placeholder="Street" required="required">
+                </label>
+                <label class="item item-input item-floating-label validated">
+                    <span class="input-label">Apartment/Suite #</span>
+                    <input type="text" ng-model="address.street2" name="streettwo" placeholder="Apartment/Suite #" >
+                </label>
+                <label class="item item-input item-floating-label validated">
+                    <span class="input-label">City</span>
+                    <input ng-model="address.city" name="city" type="text" placeholder="City" required="required">
+                </label>
+                <label class="item item-input item-floating-label validated">
+                    <span class="input-label">State</span>
+                    <input ng-model="address.state" name="state" type="text" placeholder="State" required="required">
+                </label>
+                <label class="item item-input item-floating-label validated">
+                    <span class="input-label">Zip Code</span>
+                    <input ng-model="address.zip_code" name="zip_code" type="tel" placeholder="Zip Code" required="required">
+                </label>
+                <button class="button button-positive button-clear button-full" type="submit">
+                    Save
+                </button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8v5kDKJ4DsEqRgTbZ1J6-PlqySHgFycs&libraries=places"></script>

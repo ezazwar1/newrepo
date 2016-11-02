@@ -1,0 +1,30 @@
+﻿<div ng-messages="forms.checkoutForm.firstname.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_firstname_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.lastname.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_lastname_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.email.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_email_required' | i18n }}</div>
+    <div ng-message="email">{{ 'cart.error_email_invalid' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.telephone.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_telephone_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.address_1.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_address_1_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.city.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_city_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.postal_code.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_postal_code_required' | i18n }}</div>
+    <div ng-message="minlength">{{ 'cart.error_postal_code_minlength' | i18n }}</div>
+    <div ng-message="maxlength">{{ 'cart.error_postal_code_maxlength' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.country_id.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_country_id_required' | i18n }}</div>
+</div>
+<div ng-messages="forms.checkoutForm.zone_id.$error" role="alert">
+    <div ng-message="required">{{ 'cart.error_zone_id_required' | i18n }}</div>
+</div>

@@ -1,0 +1,92 @@
+<ion-view class="v-center login-view login-screen" view-title="{{ 'LOGIN.TITLE' | translate }}">
+<ion-content scroll="false">
+    <section class="login-screen" ng-class="{'keyboard-open' : keyboardOpen}">
+
+    <wf-tabs style="dark-bg">
+        <wf-pane callback="tabCallback('login')" title="{{ 'LOGIN.TITLE' | translate }}">
+          <div wf-validation-msg show="errorLogin.show" type="alert-danger" msg="{{ errorMsg }}"></div>
+            <div class="row responsive-md">
+                <div class="col col-50 col-offset-25" style="margin-bottom: 0">
+                  <div class="login-content">
+                    <p class="text-center padding-bottom">
+                      <img src="img/logowhite.svg" alt="logo" width="160">
+                    </p>
+                    <h4 class="loginInfo padding light">
+                      {{ 'LOGIN.INFO' | translate }}
+                    </h4>
+                    <!-- <form method="post" class="list" name="login.signInForm" novalidate>
+                      <ion-list>
+                            <div class="item item-input" wf-input-clear>
+                              <input ng-required="true" ng-model="user.email" type="email" placeholder="{{ 'LOGIN.EMAIL_ID' | translate }}" name="email">
+                            </div>
+                            <label class="item item-input">
+                              <input ng-required="true" ng-model="user.password" type="password" placeholder="{{ 'LOGIN.PASSWORD' | translate }}" name="password">
+                            </label>
+                      </ion-list> -->
+
+
+                      <button class="button button-stable button-block button-fb-full margin-top-70" ng-click="authenticate('facebook')"><i class="icon ion-social-facebook"></i>{{ 'LOGIN.LOGIN_FB_BUTTON' | translate }}</button>
+                      <button class="button button-stable button-block button-google" ng-click="authenticate('google')"><i class="icon ion-social-google"></i>{{ 'LOGIN.LOGIN_GOOGLE_BUTTON' | translate }}</button>
+                      <button class="button button-fb button-block" ng-click="openSigninModal()"><i class="icon ion-ios-email"></i>{{ 'LOGIN.LOGIN_EMAIL_BUTTON' | translate }}</button>
+                  <!-- </form> -->
+                </div>
+                </div>
+            </div>
+
+        </wf-pane>
+        <wf-pane callback="tabCallback('register')" current="currentTab" title="{{ 'REGISTER.TITLE' | translate }}">
+            <div wf-validation-msg show="errorRegister.show" type="alert-danger" msg="{{ errorMsg }}"></div>
+            <div class="row responsive-md">
+                <div class="col col-50 col-offset-25" style="margin-bottom: 0">
+                  <div class="login-content">
+                    <p class="text-center padding-bottom">
+                      <img src="img/logowhite.svg" alt="logo" width="160">
+                    </p>
+                    <h4 class="loginInfo padding light">
+                      {{ 'REGISTER.INFO' | translate }}
+                    </h4>
+                    <!-- <form method="post" class="list" name="login.signUpForm" novalidate> -->
+                        <ion-list>
+                              <!-- <div class="item item-input" wf-input-clear>
+                              <input required ng-model="user.email" required type="email" placeholder="{{ 'LOGIN.EMAIL_ID' | translate }}" name="email">
+                            </div>
+                            <label class="item item-input">
+                              <input required ng-model="user.password" required type="password" placeholder="{{ 'LOGIN.PASSWORD' | translate }}" name="password">
+                            </label> -->
+                            <label class="item item-input">
+                              <input ng-model="referraldata.referral_code" type="text" placeholder="{{ 'LOGIN.REFERRAL_CODE' | translate }}" name="referral_code">
+                            </label>
+                        </ion-list>                        
+
+                        <button class="button button-stable button-block button-fb-full margin-top-20" ng-click="authenticate('facebook')"><i class="icon ion-social-facebook"></i>{{ 'REGISTER.REGISTER_FB_BUTTON' | translate }}</button>
+                        <!--<button class="button button-stable button-block button-google" ng-click="authenticate('google')"><i class="icon ion-social-google"></i>{{ 'REGISTER.REGISTER_GOOGLE_BUTTON' | translate }}</button>-->
+                        <button type="submit" class="button button-fb button-block" ng-click="openSignupModal()"><i class="icon ion-ios-email"></i>{{ 'REGISTER.REGISTER_BUTTON' | translate }}</button>
+                      <!--</div>-->
+                    <!-- </form> -->
+                </div>
+              </div>
+            </div>
+        </wf-pane>
+    </wf-tabs>
+    </section>
+
+    <div class="text-center big-padding init-msg" show-during-resolve>
+        <ion-spinner icon="spiral" class="spinner-light"></ion-spinner>
+        <p translate="ACTION.LOADING_MSG" class="light"></p>
+    </div>
+
+    <!--
+    <div class="col text-center" id="learn-more" ng-show="!isLogin" ng-hide="keyboardOpen">
+        <button class="button button-empty button-stable" ui-sref="slides"><i class="icon ion-ios-information"></i><span translate="REGISTER.LEARN_MORE">Learn more</span></button>
+    </div>
+-->
+
+    </ion-content>
+
+    <ion-footer-bar ng-hide="keyboardOpen" class="bar-clear txt-center">
+        <a ng-show="isLogin" ui-sref="auth.forgot" class="forgot-link align-center">{{ 'FORGOT_PASSWORD.TITLE' | translate }}</a>
+        <a ng-show="!isLogin"
+          onclick="window.open(this.href, '_system', 'location=yes,toolbar=yes'); return false;" href="https://www.wefitter.com/privacy"
+         class="forgot-link align-center">{{ 'REGISTER.PRIVACY' | translate }}</a>
+    </ion-footer-bar>
+</ion-view>

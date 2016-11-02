@@ -1,0 +1,28 @@
+<ion-view title="About" class="about-pane">
+  <ion-nav-buttons side="left">
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+    <a class="button button-clear" ng-click="goMain()">
+      <i class="icon ion-arrow-left-a"></i>
+    </a>
+  </ion-nav-buttons>
+
+  <ion-content class="about-content has-header">
+    <div class="about">
+      <div class="logo">
+        <img src="img/workninja.svg"/>
+      </div>
+      <div class="message">
+        workininja.com
+      </div>
+      <div class="links">
+        <a ng-click="termsAndConditions()" >Terms and Conditions</a>
+        <a ng-click="privacyPolicy()">Privacy Policy</a>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar-balanced ninja-footer-bar">
+    <button class="button button-assertive-drop button-block button-uppercase" style="border-radius: 0px;">App version {{ version }}</button>
+
+  </ion-footer-bar>
+</ion-view>

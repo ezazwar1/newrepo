@@ -1,0 +1,56 @@
+<ion-view title="{{'PROGRESS' | translate}}">
+  <ion-content class="has-header settings-view width-control">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+    <ion-slide>
+      <div class"progress-box">
+        <p class="centered">{{'DAILY_GOAL' | translate}}</p>
+      <nvd3-multi-bar-horizontal-chart data="dailyData" height="150" delay="2400" id="dailyProgressId" showXAxis="true" showYAxis="true">
+            <svg></svg>
+        </nvd3-multi-bar-horizontal-chart>
+      <p class="centered">{{'WEEKLY_GOAL' | translate}}</p>
+      <nvd3-multi-bar-horizontal-chart data="weeklyData" height="150" delay="2400" id="weeklyProgressId" showXAxis="true" showYAxis="true">
+            <svg></svg>
+        </nvd3-multi-bar-horizontal-chart>
+    </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="progress-box">
+        <p class="centered neg-margin-top">{{'PAST_7_MIN' | translate}}</p>
+      <nvd3-multi-bar-chart data="weeklyMins" id="weeklyMins" height="150" delay="2400" showXAxis="true" showYAxis="true">
+          <svg></svg>
+      </nvd3-multi-bar-chart>
+      <p class="centered">{{'PAST_7_CAL' | translate}}</p>
+      <nvd3-multi-bar-chart data="weeklyCals" id="weeklyCals" height="150" delay="2400" showXAxis="true" showYAxis="true">
+          <svg></svg>
+      </nvd3-multi-bar-chart>
+    </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="progress-box">
+        <p class="centered">{{'PAST_30_MIN' | translate}}</p>
+      <nvd3-multi-bar-chart data="monthlyMins" id="monthlyMins" height="150" delay="2400" showXAxis="true" showYAxis="true">
+          <svg></svg>
+      </nvd3-multi-bar-chart>
+      <p class="centered">{{'PAST_30_CAL' | translate}}</p>
+      <nvd3-multi-bar-chart data="monthlyCals" id="monthlyCals" height="150" delay="2400" showXAxis="true" showYAxis="true">
+          <svg></svg>
+      </nvd3-multi-bar-chart>
+    </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="progress-box"><h1>{{'WORKOUTS_TYPE' | translate}}</h1></div>
+      <nvd3-pie-chart
+            data="dataPie"
+            id="dataPie"
+            showLabels="true"
+            x="xFunction()"
+            y="yFunction()"
+            donut="true"
+            donutRatio=".5"
+            donutLabelsOutside="true">
+        <svg></svg>
+    </nvd3-pie-chart>
+    </ion-slide>
+  </ion-slide-box>
+  </ion-content>
+</ion-view>

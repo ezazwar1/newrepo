@@ -1,0 +1,249 @@
+@import 'variables';
+
+.contentzone-page {
+	.bar.bar-header {
+		background: #efecec;
+
+		.title {
+			font-family: HelveticaNeueLT, sans-serif;
+			font-size: 16px;
+			color: #9aa7b2;
+		}
+
+		.btn-close {
+			img {
+				height: 20px;
+				width: 20px;
+			}
+		}
+
+		.btn-save {
+			width: 60px;
+			height: 0px;
+			color: #666;
+		}
+	}
+
+	.media-header {
+		position: absolute;
+		height: 200px;
+		width: 100%;
+
+		@include display(flex);
+		@include flex-direction(column);
+		@include transition(all .5s ease);
+
+		// background: yellow;
+
+		&.retracted {
+			@include transition(all .75s ease);
+			height: 75px;
+
+			.instructions-text {
+				@include transition(margin .25s ease);
+				max-height: 0;
+				opacity: 0;
+				padding: 0;
+				margin: 0;
+			}
+
+			.media-buttons {
+
+				.btn-upload, .btn-sourcezone, .btn-clearall {
+					span {
+						top: 12%;
+					}
+				}
+			}
+		}
+
+		.instructions-text {
+			@include transition(all .5s ease);
+			font-family: HelveticaNeueLT, sans-serif;
+			font-size: 16px;
+			color: #9aa7b2;
+			margin: 20px;
+			max-height: 300px;
+		}
+
+		.progress-bar {
+			position: relative;
+			background: #dedde0;
+			@include flex(0 0 2px);
+			height: 2px;
+
+			.progress-info {
+				@include transition(all 2s ease);
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				background: #ad252a;
+				height: 4px;
+			}
+		}
+
+		.media-buttons {
+			@include flex(1);
+
+			@include display(flex);
+			@include flex-direction(row);
+			@include flex-wrap(nowrap);
+			@include justify-content(flex-start);
+			@include align-items(stretch);
+
+			.btn-upload, .btn-sourcezone, .btn-clearall {
+				//@include flex(1 0 auto);
+				position: relative;
+				color: #fff;
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: contain;
+				display: block;
+				width: 33.3333%; // for android 4.1.2
+
+				span {
+					position: absolute;
+					display: block;
+					font-family: HelveticaNeueMD, sans-serif;
+					font-size: 14px;
+					text-align: center;
+					top: 20%;
+					left: 0;
+					width: 100%;
+				}
+			}
+
+			.btn-upload {
+				background-color: #53bf72;
+				background-image: url('../images/albummanager/button_large_UPLOAD.png');
+			}
+
+			.btn-sourcezone {
+				background-color: #60abc3;
+				background-image: url('../images/albummanager/button_large_SOCIAL.png');
+			}
+
+			.btn-clearall {
+				background-color: #c3cbd1;
+				background-image: url('../images/albummanager/button_large_CLEAR.png');
+			}
+
+		}
+	}
+
+	.media-list {
+		top: 244px;
+		bottom: 61px;
+
+		&.retract {
+			top: 119px;
+		}
+
+		.grid-item {
+			.grid-item-inner {
+				background-color: #e5e5e5;
+				background-position: center center;
+				background-position: cover;
+				background-repeat: no-repeat;
+				background-size: cover;
+				border: 1px solid #fff;
+			}
+
+			.upload-status {
+				position: absolute;
+				left: 5px;
+				top: 5px;
+				padding: 3px;
+				font-size: 40px;
+				color: #fff;
+				text-align: center;
+
+				ion-spinner svg {
+					stroke: #fff;
+					fill: #fff;
+				}
+			}
+
+			.status {
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				padding: 3px;
+				font-size: 40px;
+				color: #fff;
+				background: #35434d;
+				text-align: center;
+
+				.btn-remove {
+					padding: 0;
+					margin: 0;
+
+					img {
+						width: 44px;
+						display: block;
+					}
+				}
+			}
+
+			.media-counter {
+				border: 1px solid #fff;
+				background-color: #fff;
+				background-repeat: no-repeat;
+				background-image: url('../images/albummanager/math.png');
+				background-position: center top;
+				background-size: 50%;
+				height: 100px;
+				width: 100%;
+
+				.media-count {
+					background-color: #efecec;
+					color: #9ba8b3;
+					font-family: HelveticaNeueROMAN, sans-serif;
+					font-size: 16px;
+					width: 40px;
+					height: 40px;
+					border-radius: 50%;
+					text-align: center;
+					margin: 5% auto 0;
+					line-height: 2.5;
+				}
+
+				.media-instructions {
+					.media-count-text {
+						display: block;
+						text-align: center;
+						margin-bottom: 10px;
+						color: #9ba8b3;
+						font-family: HelveticaNeueROMAN, sans-serif;
+						font-size: 14px;
+					}
+
+					.instructions {
+						display: block;
+						color: #9ba8b3;
+						text-align: center;
+						font-family: HelveticaNeueLT, sans-serif;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+
+	.big-button-footer {
+		height: 60px;
+		padding: 10px 20px 17px;
+		background: #232629;
+		border: 0;
+
+		.make-it {
+			background: #12ad60;
+			color: #fff;
+
+			&.inactive {
+				background: #444649;
+				color: #232629;
+			}
+		}
+	}
+}

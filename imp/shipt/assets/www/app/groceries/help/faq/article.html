@@ -1,0 +1,19 @@
+<ion-view title="Answer" ng-controller="ArticleController as viewModel">
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+
+        <div ng-if="!viewModel.question" class="padding text-center">
+            <ion-spinner></ion-spinner>
+        </div>
+        <div ng-if="viewModel.question" class="card large-padding">
+            <div class="item item-divider wrap text-center">
+                <strong>
+                    {{viewModel.question.name}}
+                </strong>
+            </div>
+            <div ng-bind-html="viewModel.question.answer" class="item item-text-wrap wrap">
+
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

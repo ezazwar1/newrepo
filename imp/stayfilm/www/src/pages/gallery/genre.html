@@ -1,0 +1,30 @@
+<div class="page-gallery-genre page">
+
+	<div class="bar bar-header bar-retractile bar-retractile-up"  style="padding-bottom: 22.5%; overflow: hidden; background: #fff;">
+		<button ng-click="goTo('main.home.gallery.genres', 'slide-right')" style="position: absolute; z-index: 2;">
+			<img src="images/ico-close-white.svg" />
+		</button>
+
+		<img ng-src="{{gallery.imageUrl}}" style="position: absolute; top: 0; left: 0; z-index: 1;">
+	</div>
+
+	<ion-content on-scroll="onScroll()">
+
+		<ion-refresher pulling-text="{{'Puxe para atualizar' | translate}}" ng-if="bag.offset !== null" on-refresh="refresh()"></ion-refresher>
+
+		<div class="empty-list" ng-if="bag.movies.length === 0 && bag.finished">
+			<span translate>Nenhum filme encontrado</span>
+		</div>
+
+		<div class="list-container {{animationName}}" >
+			<div class="list-item" ng-repeat="movie in bag.movies">
+				<sf-movie-mosaic ng-if="movie" movie="movie" user="movie.user"></sf-movie-mosaic>
+			</div>
+		</div>
+
+		<div ng-if="bag.movies.length > 0 && bag.finished" class="feed-end"><span translate>Fim desta lista.</span></div>
+
+		<ion-infinite-scroll distance="1%" ng-if=" ! bag.finished" on-infinite="loadMore()"></ion-infinite-scroll>
+
+	</ion-content>
+</div>

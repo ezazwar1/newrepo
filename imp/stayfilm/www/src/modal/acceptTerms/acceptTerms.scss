@@ -1,0 +1,114 @@
+@import "variables";
+
+.modal-accept-terms {
+
+	.big-button-footer {
+		// height: 60px;
+		padding: 10px 20px 17px;
+		background: #fff;
+		border: 0;
+
+		.agree {
+			background: #12ad60;
+		}
+	}
+
+	.pre-loader {
+		text-align: center;
+	}
+
+	.white-close-bar {
+		background: #fff;
+
+		.button-clear {
+			margin-left: auto;
+			img {
+				height: 20px;
+			}
+		}
+	}
+
+	.main-instruction {
+		font-size: 16px;
+		color: #666;
+		margin: 20px;
+	}
+
+	.accept-terms {
+		margin: 20px;
+
+		.vertical-center {
+			display: table;
+			height: 44px;
+
+			p {
+				display: table-cell;
+				margin: 0;
+				padding: 0;
+				vertical-align: middle;
+				white-space: normal;
+			}
+		}
+
+		.terms-toggle {
+			width: 100%;
+			background: #dedcdf;
+			border-radius: 5px;
+			margin: 0 0 10px;
+			padding: 0 20px 0 80px;
+			min-height: 45px;
+			float: left;
+			white-space: normal;
+			font-size: 14px;
+			pointer-events: auto;
+
+			a {
+				color: #ad252a;
+				text-decoration: none;
+			}
+
+			&:nth-child(even) {
+				float: right;
+			}
+
+			&.disabled {
+				opacity: 0.2;
+			}
+
+			label.toggle { // ion-toggle
+				right: auto;
+				left: 6px;
+				top: 6px;
+
+				input { // unchecked
+					& + .track {
+						background: #fff;
+						border-color: #fff;
+
+						.handle { // circle
+							background: #dedcdf;
+						}
+					}
+				}
+
+				input:checked { // checked
+					& + .track {
+						background: #12ad60;
+						border-color: #12ad60;
+
+						.handle { // circle
+							background: #fff;
+						}
+					}
+				}
+			}
+
+			.network-icon {
+				position: absolute;
+				height: 100%;
+				right: -1px;
+				top: 0;
+			}
+		}
+	}
+}

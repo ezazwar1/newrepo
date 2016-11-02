@@ -1,0 +1,29 @@
+<div class="modal simple-modal" ng-controller="SubstitutionOptionsModalController as viewModel" >
+    <ion-header-bar class="bar-light">
+        <h1 class="title">Substitution Preference</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="viewModel.cancel()" role="button" aria-label="close substitution preferences icon in top right"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header darker-content" scroll="true" has-bouncing="true" >
+        <ion-list class="delivery-time-radio">
+            <div class="text-center padding" style="margin-top: 20px;">
+                <span class="faded padding">
+                    Please choose what you would like your shopper to do if an item you selected is out of stock.
+                </span>
+            </div>
+            <label class="item item-radio"
+                   ng-click="viewModel.clickOption(option)"
+                   ng-repeat="option in viewModel.options" >
+                <input type="radio"
+                       ng-value="option" ng-model="viewModel.selectedOption" name="group">
+                <div class="item-content wrap">
+                    {{option.text}}
+                </div>
+                <i class="radio-icon ion-ios-checkmark"></i>
+            </label>
+        </ion-list>
+
+    </ion-content>
+</div>

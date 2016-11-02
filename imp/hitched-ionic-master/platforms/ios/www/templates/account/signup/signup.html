@@ -1,0 +1,94 @@
+<div class="hitched-signup">
+    <div class="row">
+        <div class="col-sm-12 modalHeader">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+            <h2 class="titles">Let's Get Hitched!</h2>
+        </div>
+        <div class="col-sm-12">
+            <form class="form" name="form" ng-submit="register(form)" novalidate>
+
+
+                <div style="text-align: center">
+
+                    <a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
+                        <i class="fa fa-facebook"></i> <span class="fa-text">Connect with Facebook</span>
+                    </a>
+                    <a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
+                        <i class="fa fa-google-plus"></i> <span class="fa-text">Connect with Google</span>
+                    </a>
+                    <a class="btn btn-twitter" href="" ng-click="loginOauth('twitter')">
+                        <i class="fa fa-twitter"></i> <span class="fa-text">Connect with Twitter</span>
+                    </a>
+
+                    <div class="fa-text-small">Connect with Social Media</div>
+
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                            'has-error': form.name.$invalid && submitted }">
+                    <label>Name</label>
+
+                    <input type="text" name="name" class="form-control" ng-model="user.name" required/>
+                    <p class="help-block" ng-show="form.name.$error.required && submitted">
+                        A name is required
+                    </p>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
+                                            'has-error': form.email.$invalid && submitted }">
+                    <label>Email</label>
+
+                    <input type="email" name="email" class="form-control" ng-model="user.email" required mongoose-error/>
+                    <p class="help-block" ng-show="form.email.$error.email && submitted">
+                        Doesn't look like a valid email.
+                    </p>
+                    <p class="help-block" ng-show="form.email.$error.required && submitted">
+                        What's your email address?
+                    </p>
+                    <p class="help-block" ng-show="form.email.$error.mongoose">
+                        {{ errors.email }}
+                    </p>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
+                                                    'has-error': form.password.$invalid && submitted }">
+                    <label>Password</label>
+
+                    <input type="password" id="password" name="password" class="form-control" ng-model="user.password" ng-minlength="5" required mongoose-error/>
+                    <p class="help-block" ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
+                        Password must be at least 5 characters.
+                    </p>
+                    <p class="help-block" ng-show="form.password.$error.mongoose">
+                        {{ errors.password }}
+                    </p>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-success': form.passwordConfirm.$valid && submitted,
+                                                    'has-error': form.passwordConfirm.$invalid && submitted }">
+                    <label>Confirm Password</label>
+
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" ng-model="user.passwordConfirm" ng-minlength="5" password-match="password" required mongoose-error/>
+                    <p class="help-block" ng-show="(form.passwordConfirm.$error.required || form.passwordConfirm.$error.noMatch) && form.passwordConfirm.$dirty">
+                        Passwords do not match.
+                    </p>
+                </div>
+
+                <div>
+                    <button class="btn btn-primary btn-lg btn-login" type="submit">
+                        Sign up
+                    </button>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <hr>Have an account? <a href="" ng-click="login()" class="text-center new-account">Log In</a>
+        </div>
+    </div>
+
+    <hr>
+</div>

@@ -1,0 +1,113 @@
+{
+	"success": true,
+	"order": [
+
+		{
+			"orderid": "101",
+			"date": "3 sept 2016",
+			"bill_address": "a-190 moti nagar",
+			"firstname":"ram",
+			"second":"sharma",
+			"productname":"Cupboards",
+			"city": "delhi",
+			 "price":"$95.00",
+			  "paymentMethod":"cash on delivery",
+			   "SubTotal":"$50",
+			   "grosstotal":"$145.00",
+			   "postcode":110052,
+			   	"shipping_address": "sunrise pvt Ltd karam pura delhi",
+			   	"status":"done"
+
+		},
+
+        {
+			"orderid": "102",
+			"date": "4 sept 2016",
+			"bill_address": "C-190 Tri nagar",
+			"firstname":"Rohit",
+			"second":"kumar",
+			"city": "Delhi",
+			 "price":"$140.00",
+			  "paymentMethod":"cash on delivery",
+			   "SubTotal":"$50",
+			   "grosstotal":"$195.00",
+			   "postcode":110052,
+			   	"shipping_address": "Mayapuri services pvt Ltd",
+			   	"status":"done"
+
+		},
+		 {
+			"orderid": "103",
+			"date": "5 sept 2016",
+			"bill_address": "C-190 Tri nagar",
+			"firstname":"Mukul",
+			"second":"kumar",
+			"city": "Delhi",
+			 "price":"$140.00",
+			  "paymentMethod":"cash on delivery",
+			   "SubTotal":"$50",
+			   "grosstotal":"$195.00",
+			   "postcode":110052,
+			   	"shipping_address": "Mayapuri services pvt Ltd",
+			   	"status":"done"
+
+		},
+		 
+		 {
+			"orderid": "104",
+			"date": "6 sept 2016",
+			"bill_address": "C-190 Tri nagar",
+			"firstname":"Ajay",
+			"second":"kumar",
+			"city": "Delhi",
+			 "price":"$140.00",
+			  "paymentMethod":"cash on delivery",
+			   "SubTotal":"$50",
+			   "grosstotal":"$195.00",
+			   "postcode":110052,
+			   	"shipping_address": "Mayapuri services pvt Ltd",
+			   	"status":"done"
+
+		}
+
+
+
+	],
+
+	"orderdetail":[
+
+		{
+    
+
+          "orderid": "101",
+			"date": "3 sept 2016",
+			"bill_address": "A-190 moti nagar",
+			"firstname":"Ram",
+			"lastname":"Sharma",
+			"productname":"Cupboards",
+			"city": "delhi",
+			"country":"India",
+			 "price":"$95.00",
+			  "paymentMethod":"Cash on delivery",
+			   "SubTotal":"$95.00",
+			   "grosstotal":"$145.00",
+			   "postcode":110052,
+			   	"shipping_address": "sunrise pvt Ltd Rohini delhi",
+			   	"status":"done",
+			   	 "cartitem":"1",
+			   	  "shippingMethod":"Extend Free Shipping",
+			   	  "shippingCost":50,
+			   	  "shippingpostal":110085
+
+
+
+
+	}
+
+
+	]
+
+
+
+
+}

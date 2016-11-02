@@ -1,0 +1,44 @@
+<ion-modal-view class="touchpoint experiment-1 popoverr">
+
+  <div class="popup-header-fixed">
+    <a href="javascript:;" ng-click="closeModifySubGoalModal()" class="go-back">X</a>
+    <h1 class="main">{{ 'TODAYS_CHALLENGE' | translate }}</h1>
+    <div style="position: relative;" class="shadow">
+      <label ng-class="{error: viewData.error}">
+        <textarea id="subgoal-name" placeholder="{{ 'EXPERIMENTS_ADD_SUB_GOAL_PLACEHOLDER' | translate }}" ng-model="viewData.subGoal" style="padding-left:15px;" ng-change="updateSubGoalList()" maxlength="512"></textarea>
+      </label>
+      <span ng-click="clearSubGoal()" class="clear-goal" ng-show="viewData.subGoal.length > 0">X</span>
+      <span ng-click="setSubGoal()" class="set-goal" ng-show="!selectSubGoalDifficulty && viewData.subGoal.length > 0">{{ 'SAVE' | translate}}</span>
+    </div>
+  </div>
+
+  <ion-content class="goal-scroll">
+    <div ng-show="!selectSubGoalDifficulty">
+      <div ng-repeat="$index in filteredSubGoalKeys" class="goal-wrapper" ng-click="toggleFilteredSubGoalList($index)">
+        <div class="divider">
+
+          {{ filteredSubGoalKeys[$index] | translate }}
+
+          <i class="icon ion-ios-arrow-up" ng-show="showingFilteredSubGoalList($index)"></i>
+          <i class="icon ion-ios-arrow-down" ng-show="!showingFilteredSubGoalList($index)"></i>
+        </div>
+
+        <div ng-show="showFilteredSubGoalList($index)"> <!-- $index changed in the ng-repeat so this needs to wrap it. -->
+          <div ng-repeat="filteredSubGoal in getFilteredSubGoalList($index)" ng-click="selectSubGoal(filteredSubGoal)" class="sub-goal">
+            {{ filteredSubGoal }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="selectSubGoalDifficulty">
+      <h1 style="padding-bottom: 0; padding-top: 0; line-height: 25px;" class="second-modal-header">{{ 'EXPERIMENTS_ADD_SUB_GOAL_DIFFICULTY_PROMPT' | translate}}</h1>
+      <h3>{{ 'EXPERIMENTS_ADD_SUB_GOAL_DIFFICULTY_BYLINE' | translate }}</h3>
+      <graph-selector values="difficultyValues" value-data="valueData" selectable="true" colors="difficultyColors" color-percentages="colorPercentages" show-ticks="true" goal-percentage="0.0" segmented="true" class="{{noDataError ? 'error' : ''}} difficulty{{getSpinnerDifficulty()}}"></graph-selector>
+    </div>
+  </ion-content>
+
+  <div class="bar bar-footer" ng-show="selectSubGoalDifficulty">
+     <button class="button button-start" ng-click="saveSubGoal()" ng-disabled="!selectSubGoalDifficulty || viewData.submitting || valueData.value == '?'">{{ (editing ? 'EXPERIMENTS_UPDATE_EXPERIMENT' : 'EXPERIMENTS_SET_EXPERIMENT') | translate }}</button>
+  </div>
+
+</ion-modal-view>

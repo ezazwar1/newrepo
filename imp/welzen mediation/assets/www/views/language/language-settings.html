@@ -1,0 +1,18 @@
+<ion-view class="bg-welzen language" view-title="Language">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Language</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+      <p class="paragraph">Please select the language you would lie for the meditations.</p>
+
+      <ion-toggle class="border-top" ng-model="english">English</ion-toggle>
+      <ion-toggle class="border-top" ng-model="spanish">Español</ion-toggle>
+
+
+    </div>
+  </ion-content>
+</ion-view>

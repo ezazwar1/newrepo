@@ -1,0 +1,21 @@
+<ion-content on-scroll="onScroll()">
+
+	<div class="header-placeholder"></div>
+
+	<ion-refresher pulling-text="{{'Puxe para atualizar' | translate}}" ng-if="bag.offset !== null" on-refresh="refresh()"></ion-refresher>
+
+	<div class="empty-list" ng-if="bag.movies.length === 0 && bag.finished">
+		<span translate>Você ainda não deu YES! para nenhum filme.</span>
+	</div>
+
+
+	<div class="list-container {{animationName}}" >
+		<div class="list-item" ng-repeat="movie in bag.movies">
+			<sf-movie-mosaic movie="movie" user="movie.user"></sf-movie-mosaic>
+		</div>
+	</div>
+
+	<div ng-if="bag.movies.length > 0 && bag.finished" class="feed-end"><span translate>Fim desta lista.</span></div>
+
+	<ion-infinite-scroll distance="1%" ng-if=" ! bag.finished" on-infinite="loadMore()"></ion-infinite-scroll>
+</ion-content>

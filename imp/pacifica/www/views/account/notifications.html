@@ -1,0 +1,54 @@
+<ion-view title="{{ 'NOTIFICATIONS' | translate }}" id="account" class="notifications">
+
+  <div class="back"></div>
+  <ion-content>   
+
+
+    <ion-list class="list habits-menu">
+      <div class="item item-divider">{{ 'MOOD_REMINDERS' | translate }}</div>
+
+      <ion-radio ng-model="data.notifications" value="none" ng-change="updateNotifications()" name="notifications">{{ 'DAILY_NOTIFICATIONS_OPTION_NONE' | translate }}</ion-radio>
+      <ion-radio ng-model="data.notifications" value="random" ng-change="updateNotifications()" name="notifications">{{ 'DAILY_NOTIFICATIONS_OPTION_RANDOM' | translate }}</ion-radio>
+      <ion-radio ng-model="data.notifications" value="after7" ng-change="updateNotifications()" name="notifications">{{ 'DAILY_NOTIFICATIONS_OPTION_AFTER_7' | translate }}</ion-radio>
+
+      <!-- Not used.
+      <div class="item item-divider">{{ 'EOD_NOTIFICATIONS' | translate }}</div>
+
+      <ion-radio ng-model="data.receiveEODNotifications" value="false" ng-change="updateEODNotifications()" name="eodNotifications">{{ 'OFF' | translate }}</ion-radio>
+      <ion-radio ng-model="data.receiveEODNotifications" value="true" ng-change="updateEODNotifications()" name="eodNotifications">{{ 'ON_TOGGLE' | translate }}</ion-radio>
+      -->
+
+      <div class="item item-divider" ng-if="!isUMNUser()">{{ 'COMMUNITY_NOTIFICATIONS' | translate }}</div>
+      <ion-radio ng-model="data.communityNotification" value="false" ng-change="updateCommunityNotifications()" name="communityNotification" ng-if="!isUMNUser()">{{ 'OFF' | translate }}</ion-radio>
+      <ion-radio ng-model="data.communityNotification" value="true" ng-change="updateCommunityNotifications()" name="communityNotification" ng-if="!isUMNUser()">{{ 'ON_TOGGLE' | translate }}</ion-radio>
+      
+
+      <div class="item item-divider">{{ 'INFORMATIONAL_EMAILS' | translate }}</div>
+      <ion-radio ng-model="data.receiveEmails" value="false" ng-change="updateReceiveEmails()" name="emails">{{ 'OFF' | translate }}</ion-radio>
+      <ion-radio ng-model="data.receiveEmails" value="true" ng-change="updateReceiveEmails()" name="emails">{{ 'ON_TOGGLE' | translate }}</ion-radio>
+
+      <!--
+      <div class="item item-divider">{{ 'GOAL_ALERT' | translate }}</div>
+      <ion-radio ng-model="data.goalAlert" value="false" ng-change="updateGoalAlert()" name="goalAlert">{{ 'OFF' | translate }}</ion-radio>
+      <ion-radio ng-model="data.goalAlert" value="true" ng-change="updateGoalAlert()" name="goalAlert">{{ 'ON_TOGGLE' | translate }}</ion-radio>
+      -->
+      
+    </ion-list>
+
+    <!--
+    <div ng-show="notificationsUpdated" class="UI-alert">
+      {{ 'NOTIFICATIONS_UPDATED' | translate }}
+    </div>
+
+    <div ng-show="receiveEmailsUpdated" class="UI-alert">
+     {{ 'EMAIL_PREFERENCES_UPDATED' | translate }}
+    </div>
+
+    <div ng-show="goalAlertUpdated" class="UI-alert">
+     {{ 'GOAL_ALERT_UPDATED' | translate }}
+    </div>
+    -->
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

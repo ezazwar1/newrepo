@@ -1,0 +1,63 @@
+{
+  "title_order_added": "Order Added",
+  "title_cart_home": "Cart",
+  "title_checkout": "Checkout",
+  "title_delivery_payment": "Delivery and Payment",
+  "title_invoice": "Invoice",
+  
+  "enter_coupon_title":  "Have a cupon?",
+  "enter_coupon_label": "Enter your coupon here",
+  "added_coupon_text":  "Coupon added!",
+  "enter_coupon_button" :  "Submit",
+
+  "order_added_title": "Order Added!",
+  "order_added_desc": "Please check your email for further information",
+  "go_to_shop": "Go to Shop",
+
+  "empty_message": "Your cart is empty!",
+  "product_code": "Product Code:{code}",
+
+  "delivery_method" :  "Delivery Method",
+  "payment_method" :  "Payment Method",
+  "comments_section" :  "Additional Comment/Instructions",
+  "comments": "Comments/Instructions",
+
+  "invoice_address" :  "Address",
+
+  "error_firstname_required" :  "Please enter your first name",
+  "error_lastname_required" :  "Please enter your first name",
+  "error_email_required" :  "Please enter your email address",
+  "error_email_invalid" :  "Please enter a valid email address",
+  "error_telephone_required" :  "Please enter your telephone number",
+  "error_address_1_required" :  "Please enter your address line 1",
+  "error_city_required" :  "Please enter your city",
+  "error_postal_code_required" :  "Please enter your postal code",
+  "error_postal_code_minlength" :  "Postal code is a 5 digit number",
+  "error_postal_code_maxlength" :  "Postal code is a 5 digit number",
+  "error_country_id_required" :  "Please enter your country",
+  "error_zone_id_required": "Please enter your region or state",
+
+  "error_shipping_method_required" :  "Please select a shipping method",
+  "error_payment_method_required" :  "Please enter a payment method",
+
+
+  "button_remove": "Remove",
+  "button_shopping": "START SHOPPING",
+  "button_offers": "OFFERS",
+  "button_next": "NEXT",
+  "button_confirm": "CONFIRM",
+
+  "order_your_details": "Your Personal Details",
+  "order_firstname": "First Name",
+  "order_lastname": "Last Name",
+  "order_email": "Email",
+  "order_telephone": "Telephone",
+  "order_your_address": "Your Address",
+  "order_address1": "Address Line 1",
+  "order_address2": "Address Line 2",
+  "order_city": "City",
+  "order_postal": "Postal Code",
+  "order_country": "Country",
+  "order_region": "Region / State"
+
+}

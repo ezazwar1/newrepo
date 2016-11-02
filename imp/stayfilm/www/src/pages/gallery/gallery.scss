@@ -1,0 +1,143 @@
+@import "variables";
+
+.page-gallery {
+
+	.scroll {
+		padding-top: 120px;
+	}
+
+	.scroll-refresher {
+		top: 50px;
+	}
+
+	.bar-header {
+		border:0;
+		z-index: 10;
+
+//		.title + .button:last-child {
+		.button {
+			margin-top: 30px !important; //kludge
+		}
+
+		.title {
+			height: 109px;
+			padding-top: 20px;
+			opacity: 0.8;
+			line-height: 30px;
+
+			img {
+				width: 200px;
+			}
+
+			.spots {
+				@include display(flex);
+				@include justify-content(center);
+
+				b {
+					display: block;
+					border: 1px solid #a7a6a9;
+					width: 8px;
+					height: 8px;
+					border-radius: 50%;
+					margin: 13px;
+
+					&.active {
+						background: #a7a6a9;
+					}
+				}
+			}
+		}
+	}
+
+	.page-gallery-bestof {
+
+		.bar-header{
+			background: #171717 url('../images/gallery/gallery-header-bestof-bg.jpg') center center;
+			background-size: cover;
+			height: 109px !important; //kludge
+		}
+
+		ion-content {
+			background: #171717;
+		}
+	}
+
+	.page-gallery-latest {
+		.bar-header {
+			background: #fff;
+			height: 109px !important; //kludge
+		}
+	}
+
+	.page-gallery-genres {
+
+		.bar-header {
+			background: white;
+			height: 109px !important; //kludge
+		}
+
+		.item-genre {
+			position: relative;
+			display: block;
+			border: 0;
+
+			img {
+				display: block;
+				width: 100%;
+				margin: 0;
+			}
+
+			.genre-name {
+				position: absolute;
+				z-index: 2;
+				color: #fff;
+				margin: auto;
+				top: 40%;
+				left: 30%;
+				font-size: 6vmin;
+				background: rgba(0,0,0,.25);
+				padding: 10px;
+			}
+		}
+	}
+
+	.page-gallery-genre {
+
+		.sf-retract-up {
+			@include transform(translateY(-100%));
+		}
+
+		.scroll {
+			padding-top: 25%;
+		}
+
+		.scroll-refresher {
+			top: 0;
+			padding-top: 20%;
+		}
+
+		.bar-header {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			height: auto;
+			display: block;
+			padding: 0;
+
+			img {
+				width: 100%;
+				display: block;
+				margin: 0;
+				padding: 0;
+			}
+
+			button {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 44px;
+				width: 44px;
+			}
+		}
+	}
+}

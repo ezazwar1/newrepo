@@ -1,0 +1,68 @@
+<div class="buttons" ng-controller="LoginController" id="myid">
+    <div class="modal fullscreen-modal">
+        <ion-content class="" has-bouncing="true" >
+            <div style="margin-top:35px;">
+                <div class="light text-center center-content light">
+                    <div class="text-center" style="margin-bottom: 0;" aria-label="Login">
+                        <img class="" style="max-width: 129px;max-height: 162px;" src="img/Logo_Stacked_Large_2.png" alt=""/>
+                    </div>
+                    <h3 ng-if="appName == 'shopper'"  class="positive">
+                        {{title}}
+                    </h3>
+                </div>
+                <p class="center assertive" ng-show="invalidLogin" role="alert" id="invalid-login">
+                    {{invalidLoginMessage}}
+                </p>
+                <p class="center assertive" ng-show="loginError" role="alert">
+                    {{errorLoginMessage}}
+                </p>
+                <form class="login-form modal-form" name="loginForm" ng-submit="loginSubmit(login)" >
+                    <div class="list">
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label" aria-hidden="true">{{userInputLabel}}</span>
+                            <input type="{{userInputType}}"
+                                   ng-model="login.username"
+                                   placeholder="{{userInputLabel}}"
+                                   autocorrect="off"
+                                   autocapitalize="off"
+                                   id="login-username" >
+                        </label>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label" aria-hidden="true">Password</span>
+                            <input ng-model="login.password"
+                                   type="password"
+                                   placeholder="Password"
+                                   ng-required="true"
+                                   autocorrect="off"
+                                   autocapitalize="off"
+                                   id="login-password" required>
+                        </label>
+                        <br/>
+                        <div class="text-center">
+                            <button id="start_shopping_login_button" class="login-button button button-positive button-full button-outline " ng-disabled="!loginForm.$valid" type="submit" style="">
+                                Start Shopping
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="padding text-center" style="padding-top: 0px;padding-bottom: 0px;">
+                    <button ng-click="signUp()" ng-if="appName == 'grocery'"  class=" button button-dark button-clear button-full  ">
+                        Sign up
+                    </button>
+                </div>
+                <div  ng-if="appName == 'grocery'" class="text-center assertive">
+                    <button ng-click="resetPassword()" role="link" aria-label="Reset Your Password" class="login-button button button-small button-stable button-clear">
+                        Forgot Your Password?
+                    </button>
+                </div>
+                <div  ng-if="appName == 'shopper'" class="text-center assertive">
+                    <button ng-click="resetPasswordShopper()" class="login-button button button-small button-stable button-clear">
+                        Shopper Password Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        </ion-content>
+    </div>
+</div>

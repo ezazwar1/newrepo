@@ -1,0 +1,123 @@
+<ion-view title="{{ 'PUBLIC_PROFILE.TITLE' | translate }}">
+    <ion-nav-buttons side="left">
+        <wf-back></wf-back>
+    </ion-nav-buttons>
+  <ion-content class="pad-top-0">
+    <div ng-if="publicData">
+    <div class="darker-bg">
+      <div class="pad-top-15"><div class="profile-user-image" style="background-image: url({{publicData.user[0].image_url ? publicData.user[0].image_url : 'img/avatar.svg'}})"></div></div>
+      <div class="big-padding user-info-wrappper">
+        <div class="loginInfo margin-bottom-15">
+          <h4 class="light profile-user-name">{{ publicData.user[0].first_name ? publicData.user[0].first_name + ' ' +publicData.user[0].last_name: 'LEADERBOARD.ANONYMOUS' | translate }}</h4>
+          <i class="ion-location"></i><span class="light profile-user-location">{{publicData.user[0].city ? publicData.user[0].city + ' ,' : '' }}  {{publicData.user[0].country}}</span>
+        </div>
+        <p class="profile-user-descp">{{publicData.user[0].description}}</p>
+        </div>
+        <div class="row user-profile-stat">
+           <div class="col text-overflow-ellipsis" ui-sref="app.friends.followers({id: publicData.user[0].user_id,name: publicData.user[0].first_name})">
+             <div>{{publicData.friends_summary[0].followers}}</div>
+             <span>{{ 'PROFILE.FOLLOWERS' | translate }}</span>
+           </div>
+           <div class="col text-overflow-ellipsis" ui-sref="app.friends.following({id: publicData.user[0].user_id,name: publicData.user[0].first_name})">
+             <div>{{publicData.friends_summary[0].following}}</div>
+             <span>{{ 'PROFILE.FOLLOWING' | translate }}</span>
+           </div>
+
+           <div class="col text-gray text-overflow-ellipsis">
+             <div>{{publicData.groups_summary}}</div>
+             <span>{{ 'PROFILE.GROUPS' | translate }}</span>
+           </div>
+        </div>
+        <div class="big-padding user-profile-btn">
+          <button class="button button-positive text-overflow-ellipsis" ng-bind-html="publicData.ImFollowing == 0 ? follow_btn_txt : unfollow_btn_txt " ng-click="changeFollow()" ng-disabled="follow_btn_disable">Follow</button>
+          <button class="button button-positive text-overflow-ellipsis" ng-bind-html="message_btn_txt" ng-click="privateMsg()">message</button>
+        </div>
+    </div>
+    <div class="public-profile-detail-wrap">
+      <div class="item-wrap">
+        <div class="row">
+          <div class="col text-center"><h5>{{'DASHBOARD.WEEKLY_STAT' | translate }}</h5></div>
+        </div>
+        <div class="row">
+          <div class="col text-center unit-state-wrap">
+              <div>
+                <i class="wf wf-calorie"></i>
+              </div>
+              <div class="value">
+                {{publicData.stats.week.calories.value}}
+              </div>
+              <div class="unit">
+                {{'UNIT.KCAL_BURNED' | translate}}
+              </div>
+          </div>
+          <div class="col text-center unit-state-wrap">
+              <div>
+                <i class="wf wf-distance-shoe"></i>
+              </div>
+              <div class="value">
+                {{publicData.stats.week.distance.value}}<span class="value-unit">{{publicData.stats.week.distance.units}}</span>
+              </div>
+              <div class="unit">
+                {{'UNIT.DISTANCE' | translate}}
+              </div>
+          </div>
+          <div class="col text-center unit-state-wrap">
+              <div>
+                <i class="wf wf-time"></i>
+              </div>
+              <div class="value">
+                {{publicData.stats.week.duration.value}}<span class="value-unit">{{publicData.stats.week.duration.units}}</span>
+              </div>
+              <div class="unit">
+                {{'UNIT.TIME' | translate}}
+              </div>
+          </div>
+          <div class="col text-center unit-state-wrap">
+              <div>
+                <i class="wf wf-coins"></i>
+              </div>
+              <div class="value">
+                {{publicData.stats.week.points}}
+              </div>
+              <div class="unit">
+                {{'UNIT.POINTS' | translate}}
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-wrap">
+        <div class="row">
+          <div class="col text-center"><h5>{{'DASHBOARD.ACHIEVEMENTS' | translate }}</h5></div>
+        </div>
+        <div class="row">
+          <div ng-if="!publicData.badges.length">
+            <p class="text-center text-gray">{{ 'DASHBOARD.NO_ACHIEVEMENTS' | translate }}</p>
+          </div>
+          <div class="achievement-badges" ng-repeat="achievement in publicData.badges">
+                  <wf-badge
+                      icon="wf-ultra-fast"
+                      img="true"
+                      type="{{ achievement.type }}"
+                      data="achievement"
+                      title="{{ achievement.name }}"
+                      ng-click="showInfo($event, achievement)"
+                      active="achievement.locked === '0'"
+                      locked="achievement.locked === '1'"
+                      hide-share="true">
+                  </wf-badge>
+          </div>
+        </div>
+      </div>
+
+      <div class="item-wrap">
+        <div class="row">
+          <div class="col text-center"><h5>{{'DASHBOARD.LATEST_ACTIVITY' | translate }}</h5></div>
+        </div>
+        <div class="row activity-list">
+          <div class="activity-wrap" wf-activity-list empty-msg="{{ 'PUBLIC_PROFILE.EMPTY_ACTIVITY_MSG' | translate }}" data="publicData.activity" manual-log="false"></div>
+        </div>
+      </div>
+  </div>
+  </ion-content>
+</ion-view>

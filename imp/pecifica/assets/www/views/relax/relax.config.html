@@ -1,0 +1,21 @@
+<ion-view title="{{ 'ADVANCED_SETTINGS' | translate }}" class="popoverr relax-config">
+  <div class="back"></div>
+  <ion-content>
+    <ion-list class="list habits-menu">
+    <div class="item item-divider">{{ 'SOUNDS' | translate }}</div>
+    </ion-list>
+
+    <ion-list class="list habits-menu">
+      <ion-toggle ng-model="values.playBreathing" toggle-class="toggle-calm" ng-change="updatePlayBreathing()">{{ 'RELAX_ACTIVITY_PLAY_BREATHING_SOUNDS' | translate }}</ion-toggle>
+      <div class="item item-divider">{{ 'RELAXATION_VOICE' | translate }}</div>
+
+      <ion-radio ng-model="data.voice" value="male" ng-change="updateVoice()" name="voice">{{ 'MALE' | translate }}</ion-radio>
+      <ion-radio ng-model="data.voice" value="female" ng-change="updateVoice()" name="voice">{{ 'FEMALE' | translate }}</ion-radio>
+    </ion-list>
+
+    <div ng-if="relaxationVoiceUpdated" class="UI-alert">
+      {{ 'RELAXATION_VOICE_UPDATED' | translate }}
+    </div>
+
+  </ion-content>
+</ion-view>

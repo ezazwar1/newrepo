@@ -1,0 +1,292 @@
+@import 'variables';
+
+.page-friend {
+
+	.bar-header .button img {
+		height: 20px;
+	}
+
+	.scroll-refresher {
+		top: 160px;
+	}
+
+	.sf-retract-up {
+		@include transform(translateY(-71%));
+	}
+
+	.bar-retractile-enabled {
+
+		&.bar-retractile-up {
+			@include transform(translateY(-70%));
+		}
+	}
+
+	.scroll {
+		padding-top: 220px;
+	}
+
+	.has-friend-header {
+		top: 218px;
+	}
+
+	.user-list {
+		margin-top: 20px;
+	}
+
+	.friend-header {
+		position: absolute;
+		right: 0;
+		left: 0;
+		height: 211px;
+		width: 100%;
+		z-index: 10;
+		background: white;
+
+		.primary-header {
+			position: relative;
+		}
+
+		.secondary-header {
+			.user-info {
+				height: 100px;
+				overflow: hidden;
+				@include display(flex);
+				@include align-items(center);
+
+				.info {
+					position: relative;
+					padding: 0px 20px 0 0;
+					@include flex-grow(1);
+					display: block;
+
+					h3 {
+						color: #35434d;
+						font-family: HelveticaNeueTH, sans-serif;
+						font-size: 23px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+
+					.edit-box {
+						position: relative;
+						@include display(flex);
+						@include justify-content(space-between);
+
+						.edit, .location {
+							display: block;
+							color: #7a7a7a;
+							font-family: HelveticaNeueLT, sans-serif;
+							font-size: 12px;
+						}
+
+						.edit {
+							margin-right: 10px;
+							height: 20px;
+							@include flex-basis(150px);
+							@include flex-shrink(0);
+							white-space: nowrap;
+
+//							&.shake  {
+//								@include animation-duration(1s);
+//								@include animation-iteration-count(infinite);
+//							}
+
+							&.two-buttons {
+								button {
+									width: 50%;
+								}
+							}
+
+							button {
+								display: inline;
+								color: #ad252a;
+								text-decoration: none;
+								text-align: left;
+								font-family: HelveticaNeueMD, sans-serif;
+								padding: 0;
+
+//								&.ng-enter {
+//									@include animation(flipInY 1s .6s);
+//									z-index: 1;
+//								}
+//
+//								&.ng-enter-active {
+//									opacity: 0;
+//								}
+//
+//								&.ng-leave {
+//									@include animation(flipOutY 1s);
+//									z-index: 2;
+//								}
+							}
+						}
+
+						.location {
+							text-align: right;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							@include flex-basis(300px);
+							@include flex-grow(1);
+						}
+					}
+				}
+
+				.user-thumb {
+					@include flex-basis(60px);
+					@include flex-shrink(0);
+					width: 60px;
+					margin: 0 20px;
+
+					img {
+						height: 60px;
+						width: 60px;
+					}
+				}
+			}
+
+			.title-tabs {
+				position: relative;
+				clear: both;
+				@include display(flex);
+
+				.cursor {
+					position: absolute;
+					height: 3px;
+					background: #ad252a;
+					top: 64px;
+					z-index: 2;
+					width: 100%;
+					left: 0;
+
+					@include transform-origin(0 0);
+					@include transition(all 0.8s ease 0.5s);
+				}
+
+				a {
+					position: relative;
+					border-bottom: 3px solid #dedde0;
+					padding: 10px;
+					display: block;
+
+					span {
+						font-family: HelveticaNeueLT, sans-serif;
+						color: #98a6b1;
+						font-size: 16px;
+
+						@include transition(all 0.8s ease 0.5s);
+					}
+
+					strong {
+						font-family: HelveticaNeueMD, sans-serif;
+						font-weight: normal;
+						color: #9aa7b2;
+						font-size: 16px;
+
+						@include transition(all 0.8s ease 0.5s);
+					}
+
+					&.my-films {
+						width: 40%;
+						border-top: 3px solid #dedde0;
+					}
+
+					&.yes {
+						width: 20%;
+
+						.crown {
+							position: absolute;
+							background: transparent url('../images/ico-crown.svg') center center no-repeat;
+							width: 24px;
+							height: 24px;
+							top: -16px;
+							left: 0;
+							right: 0;
+							margin: 0 auto;
+						}
+					}
+
+					&.mate {
+						width: 40%;
+						border-top: 3px solid #dedde0;
+					}
+				}
+
+				&.movie-active {
+
+					.my-films {
+
+						> div {
+							@include animation(pulse 0.6s 0 1);
+						}
+
+						strong {
+							color: #ad252a;
+						}
+
+						span {
+							color: #35434d;
+						}
+					}
+
+					.cursor {
+						@include transform(translateX(0%) scaleX(.4));
+					}
+
+				}
+
+				&.like-active {
+
+					.yes {
+						color: #35434d;
+
+						.crown {
+							background-image: url('../images/ico-crown-red.svg');
+							background-size: contain;
+						}
+
+						strong {
+							color: #ad252a;
+						}
+
+						span {
+							color: #35434d;
+						}
+
+						> div {
+							@include animation(pulse 0.6s 0 1);
+						}
+					}
+
+					.cursor {
+						@include transform(translateX(40%) scaleX(0.2));
+					}
+				}
+
+				&.mate-active {
+
+					.mate {
+						color: #35434d;
+
+						strong {
+							color: #ad252a;
+						}
+
+						span {
+							color: #35434d;
+						}
+
+						> div {
+							@include animation(pulse 0.6s 0 1);
+						}
+					}
+
+					.cursor {
+						@include transform(translateX(60%) scaleX(0.4));
+					}
+				}
+			}
+		}
+	}
+}

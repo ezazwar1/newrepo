@@ -1,0 +1,31 @@
+<ion-view title="Cash Out Coins">
+    <ion-content scroll="true" padding="true">
+
+        <div class="form-group">
+            <label class="form-label">Amount to Withdraw</label>
+            <p class="wallet_currency-unit">{{data.gamer.currency_unit}}</p>
+            <input id="amount" class="form-input" type="text" name="amount" ng-model="data.sell_credit"/>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Receiving Account</label>
+            <div class="form-select-wrapper ion-arrow-down-b">
+                <select class="form-select" name="amount" ng-model="data.sell_credit_wallet">
+                    <option value="paypal">PayPal</option>
+                    <option value="google_wallet">Google Wallet</option>
+                </select>
+            </div>
+        </div>
+
+        <form class="form-group" name="email_form">
+            <label class="form-label">Receiving Account Username/Email</label>
+            <span class="form-label" ng-show='data.warning_flag'>{{data.emailalert}}</span>
+            <input class="form-input" type="email" ng-model="data.sell_credit_email" requried>
+        </form>
+
+        <div class="form-group button-bar">
+            <button class="button button-block button-primary button-ionicon ng-binding" type="submit" ng-disabled="!!email_form.$error.email || email_submitconfirm_disabled || sellcredit_submitconfirm_disabled" ng-click="put_sell_order()">Withdraw</button>
+        </div>
+
+    </ion-content>
+</ion-view>

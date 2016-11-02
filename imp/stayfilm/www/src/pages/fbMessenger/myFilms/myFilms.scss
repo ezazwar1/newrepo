@@ -1,0 +1,128 @@
+@import 'variables';
+
+.page-my-films {
+
+	.bar.bar-header {
+		padding: 0;
+		background: #efecec;
+
+		.title {
+			font-family: HelveticaNeueLT, sans-serif;
+			font-size: 16px;
+			color: #9aa7b2;
+		}
+
+		button.button {
+			color: #63c199;
+			height: 44px;
+			padding: 0 20px;
+			font-family: HelveticaNeueMD, sans-serif;
+			font-weight: normal;
+			display: block;
+			top: 0;
+			right: 0;
+		}
+
+		.btn-back {
+			img {
+				height: 22px;
+				margin-top: 10px;
+			}
+		}
+	}
+
+	.my-films-container {
+		font: normal 16px HelveticaNeueLT, sans-serif;
+		top: 44px;
+
+		.user-info {
+			padding-top: 20px;
+			border-bottom: 2px solid #bfc8ce;
+
+			.picture {
+				width: 100px;
+				height: 100px;
+				margin: 0 20px 20px;
+				background-size: cover;
+				background-position: center;
+				float: left;
+			}
+
+			.name, .quantity {
+				margin: 15px;
+				font-family: HelveticaNeueLT, sans-serif;
+			}
+
+			.name {
+				color: #335771;
+				font-size: 22px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			.quantity {
+				color: #98a6b1;
+				font-size: 18px;
+			}
+		}
+
+		.films-list {
+			clear: both;
+			padding: 0 20px 20px 0;
+
+			.empty-list {
+				width: 100%;
+
+				span {
+					font-family: HelveticaNeueLT, sans-serif;
+					font-size: 16px;
+					color: #98a6b1;
+				}
+
+				img {
+					width: 100%;
+					padding: 30px 25%;
+				}
+			}
+
+			.my-films-mosaic {
+				width: 50%;
+				padding: 20px 0 20px 20px;
+				float: left;
+
+				.thumbnail {
+					height: 20px;
+					background: #eee;
+					padding-bottom: 56%;
+					background-size: cover;
+					background-position: center;
+				}
+				
+				.title {
+					color: #335771;
+					padding: 15px 0;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					text-align: left;
+				}
+				
+				.actions {
+
+					.discard, .share, .download {
+						width: 33.3%;
+						text-align: center;
+						float: left;
+					}
+
+					.discard {
+					}
+					
+					.share {
+					}
+				}
+			}
+		}
+	}
+}

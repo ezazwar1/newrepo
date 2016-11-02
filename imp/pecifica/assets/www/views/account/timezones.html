@@ -1,0 +1,441 @@
+<ion-view title="{{ 'NOTIFICATIONS' | translate }}" id="notifications">
+
+  <div class="back"></div>
+  <ion-content> 
+
+  	<div>{{ 'TIMEZONE_DESCRIPTION' | translate }}</div>
+
+    <ion-list class="list habits-menu">
+      <div class="item item-divider">{{ 'PREFFERED_TIMEZONE' | translate }}</div>
+
+      <ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="">{{ 'DEFAULT' | translate }}: {{getUserTimeZone()}}</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Abidjan">Africa/Abidjan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Accra">Africa/Accra</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Addis_Ababa">Africa/Addis Ababa</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Algiers">Africa/Algiers</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Asmara">Africa/Asmara</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Bamako">Africa/Bamako</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Bangui">Africa/Bangui</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Banjul">Africa/Banjul</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Bissau">Africa/Bissau</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Blantyre">Africa/Blantyre</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Brazzaville">Africa/Brazzaville</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Bujumbura">Africa/Bujumbura</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Cairo">Africa/Cairo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Casablanca">Africa/Casablanca</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Ceuta">Africa/Ceuta</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Conakry">Africa/Conakry</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Dakar">Africa/Dakar</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Dar_es_Salaam">Africa/Dar es Salaam</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Djibouti">Africa/Djibouti</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Douala">Africa/Douala</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/El_Aaiun">Africa/El Aaiun</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Freetown">Africa/Freetown</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Gaborone">Africa/Gaborone</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Harare">Africa/Harare</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Johannesburg">Africa/Johannesburg</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Kampala">Africa/Kampala</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Khartoum">Africa/Khartoum</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Kigali">Africa/Kigali</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Kinshasa">Africa/Kinshasa</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Lagos">Africa/Lagos</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Libreville">Africa/Libreville</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Lome">Africa/Lome</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Luanda">Africa/Luanda</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Lubumbashi">Africa/Lubumbashi</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Lusaka">Africa/Lusaka</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Malabo">Africa/Malabo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Maputo">Africa/Maputo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Maseru">Africa/Maseru</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Mbabane">Africa/Mbabane</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Mogadishu">Africa/Mogadishu</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Monrovia">Africa/Monrovia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Nairobi">Africa/Nairobi</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Ndjamena">Africa/Ndjamena</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Niamey">Africa/Niamey</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Nouakchott">Africa/Nouakchott</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Ouagadougou">Africa/Ouagadougou</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Porto-Novo">Africa/Porto-Novo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Sao_Tome">Africa/Sao Tome</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Tripoli">Africa/Tripoli</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Tunis">Africa/Tunis</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Africa/Windhoek">Africa/Windhoek</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Adak">America/Adak</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Anchorage">America/Anchorage</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Anguilla">America/Anguilla</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Antigua">America/Antigua</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Araguaina">America/Araguaina</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Buenos_Aires">America/Argentina/Buenos Aires</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Catamarca">America/Argentina/Catamarca</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Cordoba">America/Argentina/Cordoba</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Jujuy">America/Argentina/Jujuy</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/La_Rioja">America/Argentina/La Rioja</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Mendoza">America/Argentina/Mendoza</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Rio_Gallegos">America/Argentina/Rio Gallegos</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Salta">America/Argentina/Salta</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/San_Juan">America/Argentina/San Juan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/San_Luis">America/Argentina/San Luis</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Tucuman">America/Argentina/Tucuman</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Argentina/Ushuaia">America/Argentina/Ushuaia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Aruba">America/Aruba</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Asuncion">America/Asuncion</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Atikokan">America/Atikokan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Bahia_Banderas">America/Bahia Banderas</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Bahia">America/Bahia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Barbados">America/Barbados</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Belem">America/Belem</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Belize">America/Belize</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Blanc-Sablon">America/Blanc-Sablon</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Boa_Vista">America/Boa Vista</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Bogota">America/Bogota</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Boise">America/Boise</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Cambridge_Bay">America/Cambridge Bay</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Campo_Grande">America/Campo Grande</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Cancun">America/Cancun</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Caracas">America/Caracas</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Cayenne">America/Cayenne</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Cayman">America/Cayman</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Chicago">America/Chicago</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Chihuahua">America/Chihuahua</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Costa_Rica">America/Costa Rica</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Cuiaba">America/Cuiaba</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Curacao">America/Curacao</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Danmarkshavn">America/Danmarkshavn</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Dawson_Creek">America/Dawson Creek</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Dawson">America/Dawson</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Denver">America/Denver</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Detroit">America/Detroit</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Dominica">America/Dominica</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Edmonton">America/Edmonton</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Eirunepe">America/Eirunepe</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/El_Salvador">America/El Salvador</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Fortaleza">America/Fortaleza</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Glace_Bay">America/Glace Bay</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Godthab">America/Godthab</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Goose_Bay">America/Goose Bay</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Grand_Turk">America/Grand Turk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Grenada">America/Grenada</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Guadeloupe">America/Guadeloupe</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Guatemala">America/Guatemala</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Guayaquil">America/Guayaquil</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Guyana">America/Guyana</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Halifax">America/Halifax</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Havana">America/Havana</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Hermosillo">America/Hermosillo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Indianapolis">America/Indiana/Indianapolis</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Knox">America/Indiana/Knox</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Marengo">America/Indiana/Marengo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Petersburg">America/Indiana/Petersburg</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Tell_City">America/Indiana/Tell City</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Vevay">America/Indiana/Vevay</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Vincennes">America/Indiana/Vincennes</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Indiana/Winamac">America/Indiana/Winamac</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Inuvik">America/Inuvik</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Iqaluit">America/Iqaluit</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Jamaica">America/Jamaica</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Juneau">America/Juneau</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Kentucky/Louisville">America/Kentucky/Louisville</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Kentucky/Monticello">America/Kentucky/Monticello</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/La_Paz">America/La Paz</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Lima">America/Lima</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Los_Angeles">America/Los Angeles</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Maceio">America/Maceio</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Managua">America/Managua</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Manaus">America/Manaus</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Marigot">America/Marigot</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Martinique">America/Martinique</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Matamoros">America/Matamoros</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Mazatlan">America/Mazatlan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Menominee">America/Menominee</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Merida">America/Merida</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Metlakatla">America/Metlakatla</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Mexico_City">America/Mexico City</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Miquelon">America/Miquelon</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Moncton">America/Moncton</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Monterrey">America/Monterrey</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Montevideo">America/Montevideo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Montreal">America/Montreal</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Montserrat">America/Montserrat</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Nassau">America/Nassau</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/New_York">America/New York</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Nipigon">America/Nipigon</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Nome">America/Nome</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Noronha">America/Noronha</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/North_Dakota/Beulah">America/North Dakota/Beulah</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/North_Dakota/Center">America/North Dakota/Center</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/North_Dakota/New_Salem">America/North Dakota/New Salem</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Ojinaga">America/Ojinaga</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Panama">America/Panama</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Pangnirtung">America/Pangnirtung</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Paramaribo">America/Paramaribo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Phoenix">America/Phoenix</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Port_of_Spain">America/Port of Spain</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Port-au-Prince">America/Port-au-Prince</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Porto_Velho">America/Porto Velho</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Puerto_Rico">America/Puerto Rico</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Rainy_River">America/Rainy River</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Rankin_Inlet">America/Rankin Inlet</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Recife">America/Recife</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Regina">America/Regina</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Resolute">America/Resolute</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Rio_Branco">America/Rio Branco</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Santa_Isabel">America/Santa Isabel</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Santarem">America/Santarem</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Santiago">America/Santiago</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Santo_Domingo">America/Santo Domingo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Sao_Paulo">America/Sao Paulo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Scoresbysund">America/Scoresbysund</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Shiprock">America/Shiprock</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Sitka">America/Sitka</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/St_Barthelemy">America/St Barthelemy</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/St_Johns">America/St Johns</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/St_Kitts">America/St Kitts</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/St_Lucia">America/St Lucia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/St_Thomas">America/St Thomas</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/St_Vincent">America/St Vincent</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Swift_Current">America/Swift Current</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Tegucigalpa">America/Tegucigalpa</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Thule">America/Thule</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Thunder_Bay">America/Thunder Bay</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Tijuana">America/Tijuana</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Toronto">America/Toronto</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Tortola">America/Tortola</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Vancouver">America/Vancouver</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Whitehorse">America/Whitehorse</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Winnipeg">America/Winnipeg</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Yakutat">America/Yakutat</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="America/Yellowknife">America/Yellowknife</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Casey">Antarctica/Casey</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Davis">Antarctica/Davis</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/DumontDUrville">Antarctica/DumontDUrville</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Macquarie">Antarctica/Macquarie</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Mawson">Antarctica/Mawson</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/McMurdo">Antarctica/McMurdo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Palmer">Antarctica/Palmer</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Rothera">Antarctica/Rothera</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/South_Pole">Antarctica/South Pole</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Syowa">Antarctica/Syowa</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Antarctica/Vostok">Antarctica/Vostok</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Arctic/Longyearbyen">Arctic/Longyearbyen</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Aden">Asia/Aden</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Almaty">Asia/Almaty</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Amman">Asia/Amman</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Anadyr">Asia/Anadyr</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Aqtau">Asia/Aqtau</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Aqtobe">Asia/Aqtobe</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Ashgabat">Asia/Ashgabat</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Baghdad">Asia/Baghdad</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Bahrain">Asia/Bahrain</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Baku">Asia/Baku</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Bangkok">Asia/Bangkok</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Beirut">Asia/Beirut</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Bishkek">Asia/Bishkek</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Brunei">Asia/Brunei</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Choibalsan">Asia/Choibalsan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Chongqing">Asia/Chongqing</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Colombo">Asia/Colombo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Damascus">Asia/Damascus</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Dhaka">Asia/Dhaka</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Dili">Asia/Dili</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Dubai">Asia/Dubai</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Dushanbe">Asia/Dushanbe</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Gaza">Asia/Gaza</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Harbin">Asia/Harbin</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Ho_Chi_Minh">Asia/Ho Chi Minh</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Hong_Kong">Asia/Hong Kong</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Hovd">Asia/Hovd</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Irkutsk">Asia/Irkutsk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Jakarta">Asia/Jakarta</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Jayapura">Asia/Jayapura</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Jerusalem">Asia/Jerusalem</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kabul">Asia/Kabul</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kamchatka">Asia/Kamchatka</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Karachi">Asia/Karachi</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kashgar">Asia/Kashgar</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kathmandu">Asia/Kathmandu</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kolkata">Asia/Kolkata</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Krasnoyarsk">Asia/Krasnoyarsk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kuala_Lumpur">Asia/Kuala Lumpur</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kuching">Asia/Kuching</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Kuwait">Asia/Kuwait</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Macau">Asia/Macau</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Magadan">Asia/Magadan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Makassar">Asia/Makassar</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Manila">Asia/Manila</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Muscat">Asia/Muscat</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Nicosia">Asia/Nicosia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Novokuznetsk">Asia/Novokuznetsk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Novosibirsk">Asia/Novosibirsk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Omsk">Asia/Omsk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Oral">Asia/Oral</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Phnom_Penh">Asia/Phnom Penh</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Pontianak">Asia/Pontianak</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Pyongyang">Asia/Pyongyang</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Qatar">Asia/Qatar</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Qyzylorda">Asia/Qyzylorda</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Rangoon">Asia/Rangoon</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Riyadh">Asia/Riyadh</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Sakhalin">Asia/Sakhalin</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Samarkand">Asia/Samarkand</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Seoul">Asia/Seoul</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Shanghai">Asia/Shanghai</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Singapore">Asia/Singapore</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Taipei">Asia/Taipei</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Tashkent">Asia/Tashkent</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Tbilisi">Asia/Tbilisi</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Tehran">Asia/Tehran</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Thimphu">Asia/Thimphu</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Tokyo">Asia/Tokyo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Ulaanbaatar">Asia/Ulaanbaatar</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Urumqi">Asia/Urumqi</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Vientiane">Asia/Vientiane</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Vladivostok">Asia/Vladivostok</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Yakutsk">Asia/Yakutsk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Yekaterinburg">Asia/Yekaterinburg</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Asia/Yerevan">Asia/Yerevan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Azores">Atlantic/Azores</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Bermuda">Atlantic/Bermuda</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Canary">Atlantic/Canary</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Cape_Verde">Atlantic/Cape Verde</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Faroe">Atlantic/Faroe</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Madeira">Atlantic/Madeira</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Reykjavik">Atlantic/Reykjavik</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/South_Georgia">Atlantic/South Georgia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/St_Helena">Atlantic/St Helena</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Atlantic/Stanley">Atlantic/Stanley</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Adelaide">Australia/Adelaide</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Brisbane">Australia/Brisbane</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Broken_Hill">Australia/Broken Hill</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Currie">Australia/Currie</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Darwin">Australia/Darwin</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Eucla">Australia/Eucla</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Hobart">Australia/Hobart</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Lindeman">Australia/Lindeman</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Lord_Howe">Australia/Lord Howe</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Melbourne">Australia/Melbourne</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Perth">Australia/Perth</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Australia/Sydney">Australia/Sydney</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Amsterdam">Europe/Amsterdam</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Andorra">Europe/Andorra</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Athens">Europe/Athens</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Belgrade">Europe/Belgrade</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Berlin">Europe/Berlin</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Bratislava">Europe/Bratislava</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Brussels">Europe/Brussels</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Bucharest">Europe/Bucharest</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Budapest">Europe/Budapest</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Chisinau">Europe/Chisinau</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Copenhagen">Europe/Copenhagen</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Dublin">Europe/Dublin</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Gibraltar">Europe/Gibraltar</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Guernsey">Europe/Guernsey</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Helsinki">Europe/Helsinki</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Isle_of_Man">Europe/Isle of Man</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Istanbul">Europe/Istanbul</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Jersey">Europe/Jersey</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Kaliningrad">Europe/Kaliningrad</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Kiev">Europe/Kiev</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Lisbon">Europe/Lisbon</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Ljubljana">Europe/Ljubljana</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/London">Europe/London</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Luxembourg">Europe/Luxembourg</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Madrid">Europe/Madrid</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Malta">Europe/Malta</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Mariehamn">Europe/Mariehamn</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Minsk">Europe/Minsk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Monaco">Europe/Monaco</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Moscow">Europe/Moscow</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Oslo">Europe/Oslo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Paris">Europe/Paris</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Podgorica">Europe/Podgorica</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Prague">Europe/Prague</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Riga">Europe/Riga</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Rome">Europe/Rome</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Samara">Europe/Samara</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/San_Marino">Europe/San Marino</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Sarajevo">Europe/Sarajevo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Simferopol">Europe/Simferopol</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Skopje">Europe/Skopje</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Sofia">Europe/Sofia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Stockholm">Europe/Stockholm</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Tallinn">Europe/Tallinn</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Tirane">Europe/Tirane</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Uzhgorod">Europe/Uzhgorod</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Vaduz">Europe/Vaduz</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Vatican">Europe/Vatican</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Vienna">Europe/Vienna</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Vilnius">Europe/Vilnius</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Volgograd">Europe/Volgograd</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Warsaw">Europe/Warsaw</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Zagreb">Europe/Zagreb</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Zaporozhye">Europe/Zaporozhye</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Europe/Zurich">Europe/Zurich</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Antananarivo">Indian/Antananarivo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Chagos">Indian/Chagos</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Christmas">Indian/Christmas</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Cocos">Indian/Cocos</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Comoro">Indian/Comoro</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Kerguelen">Indian/Kerguelen</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Mahe">Indian/Mahe</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Maldives">Indian/Maldives</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Mauritius">Indian/Mauritius</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Mayotte">Indian/Mayotte</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Indian/Reunion">Indian/Reunion</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Apia">Pacific/Apia</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Auckland">Pacific/Auckland</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Chatham">Pacific/Chatham</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Chuuk">Pacific/Chuuk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Easter">Pacific/Easter</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Efate">Pacific/Efate</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Enderbury">Pacific/Enderbury</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Fakaofo">Pacific/Fakaofo</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Fiji">Pacific/Fiji</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Funafuti">Pacific/Funafuti</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Galapagos">Pacific/Galapagos</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Gambier">Pacific/Gambier</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Guadalcanal">Pacific/Guadalcanal</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Guam">Pacific/Guam</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Honolulu">Pacific/Honolulu</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Johnston">Pacific/Johnston</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Kiritimati">Pacific/Kiritimati</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Kosrae">Pacific/Kosrae</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Kwajalein">Pacific/Kwajalein</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Majuro">Pacific/Majuro</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Marquesas">Pacific/Marquesas</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Midway">Pacific/Midway</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Nauru">Pacific/Nauru</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Niue">Pacific/Niue</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Norfolk">Pacific/Norfolk</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Noumea">Pacific/Noumea</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Pago_Pago">Pacific/Pago Pago</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Palau">Pacific/Palau</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Pitcairn">Pacific/Pitcairn</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Pohnpei">Pacific/Pohnpei</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Port_Moresby">Pacific/Port Moresby</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Rarotonga">Pacific/Rarotonga</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Saipan">Pacific/Saipan</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Tahiti">Pacific/Tahiti</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Tarawa">Pacific/Tarawa</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Tongatapu">Pacific/Tongatapu</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Wake">Pacific/Wake</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="Pacific/Wallis">Pacific/Wallis</ion-radio>
+			<ion-radio ng-model="data.timeZone" ng-change="updateTimeZone()" name="timezones" value="UTC">UTC</ion-radio>
+			
+    </ion-list>
+
+    <!--
+    <div ng-show="notificationsUpdated" class="UI-alert">
+      {{ 'NOTIFICATIONS_UPDATED' | translate }}
+    </div>
+
+    <div ng-show="receiveEmailsUpdated" class="UI-alert">
+     {{ 'EMAIL_PREFERENCES_UPDATED' | translate }}
+    </div>
+
+    <div ng-show="goalAlertUpdated" class="UI-alert">
+     {{ 'GOAL_ALERT_UPDATED' | translate }}
+    </div>
+    -->
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,53 @@
+<ion-view cache-view="false" view-title="Add People" ng-controller="AddPeopleCtrl">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon ion-chevron-left client-positive" ng-click="goBack()">Back</button>
+  </ion-nav-buttons>
+  <!-- uncomment when Add Conact functionality will be implemented-->
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-icon" style="color:#2695f9" ng-click="AddContact()">Add Contact</button>-->
+  <!--</ion-nav-buttons>-->
+  <ion-content blur-on-scroll>
+
+    <div class="list list-add-triby contacts">
+      <label class="item item-input no_border">
+        <input type="text" ng-change="searchByProfileName(query)" ng-model="query" placeholder="Search Usernames and Contacts" class='users-search'>
+      </label>
+    </div>
+
+    <ion-list class="list-search registered contacts-page">
+      <ion-item class="item-avatar no_border" ng-repeat="user in regUsers" ng-click="openChat(user)">
+        <div class="no_border item item-toggle">
+          <img ng-src="{{::user.pic || 'img/default_avatar.jpg'}}" />
+          <img class="triby" src="img/triby_comment_icon.png">
+          <p class="profile-name">{{user.username | limitName}}</p>
+          <p class="username">{{::user.profilename ? '@' + user.profilename : '' | limitName}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div class="lists-divider"></div>
+
+    <ion-list class="list-search">
+      <ion-item class="item-avatar no_border" ng-repeat="contact in contacts | startsWith:query">
+        <ion-toggle class="no_border" ng-model="contact.checked" ng-checked="contact.checked">
+          <span class = "name">{{::contact.name}}</span><br>
+          <span class = "phone">{{::contact.type || "mobile"}}  {{::contact.mobilenumber}}</span>
+        </ion-toggle>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+  <ion-footer-bar keyboard-attach class="bar bar-footer bar-stable comment_footer_wrapper" >
+    <div ng-class="{disabled: invitesLength === 0, 'invite':true}" ng-click="inviteToTriby()">
+      <p>
+        <span>{{checkedCount()}}</span>
+        Invite to Triby
+      </p>
+    </div>
+  </ion-footer-bar>
+
+</ion-view>
+
+
+

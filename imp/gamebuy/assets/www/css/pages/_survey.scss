@@ -1,0 +1,280 @@
+
+
+.survey_wrapper {
+    @extend %full-page-bkg;
+    position: relative;
+
+    .button {
+        padding: 4px 0;
+    }
+}
+
+.survey_logo {
+    width: 90px;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+
+    .platform-ios & {
+        top: 85px;
+    }
+}
+
+.survey_main {
+    width: 90%;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    @include translate(-50%, -50%);
+
+    @media screen and (max-height: 568px) {
+        top: 276px;
+
+        .survey_wish & {
+            top: 45%;
+        }
+
+        .survey_sell & {
+            top: 45%;
+        }
+    }
+}
+
+.survey_title {
+    @extend %title;
+    margin-bottom: 35px;
+
+    .platform-ios & {
+        margin-bottom: 25px;
+    }
+
+    @media screen and (max-height: 640px) {
+        margin-bottom: 20px;
+    }
+
+    @media screen and (max-height: 568px) {
+        margin-bottom: 12px;
+    }
+    
+    @media screen and (max-height: 480px) {
+        .platform-ios & {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.survey_group-wrapper {
+    @include flexParentLayout;
+    @include justifyContent;
+}
+
+.survey_group {
+
+    margin-bottom: 20px;
+
+    @media screen and (max-height: 568px) {
+        margin-bottom: 8px;
+    }
+
+    .survey_platform & {
+        width: 46%;
+    }
+
+    .survey_wish & {
+        width: 32%;
+    }
+
+    .survey_sell & {
+        width: 32%;
+    }
+
+}
+
+.survey_box {
+    @extend %title;
+    width: 100%;
+    border: 1px solid rgba(white, 0.2);
+    color: white;
+    @include borderRadius($radius: 12px); // Change it according to the height
+
+    .survey_platform & {
+        @include borderRadius($radius: 30px);
+        height: 30px;
+        line-height: 28px;
+    }
+}
+
+.survey_box-active {
+    border-color: $gbgGreen;
+    color: $gbgGreen;
+    @include animation;
+}
+
+.survey_footer {
+    @extend %btm-nav;
+}
+
+.survey_nav {
+    margin-bottom: 12px;
+}
+
+.survey_nav-list {
+    width: 56px;
+    margin: 0 auto;
+    @include flexParentLayout;
+    @include justifyContent;
+}
+
+.survey_nav-item {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 1px solid $gbgGreen;
+    @include borderRadius($radius: 50%);
+}
+
+.survey_nav-item-active {
+    background-color: $gbgGreen;
+}
+
+
+
+
+
+.survey_game-thumbnail {
+    position: relative;
+    margin: 12px auto 6px;
+    @include flexParentLayout;
+    @include justifyContent(center);
+
+    img {
+        height: 76px;
+        display: block;
+    }
+
+    @media screen and (max-height: 568px) {
+        img {
+            height: 50px;
+        }
+    }
+
+    @media screen and (max-height: 480px) {
+        margin-top: 6px;
+    }
+}
+
+.survey_game-title {
+    @extend %title;
+    width: 100%;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    margin: 4px 0 8px;
+    padding: 0 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @media screen and (max-height: 568px) {
+        line-height: 1.25;
+        margin: 4px 0;
+    }
+}
+
+//.survey_wish-icon {
+//
+//    display: block;
+//    margin: 4px 0;
+//
+//    &::before {
+//        color: white;
+//        opacity: 0.2;
+//    }
+//
+//    .survey_box-active &::before {
+//        color: $gbgGreen;
+//        opacity: 1;
+//    }
+//}
+
+
+.survey_sell-cta {
+    @extend %title;
+    color: $gbgGreen;
+}
+
+.survey_price {
+    @extend %title;
+    font-size: 0.75rem;
+    margin: 4px 0 8px;
+
+    @media screen and (max-height: 568px) {
+        font-size: 0.625rem;
+    }
+
+    @media screen and (max-height: 480px) {
+        margin-bottom: 4px;
+    }
+
+    .gbg-currency img {
+        @media screen and (max-height: 568px) {
+            height: 11px;
+        }
+    }
+}
+
+.survey_skip {
+    color: rgba(white, 0.6);
+    position: absolute;
+    left: 0;
+    top: 28px;
+
+    .platform-ios & {
+        top: 40px;
+    }
+
+    @media screen and (max-height: 480px) {
+        .platform-ios & {
+            top: 35px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

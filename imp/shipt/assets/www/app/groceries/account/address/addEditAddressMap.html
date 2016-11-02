@@ -1,0 +1,22 @@
+<ion-view class="address-map" view-title="Address">
+    <ion-nav-buttons side="right">
+
+    </ion-nav-buttons>
+    <ion-content>
+      <div id="should-be-map">
+        <script type="text/ng-template" id="searchbox.tpl.html">
+          <input type="text" class="map-search" placeholder="Search for Address">
+        </script>
+        <div data-tap-disabled="false">
+            <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+              <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+              </ui-gmap-marker>
+              <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="searchbox.position"></ui-gmap-search-box>
+            </ui-gmap-google-map>
+        </div>
+      </div>
+      <button class="button button-positive button-full map-submit" type="submit" ng-click="saveMapLocation(searchbox)">
+          Save Address
+      </button>
+    </ion-content>
+</ion-view>

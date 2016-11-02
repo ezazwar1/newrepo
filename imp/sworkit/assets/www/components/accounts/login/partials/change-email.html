@@ -1,0 +1,57 @@
+<ion-modal-view class="modal-view auth-view auth-outer edit-profile-modal forgot-password-view">
+    <ion-header-bar>
+        <h1 class="title modal-title">{{'CHANGEEMAIL' | translate}}</h1>
+        <a class="button button-clear" ng-click="cancelChangeEmail()">{{'CANCEL_SM' | translate}}</a>
+    </ion-header-bar>
+    <ion-content class="">
+        <ion-spinner ng-if="data.loading" class="spinner-on-load"></ion-spinner>
+        <div class="row form-wrapper">
+            <div class="col">
+                <form name="emailForm" novalidate ng-submit="confirmEmailChange(emailForm)">
+                    <div class="form-fields-outer list list-inset">
+                        <label class="item item-input">
+                            <input type="email" placeholder="{{'CURREMAIL' | translate}}" ng-readonly="true"
+                                   name="email" ng-model="user.email" required>
+                        </label>
+                        <label class="item item-input">
+                            <input type="email" placeholder="{{'NEWEMAIL' | translate}}" name="newEmail"
+                                   ng-model="data.newEmail" required>
+                        </label>
+                        <label class="item item-input" show-hide-container>
+                            <input type="password" placeholder="{{'CURRPASS' | translate}}" name="password"
+                                   ng-model="data.password" required show-hide-input>
+                        </label>
+                    </div>
+                    <p ng-if="error" class="message error">{{error}}</p>
+                    <div class="error-container"
+                         ng-if="(data.password.$invalid || emailForm.newEmail.$invalid || data.incorrectPassword || data.errorMessage) && emailForm.submitted">
+                        <small class="message error"
+                               ng-if="emailForm.newEmail.$invalid">
+                            {{'NOTVALIDEMAIL' | translate}}
+                        </small>
+                        <small class="message error"
+                               ng-if="emailForm.newEmail.$error.required">
+                            {{'NEWEMAILREQ' | translate}}
+                        </small>
+                        <small class="message error"
+                               ng-if="emailForm.password.$error.required">
+                            {{'CURRPASSREQ' | translate}}
+                        </small>
+                        <small class="message error"
+                               ng-if="data.incorrectPassword">
+                            {{'PASSINCORRECT' | translate}}
+                        </small>
+                        <small class="message error"
+                               ng-if="data.errorMessage">
+                            {{data.errorMessage}}
+                        </small>
+                    </div>
+                    <button type="submit" class="sign-up button button-block margin-top"
+                            ng-class="{'pseudo-disabled':emailForm.$invalid}">
+                        {{'CHANGEEMAIL' | translate}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

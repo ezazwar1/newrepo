@@ -1,0 +1,106 @@
+<ion-view view-title="Warnings" ng-controller="warningsCtrl as wc">
+    <ion-nav-bar class="bar no-border blue">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i>
+        </ion-nav-back-button>
+        <ion-nav-buttons side="left">
+            <button  menu-toggle="left" class="hamburger hamburger--spring" type="button" ng-class="$root.$ionicSideMenuDelegate.isOpen() ? 'is-active' : ''">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <!-- <button menu-toggle="left" class="button button-icon icon ion-navicon" ></button> -->
+        </ion-nav-buttons>
+        <!-- <ion-nav-buttons side="right">
+            <button ng-click="wc.refreshData(sub_title)" class="button button-icon"><i class="settings-icon ion-ios-reload"></i></button>
+        </ion-nav-buttons> -->
+    </ion-nav-bar>
+
+	<ion-content class="has-header" ng-class="{'has-tabs-top': $root.isAndroid}">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="get_initial(); disableSwipe();">
+            <ion-slide ng-init="wc.get_watch()">
+               <div class="card b-info wide" >
+                    <div class="item item-divider text-center">
+                        <i class="icon pull-left ion-flag"></i>
+                        <p>Watch</p>
+                        <p ng-if="wc.wt_items.issuedAt">{{wc.wt_items.insertionDateFormatted}}</p>
+                        <p ng-if="wc.wt_items.issuedAt">Issued at {{wc.wt_items.issuedAt}}</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span ng-if="wc.wt_items.textArea1" class="em-txt"><p>{{wc.wt_items.textArea1}}</p><br/></span>
+                        <span ng-if="wc.wt_items.textArea2" class="em-txt"><p>{{wc.wt_items.textArea2}}</p><br/></span>
+                        <span ng-if="wc.wt_items.textArea3" class="em-txt"><p>{{wc.wt_items.textArea3}}</p><br/></span>
+                        <span ng-if="!wc.wt_items" class="em-txt text-center"><p>There is no <strong>Watch</strong> at this time</p></span>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide ng-init="wc.get_warn()">
+                <div class="card b-info wide" >
+                    <div class="item item-divider text-center">
+                        <i class="icon pull-left ion-flag"></i>
+                        <p>Warnings</p>
+                        <p ng-if="wc.w_items.issuedAt">{{wc.w_items.insertionDateFormatted}}</p>
+                        <p ng-if="wc.w_items.warnType">Issued at {{wc.w_items.issuedAt}}</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span ng-if="wc.w_items.textArea1" class="em-txt"><p>{{wc.w_items.textArea1}}</p><br/></span>
+                        <span ng-if="wc.w_items.textArea2" class="em-txt"><p>{{wc.w_items.textArea2}}</p><br/></span>
+                        <span ng-if="wc.w_items.textArea3" class="em-txt"><p>{{wc.w_items.textArea3}}</p><br/></span>
+                        <span ng-if="!wc.w_items" class="em-txt text-center"><p>There is no <strong>Warning</strong> at this time</p></span>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide ng-init="wc.get_sigmet()">
+                <div class="card b-info wide" >
+                    <div class="item item-divider text-center">
+                        <i class="icon pull-left ion-flag"></i>
+                        <p>Sigmet</p>
+                        <p ng-if="wc.s_items.issuedAt">{{wc.s_items.insertionDateFormatted}}</p>
+                        <p ng-if="wc.s_items.warnType">Issued at {{wc.s_items.issuedAt}}</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span ng-if="wc.s_items.textArea1" class="em-txt"><p>{{wc.s_items.textArea1}}</p><br/></span>
+                        <span ng-if="wc.s_items.textArea2" class="em-txt"><p>{{wc.s_items.textArea2}}</p><br/></span>
+                        <span ng-if="wc.s_items.textArea3" class="em-txt"><p>{{wc.s_items.textArea3}}</p><br/></span>
+                        <span ng-if="!wc.s_items" class="em-txt text-center"><p>There is no <strong>Sigmet</strong> at this time</p></span>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide ng-init="wc.get_o_air()">
+                <div class="card b-info wide" >
+                    <div class="item item-divider text-center">
+                        <i class="icon pull-left ion-flag"></i>
+                        <p>Airmet</p>
+                        <p ng-if="wc.o_items.issuedAt">{{wc.o_items.insertionDateFormatted}}</p>
+                        <p ng-if="wc.o_items.warnType">Issued at {{wc.o_items.issuedAt}}</p>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span ng-if="wc.o_items.textArea1" class="em-txt"><p>{{wc.o_items.textArea1}}</p><br/></span>
+                        <span ng-if="wc.o_items.textArea2" class="em-txt"><p>{{wc.o_items.textArea2}}</p><br/></span>
+                        <span ng-if="wc.o_items.textArea3" class="em-txt"><p>{{wc.o_items.textArea3}}</p><br/></span>
+                        <span ng-if="!wc.o_items" class="em-txt text-center"><p>There is no <strong>Airmet</strong> at this time</p></span>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+	</ion-content>
+
+	 <!-- android tabs style -->
+    <ion-tabs class="tabs-color-active-positive tabs-themed" ng-if="$root.isAndroid">
+      	<ion-tab title="Watches" on-select="slide(0)"></ion-tab>
+      	<ion-tab title="Warnings" on-select="slide(1)"></ion-tab>
+    </ion-tabs>
+
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-if="!$root.isAndroid">
+ 		<ion-tab title="Watches" icon-off="ion-alert" icon-on="ion-alert" on-select="slide(0)"></ion-tab>
+      	<ion-tab title="Warnings" icon-off="ion-android-warning" icon-on="ion-android-warning" on-select="slide(1)"></ion-tab>
+    </ion-tabs>
+
+    <!-- original tab layout -->
+    <!-- <ion-tabs class="tabs-icon-top tabs-color-active-positive" ng-class="{'tabs-themed': $root.isAndroid}"> -->
+      <!-- <ion-tab title="Watches" icon-off="ion-alert" icon-on="ion-alert" on-select="slide(0)"></ion-tab> -->
+      <!-- <ion-tab title="Warnings" icon-off="ion-android-warning" icon-on="ion-android-warning" on-select="slide(1)"></ion-tab> -->
+      <!-- <ion-tab title="Sigmet" icon-off="ion-paper-airplane" icon-on="ion-ios-arrow-up" on-select="slide(2)"></ion-tab> -->
+      <!-- <ion-tab title="Airmet" icon-off="ion-paper-airplane" icon-on="ion-ios-arrow-up" on-select="slide(3)"></ion-tab> -->
+    <!-- </ion-tabs> -->
+</ion-view>

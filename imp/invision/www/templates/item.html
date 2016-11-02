@@ -1,0 +1,29 @@
+<ion-view>
+	<ion-nav-title>{{itemCtrl.category.name}}</ion-nav-title>
+	<ion-pane>
+		<ion-content>
+			<ion-item class="ion-item">
+				<div class="item-image">
+					<img data-ng-src="{{itemCtrl.item.img}}">
+					<h1 data-ng-bind-html="itemCtrl.item.title|trustHtml"></h1>
+				</div>
+				<div class="item-content article-content">
+					<div class="row item-tools">
+						<div class="col col-33"><i class="icon ion-radio-waves"></i>{{itemCtrl.item.source}}</div>
+						<div class="col col-33"><i class="icon ion-clock"></i>{{itemCtrl.item.date | date:'MMM d, y'}}</div>
+						<div class="col col-33 right-align item-category">
+							<a data-ui-sref="app.category({categoryId: itemCtrl.category.id})">{{itemCtrl.category.name}}</a>
+						</div>
+					</div>
+					<div class="row item-tools">
+						<div class="col"><a data-ui-sref="app.comments({itemId: itemCtrl.item.id})">Comments</a></div>
+					</div>
+					<div class="row">
+						<div class="col" data-ng-bind-html="itemCtrl.item.description|trustHtml"></div>
+					</div>
+					<srf-social-share data-config="itemCtrl.share"></srf-social-share>
+				</div>
+			</ion-item>
+		</ion-content>
+	</ion-pane>
+</ion-view>

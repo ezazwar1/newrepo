@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="css/app.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet"> -->
+
+    <script type="text/javascript">
+        window.onerror = function(message, url, lineNumber) {
+            console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+        }
+    </script>
+
+    <!-- ionic/angularjs js -->
+    <script src="http://code.ionicframework.com/1.0.0-beta.9/js/ionic.bundle.min.js"></script>
+    <!-- <script src="lib/ionic/js/ionic.bundle.min.js"></script> -->
+
+    <!-- Parse SDK -->
+    <script src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- Facebook Connect Plugin -->
+    <script src="js/util/facebookConnectPlugin.js"></script>
+
+    <script src="js/util/parsePlugin.js"></script>
+
+    <!-- Parse Angular Patch -->
+    <script src="lib/parse-angular-patch/dist/parse-angular.js"></script>
+
+    <!-- OAuth.io -->
+    <script src="oauth.js"></script>
+    <script src="lib/oauth-js/dist/oauth.min.js"></script>
+
+    <!-- Moment JS -->
+    <script src="lib/moment/min/moment.min.js"></script>
+
+    <!-- jsTimeZoneDetect -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js"></script>
+
+    <!-- Angular Local Storage -->
+    <script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+
+    <script src="js/app.js"></script>
+    
+    <!-- Import Controllers -->
+    <script src="js/controllers/onboarding/opening.js"></script>
+    <script src="js/controllers/onboarding/share-permissions.js"></script>
+    <script src="js/controllers/onboarding/connect.js"></script>
+    <script src="js/controllers/onboarding/future.js"></script>
+    <script src="js/controllers/onboarding/push.js"></script>
+
+    <script src="js/controllers/feed.js"></script>
+    <script src="js/controllers/settings.js"></script>
+    <script src="js/controllers/share.js"></script>
+    <script src="js/controllers/canvas.js"></script>
+    <!-- End Import Controllers -->
+
+    <!-- Import Services -->
+    <script src="js/services/user/auth.js"></script>
+    <script src="js/services/user/user.js"></script>
+    <script src="js/services/user/action.js"></script>
+    <script src="js/services/user/visitor.js"></script>
+
+    <script src="js/services/clients/instagram.js"></script>
+    <script src="js/services/clients/twitter.js"></script>
+
+    <script src="js/services/feed/feed.js"></script>
+
+    <script src="js/services/feed/share/onboardingShare.js"></script>
+    <script src="js/services/feed/share/share.js"></script>
+
+    <script src="js/services/feed/activities/activity.js"></script>
+    <script src="js/services/feed/activities/twitterActivity.js"></script>
+    <script src="js/services/feed/activities/instagramActivity.js"></script>
+    <script src="js/services/feed/activities/facebookActivity.js"></script>
+    <script src="js/services/feed/activities/soundCloudActivity.js"></script>
+
+    <script src="js/services/models/activity.js"></script>
+
+    <script src="js/services/util/config.js"></script>
+    <script src="js/services/util/canvas.js"></script>
+    <script src="js/services/util/push.js"></script>
+    <script src="js/services/util/network.js"></script>
+    <script src="js/services/util/image.js"></script>
+    <script src="js/services/util/time.js"></script>
+    <!-- End Import Services -->
+
+    <div id="fb-root"></div>
+  </head>
+  <body ng-app="throwbackMobile" animation="slide-left-right-ios7" class="platform-android platform-cordova platform-webview">
+    <!-- 
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar bar-header bar-color nav-title-slide-ios7">
+    </ion-nav-bar>
+    <!-- 
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view name="content"></ion-nav-view>
+  </body>
+</html>

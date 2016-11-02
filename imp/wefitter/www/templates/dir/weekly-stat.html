@@ -1,0 +1,20 @@
+<div class="weekly-stat-wrapper">
+	<h5 class="dash-header" ui-sref="app.activities">{{ title }}</h5>
+
+  <div class="dark-bg padding">
+    <div class="row">
+      <div class="col">
+        <wf-icon title="{{ 'UNIT.KCAL' | translate }}" icon="wf-calorie" caption="{{ (stat.calories.value | number) }} {{ stat.calories.units }}"></wf-icon>
+      </div>
+      <div class="col">
+        <wf-icon title="{{ 'UNIT.DISTANCE' | translate }}" icon="wf-distance-shoe" caption="{{ stat.distance.value | number:0 }} {{ stat.distance.units }}"></wf-icon>
+      </div>
+      <div class="col">
+        <wf-icon title="{{ 'UNIT.TIME' | translate }}" icon="wf-time" caption="{{stat.duration.value | number }} {{ stat.duration.units }}"></wf-icon>
+      </div>
+      <div class="col">
+        <wf-icon title="{{ 'UNIT.POINTS' | translate }}" icon="wf-coins" caption="{{ stat.points | number }} {{ 'UNIT.PTS' | translate }}"></wf-icon>
+      </div>
+    </div>
+  </div>
+</div>

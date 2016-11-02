@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/main.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+      <script src="js/config.js"></script>
+      <script src="lib/ionic/js/angular/angular-local-storage.js"></script>
+
+      <script src="js/jaydata.js"></script>
+      <script src="js/q.js"></script>
+      <script src="js/jaydatamodules/qDeferred.js"></script>
+      <script src="js/latlon.js"></script>
+      <script src="js/jquery-2.0.3.min.js"></script>
+      <script src="js/imagemap-resize/maphilight.js"></script>
+      <script src="js/imagemap-resize/jquery.rwdImageMaps.min.js"></script>
+
+      <script src="js/panzoom/panzoom.js"></script>
+      <script src="js/panzoom/pointertouch.js"></script>
+      <script src="js/translate/angular-translate.js"></script>
+
+
+
+      <script type="text/javascript" charset="utf-8">
+
+          function randomizer(min,max) {
+              randomresult = Math.random() * (max - min) + min;
+              return randomresult;
+          }
+
+
+          $('area').on('click', function() {
+              alert($(this).attr('alt') + ' clicked');
+          });
+      </script>
+  </head>
+
+  <body ng-app="starter" class="platform-android platform-cordova platform-webview">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

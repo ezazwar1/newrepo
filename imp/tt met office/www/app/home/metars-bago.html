@@ -1,0 +1,33 @@
+<ion-view id="home_menu-modal" view-title="Tobago at present" class="of1">
+    <ion-nav-bar class="bar no-border blue">
+        <ion-nav-back-button class="button-clear">
+            <!-- <i class="ion-arrow-left-c"></i> -->
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+        <ion-content scroll="true" class="ms_m has-header" ng-controller="BagoCtrl as bc">
+            <div ng-if="!bc.mdatab" style="height: 100%">
+                <ion-spinner style="display: block; margin: 0 auto; padding-top: 70%" class="dark" icon="lines"></ion-spinner>
+            </div>
+            <div class="row " ng-repeat="item in bc.mdatab">
+                <div class="card wide" ng-if="item.show">
+                    <div class="item item-divider">
+                        {{item.label}}
+                    </div>
+                    <div class="item item-text-wrap">
+                        <div class="row">
+                            <div class="col col-20">
+                                <i class="{{item.icon}}"></i>
+                            </div>
+                            <div class="col col-80">
+                                <div ng-if="item.txt" class="txt-other text-left"><p>{{item.txt}}</p></div>
+                                <!-- <br ng-if="!item.txt"> -->
+                                <p class="txt" id="{{item.el}}" ng-class="{'move_top': item.value == 'Calm'}">{{item.value}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    <!-- </div> -->
+</ion-view>

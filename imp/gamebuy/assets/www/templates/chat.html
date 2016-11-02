@@ -1,0 +1,49 @@
+<ion-view class="chat-content" title="Chat">
+    <ion-nav-buttons side="left">
+        <button ui-sref="tab.chats" class="button button-clear button-positive ion-chevron-left button--top-bar-left">Chats</button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear button-positive ion-person button--top-bar-right" ng-click="goto_gamer_profile_by_tab('chats')">
+            Profile
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content scroll="true" padding="false">
+
+        <ion-refresher
+                spinner = 'ripple'
+                pulling-text="Load older messages..."
+                on-refresh="load_older_chats()">
+        </ion-refresher>
+
+        <ion-list>
+            <ion-item class="item chat-content_chat-line-wrapper" ng-repeat="chat in data.chats">
+
+                <p class="chat-content_chat-line">
+                    <span class="chat-content_name">{{chat.speaker_name}}</span>
+                    <span class="chat-content_content">{{chat.content}}</span>
+                    <span class="chat-content_time">{{chat.created_on|date:'MMM/dd h:mma'}}</span>
+                </p>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+<ion-list class="chat-content_chat-input">
+    <div class="item item-input-inset">
+
+        <label class="item-input-wrapper">
+            <textarea class="form-textarea form-textarea-chat" elastictext="" placeholder="{{data.current_chat}}"
+                      ng-model="data.current_chat"></textarea>
+<!--             <textarea class="form-textarea chat-textarea" cols="30" rows="5" placeholder="{{data.current_chat}}"
+                      ng-model="data.current_chat"></textarea> -->
+            <!--<input class="form-input chat-input" type="text" placeholder="{{data.current_chat}}" ng-model="data.current_chat">-->
+        </label>
+
+        <button class="button button-primary button-chat" ng-click="add_chat()">
+            Submit
+        </button>
+
+    </div>
+</ion-list>

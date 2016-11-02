@@ -1,0 +1,43 @@
+<ion-view title="Rates">
+    <ion-content scroll="true" padding="false">
+        <div class="intro" ng-if="data.rates_placeholderpic_flag">
+            <img class="intro_graphic" src="img/graphics/controllers/nintendo-classic.png"
+                 alt="Start trading video games on GBG">
+
+            <p class="intro_tips">{{data.GamerMetricsRatesCtrl_message}}</p>
+        </div>
+        <ion-list>
+            <ion-item ng-click="goto_gamer_profile_by_tab(rate.gamer_id)" ng-repeat="rate in data.rates"
+                      class="review_box">
+                <div class="review_user">
+                    <div class="review_avatar">
+                        <img class="review_avatar-clip" ng-if="!rate.profile_pic"
+                             ng-src="https://graph.facebook.com/{{rate.fb_id}}/picture?type=normal">
+                        <img class="review_avatar-clip" ng-if="rate.profile_pic" ng-src={{rate.profile_pic}}>
+                    </div>
+                    <p class="review_name">{{rate.name}}</p>
+                </div>
+                <div class="review_rate">
+                    <ul class="data_star-{{ rate.rate_score*100 }}">
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                        <li class="data_star"></li>
+                    </ul>
+                </div>
+
+                <p class="review_content">{{rate.rate_comment}}</p>
+
+                <p class="review_time">{{rate.rate_on|date:'MM/dd/yyyy h:mma'}}</p>
+
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+                ng-if="data.rate_there_is_more"
+                on-infinite="load_more_rate()"
+                distance="0%">
+        </ion-infinite-scroll>
+        <!-- /content -->
+    </ion-content>
+</ion-view>

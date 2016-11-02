@@ -1,0 +1,103 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <div class="welzen-popup__header">
+      <div class="welzen-popup__header__icon"><img src="img/ico-pack.png"></div>
+      <span class="welzen-popup__header__title">The Stress Pack</span>
+    </div>
+    <span class="welzen-popup__contents">Unlock access to the full Stress pack, all of the series, the coaching and the guided meditations. That’s a whole lot of mindfulness! Enjoy!</span>
+    <div class="welzen-popup__separator"></div>
+    <span class="welzen-popup__footer">This content requires a premium subscription</span>
+    <a  class="welzen-popup__info-box" ng-click='togglePopUpActive()' href="#/unlock/upgrade">
+      <div class="welzen-popup__info-box__details">
+        <span class="welzen-popup__info-box__details--title">Stress Pack</span>
+        <span class="welzen-popup__info-box__details--brief">30 Day Unlimited Access</span>
+      </div>
+      <span class="welzen-popup__info-box__price">$2.99</span>
+    </a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+<ion-view class="bg-welzen meditation-lists" view-title="Manage Stress">
+  <header align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Manage Stress</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </header>
+
+  <ion-content has-bouncing="true">
+    <div class="container--with-header">
+
+      <a class="info-box--calm--live-style" ng-click='togglePopUpActive()'>
+        <div class="rounded-icon rounded-icon--pinky-play"><img src="img/ico-pack.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Stress Pack</span>
+          <span class="info-box__brief">Purchase all the stress tools</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" href="#/guided-meditations/stress/program">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/btn-play-series.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">Stress Series</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--no-border" href="#/mindfulness-coaching">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/btn-play-coaching.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">Stress Coaching</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <h1 class="title">Single Meditations</h1>
+
+
+      <a class="info-box--transparent info-box--transparent--border-top" href="#/guided-meditations/stress/detail">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/ico-stress-logotype.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">Quick Break</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" href="#">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/ico-anxiety-logotype.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">Stress Free</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" href="#">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/ico-creativity-logotype.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">Deep Sleep</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent" href="#">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/ico-focus-logotype.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">Stress Free</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--no-border" href="#">
+        <div class="rounded-icon rounded-icon--medium"><img src="img/ico-relationships-logotype.png"></div>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__subtitle">Deep Sleep</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

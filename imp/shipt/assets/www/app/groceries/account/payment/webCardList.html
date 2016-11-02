@@ -1,0 +1,64 @@
+<ion-view hide-back-button="true" view-title="Payment">
+    <ion-nav-buttons side="right">
+
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content  darker-content" has-bouncing="true" >
+        <div class="row account-area responsive-lg">
+            <div class="col col-33 area-list">
+                <div class="selection-list">
+                    <div class="section-body">
+                        <a class="button section-item button-light button-full icon" href="#/app/account">
+                            <i class="icon ion-android-person text-positive" aria-hidden="true"></i>
+                            <span>
+                                Account
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                        <a class="button section-item button-light button-full icon" href="#/app/addressList">
+                            <i class="icon ion-home text-positive" aria-hidden="true"></i>
+                            <span>
+                                Addresses
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                        <a  href="#/app/cardList" class="button section-item button-light button-full icon selected">
+                            <i class="icon ion-card  text-positive" aria-hidden="true"></i>
+                            <span>
+                                Payment
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                        <a href="#/app/orders" class="button section-item button-light button-full icon">
+                            <i class="icon ion-ios-albums  text-positive" aria-hidden="true"></i>
+                            <span>
+                                Your Orders
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="area">
+                    <div class="selection-list">
+                        <div class="text-center padding">
+                            <button class="button button-positive" ng-click="addNewCard()">
+                                Add New Card
+                            </button>
+                            <div ng-if="showLoading" class="padding text-center">
+                                <ion-spinner></ion-spinner>
+                            </div>
+                        </div>
+                        <div class="section-body">
+                            <button class="button section-item button-light button-full"
+                                 ng-repeat="card in cards" ng-click="editCard(card)">
+                                     * {{card.last_4_digits}}
+                                     <p>Exp: {{card.exp_date}}</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

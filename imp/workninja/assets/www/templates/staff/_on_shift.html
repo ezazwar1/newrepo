@@ -1,0 +1,27 @@
+<ion-content class="has-header height-100 ninja-padding" scroll="false">
+  <div class="job-page">
+    <div class="job">
+      <div class="wave-t"></div>
+
+      <img class="picture-nomedia" src="img/placeholder.png" ng-src="{{ job.workplace.picture_original_url }}" alt=""/>
+
+      <div class="group">
+        <div class="title">{{ job.workplace.name}}</div>
+        <div class="address">{{ job.suburb }}</div>
+      </div>
+
+      <div class="group">
+        <div class="verified">verified</div>
+        <div class="rating">
+          <angular-ratings class="rating-stars" ng-model="job.workplace.stats_rating" readonly></angular-ratings>
+        </div>
+      </div>
+
+      <div class="wave-b"></div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer-bar class="bar-stable ninja-footer-bar">
+  <button class="button button-block button-balanced button-uppercase button-square" ng-click="stopJob()">Clock Off</button>
+</ion-footer-bar>

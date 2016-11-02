@@ -1,0 +1,29 @@
+<ion-modal-view class="modal login-modal child">
+  <ion-content>
+    <div class="login-title">
+      <div class="back">
+        <button ng-click="closeModal()" class="btn-link link-16"><span class="icon ion-android-arrow-back"></span></button>
+      </div>
+      <div class="title">WELCOME BACK</div>
+      <hr>
+    </div>
+    <div class="login-body" id="loginWrapper">
+      <div class="input-wrapper">
+        <input type="text" class="form-control" placeholder="Email address" ng-model="users.email">
+      </div>
+      <div class="input-wrapper">
+        <input type="password" class="form-control" placeholder="Password" ng-model="users.password">
+      </div>
+      <div class="input-wrapper link-wrapper">
+        <button class="btn-link-small link-13" ng-click="goToResetPassword()">Forgot your password?</button>
+      </div>
+      <div class="btn-wrapper padding-lr">
+        <button class="btn-email" ng-click="login()">Sign in</button>
+      </div>
+    </div>
+    <div class="term detail">
+      By using Getfash, you agree to our <br> <button ng-click="goTo('https://www.getfash.com/info/terms-of-use')" class="btn-link-term">Terms of Use</button> and <button ng-click="goTo('https://www.getfash.com/info/privacy-policy/')" class="btn-link-term">Privacy & policy</button>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

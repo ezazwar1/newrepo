@@ -1,0 +1,44 @@
+<ion-view title="Survey" hide-nav-bar="true">
+    <ion-content>
+        <div class="survey_wish survey_wrapper">
+
+            <button class="button button-link survey_skip" ng-click="skip_wish()">
+                Skip
+            </button>
+
+            <div class="survey_main">
+                <h2 class="survey_title">Select games you want to play</h2>
+
+                <div class="survey_group-wrapper">
+                    <div class="survey_group" ng-repeat="game in data.wish_games">
+                        <div class="survey_box" ng-class="{'survey_box-active': data.select_wishgames.indexOf(game.game_id)!=-1}" ng-click="wish_select(game.game_id)">
+                            <div class="survey_game-thumbnail">
+                                <img src="{{ game.picture }}"/>
+                            </div>
+                            <h4 class="survey_game-title">{{ game.title }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="survey_footer">
+                <div class="survey_nav">
+                    <ul class="survey_nav-list">
+                        <li class="survey_nav-item"></li>
+                        <li class="survey_nav-item survey_nav-item-active"></li>
+                        <li class="survey_nav-item"></li>
+                    </ul>
+                </div>
+                <div class="button-multi">
+                    <button class="button button-primary button-multi_item ion-ios-arrow-left" ng-click="back_to_platform()">
+                        Previous Step
+                    </button>
+                    <button class="button button-primary button-multi_item ion-ios-arrow-right button-icon-right" ng-click="wishgames_submit()">
+                        Next Step
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

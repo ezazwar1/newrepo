@@ -1,0 +1,45 @@
+<ion-modal-view class="touchpoint popoverr passcode">
+
+  <ion-content class="filter-popover" scroll="false">
+
+    <a href="javascript:;" ng-click="closePasscodeModal()" class="go-back" ng-show="canClosePasscodeModal()">X</a>
+
+    <div class="box">
+
+      <h1>{{ getPasscodeTitle() }}</h1>
+
+      <h3 class="passcodeError" ng-show="passcodeError && passcodeError.length > 0">{{ 'PASSCODE_MATCH_ERROR' | translate }}</h3>
+
+      <div class="pass-wrapper">  
+        <span ng-class="{filled: hasPasscodeEntry(1)}">{{ hasPasscodeEntry(1) ? '&#8226;' : '&#8226;' }}</span>
+        <span ng-class="{filled: hasPasscodeEntry(2)}">{{ hasPasscodeEntry(2) ? '&#8226;' : '&#8226;' }}</span>
+        <span ng-class="{filled: hasPasscodeEntry(3)}">{{ hasPasscodeEntry(3) ? '&#8226;' : '&#8226;' }}</span>
+        <span ng-class="{filled: hasPasscodeEntry(4)}">{{ hasPasscodeEntry(4) ? '&#8226;' : '&#8226;' }}</span>
+      </div>
+
+      <div class="num-wrapper">
+        <div class="num-row">
+          <span ng-click="addPasscodeEntry(1)">1</span>
+          <span ng-click="addPasscodeEntry(2)">2</span>
+          <span ng-click="addPasscodeEntry(3)">3</span>
+        </div>
+        <div class="num-row">
+          <span ng-click="addPasscodeEntry(4)">4</span>
+          <span ng-click="addPasscodeEntry(5)">5</span>
+          <span ng-click="addPasscodeEntry(6)">6</span>
+        </div>
+        <div class="num-row">
+          <span ng-click="addPasscodeEntry(7)">7</span>
+          <span ng-click="addPasscodeEntry(8)">8</span>
+          <span ng-click="addPasscodeEntry(9)">9</span>
+        </div>
+        <div class="num-row">
+          <span ng-click="forgotPasscode()" class="spec-num is-forgot">{{ (canShowForgotPasscode() ? 'FORGOT' : '') | translate }}</span>
+          <span ng-click="addPasscodeEntry(0)">0</span>
+          <span ng-click="deletePasscodeCharacter()" class="spec-num">X</span>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

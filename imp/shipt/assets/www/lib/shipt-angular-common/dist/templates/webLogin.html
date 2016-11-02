@@ -1,0 +1,63 @@
+<div class="buttons" ng-controller="LoginController" id="myid">
+    <div class="modal login-modal fullscreen-modal">
+        <ion-content class="darker-content" has-bouncing="true" >
+            <div class="login-area">
+                <div class="login-title-header">
+                    <img src="img/logo.png" alt="Welcome to Shipt" tabindex="0" >
+                </div>
+                <div class="contents">
+                    <div class="text-center assertive padding" ng-show="invalidLogin" role="alert" >
+                        {{invalidLoginMessage}}
+                    </div>
+                    <div class="text-center assertive padding" ng-show="loginError" role="alert" >
+                        {{errorLoginMessage}}
+                    </div>
+                    <form class="login-form" name="loginForm" ng-submit="loginSubmit(login)" >
+                        <div class="list">
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">{{userInputLabel}}</span>
+                                <input type="{{userInputType}}"
+                                       ng-model="login.username"
+                                       placeholder="{{userInputLabel}}"
+                                       autocorrect="off"
+                                       autocapitalize="off" >
+                            </label>
+                            <label class="item item-input item-floating-label">
+                                <span class="input-label">Password</span>
+                                <input ng-model="login.password"
+                                       type="password"
+                                       placeholder="Password"
+                                       ng-required="true"
+                                       autocorrect="off"
+                                       autocapitalize="off" required>
+                            </label>
+                            <br/>
+                            <div class="text-center">
+                                <button id="start_shopping_login_button" class="login-button button button-positive" type="submit" style="">
+                                    Log in
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="padding text-center" style="padding-top: 0px;padding-bottom: 0px;">
+                        <button ng-click="signUp()" ng-if="appName == 'grocery'"  class=" button button-dark button-clear button-full  ">
+                            Sign up
+                        </button>
+                    </div>
+                    <div  ng-if="appName == 'grocery'" class="text-center assertive">
+                        <button ng-click="resetPassword()" class="login-button button button-small button-stable button-clear">
+                            Forgot Your Password?
+                        </button>
+                    </div>
+                    <div  ng-if="appName == 'shopper'" class="text-center assertive">
+                        <button ng-click="resetPasswordShopper()" class="login-button button button-small button-stable button-clear">
+                            Shopper Password Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </ion-content>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<!--
+  Generated template for the StatsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar primary>
+  <ion-title>Stats</ion-title>
+</ion-navbar>
+
+<ion-content class="stats">
+  <div padding>
+    <canvas id="statsChart"></canvas>
+  </div>
+
+  <ion-list *ngIf="practice.length">
+    <ion-list-header>Practice</ion-list-header>
+    <ion-item *ngFor="#item of practice; #i=index">
+      <strong item-left>#{{i + 1}}</strong>
+      <p>{{item.date}}</p>
+      <h2><strong>Score:</strong> <span class="pull-right">{{item.score}}%</span></h2>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="timed.length">
+    <ion-list-header>Timed</ion-list-header>
+    <ion-item *ngFor="#item of timed; #i=index">
+      <strong item-left>#{{i + 1}}</strong>
+      <p>{{item.date}}</p>
+      <h2><strong>Score:</strong> <span class="pull-right">{{item.score}}%</span></h2>
+      <h3><strong>Time left:</strong> <span class="pull-right">{{item.timer}}</span></h3>
+    </ion-item>
+  </ion-list>
+</ion-content>

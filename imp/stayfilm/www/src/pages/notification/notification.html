@@ -1,0 +1,92 @@
+<div class="page-notification page">
+	<ion-content>
+
+		<ion-refresher pulling-text="{{'Puxe para atualizar' | translate}}" on-refresh="refresh()"></ion-refresher>
+
+		<div class="empty-list" ng-if="bag.notifications.length === 0 && bag.finished" style="padding-top: 100px;">
+			<span translate>Você ainda não tem notificações.</span>
+		</div>
+
+		<div class="notification-list">
+			<div ng-repeat="item in bag.notifications" item="item" class="notification-item">
+
+				<div class="avatar">
+					<button ng-if="item.user" ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">
+						<img ng-src="{{ item.user.photo || 'images/default-profile-photo.png' }}" />
+					</button>
+					<img src="default-profile.png" ng-if="! item.user" ng-src="images/LOGO_Stayfilm_redondo.png" width="40" height="40" />
+				</div>
+				<div class="content">
+					<div class="notification-info">
+						<div class="notification-date">{{ item.prettyCreated }}</div>
+						<div class="name">
+							<a ng-if="item.user" ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">
+								{{ item.user.fullName }}
+							</a>
+
+							<span ng-if="! item.user">Stayfilm</span>
+						</div>
+					</div>
+					<div class="notification-body">
+						<span class="notification">
+							<span ng-if="item.notifType === 'movie-created'">
+								<span translate>Seu filme</span>
+								<a ng-click="watch(item.movie.idMovie)">{{item.movie.title}}</a>
+								<span translate>foi criado.</span>
+							</span>
+							<span ng-if="item.notifType === 'movie-comment'">
+								<a ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">{{item.user.fullName}}</a>
+								<span translate>comentou em seu filme</span>
+								<a ng-click="watch(item.movie.idMovie)">{{item.movie.title}}</a>.
+							</span>
+							<span ng-if="item.notifType === 'user-quoted'">
+								<a ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">{{item.user.fullName}}</a>
+								<span translate>marcou você no filme</span>
+								<a ng-click="watch(item.movie.idMovie)">{{item.movie.title}}</a>.
+							</span>
+							<span ng-if="item.notifType === 'movie-like'">
+								<a ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">{{item.user.fullName}}</a>
+								<span translate>deu YES! para seu filme</span>
+								<a ng-click="watch(item.movie.idMovie)">{{item.movie.title}}</a>.
+							</span>
+							<span ng-if="item.notifType === 'movie-shared'">
+								<span translate>Seu filme</span>
+								<a ng-click="watch(item.movie.idMovie)">{{item.movie.title}}</a>
+								<span translate>foi compartilhado por</span>
+								<a ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">{{item.user.fullName}}</a>.
+							</span>
+							<span ng-if="item.notifType === 'friendship-accepted'">
+								<a ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">{{item.user.fullName}}</a>
+								<span translate>aceitou seu pedido de amizade.</span>
+							</span>
+							<span ng-if="item.notifType === 'friendship-request'">
+								<a ng-click="goTo('main.home.friend.movie', null, {username: item.user.username});">{{item.user.fullName}}</a>
+								<span translate>enviou um solicitação de amizade.</span>
+							</span>
+							<span ng-if="item.notifType === 'friend-registered'">
+								<span translate>Um amigo seu,</span>
+								<a ng-click="goTo('main.home.friend.movie', null, {username: item.user.username})">{{item.user.fullName}}</a>,
+								<span translate>se registrou no Stayfilm.</span>
+							</span>
+							<span ng-if="item.notifType === 'movie-approved'">
+								<span translate>Seu filme</span>
+								<a ng-click="watch(item.movie.idMovie)">{{item.movie.title}}</a>
+								<span translate>foi aprovado.</span>
+							</span>
+							<span ng-if="item.notifType === 'movie-reproved'">
+								<span translate>Seu filme "{{item.movie.title}}" foi reprovado.</span>
+							</span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="bag.notifications.length > 0 && bag.finished" class="feed-end"><span translate>Fim desta lista.</span></div>
+
+		<ion-infinite-scroll distance="1%" ng-if=" ! bag.finished" on-infinite="loadMore()"></ion-infinite-scroll>
+
+		<br /><br />
+
+	</ion-content>
+</div>

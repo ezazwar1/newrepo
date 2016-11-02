@@ -1,0 +1,66 @@
+<ion-view view-title="{{ 'cart.title_cart_home' | i18n }}" cache-view="false">
+    <ion-nav-buttons side="right">
+        <a class="button button-positive" ng-click="openLoginModal()"><i class="icon ion-ios-person-outline"></i></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh" on-refresh="loadCart()"></ion-refresher>
+        <div ng-if="dataLoaded && items.length == 0" class="large-icon-message">
+            <span class="large-app-icon large-app-icon-red">
+                <i class="icon ion-ios-cart-outline"></i>
+            </span>
+            <p i18n="cart.empty_message"></p>
+        </div>
+
+        <div ng-if="error">
+            <div ng-repeat="message in error" ng-bind-html="message"></div>
+        </div>
+
+        <ion-list ng-if="items.length > 0">
+			<div ng-if="coupons_enabled">
+				<div class="item item-divider" i18n="cart.enter_coupon_title" ng-if="!couponAdded"></div>
+				<div class="item item-divider" i18n="cart.added_coupon_text" ng-if="couponAdded"></div>
+				<div class="item item-input">
+					<input type="text" data-i18n-attr="{placeholder: 'cart.enter_coupon_label'}" name="coupon" ng-model="coupon" required>
+					<a class="button button-positive" ng-click="submitCoupon(coupon)" i18n="cart.enter_coupon_button"></a>
+				</div>
+			</div>
+			
+            <ion-item class="item item-thumbnail-left cart-item" ng-repeat="item in items">
+                <img class="cart-image" ng-src="{{::item.thumb}}">
+                <h3 class="cart-item-title" ng-bind-html="::item.name"></h3>
+                <h5 class="cart-item-title" i18n="cart.product_code" data-code="{{item.model}}"></h5>
+                <ul class="cart-item-options">
+                    <li ng-repeat="opt in item.option">{{::opt.name}}:{{::opt.value}}</li>
+                </ul>
+                <p>
+                    <label class="" ng-init="cart[item.cart_id] = {}; cart[item.cart_id].q = item.quantity">
+                        <select ng-options="quantity for quantity  in ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']" ng-model="cart[item.cart_id].q" ng-change="quantityChanged(item.cart_id, cart[item.cart_id].q)" required></select>
+                        x <span ng-bind-html="item.price"></span> <span class="cart-item-total" ng-bind-html="item.total"></span>
+                    </label>
+                </p>
+
+                <ion-option-button class="button-assertive" ng-click="removeCartItem(item.cart_id)" i18n="cart.button_remove"></ion-option-button>
+            </ion-item>
+            <ion-item class="cart-totals-item" ng-repeat="total in totals">
+                <p>{{::total.title}} <span class="cart-item-total">{{::total.text}}</span></p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer-bar align-title="center" class="bar-assertive" ng-if="items.length == 0">
+        <div class="buttons">
+            <a class="button" href="#/app/menu/shop/home" i18n="cart.button_shopping"></a>
+        </div>
+        <h2 class="title"></h2>
+        <div class="buttons">
+            <a class="button" href="#/app/menu/offers/home" i18n="cart.button_offers"></a>
+        </div>
+    </ion-footer-bar>
+
+    <ion-footer-bar align-title="left" class="bar-positive" ng-if="items.length > 0">
+        <h2 class="title">{{total_amount}}</h2>
+        <div class="buttons">
+            <a class="button" href="#/app/menu/cart/checkout" i18n="cart.button_next"></a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

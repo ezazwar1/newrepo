@@ -1,0 +1,29 @@
+<ion-view title="{{ wdayName }}" class="staff-availability-pane">
+  <ion-content class="has-header ninja-padding">
+    <div class="availability-page">
+      <div class="availability">
+
+        <div class="list">
+          <div class="item item-toggle" style="border-bottom: none">
+            Anytime
+            <label class="toggle toggle-balanced">
+              <input type="checkbox" ng-checked="isAnytime()" ng-click="toggleAnytime()">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+          <div class="item item-select" ng-show="!isAnytime()">
+            From
+            <select ng-model="availability.from" ng-options='c.id as c.name for c in FROM_HOURS_OF_DAY'></select>
+          </div>
+          <div class="item item-select" ng-show="!isAnytime()">
+            To
+            <select ng-model="availability.to" ng-options='c.id as c.name for c in TO_HOURS_OF_DAY'></select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

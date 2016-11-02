@@ -1,0 +1,135 @@
+<ion-view view-title="guest list">
+	<ion-nav-buttons side="right">
+        <button class="button button-icon button-clear add-guest ion-plus" ng-click="openModal()">
+        </button>
+      </ion-nav-buttons>
+  <ion-content class="view-guest-list">
+  <ion-refresher class="pull-to-refresh"
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresher()">
+  </ion-refresher>
+  <!-- <button ng-click="googleLoginn()">Google</button> -->
+   <div class="view-header">
+   		<h1><span class="hash">#</span><span class="first">guest</span>list</h1>
+   		<P class="view-count">{{ rsvpCount }} RSVP's</P>
+   </div>
+   <div class="list" ng-hide="noguests"> 
+
+	  <div class="item item-divider">
+	    Attending
+	  </div>
+			  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+		          <ion-item item="item" ng-repeat="guest in guests | orderBy:'first' | filter:{ rsvp: 'yes' }" class="item-remove-animate item-text-wrap">
+					{{ guest.first }} {{ guest.last }} <span class="item-note truncateInviter" ng-class="swipeHelper($first)">{{ guest.inviter }}</span>
+		          <ion-option-button class="button-dark" ng-click="setRSVP( {{ guest.id }},false )">
+		            Change
+		          </ion-option-button>
+		          <ion-option-button class="button-assertive" ng-click="removeRSVP( {{ guest.id }} )">
+		            Delete
+		          </ion-option-button>
+		        </ion-item>
+
+		      </ion-list>
+	
+	  <div class="item item-divider">
+	    Declined
+	  </div>
+		  
+			  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+		          <ion-item item="item" ng-repeat="guest in guests | orderBy:'first' | filter:{ rsvp: 'no' }" class="item-remove-animate item-text-wrap">
+					{{ guest.first }} {{ guest.last }} <span class="item-note truncateInviter" ng-class="swipeHelper($first)">{{ guest.inviter }}</span>
+		          <ion-option-button class="button-dark" ng-click="setRSVP( {{ guest.id }},true )">
+		            Change
+		          </ion-option-button>
+		          <ion-option-button class="button-assertive" ng-click="removeRSVP( {{ guest.id }} )">
+		            Delete
+		          </ion-option-button>
+		        </ion-item>
+
+		      </ion-list>
+
+	</div>
+	<div class="list" ng-show="noguests">
+		<P class="no-items animated fadeInDown"><B>Darn!</B> No guests yet.<BR>Did you invite them already?</P>
+	</div>
+
+	  <!-- <div class="item item-divider">
+			    Bringing guests?
+			    <button class="button button-icon button-clear add-guest ion-plus add-guest-plus" ng-click="addGuest()"></button>
+			  </div>
+			  <div class="plus-ones">
+				    <label class="item item-input">
+					    <span class="input-label">Guest #1</span>
+					    <input type="text" placeholder="First Name">
+					 </label>
+					<label class="item item-input">
+					    <span class="input-label"></span>
+					    <input type="text" placeholder="Last Name">
+					 </label>
+			   </div> -->
+
+<script id="add-rsvp-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Add an RSVP</h1>
+      	<div class="buttons">
+      		<button class="button button-clear" ng-click="closeModal()"><i class="icon ion-close"></i></button>
+    	</div>
+    </ion-header-bar>
+    <ion-content>
+    	<form ng-submit="addRsvp()" style="">
+		    	<div class="list">
+				  <label class="item item-input">
+				    <span class="input-label">First Name</span>
+				    <input type="text" id="addRsvpFirstName">
+				  </label>
+				  <label class="item item-input">
+				    <span class="input-label">Last Name</span>
+				    <input type="text" id="addRsvpLastName">
+				  </label>
+				    <label class="item item-input item-select">
+					    <div class="input-label">
+					      RSVP
+					    </div>
+
+
+
+					    <select ng-model="coming" id="addRsvpRsvp">
+					      <option value="true">Yes</option>
+					      <option value="false">No</option>
+					    </select>
+					  </label>
+					
+
+					<div class="is-coming" ng-hide="coming=='false'" class="ng-hide">
+
+				
+
+					  <div class="item item-divider">
+					    Special requests?
+					  </div>
+					  <label class="item item-input">
+					    <input type="text" placeholder="Vegetarian meal" id="addRsvpComments">
+					  </label>
+					</div>
+
+
+					 <div class="is-not-coming" ng-show="coming=='false'" class="ng-hide">
+			 			<div class="item item-divider">
+					    Any Comments?
+					  </div>
+						<label class="item item-input">
+					  		<input type="text" placeholder="Can't come because..." id="addRsvpReasons">
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<button class="button button-block button-wedivite" type="submit">Add</button><BR>
+				</div>
+    	</form>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+  </ion-content>
+</ion-view>

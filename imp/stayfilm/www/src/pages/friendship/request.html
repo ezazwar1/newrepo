@@ -1,0 +1,22 @@
+<ion-content on-scroll="onScroll()">
+
+	<ion-refresher
+			pulling-text="{{'Puxe para atualizar' | translate}}"
+			ng-if=" ! requestLoading"
+			on-refresh="refreshRequests()">
+	</ion-refresher>
+
+	<div class="sf-loader" ng-if="requestLoading">
+		<ion-spinner></ion-spinner>
+	</div>
+
+	<div class="empty-list" ng-if="bag.requesters.length === 0">
+		<span translate>Você não tem solicitação de amizade.</span>
+	</div>
+
+	<div class="list-container">
+		<div class="request-item" ng-repeat="requester in bag.requesters" >
+			<sf-friendship-request requester="requester"></sf-friendship-request>
+		</div>
+	</div>
+</ion-content>

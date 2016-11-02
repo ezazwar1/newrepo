@@ -1,0 +1,21 @@
+<ion-view class="bg-welzen live-meditations" view-title="Live Meditations">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ng-click="goBack(-1)"><img src="img/btn-back.png"/></a>
+    <h1 class="title">Live Meditations</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+    <ion-content has-bouncing="true">
+      <div class="container">
+        <h1 class="title">No scheduled live meditations</h1>
+        <p class="paragraph">Sorry, there are no live meditations scheduled at this time. New meditations will be scheduled soon!</p>
+        <p class="paragraph">Would you like to be notified when new meditations are scheduled?</p>
+      </div>
+    </ion-content>
+
+
+  <ion-footer-bar class="footer">
+    <a class="button button-block button-calm cta footer__cta" ui-sref='main'>Notify Me</a>
+  </ion-footer-bar>
+
+</ion-view>

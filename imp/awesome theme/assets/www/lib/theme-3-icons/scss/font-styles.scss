@@ -1,0 +1,27 @@
+/* FONTS */
+
+@font-face {
+	font-family: 'Theme-3';
+	src:
+		url('#{$theme-icons-font-path}/Theme-3.ttf?xlfw6x') format('truetype'),
+		url('#{$theme-icons-font-path}/Theme-3.woff?xlfw6x') format('woff'),
+		url('#{$theme-icons-font-path}/Theme-3.svg?xlfw6x#Theme-3') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.theme-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Theme-3' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+}

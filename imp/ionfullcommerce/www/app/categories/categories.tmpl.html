@@ -1,0 +1,22 @@
+<ion-view class="category-view" view-title="Categories">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon side-menu-icon icon ion-navicon"></button>
+		<!--Drawer Change-->
+	</ion-nav-buttons>
+	<ion-content has-subheader="false">
+		<div ng-if="loaded==true" class="padding">		
+
+			<div ng-repeat="(key, value) in featuredCategory" class="row topImg card">
+				<img ng-src="./img/catimg/{{value.image}}" class="full-image" alt="">
+			</div>
+			
+			<div class="maincat">
+
+				<div ng-repeat="(key, value) in categories" class="card cat-item">
+					<img ng-src="./img/catimg/{{value.image}}" class="full-image" alt="">
+				</div>
+				
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

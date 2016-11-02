@@ -1,0 +1,98 @@
+<ion-view cache-view="false" view-title="Chats">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon client-positive chats" ui-sref="app.add_chats">Add People</button>
+  </ion-nav-buttons>
+
+  <!-- Content -->
+  <div ng-cloak
+       ng-class="{'block': (firstLoadingDone && !chats.length)}"
+       class="no-chats"
+       ng-style="userAgent === 'Android' ? { 'top':'167px' } : { 'top':'193px' } ">
+    <div class="info-text">
+      <p>Start Chatting</p>
+      <!--<p>Start messaging by pressing the Add People in the top right corner or go the contacts section.</p>-->
+    </div>
+  </div>
+
+  <ion-content align="center" style="border:none" scroll="true" direction="y" padding="false" class="has-footer"
+               overflow-scroll="false" has-bouncing="true">
+    <div class="list list-chat" style="padding-bottom: 30px;">
+      <div class="no-chats-background" ng-if="chats.length == 0">
+        <img src="img/Chat_List-JPG.jpg">
+      </div>
+
+      <div class="chats-list list" ng-repeat="chat in chats | orderBy:'last_activity':true">
+        <div ng-class="{'chat_detail_box': true, 'has-unread': (chat.unread_messages > 0)}"
+             ng-click="openChat(chat.members[0], chat.unread_messages, chat._id)">
+          <div class="left_comment_area img">
+            <div class="col col-pic comment-pic">
+              <img class="feed-img" image-size ng-src="{{ ::getAvatar(chat.members[0]) }}"/>
+            </div>
+          </div>
+
+          <div class="chat-info">
+            <p class="col col-bottom chat-text-name">
+              {{::chat.members[0].username | limitName}}
+            </p>
+            <p ng-show="chat.last_message && chat.last_message!=='isVideo'">
+              {{chat.last_message | lastMessage}}
+            </p>
+            <p ng-hide="chat.last_message" class="photo-msg">
+              <i class="icon ion-ios-camera">
+                <span>photo</span>
+              </i>
+            </p>
+            <p ng-show="chat.last_message === 'isVideo'" class="photo-msg">
+              <i class="icon ion-ios-camera">
+                <span>video</span>
+              </i>
+            </p>
+          </div>
+
+          <div class="chat-additional-info">
+
+            <div class="delete-chat-btn" ng-click="showDeleteContextMenu($event, chat)"></div>
+
+            <p class="chat-text-date">
+              {{chat.last_activity | chatsDate}}
+            </p>
+            <p class="chat-badges" ng-show="chat.unread_messages > 0">
+              {{chat.unread_messages}}
+            </p>
+            <br ng-if="chat.unread_messages > 0">
+            <p class="remove-chat">
+              <i class="ion-android-more-horizontal">
+              </i>
+            </p>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar bar-footer bar-stable comment_footer_wrapper">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive bottom-nav">
+      <ion-tab title="Chats" icon-off=" ion-chatbubbles" icon-on="ion-chatbubbles" badge="unreadMessages"
+               badge-style="badge-positive" ui-sref="app.chats">
+        <ion-nav-view name="tab-settings"></ion-nav-view>
+      </ion-tab>
+      <!-- add triby Tab -->
+      <ion-tab title="Groups" icon-off="ion-ios-people" icon-on="ion-ios-people" class="create_new_tribys_icons"
+               ui-sref="app.main.home" badge="unreadGroupsNotifications" badge-style="badge-positive top15">
+        <ion-nav-view name="tab-home"></ion-nav-view>
+      </ion-tab>
+      <!-- add contacts Tab -->
+      <ion-tab title="Contacts" icon-off="ion-ios-personadd-outline" icon-on="ion-ios-personadd"
+               ui-sref="app.contacts_page">
+        <ion-nav-view name="tab-settings"></ion-nav-view>
+      </ion-tab>
+      <!-- Setting Tab -->
+      <!--<ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" ui-sref="app.settings">-->
+      <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear"
+               ng-click="go('app/settings/Chats')">
+        <ion-nav-view name="tab-settings"></ion-nav-view>
+      </ion-tab>
+    </ion-tabs>
+  </ion-footer-bar>
+</ion-view>

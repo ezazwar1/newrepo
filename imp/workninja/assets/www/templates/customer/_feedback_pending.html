@@ -1,0 +1,36 @@
+<ion-content class="has-header height-100 ninja-padding" scroll="false" style="background-color: #d8d8d8">
+  <div class="receipt-page" style="background-color: #d8d8d8">
+    <div class="receipt">
+      <div class="wave-t"></div>
+
+      <div class="legend"><span>{{ job.billing_ended_at_timezone }}</span></div>
+      <div class="billable-summary">
+        <div class="amount">{{ jobDetail(); }}</div>
+        <div class="hours-title" ng-show("staffActive") >hours</div>
+      </div>
+
+      <div class="legend"><span>Shift Summary</span></div>
+      <div class="job-summary">
+        <div class="picture">
+          <img style="border-radius: 50%;" ng-show="job.hired_staff.picture_small_url" ng-src="{{ job.hired_staff.picture_small_url }}" alt=""/>
+          <img ng-show="!job.hired_staff.picture_small_url" src="img/ninja-80x80.png" alt=""/>
+        </div>
+        <div class="details">
+          <div class="title">{{ job.hired_staff.name }}</div>
+          <div class="address">{{ job.role.name }}</div>
+        </div>
+      </div>
+      <div class="wave-b"></div>
+    </div>
+
+    <div class="receipt-footer">
+      <div class="rating" ng-click="provideFeedback()">
+        <angular-ratings class="rating-stars" readonly></angular-ratings>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer-bar class="bar-stable ninja-footer-bar">
+  <button class="button button-block button-balanced button-uppercase button-square" ng-click="provideFeedback()">Provide Feedback</button>
+</ion-footer-bar>

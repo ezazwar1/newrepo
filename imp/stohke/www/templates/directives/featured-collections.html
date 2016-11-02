@@ -1,0 +1,17 @@
+<simple-slider class="carousel">
+    <div class="simple-slider-inner" style="webkit-transform: translate3d(0,0,0);">
+        <div class="collection" ng-repeat="collection in featured.collections track by $index">
+            <a data-ui-sref="app.explore.user({alias: collection.Alias})">
+                <div class="collection-banner-img" style="background-image: url({{collection.Media[0].ImageUrl768X432}})">
+                </div>
+                <div class="details">
+                    <img ng-src="{{collection.Pic64X64}}" alt="" class="details-profile-thumb">
+                    <span>
+                        <strong>{{collection.Title}}</strong>
+                        {{collection.City}} {{collection.State}}
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div>
+</simple-slider>

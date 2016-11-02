@@ -1,0 +1,80 @@
+<ion-modal-view>
+
+  <ion-content class="filter-popover">
+  	<span ng-click="closeEmotionModal(true)" class="close">X</span>
+    <h1 class="title">{{ 'THOUGHTS_EMOTIONS_HEADER' | translate }}<span ng-if="showError">{{ 'THOUGHTS_EMOTIONS_ERROR' | translate}}</span></h1>
+
+    <div ng-click="setNegativeThought('notsure')" class="neg-filter {{isSelected('notsure') ? 'selected' : ''}}">
+      <h4>{{ 'IM_NOT_SURE' | translate }}</h4>
+      <span class="desc-text">{{ 'IM_NOT_SURE_DESC' | translate }}</span>
+    </div>
+
+    <div ng-click="setNegativeThought('catastrophizing')" class="neg-filter {{isSelected('catastrophizing') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_CATASTROPHIZING' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('catastrophizing')">{{ 'THOUGHTS_EMOTIONS_CATASTROPHIZING_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('catastrophizing')">&ldquo;{{ 'THOUGHTS_EMOTIONS_CATASTROPHIZING_EXAMPLE' | translate }}&rdquo;</span>
+      <span ng-click="showReplayHelp('catastrophizing')" class="help_toggle {{isShowingHelp('catastrophizing') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('emotional_reasoning')" class="neg-filter {{isSelected('emotional_reasoning') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_EMOTIONAL_REASONING' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('emotional_reasoning')">{{ 'THOUGHTS_EMOTIONS_EMOTIONAL_REASONING_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('emotional_reasoning')">&ldquo;{{ 'THOUGHTS_EMOTIONS_EMOTIONAL_REASONING_EXAMPLE' | translate }}&rdquo;</span>
+      <span ng-click="showReplayHelp('emotional_reasoning')" class="help_toggle {{isShowingHelp('emotional_reasoning') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('mind_reading')" class="neg-filter {{isSelected('mind_reading') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_MIND_READING' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('mind_reading')">{{ 'THOUGHTS_EMOTIONS_MIND_READING_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('mind_reading')">&ldquo;{{ 'THOUGHTS_EMOTIONS_MIND_READING_EXAMPLE' | translate }}&rdquo;</span>
+      <span ng-click="showReplayHelp('mind_reading')" class="help_toggle {{isShowingHelp('mind_reading') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('fortune_telling')" class="neg-filter {{isSelected('fortune_telling') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_FORTUNE_TELLING' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('fortune_telling')">{{ 'THOUGHTS_EMOTIONS_FORTUNE_TELLING_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('fortune_telling')">&ldquo;{{ 'THOUGHTS_EMOTIONS_FORTUNE_TELLING_EXAMPLE' | translate }}&rdquo;</span>
+      <span ng-click="showReplayHelp('fortune_telling')" class="help_toggle {{isShowingHelp('fortune_telling') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('extreme_words')" class="neg-filter {{isSelected('extreme_words') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_PRESSURIZED' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('extreme_words')">{{ 'THOUGHTS_EMOTIONS_PRESSURIZED_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('extreme_words')">{{ 'THOUGHTS_EMOTIONS_PRESSURIZED_EXAMPLE' | translate }}</span>
+      <span ng-click="showReplayHelp('extreme_words')" class="help_toggle {{isShowingHelp('extreme_words') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('judging')" class="neg-filter {{isSelected('judging') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_LABELLING' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('judging')">{{ 'THOUGHTS_EMOTIONS_LABELLING_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('judging')">{{ 'THOUGHTS_EMOTIONS_LABELLING_EXAMPLE' | translate }}</span>
+      <span ng-click="showReplayHelp('judging')" class="help_toggle {{isShowingHelp('judging') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('personalization')" class="neg-filter {{isSelected('personalization') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_PERSONALIZATION' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('personalization')">{{ 'THOUGHTS_EMOTIONS_PERSONALIZATION_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('personalization')">&ldquo;{{ 'THOUGHTS_EMOTIONS_PERSONALIZATION_EXAMPLE' | translate }}&rdquo;</span>
+      <span ng-click="showReplayHelp('personalization')" class="help_toggle {{isShowingHelp('personalization') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('negative_filtering')" class="neg-filter {{isSelected('negative_filtering') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_NEGATIVE' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('negative_filtering')">{{ 'THOUGHTS_EMOTIONS_NEGATIVE_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('negative_filtering')">&ldquo;{{ 'THOUGHTS_EMOTIONS_NEGATIVE_EXAMPLE' | translate }}&rdquo;</span>
+      <span ng-click="showReplayHelp('negative_filtering')" class="help_toggle {{isShowingHelp('negative_filtering') ? 'on' : 'off'}}">?</span>
+    </div>
+
+    <div ng-click="setNegativeThought('overgeneralizing')" class="neg-filter {{isSelected('overgeneralizing') ? 'selected' : ''}}">
+      <h4>{{ 'THOUGHTS_EMOTIONS_GENERALIZING' | translate }}</h4>
+      <span class="desc-text" ng-if="!isShowingHelp('overgeneralizing')">{{ 'THOUGHTS_EMOTIONS_GENERALIZING_DESCRIPTION' | translate }}</span>
+      <span class="help-text" ng-if="isShowingHelp('overgeneralizing')">&ldquo;{{ 'THOUGHTS_EMOTIONS_GENERALIZING_EXAMPLE' | translate }}&rdquo;</span>
+      <span ng-click="showReplayHelp('overgeneralizing')" class="help_toggle {{isShowingHelp('overgeneralizing') ? 'on' : 'off'}}">?</span>
+    </div>
+    <br><br><br><br>
+
+  </ion-content>
+  <div class="bar bar-footer replace-pop" style="z-index:100">
+    <button ng-click="assignThoughts()" class="button button-start">{{ 'DONE' | translate }}</button>
+  </div>
+</ion-modal-view>

@@ -1,0 +1,25 @@
+<ion-view title="{{ 'EXERCISE_LIST' | translate }}" cache-view="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-and-drawer-toggle class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <autocomplete ng-model="result" attr-placeholder="{{'SEARCH_FOR' | translate}}" data="allExercises" on-type="" on-select="searchSelect" attr-class="fixed-search width-control" attr-input-id="exercise-search"></autocomplete>
+  <ion-content class="width-control under-search exercise-list" delegate-handle="exerciseScroll">
+    <div class="list padding">
+      <div ng-repeat="exerciseCat in exerciseCategories">
+        <div class="item item-divider h3 nexercise-orange">
+        {{exerciseCat.longName | translate}}
+        </div>
+        <div ng-repeat="exerciseEl in exerciseCat.exercises">
+          <div class="item item-text-wrap item-thumbnail-left" ng-click="openVideoModal({{exerciseEl}})" id="{{allExercises.indexOf((exerciseEl.name | translate))}}" ng-class="{'low-impact' : exerciseEl.classification == 'lowImpact'}">
+            <div class="item-image">
+                <img ng-src="img/thumbnails/{{ exerciseEl.image }}" ng-if="!exerciseEl.unlocked" />
+                <img ng-src="{{ deviceBasePath }}exercises/keyframe-middle/{{ exerciseEl.image }}" ng-if="exerciseEl.unlocked" />
+            </div>
+            <h3>{{ exerciseEl.name | translate }}<i ng-if="exerciseEl.classification == 'accountUnlocked'" class="icon ion-record" style="color: #ddd; margin-left: 8px; font-size: 10px;"></i></h3>
+            <p class="classification" ng-if="exerciseEl.classification == 'lowImpact'" translate>LOWIMPACT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

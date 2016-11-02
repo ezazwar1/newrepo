@@ -1,0 +1,33 @@
+<ion-view title="{{ 'THOUGHTS_ANALYZE_TITLE' | translate }}" class="popoverr">
+
+	<ion-nav-buttons side="right">
+    <a href="javascript:;" ui-sref="app.rethink-analyze-help"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+  	<div class="back"></div> 
+	<ion-content class="rethink step3">
+
+
+		<h1>
+		  {{ 'THOUGHTS_ANALYZE_HEADER' | translate }}
+		</h1>
+		<p>{{ 'EXAMPLES' | translate}}<br>{{ 'THOUGHTS_ANALYZE_QUESTION_1' | translate}}</p>
+		<div class="bar bar-footer">
+		<div class="record-button-wrapper">
+			<div ng-if="!recording" class="{{!canRecord() ? 'disabled' : ''}}">
+				<a ng-click="recordAudio();" class="record"></a>
+			</div>
+
+			<div ng-if="recording">
+				<a ng-click="stopRecording()" class="pause"></a>
+			</div>
+
+			<div ng-if="finishedRecording" ng-click="resetRecording()" class="reset-btn">{{ 'RESET' | translate }}</div>
+			<div ng-if="finishedRecording" ng-click="nextStep()" class="next-btn">{{ 'DONE' | translate }}</div>
+			<div class="hint {{!canRecord() ? 'warn' : ''}}" ng-if="recording || finishedRecording">{{getElapsedTime()}}</div>
+			<div class="hint" ng-if="!recording && !finishedRecording">{{ 'THOUGHTS_ANALYZE_PROMPT' | translate }}</div>
+		</div>
+	</div>
+
+	</ion-content>
+	<div class="top-videos-bar-fake"></div>
+</ion-view>

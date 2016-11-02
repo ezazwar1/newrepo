@@ -1,0 +1,45 @@
+
+
+<ion-view class="black">
+    <div class="feed">
+        <div id="backCollection" class="async full" ng-style="{ 'background-image': 'url(' + collection.image__large + ')' }"></div>
+        <div id="titleCollection" class="head" ng-click="toggleButton()">
+            <h1>
+                <small><hr class="line"> {{ collection.category.name }}</small> <br>
+                <b>{{ collection.title.slice(0,38) }}</b><br>
+            </h1>
+        </div>
+        <ion-content has-bouncing="true" id="contentCollection" delegate-handle=" 'scrollCollection' " class="news" on-scroll="off('Collection')">
+            <div class="content-scroll">
+                <h1>
+                    <span>
+                        <small><hr class="line"> {{ collection.category.name }}</small> <br>
+                        <b>{{ collection.title.slice(0,38) }}</b> <br>
+                    </span>
+                </h1>
+                <div class="product-infos element">
+                    <div class="social row">
+                        <div class="col">
+                            <span class="bts bts-cintre"></span>
+                            {{products.length }} 
+                        </div>
+                        <div class="col"></div>
+                        <div class="col">
+                            {{ collection.likes_count }} <span class="bts bts-seen"></span>
+                        </div>
+                    </div>
+                    <hr class="outline"></hr>
+                    <h2><span>Products</span></h2>
+                    <div class="full-list">
+                        <div class="row" ng-if="item.products.length == 0">
+                            <small>Nothing to see here.</small>
+                        </div>
+                        <div class="full-list-item product" ng-repeat="product in products" ng-click="sendFeed('collection/' + products[0].collection.id + '/product',$index,'')">
+                            <div class="back" ng-style="{ 'background-image': 'url(' + product.image__medium + ')' }"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

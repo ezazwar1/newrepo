@@ -1,0 +1,29 @@
+<ion-modal-view class="touchpoint experiment-1 subgoal popoverr">
+
+  <div class="popup-header-fixed">
+    <a href="javascript:;" ng-click="closeSubGoalModal()" class="go-back">X</a>
+    <h1 class="main">{{ 'TODAYS_CHALLENGE' | translate }}</h1>
+    <div style="position: relative;" class="shadow">
+      <label class="goal-bolt mod green item item-select" ng-show="goalOptions.goals.length > 1">
+        <select ng-model="goalOptions.goalOptionOrdinal" ng-options="goalOptions.goals.indexOf(item) as getGoalOptionDisplay(item) for item in goalOptions.goals" ng-change="updateGoalOption()" style="color: rgb(150,150,150); background-color: rgb(250,250,250);">
+        </select>
+      </label>
+      <label ng-class="{error: viewData.error}">
+        <textarea id="subgoal-name" placeholder="{{ 'EXPERIMENTS_ADD_SUB_GOAL_PLACEHOLDER' | translate }}" ng-model="viewData.subGoal" style="padding-left:18px;"></textarea>
+      </label>
+    </div>
+  </div>
+
+  <ion-content class="goal-scroll">
+    <div class="difficulty{{getSpinnerDifficulty()}}">
+      <h1 style="margin-top: 15px; margin-bottom: 0; padding-bottom: 0; padding-top: 0; line-height: 25px;" class="second-modal-header">{{ 'EXPERIMENTS_ADD_SUB_GOAL_DIFFICULTY_PROMPT' | translate}}</h1>
+      <h3>{{ 'EXPERIMENTS_ADD_SUB_GOAL_DIFFICULTY_BYLINE' | translate }}</h3>
+      <graph-selector values="difficultyValues" value-data="valueData" selectable="true" colors="difficultyColors" color-percentages="colorPercentages" show-ticks="true" goal-percentage="0.0" segmented="true" class="{{noDataError ? 'error' : ''}}"></graph-selector>
+    </div>
+  </ion-content>
+
+  <div class="bar bar-footer">
+     <button class="button button-start" ng-click="saveSubGoal()" ng-disabled="viewData.submitting || valueData.value == '?'">{{ ('EXPERIMENTS_SET_EXPERIMENT') | translate }}</button>
+  </div>
+
+</ion-modal-view>

@@ -1,0 +1,14 @@
+<ion-content class="has-header height-100" scroll="false">
+  <div class="button-bar bar-dark">
+    <button class="button"  ng-click="selectStaff();" ng-class="(staffActive) ? 'bottom-green' : 'border-no'" style="font-size: 12px">MY STAFF</button>
+    <button class="button"  ng-click="selectAgency();" ng-class="(agencyActive) ? 'bottom-green' : 'border-no'" style="font-size: 12px">AGENCY</button>
+  </div>
+  <div class="main-page">
+    <div class="map-content">
+      <div id="map" class="map"></div>
+    </div>
+  </div>
+  <div class="ninja-footer-bar">
+      <button class="button button-block button-balanced button-uppercase button-square" style="margin-bottom: 5px;z-index: 10000;position: absolute;width: calc(100% - 20px);bottom: 20px; right: 10px; left: 10px"  ng-click="requestNinja()">Request Ninja</button>
+  </div>
+</ion-content>

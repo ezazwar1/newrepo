@@ -1,0 +1,30 @@
+<!--
+  Generated template for the QuizPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar primary>
+  <ion-title>
+    {{category.name}}
+    {{{true: 'timed test', false: 'practice'}[timed]}}
+
+    <div class="toolbar-right">
+      {{timer}}
+    </div>
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="quiz">
+  <quizzer *ngIf="!!questions && questions.length && inProgress"
+    [questions]="questions"
+    [timed]="timed"
+    (onScoreChanges)="scoreChanged($event)"
+    (onTimerChanges)="updateTimer($event)"
+    (onFinish)="onFinish($event)"></quizzer>
+  <div *ngIf="!inProgress" padding>
+    <h1>Score: {{score}}%</h1>
+    <button light block (click)="tryAgain()">Try again</button>
+    <button light block (click)="goToStats(params.id)">Stats</button>
+  </div>
+</ion-content>

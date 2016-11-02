@@ -1,0 +1,21 @@
+<ion-view title="Favourite List">
+    <ion-content class="padding" scroll="true" padding="false">
+        <div class="intro" ng-if="data.favourite_placeholderpic_flag">
+            <img class="intro_graphic" src="img/graphics/controllers/360-keyboard.png" alt="Start trading video games on GBG">
+            <p class="intro_tips">{{data.GamerMetricsFavouriteCtrl_message}}</p>
+        </div>
+        <div class="row gallery">
+
+            <div class="item col col-25 like-list" ng-click="goto_gamer_profile_by_tab(favourite.gamer_id)" ng-repeat="favourite in data.favourite">
+                <img class="image-center gamer_avatar-list" ng-if="!favourite.profile_pic" ng-src="https://graph.facebook.com/{{favourite.fb_id}}/picture?type=normal">
+                <img class="image-center gamer_avatar-list" ng-if="favourite.profile_pic" ng-src={{favourite.profile_pic}}>
+            </div>
+
+            <ion-infinite-scroll
+                ng-if="data.favourite_there_is_more"
+                on-infinite="load_more_favourite()"
+                distance="0%">
+            </ion-infinite-scroll>
+        </div>
+    </ion-content>
+</ion-view>

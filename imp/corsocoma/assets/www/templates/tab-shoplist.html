@@ -1,0 +1,33 @@
+<ion-view view-title="Адреса магазинов" cache-view="false">
+  <ion-content class="padding">
+
+    <div class="list" ng-repeat="shop in shopList">
+
+  <a class="item" style="border:none!important;"href="#">
+  <b>{{shop.name}}</b>
+  </a>
+
+
+  <a class="item item-icon-left" style="border:none!important;" href="tel:{{shop.phone.split(' ').join('').split('-').join('')}}">
+  <i class="icon ion-ios-telephone-outline"></i>
+  {{shop.phone}}
+    </a>
+    <a class="item item-icon-left item-icon-right" style="border:none!important; word-wrap: break-word!important; white-space:normal!important;" ng-click="launchNavigator(shop.latitude, shop.longitude)">
+    <i class="icon ion-ios-location-outline"></i>
+    {{shop.city}}<br>
+    {{shop.adress}}<br>
+      <i class="icon ion-ios-arrow-forward"></i>
+      </a>
+      <a  ng-show="shop.distance"  class="item item-icon-left" style="border:none!important;" href="#">
+      <i ng-if="shop.distance < 5"class="icon ion-android-walk"></i>
+      <i ng-if="shop.distance > 5 && shop.distance < 20"class="icon ion-android-bicycle"></i>
+      <i ng-if="shop.distance > 20 && shop.distance < 200"class="icon ion-android-car"></i>
+      <i ng-if="shop.distance > 200 "class="icon ion-android-plane"></i>
+        {{shop.distance | number:1}} км
+        </a>
+</div>
+
+
+
+  </ion-content>
+</ion-view>

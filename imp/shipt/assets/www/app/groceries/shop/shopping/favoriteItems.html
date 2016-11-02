@@ -1,0 +1,111 @@
+<ion-view title="Favorite Items">
+    <ion-nav-buttons side="right">
+        <cart-button></cart-button>
+    </ion-nav-buttons>
+    <ion-search-bar search-value="search.text" placeholder="Search Favorites"></ion-search-bar>
+    <ion-content id="productsIonContent" class="has-header darker-content has-search-bar" on-scroll="scrollList()" has-bouncing="true" >
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()"
+                spinner="spinner"
+                pulling-icon="ion-ios-arrow-down">
+        </ion-refresher>
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div ng-if="!products" class="padding text-center">
+            <ion-spinner  ng-init="loadMoreItems()" ></ion-spinner>
+        </div>
+        <div class="text-center padding" style="margin-top:20px;" ng-if="products.length < 1">
+            <h1 class="faded">
+                <i class="icon ion-ios-heart-outline">
+                </i>
+            </h1>
+            <h3 class="faded">
+                No Favorite Items
+            </h3>
+        </div>
+        <div class="products-list-container" ng-if="!showNoProductsMessage()">
+            <ion-item collection-repeat="product in products | filter:searchForProduct "
+                      class="text-center item-product-item"
+                      collection-item-width="getItemWidth()"
+                      collection-item-height="'212px'"
+                      force-refresh-images="true"
+                      item-render-buffer="6"
+                      ng-class="getItemClass(product)"
+                      ng-click="productDetail(product)">
+
+                <div ng-if="!product.addButton && !product.loadingMore && product.product_type != 'custom'" class="product-inside-box">
+                    <div class="detail-img-wrapper">
+                        <img class="img-products-list" ng-src="{{product.images[0].url}}" />
+                    </div>
+                    <div ng-if="product.on_sale && !product.bogo" class="corner-ribbon top-left sticky sale"><small>sale</small></div>
+                    <div ng-if="product.bogo" class="corner-ribbon top-left sticky bogo"><small>BOGO</small></div>
+                    <button class="button button-large button-clear button-positive product-item-button minus if-fade"  ng-if="productInCart(product)"  stop-event="click" ng-click="removeItemFromCart(product)">
+                        <i class="icon ion-ios-minus-empty" ></i>
+                    </button>
+                    <button class="button button-large button-clear button-positive product-item-button plus"  stop-event="click" ng-click="addItem(product)">
+                        <i class="icon ion-ios-plus-empty"></i>
+                    </button>
+                    <span ng-if="productInCart(product)" class="badge badge-positive product-grid-cart-count-badge if-bounce">
+                        {{cartItemCountForProduct(product)}} {{inCartText(product)}}
+                    </span>
+                    <p class="wrap grid-product-name" ng-class="product.on_sale ? 'grid-product-name-sale':''">
+                        {{product.brand_name}} {{product.name}}
+                    </p>
+                    <div class="grid-product-info">
+                        <p >
+                            {{product.size}}
+                        </p>
+                        <p>
+                            <span ng-class="product.on_sale ? 'strike-through':''">{{product.price | currency}} </span><span class="positive" ng-if="product.on_sale">{{product.sale_price | currency}} </span>
+                        </p>
+                    </div>
+                </div>
+                <div ng-if="product.product_type == 'custom'" class="product-inside-box">
+                    <div class="custom-product-banner">
+                        Special Request
+                    </div>
+                    <button class="button button-large button-clear button-positive product-item-button minus if-fade"  ng-if="productInCart(product)"  stop-event="click" ng-click="removeItemFromCart(product)">
+                        <i class="icon ion-ios-minus-empty" ></i>
+                    </button>
+                    <button class="button button-large button-clear button-positive product-item-button plus"  stop-event="click" ng-click="addItem(product)">
+                        <i class="icon ion-ios-plus-empty"></i>
+                    </button>
+                    <span ng-if="productInCart(product)" class="badge badge-positive product-grid-cart-count-badge if-bounce">
+                        {{cartItemCountForProduct(product)}} in cart
+                    </span>
+                    <p class="wrap grid-product-name-custom" ng-class="product.on_sale ? 'grid-product-name-sale':''">
+                        {{product.description}}
+                    </p>
+
+                    <div class="grid-product-info">
+                        <p>
+                            <span>{{product.price}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div  ng-if="product.addButton"  class="center-content add-special-item">
+                    <div class="detail-img-wrapper">
+                        <h1>
+                            <i class="icon ion-ios-plus-empty dark"></i>
+                        </h1>
+                    </div>
+                    <p class="light-weight">Add Special Request</p>
+                </div>
+                <div ng-if="product.loadingMore" class="center-content loading-more-item">
+                    <div ng-init="loadMoreItems()" class="detail-img-wrapper">
+                        <ion-spinner></ion-spinner>
+                    </div>
+                    <p class="light-weight">Loading...</p>
+                </div>
+            </ion-item>
+        </div>
+        <ion-infinite-scroll
+                ng-if="moreDataCanBeLoaded()"
+                on-infinite="loadMoreItems()"
+                immediate-check="true"
+                spinner="none"
+                distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

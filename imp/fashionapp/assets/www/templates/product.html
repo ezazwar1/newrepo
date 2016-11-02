@@ -1,0 +1,70 @@
+
+<ion-view>
+    <div class="feed">
+        <div id="backProduct" class="async full" ng-style="{ 'background-image': 'url(' + product.image__large + ')' }"></div>
+        <div id="titleProduct" class="head" ng-click="toggleButton()">
+            <h1>
+                <b>{{ product.name }}</b> <br>
+                <small>by {{ product.collection.brand.company_name }}</small>
+            </h1>
+        </div>
+        <ion-content has-bouncing="true" id="contentProduct" class="news" delegate-handle=" 'scrollProduct' " on-scroll="off('Product')">
+            <div class="content-scroll">
+                <h1>
+                    <span>
+                        <b>{{ product.name }}</b> <br>
+                        <small>by {{ product.collection.brand.company_name }}</small>
+                    </span>
+                </h1>
+                <div class="product-infos element">
+                    <div class="product-details">
+                        <h3>
+                            {{ product.title }}
+                            <span class="likes pull-right"><span class="bts bts-seen"> {{ product.likes_count }}</span></span>
+                        </h3>
+                        <h4> by {{ product.collection.brand.company_name }}</h4>
+                        <small>{{ product.collection.name }}</small>
+                        <div class="price">{{ product.variants[0].display_price_currency }} <sup ng-if="item.variants[0].display_price_currency">*</sup></div>
+                        <button id="iwish" ng-click="addToWishlistBoard()">I WISH</button>
+                    </div>
+                    <hr class="outline"></hr>
+                    <div class="presentation" ng-if="product.about.length > 0">
+                        <ul class="bts-tabs">
+                            <li><span></span></li>
+                            <li class="active"><span>Description</span></li>
+                            <li><span></span></li>
+                        </ul>
+                        <div class="excerpt row" >
+                            <div class="col">
+                                {{ product.about.slice(0,150) + ' ...' }}
+                                <br>
+                                <span ng-click="up('excerptElement')" class="more">Read More &gt;</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sample border" ng-if="(product.image__large).indexOf('photo-manque') == -1"><img class="full-w" ng-src="{{ product.image__large }}"></div>
+                   <div class="sample border" ng-if="(product.variants[0].photo_2__medium).indexOf('photo-manque') == -1"><img class="full-w" ng-src="{{ product.variants[0].photo_2__medium }}"></div>
+                    <div class="sample border" ng-if="(product.variants[0].photo_3__medium).indexOf('photo-manque') == -1"><img class="full-w" ng-src="{{ product.variants[0].photo_3__medium }}"></div>
+                    <div class="sample border" ng-if="(product.variants[0].photo_4__medium).indexOf('photo-manque') == -1"><img class="full-w" ng-src="{{ product.variants[0].photo_4__medium }}"></div>
+
+                    <hr>
+                    <small class="retail-price" ng-if="item.variants[0].display_price_currency"><sup>*</sup> recommended retail price</small>
+                    <hr>
+                    <div class="full-list two">
+                        <div class="full-list-item collection" ng-click="goCollection(product.collection.id)">
+                            <h4><span>Collection</span></h4>
+                            <div class="back" ng-style="{ 'background-image': 'url(' + product.collection_full.image__medium + ')' }" ng-click="goCollection(product.collection.id)"></div>
+                            <p>{{ product.collection.name }}</p>
+                        </div>
+                      <div class="full-list-item brand">
+                            <h4><span>Designer</span></h4>
+                            <div class="back" ng-click="goBrand(product.collection.brand.id)" ng-style="{ 'background-image': 'url(' + product.brand_full.image__medium + ')' }"></div>
+                            <p>{{ product.collection.brand.company_name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

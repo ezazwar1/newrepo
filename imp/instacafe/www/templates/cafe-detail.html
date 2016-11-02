@@ -1,0 +1,33 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>{{ ::cafe.name }}</ion-nav-title>
+<ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios-upload-outline" detail-action cafe="cafe"></button>
+</ion-nav-buttons>
+<ion-content>
+    <section class="cafe-info">
+        <div class="place-icon"><i class="icon ion-ios-location"></i></div>
+        <div class="place-desc">
+            <h2 class="cafe-name">{{ ::cafe.name }}</h2>
+            <div class="cafe-address">
+                <span ng-if="cafe.address">{{ ::cafe.address }}, </span>
+                <span ng-if="cafe.city">{{ ::cafe.city }}, </span>
+                <span ng-if="cafe.country">{{ ::cafe.country }}</span>
+            </div>
+        </div>
+    </section>
+    <gm-map gm-map-id="mapId" gm-center="center" gm-zoom="zoom" gm-map-options="options.map" class="map" ng-if="center">
+        <gm-markers gm-objects="location" gm-id="location.id" gm-position="{ lat: location.latitude, lng: location.longitude }"></gm-markers>
+    </gm-map>
+    <div class="list">
+        <a class="item item-icon-left item-icon-right" ng-click="openPhoto(cafe)">
+            <i class="icon ion-social-instagram-outline"></i>Instagram
+            <span class="badge badge-stable">{{ ::cafe.photo_count }}</span>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </a>
+        <a class="item item-icon-left item-icon-right" ng-click="openBrowser(cafe.website)">
+            <i class="icon ion-monitor"></i>website
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </a>
+    </div>
+</ion-content>
+</ion-view>

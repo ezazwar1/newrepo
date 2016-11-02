@@ -1,0 +1,55 @@
+<ion-view title="{{ getActivityName() }}" class="intro breathe {{ getActivityClass() }}">
+	
+  <ion-nav-buttons side="right">
+    <!--<a href="javascript:;" ng-click="goToRelaxCommunity()"><button class="button button-clear icon ion-ios-people-outline"></button></a>-->
+    <a href="javascript:;" ng-click="goToHelp()" ng-show="showCycleOptions()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back darker"></div> 
+  
+  <ion-content>
+
+    <p>{{ getActivityDescription() }}</p>
+    
+    <div class="list">
+ 
+       <div class="item item-icon-left item-select">
+        <i class="icon ion-music-note {{soundOptions.soundOptionOrdinal <= 7 ? 'true' : 'false'}}" style="font-size: 20px;"></i>
+        <span>{{ 'RELAX_SOUND' | translate }}:</span>
+        <select ng-model="soundOptions.soundOptionOrdinal" ng-options="soundOptions.options.indexOf(item) as getSoundOptionDisplay(item) for item in soundOptions.options" ng-change="updateSoundOption()">
+        </select>
+      </div>
+           
+      <div class="item item-icon-left item-select" ng-if="showCycleOptions()">
+  		  <i class="icon ion-ios-time-outline" style="font-size: 20px;"></i>
+        <span>{{ 'RELAX_BREATH_LENGTH' | translate }}:</span>
+  		  <select ng-model="cycleOptions.cycleOptionOrdinal" ng-options="cycleOptions.options.indexOf(item) as getCycleOptionDisplay(item) for item in cycleOptions.options" ng-change="updateCycleLength()">
+			  </select>
+      </div>
+
+      <div class="item item-icon-left item-select" ng-show="showBreathingOptions()">
+        <i class="icon icon-sound {{breathingOptions.breathingOptionOrdinal == 0 ? 'true' : 'false'}}" style="font-size: 20px;"></i>
+        <span>{{ 'RELAX_ACTIVITY_PLAY_BREATHING_SOUNDS' | translate }}:</span>
+        <select ng-model="breathingOptions.breathingOptionOrdinal" ng-options="breathingOptions.options.indexOf(item) as getBreathingOptionDisplay(item) for item in breathingOptions.options" ng-change="updateBreathingOptions()">
+        </select>
+      </div>
+
+      <div class="item item-icon-left item-select" ng-show="showContinueOptions()">
+        <i class="icon ion-ios-loop" style="font-size: 20px;"></i>
+        <span>{{ 'RELAX_WHEN_DONE' | translate }}:</span>
+        <select ng-model="continueOptions.continueOptionOrdinal" ng-options="continueOptions.options.indexOf(item) as getContinueOptionDisplay(item) for item in continueOptions.options" ng-change="updateContinueOption()">
+        </select>
+      </div>
+      
+
+      <div class="item item-icon-left item-select" ng-show="showLengthOptions()">
+        <i class="icon ion-ios-time-outline" style="font-size: 20px;"></i>
+        <span>{{ 'MEDITATION_LENGTH' | translate }}:</span>
+        <select ng-model="lengthOptions.lengthOptionOrdinal" ng-options="lengthOptions.options.indexOf(item) as getLengthOptionDisplay(item) for item in lengthOptions.options" ng-change="updateMeditationLength()">
+        </select>
+      </div>
+    </div>
+  <a href="javascript:;" ng-click="startExercise()" class="item button-start" ng-class="{'has-time': getExerciseOptionMinuteDisplay() != ''}">{{ 'START' | translate }} <span ng-if="getExerciseOptionMinuteDisplay() != ''">{{ getExerciseOptionMinuteDisplay() }}</span> </a>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,22 @@
+<!--<ion-view title="{{ pageTitle() }}" class="customer-pane">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon" ng-show="!isFeedbackPending()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios7-refresh-empty" ng-click="refresh()"></button>
+  </ion-nav-buttons>
+
+  <ng-include src="modePartial()" onload="initMode()"></ng-include>
+</ion-view>-->
+
+<ion-view title="{{ pageTitle() }}" class="staff-profile-pane" style="background-color: #fff" >
+  
+  
+<ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon" ng-show="!isFeedbackPending()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios7-refresh-empty" ng-click="refresh()"></button>
+  </ion-nav-buttons>
+  <ng-include src="modePartial()" onload="initMode()"></ng-include>
+</ion-view>

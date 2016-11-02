@@ -1,0 +1,9 @@
+{
+  "welcome_title": "i2CSMobile app for OpenCart",
+  "welcome_connecting": "Connecting to i2CS...",
+  "welcome_connected": "Connected! Loading app..",
+  "welcome_logging_in": "Loggin in...",
+  "welcome_loading_store": "All good.. loading store...",
+  "welcome_retrying": "Ooops.. loading store...",
+  "welcome_error": "Oops! Something went wrong.."
+}

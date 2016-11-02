@@ -1,0 +1,158 @@
+/* Empty. Add your own CSS if you like */
+.homepageimg{
+    height: 80px; border-radius: 40px;
+}
+.socialimg{
+    height: 25px; border-radius: 15px; margin-top: 5%;
+}
+.spammer{
+    margin-top: 10%; border-top: 4px solid #33928B; width: 95%; margin-left: 2.5%; border-top-right-radius: 5px; border-top-left-radius: 5px;
+}
+.spamimg{
+    height: 50px;
+}
+.tellfrnd{
+    margin: -50px 0px 0px; color: #FFFFFF; font-size: 10px;
+}
+.button.button-fb {
+    border-color: #152c58;
+    background-color: #3B5999;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+.fb {
+    border: 0px; margin-bottom: -23px;
+}
+.button.button-google {
+    border-color: #D41D1D;
+    background-color: #D41D1D;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+.button.button-createaccount {
+    color: #0A5EFF;
+	text-decoration: underline;
+    font-size: 15px;
+}
+.google {
+    border: 0px;
+}
+.login {
+    border-top: #DDD 1px solid; border-right: 0px; border-bottom: 0px; border-left: 0px; margin-bottom: -23px;
+}
+.menu-icon{
+	width: 25px;
+	height: 17px;
+	cursor: pointer;
+	margin-top: 9px;
+	margin-left: 10px;
+}
+.hotel-img{
+	margin:0px;
+}
+.hotel-img img{
+	width: 100%;
+}
+.hotel-description{
+	border-bottom: 1px solid #8151E0;
+	padding: 0px 5px 0px;
+}
+.hotel-description h5{
+	margin:0px;
+	color:#fff;
+	font-weight: bold;
+	
+}
+.hotel-description p{
+	margin:0px;
+	color:#f1defb;
+	font-size: 11px;
+	position: relative;
+	left: 70px;
+	bottom: 20px;
+}
+.hotel-description h4{
+	margin:0px;
+	color:#f1defb;
+	font-size: 11px;
+}
+.box {
+    border: 1px solid #d4aefe;
+    width:55px;
+    float: right;
+    text-align: center;
+}
+.box h6{
+	color: white;
+	font-size: 14px;
+	border-bottom: 1px solid #d4aefe;
+	padding: 5px;
+	width: 47px;
+	margin: 0 auto;
+}
+.box h3{
+	font-size: 10px;
+	padding: 2px;
+	margin: 0px;
+	color: rgb(201, 163, 243);
+}
+.hotel-detail{
+	padding:10px;
+	border-bottom: 1px solid #8151E0;
+}
+.hotel-detail h5{
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+	margin: 0px;
+}
+.hotel-detail p{
+	color: white;
+	font-size: 12px;
+}
+.hotel-facility img{
+	width:25px;
+}
+.hotel-facility p{
+	color: rgb(255, 255, 255);
+	font-size: 11px;
+}
+.profile img{
+	width: 68px;
+	border-radius: 100%;
+	height: 68px;
+	margin-top: 50px;
+}
+#ck-button {
+	color: #6216d0;
+	border: 1px solid #6216d0;
+	border-radius: 1px;
+}
+#ck-button label span {
+    text-align: center;
+	padding: 3px 0px;
+	display: block;
+}
+
+#ck-button label input {
+    position:absolute;
+    top: -40px;
+}
+
+#ck-button input:checked + span {
+    background-color: #6216d0;
+	color: #fff;
+}
+.filter h4{
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 5px;
+	border-bottom: 1px solid #d5d5d5;
+	margin: 0px;
+}
+.filter-rating h4{
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 5px;
+	border-bottom: 1px solid #d5d5d5;
+	margin: 0px;
+}

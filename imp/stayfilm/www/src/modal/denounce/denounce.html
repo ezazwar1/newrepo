@@ -1,0 +1,30 @@
+<div ng-controller="DenounceController" class="modal modal-denounce">
+	<ion-header-bar class="close-bar" no-tap-scroll="true">
+		<div class="buttons">
+			<button ng-click="close()"><img src="images/ico-close.png"></button>
+		</div>
+	</ion-header-bar>
+
+	<ion-content class="container">
+
+		<h2 ng-bind-html="denounceTitle"></h2>
+		<h2 translate>Por favor, especifique o motivo de sua denúncia na lista abaixo. Analisaremos o conteúdo em breve.</h2>
+
+		<p translate>Porque você está denunciando este filme?</p>
+
+		<div class="causes">
+			<label><input type="radio" name="reason" ng-model="denounceData.reason" value="rule_policy"> <span translate>Viola as regras e políticas do site</span></label>
+			<label><input type="radio" name="reason" ng-model="denounceData.reason" value="porn"> <span translate>Contém imagens de nudez, pornografia ou violência</span></label>
+			<label><input type="radio" name="reason" ng-model="denounceData.reason" value="no_media_permission"> <span translate>Utiliza minhas imagens sem minha permissão</span></label>
+			<label><input type="radio" name="reason" ng-model="denounceData.reason" value="other"> <span translate>Outros</span></label>
+		</div>
+
+		<textarea placeholder="{{ 'Digite aqui o motivo' | translate }}" ng-model="denounceData.description"></textarea>
+
+		<p translate>Filmes denunciados serão analisados por nossa equipe de acordo com os Termos de Uso do site, podendo ser penalizados com a exclusão do perfil caso seja constatado o descumprimento dessas regras.</p>
+
+		<div>
+			<button class="button button-block button-assertive" ng-click="denounceMovie(denounce.reason, denounce.description)"><span translate>DENUNCIAR CONTEÚDO</span></button>
+		</div>
+	</ion-content>
+</div>

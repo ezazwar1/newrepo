@@ -1,0 +1,19 @@
+<ui-view class="main-home"></ui-view>
+<div align-title="left" class="bar-footer-home bar-retractile bar-retractile-down" ng-class="{'sf-retract-down': false}">
+	<button ng-click="goToWithNotif('main.home.feed')" class="btn-feed" ng-class="{selected: currentState === 'main.home.feed'}"></button>
+
+	<button ng-click="goToWithNotif('main.home.gallery.bestof')" class="btn-gallery" ng-class="{
+		selected: 
+			currentState === 'main.home.gallery.bestof' || 
+			currentState === 'main.home.gallery.latest' || 
+			currentState === 'main.home.gallery.genres'
+	}"></button>
+
+	<button ng-click="startMoviemaker()" class="btn-moviemaker" ng-class="{selected: currentState === 'main.moviemaker.content'}"></button>
+
+	<button ng-click="goTo('main.home.notification')" class="btn-notification" ng-class="{selected: currentState === 'main.home.notification'}">
+		<span class="notif-count" ng-show="newNotificationCount"> {{ newNotificationCount > 9 ? '9+' : newNotificationCount }} </span>
+	</button>
+
+	<button ng-click="showOptions()" class="button btn-options"></button>
+</div>

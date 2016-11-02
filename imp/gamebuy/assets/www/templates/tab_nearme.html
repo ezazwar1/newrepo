@@ -1,0 +1,129 @@
+<div class="iphone-status-bar"></div>
+<ion-view title='' hide-nav-bar="false">
+    <ion-nav-buttons side="primary">
+        <nav class="top-nav">
+            <button class="button button--tab-menu" ng-class={'button--current':data.matches_active}
+                    ng-click="decide_shown_list(2)">
+                <span>Matches</span>
+            </button>
+            <button class="button button--tab-menu" ng-class={'button--current':data.all_collections_active}
+                    ng-click="decide_shown_list(1)">
+                <span>All Games</span>
+            </button>
+        </nav>
+    </ion-nav-buttons>
+    <ion-content padding="false" class="nearme_wrapper">
+        <div class="tab-content">
+            <div class="nearme_tab-content" scroll="false" ng-if="data.matches_active">
+                <div class="intro" ng-if="data.matches_placeholderpic_flag">
+                    <img class="intro_graphic" src="img/graphics/controllers/ps4.png"
+                         alt="Start trading video games on GBG">
+
+                    <p class="intro_tips">{{data.matches_message}}</p>
+                </div>
+                <ion-list scroll="true">
+                    <ion-item class="item game-list"
+                              ng-click="goto_collection_profile_by_tab(match.collection_id, 'nearme')"
+                              ng-repeat="match in data.matches">
+                        <div class="game-list-thumbnail">
+                            <img ng-src="{{match.cover_pic}}">
+                        </div>
+                        <div class="game-list_game-info">
+                            <h2 class="game-list_game-title">{{match.title}}</h2>
+
+                            <p class="game-list_game-platform" ng-if="match.collect_format!='console'">
+                                {{match.platform}} | {{match.collect_format_message}}</p>
+
+                            <p class="game-list_game-platform" ng-if="match.collect_format=='console'">
+                                {{match.platform}}</p>
+
+                            <p class="game-list_game-deal">
+                                <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                            <span class="game-list_game-price">{{match.price_sell}}
+                                <span class="game-list_price-unit">{{ collection.price_unit }}</span>
+                            </span>
+                            </p>
+
+                            <p class="game-list_game-distance ion-location">{{match.miles}}</p>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+            <!-- /content -->
+
+            <div ng-if="data.all_collections_active">
+                <div class="item-input-inset search_search-bar">
+                    <div class="search__platform-select">
+                        <div class="form-select-wrapper ion-arrow-down-b">
+                            <select class="form-select" name="platform" ng-model="data.platform_filter">
+                                <option value="all">All</option>
+                                <option value="playstation-4">PS4</option>
+                                <option value="playstation-3">PS3</option>
+                                <option value="playstation-vita">PS Vita</option>
+                                <option value="xbox-one">Xbox One</option>
+                                <option value="xbox-360">Xbox 360</option>
+                                <option value="wii-u">Wii U</option>
+                                <option value="wii">Wii</option>
+                                <option value="nintendo-3ds">3DS</option>
+                                <option value="vintage">Vintage</option>
+                                <option value="console">Console</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label class="item-input-wrapper search__field">
+                        <input class="form-input search-input" type="text" placeholder="Filter by keywords"
+                               ng-model="data.input_keywords">
+                    </label>
+                    <button class="button button-primary button-filter" ng-click="collection_search()">
+                        Filter
+                    </button>
+                    <button class="button button-primary button-filter" ng-disabled="data.keywords_flag"
+                            ng-click="clear_all()">
+                        Clear
+                    </button>
+                </div>
+                <div class="intro" ng-if="data.all_collections_placeholderpic_flag">
+                    <img class="intro_graphic" src="img/graphics/controllers/gameboy.png"
+                         alt="Start trading video games on GBG">
+
+                    <p class="intro_tips">{{data.all_collections_message}}</p>
+                </div>
+                <div ng-if="!data.all_collections_placeholderpic_flag" scroll="true">
+                    <ion-list>
+                        <ion-item class="item game-list"
+                                  ng-click="goto_collection_profile_by_tab(collection.collection_id, 'nearme')"
+                                  collection-repeat="collection in data.all_collections">
+                            <div class="game-list-thumbnail">
+                                <img ng-src="{{collection.cover_pic}}">
+                            </div>
+                            <div class="game-list_game-info">
+                                <h2 class="game-list_game-title">{{collection.title}}</h2>
+
+                                <p class="game-list_game-platform" ng-if="collection.collect_format!='console'">
+                                    {{collection.platform}} | {{collection.collect_format_message}}</p>
+
+                                <p class="game-list_game-platform" ng-if="collection.collect_format=='console'">
+                                    {{collection.platform}}</p>
+
+                                <p class="game-list_game-deal">
+                                    <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                                        <span class="game-list_game-price">{{collection.price_sell}}
+                                            <span class="game-list_price-unit">{{ collection.price_unit }}</span>
+                                        </span>
+                                </p>
+
+                                <p class="game-list_game-distance ion-location">{{collection.miles}}</p>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                    <ion-infinite-scroll
+                            ng-if="data.all_collections_there_is_more"
+                            on-infinite="load_more_all_collections()"
+                            distance="0%">
+                    </ion-infinite-scroll>
+                </div>
+            </div>
+            <!-- /content -->
+        </div>
+    </ion-content>
+</ion-view>

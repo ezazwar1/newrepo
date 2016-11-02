@@ -1,0 +1,30 @@
+<div class="modal simple-modal" ng-controller="metroSelectModalController as viewModel" >
+    <ion-header-bar class="bar-light">
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="viewModel.cancel()" aria-label="close metro select"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header" scroll="true" has-bouncing="true" >
+        <div class="text-center" >
+            <div class="padding">
+                <h2 class="text-positive">Select Metro</h2>
+            </div>
+        </div>
+        <ion-list class="delivery-time-radio">
+            <label class="item item-radio"
+                   ng-click="viewModel.save(metro)"
+                   ng-repeat="metro in viewModel.metros" >
+                <input type="radio"
+                       ng-value="metro" ng-model="viewModel.selectedMetro" name="group">
+                <div class="item-content">
+                    {{metro.name}}
+                    <small><br/>{{metro.status | capitalize}}</small>
+                </div>
+                <i class="radio-icon ion-ios-checkmark" aria-hidden="true"></i>
+            </label>
+        </ion-list>
+
+    </ion-content>
+</div>

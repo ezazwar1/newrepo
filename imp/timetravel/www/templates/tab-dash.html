@@ -1,0 +1,215 @@
+<ion-view view-title="<i class='logo-large'>TimeTraveler</i>">
+  
+  <ion-nav-buttons side="left">
+      <button class="button button-light" ng-click="openShareModal()">
+              <i class="ion-ios-upload-outline icon-custom"></i>
+            </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-light" ng-click="saveTime()">
+              <i class="ion-ios-plus-outline icon-custom"
+                ng-show="TimerData.timerState != 'stop'"></i>
+                
+     </button>
+  </ion-nav-buttons>
+
+  
+  <ion-content 
+    has-header="true"
+    has-footer="true"
+    has-bouncing="true"
+    class="center" 
+    on-swipe-left="viewHistory()" 
+    style="padding: 0 !important; text-align: center !important; width: 100% !important"> 
+
+    
+
+    <div style="width: 100vw !important; text-align: center !important">
+        <div class="timetravel-parent center" 
+            ng-click="startpauseTimer()">
+            <div style="display: block !important">
+                <p class="timetravel-text">{{TimerData.timerStr.totalTime}}</p>
+                <p class="{{timetravelValueAdj}}">{{TimerData.timerStr.timeTravelled.value}}</p>
+                <p class="timetravel-metric">{{TimerData.timerStr.timeTravelled.metric}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <!--
+    <button class="button button-positive rounded center" ng-click="testTimeOut()" style="padding: 0 !important; margin: auto">
+        Trigger Test
+    </button>
+    -->
+    
+    
+    <!-- <p>TimerData: {{TimerData}}</p> -->
+    
+    <div class="row" 
+            style="margin-top: 20px; padding:0 !important; padding-left: 10vw !important; padding-right: 10vw !important; width: 100% !important">
+          
+          
+          <div class="col">
+          <button class="button button-light timetravel-transmode" ng-click="resetTimer()">
+              <i class="ion-ios-reload icon-custom"></i>
+            </button>
+          </div>'
+          
+          <div class="col">
+            <button class="button button-stable timetravel-transmode" ng-click="startpauseTimer()" style="padding: 0 !important; margin: 0 !important">
+              {{TimerData.timerNextAction}}
+            </button>
+          </div>
+          <div class="col">
+            <button class="button button-light timetravel-transmode" ng-click="openTransModes()" style="padding: 0 !important; margin: 0 !important">
+              <i class="{{TransModes[Speed.transModeIndex].icon}} icon-custom icon-positive"></i>
+            </button>
+          </div>
+        </div>
+
+
+  </ion-content>
+</ion-view>
+
+
+
+<!-- SELECT TRANSPORTATION MODE -->
+<script id="trans-mode-modal.html" type="text/ng-template">
+    <ion-modal-view class="modal-positive">
+    
+        <ion-header-bar align-title="center" class="bar-light" style="border: none !important;">
+            <div class="buttons">
+                <button class="button button-light cornered" ng-click="closeTransModes()">
+                    <i class="ion-ios-close-empty icon-custom"></i>
+                </button>
+            </div>
+            <h1 class="title">How are you traveling?</h1>
+        </ion-header-bar>
+        <ion-header-bar align-title="center" class="bar-subheader bar-light" style="border: none !important;">
+            <div class="buttons">
+                <button class="button button-stable cornered" 
+                    ng-click="openLink(TransModes[Speed.transModeIndex].link)">
+                    {{TransModes[Speed.transModeIndex].text}} @ {{Speed.display}}{{Metric.choice}}
+                </button>
+                <button class="button button-assertive button-outline cornered" 
+                    ng-click="openLink(TransModes[Speed.transModeIndex].link)" 
+                    ng-show="TransModes[Speed.transModeIndex].link">
+                    Read more
+                </button>
+            </div>
+        </ion-header-bar>
+
+        <ion-content>
+        
+            <div class="customspeed-description-box">
+                {{TransModes[Speed.transModeIndex].description}}
+            </div>
+        
+            <div class="row row-center" 
+                ng-repeat="transmode in TransModes track by $index"  
+                ng-if="$index % 3 === 0">
+            
+                <div class="col {{Speed.buttonCSS[$index + 0]}}" 
+                    ng-if="$index + 0 < (TransModes.length-1)" 
+                    ng-click="selectTransMode($index + 0)"
+                    style="padding-top: 3vh !important">   
+             
+                        <i class="{{TransModes[$index + 0].icon}} icon-custom"></i>
+                        <!-- <i>{{TransModes[$index + 0].text}}</i> -->
+                </div>
+                <div class="col {{Speed.buttonCSS[$index + 1]}}"
+                    ng-if="$index + 1 < (TransModes.length-1)"
+                    ng-click="selectTransMode($index + 1)"
+                    style="padding-top: 3vh !important">   
+                
+                        <i class="{{TransModes[$index + 1].icon}} icon-custom"></i>
+                        <!-- <i>{{TransModes[$index + 1].text}}</i> -->
+  
+                </div>
+                
+                <div class="col {{Speed.buttonCSS[$index + 2]}}" 
+                    ng-if="$index + 2 < (TransModes.length-1)"
+                    ng-click="selectTransMode($index + 2)"
+                    style="padding-top: 3vh !important">  
+       
+                        <i class="{{TransModes[$index + 2].icon}} icon-custom"></i>
+                        <!-- <i>{{TransModes[$index + 2].text}}</i> -->
+       
+                </div>
+               
+            </div>
+            
+            
+            
+     
+            
+         
+        </ion-content>
+        
+        <ion-footer-bar align-title="center" class="bar-light" style="border: none !important;">
+            <div class="buttons">
+                <button class="button button-assertive button-outline cornered" 
+                    ng-click="setCustomSpeed()">
+                    Custom speed
+                </button>
+            </div>
+            <h1 class="title"></h1>
+            <div class="buttons" ng-show="!Speed.customSpeedMode">
+                <button class="button button-positive cornered" 
+                    ng-click="closeTransModes()">
+                    <b>Set transportation mode</b>
+                </button>
+            </div>
+        </ion-footer-bar>
+    </ion-modal-view>
+</script>
+
+<!-- SHARE -->
+<script id="share-modal.html" type="text/ng-template" >
+
+    <ion-modal-view class="modal-positive center"><div style="display: block !important">
+    
+        <!-- <textarea name="Text1" ng-model="data.defaultShareText" cols="1" rows="10" class="textarea-share"></textarea> -->
+        <p class="textarea-share">Share your time travel</p>
+        
+        <div class="section-divider"></div>
+            <a class="padding" ng-click="openLink('http://bit.ly/timetravelerapp')">
+                Find aggregate time traveled by community here: bit.ly/timetravelerapp
+            </a>
+        <div class="section-divider"></div>
+        
+       <div class="row padding">
+           <div class="col">   
+                <button ng-click="shareTimer('facebook')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-social-facebook icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('twitter')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-social-twitter icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('whatsapp')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-social-whatsapp icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('email')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-email icon-custom"></i>
+                </button>
+            </div>
+            <div class="col">   
+                <button  ng-click="shareTimer('other')" class="button-clear" style="width: 100% !important; height: 100% !important; color: #fff"> 
+                    <i class="ion-more icon-custom"></i>
+                </button>
+            </div>
+       </div>
+       
+       <div class="section-divider"></div>
+       <div class="section-divider"></div>
+       
+       <button class="button button-assertive button-outline cornered" ng-click="closeShareModal()">Close</button>
+       
+    </div>
+   </ion-modal-view>
+</script>

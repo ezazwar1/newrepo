@@ -1,0 +1,95 @@
+<div class="modal rating-modal fullscreen-modal" ng-controller="LastOrderRatingModalController as viewModel" >
+    <ion-content has-bouncing="true" class="darker-content" >
+
+        <div class="row">
+            <div class="col col-100 text-center">
+                <h5 class="dark">Your Shipt Order</h5>
+                <h4 class="dark">
+                    {{rateOrder.delivered_at | date:'MMMM d, y'}} at {{rateOrder.delivered_at | date:'h:mm a'}}
+                </h4>
+            </div>
+        </div>
+        <div class="row responsive-lg account-area">
+            <div class="col col-50 col-offset-25">
+                <div class="area star-rating-area">
+                    <div class="text-center">
+                        <a ng-click="viewModel.viewOrderClick()">View Receipt</a>
+                        <h4 class="dark">
+                           <strong>{{rateOrder.driver.name | driverNameFilter}}</strong> shopped your order.
+                       </h4>
+                        <img class="shopper-img"
+                             ng-src="{{rateOrder.driver.image_url ? rateOrder.driver.image_url:'img/itemNoImage.gif'}}"
+                             alt="" aria-hidden="true" />
+                        <div class="text-center" tabindex="0">
+                            <rating ng-model="viewModel.rating.rating" max="5"></rating>
+                            <p class="faded text-center" ng-show="!viewModel.rating.rating">
+                                Rate your shopper anonymously.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="selection-list" ng-show="viewModel.rating.rating">
+                        <p class="faded text-center" tabindex="0">
+                            Anything else to share?
+                        </p>
+                        <div class="section-body">
+                            <button ng-repeat="reason in viewModel.badRatingReasons"
+                                    ng-click="viewModel.clickReason(reason)"
+                                    ng-class="reason.value ? 'selected':''"
+                                    class="button section-item button-light button-full icon">
+                                <i class="icon ion-checkmark-circled" ng-if="reason.value" aria-hidden="selected"></i>
+                                <i class="icon ion-ios-circle-outline" ng-if="!reason.value"></i>
+                                {{reason.name}}
+                            </button>
+                        </div>
+                        <div class="padding text-center" tabindex="0">
+                            <h5 class="faded">Feedback is anonymously shared with shoppers.</h5>
+                        </div>
+                    </div>
+
+                    <div class="selection-list" ng-if="viewModel.showTipping()">
+                        <div class="section-title text-center">
+                            <i class="icon ion-cash" aria-hidden="true"></i> Tip
+                            </br>
+                            <small class="faded text-center" tabindex="0">
+                                Tipping Available Until {{viewModel.tipUntilTimeString()}}
+                            </small>
+                        </div>
+                        <div class="section-body tip-area">
+                            <button ng-repeat="tipOption in viewModel.tipOptions"
+                                    ng-click="viewModel.selectTipOption(tipOption)"
+                                    ng-class="tipOption == viewModel.tipOption ? 'selected':''"
+                                    class="button section-item button-light button-full icon">
+                                <i class="icon ion-checkmark-round" ng-show="tipOption == viewModel.tipOption" aria-hidden="true"></i>
+                                {{tipOption.text}}
+                            </button>
+                            <label class="item item-input">
+                                <span class="input-label">Other Tip Amount</span>
+                                <input class="other-amount-input"
+                                       ui-money-mask
+                                       type="tel"
+                                       ng-model="viewModel.otherTipAmount"
+                                       placeholder="$ 0.00">
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="text-center padding">
+                        <button ng-click="viewModel.saveChanges()"
+                                class="button button-positive"
+                                ng-disabled="!viewModel.changesToSave">
+                            Submit Rating
+                        </button>
+                    </div>
+                </div>
+
+                <!-- <div class="area" ng-if="viewModel.showTipping()">
+                </div> -->
+
+            </div>
+
+            <div class="col">
+            </div>
+        </div>
+
+    </ion-content>
+</div>

@@ -1,0 +1,68 @@
+<ion-view cache-view="false" view-title="Ваш новый адрес">
+  <ion-nav-bar class="bar-light coll">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+
+    <div class="list">
+      <form name="registerForm" ng-submit="submitForm(registerForm.$valid)" novalidate>
+
+
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Регион
+          </div>
+          <select name="zone" ng-model="data.zone_id">
+
+            <option ng-init ="2761" ng-selected="zone.name == 'Москва'" ng-repeat="zone in zones" value="{{zone.zone_id}}">{{zone.name}}</option>
+
+          </select>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Индекс</span>
+          <input type="number" name="postcode"  placeholder="Индекс" ng-model="data.postcode">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Город</span>
+          <input type="text" name="city" placeholder="Город" ng-model="data.city" required>
+        </label>
+<span ng-show="registerForm.city.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i>Укажите Ваш город</span>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Улица</span>
+          <input type="text" name="address_1" placeholder="Улица" ng-model="data.address_1" required>
+        </label>
+  <span ng-show="registerForm.address_1.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i>Укажите Вашу улицу</span>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Дом, строение, квартира</span>
+          <input type="text" name="address_2" placeholder="Дом, строение, квартира" ng-model="data.address_2" required>
+        </label>
+  <span ng-show="registerForm.address_2.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i>Укажите Ваш дом, строение, квартиру</span>
+  <ul class="list">
+
+    <li class="item item-toggle">
+      Сделать адресом по умолчанию
+       <label class="toggle toggle-dark">
+         <input type="checkbox" name="default" ng-model="data.default">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+    </li>
+  </ul>
+
+        <div ng-show="error" class=" no_shadow card">
+                        <div class="item item-text-wrap">
+                          <b ng-bind="error"></b>
+                        </div>
+                    </div>
+        <input ng-hide ="data.address_id" class="button button-block button-dark" type="submit" name="submit" value="{{error ? 'Попробовать еще раз' : 'Добавить адрес'}}" >
+        <input ng-show ="data.address_id" class="button button-block button-dark" type="submit" name="submit" value="{{error ? 'Попробовать еще раз' : 'Обновить адрес'}}" >
+      </form>
+
+      </div>
+
+
+
+  </ion-content>
+</ion-view>

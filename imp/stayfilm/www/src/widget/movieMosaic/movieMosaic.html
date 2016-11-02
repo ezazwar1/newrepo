@@ -1,0 +1,65 @@
+<div class="sf-movie-mosaic" ng-if="movie && ((movie.status === 3 && type === 'pending') || (movie.status === 1 && (type === 'classic' || type === 'edition')))">
+
+	<div class="mm-header clearfix" ng-click="$root.goTo('main.home.friend.movie', null, {username: user.username})">
+
+		<div class="user-thumb">
+			<img ng-src="{{ user.photo || 'images/default-profile-photo.png' }}"  />
+		</div>
+		<div class="name">{{ user.fullName }}</div>
+		<div class="created">{{ movie.prettyPublicated ? movie.prettyPublicated : movie.prettyCreated }}</div>
+	</div>
+
+	<div class="mm-subheader clearfix" ng-if="movie.sharer">
+		<span class="subheader-action" translate>compartilhado de </span> <a class="name" ng-click="$root.goTo('main.home.friend.movie', null, {username: movie.user.username})"> {{ movie.user.fullName }}</a>
+	</div>
+
+	<div class ="mm-thumb">
+
+		<img class="full-image" ng-src="{{ getImageUrl(movie, 'small') }}" err-src="images/default-mosaic-cover.png">
+
+		<div class="mm-play" ng-click="watch(movie.idMovie)">
+			<img src="images/ico-play.png" class="mm-play">
+		</div>
+	</div>
+
+	<div class="mm-title">{{ movie.title }}</div>
+
+	<div ng-if="type === 'classic'" class="mm-misc">
+		<div class="misc-item" ng-class="{active: movie.liked}" ng-click="like(movie)">
+			<span class="nb" style="margin-right: 0;">{{ movie.likeCount }}</span>
+			<span  ng-class="{swingAnim: loadingLike}"><img ng-src="images/ico-yes{{ movie.liked ? '-red' : ''}}.png" style="width: 46px; height: 20px; position: relative; top: 3px;" /></span>
+		</div>
+		<div class="misc-item" ng-click="watch(movie.idMovie)"><span class="nb" style="margin-right: 7px;">{{ movie.commentCount }}</span> <img src="images/ico-comment.png" style="width: 26px; position: relative; top: 4px;" /></div>
+		<div class="misc-item" ng-click="watch(movie.idMovie)"><span class="nb" style="margin-right: 8px;">{{ movie.viewCount }} </span><img src="images/ico-view.png" style="width: 30px; position: relative; top: 0px;" /></div>
+	</div>
+
+	<div ng-if="type === 'pending'" class="mm-misc">
+		<div class="misc-item" ng-click="discard(movie)">
+			<img src="images/ico-trash.png"><span translate>Descartar</span>
+		</div>
+		<div class="misc-item" ng-click="$root.goTo('main.publish', null, {idmovie: movie.idMovie})">
+			<img src="images/ico-publish.png"><span translate>Publicar</span>
+		</div>
+	</div>
+
+	<div ng-if="type === 'edition'" class="mm-misc">
+		<div class="misc-item" ng-click="discard(movie)">
+			<img src="images/ico-trash.png"><span translate>Descartar</span>
+		</div>
+		<div class="misc-item permission" ng-click="changePermission(movie)">
+			<span ng-if="movie.permission === 1">
+				<img src="images/ico-lock.png"><span translate>Privado</span>
+			</span>
+			<span ng-if="movie.permission === 2">
+				<img src="images/ico-friend-gray.png"><span translate>Amigo</span>
+			</span>
+			<span ng-if="movie.permission === 3">
+				<img src="images/ico-unlock.png"><span translate>Público</span>
+			</span>
+		</div>
+	</div>
+
+	<div ng-if="movie.synopsis" class="mm-synopsis">{{movie.synopsis}}</div>
+
+	<img src="images/dotbar.png" class="mm-sep">
+</div>

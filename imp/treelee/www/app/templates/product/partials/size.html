@@ -1,0 +1,28 @@
+<div class="details">
+    <div class="filter-container">
+        <div class="label">{{product.options[0]['@attributes'].label}}</div>
+        <label class="item item-radio transparent" ng-repeat="value in product.options[0].value">
+            <div ng-click="showSubOptions(value.relation.value)">
+                <input type="radio"
+                       ng-model="options[product.options[0]['@attributes'].code]"
+                       ng-value="value['@attributes'].code"
+                >
+                <div class="item-content">
+                    <i class="icon circle"></i>
+                    <div class="label">{{value['@attributes'].label}}</div>
+                </div>
+            </div>
+        </label>
+        <!-- second level -->
+        <div ng-if="product.options[1] && subOptions">
+            <br><div class="label">{{product.options[1]['@attributes'].label}}</div>
+            <label class="item item-radio transparent" ng-repeat="item in subOptions">
+                <input type="radio" ng-model="options[product.options[1]['@attributes'].code]" ng-value="item['@attributes'].code">
+                <div class="item-content">
+                    <i class="icon circle"></i>
+                    <div class="label">{{item['@attributes'].label}}</div>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>

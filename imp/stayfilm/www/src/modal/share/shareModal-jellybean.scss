@@ -1,0 +1,27 @@
+@import 'variables';
+
+.modal-share {
+	.share-content {
+		.share-wrapper {
+			.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+				padding-bottom: 50px;
+			}
+
+			.user-textarea {
+				.description {
+					.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+						width: 80%;
+					}
+				}
+			}
+		}
+	}
+
+	.big-button-footer {
+		.action-button {
+			.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+				@include transform(translateY(-52%));
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+﻿<ion-list>
+    <div ng-if="categories && categories.length > 0" class="item item-divider" i18n="shop.categories"></div>
+    <div ng-repeat="category in categories">
+        <ion-item href="#/app/menu/shop/category/{{category.category_id}}" class="item item-icon-right">
+            <img ng-src="{{category.image}}" style="vertical-align:middle;" ng-if="thumbnail == 'true'" />
+            <span ng-bind-html="category.name"></span>
+        </ion-item>
+    </div>
+</ion-list>

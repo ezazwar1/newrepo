@@ -1,0 +1,46 @@
+<!-- THIS IS THE PAGE FOR AN INDIVIDUAL PROFILE VIEW -->
+
+<ion-view view-title="">
+
+ <ion-content class="padding scroll-bg">
+    <div class="transparent-back">
+      <ion-list>
+
+        <div class="" ng-repeat="profiles in profile | filter:{_id: ind}">
+          <div class="profile-stats">
+            <h3 id="profile-detail-name">{{profiles.first}} {{profiles.last}}</h3>
+            <p>
+              <!-- <span id="profile-stat-name">Age:</span>{{profiles.age}} -->
+              <!-- <span class=profile-stat-divider>|</span> -->
+              <span id="profile-stat-name">Hometown:</span>{{profiles.hometown}}</p>
+          </div>
+
+          <img id="profile-image" src="{{profiles.icon}}">
+          <div class="profile-details">
+            <span id="profile-detail-description">{{profiles.job}}</span>
+
+            <div class="profile-contents">
+            <!-- <a href="#" onClick="window.open('https://youtu.be/R_3tGKTUg1I?list=PLDQ1SztOjkOmfrTw7Pgt8sP_bmyT9Xlvr','_blank','location=no');return false;"><span class=video-link></span></a> -->
+            <!-- <span class=slideshow-link><a href="#"></a></span> -->
+
+            <a href="#"><span class="button button-icon video-link" ng-click="playVid(profiles.video)"></span></a>
+            <!-- <a href="#"><span class=slideshow-link ng-click="playVid(profiles.video)"></span></a> -->
+            </div>
+
+          </div>
+          <div class="quote">
+          <div class="quotation"></div><div class="blurb"><p>{{profiles.blurb}}"</p></div></div>
+      </div>
+
+        <ion-item class="item-remove-animate item-text-wrap" ng-repeat="interviews in interview" type="item-text-wrap">
+        <div class="question">{{interviews.question}}</div><p>{{interviews.answer}}</p>
+        </ion-item>
+
+
+      </div>
+
+    </ion-list>
+  </div>
+ </ion-content>
+
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-view  title="{{ 'ADD_FRIEND.TITLE' | translate }}">
+  <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+  </ion-nav-buttons>
+  <div class="bar bar-header item-input-inset add-friend-search-bar">
+    <label class="item-input-wrapper">
+      <input type="search" ng-model="search.name" class="dark-plc" placeholder="{{ searchPlaceholder }}">
+      <i class="icon ion-ios-search placeholder-icon search-icon-friend"></i>
+    </label>
+    <button ng-click="search.name = ''" ng-show="search.name.length > 0" class="button button-clear">
+      <i class="ion-android-close"></i>
+    </button>
+  </div>
+  <ion-content class="has-subheader">
+    <div class="friend-list">
+    <div class="row friend-row" ng-repeat = "friend in searchResult | filter:search.name as filtered track by $index">
+     <div class="col col-20 icon-wrapper">
+       <div class="profile-user-image" style="background-image: url({{friend.image_url ?  friend.image_url : 'img/avatar.svg'}})"></div>
+     </div>
+      <div class="col col-50 name-wrapper">        
+        {{friend.first_name ? friend.first_name : friend.email }}  {{friend.first_name ? friend.last_name : ''}}
+      </div>
+      <div class="col follow_btn_wrap">
+        <button class="button button-clear" ng-class="friend.following_him == 1 ? 'button-assertive' : 'button-positive' " ng-bind-html="friend.following_him == 1 ?  unfollow_btn_txt : follow_btn_txt " ng-click="" ng-disabled="friend.follow_btn_disable">Follow</button>
+      </div>
+    </div>
+  </div>
+  <div class="txt-center" ng-show="(showError && searchResult.length == 0) || (showError && filtered.length == 0)"><wf-no-results></wf-no-results>{{'PUBLIC_PROFILE.NO_FRIEND_FOUND' | translate}}</div>
+  </ion-content>
+</ion-view>

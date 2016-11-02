@@ -1,0 +1,23 @@
+<ion-modal-view class="touchpoint popoverr new-post">
+
+  <ion-content class="filter-popover">
+
+    <a href="javascript:;" ng-click="closeReportModal()" class="go-back">X</a>
+
+    <div class="box flag">
+
+      <h1>{{ 'REPORT_POST' | translate}}</h1>
+      <p class="no-indent">
+        <textarea placeholder="{{ 'REPORT_POST_PLACEHOLDER' | translate }}" ng-model="reportPostData.postText"></textarea>
+
+        <ion-checkbox ng-model="referUserData.referUser">{{ 'REPORT_POST_REFERRAL' | translate }}</ion-checkbox>
+      </p>
+      <div ng-if="reportError" class="error">{{reportError}}</div>
+      <div class="clearfix">
+      <button ng-click="reportingComment ? reportComment() : reportPost()" class="button-start">
+        {{ 'REPORT_POST' | translate }}
+      </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,91 @@
+<ion-view title="{{ 'SETTINGS.HELP_TITLE' | translate }}">
+    <ion-content class="has-header">
+
+        <ion-item class="item" ng-click="openLink('https://www.wefitter.com/faq')">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-ios-help"></i> {{ 'SETTINGS.FAQ' | translate}}
+            </div>
+        </ion-item>
+
+        <ion-item class="item" ng-click="supportMail()">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-ios-email-outline"></i> {{ 'SETTINGS.EMAIL' | translate}}
+            </div>
+        </ion-item>
+
+        <ion-item class="item" ng-click="openLink('https://www.wefitter.com/blog')">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-social-rss"></i> {{ 'SETTINGS.BLOG' | translate}}
+            </div>
+        </ion-item>
+
+        <ion-item class="item" ng-click="openLink('https://www.facebook.com/wefitter')">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-social-facebook"></i> Facebook
+            </div>
+        </ion-item>
+
+        <ion-item class="item" ng-click="openLink('https://twitter.com/wefitter')">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-social-twitter"></i> Twitter
+            </div>
+        </ion-item>
+
+        <ion-item class="item" ng-click="openLink('https://www.instagram.com/wefitter/')">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-social-instagram-outline"></i> Instagram
+            </div>
+        </ion-item>
+
+        <ion-item class="item" ng-click="openLink('https://www.mixcloud.com/wefitter/')">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-headphone"></i> WeFitter Beats
+            </div>
+        </ion-item>
+
+         <ion-item class="item" ng-click="openLink('https://www.wefitter.com/privacy')">
+            <div class="input-label text-dark" style="color:#444">
+              <i class="icon ion-ios-paper-outline"></i> {{ 'SETTINGS.TERMS_CONDITIONS' | translate}}
+            </div>
+        </ion-item>
+
+
+
+
+
+            <!--
+            TEMPORARY DISABLED
+            <ion-toggle toggle-class="toggle-positive" ng-model="setting.push_notifications" name="push-notify">
+            {{ 'SETTINGS.PUSH_NOTIFICATION' | translate}}
+            </ion-toggle>
+
+            <ion-toggle toggle-class="toggle-positive" ng-model="setting.motivational_mails" name="motivational-mails">
+            {{ 'SETTINGS.MOTIVATIONAL_MAILS' | translate}}
+            </ion-toggle>
+
+            <ion-toggle toggle-class="toggle-positive" ng-model="setting.american_units" name="american-unit">
+            {{ 'SETTINGS.AMERICAN_UNIT' | translate}}
+            </ion-toggle>
+            <ion-item class="item item-input item-select">
+                <div class="input-label text-dark" style="color:#444">
+                  {{ 'SETTINGS.LANGUAGE' | translate}}
+                </div>
+                <select ng-model="setting.lang">
+                  <option value="en" translate="SETTINGS.LANG_EN">English</option>
+                  <option value="es" translate="SETTINGS.LANG_ES">Spanish</option>
+                </select>
+            </ion-item>
+            -->
+
+            <!--div class="button-bar btn-settings-bar">
+                <button ng-click="supportMail()" class="button txt-left button-stable button-icon button-block btn-settings">
+                <i class="wf-comment"></i> {{ 'SETTINGS.CONTACT_SUPPORT' | translate}}
+                </button>
+                <button ng-click="removeAccount()" class="button txt-right button-icon button-block assertive btn-settings icon-left">
+                <i class="wf-delete"></i> {{ 'SETTINGS.REMOVE_ACCOUNT' | translate}}
+                </button>
+            </div-->
+
+    </ion-content>
+
+</ion-view>

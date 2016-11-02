@@ -1,0 +1,32 @@
+<div class="modal simple-modal" ng-controller="DeliveryWindowSelectorController as viewModel" >
+    <ion-header-bar class="bar-light">
+        <h1 class="title">Delivery Window</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="viewModel.cancel()" role="button" aria-label="Close Delivery Window Selection in Top Right"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header darker-content" scroll="true" has-bouncing="true" >
+        <ion-list class="delivery-time-radio">
+            <div class="text-center padding" style="margin-top: 20px;">
+                <span class="faded padding">
+                    Select time when you would like to receive your grocery delivery
+                </span>
+            </div>
+            <label class="item item-radio"
+                   ng-click="viewModel.clickWindow(window)"
+                   ng-class="viewModel.windowAvailable(window) ? '': 'not-available'"
+                   ng-repeat="window in viewModel.deliveryWindows" >
+                <input type="radio"
+                       ng-disabled="!viewModel.windowAvailable(window)"
+                       ng-value="window" ng-model="viewModel.selectedWindow" name="group">
+                <div class="item-content">
+                    {{window.description}}
+                    <small ng-if="!viewModel.windowAvailable(window)"><br/>Not Available</small>
+                </div>
+                <i class="radio-icon ion-ios-checkmark"></i>
+            </label>
+        </ion-list>
+
+    </ion-content>
+</div>

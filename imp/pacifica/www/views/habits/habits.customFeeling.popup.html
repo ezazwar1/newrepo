@@ -1,0 +1,40 @@
+<ion-modal-view class="touchpoint feelings popoverr">
+
+  <ion-header-bar>
+    <div class="buttons">
+      <!--<button class="button close" ng-click="closeFeelingPopup()">X</button>-->
+    </div>
+    <h1 class="title">{{ 'FEELINGS' | translate }} </h1>
+    <div class="buttons">
+      <button class="nav-anchor done-btn" ng-click="closeFeelingPopup()">{{ 'DONE' | translate }}</button>
+    </div>
+  </ion-header-bar>
+  <div class="search-feelings-bar">
+    <input type="text" placeholder="{{ 'SEARCH' | translate}}" id="newFeelingText" maxLength="32" ng-model="newFeelingData.text" ng-focus="inputFocused()">
+    <div class="selected-feelings-wrapper" ng-if="selectedSubValues.length > 0">
+      <ion-item ng-repeat="feeling in selectedSubValues track by feeling.id" ng-click="removeSelectedSubValue(feeling.valueString)">
+        <span>{{ feeling.valueString.toLowerCase() }} <span class="del">X</span></span>
+      </ion-item>
+    </div>
+  </div>
+
+  <ion-content class="filter-popover feeling-list">
+    <ion-list>
+      <div ng-if="customFeelingError" class="item error">{{customFeelingError}}</div>
+
+      <ion-item ng-repeat="feeling in recentFeelings | filter:filterRecentFeelings track by feeling.id" ng-click="setCustomFeeling(feeling)" ng-show="newFeelingData.text.length == 0">
+        {{feeling.valueString.toLowerCase()}} 
+      </ion-item>
+
+      <ion-item ng-repeat="feeling in getFilteredPresetFeelings()" ng-click="saveCustomFeeling(feeling)">
+        {{ feeling }}
+      </ion-item>
+
+    </ion-list>
+    <div class="custom-feeling-wrapper"> <!-- classes needed for ionic. -->
+      <div ng-show="newFeelingData.text.length > 0" ng-click="saveCustomFeeling()" class="item">
+        + {{ 'PRE_ADD_CUSTOM_FEELING_TEXT' | translate }} "{{ newFeelingData.text}}" {{ 'POST_ADD_CUSTOM_FEELING_TEXT' | translate }}
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

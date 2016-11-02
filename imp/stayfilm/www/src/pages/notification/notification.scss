@@ -1,0 +1,105 @@
+@import 'variables';
+
+.page-notification {
+	.empty-list {
+		margin-top: 0;
+	}
+	.notification-list {
+
+		padding-top: 20px;
+
+		.notification-item {
+			border: none;
+			margin-bottom: 20px;
+			@include clearfix();
+
+			.item-content { /* ionic auto-generated component */
+				padding: 0;
+			}
+
+			.avatar {
+				margin: 0 5px;
+				width: 40px;
+				height: 40px;
+				overflow: hidden;
+				padding: 0;
+				float: left;
+
+				button {
+					padding: 0;
+				}
+
+				img {
+					height: 40px;
+				}
+			}
+
+			.content {
+
+				margin-left: 50px;
+				width: auto;
+				padding: 0 5px;
+
+				a {
+					color: #ad252a;
+					font-family: HelveticaNeueMD, sans-serif;
+					font-size: inherit;
+					display: inline;
+					width: auto;
+					padding: 0;
+					text-decoration: none;
+				}
+
+				.notification-info {
+					margin-bottom: 4px;
+
+					.name {
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						color: #ad252a;
+						margin: 0px 0px 0;
+						font-family: HelveticaNeueMD, sans-serif;
+						font-size: 16px;
+
+						.status {
+							margin-left: 5px;
+
+							&.ion-checkmark {
+								font-size: 12px;
+								color: #0b0;
+							}
+
+							&.ion-loading-c {
+								color: #888;
+							}
+
+							&.ion-alert-circled {
+								color: #b00;
+							}
+						}
+					}
+
+					.notification-date {
+						width: 80px;
+						float: right;
+						text-align: right;
+						margin: 0px 20px 0;
+						font-family: HelveticaNeueLT, sans-serif;
+						font-size: 14px;
+						color: #7a7a7a;
+					}
+				}
+
+				.notification-body {
+					.notification {
+						white-space: normal;
+						font-family: HelveticaNeueLT, sans-serif;
+						font-size: 14px;
+						color: #7a7a7a;
+					}
+				}
+			}
+		}
+	}
+}

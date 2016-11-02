@@ -1,0 +1,218 @@
+<ion-view cache-view="false" hide-back-button="true" class="web-checkout" title="Checkout">
+    <ion-content class="has-header darker-content"  has-bouncing="true" >
+        <guest-account-callout ng-if="guest_account()"></guest-account-callout>
+
+        <div class="padding large-padding text-center wrap" ng-if="viewModel.launchErrorMessage && viewModel.launchErrorDontAllowCheckout">
+            <div class="checkout-launch-error" >
+                {{viewModel.launchErrorMessage}}
+            </div>
+        </div>
+
+        <div class="padding large-padding text-center wrap" ng-if="viewModel.subscriptionErrorMessage && viewModel.subscriptionErrorDontAllowCheckout">
+            <div class="checkout-subscription-error" >
+                {{viewModel.subscriptionErrorMessage}}
+            </div>
+        </div>
+
+        <div class="main-area row responsive-lg">
+            <div class="col col-66">
+                <div class="list">
+                    <div class="checkout-form">
+                        <div class="checkout-form-section">
+                            <div class="section-title">
+                                <i class="icon ion-location" aria-hidden="true"></i> Delivery Address
+                            </div>
+                            <div class="section-body">
+                                <button class="button button-light button-full section-item" ng-repeat="address in viewModel.newOrder.available_customer_addresses"
+                                     ng-click="viewModel.clickAddressToSelectIt(address)"
+                                     ng-class="address.id == viewModel.checkout.selectedAddress.id ? 'selected':''">
+                                    <i class="icon ion-checkmark" ng-show="address.id == viewModel.checkout.selectedAddress.id" aria-label="selected"></i>
+                                    {{address.street1}} {{address.zip_code}} {{address.city}}, {{address.state}}
+                                </button>
+                                <button class="button button-light button-full section-item add-item"
+                                     ng-click="viewModel.addAddress()" aria-label="Add New Address">
+                                    &#43; Add New Address
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="checkout-form-section">
+                            <div class="section-title">
+                                <i class="icon ion-card"></i> Payment Method
+                            </div>
+                            <div class="section-body">
+                                <button class="button button-light button-full section-item" ng-repeat="payment in viewModel.newOrder.available_credit_cards"
+                                     ng-click="viewModel.checkout.selectedCard = payment"
+                                     ng-class="payment.id == viewModel.checkout.selectedCard.id ? 'selected':''">
+                                    <i class="icon ion-checkmark" ng-show="payment.id == viewModel.checkout.selectedCard.id"></i>
+                                    *{{payment.last_4_digits}}
+                                    <small><span class="faded">
+                                        Exp Date
+                                    </span>
+                                    {{payment.exp_date}}</small>
+                                </button>
+                                <button class="button button-light button-full section-item add-item"
+                                        ng-click="viewModel.addCard()">
+                                    &#43; Add New Payment Method
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <div class="checkout-form-section">
+                            <div class="section-title">
+                                <i class="icon ion-ios-clock"></i> Delivery Window
+                            </div>
+                            <div class="section-body">
+                                <button class="button button-light button-full section-item"
+                                     ng-repeat="time_slot in viewModel.newOrder.time_slots"
+                                     ng-click="viewModel.checkout.deliveryWindow = time_slot"
+                                     ng-disabled="!time_slot.available"
+                                     ng-class="time_slot.time_slot_id == viewModel.checkout.deliveryWindow.time_slot_id ? 'selected':''">
+                                    <i class="icon ion-checkmark" ng-show="time_slot.time_slot_id == viewModel.checkout.deliveryWindow.time_slot_id"></i>
+                                    {{time_slot.description}}
+                                    <p ng-show="!time_slot.available">
+                                        Not Available
+                                    </p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="total-area padding">
+                    <div class="checkout-form subs">
+                        <div class="checkout-form-section">
+                            <div class="section-title" tabindex="0">
+                                <i class="icon ion-arrow-swap" aria-hidden="true"></i> Substitution Preference
+                                <small class="faded">
+                                    </br>
+                                    Please choose what you would like your shopper to do if an item you selected is out of stock.
+                                </small>
+                            </div>
+                            <div class="section-body">
+                                <button class="button button-light button-full section-item"
+                                     ng-repeat="sub in viewModel.substitutionOptions"
+                                     ng-click="viewModel.selectedSubstitutionOption = sub"
+                                     ng-class="sub == viewModel.selectedSubstitutionOption ? 'selected':''">
+                                    <i class="icon ion-checkmark" ng-show="sub == viewModel.selectedSubstitutionOption" aria-label="selected"></i>
+                                    {{sub.text}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delivery-notes">
+                        <div class="title" tabindex="0">
+                            <i class="icon ion-edit" aria-hidden="true"></i>
+                            Delivery Notes
+                            <small href="" ng-click="viewModel.viewPreviousNotes($event)">Choose Previous</small>
+                        </div>
+                        <textarea name="" id="" cols="20" rows="4" ng-model="viewModel.notes" placeholder="Text me when you arrive"></textarea>
+                    </div>
+                    <div>
+                        <div class="row" tabindex="0">
+                            <div class="col col-66">
+                                Subtotal
+                            </div>
+                            <div class="col text-right" ng-if="viewModel.newOrder.requested_subtotal">
+                                {{viewModel.newOrder.requested_subtotal | currency}}
+                            </div>
+                            <div class="col text-right" ng-if="!viewModel.newOrder.requested_subtotal">
+                                --
+                            </div>
+                        </div>
+                        <div class="row" tabindex="0">
+                            <div class="col col-66">
+                                Delivery Fee
+                            </div>
+                            <div class="col text-right" ng-if="viewModel.newOrder.delivery_fee">
+                                {{viewModel.newOrder.delivery_fee | currency}}
+                            </div>
+                            <div class="col text-right" ng-if="!viewModel.newOrder.delivery_fee">
+                                --
+                            </div>
+                        </div>
+
+                        <div class="row" tabindex="0" ng-if="viewModel.newOrder.deposit">
+                            <div class="col col-66">
+                                Deposit
+                            </div>
+                            <div class="col text-right">
+                                {{viewModel.newOrder.deposit | currency}}
+                            </div>
+                        </div>
+
+                        <div class="row" tabindex="0">
+                            <div class="col col-66">
+                                Tax
+                            </div>
+                            <div class="col text-right" ng-if="viewModel.newOrder.requested_tax">
+                                {{viewModel.newOrder.requested_tax | currency}}
+                            </div>
+                            <div class="col text-right" ng-if="!viewModel.newOrder.requested_tax">
+                                --
+                            </div>
+                        </div>
+                        <div class="row" tabindex="0" ng-if="viewModel.newOrder.shipt_credit_used && viewModel.newOrder.shipt_credit_used != 0 && viewModel.newOrder.shipt_credit_used != '0'">
+                            <div class="col col-66">
+                                Shipt Credit Applied
+                            </div>
+                            <div class="col text-right text-positive">
+                                - {{viewModel.newOrder.shipt_credit_used | currency}}
+                            </div>
+                        </div>
+                    <div class="row order-total" tabindex="0">
+                            <div class="col col-66">
+                                Order Total
+                            </div>
+                            <div class="col text-right" ng-if="viewModel.newOrder.charge_total || viewModel.newOrder.charge_total == 0">
+                                {{viewModel.newOrder.charge_total | currency}}
+                            </div>
+                            <div class="col text-right" ng-if="!viewModel.newOrder.charge_total && viewModel.newOrder.charge_total != 0">
+                                --
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padding checkout-button">
+                        <button ng-disabled="viewModel.subscriptionErrorDontAllowCheckout || viewModel.launchErrorDontAllowCheckout"
+                                ng-click="viewModel.submitOrder()"
+                                type="button"
+                                class="button button-positive button-block">
+                            Get it Shipt!
+                        </button>
+                    <div class="text-center" tabindex="0">
+                            <p class="faded">
+                                {{viewModel.getOrderMessage()}}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+
+    <script id="templates/previousNotesPopover.html" type="text/ng-template">
+        <ion-popover-view class="previous-order-popup">
+            <ion-content>
+                <ion-list class="list">
+                    <ion-item class="item old-notes-item"
+                              ng-repeat="note in oldOrderNotess"
+                              ng-if="note"
+                              ng-click="clickOldOrderNotes(note)"
+                              tabindex="0">
+                        <p class="dark">
+                            {{note}}
+                        </p>
+                        <i class="icon icon-ios-arrow-right"></i>
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-popover-view>
+    </script>
+
+</ion-view>

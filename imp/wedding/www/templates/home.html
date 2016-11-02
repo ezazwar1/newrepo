@@ -1,0 +1,31 @@
+<ion-view view-title="<B>wed</B>ivite">
+  <ion-content scroll="false" class="view-home">
+  <!-- <button ng-click="googleLoginn()">Google</button> -->
+  	<div ng-show="alotOfDays">
+   		<h1>{{ daysLeft }}<small>days left until the big day</small></h1>
+   	</div>
+   	<div ng-show="tommorow">
+   		<h1 style="padding-bottom: 10px;">Yay!<small>Big day tomorrow</small></h1>
+   	</div>
+   	<div ng-show="today">
+   		<h1 style="font-size: 21px; letter-spacing: -1px; padding: 15px 0;">We hope you had an amazing wedding!</h1>
+   	</div>
+   	
+   	<!-- <div class="home-stats"> -->
+    <ion-footer-bar class="home-stats" style="background: transparent !important;">
+		<div class="row">
+		  <div class="col"><h2>{{ views }}</h2><span>Invitation views</span></div>
+		  <div class="col"><a nav-clear href="#/app/guest-list"><h2>{{ guestCount }}</h2><span>Guests attending</span></a></div>
+		</div>
+		<div class="row">
+		  <div class="col"><a href="#/app/guest-list"><h2>{{ rsvpCount }}</h2><span>Guests RSVPs</span></a></div>
+		  <div class="col"><a href="#/app/song-list"><h2>{{ songCount }}</h2><span>Songs suggested</span></a></div>
+		</div>
+	    <div class="row">
+		  <div class="col"><a href="#/app/guest-book"><h2>{{ greetCount }}</h2><span>Greetings written</span></a></div>
+		  <div class="col"><a href="#/app/wedding-album"><h2>{{ photoCount }}</h2><span>Photos taken</span></a></div>
+		</div>
+	<!-- </div> -->
+    </ion-footer-bar>
+  </ion-content>
+</ion-view>

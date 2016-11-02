@@ -1,0 +1,17 @@
+@import "variables";
+
+@media only screen and (orientation: portrait) {
+	.waiting-page-fb .scroll-content .logo img {
+		.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+			@include transform(scaleY(4.6));
+		}
+	}
+}
+
+@media only screen and (orientation: landscape) {
+	.waiting-page-fb .scroll-content .logo img {
+		.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 & {
+			@include transform(scaleY(2.4));
+		}
+	}
+}

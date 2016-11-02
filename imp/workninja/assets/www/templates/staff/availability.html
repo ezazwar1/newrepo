@@ -1,0 +1,52 @@
+<ion-view title="Availability" class="staff-availability-pane">
+  <ion-nav-buttons side="left">
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon" ng-show="!inSetup"></button>-->
+    <a class="button button-clear" ng-click="goMain()" ng-show="!inSetup">
+      <i class="icon ion-arrow-left-a"></i>
+    </a>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <a class="button" ng-click="update()" ng-disabled="!canUpdate()">Update</a>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header height-100 ninja-padding">
+    <div class="availability-page">
+      <div class="availability">
+
+        <div class="welcome-header" ng-show="inSetup">
+          <div class="welcome-title">When can you work?</div>
+          <p>Please enter the times below when you would like to receive shift offers</p>
+        </div>
+        <div class="welcome-header" ng-show="!inSetup">
+          &nbsp;
+        </div>
+
+        <div class="list">
+          <div class="wday-info" ng-repeat="wday in DAYS_OF_WEEK">
+
+              <div class="title">
+                {{ wday.name }}
+              </div>
+                <div class="wday-zone-div">
+                    <img src="img/a_zone_1.svg" alt="Zone1" ng-show="staff.availability[wday.id].zone1" ng-click="toggleAvailability(wday,'zone1')" class="zone_img availability_zone1">
+                    <img src="img/a_zone_1_grey.svg" alt="Zone1" ng-hide="staff.availability[wday.id].zone1" ng-click="toggleAvailability(wday,'zone1')" class="zone_img ng-hide">
+                </div>
+                <div class="wday-zone-div">
+                    <img src="img/a_zone_2.svg" alt="Zone2" ng-show="staff.availability[wday.id].zone2" ng-click="toggleAvailability(wday,'zone2')" class="zone_img availability_zone2">
+                    <img src="img/a_zone_2_grey.svg" alt="Zone2" ng-hide="staff.availability[wday.id].zone2" ng-click="toggleAvailability(wday,'zone2')" class="zone_img ng-hide">
+                </div>
+                <div class="wday-zone-div">
+                    <img src="img/a_zone_3.svg" alt="Zone3" ng-show="staff.availability[wday.id].zone3" ng-click="toggleAvailability(wday,'zone3')" class="zone_img availability_zone3">
+                    <img src="img/a_zone_3_grey.svg" alt="Zone3" ng-hide="staff.availability[wday.id].zone3" ng-click="toggleAvailability(wday,'zone3')" class="zone_img ng-hide">
+                </div>
+                <div class="wday-zone-div">
+                    <img src="img/a_zone_4.svg" alt="Zone4" ng-show="staff.availability[wday.id].zone4" ng-click="toggleAvailability(wday,'zone4')" class="zone_img availability_zone4">
+                    <img src="img/a_zone_4_grey.svg" alt="Zone4" ng-hide="staff.availability[wday.id].zone4" ng-click="toggleAvailability(wday,'zone4')" class="zone_img ng-hide">
+                </div>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

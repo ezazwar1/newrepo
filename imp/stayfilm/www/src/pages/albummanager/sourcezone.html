@@ -1,0 +1,58 @@
+<ion-view class="main-albummanager-sourcezone">
+
+	<div class="bar bar-header">
+		<button class="button button-clear btn-back" ng-click="goTo('main.albummanager.contentzone', 'slide-right');">
+			<img src="images/ico-arrow-left.png">
+		</button>
+
+		<div class="title" translate>
+			editar medias
+		</div>
+
+	</div>
+
+	<div class="header-networks has-header">
+		<div class="instruction" translate>
+			Escolha um álbum da sua rede social favorita para ver o conteúdo
+		</div>
+
+		<div class="network-list" style="position: relative">
+			<ion-scroll direction="x" has-bouncing="true" class="container back-art">
+				<div class="network-container">
+					<div ng-repeat="network in availableNetworks" class="network {{network}}"
+						 ng-class="{hasSelectedMedias: true == network, selected: networkSelected == network, integrated: integratedNetworks[network]}"
+						 ng-click="selectNetwork(network)">
+					</div>
+				</div>
+			</ion-scroll>
+		</div>
+	</div>
+
+	<ion-content class="album-list-container">
+
+		<div ng-if="integratedNetworks.length === 0" class="zero-album">
+			<span translate>Escolha uma rede</span>
+		</div>
+
+		<div ng-if="albumLoaded && albumList.length === 1" class="zero-album">
+			<span translate>Nenhum album</span>
+		</div>
+		<div class="album-list">
+
+			<div ng-if="albumLoaded && albumList.length > 0">
+
+				<div class="album-list-item" collection-repeat="album in albumList" collection-item-width="getItemSize(album)" collection-item-height="getItemSize(album)">
+					<div class="album-cover" ng-if=" ! album.iAmTheRefreshButton" ng-click="showAlbum(album.idAlbum)">
+						<div class="frame">
+							<div class="cover-image" ng-style="{ 'background-image': 'url(' + (album.cover || 'images/placeholder.png') + ')' }"></div>
+							<div class="selected-medias" ng-if="album.selectedMediaCount">{{ album.selectedMediaCount }}</div>
+						</div>
+						<div class="media-count">{{album.mediaCount}}</div>
+						<div class="album-name">{{album.name}}</div>
+					</div>
+					<button ng-if="album.iAmTheRefreshButton" class="btn-refresh" ng-click="refresh(networkSelected)"></button>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

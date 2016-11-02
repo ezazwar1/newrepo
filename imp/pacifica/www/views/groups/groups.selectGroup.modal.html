@@ -1,0 +1,42 @@
+<ion-modal-view class="touchpoint popoverr new-post select-group">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeSelectGroupForInviteModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'SELECT_GROUP' | translate}}</h1>
+      
+      <p class="no-indent">{{ 'SELECT_GROUP_FOR_INVITE_COPY' | translate}}</p>
+
+      <div ng-if="loadingGroups" class="loading">
+        <ion-spinner class="icon-refreshing"></ion-spinner><br>
+        {{ 'GROUPS_LOADING' | translate }}
+      </div>
+
+      <div class="list habits-menu">
+
+        <div ng-repeat="group in userGroups" ng-if="!loadingGroups && userGroups && userGroups.length > 0" ng-click="selectGroupForInvite(group)" ng-class="{active: isGroupSelectedForInvite(group)}">
+          <a href="javascript:;" ng-click="goToGroup(group)" class="item item-icon-left">
+            <span><i class="icon ion-ios-chatboxes-outline"></i>{{group.name}}</span><br>
+            <em>{{group.members}} {{ 'MEMBERS' | translate }}</em>
+          </a>
+        </div>
+
+        <div ng-if="!loadingGroups && userGroups && userGroups.length == 0">
+          <h2 class="quote"><span>{{ 'NO_GROUPS_1' | translate }}<br>
+            {{ 'NO_GROUPS_2' | translate }}</span>
+          </h2>
+        </div>
+
+      </div>
+
+      <p ng-if="inviteExistingError" class="error">{{inviteExistingError}}</p>
+
+      <div class="clearfix">
+        <button ng-click="checkSelectGroupForInvite()" class="button-start">
+          {{ 'INVITE_TO_CHAT' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

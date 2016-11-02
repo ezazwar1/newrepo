@@ -1,0 +1,104 @@
+<ion-view title="{{ 'ACTIVITY.DETAILS' | translate }}">
+    <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-bg">
+        <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh()">
+        </ion-refresher>
+        <div ng-if="activity">
+		<div class="pan dark-bg">
+            <section class="darker-bg">
+
+                <div class="activity-details big-padding">
+                    <a href="" class="round-icon big-icon">
+                    <img ng-src="{{ activity.sport_type_image }}" alt="{{activity.sport_type}}">
+                    </a>
+                	<h4>{{ activity.sport_type }} {{ activity.distance | number }} {{ 'UNIT.KM' | translate }} <br> {{ 'ACTIVITY.IN' | translate }} {{ activity.duration | number }} {{ 'UNIT.MIN' | translate }}</h4>
+                	<p>{{activity.start_time | amDateFormat:'DD MMM YYYY HH:MM'}}</p>
+                </div>
+
+                <div class="dark-bg padding">
+                    <div class="row">
+                      <div class="col">
+                        <wf-icon title="{{ 'UNIT.POINTS' | translate }}" icon="wf-coins" caption="+{{ activity.points | number }}"></wf-icon>
+                      </div>
+                      <div class="col">
+                        <wf-icon title="{{ 'UNIT.DISTANCE' | translate }}" icon="wf-distance" caption="{{ activity.distance | number }} {{ 'UNIT.KM' | translate }}"></wf-icon>
+                      </div>
+                      <div class="col">
+                        <wf-icon title="{{ 'UNIT.KCAL_BURNED' | translate }}" icon="wf-calorie" caption="{{ activity.calories | number }} {{ 'UNIT.KCAL' | translate }}"></wf-icon>
+                      </div>
+                    </div>
+                    <div class="row">
+                    	<div class="col">
+                        	<wf-icon title="{{ 'UNIT.TIME' | translate }}" icon="wf-time" caption="{{ activity.duration | number }} {{ 'UNIT.MIN' | translate }}"></wf-icon>
+                      	</div>
+                    	<div class="col">
+                    		<wf-icon title="{{ 'UNIT.AVG_SPEED' | translate }}" icon="wf-bar-chart" caption="{{ activity.avg_speed | number }} {{ 'UNIT.KMH' | translate }}"></wf-icon>
+                    	</div>
+                    	<div class="col">
+                    		<wf-icon title="{{ 'ACTIVITY.USED_APP' | translate }}" img="{{ 'img/used-app.svg' }}" caption="{{ activity.source || ('ACTIVITY.MANUAL_ACTIVITY' | translate) }}"></wf-icon>
+                    	</div>
+                    </div>
+                </div>
+
+                <div class="text-center big-padding" ng-show="activity.overlap == 1">
+                    <i class="ion-ios-information-outline wf-2x"></i>
+                    <p><b>{{ 'ACTIVITY.OVERLAP_TITLE' | translate }}</b></p>
+                    <p>{{ 'ACTIVITY.OVERLAP' | translate }}</p>
+                </div>
+                <div class="text-center big-padding" ng-show="activity.init_workout == 1">
+                    <i class="ion-ios-information-outline wf-2x"></i>
+                    <p><b>{{ 'ACTIVITY.INIT_TITLE' | translate }}</b></p>
+                    <p>{{ 'ACTIVITY.INIT' | translate }}</p>
+                </div>
+                <div class="text-center big-padding" ng-show="activity.daily_max_points_reached == 1">
+                    <i class="ion-ios-information-outline wf-2x"></i>
+                    <p><b>{{ 'ACTIVITY.MAX_REACHED_TITLE' | translate }}</b></p>
+                    <p>{{ 'ACTIVITY.MAX_REACHED' | translate }}</p>
+                </div>
+                <div class="text-center big-padding" ng-show="activity.suspicious == 1">
+                    <i class="ion-ios-information-outline wf-2x"></i>
+                    <p><b>{{ 'ACTIVITY.SUSPICIOUS_TITLE' | translate }}</b></p>
+                    <p>{{ 'ACTIVITY.SUSPICIOUS' | translate }}</p>
+                </div>
+
+                <div ng-if="activity.overlap == 1 || activity.init_workout == 1 || activity.daily_max_points_reached == 1 || activity.suspicious == 1">
+
+                    <div class="activity-details big-padding">
+
+                        <h4>{{ 'ACTIVITY.ORIGINAL_VALUES' | translate }}</h4>
+                        <p>{{ 'ACTIVITY.ORIGINAL_VALUES_EXPLANATION' | translate }}</p>
+                    </div>
+
+
+                    <div class="dark-bg padding">
+                        <div class="row">
+                          <div class="col">
+                            <wf-icon title="{{ 'UNIT.TIME' | translate }}" icon="wf-time" caption="{{ activity.original_duration | number }} {{ 'UNIT.MIN' | translate }}"></wf-icon>
+                          </div>
+                          <div class="col">
+                            <wf-icon title="{{ 'UNIT.DISTANCE' | translate }}" icon="wf-distance" caption="{{ activity.original_distance | number }} {{ 'UNIT.KM' | translate }}"></wf-icon>
+                          </div>
+                          <div class="col">
+                            <wf-icon title="{{ 'UNIT.KCAL_BURNED' | translate }}" icon="wf-calorie" caption="{{ activity.original_calories | number }} {{ 'UNIT.KCAL' | translate }}"></wf-icon>
+                          </div>
+                        </div>
+                    </div>
+               </div>
+
+                <div class="text-center big-padding" style="position: relative;">
+                    <button ng-click="shareIt(share)" class="button button-assertive button-round">
+                      <i class="wf wf-shared"></i>
+                    </button>
+                    <span class="share-ribbon" style="top: 53px; right: -19px;"><span> <i class="wf-coins"></i> +20</span></span>
+                </div>
+
+            </section>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

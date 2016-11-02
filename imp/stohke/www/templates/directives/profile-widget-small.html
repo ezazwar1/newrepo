@@ -1,0 +1,14 @@
+<div class="profile-widget small" ng-switch="profile.Type">
+    <span ng-switch-when="user">
+        <a data-ui-sref="app.explore.user.media({alias: profile.Alias})">
+            <img ng-src="{{::profile.AvatarUrl64X64}}" class="profile-image"> 
+            <span class="profile-title">{{::profile.FirstName}} {{::profile.LastName}}</span>
+        </a>
+    </span>
+    <span ng-switch-when="company">
+        <a data-ui-sref="app.explore.company.media({alias: profile.Alias})">
+            <img ng-src="{{::profile.LogoSmall}}" class="profile-image"> 
+            <span class="profile-title">{{::profile.Title}}</span>
+        </a>
+    </span>
+</div>

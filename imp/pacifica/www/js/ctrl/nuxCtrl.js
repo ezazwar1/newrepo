@@ -1,0 +1,1 @@
+var ctrl=angular.module("nuxCtrl",[]);ctrl.controller("NuxCtrl",["$scope","$state","$http","$timeout","$analytics","$ionicLoading","$ionicPopup","AccountService","HabitsService","GoalsService","AudioService","PayService","Environment","Token",function(){}]);

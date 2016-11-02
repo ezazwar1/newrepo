@@ -1,0 +1,58 @@
+<div class="modal signup-modal" ng-controller="SignupController" >
+    <ion-content scroll="true">
+
+        <div class="top_header">
+            <div class="top_title">SIGN UP</div>
+            <div class="top_close">
+                <button class="button button-icon ion-ios7-close-empty" ng-click="goFirst()"></button>
+            </div>
+        </div>
+        <form id="new_customer_signup_form" name="signup_form"  class="form-validation signup-form"  role='form' ng-submit='signup()' novalidate=''>
+            <div ng-init="setForm(signup_form);"></div>
+            <div class="signup_content">
+                <div class="form-group">
+                     <input id="contact_email" type="email" ng-model="customer.contact_email" wn-errors="errors.contact_email" required="" placeholder="EMAIL" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-email">
+                </div>
+
+
+                <div class="form-group">
+                      <input type="password" id="password" name="password" placeholder="PASSWORD" ng-model="customer.password" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required"/>
+                </div>
+
+                <div class="form-group">
+                        <div id="map-dummy" class="map-dummy"></div>
+                        <input id="business_name" type="text" ng-model="customer.business_name" wn-errors="errors.business_name" required="" placeholder="BUSINESS NAME" typeahead="business for businesses in getBusinesses($viewValue)" typeahead-template-url="templates/customer/business_autocomplete.html" typeahead-on-select="selectBusiness($item, $model, $label)" class="form-control ng-pristine ng-invalid ng-invalid-required" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-008-184">
+                        <ul class="dropdown-menu ng-isolate-scope ng-hide" ng-show="isOpen()" ng-style="{top: position.top+'px', left: position.left+'px'}" style="display: block;" role="listbox" aria-hidden="true" typeahead-popup="" id="typeahead-008-184" matches="matches" active="activeIdx" select="select(activeIdx)" query="query" position="position" template-url="templates/customer/business_autocomplete.html" />
+
+                </div>
+                
+                <div class="form-group">
+                        <div id="map-dummy" class="map-dummy"></div>
+                        <input id="address_1" type="text" ng-model="customer.address_1" wn-errors="errors.address_1" required="" placeholder="BUSINESS ADDRESS" typeahead="address for addesses in getAddresses($viewValue)" typeahead-template-url="templates/customer/business_autocomplete.html" typeahead-on-select="selectAddress($item, $model, $label)" class="form-control ng-pristine ng-invalid ng-invalid-required" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-008-184">
+                        <ul class="dropdown-menu ng-isolate-scope ng-hide" ng-show="isOpen()" ng-style="{top: position.top+'px', left: position.left+'px'}" style="display: block;" role="listbox" aria-hidden="true" typeahead-popup="" id="typeahead-008-184" matches="matches" active="activeIdx" select="select(activeIdx)" query="query" position="position" template-url="templates/customer/business_autocomplete.html" />
+                        
+                </div>
+                <div id="addressError" ng-show="addressValid" class="field-error">Address must be selected from lookup</div>
+                            
+                <div class="form-group">
+                     <input id="promotional_code" type="text" ng-model="customer.promotional_code" wn-errors="errors.promotional_code" placeholder="COUPON CODE?" class="form-control ng-pristine ng-valid">
+                </div>
+                <div>
+                        <p class="terms">By clicking "Sign Up" below, you are agreeing to the Work Ninja<br/>
+                            <a ng-click="termsAndConditions()">Terms and Conditions</a> and <a ng-click="privacyPolicy()"> &nbsp;Privacy Policy</a>
+                        </p>
+                </div>
+
+            </div>
+            <div class="footer-button">
+                <button class="button button-assertive-drop button-block button-uppercase" type="submit" ng-disabled="signup_form.$invalid">SIGN UP</button>
+            </div>
+        </form>
+            <div class="footer-link">
+                <a ng-click="goApplySite()">Looking for a job instead?</a>
+            </div>
+    </ion-content>
+
+</div>
+
+

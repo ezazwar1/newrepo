@@ -1,0 +1,21 @@
+<ion-view class="photo-circle" view-title="Photo Circle">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon icon ion-navicon-round"></button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="list">
+			<div ng-click="moveToNext('{{value}}')" ng-repeat="(key, value) in cirlces" class="card item">
+				
+				<img img-preload class="full-image preloadFade"
+				ng-src="{{value.image_url}}" alt="{{value.name}}">
+
+				<div class="imgcaption">
+					<h2>{{value.name}}</h2>
+				</div>
+
+				
+			</div>
+		</div>
+	</ion-content>
+	
+</ion-view>

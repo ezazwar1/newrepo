@@ -1,0 +1,104 @@
+<ion-view ng-controller="homeController as viewModel">
+    <ion-nav-title ng-switch="viewModel.featureToggles.isChangeStoreVariant">
+        <span ng-switch-when="true" ng-click="viewModel.changeLocationStoreClick()">Change Store <i class="icon ion-ios-arrow-down"></i></span>
+        <span ng-switch-default>{{viewModel.chooseStoreEnabled ? 'Shipt' : 'Home'}}</span>
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+        <cart-button></cart-button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="false" id="homeIonContent" delegate-handle="homeScroll" class="has-header home-screen-content" has-bouncing="true" >
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="viewModel.refreshData()"
+                pulling-icon="ion-ios-arrow-down">
+        </ion-refresher>
+        <guest-account-callout ng-if="viewModel.guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div class="top-color-area" style="background-color: {{viewModel.store.background_color}}">
+            <div ng-click="viewModel.changeLocationStoreClick()" class="store-info-area" aria-hidden="true">
+                <div class=" text-center ">
+                    <img ng-src="{{viewModel.store.image}}" alt="" aria-hidden="true">
+                </div>
+            </div>
+            <div class="text-center" ng-if="viewModel.chooseStoreEnabled && !viewModel.featureToggles.isChangeStoreVariant">
+                <a ng-click="viewModel.changeLocationStoreClick()" role="button" aria-label="Change Store from {{viewModel.store.name}}" class="change-location-button button button-light button-clear">
+                    Change Store <i class="icon ion-ios-arrow-down"></i>
+                </a>
+            </div>
+            <div ng-if="!viewModel.chooseStoreEnabled" class=""></div>
+            <div class="home-search-box-area" ng-class="{'change-store-variant': viewModel.featureToggles.isChangeStoreVariant}">
+                <div class="home-search-input-button-form">
+                    <div ng-click="viewModel.goToSearch()"
+                         role="button"
+                         aria-label="{{viewModel.searchButtonText()}}"
+                         class="search-input-click-button faded text-center">
+                        <i class="icon ion-ios-search"></i>
+                        {{viewModel.searchButtonText()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="area-for-address-and-window" ng-click="viewModel.clickEditShoppingAddressButton()">
+            <div
+                    class="text-center default-shopping-address-area"
+                    role="button"
+                    aria-hidden="false"
+                    aria-label="Current Address {{viewModel.defaultShoppingAddressText}}. Click to edit."
+                    ng-if="viewModel.defaultShoppingAddressText && viewModel.chooseStoreEnabled">
+                <h4
+                        class="text-positive"
+                        name="button"
+                        aria-hidden="true">
+                    {{viewModel.defaultShoppingAddressText}} <i class="icon ion-edit"></i>
+                </h4>
+            </div>
+            <div class="text-center delivery-window-area">
+                <h4 role="text" aria-hidden="false" aria-label="{{viewModel.nextAvailableDeliveryMessage()}}">
+                    <span class="window dark">
+                        {{viewModel.nextAvailableDeliveryMessage()}}
+                    </span>
+                </h4>
+            </div>
+        </div>
+
+
+        <ion-list ng-if="!searching" class="quick-hits padding large-padding">
+            <div class="quick-hits">
+                <ion-item ng-click="viewModel.startShoppingClick()" role="button" aria-label="Browse Categories"  class="item-icon-left item-icon-right top">
+                    <i class="icon ion-ios-list-outline" aria-hidden="true"></i>
+                    <h2 class="wrap dark" aria-hidden="true">
+                        Browse Categories
+                    </h2>
+                    <i class="icon ion-ios-arrow-right" aria-hidden="true"></i>
+                </ion-item>
+                <ion-item ng-click="viewModel.yourRecentItemsClick()" role="button" aria-label="Buy Again" class="item-icon-left item-icon-right middle">
+                    <i class="icon ion-ios-refresh-empty" aria-hidden="true"></i>
+                    <h2 class="wrap dark" aria-hidden="true">
+                        Buy Again
+                    </h2>
+                    <i class="icon ion-ios-arrow-right" aria-hidden="true"></i>
+                </ion-item>
+                <ion-item ng-click="viewModel.saleCategoryClick()" role="button" aria-label="On Sale Today" class="item-icon-left item-icon-right bottom">
+                    <i class="icon ion-ios-pricetags-outline" aria-hidden="true"></i>
+                    <h2 class="wrap dark" aria-hidden="true">
+                        On Sale Today
+                    </h2>
+                    <i class="icon ion-ios-arrow-right" aria-hidden="true"></i>
+                </ion-item>
+            </div>
+            <div class="features">
+                <ion-item ng-click="viewModel.featureClick(feature)" ng-repeat="feature in viewModel.featurePromos" class="card"
+                        ng-if="feature.category.products.count > 4" role="button" aria-label="The {{feature.display_title}} feature">
+                    <div class="item item-image" aria-hidden="true">
+                        <img ng-src="{{feature.image_url}}">
+                    </div>
+                    <div class="item item-icon-right wrap">
+                        <h2 class="wrap">{{feature.display_title}}</h2>
+                        <p class="wrap">{{feature.display_description}}</p>
+                        <i class="icon ion-ios-arrow-right text-positive"></i>
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

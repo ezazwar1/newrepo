@@ -1,0 +1,64 @@
+<ion-view view-title="song list" >
+	<ion-nav-buttons side="right">
+        <button class="button button-icon button-clear add-guest ion-plus" ng-click="openModal()">
+        </button>
+      </ion-nav-buttons>
+  <ion-content class="view-song-list">
+  <ion-refresher class="pull-to-refresh"
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresher()">
+  </ion-refresher>
+  <!-- <button ng-click="googleLoginn()">Google</button> -->
+   <div class="view-header">
+   		<h1><span class="hash">#</span><span class="first">song</span>list</h1>
+   		<P class="view-count">{{ songCount }} Songs</P>
+   </div>
+   <ion-list>
+		<ion-item ng-repeat="song in songlist | orderBy:'name'" ng-click="showinfo(song.name,song.artist,song.id);" class="item item-thumbnail-left">
+		      <img ng-src="{{ song.photo }}" id="img{{ song.id }}">
+		      <h2>{{ song.name }}</h2>
+		      <p>{{ song.artist }}</p>
+		      <p style="font-size: 12px;font-style: italic;">Suggested by {{ song.by }}</p>
+		      <span style="display:none;" id="url{{ song.id }}">{{ song.url }}</span>
+          <span style="display:none;" id="preview{{ song.id }}">{{ song.preview }}</span>
+          <span style="display:none;" id="sid{{ song.id }}">{{ song.sid }}</span>
+		</ion-item>
+	</ion-list>
+
+
+
+
+<script id="add-song-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">Add a Song</h1>
+        <div class="buttons">
+          <button class="button button-clear" ng-click="closeModal()"><i class="icon ion-close"></i></button>
+      </div>
+    </ion-header-bar>
+    <ion-content>
+<form ng-submit="addSong()" style="">
+      <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Artist</span>
+        <input type="text" id="addSongArtist">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Song Name</span>
+        <input type="text" id="addSongName">
+      </label>
+        
+    <div class="row">
+      <button class="button button-block button-wedivite" type="submit">Add</button><BR>
+    </div>
+</form>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+
+
+
+
+  </ion-content>
+</ion-view>

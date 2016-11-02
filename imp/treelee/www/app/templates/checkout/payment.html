@@ -1,0 +1,27 @@
+<ion-view title="{{dict.theCheckout}}">
+    <ion-header-bar class="bar-subheader bar-light bar-checkout">
+        <button class="button button-dark button-clear button-checkout-back icon ion-ios7-arrow-left" ng-click="goBack()"></button>
+        <h1 class="title">{{dict.payment}}</h1>
+    </ion-header-bar>
+    <ion-content class="has-checkout-footer">
+        <div class="card transparent">
+            <form id="paymentForm" name="paymentForm" ng-submit="payment.method && savePayment()">
+                <div class="list">
+                    <label class="item item-radio transparent" ng-repeat="method in payments">
+                        <input type="radio" ng-model="payment.method" ng-value="method['@attributes'].code">
+                        <div class="item-content">
+                            <i class="icon circle"></i>
+                            <div class="label">{{method['@attributes'].label}}</div>
+                        </div>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="checkout-footer transparent">
+        <button form="paymentForm" class="button button-large button-block button-clear button-dark button-checkout" ng-disabled="!payment.method">
+            <div class="circle"><i class="icon ion-ios7-arrow-right light"></i></div>
+            {{dict.overview}}
+        </button>
+    </ion-footer-bar>
+</ion-view>

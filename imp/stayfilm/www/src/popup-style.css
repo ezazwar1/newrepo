@@ -1,0 +1,23 @@
+/* line 5, popup-style.scss */
+.popup-container .popup .popup-head {
+  display: none;
+}
+/* line 9, popup-style.scss */
+.popup-container .popup .popup-body {
+  color: #98a6b1;
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  text-align: center;
+}
+/* line 16, popup-style.scss */
+.popup-container .popup .popup-body img {
+  width: 100%;
+  margin: 30px auto 0;
+}
+/* line 23, popup-style.scss */
+.popup-container .popup .popup-buttons button {
+  border: none;
+  background: #63c199;
+  border-radius: 5px;
+}

@@ -1,0 +1,26 @@
+<ion-view view-title="История заказов">
+  <ion-content>
+    <div class="list">
+
+
+
+  <a  ng-repeat="order in orders" class="item" href="#">
+    <h2>{{order.Art}}</h2>
+    <p>Дата покупки</p>
+          <p>{{order.Date | date : format : "MM.dd.yyyy"}}</p>
+
+
+    <span class="item-note">
+      {{order.Price | currency:"&#x20bd;":0 }}
+    </span>
+  </a>
+  <div class="item item-divider">
+    Всего:
+    <span class="item-note">
+      {{total  | currency:"&#x20bd;":0 }}
+    </span>
+  </div>
+
+</div>
+  </ion-content>
+</ion-view>

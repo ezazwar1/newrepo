@@ -1,0 +1,76 @@
+<ion-view title="{{'PALACE_MENU_NAME' | translate}}"  hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+    <ion-content has-bouncing="false" scroll="false">
+        <ion-slide-box class="palaceList" show-pager="true" disable-scroll="false"  does-continue="true" slide-interval="60000" ng-repeat="item in pages | filter:{type:6} | unique:'Id' " ng-style="style()">
+            <ion-slide style="background-color: #d08d00 !important;" id="homeItem">
+                <div id="bg" ng-style="style()" >
+
+                    <img src="img/homeImages/{{item.headerImage}}" alt="" ng-style="style()">
+                    <h2 style="font-size:8.5vw !important;top:0px !important; position:relative !important;">{{item.title}}</h2>
+                    <button class="button button-icon ion-chevron-right" style="width: 100%;height: 100%;font-size: 0;" ng-click="goToEpoca(item.Id)" style="color:#FFFFFF !important;"></button>
+                </div>
+
+
+
+            </ion-slide>
+            <ion-slide style="background-color: #d08d00 !important;" ng-click="goToEpoca({{item.Id}})">
+
+                <div id="contentInfoPalace" ng-bind-html="item.description">
+                    <h2>{{item.title}}</h2>
+                </div>
+            </ion-slide>
+
+            <ion-slide style="background-color: #d08d00 !important;" id="homeItem">
+                <div id="bg" ng-style="style()" >
+
+                    <img src="img/homeImages/{{thirdImagesPalace[$index]}}" alt="" ng-style="style()">
+                    <h2 style="font-size:8.5vw !important;top:0px !important; position:relative !important;">{{item.title}}</h2>
+                    <button class="button button-icon ion-chevron-right" style="width: 100%;height: 100%;font-size: 0;" ng-click="goToEpoca(item.Id)" style="color:#FFFFFF !important;"></button>
+                </div>
+
+
+
+            </ion-slide>
+
+
+        </ion-slide-box>
+
+
+<!--        <ion-slide-box class="palaceList" show-pager="true" disable-scroll="false"  does-continue="true" slide-interval="60000" ng-repeat="item in pages | filter:{type:6}" active-slide="currentSlide">
+            <ion-slide style="background-color: #d08d00 !important;background-image: url('img/homeImages/{{item.headerImage}}') !important;background-size: cover;background-repeat: no-repeat;background-position: center center;">
+
+                <h2 style="padding-top:10px;padding-bottom:10px;font-size: 8.5vw !important;bottom:0px;text-align: center;color:#FFFFFF;background-color: rgba(0, 0, 0, 0.6) !important;">{{item.title}}</h2>
+                <button class="button button-icon ion-chevron-right" style="width: 100%;height: 100%;font-size: 0;" ng-click="goToEpoca(item.Id)" style="color:#FFFFFF !important;"></button>
+            </ion-slide>
+            <ion-slide style="background-color: #d08d00 !important;" ng-click="goToEpoca({{item.Id}})">
+                <div id="contentInfoPalace" ng-bind-html="item.description">
+
+                </div>
+            </ion-slide>
+
+        </ion-slide-box>-->
+
+    </ion-content>
+
+   <!-- <ion-content class="has-header" has-bouncing="false" >
+            <ion-slide-box class="palaceList" show-pager="true" disable-scroll="false"  does-continue="true" slide-interval="60000" ng-repeat="item in pages | filter:{type:6}  | unique:'Id'" active-slide="activeSlide">
+                <ion-slide style="background-color: #d08d00 !important;background-image: url('img/homeImages/{{item.headerImage}}') !important;background-size: cover;background-repeat: no-repeat;background-position: center center;">
+                    <h2 style="bottom:0px;text-align: center;color:#FFFFFF;background-color: rgba(0, 0, 0, 0.6) !important;">{{item.title}}</h2>
+                    <button class="button button-icon ion-chevron-right" style="width: 100%;height: 100%;font-size: 0;" ng-click="goToEpoca(item.Id)" style="color:#FFFFFF !important;"></button>
+                </ion-slide>
+                <ion-slide style="background-color: #d08d00 !important;" ng-click="goToEpoca({{item.Id}})">
+                    <div id="contentInfoPalace" ng-bind-html="item.description">
+
+                    </div>
+                </ion-slide>
+
+            </ion-slide-box>
+
+    </ion-content>-->
+</ion-view>

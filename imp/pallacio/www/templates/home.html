@@ -1,0 +1,28 @@
+<ion-view title="{{ 'APP_TITLE' | translate }}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+
+
+    <ion-content class="has-header" has-bouncing="false">
+
+        <ion-list >
+            <ion-item id="homeItem" href="" ng-click="goToMenu(page.linkMenu)" ng-repeat="page in pages | filter:{type:0} | orderBy:'orderGuide'" ng-style="style()">
+                <div id="bg" ng-style="style()">
+
+                    <img src="img/homeImages/{{page.iconImage}}" alt="">
+                    <h2 style="font-size:7.5vw !important;">{{page.title}}</h2>
+                </div>
+
+
+            </ion-item>
+        </ion-list>
+
+
+
+    </ion-content>
+</ion-view>

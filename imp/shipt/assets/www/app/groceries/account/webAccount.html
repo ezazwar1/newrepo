@@ -1,0 +1,115 @@
+<ion-view hide-back-button="true" title="Account">
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content" has-bouncing="true" >
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+
+        <div class="row responsive-lg account-area">
+            <div class="col col-33 area-list">
+                <div class="selection-list">
+                    <div class="section-body">
+                        <a class="button section-item button-light button-full icon selected" href="#/app/addressList">
+                            <i class="icon ion-android-person text-positive" aria-hidden="true"></i>
+                            <span>
+                                Account
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                        <a class="button section-item button-light button-full icon" href="#/app/addressList">
+                            <i class="icon ion-home text-positive" aria-hidden="true"></i>
+                            <span>
+                                Addresses
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                        <a href="#/app/cardList" class="button section-item button-light button-full icon">
+                            <i class="icon ion-card  text-positive"></i>
+                            <span>
+                                Payment
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                        <a href="#/app/orders" class="button section-item button-light button-full icon">
+                            <i class="icon ion-ios-albums  text-positive"></i>
+                            <span>
+                                Your Orders
+                            </span>
+                            <i class="icon ion-ios-arrow-right text-positive" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="area padding">
+                    <h4 class="dark">
+                        Your Info
+
+                        <a
+                            class="edit-link"
+                            ng-click="editAccount()"
+                            class="text-positive"
+                            aria-label="Edit Your Info, {{customerInfo.name}}, {{customerInfo.phone | tel}}, {{customerInfo.email}}"
+                            tabindex="0">
+                            Edit
+                        </a>
+                    </h4>
+                    <div class="wrap" ng-if="!loadingIndicator" aria-hidden="true">
+                        <p class="dark">
+                            {{customerInfo.name}}
+                        </p>
+                        <p class="dark">
+                            <span class="icon ion-ios-telephone-outline"> {{customerInfo.phone | tel}}</span>
+                        </p>
+                        <p class="dark">
+                            <span class="icon ion-ios-email-outline"> {{customerInfo.email}}</span>
+                        </p>
+                    </div>
+                    <div class="wrap" ng-if="loadingIndicator">
+                        <p class="wrap dark">
+                            Loading...
+                        </p>
+                    </div>
+                </div>
+                <div class="area padding">
+                    <h4 class="dark">
+                        Your Plan
+                        <a
+                            class="edit-link"
+                            ng-click="vm.subscriptionClick()"
+                            class="text-positive"
+                            aria-label="Change your plan, {{vm.plan.plan.name}}, {{vm.planPrice(vm.plan.plan) | currency}} per {{vm.plan.plan.interval}}"
+                            tabindex="0">
+                            Edit
+                        </a>
+                    </h4>
+                    <div class="wrap">
+                        <div ng-if="vm.plan">
+                            <p class="wrap dark">
+                                {{vm.plan.plan.name}}
+                            </p>
+                            <p class="wrap dark">
+                                {{vm.planPrice(vm.plan.plan) | currency}} per {{vm.plan.plan.interval}}
+                            </p>
+                            <p class="wrap faded" ng-if="vm.plan.plan.status == 'trialing'">
+                                Your trial ends on {{vm.trialEnding()}}
+                            </p>
+                        </div>
+                        <div ng-if="!vm.plan && !vm.planLoaded">
+                            <p class="wrap dark">
+                                Loading...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div>
+                <button ng-click="signoutClick()" id="grocery_account_signout" class="button button-positive button-clear">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

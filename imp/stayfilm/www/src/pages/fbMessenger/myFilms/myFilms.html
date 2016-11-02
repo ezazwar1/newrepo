@@ -1,0 +1,44 @@
+<ion-view class="page-my-films page">
+
+	<div class="bar bar-header">
+		<button class="button button-clear btn-back" ng-click="goTo('main.fbmessenger.titlestep', 'slide-right');">
+			<img src="images/ico-arrow-left.png">
+		</button>
+
+		<div class="title" translate>
+			meus filmes
+		</div>
+	</div>
+
+	<ion-content class="my-films-container">
+		<div class="user-info clearfix">
+			<div class="picture" style="background-image: url({{ user.photo }})"></div>
+			<div class="name">{{ user.fullName }}</div>
+			<div class="quantity">{{ bag.movies.length }} <span translate>filmes</span></div>
+		</div>
+		<div class="films-list clearfix">
+
+			<div ng-if="requestDone && ! bag.movies.length" class="empty-list">
+				<span translate>Você ainda não tem filmes.</span>
+				<img src="images/film_roll.png">
+			</div>
+			<div ng-if="requestDone && bag.movies.length">
+				<div  ng-repeat="movie in bag.movies" class="my-films-mosaic">
+					<div class="thumbnail" style="background-image: url({{ getImageUrl(movie, 'medium') }})" ng-click="watch(movie)"></div>
+					<div class="title">{{ movie.title }}</div>
+					<div class="actions">
+						<div class="discard" ng-click="discard(movie)">
+							<img src="images/ico-trash-medium.png" width="30" height="30" />
+						</div>
+						<div class="share" ng-click="share(movie)">
+							<img src="images/ico-share-box.png" width="30" height="30" />
+						</div>
+						<div class="download" ng-click="download(movie)">
+							<img src="images/ico-download.png" width="30" height="30" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

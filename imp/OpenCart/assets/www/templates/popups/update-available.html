@@ -1,0 +1,15 @@
+﻿<div class="large-icon-message no-padding">
+    <span class="large-app-icon large-app-icon-yellow">
+        <i class="icon ion-ios-cloud-download-outline"></i>
+    </span>
+    <p i18n="modals.update_available_main"></p>
+    <p i18n="modals.update_available_desc"></p>
+    <p>
+        <div ng-if="downloadStarted || (extractingProgress == 0 && downloadProgress > 0)" i18n="modals.update_downloading"></div>
+        <div ng-if="extractingProgress != 100 && extractingProgress > 0" i18n="modals.update_instaling"></div>
+        <div ng-if="extractingProgress == 100" i18n="modals.update_completed"></div>
+
+        <progress id="downloadProgressprogressbar" ng-if="(downloadStarted && extractingProgress == 0) || (extractingProgress == 0 && downloadProgress > 0)" max="100" value="{{ downloadProgress }}"> </progress>
+        <progress id="extractingProgressprogressbar" ng-if="extractingProgress > 0" max="100" value="{{ extractingProgress }}"> </progress>
+    </p>
+</div>

@@ -1,0 +1,8 @@
+<div class="sf-user-mosaic" ng-click="ProfileModal.open(user.username)">
+
+	<img class="thumb"  ng-src="{{ user.photo | defaultThumbUser }}" title="{{ user.fullName }}">
+
+	<div class="caption">
+		{{ user.fullName }}
+	</div>
+</div>

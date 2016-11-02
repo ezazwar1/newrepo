@@ -1,0 +1,56 @@
+# Language setting
+language: node_js
+
+# Version number
+node_js:
+  - 0.10.36
+
+# The path for Xunit to output test reports
+env:
+  global:
+    - APP_NAME=social-alarms
+    - secure: kcoF7GJpOzluhpBKBEBx62cPRgY4BwRH3untk4aKtncxNcuuaEJ718qWliwtTNnPzUP8cm5hIf8wIPU5ycd5LhPQC9mJH5j1mc/c/e7ve7Vf7n9dAFhuFgkesvTdXZI3zYImZgpfQMTG1AdqvX6AUHoF6JjN902340W9d+/ta7SH1A6g0aYmwQltmS/xMv9hl4OlhTkExTYoCK5acet7IoDeqoNgKAFGg9dcl/9cyPvKye+IKV/qjffXEfrX0PBEEKVLiFjoHlKswoyk0ccO9qorez3255qup0XktVsSl9e5s4LCdvnrLQSLsKR/Np89EnhK5YAGDyXeCqlm8TaA+g==
+
+  # npm install runs by default, but we need to specify global installs ourselves
+before_install:
+  - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+install:
+  - npm install node-uuid
+  
+# Create directories for test and coverage reports
+before_script:
+  - git clone --recursive git@bitbucket.org:ouzelsystems/social-alarms-server.git
+  - rm -rf social-alarms-server/app 
+  - rsync -av --progress . social-alarms-server/app --exclude social-alarms-server
+  - cd social-alarms-server
+  - git clone --recursive git@bitbucket.org:ouzelsystems/SA-template.git
+  - rm -rf email/templates
+  - rsync -av --progress SA-template/templates email
+  - ls
+  #- cd app
+  #- ls
+
+# Running the tests with grunt
+script:
+  - source ~/.rvm/scripts/rvm && rvm use 1.9.3   #this will activate ruby 1.9.3
+  - ruby --version #ruby 1.9.3 is now ready to use
+  #- grunt
+
+# Tell istanbul to generate a coverage report
+after_script:
+  #- ./node_modules/.bin/istanbul cover grunt -- -u tdd
+  #- ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+  
+after_success:
+   - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+   - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app $APP_NAME
+   - rm -rf SA-template
+   - git add .
+   - git commit -am "New Changes added"
+   - git push -f heroku master
+   - heroku ps:scale web=1
+   #- git push -f git@heroku.com:$APP_NAME.git master
+   - cd ..
+   - rm -rf social-alarms-server
+   - ls

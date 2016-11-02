@@ -1,0 +1,18 @@
+<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+</ion-nav-bar>
+<ion-tabs class="tabs-icon-top tabs-color-active-standard tabs-positive">
+    <ion-tab title="{{ 'menu.shop' | i18n }}" icon-off="ion-ios-pricetags-outline" icon-on="ion-ios-pricetags-outline" href="#/app/menu/shop/home">
+        <ion-nav-view name="tab-shop"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="{{ 'menu.offers' | i18n }}" icon-off="ion-ios-star-outline" icon-on="ion-ios-star-outline" href="#/app/menu/offers/home">
+        <ion-nav-view name="tab-offers"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="{{ 'menu.cart' | i18n }}" icon-off="ion-ios-cart-outline" icon-on="ion-ios-cart-outline" badge="cartItemCount" badge-style="badge-clear" href="#/app/menu/cart/home">
+        <ion-nav-view name="tab-cart"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="{{ 'menu.more' | i18n }}" icon-off="ion-ios-more-outline" icon-on="ion-ios-more-outline" href="#/app/menu/info/home">
+        <ion-nav-view name="tab-info"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

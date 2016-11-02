@@ -1,0 +1,19 @@
+/* Your application styles go here */
+.ng-hide-add, .ng-hide-remove {
+    display: block !important;
+}
+.cssSlideUp {
+    transition: height 1s;
+    overflow: hidden;
+}
+.cssSlideUp.ng-hide {
+    height:0;
+}
+
+.item-complex .item-content, .item-complex .item-content .item{
+  background-color: white;
+}
+
+.bar .button.button-icon .icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar .button.button-icon:before {
+ font-size: 25px !important;
+}

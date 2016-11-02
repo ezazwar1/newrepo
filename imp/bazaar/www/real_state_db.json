@@ -1,0 +1,40 @@
+{
+  "products":[
+    {
+      "id": 1,
+      "picture": "./img/sample-images/real-state/RealState1-64.25.png",
+      "address": "1900 Powell Street, SF",
+      "price": "1919 x ppm",
+      "bedrooms": 4,
+      "bathrooms": 2
+    }, {
+      "id": 3,
+      "picture": "./img/sample-images/real-state/RealState3-64.25.png",
+      "address": "2 Harrison Street Suite 175, SF",
+      "price": "2005 x ppm",
+      "bedrooms": 1,
+      "bathrooms": 2
+    }, {
+      "id": 2,
+      "picture": "./img/sample-images/real-state/RealState2-64.25.png",
+      "address": "555 California Street Suite 4700, SF",
+      "price": "3040 x ppm",
+      "bedrooms": 4,
+      "bathrooms": 2
+    }, {
+      "id": 4,
+      "picture": "./img/sample-images/real-state/RealState4-64.25.png",
+      "address": "780 McDonnell Road, SF",
+      "price": "1040 x ppm",
+      "bedrooms": 2,
+      "bathrooms": 1
+    }, {
+      "id": 5,
+      "picture": "./img/sample-images/real-state/RealState5-64.25.png",
+      "address": "1515 Clay Street, SF",
+      "price": "1356 x ppm",
+      "bedrooms": 3,
+      "bathrooms": 3
+    }
+  ]
+}

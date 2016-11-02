@@ -1,0 +1,21 @@
+<ion-view title="Video">
+    <ion-content>
+        <div class="videoWrapper">
+            <iframe width="560" height="349" class="video-screen" src="{{trustSrc(data.video.url)}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="info-video padding-5">
+            <div class="name padding-5">
+                {{data.video.name}}<i class="ion ion-ios-information-outline pull-right"></i>
+            </div>
+            <div horizontal layout>
+                <div class="padding-5"><i class="ion ion-thumbsup"></i> {{data.video.likes}} </div>
+                <div class="padding-5"><i class="ion ion-ios-eye-outline"></i> {{data.video.views}} </div>
+                <div flex></div>
+                <div class="padding-5"><i class="ion ion-chatbubbles"></i> {{data.video.comments}} </div>
+            </div>
+            <div class="padding-5">
+                {{data.video.description}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

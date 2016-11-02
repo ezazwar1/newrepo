@@ -1,0 +1,86 @@
+<ion-view id="log" hide-nav-bar="true" class="bg-grey"><ion-content has-bouncing="false" class="full-height no-header"><div id="viceversa"><div id="logo" class="animated bounceInDown"><img src="img/logo.svg"></div><h3 class="animated bounceInDown">Help people make choices</h3><a class="btn-auth social facebook waves-effect waves-light waves-block" on-tap="loginFacebook()"><i class="ion-social-facebook"></i> Connect with Facebook</a> <a class="btn-auth social twitter waves-effect waves-light waves-block" on-tap="loginTwitter()"><i class="ion-social-twitter"></i> Connect with twitter</a><div class="separate"></div><a on-tap="openSignup()" class="muted-link">Signup with your <b>Email Address</b></a> <a on-tap="openLogin()" class="muted-link">Have an account? <b>Login</b></a></div><!-- <div id="cards-container" >
+        <swipe-cards>
+          <swipe-card id="last-card" last-card on-destroy="hideTry()" on-card-swipe="hideTry()">
+            <div class="content">
+              <b>Want <span>more?</span></b>
+              <p>Connect to Viceversa! </p>
+            </div>
+          </swipe-card>
+          <swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
+            <div ng-controller="CardCtrl">
+              <div class="versus no-padding" ng-class="{'voted' : card.voted != null}">
+                <div class="top">
+                  <div class="row">
+                    <div class="col-10">
+                      <a class="user">
+                        <span class="pic" ng-style="{'background-image':'url('+card.pic+')'}"></span>
+                      </a>
+                    </div>
+                    <div class="col">
+                      <div class="informations">
+                        <h3 class="clearfix">
+                          <span class="name">{{card.username}} <span class="tag">in {{card.category}}</span></span>
+                          <span class="date">
+                            <span class="active">{{card.timeleft}} left</span>
+                          </span>
+                           
+                        </h3>
+                        <a class="question">{{card.title}}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="choices">
+                  <div class="clearfix">
+                    <div class="choice" 
+                      ng-style="{'background-image':'url('+card.img1+')'}"
+                      on-double-tap="vote($index, true)"
+                      >
+                      <div class="bottomed">
+                        <div class="title"><span>{{card.title1}}</span></div>
+                        <div class="score">
+                          {{card.vote1}}<small>%</small>
+                        </div>
+                      </div>
+                      <div class="score-bg" 
+                        style="height: {{card.vote1}}%" 
+                        ng-class="{positive : card.vote1 > 50, negative : card.vote1 < 50, tie : card.vote1 == 50}">
+                      </div>
+                    </div>
+                    <div class="choice" 
+                      ng-style="{'background-image':'url('+card.img2+')'}"
+                      on-double-tap="vote($index, false)"
+                      >
+                      <div class="bottomed">
+                        <div class="title"><span>{{card.title2}}</span></div>
+                        <div class="score">
+                          {{card.vote2}}<small>%</small>
+                        </div>
+                      </div>
+                      <div class="score-bg" 
+                        style="height: {{card.vote2}}%" 
+                        ng-class="{positive : card.vote2 > 50, negative : card.vote2 < 50, tie : card.vote2 == 50}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="metadata">
+                  <div class="row">
+                    <div class="col-90">
+                      <ul class="clearfix">
+                        <li><b>{{card.votes}}</b> votes</li>
+                        <li> <b>{{card.comments}}</b> comments</li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <ul class="clearfix text-right">
+                        <li class="more"><i class="ion-more"></i></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swipe-card>
+        </swipe-cards>
+      </div> --></ion-content></ion-view>

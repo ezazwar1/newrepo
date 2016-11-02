@@ -1,0 +1,17 @@
+<div ng-controller="EditSynopsisController" class="modal modal-editSynopsis">
+	<ion-header-bar class="close-bar" no-tap-scroll="true">
+		<div class="buttons">
+			<button ng-click="close()"><img src="images/ico-close.png"></button>
+		</div>
+	</ion-header-bar>
+
+	<ion-content class="container">
+		<h2 translate>Escreva sobre seu filme</h2>
+
+		<textarea ng-model="editSynopsisData.synopsis"></textarea>
+
+		<div>
+			<button class="button button-block button-dark" ng-click="editSynopsis()"><span translate>Editar Descrição</span></button>
+		</div>
+	</ion-content>
+</div>

@@ -1,0 +1,20 @@
+<ion-view class="bg-welzen reminders" view-title="Reminders">
+  <ion-header-bar align-title="center" class="header">
+    <h1 class="title">Reminders</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+      <p class="paragraph">Set yourself a gentle reminder for your daily practice. Our suggestion is first thing in the morning.</p>
+      <ion-toggle class="border-top" ng-model="remindersOn" ng-change="onChangeReminder({{!remindersOn}})">Reminders</ion-toggle>
+
+      <div class="row border-top" ng-class="{shown : remindersOn}">
+        <p class="time">{{timeAlarm}}</p>
+        <ionic-timepicker input-obj="timePickerObject" titleLabel="Belleza"><span class="info-box__live--edit">Edit</span></ionic-timepicker>
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-view>

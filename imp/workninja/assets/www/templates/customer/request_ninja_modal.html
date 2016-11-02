@@ -1,0 +1,39 @@
+<div class="modal modal-popup" ng-controller="RequestNinjaModalController">
+  <ion-header-bar class="bar-dark ninja-header-bar">
+    <div class="buttons">
+      <a class="button" ng-click="cancelRequest()"><i class="ion-arrow-left-a"></i></a>
+    </div>
+    <h1 class="title">Request Ninja</h1>
+  </ion-header-bar>
+
+  <ion-content class="has-header height-100 ninja-padding">
+    <div class="request-page">
+      <div class="request">
+        <!--<div class="wave-t"></div>-->
+
+        <div class="list">
+          <div ng-repeat="role in roles">
+            <div class="item" ng-click="createRequest(role, staffActive)">
+              <div class="eta" ng-show="role.hasEta()">
+                <div class="eta-mins">{{ role.etaInMinutes() }}<em>min</em></div>
+                <div class="eta-footer">away</div>
+              </div>
+              <div class="eta" ng-show="!role.hasEta()">
+                <div class="eta-na">N/A</div>
+              </div>
+              <div class="item-title">{{ role.name }}</div>
+              <i class="item-go fa fa-arrow-circle-o-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!--<div class="wave-b"></div>-->
+      </div>
+    </div>
+  </ion-content>
+
+  <!--<ion-footer-bar class="bar-stable popup-footer">-->
+    <!--<a class="button button-cancel" ng-click="cancelRequest()"><i class="ion-ios7-close"></i></a>-->
+    <!--<button class="button button-balanced button-uppercase button-ok" ng-click="createRequest()()" ng-disabled="!canCreateRequest()">Request</button>-->
+  <!--</ion-footer-bar>-->
+ </div>

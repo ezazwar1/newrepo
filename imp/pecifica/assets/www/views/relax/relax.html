@@ -1,0 +1,49 @@
+<ion-view class="intro breathe" hide-back-button="true">
+
+<ion-nav-bar class="pa-header" ng-class="{'level-header': !isUMNUser()}"> 
+  <ion-nav-title>
+    <div>{{ 'RELAX_ACTIVITY' | translate }}<span ng-click="goToSkills()" ng-show="!isUMNUser()">{{ 'LEVEL' | translate }} {{ getRelaxLevel()}}</span></div>
+  </ion-nav-title>
+
+	<ion-nav-buttons side="right">
+    <!--<a href="javascript:;" ng-click="goToRelaxCommunity()"><button class="button button-clear icon ion-ios-people-outline"></button></a>-->
+    <a href="javascript:;" ng-click="showHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+    <!--<a href="javascript:;" ui-sref="app.relax-config"><button class="button button-clear icon ion-ios-gear-outline"></button></a>-->
+  </ion-nav-buttons>
+</ion-nav-bar>
+  <div class="back"></div>
+  
+  <ion-content>
+
+    <div class="list">
+
+      <div ng-repeat="category in exerciseCategories" ng-show="displayCategory(category)">
+
+        <div class="item item-divider relax-subj {{getExerciseCategory(category)}}">{{getExerciseCategory(category)}}</div>
+
+        <div class="cat-desc item">{{getCategoryDescription(category)}}</div>
+
+        <div ng-repeat="exerciseItem in getCategoryExercises(category)" class="item item-icon-right item-icon-left dragContainer hideRemove {{getExerciseClass(exerciseItem)}}" href="javascript:;" ng-click="goToExercise(exerciseItem.exercise)" ng-show="displayExercise(exerciseItem)">
+
+          <i class="icon item-icon-left ion-leaf ignore-mouse"></i>
+
+          {{ getExerciseOptionDisplay(exerciseItem.exercise) }} <br>
+          <em class="ignore-mouse">{{ getExerciseOptionTagline(exerciseItem.exercise) }}<br>
+          <strong class="ignore-mouse">{{ getExerciseOptionTimeDisplay(exerciseItem.exercise) }}</strong></em>
+
+          <span class="loading" ng-if="isDownloading(exerciseItem.exercise)">{{getDownloadPercentage(exerciseItem.exercise)}}%</span>
+
+          <div class="remove" ng-click="removeDownload($event, exerciseItem.exercise)" ng-if="isDownloaded(exerciseItem.exercise) && isMeditateActivity(exerciseItem.exercise)"></div>
+
+          <i class="icon item-icon-right ion-ios-arrow-right" ng-if="isPremiumEnabled(exerciseItem.exercise) && isDownloaded(exerciseItem.exercise)"></i>
+          <i class="icon item-icon-right ion-ios-download-outline" ng-if="isPremiumEnabled(exerciseItem.exercise) && !isDownloaded(exerciseItem.exercise) && !isDownloading(exerciseItem.exercise)"></i>
+          <i class="icon item-icon-right ion-ios-locked-outline" ng-if="!isPremiumEnabled(exerciseItem.exercise)"></i>
+        </div>
+
+      </div>
+
+    </div>
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

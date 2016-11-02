@@ -1,0 +1,53 @@
+<ion-view view-title="Payment">
+    <ion-nav-buttons side="right">
+
+    </ion-nav-buttons>
+    <ion-content class="has-header stable-content  darker-content" has-bouncing="true" >
+
+        <div class="small-only">
+            <div class="text-center padding">
+                <button class="button button-full button-positive recent-pruchase" ng-click="addNewCard()" role="button" aria-label="Add New Card">
+                    Add New Card
+                </button>
+            </div>
+
+            <div ng-if="showLoading" class="padding text-center">
+                <ion-spinner></ion-spinner>
+            </div>
+
+            <ion-list ng-if="cards.length > 0" class="list">
+                <ion-item ng-repeat="card in cards" ng-click="editCard(card)" can-swipe="true" class="item item-icon-right" role="button" aria-label="last four digits, {{card.last_4_digits}}">
+                    **** **** **** {{card.last_4_digits}}
+                    <i class="icon ion-ios-arrow-right  text-positive" aria-hidden="true" aria-label="arrow right icon"></i>
+                    <ion-option-button class="button-assertive"
+                       ng-click="deleteCard(card)" aria-hidden="true">
+                      Delete
+                    </ion-option-button>
+                </ion-item>
+            </ion-list>
+
+        </div>
+
+        <div class="large-only">
+            <div class="text-center large-padding">
+                <button class="button button-full button-positive recent-pruchase" ng-click="addNewCard()">
+                    Add New
+                </button>
+            </div>
+
+            <div ng-if="showLoading" class="padding text-center">
+                <ion-spinner></ion-spinner>
+            </div>
+
+            <div ng-if="cards.length > 0" class="list card">
+                <div ng-repeat="card in cards" ng-click="editCard(card)"  class="item item-button-right cart-list-item item-icon-right">
+                    **** **** **** {{card.last_4_digits}}
+                    <p>Exp: {{card.exp_date}}</p>
+                    <i class="icon ion-ios-arrow-right  text-positive"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

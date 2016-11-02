@@ -1,0 +1,27 @@
+
+<ion-modal-view>
+<ion-header-bar class="bar-stable">
+	<div class="row searchBox">
+	  <div class="col col-20">
+			<button ng-click="$ionicGoBack()" class="button back-button button-icon button-clear header-item ion-android-arrow-back"></button>
+	  </div>
+	  <div class="col">
+			 <master-box pholder="Search" searchfun="getSearchResult(data)" resetfun="resetSearch(data)" query="query" ></master-box>
+	  </div>
+	</div>
+</ion-header-bar>
+
+<ion-content class="search">
+    <div class="list searchList" ng-if="searchCats">
+		  <div class="item item-divider">Popular Category </div>
+		  <!-- <a ng-click="searchProduct(catobj.parent_id,catobj.parent);searchClose();" class="item" ng-repeat="catobj in searchCats">{{catobj.parent}}  {{catobj.title|lowercase}}</a> -->
+
+		    <a ng-click="searchProduct(catobj.parent_id,catobj.parent);searchClose();" class="item" ng-repeat="catobj in searchCats">{{catobj.parent |lowercase}}  {{catobj.title|lowercase}}</a>
+
+	 </div> 
+	 <div class="list searchList" ng-repeat="obj in popularSearch">
+		  <div class="item item-divider">{{obj.heading}}</div>
+		  <a ng-click="searchProduct(catobj.id,catobj.parent_category);searchClose();" class="item" ng-repeat="catobj in obj.items" ng-bind-html="catobj.title|lowercase"></a>
+	 </div>
+  </ion-content>
+</ion-modal-view>

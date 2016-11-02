@@ -1,0 +1,28 @@
+<ion-view cache-view="false">
+    <ion-content scroll="false" class="padding-left padding-right">
+        <div style="width:100%;height:100%;">
+            <div ng-if="image" add-tag="" editing="editing" existing-style="existingStyle" tag-style="newStyle" show="show" active-tag="newStyle.activeTag"></div>
+        </div>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="info-container">
+            <div class="row footer" ng-if="!editing">
+                <div class="col">
+                    <button class="button button-block button-outline button-assertive" ng-click="add()">{{dict.addTag}}</button>
+                </div>
+                <div class="col">
+                    <button class="button button-block button-outline button-dark" ng-if="!existingStyle" ng-click="saveStyle()">{{dict.shareStyle}}</button>
+                </div>
+            </div>
+            <div class="row footer" ng-if="editing">
+                <div class="col display-flex align-center">
+                    <button class="button button-clear button-dark icon icon-edit" ng-click="editTag()" ng-disabled="!newStyle.tags[newStyle.activeTag].x || !newStyle.tags[newStyle.activeTag].y"></button>
+                    <button class="button button-clear button-dark icon icon-trash" ng-disabled="!newStyle.tags[newStyle.activeTag].x || !newStyle.tags[newStyle.activeTag].y" ng-click="removeTag()"></button>
+                </div>
+                <div class="col">
+                    <button class="button button-block button-outline button-dark" ng-disabled="!newStyle.tags[newStyle.activeTag].category && !newStyle.tags[newStyle.activeTag].name && !newStyle.tags[newStyle.activeTag].color" ng-click="saveTag()">{{dict.save}}</button>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

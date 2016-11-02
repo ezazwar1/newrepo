@@ -1,0 +1,508 @@
+<div class="modal order-detail-modal fullscreen-modal" ng-controller="OrderHistoryDetailModalController as viewModel" >
+    <ion-header-bar class="bar-light">
+        <h1 class="title">
+            {{viewModel.title}}
+        </h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="viewModel.cancelOrderDetail()" role="button" aria-label="Close icon in Top Right"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header darker-content"
+                 has-bouncing="true" >
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="viewModel.refreshOrder()"></ion-refresher>
+        <div ng-if="viewModel.order.status == 'open'" class="open-order-display bg-positive padding text-center">
+            <h1 class="light" aria-hidden="true">
+                <i class="icon ion-checkmark-circled" aria-hidden="true"> </i>
+            </h1>
+            <h2 class="light">
+                Thanks
+            </h2>
+            <h4 class="light">
+                Your order has been placed!
+            </h4>
+            <div class="padding text-center" ng-if="viewModel.showShareButton()">
+                <button ng-click="viewModel.shareOrder()" class="button button-light text-positive">
+                    Invite Friends!
+                </button>
+            </div>
+        </div>
+
+        <div ng-if="viewModel.order.status == 'claimed'" class="open-order-display bg-positive padding text-center">
+            <div class="shopper-img"
+            style="background-image: url('{{viewModel.order.driver.image_url ? viewModel.order.driver.image_url:'img/itemNoImage.gif'}}');"
+            alt="driver image" >
+            </div>
+            <h4 class="light" role="text" aria-label="{{viewModel.order.driver.name | driverNameFilter}} is shopping your order">
+                <strong>{{viewModel.order.driver.name | driverNameFilter}}</strong> has claimed your order!
+            </h4>
+            <div class="padding text-center" ng-if="viewModel.showShareButton()">
+                <button ng-click="viewModel.shareOrder()" class="button button-light text-positive">
+                    Invite Friends!
+                </button>
+            </div>
+        </div>
+
+        <div ng-if="viewModel.order.status == 'shopping'" class="open-order-display bg-positive padding text-center">
+            <div class="shopper-img"
+            style="background-image: url('{{viewModel.order.driver.image_url ? viewModel.order.driver.image_url:'img/itemNoImage.gif'}}');"
+            alt="driver image">
+            </div>
+            <h4 class="light" role="text" aria-label="{{viewModel.order.driver.name | driverNameFilter}} is shopping your order">
+                <strong>{{viewModel.order.driver.name | driverNameFilter}}</strong> is shopping your order!
+            </h4>
+            <div class="padding text-center" ng-if="viewModel.showShareButton()">
+                <button ng-click="viewModel.shareOrder()" class="button button-light text-positive">
+                    Invite Friends!
+                </button>
+            </div>
+        </div>
+
+        <div ng-if="viewModel.order.status == 'processed'" class="open-order-display bg-positive padding text-center">
+            <div class="shopper-img"
+            style="background-image: url('{{viewModel.order.driver.image_url ? viewModel.order.driver.image_url:'img/itemNoImage.gif'}}');"
+            alt="driver image">
+            </div>
+            <h4 class="light" role="text" aria-label="{{viewModel.order.driver.name | driverNameFilter}}  has finished shopping your order.">
+                <strong>{{viewModel.order.driver.name | driverNameFilter}}</strong> has finished shopping your order.
+            </h4>
+            <div class="padding text-center" ng-if="viewModel.showShareButton()">
+                <button ng-click="viewModel.shareOrder()" class="button button-light text-positive">
+                    Invite Friends!
+                </button>
+            </div>
+        </div>
+
+        <div ng-if="viewModel.order.status == 'delivered'" class="open-order-display bg-positive padding text-center">
+            <div class="shopper-img"
+            style="background-image: url('{{viewModel.order.driver.image_url ? viewModel.order.driver.image_url:'img/itemNoImage.gif'}}');"
+            alt="driver image">
+            </div>
+            <h4 class="light" role="text" aria-label="{{viewModel.order.driver.name | driverNameFilter}}  has delivered your order!">
+                <strong>{{viewModel.order.driver.name | driverNameFilter}}</strong> has delivered your order!
+            </h4>
+            <h3 ng-if="viewModel.showRating(viewModel.order)" ng-click="viewModel.rateOrderClick(viewModel.order)" role="button" aria-label="Rated {{viewModel.order.rating.rating}} stars">
+                <rating style="display: inline; " readonly="true" ng-model="viewModel.order.rating.rating" max="5"></rating>
+            </h3>
+            <div class="padding text-center" ng-if="!viewModel.order.rating">
+                <button ng-click="viewModel.rateOrderClick(viewModel.order)" class="button button-light text-positive">
+                    Rate Shopper <i class="icon ion-ios-arrow-right" aria-hidden="true" aria-label="arrow right icon"></i>
+                </button>
+            </div>
+
+            <div class="padding text-center" ng-if="viewModel.showRating(viewModel.order) && viewModel.showShareButton()">
+                <button ng-click="viewModel.shareOrder()" class="button button-light text-positive">
+                    Invite Friends!
+                </button>
+            </div>
+        </div>
+
+        <div class="large-padding">
+            <div class="text-center padding" ng-if="viewModel.order.delivery_estimate">
+                <h4 class="faded">
+                    Delivery Estimate <br/> <span class="text-positive">{{order.delivery_estimate}}</span>
+                </h4>
+            </div>
+            <ion-list ng-if="viewModel.order.driver">
+                <div ng-if="viewModel.showTipButton()">
+                    <ion-item class="item item-divider slim">
+                    </ion-item>
+                    <div ng-click="viewModel.tipClick()" class="item item-icon-right add-tip-item"
+                            role="button" aria-label="Change from current tip, {{ viewModel.getTipString() }}" >
+                        Tip
+                        <span class="tip-amount">
+                            {{ viewModel.getTipString() }}
+                        </span>
+                        <i class="icon ion-ios-arrow-right faded" aria-hidden="true" aria-label="arrow-right icon"></i>
+                    </div>
+                </div>
+            </ion-list>
+
+            <ion-list id="order-items-list-{{viewModel.order.id}}" ng-if="!viewModel.order.editable">
+                <ion-item class="item item-divider slim no-padding-bottom" >
+                    Order Items:
+                </ion-item>
+
+                <div ng-if="viewModel.order.report_problem_able" class="text-center padding">
+                    <button ng-if="viewModel.showSomethingWrongButton() && !viewModel.somethingWrongWithOrder"
+                            ng-click="viewModel.somethingWrongWithOrderClick()"
+                            class="button button-assertive button-small button-outline">
+                        Any feedback on the items?
+                    </button>
+                    <p class="report-issue-text" ng-if="viewModel.somethingWrongWithOrder">
+                        Click on the "Issue" button on the item that is not correct to report the issue.
+                    </p>
+                </div>
+                <ion-item class="item product-item item-button-right"
+                          ng-repeat="order_line in viewModel.order.order_lines"
+                          ng-init="order_line.current_product = viewModel.getDisplayProductForOrderLine(order_line)"
+                          ng-class="viewModel.getClassForItem(order_line)">
+                    <img ng-if="order_line.current_product.image_url" ng-src="{{order_line.current_product.image_url}}" alt="" aria-hidden="true"/>
+                    <small class="button button-clear button-dark disabled center center-content qty-item requested"
+                           ng-class="order_line.requested_product.product_type == 'by weight' ? 'weight-space' : ''"
+                           role="text" aria-label="Requested Quantity: {{viewModel.getQuantity(order_line.requested_product, order_line.requested_qty)}}">
+                        <small class="black">Requested Qty: {{viewModel.getQuantity(order_line.requested_product, order_line.requested_qty)}}</small>
+                        <span ng-if="order_line.requested_product.has_custom_label"
+                          class="custom-label dark" >
+                          {{viewModel.customLabel(order_line.requested_product, order_line.requested_qty)}}
+                        </span>
+                    </small>
+                    <small ng-if="order_line.actual_qty"
+                           style=""
+                           class="button button-clear button-dark disabled center center-content qty-item received"
+                           ng-class="order_line.requested_product.product_type == 'by weight' ? 'weight-space' : ''"
+                           role="text" aria-label="Received Quantity: {{viewModel.getQuantity(order_line.actual_product, order_line.actual_qty)}}">
+                        <small class="black">Received Qty: {{viewModel.getQuantity(order_line.actual_product, order_line.actual_qty)}}</small>
+                        <span ng-if="order_line.actual_product.has_custom_label"
+                          class="custom-label dark" >
+                          {{viewModel.customLabel(order_line.actual_product, order_line.actual_qty)}}
+                        </span>
+                    </small>
+                    <h2>
+                        {{viewModel.getDisplayNameForProduct(order_line.current_product)}}
+                    </h2>
+                    <p>
+                        {{order_line.current_product.on_sale ? viewModel.getSalePrice(order_line.current_product) : viewModel.getPrice(order_line.current_product)}}
+                    </p>
+                    <p>
+                        {{order_line.current_product.size}}
+                    </p>
+                    <p class="item-feedback-confirmation"
+                           ng-if="order_line.customer_order_line_feedback">
+                        Feedback Saved
+                    </p>
+                    <p ng-if="viewModel.order.editable">
+                        <button ng-click="viewModel.addEditNote(order_line)"  class="button button-small button-clear button-positive">
+                            <span class="icon ion-ios-paper-outline" aria-hidden="true" aria-label="paper icon"></span>
+                            <span ng-if="!order_line.notes">
+                                Add Note
+                            </span>
+                            <span ng-if="order_line.notes">
+                                Edit Note
+                            </span>
+                        </button>
+                    </p>
+                    <p>{{order_line.notes}}</p>
+                    <br/>
+                    <div class="sub-item-info" ng-if="viewModel.orderLineHasSub(order_line)">
+                        <i class="icon ion-arrow-swap" aria-hidden="true" aria-label="substitution icon"></i>
+                        <img ng-src="{{order_line.requested_product.image_url}}" alt="" aria-hidden="true"/>
+                        <p>Substituted For:</p>
+                        <p><small>{{viewModel.getDisplayNameForProduct(order_line.requested_product)}}</small></p>
+                        <p><small>{{viewModel.getPrice(order_line.requested_product)}}</small> - <small>{{order_line.requested_product.size}}</small></p>
+                        <p></p>
+                    </div>
+                    <div class="item-reconcile-area" ng-if="viewModel.somethingWrongWithOrder" ng-if="viewModel.showReconciliation()">
+                        <div>
+                            <button ng-disabled="order_line.customer_order_line_feedback" class="button button-assertive button-outline button-small button-item-reconcile"
+                                    ng-click="viewModel.itemBadClick(order_line)">
+                                <i class="icon " ng-class="order_line.customer_order_line_feedback ? 'ion-ios-checkmark-outline':'ion-android-alert' " aria-hidden="true"></i> {{order_line.customer_order_line_feedback ? 'Saved':'Issue'}}
+                            </button>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item class="item item-divider slim">
+                    Delivery Details:
+                </ion-item>
+                <ion-item class="row wrap">
+                    <div class="col col-33">
+                        <p>
+                            Delivery Window
+                        </p>
+                    </div>
+                    <div class="col text-right wrap">
+                        <p class="wrap">{{viewModel.order.time_window}}</p>
+                    </div>
+                </ion-item>
+                <ion-item class="row wrap" >
+                    <div class="col col-33">
+                        <p>
+                            Address
+                        </p>
+                    </div>
+                    <div class="col text-right wrap">
+                        <p>{{viewModel.order.customer_address.street1}}</p>
+                        <p>{{viewModel.order.customer_address.street2}}</p>
+                        <p>{{viewModel.order.customer_address.city}} {{viewModel.order.customer_address.state}}</p>
+                        <p>{{viewModel.order.customer_address.zip_code}}</p>
+                    </div>
+                </ion-item>
+                <ion-item class="row wrap" ng-class="viewModel.order.editable ? 'item-icon-right edit':''" ng-click="viewModel.editOrderNotes(order)">
+                    <div class="col col-25">
+                        <p>
+                            Notes
+                        </p>
+                    </div>
+                    <div class="col text-right wrap">
+                        <p class="wrap">{{viewModel.order.notes}}</p>
+                    </div>
+                    <div ng-if="viewModel.order.editable" class="col col-10">
+
+                    </div>
+                    <i ng-if="viewModel.order.editable"  class="icon ion-edit" aria-hidden="true" aria-label="edit icon"></i>
+                </ion-item>
+            </ion-list>
+
+            <ion-list ng-if="viewModel.order.editable">
+
+                <ion-item class="item item-divider slim" role="text" aria-label="Add to Order:">
+                    Add To Order:
+                </ion-item>
+                <ion-item class="item item-icon-right item-icon-left" ng-click="viewModel.addProductToOrder()" ng-if="viewModel.order.editable" accesskey=""role="button" aria-label="Add Product">
+                    <i class="icon ion-plus-circled  text-positive" aria-hidden="true" aria-label="plus icon"></i>
+                    <h2 class="text-positive">
+                        Add Product
+                    </h2>
+                </ion-item>
+                <ion-item class="item item-icon-right item-icon-left" ng-click="viewModel.addSpecialRequest()" ng-if="viewModel.order.editable" role="button" aria-label="Add Special Request">
+                    <i class="icon ion-plus-circled  text-positive" aria-hidden="true" aria-label="plus icon"></i>
+                    <h2 class="text-positive">
+                        Add Special Request
+                    </h2>
+                </ion-item>
+
+                <ion-item class="item item-divider slim">
+                    Order Items:
+                </ion-item>
+                <ion-item class="item product-item item-button-right"
+                          ng-repeat="order_line in viewModel.order.order_lines"
+                          ng-init="order_line.current_product = viewModel.getDisplayProductForOrderLine(order_line)"
+                          ng-class="order_line.current_product.isCustom ? '':'item-thumbnail-left'">
+                    <img ng-if="order_line.current_product.image_url" ng-src="{{order_line.current_product.image_url}}" alt="" aria-hidden="true"/>
+
+                    <a style="top: 15% !important;"
+                       ng-if="viewModel.order.editable"
+                       class="button button-clear button-large button-positive center center-content top"
+                       ng-click="viewModel.addOneToOrderLine(order_line)">
+                        <i class="icon ion-ios-plus-empty" aria-hidden="true" aria-label="plus icon"></i>
+                    </a>
+                    <p ng-if="order_line.current_product.product_type != 'by weight'" style="top: 43% !important;"   class="button button-clear button-dark disabled center center-content" >
+                        <span class="black">{{order_line.requested_qty | number:0}}</span>
+                    </p>
+                    <p ng-if="order_line.current_product.product_type == 'by weight'" style="top: 43% !important;"   class="button button-clear button-dark disabled center center-content" >
+                        <span class="black">{{viewModel.inCartCount(order_line)}}</span>
+                    </p>
+                    <a style="top: 69% !important;" class="button button-clear button-large button-assertive center center-content bottom"
+                       ng-if="order_line.requested_qty > 0 && viewModel.order.editable"
+                       ng-click="viewModel.removeOneFromOrderLine(order_line)">
+                        <i class="icon ion-ios-minus-empty" aria-hidden="true" aria-label="plus icon"></i>
+                    </a>
+                    <a style="top: 69% !important;" class="button button-clear button-large button-assertive center center-content bottom"
+                       ng-if="order_line.requested_qty == 0 && viewModel.order.editable"
+                       ng-click="viewModel.removeOrderLineCompletely(order_line)">
+                        <span>Remove <i class="icon ion-ios-close-outline" aria-hidden="true" aria-label="close icon"></i></span>
+                    </a>
+
+                    <h2>
+                        {{viewModel.getDisplayNameForProduct(order_line.current_product)}}
+                    </h2>
+                    <p>
+                        {{order_line.current_product.on_sale ? viewModel.getSalePrice(order_line.current_product) : viewModel.getPrice(order_line.current_product)}}
+                    </p>
+                    <p>
+                        {{order_line.current_product.size}}
+                    </p>
+                    <p ng-if="viewModel.order.editable">
+                        <button ng-click="viewModel.addEditNote(order_line)"  class="button button-small button-clear button-positive">
+                            <span class="icon ion-ios-paper-outline"></span>
+                            <span ng-if="!order_line.notes">
+                                Add Note
+                            </span>
+                            <span ng-if="order_line.notes">
+                                Edit Note
+                            </span>
+                        </button>
+                    </p>
+                    <p>{{order_line.notes}}</p>
+                </ion-item>
+            </ion-list>
+
+            <div ng-if="!viewModel.order.actual_total">
+                <ion-list ng-if="viewModel.order.requested_total">
+                    <ion-item class="item item-divider slim">
+                        Requested Order Totals:
+                        <small style="white-space: normal;">
+                            <br/>
+                            {{viewModel.getOrderMessage()}}
+                        </small>
+                    </ion-item>
+                    <ion-item class="row">
+                        <div class="col">
+                            <p>
+                                Requested Subtotal
+                            </p>
+                        </div>
+                        <div class="col text-right">
+                            {{viewModel.order.requested_subtotal | currency}}
+                        </div>
+                    </ion-item>
+                    <ion-item class="row">
+                        <div class="col">
+                            <p>
+                                Delivery Fee
+                            </p>
+                        </div>
+                        <div class="col text-right">
+                            {{viewModel.order.delivery_fee | currency}}
+                        </div>
+                    </ion-item>
+
+                    <ion-item class="row" ng-if="viewModel.order.deposit">
+                        <div class="col">
+                            <p>
+                                Deposit
+                            </p>
+                        </div>
+                        <div class="col text-right">
+                            {{viewModel.order.deposit | currency}}
+                        </div>
+                    </ion-item>
+
+                    <ion-item class="row">
+                        <div class="col">
+                            <p>
+                                Requested Tax
+                            </p>
+                        </div>
+                        <div class="col text-right">
+                            {{viewModel.order.requested_tax | currency}}
+                        </div>
+                    </ion-item>
+                    <ion-item class="row"  ng-if="viewModel.order.shipt_credit_used && viewModel.order.shipt_credit_used != 0 && viewModel.order.shipt_credit_used != '0'">
+                        <div class="col">
+                            <p>
+                                Shipt Credit Used
+                            </p>
+                        </div>
+                        <div class="col text-right text-positive">
+                            - {{viewModel.order.shipt_credit_used | currency}}
+                        </div>
+                    </ion-item>
+                    <ion-item class="row">
+                        <div class="col">
+                            <p>
+                                Requested Total
+                            </p>
+                        </div>
+                        <div class="col text-right">
+                            {{viewModel.order.charge_total | currency}}
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+
+            <ion-list ng-if="viewModel.order.actual_total">
+                <ion-item class="item item-divider slim">
+                    Order Totals:
+                </ion-item>
+                <ion-item class="row">
+                    <div class="col">
+                        <p>
+                            Subtotal
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        {{viewModel.order.actual_subtotal | currency}}
+                    </div>
+                </ion-item>
+                <ion-item class="row">
+                    <div class="col">
+                        <p>
+                            Delivery Fee
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        {{viewModel.order.delivery_fee | currency}}
+                    </div>
+                </ion-item>
+
+                <ion-item class="row" ng-if="viewModel.order.deposit">
+                    <div class="col">
+                        <p>
+                            Deposit
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        {{viewModel.order.deposit | currency}}
+                    </div>
+                </ion-item>
+
+                <ion-item ng-if="viewModel.showTipButton()" class="row">
+                    <div class="col">
+                        <p>
+                            Tip
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        {{viewModel.order.tip | currency}}
+                    </div>
+                </ion-item>
+                <ion-item class="row">
+                    <div class="col">
+                        <p>
+                            Tax
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        {{viewModel.order.actual_tax | currency}}
+                    </div>
+                </ion-item>
+                <ion-item class="row"  ng-if="viewModel.order.grocery_discount && viewModel.order.grocery_discount != 0 && viewModel.order.grocery_discount != '0'">
+                    <div class="col">
+                        <p>
+                            Shipt Discount
+                        </p>
+                    </div>
+                    <div class="col text-right text-positive">
+                        - {{viewModel.order.grocery_discount | currency}}
+                    </div>
+                </ion-item>
+                <ion-item class="row" ng-if="viewModel.order.shipt_credit_used && viewModel.order.shipt_credit_used != 0 && viewModel.order.shipt_credit_used != '0'">
+                    <div class="col">
+                        <p>
+                            Shipt Credit Applied
+                        </p>
+                    </div>
+                    <div class="col text-right text-positive">
+                        - {{viewModel.order.shipt_credit_used | currency}}
+                    </div>
+                </ion-item>
+                <ion-item class="row">
+                    <div class="col">
+                        <p>
+                            Total
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        {{viewModel.order.paid_amount | currency}}
+                    </div>
+                </ion-item>
+            </ion-list>
+            <br/>
+            <br/>
+            <div class="text-center padding faded">
+                Order #{{viewModel.order.id}}
+                <br/>
+                <button ng-if="viewModel.order.status != 'delivered' && viewModel.order.status != 'cancelled'"
+                        class="button button-assertive"
+                        ng-click="viewModel.cancelOrderClick(viewModel.order)">Cancel This Order</button>
+
+            </div>
+            <br/>
+        </div>
+
+
+    </ion-content>
+
+    <ion-footer-bar ng-if="viewModel.hasChanges"
+                    class="wrap footer-button-bar bar-stable">
+        <button ng-click="viewModel.saveChanges()"
+                class="button button-positive button-full">
+            Save Order Changes
+        </button>
+    </ion-footer-bar>
+</div>

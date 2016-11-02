@@ -1,0 +1,172 @@
+<ion-view title="{{categoryTitle | translate}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios-information-outline right"
+                ng-click="showWorkoutInfo()"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header width-control full-length" scrollbar-y="false">
+        <div class="category-header"
+             ng-class="{'strength-back': thisCategory == 0,'cardio-back': thisCategory == 1,'yoga-back': thisCategory == 2,'stretch-back': thisCategory == 3,'category-rate': showRateOption}"
+             ng-if="!showRateOption && showShareOption !== 4  && showShareOption !== 8 && showShareOption !== 13 && !customBrandBackground">
+            <span class="header-span">
+              <h3>{{'GET_TO_SWORK' | translate}}</h3>
+            </span>
+        </div>
+        <div class="item item-content item-text-wrap rate-category"
+             ng-class="{'strength-back': thisCategory == 0,'cardio-back': thisCategory == 1,'yoga-back': thisCategory == 2,'stretch-back': thisCategory == 3,'category-rate': showRateOption}"
+             ng-if="(showRateOption || showShareOption == 4 || showShareOption == 8 || showShareOption == 13) && !customBrandBackground">
+            <h3 auto-font-size="resizeOptions">{{rateHeader}}</h3>
+            <div class="center">
+                <button class="button button-small new-button rate-buttons button-outline" ng-click="noOption()">
+                    {{noButton}}
+                </button>
+                <button class="button button-small new-button rate-buttons" ng-click="yesOption()">
+                    {{yesButton}}
+                </button>
+            </div>
+        </div>
+        <div class="category-header branded-header"
+             ng-if="customBrandBackground"
+             ng-style="{'background': customBrandBackground}">
+            <span class="header-span"></span>
+        </div>
+        <ion-list class="list workout-type-list padding-top" can-swipe="false">
+            <p class="page-instructions" translate="SELECT_WORKOUT" style="margin-top: 10px;"></p>
+            <ion-item class="item item-content item-icon-right item-text-wrap workout-item" ng-repeat="workout in customBrandedWorkouts"
+               type="item-text-wrap" ng-click="selectBranded(workout)">
+                <span class="extra-color-left">
+                  <div class="category-icon"
+                       style="background-image:url({{workout.icon}});background-repeat: no-repeat;">
+                  </div>
+                </span>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}">
+                    <h2 ng-bind-html="workout.displayName"></h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{workout.description}}
+                    </p>
+                </div>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item item-content item-icon-right item-text-wrap workout-item" ng-repeat="workout in categories"
+               type="item-text-wrap" href="#/app/home/{{thisCategory}}/{{workout}}">
+                <span class="extra-color-left">
+                  <div class="category-icon" style="background-image:url(img/small/{{workoutTypes[workout].icon}});">
+                  </div>
+                </span>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}">
+                    <h2>{{(workoutTypes[workout].activityNames | translate)}}</h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{(workoutTypes[workout].description | translate)}}
+                    </p>
+                </div>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-balanced"
+                                   ng-click="showWorkoutPreview(workoutTypes[workout])">
+                    <i class="icon ion-eye"></i>
+                </ion-option-button>
+            </ion-item>
+            <a class="item item-content item-text-wrap premium-blue flex-align-center"
+               ng-click="showPremium('Exclusive Workouts')"
+               ng-if="!shouldShowLegacyBasicWorkoutsUnlocked && !shouldShowLegacyProWorkoutsUnlocked && (legacyBasicCategories.length !==0 || legacyProCategories.length !== 0 || premiumCategories.length !== 0)">
+                <div class="upsell-text" translate>WANT_WORKOUTS</div>
+                <div>
+                    <button class="button button-secondary" translate>UPGRADE</button>
+                </div>
+            </a>
+            <ion-item class="item item-content item-icon-right item-text-wrap workout-item" type="item-text-wrap"
+               ng-class="{'premium-locked': !shouldShowLegacyBasicWorkoutsUnlocked}"
+               ng-repeat="workout in legacyBasicCategories" ng-click="selectLegacyBasic(workout)">
+                <span class="extra-color-left">
+                  <div class="category-icon" style="background-image:url(img/small/{{workoutTypes[workout].icon}});">
+                  </div>
+                </span>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}"
+                     ng-if="shouldShowLegacyBasicWorkoutsUnlocked">
+                    <h2>{{(workoutTypes[workout].activityNames | translate)}}</h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{(workoutTypes[workout].description | translate)}}
+                    </p>
+                </div>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}"
+                     ng-if="!shouldShowLegacyBasicWorkoutsUnlocked">
+                    <h2 style="font-size:15px">{{(workoutTypes[workout].activityNames | translate)}} <span>({{'PRO_ONLY' | translate}})</span>
+                    </h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{(workoutTypes[workout].description | translate)}}
+                    </p>
+                </div>
+                <i class="icon icon-accessory"
+                   ng-class="{'ion-chevron-right': shouldShowLegacyBasicWorkoutsUnlocked, 'ion-locked': !shouldShowLegacyBasicWorkoutsUnlocked}"></i>
+                <ion-option-button class="button-balanced"
+                                   ng-click="showWorkoutPreview(workoutTypes[workout])">
+                    <i class="icon ion-eye"></i>
+                </ion-option-button>
+            </ion-item>
+            <a class="item item-content item-text-wrap premium-blue flex-align-center"
+               ng-click="showPremium('Exclusive Workouts')"
+               ng-if="shouldShowLegacyBasicWorkoutsUnlocked && !shouldShowLegacyProWorkoutsUnlocked && !shouldShowLowImpactUnlocked && premiumCategories.length !== 0">
+                <div class="upsell-text" translate>WANT_WORKOUTS</div>
+                <div>
+                    <button class="button button-secondary" translate>UPGRADE</button>
+                </div>
+            </a>
+            <ion-item class="item item-content item-icon-right item-text-wrap workout-item" type="item-text-wrap"
+               ng-class="{'premium-locked': !shouldShowLegacyProWorkoutsUnlocked}"
+               ng-repeat="workout in legacyProCategories" ng-click="selectLegacyPro(workout)">
+                <span class="extra-color-left">
+                  <div class="category-icon" style="background-image:url(img/small/{{workoutTypes[workout].icon}});">
+                  </div>
+                </span>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}"
+                     ng-if="shouldShowLegacyProWorkoutsUnlocked">
+                    <h2>{{(workoutTypes[workout].activityNames | translate)}}</h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{(workoutTypes[workout].description | translate)}}
+                    </p>
+                </div>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}"
+                     ng-if="!shouldShowLegacyProWorkoutsUnlocked">
+                    <h2 style="font-size:15px">{{(workoutTypes[workout].activityNames | translate)}} <span>({{'PRO_ONLY' | translate}})</span>
+                    </h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{(workoutTypes[workout].description | translate)}}
+                    </p>
+                </div>
+                <i class="icon icon-accessory"
+                   ng-class="{'ion-chevron-right': shouldShowLegacyProWorkoutsUnlocked, 'ion-locked': !shouldShowLegacyProWorkoutsUnlocked}"></i>
+                <ion-option-button class="button-balanced"
+                                   ng-click="showWorkoutPreview(workoutTypes[workout])">
+                    <i class="icon ion-eye"></i>
+                </ion-option-button>
+            </ion-item>
+            <a class="item item-content item-text-wrap premium-blue flex-align-center"
+               ng-click="showPremium('Exclusive Workouts')"
+               ng-if="shouldShowLegacyBasicWorkoutsUnlocked && shouldShowLegacyProWorkoutsUnlocked && !shouldShowLowImpactUnlocked && premiumCategories.length !== 0">
+                <div class="upsell-text" translate>WANT_WORKOUTS</div>
+                <div>
+                    <button class="button button-secondary" translate>UPGRADE</button>
+                </div>
+            </a>
+            <ion-item class="item item-content item-icon-right item-text-wrap workout-item" type="item-text-wrap"
+               ng-class="{'premium-locked': !shouldShowLowImpactUnlocked}"
+               ng-repeat="workout in premiumCategories" ng-click="selectPremium(workout)">
+                <span class="extra-color-left">
+                  <div class="category-icon" style="background-image:url(img/small/{{workoutTypes[workout].icon}});">
+                  </div>
+                </span>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}"
+                     ng-if="shouldShowLowImpactUnlocked">
+                    <h2>{{(workoutTypes[workout].activityNames | translate)}}</h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{(workoutTypes[workout].description | translate)}}
+                    </p>
+                </div>
+                <div class="extra-left category-title" ng-class="{'category-align' : data.showInfo}"
+                     ng-if="!shouldShowLowImpactUnlocked">
+                    <h2 style="font-size:15px">{{(workoutTypes[workout].activityNames | translate)}} <span>({{'PRO_ONLY' | translate}})</span>
+                    </h2>
+                    <p class="extra-left" ng-if="data.showInfo">{{(workoutTypes[workout].description | translate)}}
+                    </p>
+                </div>
+                <i class="icon icon-accessory"
+                   ng-class="{'ion-chevron-right': shouldShowLowImpactUnlocked, 'ion-locked': !shouldShowLowImpactUnlocked}"></i>
+                <ion-option-button class="button-balanced"
+                                   ng-click="showWorkoutPreview(workoutTypes[workout])">
+                    <i class="icon ion-eye"></i>
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

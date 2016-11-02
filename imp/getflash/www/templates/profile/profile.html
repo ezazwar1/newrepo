@@ -1,0 +1,66 @@
+<ion-view view-title="{{ title }}">
+
+  <ion-content class="my-collection">
+    <ion-refresher pulling-text="Reload..." on-refresh="doReloadCollection()">
+    </ion-refresher>
+
+    <div class="row head-area">
+      <div class="col wrapper">
+        <div class="row">
+          <div class="col">
+            <div class="img-wrapper">
+              <img ng-src="{{ currProfilePicUrl }}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="name-wrapper">
+              {{ currFullName }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ion-item class="saved-collection-holder">
+      <div class="row" ng-repeat="set in savedSets" ng-if="$index % 2 === 0">
+        <div class="col col-50" ng-if="$index < savedSets.length">
+          <div class="click-area">
+            <div class="collection-wrapper" ng-style="{'background-image': 'url({{ savedSets[$index].coverImageUrl }})'}" ng-click="goToSavedMedia('{{ savedSets[$index].setId }}','{{ savedSets[$index].setName }}')">
+              <div class="total-outfit">
+                <span>{{ savedSets[$index].totalOutFit }}</span> outfit sets
+              </div>
+              <div class="set-name">
+                {{ savedSets[$index].setName }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-50" ng-if="$index + 1 < savedSets.length">
+          <div class="click-area">
+            <div class="collection-wrapper" ng-style="{'background-image': 'url({{ savedSets[$index + 1].coverImageUrl }})'}" ng-click="goToSavedMedia('{{ savedSets[$index + 1].setId }}','{{ savedSets[$index + 1].setName }}')">
+              <div class="total-outfit">
+                <span>{{ savedSets[$index + 1].totalOutFit }}</span> outfit sets
+              </div>
+              <div class="set-name">
+                {{ savedSets[$index + 1].setName }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <div class="loader-wrapper" ng-show="savedSetLoader">
+      <ion-spinner class="spinner-android"></ion-spinner>
+    </div>
+
+    <div class="no-data-wrapper" ng-show="displaySaveSetEmpty">
+      <div class="title">
+        No saved collection yet!
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,7 @@
+<ion-view>
+    <ion-content padding="15">
+        <h2 class="uppercase">{{page[0].title}}</h2>
+        <p ng-bind-html="trustAsHTML(page[0].textToShow)"></p>
+        <br><a ng-if="page[0].type === 'tas'" href="resources/forms/widerrufsformular-{{page[0].language}}.pdf">{{dict.specimenForm}}</a>
+    </ion-content>
+</ion-view>

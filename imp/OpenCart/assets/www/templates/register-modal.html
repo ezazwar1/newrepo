@@ -1,0 +1,68 @@
+﻿<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title" i18n="modals.register_title"></h1>
+        <button class="button button-clear button-positive" ng-click="closeRegisterModal();" i18n="modals.button_close"></button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <form name="forms.registerForm" ng-submit="postRegisterData()" novalidate>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_firstname"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'modals.register_firstname'}" ng-model="register.firstname" name="firstname" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_lastname"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'modals.register_lastname'}" ng-model="register.lastname" name="lastname" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_email"></span>
+                    <input type="email" data-i18n-attr="{placeholder: 'modals.register_email'}" ng-model="register.email" name="email" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_telephone"></span>
+                    <input type="tel" data-i18n-attr="{placeholder: 'modals.register_telephone'}" ng-model="register.telephone" name="telephone" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_password"></span>
+                    <input type="password" data-i18n-attr="{placeholder: 'modals.register_password'}" name="password" ng-model="register.password" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_confirm"></span>
+                    <input type="password" data-i18n-attr="{placeholder: 'modals.register_confirm'}" name="confirm" ng-model="register.confirm" required>
+                </label>
+                <div class="item item-divider" i18n="modals.register_your_address"></div>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_address1"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'modals.register_address1'}" ng-model="register.address_1" name="address_1" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_address2"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'modals.register_address2'}" ng-model="register.address_2" name="address_2">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_city"></span>
+                    <input type="text" data-i18n-attr="{placeholder: 'modals.register_city'}" ng-model="register.city" name="city" required>
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label" i18n="modals.register_postal"></span>
+                    <input type="number" data-i18n-attr="{placeholder: 'modals.register_postal'}" string-to-number ng-model="register.postcode" maxlength="5" minlength="5" name="postal_code" required>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label" i18n="modals.register_country"></div>
+                    <select ng-model="register.country_id" ng-change="countryChanged()" name="country_id" required>
+                        <option value="{{::country.country_id}}" ng-selected="country.country_id == register.country_id" ng-repeat="country in countries">{{::country.name}}</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label" i18n="modals.register_region"></div>
+                    <select ng-model="register.zone_id" name="zone_id" required ng-init="countryChanged()">
+                        <option value="{{::zone.zone_id}}" ng-selected="zone.zone_id == register.zone_id" ng-repeat="zone in zones">{{::zone.name}}</option>
+                    </select>
+                </label>
+                <div class="padding">
+                    <button type="submit" class="button button-block button-positive" i18n="modals.button_create_account"></button>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,55 @@
+{
+	"menu": {
+		"home": "Home",
+		"myCart": "My Cart",
+		"wishlist": "Wishlist",
+		"about": "About"
+	},
+	"products": {
+		"title": "Products",
+		"all": "All",
+		"noProducts": "This category has no products",
+		"sortFeatured": "Featured",
+		"sortAZ": "A-Z",
+		"sortZA": "Z-A",
+		"sortNewest": "Newest"
+	},
+	"productDetails": {
+		"addToCart": "Add To Cart",
+		"soldOut": "Sold Out"
+	},
+	"wishlist": {
+		"title": "Wishlist",
+		"noProducts": "No products have been added to wishlist"
+	},
+	"cart": {
+		"title": "Cart",
+		"noProducts": "The shopping cart is empty",
+		"checkout": "Checkout"
+	},
+	"search": {
+		"cancel": "Cancel",
+		"placeholder": "Search",
+		"noProducts": "No matching products have been found"
+	},
+	"about": {
+		"title": "About Us",
+		"contacts": "Contacts",
+		"aboutUs": "About Us",		
+		"phone": "Phone",
+		"email": "Email",
+		"website": "Website",
+		"address": "Address",
+		"aboutText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula imperdiet augue, vitae euismod ipsum rutrum quis. Nulla bibendum vehicula pharetra. Ut dignissim tortor massa, eget vehicula dui luctus id. Quisque volutpat sodales magna sit amet ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula imperdiet augue, vitae euismod ipsum rutrum quis. Nulla bibendum vehicula pharetra. Ut dignissim tortor massa, eget vehicula dui luctus id. Quisque volutpat sodales magna sit amet ultrices."
+	},
+	"common": {
+		"back": "Back",
+		"showMore": "Show more",
+		"showLess": "Show less"
+	},
+	"error": {
+		"offlineError": "Your device appears to be offline. Please establish internet connection in order to continue.",
+		"operationError": "Unable to perform the operation. Please check your connection and try again.",
+		"dataError": "Could not load data. Please check your connection and try again."
+	}
+}

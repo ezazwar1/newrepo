@@ -1,0 +1,72 @@
+<div class="modal timing-page modal-colors" ng-if="!premiumTiming">
+    <ion-header-bar>
+        <button class="button button-clear button-primary" ng-click="closeModal()">Close</button>
+        <h1 class="title title-center">Workout Settings</h1>
+        <button class="button button-clear button-primary" ng-click="resetDefaults()"  ng-if="toggleOptions.data">Reset</button>
+    </ion-header-bar>
+    <ion-content has-bouncing="false">
+        <div class="list">
+            <ion-toggle ng-model="advancedTiming.transition" class="toggle-energized padding-top" >{{'TRANS_PAUSE' | translate}}
+            </ion-toggle>
+            <ion-toggle ng-model="advancedTiming.autoPlay" class="toggle-energized padding-top" ng-if="!toggleOptions.data">{{'AUTOPLAY' | translate}}
+            </ion-toggle>
+        </div>
+    </ion-content>
+</div>
+<div class="modal timing-page modal-colors" ng-if="premiumTiming">
+    <ion-header-bar>
+        <button class="button button-clear button-primary" ng-click="closeModal()">{{'CLOSE' | translate}}</button>
+        <h1 class="title title-center">{{'ADVANCED' | translate}}</h1>
+        <button class="button button-clear button-primary" ng-click="resetDefaults()"  ng-if="toggleOptions.data">{{'RESET' | translate}}</button>
+    </ion-header-bar>
+    <ion-content has-bouncing="false">
+        <div class="list">
+            <div class="item">
+                <p>{{'LENGTH_TRANS' | translate}}:</p>
+                <div class="range range-energized">
+                    <input class="timing-input" type="tel" integer value="{{advancedTiming.transitionTime}}" ng-model="advancedTiming.transitionTime">
+                    <input type="range" integer name="volume" min="0" max="100" value="{{advancedTiming.transitionTime}}" ng-model="advancedTiming.transitionTime">
+                </div>
+            </div>
+            <div class="item">
+                <p>{{'LENGTH_EXERCISE' | translate}}:</p>
+                <div class="range range-energized">
+                    <input class="timing-input" integer type="tel" value="{{advancedTiming.exerciseTime}}" ng-model="advancedTiming.exerciseTime">
+                    <input type="range" name="volume" min="1" max="180" value="{{advancedTiming.exerciseTime}}" ng-model="advancedTiming.exerciseTime">
+                </div>
+            </div>
+            <ion-toggle ng-model="advancedTiming.restStatus" class="toggle-energized">
+                {{'REST' | translate}}:
+            </ion-toggle>
+            <div class="item" ng-class="{'disabled' : !advancedTiming.restStatus}">
+                <p>{{'REST_BREAK' | translate}}:</p>
+                <div class="range range-energized">
+                    <input class="timing-input" integer type="tel" value="{{advancedTiming.breakFreq}}" ng-model="advancedTiming.breakFreq" ng-disabled="!advancedTiming.restStatus">
+                    <input type="range" name="volume" min="1" max="25" value="{{advancedTiming.breakFreq}}" ng-model="advancedTiming.breakFreq" ng-disabled="!advancedTiming.restStatus">
+                </div>
+            </div>
+            <div class="item" ng-class="{'disabled' : !advancedTiming.restStatus}">
+                <p>{{'LENGTH_REST' | translate}}:</p>
+                <div class="range range-energized">
+                    <input class="timing-input" integer type="tel" value="{{advancedTiming.breakTime}}" ng-model="advancedTiming.breakTime" ng-disabled="!advancedTiming.restStatus">
+                    <input type="range" name="volume" min="1" max="120" value="{{advancedTiming.breakTime}}" ng-model="advancedTiming.breakTime" ng-disabled="!advancedTiming.restStatus">
+                </div>
+            </div>
+            <ion-toggle ng-model="userSettings.showNext" class="toggle-energized" ng-change="toggleNextExercise()" ng-if="!toggleOptions.data">
+                {{'SHOW_NEXT' | translate}}:
+            </ion-toggle>
+            <ion-toggle ng-model="advancedTiming.randomizationOption" class="toggle-energized padding-top" ng-if="toggleOptions.data">
+                {{'RANDOM' | translate}}:
+            </ion-toggle>
+            <ion-toggle ng-model="advancedTiming.autoPlay" class="toggle-energized padding-top" ng-if="!toggleOptions.data">
+                {{'AUTOPLAY' | translate}}:
+            </ion-toggle>
+            <div class="extra-options" ng-if="toggleOptions.data">
+                <p class="options-header">Try a new timing variation</p>
+                <a class="options-link" ng-click="enableHIIT()">HIIT (High Intensity Interval Training)</a>
+                <p class="options-description">30 Seconds of Exercise, 15 Second of Rest</p>
+                <a class="options-link" ng-click="enableTabata()">Tabata</a>
+                <p class="options-description">20 Seconds of Exercise, 10 Second of Rest</p>
+            </div>
+    </ion-content>
+</div>

@@ -1,0 +1,43 @@
+<ion-view title="{{ 'MEDITATE_ACTIVITY' | translate }}" class="intro breathe meditate">
+	<ion-nav-buttons side="right">
+    <!--<a href="javascript:;" ng-click="goToMindfulnessCommunity()"><button class="button button-clear icon ion-ios-people-outline"></button></a>-->
+    <a href="javascript:;" ui-sref="app.meditate-help"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+    <a href="javascript:;" ui-sref="app.relax-config"><button class="button button-clear icon ion-ios-gear-outline"></button></a>
+  </ion-nav-buttons>
+
+  <div class="back"></div>
+  
+  <ion-content>
+  	<h2>{{ 'MEDITATE_ACTIVITY' | translate }}</h2>
+    <p>{{ getExerciseOptionDescription() }}</p>
+    <div class="item item-divider" style="border-top: none;">{{ 'CHOOSE_YOUR_ACTIVITY' | translate }}</div>
+    <div class="activity-wrapper">
+      <div class="clearfix">
+        <div class="activity-option" ng-class="{on: isExerciseOption('Mindfulness - Senses')}" ng-click="setExerciseOption('Mindfulness - Senses')">{{ 'RELAX_ACTIVITY_MINDFULNESS_SENSES' | translate }}</div>
+        <div class="activity-option" ng-class="{on: isExerciseOption('Mindfulness - Breathe'), locked: !isPremiumEnabled()}" ng-click="setExerciseOption('Mindfulness - Breathe')">{{ 'RELAX_ACTIVITY_MINDFULNESS_BREATHE' | translate }}</div>
+        <div class="activity-option" ng-class="{on: isExerciseOption('Mindfulness - Observe'), locked: !isPremiumEnabled()}" ng-click="setExerciseOption('Mindfulness - Observe')">{{ 'RELAX_ACTIVITY_MINDFULNESS_OBSERVE' | translate }}</div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item item-divider">{{ 'SOUND_OPTIONS' | translate }}</div>
+      <!--<div class="item item-icon-left item-select">
+        <i class="icon ion-ios-eye-outline" style="font-size: 40px;"></i>
+        <select ng-model="exerciseOptions.exerciseOptionOrdinal" ng-options="exerciseOptions.options.indexOf(item) as getExerciseOptionDisplay(item) for item in exerciseOptions.options" ng-change="updateExerciseOption()">
+
+        </select>
+      </div>-->
+      <div class="item item-icon-left item-select">
+  		  <i class="icon ion-ios-loop" style="font-size: 20px;"></i>
+  		  <select ng-model="cycleOptions.cycleOptionOrdinal" ng-options="cycleOptions.options.indexOf(item) as getCycleOptionDisplay(item) for item in cycleOptions.options" ng-change="updateCycleLength()">
+			  </select>
+      </div>
+      <div class="item item-icon-left item-select">
+        <i class="icon icon-sound {{soundOptions.soundOptionOrdinal <= 7 ? 'true' : 'false'}}" style="font-size: 20px;"></i>
+        <select ng-model="soundOptions.soundOptionOrdinal" ng-options="soundOptions.options.indexOf(item) as getSoundOptionDisplay(item) for item in soundOptions.options" ng-change="updateSoundOption()">
+        </select>
+      </div>
+
+    </div>
+  </ion-content>
+  <a href="javascript:;" ng-click="startExercise()" class="item button-start">{{ 'START' | translate }}</a>
+</ion-view>

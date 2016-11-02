@@ -1,0 +1,39 @@
+<ion-view title="Video Game Trivia">
+    <div class="chats-intro" ng-if="data.empty_question">
+        <img class="chats-graphic" src="img/graphics/happy-chat.svg" alt="Start trading video games on GBG">
+        <p class="chats-tips">{{data.questionset_message}}</p>
+    </div>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-collection-share ion-ios-upload-outline button--top-bar-right" ng-click="share_question()">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content scroll="true">
+        <div class="question-page_wrapper">
+            <div class="question-page_main">
+                <div class="question-page_question-wrapper">
+                    <img class="question-page_image" ng-src="{{ data.question.question_pic }}">
+
+                    <h4 class="question-page_title">{{ data.question.question }}</h4>
+                </div>
+
+                <div class="question-page_answer-wrapper">
+                    <div class="question-page_answer-box" ng-repeat="choice in data.choices"
+                         ng-class="{'question-page_answer-box-active': choice == data.selected_choice}"
+                         ng-click="select_choice(choice)">
+                        <p class="question-page_answer">{{ choice }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-page_nav button-multi">
+                <button class="button button-primary button-multi_item ion-ios-arrow-right button-icon-right"
+                        ng-disabled="data.selected_choice==''"
+                        ng-click="question_answer_submit()">
+                    Next Question
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

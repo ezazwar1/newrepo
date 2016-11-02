@@ -1,0 +1,51 @@
+
+.me-profile_wrapper {
+	padding: 0 10px;
+    margin-top: 12px;
+}
+
+.wallet_error-message-wrapper {
+  margin-top: -15px;
+}
+
+.wallet_error-message {
+  @extend %icon-attached;
+  color: #d6605e;
+}
+
+.wallet_coins {
+    @include justifyContent(space-around);
+}
+
+.wallet_currency-unit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+
+// For the gear icon on the game profile page
+.button-profile-gear {
+    @extend %icon-normal;
+    color: $baseLinkColor;
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    min-width: inherit;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    padding-right: 0;
+
+    &.activated {
+        color: white;
+        border-color: transparent;
+        background: none;
+        box-shadow: none;
+        min-width: inherit;
+        padding-right: 0;
+    }
+
+    &:hover { color: white; }
+    &:active { color: white; }
+}

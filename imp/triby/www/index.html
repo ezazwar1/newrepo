@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+        <!-- Enable all requests, inline styles, and eval() -->
+        <!--<meta http-equiv="Content-Security-Policy"-->
+            <!--content="default-src *; style-src 'self' http://fonts.googleapis.com/ 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">-->
+
+        <meta http-equiv="X-Content-Security-Policy" content="allow self" />
+        <meta name="format-detection" content="telephone=no" />
+
+        <title></title>
+        <link href='http://fonts.googleapis.com/css?family=Nunito:300' rel='stylesheet' type='text/css'/>
+        <link href="bower_components/ionicons/css/ionicons.min.css" rel="stylesheet"/>
+        <link href="bower_components/ionic/release/css/ionic.min.css" rel="stylesheet"/>
+        <link href="bower_components/jr-crop/dist/jr-crop.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
+        <link href="css/main.css" rel="stylesheet"/>
+        <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+        <link href="css/ionic.app.css" rel="stylesheet">
+        -->
+
+
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/async/dist/async.min.js"></script>
+        <!-- ionic/angularjs js -->
+        <script src="bower_components/ionic/release/js/ionic.bundle.js"></script>
+        <!-- other libraries -->
+        <script src="js/angular-ios9-uiwebview.patch.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+        <!-- pubnub libraries -->
+        <script src="bower_components/pubnub/web/pubnub.js"></script>
+        <!-- use not minified version because it was rewritten a bit for not getting channel history during subscribe-->
+
+        <script src="bower_components/pubnub-angular/lib/pubnub-angular.js"></script>
+        <!-- Crop -->
+        <script src="bower_components/jr-crop/dist/jr-crop.min.js"></script>
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="bower_components/ngCordova/dist/ng-cordova.min.js"></script>
+        <script src="cordova.js"></script>
+
+        <script src="bower_components/angular-tek-progress-bar/dist/tek.progress-bar.min.js"></script>
+
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-elastic/elastic.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <!-- your app's js -->
+        <script src="js/app.js"></script>
+        <!-- controllers -->
+        <script src="js/controllers/controllers.js"></script>
+        <script src="js/controllers/homeCtrl.js"></script>
+        <script src="js/controllers/userCtrl.js"></script>
+        <script src="js/controllers/chatsCtrl.js"></script>
+        <script src="js/controllers/settingsCtrl.js"></script>
+        <script src="js/controllers/feedCtrl.js"></script>
+        <script src="js/controllers/addMembersCtrl.js"></script>
+        <script src="js/controllers/addPeopleCtrl.js"></script>
+        <script src="js/controllers/contactsPageCtrl.js"></script>
+
+        <script src="js/controllers/chatCtrl.js"></script>
+        <script src="js/controllers/commentsCtrl.js"></script>
+        <script src="js/controllers/infoCtrl.js"></script>
+        <script src="js/controllers/infoEditCtrl.js"></script>
+        <script src="js/controllers/newTribyCtrl.js"></script>
+        <script src="js/controllers/muralCtrl.js"></script>
+        <script src="js/controllers/notificationCtrl.js"></script>
+        <!-- services -->
+        <script src="js/services/configService.js"></script>
+        <script src="js/services/unreadNotificationsService.js"></script>
+        <!--<script src="js/services/pubnubService.js"></script>-->
+        <script src="js/services/pubnubServiceNew.js"></script>
+        <script src="js/services/userServices.js"></script>
+        <script src="js/services/countryCode.js"></script>
+        <script src="js/services/settingsServices.js"></script>
+        <script src="js/services/feedServices.js"></script>
+        <script src="js/services/commentsServices.js"></script>
+        <script src="js/services/chatService.js"></script>
+        <script src="js/services/sideChatServices.js"></script>
+        <script src="js/services/iconServices.js"></script>
+        <script src="js/services/notificationServices.js"></script>
+        <script src="js/services/lowInternetService.js"></script>
+        <script src="js/services/loadingService.js"></script>
+        <script src="js/services/underscore.js"></script>
+        <!-- filters -->
+        <script src="js/filters/filters.js"></script>
+        <!-- directives -->
+        <script src="js/directives/ng-slide-down.js"></script>
+    </head>
+
+    <body ng-app="MyApp"  class="platform-android platform-cordova platform-webview">
+    <div class="n-banner" ng-cloak ng-show="$root.isShowNBanner" ng-click="goToEventTarget($root.nBannerData.id, $root.nBannerData.url, $root.nBannerData.url_params)">
+      <div class="centered">
+        <img push-avatar ng-if="$root.nBannerData.avatarSrc" ng-src="{{$root.nBannerData.avatarSrc}}">
+        <div class="username">{{$root.nBannerData.username | limitName}}</div>
+        <div class="message">{{$root.nBannerData.message | limitTo: 55}}{{$root.nBannerData.message.length > 55 ? '...' : ''}}</div>
+      </div>
+    </div>
+
+    <div class="no-connection" ng-if="noConnection">
+      <div class="list list-message-blue-no-connection">
+        <div class="reload_page_icon">
+          <button class="button button-icon ion-ios7-reload reload_button" style="color:white;"></button>
+        </div>
+        <div class="item">
+          <b>Internet connection lost</b>
+        </div>
+        <div class="item">
+          Check network connection and try again
+        </div>
+        <div class="item">
+          <button ng-click="reload()" class="button button-stable">
+            Reload
+          </button>
+        </div>
+      </div>
+    </div>
+    <ion-nav-view id="main"></ion-nav-view>
+</body>
+</html>

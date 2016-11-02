@@ -1,0 +1,36 @@
+<ion-view view-title="{{discoverType || 'Discover'}}">
+  <ion-content>
+    <ion-list>
+        <ion-item data-ng-repeat="item in media" class="item-dark item-black item-custom no-pad">
+            <div class="discover-photo-info">
+                <a ng-href="#/explore/{{item.Author.Type}}/{{item.Author.Alias}}">
+                    <img data-ng-src="{{item.Author.Pic200X200 || item.Author.AvatarUrl64X64}}" alt="" class="user-profile-image round bordered">
+                    <h3 class="user-name">{{item.Author.Title || item.Author.FirstName + ' ' + item.Author.LastName}}</h3>
+                </a>
+                <div class="stohke-holder">
+                    <stohke-count data-media-owner="item.Media.UserId + '_' + item.Media.Id" data-media-type="item.Media.Type"></stohke-count>
+                </div>
+            </div>
+            <div class="discover-photo">
+                <!-- <img data-ng-src="{{::item.Media.ImageUrl540X304}}" src="img/empty.png"> -->
+                <img data-ng-src="{{::item.Media.ImageUrl768X432}}" src="img/empty.png">
+            </div>
+            <div class="discover-photo-actions">
+                <a href="" class="photo-action action-left" ng-click='share(item)'><i class="ion-ios-upload-outline"></i></a>
+                <a href="" class="photo-action action-center">
+                    <stohke-button data-media-owner="item.Media.UserId + '_' + item.Media.Id" data-media-type="item.Media.Type">
+            </stohke-button></a>
+                <a class="photo-action action-right" data-ng-click="showHotspots(item.Media.HotSpots)" ng-disabled="!item.Media.HotSpots.length">
+                    <i class="ion-ios-information-outline"></i>
+                </a>
+
+            </div>
+        </ion-item>
+        <!-- <ion-spinner ng-if="loading" class="loading-spinner"></ion-spinner> -->
+    </ion-list>
+    <ion-infinite-scroll
+        on-infinite="loadMore()"
+        ng-if="canLoadMore">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

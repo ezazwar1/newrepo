@@ -1,0 +1,108 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Live Mindfulness Meditations</span>
+    <span class="welzen-popup__contents">Be part of something bigger than yourself. Join 100’s of online mindfulness meditators from the comfort of your home in daily guided meditations.</span>
+    <div class="welzen-popup__separator"></div>
+    <span class="welzen-popup__footer">This content requires a premium subscription</span>
+    <a  class="welzen-popup__cta" ng-click='togglePopUpActive()' ui-sref="unlock">Subscribe</a>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+<ion-view class="bg-welzen live-meditations" view-title="Live Meditations">
+  <ion-header-bar align-title="center" class="header">
+    <a class="header__back-button" ui-sref='main'><img src="img/btn-back.png"/></a>
+    <h1 class="title">Live Meditations</h1>
+  </ion-header-bar>
+
+  <ion-content has-bouncing="true">
+    <div class="container">
+
+      <a class="info-box--calm--live-style">
+        <span class="info-box__live--live">Live</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Join Us Live Right Now!</span>
+          <span class="info-box__brief">9:00 AM - 20 Min. Guided Exercise</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <h1 class="title">Live Meditations</h1>
+
+      <a class="info-box--transparent info-box--transparent--large-padding info-box--transparent--border-top" ng-click='togglePopUpActive()'>
+        <span class="info-box__live--rsvp">Rsvp</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Thursday May 12</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="info-box__lock"><img src="img/ico-lock.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--large-padding" href="#/live/rsvp">
+        <span class="info-box__live--free">Free</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Saturday April 14</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--large-padding">
+        <span class="info-box__live--locked">Rsvp'd</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Saturday April 23</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="icon"><img src="img/ico-complete.png"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--large-padding"  href="#/live/rsvp">
+        <span class="info-box__live--rsvp">Rsvp</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Wednesday April 27</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--large-padding" ng-click='togglePopUpActive()'>
+        <span class="info-box__live--rsvp">Rsvp</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Thursday May 12</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="info-box__lock"><img src="img/ico-lock.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--large-padding" href="#/live/rsvp">
+        <span class="info-box__live--free">Free</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Saturday April 14</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--large-padding">
+        <span class="info-box__live--locked">Rsvp'd</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Saturday April 23</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="icon"><img src="img/ico-complete.png"></div>
+      </a>
+
+      <a class="info-box--transparent info-box--transparent--large-padding info-box--transparent--no-border"  href="#/live/rsvp">
+        <span class="info-box__live--rsvp">Rsvp</span>
+        <div class="info-box__contents info-box__contents--push-right">
+          <span class="info-box__title">Wednesday April 27</span>
+          <span class="info-box__brief">9:00 AM - 20 Min.</span>
+        </div>
+        <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

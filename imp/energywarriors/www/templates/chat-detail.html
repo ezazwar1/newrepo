@@ -1,0 +1,71 @@
+<!-- this is article/story content -->
+<ion-view view-title="">
+  <ion-content class="padding scroll-bg" ng-show="story" ng-hide="dyk">
+
+    <div class="transparent-back">
+      <div class="item item-divider">
+        <i class="ion-images"></i>
+        <!-- Featured -->
+        <h2 class="dyk-title">{{chat.title}}</h2>
+
+      </div>
+
+      <img ng-src="{{chat.thumbnail}}" class="image-list-thumb"/>
+
+      <!-- <div class="quotation"><div class="blurb"><p>{{chat.quote}}</p></div></div> -->
+
+      <div class="dyk-content">
+        <!-- content -->
+        <p ng-repeat="content in contents track by $index">{{content}}</p>
+
+        <!-- popup -->
+        <div class="dyk-fact">
+          <!-- <h5 class="dyk-fact-title">POPUP CONTENT?</h5> -->
+          <p>{{chat.popup}}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <a class="item item-list-detail">
+      <ion-scroll direction="x">
+        <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+      </ion-scroll>
+    </a> -->
+    <!-- <div class="button-bar">
+      <a ng-href="http://www.splice-media.com/jw.mp4">
+        <button class="button button-outline button-positive">Play a video</button>
+      </a>
+    </div> -->
+
+  </ion-content>
+
+
+
+  <!-- this is did you know content -->
+  <ion-content class="padding scroll-bg" ng-show="dyk" ng-hide="story">
+    <div class="transparent-back">
+      <div class="item item-divider">
+        <i class="ion-images"></i>
+        Did You Know?
+        <!-- <h2 class="dyk-title">{{chat.title}}</h2> -->
+
+      </div>
+
+      <img ng-src="{{chat.thumbnail}}" class="image-list-thumb"/>
+
+      <div class="dyk-content">
+        <!-- content -->
+        <p ng-repeat="content in contents track by $index">{{content}}</p>
+        <!-- popup -->
+        <div class="dyk-fact">
+          <h5 class="dyk-fact-title">FACT</h5>
+          <p>{{chat.popup}}</p>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+
+
+</ion-view>

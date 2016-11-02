@@ -1,0 +1,41 @@
+<ion-view title="Settings">
+  <ion-nav-buttons side="left">
+    <a ng-click="goBack()"><button class="button button-icon icon ion-close-round nav-button"></button></a>
+  </ion-nav-buttons>
+  <ion-content class="has-header" scroll="false">
+    <div class="list settings-list">
+
+      <div class="item item-divider"></div>
+      <a class="item item-icon-left item-icon-right connected">
+        <i class="icon ion-social-facebook"></i>
+        Connected
+        <i class="icon ion-checkmark-round"></i>
+      </a>
+
+      <!--
+      <a class="item item-icon-left" ng-class="{'item-icon-right connected': connectedTwitter}" ng-click="handleTwitterAuth()">
+        <i class="icon ion-social-twitter"></i>
+        {{ twitterConnectStatus }}
+        <i class="icon ion-checkmark-round" ng-if="connectedTwitter"></i>
+      </a>
+
+      <a class="item item-icon-left" ng-class="{'item-icon-right connected': connectedInstagram}" ng-click="handleInstagramAuth()">
+        <i class="icon icon ion-social-instagram"></i>
+        {{ instagramConnectStatus }}
+        <i class="icon ion-checkmark-round" ng-if="connectedInstagram"></i>
+      </a>
+      -->
+
+      <div class="item item-divider"></div>
+      <a class="item" ng-click="handleRateApp()">
+        Rate the App
+      </a>
+
+      <div class="item item-divider"></div>
+      <a class="item" ng-click="handleLogOut()">
+        Log out
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

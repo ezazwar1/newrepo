@@ -1,0 +1,38 @@
+<div class="popup-gamecode-add">
+    <p class="popup-notes">Oops, it looks like we don't have a record of this barcode. Would you like to tell us which game it is?</p>
+
+    <div class="form-group">
+        <label class="form-label">Game Name<em>*</em></label>
+        <input class="form-input" type="text" placeholder="Enter the game name" ng-model="data.title" autofocus />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" for="console">Console<em>*</em></label>
+
+        <div class="form-select-wrapper ion-arrow-down-b">
+            <select class="form-select" name="console" ng-model="data.platform">
+                <option value="" >Choose a console...</option>
+                <option value="playstation-4">PS4</option>
+                <option value="playstation-3">PS3</option>
+                <option value="playstation-2">PS2</option>
+                <option value="playstation-1">PS1</option>
+                <option value="playstation-vita">PS Vita</option>
+                <option value="psp">PSP</option>
+                <option value="xbox-one">Xbox One</option>
+                <option value="xbox-360">Xbox 360</option>
+                <option value="xbox">Xbox</option>
+                <option value="wii-u">Wii U</option>
+                <option value="wii">Wii</option>
+                <option value="nintendo-3ds">3DS</option>
+                <option value="nintendo-ds">NDS</option>
+                <option value="dreamcast">Dreamcast</option>
+                <option value="saturn">Saturn</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="button-multi">
+        <button class="button button-block button-primary button-multi_item-uneven" ng-click="cancel_button()">Cancel</button>
+        <button class="button button-block button-primary button-multi_item-uneven" ng-click="submit_code_thank()">Confirm</button>
+    </div>
+</div>

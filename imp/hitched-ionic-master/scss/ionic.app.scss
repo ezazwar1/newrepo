@@ -1,0 +1,140 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+.main-wrapper {
+    width: 100vw;
+    height: 100%;
+    
+    // brings the footer up
+    margin-bottom: -40px;
+    /* ---------------- FRONT PAGE HEADER --------------- */
+    
+    .main-wrapper-header {
+        width: 100vw;
+        height: 100vh;
+        background: url('../img/1.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        @media(max-width: 650px) {
+            .container {
+                width: 350px !important;
+                .header-title {
+                    font-size: 80px !important;
+                }
+            }
+        }
+        @media (min-width: 768px) {
+            .container {
+                width: 60vw;
+            }
+        }
+        .container {
+            position: relative;
+            top: 200px;
+            .header-body {
+                text-align: center;
+                background-color: white;
+                border-radius: 10px;
+                padding: 5px;
+                .header-login {
+                    float: right;
+                    cursor: pointer;
+                }
+                .header-title {
+                    font-size: 100px;
+                    font-weight: 100 !important;
+                }
+                .header-description {}
+                .header-signup {}
+                .header-about {
+                    float: left;
+                    cursor: pointer;
+                    position: relative;
+                    top: 25px;
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    /* ---------------- FEATURE SECTIONS --------------- */
+    
+    .divider {
+        height: 50px;
+    }
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    /* ---------------- MEDIA --------------- */
+    
+    section {
+        color: #ffffff;
+        min-height: 400px;
+        height: auto !important;
+        height: 100%;
+        padding-top: 100px;
+    }
+    .bg-1 {
+        background: url('../img/1.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .bg-2 {
+        background: url('../img/4.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .bg-3 {
+        background: url('../img/6.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .bg-4 {
+        background: url('../img/5.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .bg-5 {
+        height: 300px !important;
+        min-height: 300px !important;
+        background: url('../img/5.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+}
+/* Empty. Add your own CSS if you like */
+

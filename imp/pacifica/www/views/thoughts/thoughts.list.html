@@ -1,0 +1,77 @@
+<ion-view class="intro rethink record-list">
+  
+  <ion-nav-bar class="pa-header" ng-class="{'level-header': !isUMNUser()}"> 
+    <ion-nav-title>
+      <div>{{ 'THOUGHTS_ACTIVITY' | translate }}<span ng-click="goToSkills()" ng-show="!isUMNUser()">{{ 'LEVEL' | translate }} {{ getThoughtsLevel()}}</span></div>
+    </ion-nav-title>
+
+    <ion-nav-back-button class="button-clear" ng-click="goBack()"><i class="icon ion-ios-arrow-left"></i></ion-nav-back-button>
+
+    <ion-nav-buttons side="right">
+      <!--<a href="javascript:;" ng-click="goToGratitudeCommunity()"><button class="button button-clear icon ion-ios-people-outline"></button></a>-->
+      <a href="javascript:;" ng-click="showHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <div class="back"></div>
+
+  <ion-content>
+  <div class="list">
+	<a class="item item-divider">{{ 'THOUGHTS_ROW_HEADER' | translate }}</a>
+   <h2 class="quote" ng-if="thoughts.length == 0">&ldquo;{{ 'THOUGHTS_WILLIE_QUOTE' | translate }}&rdquo;<br>
+     <span>Willie Nelson</span>
+   </h2>
+
+
+    
+      
+     <div ng-repeat="thought in thoughts" ng-class="{expanded: isShowingDetails(thought)}" class="item recording dragContainer hideRemove item-icon-left" ng-click="showDetails(thought)" on-drag-left="elementDragged($event)" on-drag-right="elementDragged($event)">
+
+      <i class="icon {{ (thought.thoughtType == 'TEXT_DISTORTIONS' || thought.thoughtType == 'TEXT_JOURNAL') ? 'ion-ios-paper-outline' : 'ion-ios-mic-outline' }}"></i>
+
+      <span>{{thought.title}}</span><br>
+      <span class="date">{{getThoughtDay(thought)}} {{ 'AT_DESCRIBING_TIME' | translate }} {{getThoughtTime(thought)}}</span>
+      <div class="counter-wrap">
+        <!--<div class="positive">{{getMarks(thought, true)}}</div> -->
+        <!--<div class="negative">{{getMarks(thought, false)}}</div> -->
+      </div>
+      
+      <div ng-if="isShowingDetails(thought) && thought.thoughtType == 'AUDIO_DISTORTIONS'" ng-class="{expanded: isShowingDetails(thought)}">
+
+        <audio-line-item src="getRecordingSource(thought, 'thought')" duration="getRecordingDuration(thought, 'thought')" tags="getRecordingTags(thought, 'thought')" class="thought-history negative" hide="!isShowingDetails(thought)"></audio-line-item>
+
+        <div ng-repeat="tag in getRecordingTags(thought, 'thought') | orderBy:'tagTime' | filter:{tagTypeString: 'negative'}  " class="tag-wrapper">
+          <span class="tag-time">{{ getRecordingTagTimeDisplay(tag) }}</span>
+          <span class="tag-label">{{ getRecordingTagLabel(tag) }}</span>
+        </div>
+
+        <audio-line-item src="getRecordingSource(thought, 'analysis')" duration="getRecordingDuration(thought, 'analysis')" tags="getRecordingTags(thought, 'analysis')" class="thought-history" bg-color="#60d293" hide="!isShowingDetails(thought)"></audio-line-item>
+
+      </div>
+
+      <div ng-if="isShowingDetails(thought) && thought.thoughtType == 'AUDIO_JOURNAL'" ng-class="{expanded: isShowingDetails(thought)}">
+
+        <audio-line-item src="getRecordingSource(thought, 'journal')" duration="getRecordingDuration(thought, 'journal')" tags="getRecordingTags(thought, 'journal')" class="thought-history" hide="!isShowingDetails(thought)"></audio-line-item>
+
+      </div>
+      
+      <div class="edit" ng-click="renameThought(thought)" ng-if="!isShowingDetails(thought)"></div>
+      <div class="remove" ng-click="archiveThought(thought)" ng-if="!isShowingDetails(thought)"></div>
+
+     </div>
+
+     <div ng-show="hasMoreThoughts() && !loadingMoreThoughts" ng-click="loadMoreThoughts()" class="load-more-thoughts-button">
+      {{ 'LOAD_MORE' | translate }}
+     </div>
+     <div ng-show="hasMoreThoughts() && loadingMoreThoughts" class="load-more-thoughts-text">
+      {{ 'LOADING' | translate }}
+     </div>
+
+    </div>
+  
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+  <a href="javascript:;" ui-sref="app.thoughts" class="circle-button item item-icon-left">
+    <i class="icon ion-ios-plus-empty"></i>
+    <span ng-if="thoughts.length == 0" class="tooltip">{{ 'THOUGHTS_LIST_TOOLTIP_LINE_1' | translate }} {{ 'THOUGHTS_LIST_TOOLTIP_LINE_2' | translate }}</span>
+  </a>
+</ion-view>

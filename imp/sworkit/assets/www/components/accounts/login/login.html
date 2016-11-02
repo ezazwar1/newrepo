@@ -1,0 +1,59 @@
+<ion-view class="auth-view auth-outer form-view login-view">
+    <ion-nav-bar class="view-navigation">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> {{'BACK' | translate}}
+        </ion-nav-back-button>
+        <ion-nav-title>
+            <span>{{'LOGIN' | translate}}</span>
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-content class="">
+        <ion-spinner ng-if="data.loading" class="spinner-on-load"></ion-spinner>
+        <div class="row related-navigation">
+            <div class="col social-options">
+                <a class="google-sign-in button button-block icon-left ion-social-google" ng-click="googleSignIn()">
+                    <span class="btn-copy">{{'SIGNINGOOGLE' | translate}}</span>
+                </a>
+                <a class="facebook-sign-in button button-block icon-left ion-social-facebook"
+                   ng-click="facebookSignIn()">
+                    <span class="btn-copy">{{'SIGNINFACEBOOK' | translate}}</span>
+                </a>
+            </div>
+        </div>
+        <div class="row form-wrapper">
+            <div class="col">
+                <form name="login_form" class="" novalidate>
+                    <div class="form-fields-outer list list-inset">
+                        <label class="item item-input">
+                            <input type="email" placeholder="{{'EMAILADD' | translate}}" name="email"
+                                   ng-model="user.email" required>
+                        </label>
+                        <label class="item item-input" show-hide-container>
+                            <input type="password" placeholder="{{'PASSWORD' | translate}}" name="password"
+                                   ng-model="user.password" required show-hide-input>
+                        </label>
+                    </div>
+                    <a class="login-action" ui-sref="app.forgot-password">
+                        {{'FORGOTPASS' | translate}}
+                    </a>
+                    <button type="submit" class="log-in button button-block" ng-click="loginEmail()"
+                            ng-class="{'pseudo-disabled':login_form.$invalid}">
+                        {{'LOGIN' | translate}}
+                    </button>
+                    <div class="alternative-action">
+                        <a class="" ui-sref="app.signup">
+                            {{'NEEDACCOUNT' | translate}} <span class="bigger-touch">{{'SIGNUP' | translate}}</span>
+                        </a>
+                    </div>
+                    <p ng-if="error" class="message error">{{error}}</p>
+                    <div class="alternative-action" ng-if="authUnavailable">
+                        <a class="" ui-sref="app.home">
+                            {{'NOTYET' | translate}}, <span>{{'SKIP' | translate}}</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <section ng-include="'components/accounts/login/partials/legal-notice.html'"></section>
+    </ion-content>
+</ion-view>

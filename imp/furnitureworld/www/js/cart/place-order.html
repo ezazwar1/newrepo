@@ -1,0 +1,47 @@
+<ion-view view-title="Place Order">
+<ion-nav-bar class="bar-stable">
+	<ion-nav-buttons side="left">
+	<button ng-click="$ionicGoBack()" class="button back-button button-icon button-clear header-item ion-android-arrow-back"></button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+
+<!-- <div class="checkoutBar" ng-if="cartProducts!=''"> -->
+<div class="checkoutBar">
+	<div class="bar bar-footer">
+		<div class="row">
+			<div class="col">
+				<div class="centerAlign" ><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{grossTotal}}</div>
+			</div>
+			<div class="col"><div class="chckout placeorder" ng-click="orderConfirm()">Place Order</div></div>
+		</div>
+	</div>
+</div>
+<ion-content class="shoppingCart" >
+	<div class="cartStatus">
+		<span class="first completed"><i class="ion-checkmark"></i> <label>Address</label></span>
+		<span class="second completed"><i class="ion-checkmark"></i> <label>Options</label></span>
+		<span class="third active"><i class="ion-checkmark"></i> <label>Order</label></span>
+	</div>
+
+	<div class="deliveryBox">
+			<div class="list placeOrder">
+			 <form name="discountForm"  ng-submit="getCouponDiscount(discountForm);" novalidate >
+			  <div class="item item-button-right">
+				 <input type="text" ng-model="discountData.coupon" placeholder="Enter Discount Coupon" maxlength="10" >
+				 <button class="button button-small commonButton">Apply</button>
+			  </div>
+			  </form>
+
+			   <div class="item item-divider">Cart Details </div>
+			   <div class="item item-icon-right"  >Sub Total <i class="icon {{currencyIcon}} catamounts">{{subTotal}}</i>  </div>
+			   <div class="item item-icon-right"  >{{shppingMethodData.title}} <i class="icon {{currencyIcon}} catamounts" >{{shppingMethodData.cost}}</i>  </div>
+			   <div class="item item-icon-right"  >Gross Total <i class="icon {{currencyIcon}} catamounts" >{{grossTotal}}</i>  </div>
+
+			   <div class="item item-divider">Choose Payment Method </div>
+			   <div class="item rmovePadding" ng-repeat="pObj in paymentOptions">
+				 <ion-radio ng-model="paymentMethod" ng-value="'{{pObj.code}}'" ng-click="selectPaymentMethod(pObj);" >{{pObj.title}} <label></label></ion-radio>
+			 </div>
+		</div>
+
+</ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<div ng-init="pop_init()" class="popup-question-add">
+    <!--<h2 class="popup-title">Provide Game Description</h2>-->
+
+    <div class="question-form-group">
+        <div class="form-group">
+            <label class="form-label">Question:</label>
+            <textarea class="form-textarea" cols="30" rows="5" ng-model="data.question_body" autofocus></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Choice</label>
+            <input class="form-input" type="text" ng-model="data.question_choice_A" placeholder="A"/>
+            <input class="form-input" type="text" ng-model="data.question_choice_B" placeholder="B"/>
+            <input class="form-input" type="text" ng-model="data.question_choice_C" placeholder="C"/>
+            <input class="form-input" type="text" ng-model="data.question_choice_D" placeholder="D"/>
+        </div>
+
+
+        <div class="form-group">
+            <label class="form-label">Answer</label>
+            <input class="form-input" type="text" ng-model="data.question_awswer"/>
+        </div>
+    </div>
+
+    <div class="button-multi">
+        <button class="button button-block button-primary button-multi_item-uneven" ng-click="cancel_button()">Cancel
+        </button>
+        <button class="button button-block button-primary button-multi_item-uneven" ng-disabled="!data.question_add_button" ng-click="question_add()">Confirm
+        </button>
+    </div>
+</div>

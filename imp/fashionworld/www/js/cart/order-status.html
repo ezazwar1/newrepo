@@ -1,0 +1,31 @@
+<ion-view view-title="Order Satus ">
+<ion-nav-bar class="bar-stable">
+	<ion-nav-buttons side="left"></ion-nav-buttons>
+	<ion-nav-title>Order Status</ion-nav-title>
+	<ion-nav-buttons side="right"></ion-nav-buttons>
+
+</ion-nav-bar>
+  <ion-content scroll="false" overflow-scroll="true" class="shoppingCart" >
+
+	<div class="emptycart" ng-if="order_fstatus==1">
+			<img ng-src="img/success.png">
+			<p>Your order has been successfuly placed. Our executive will contact you soon regarding this order.</p>
+			<a ng-href="#/app/dashboard" class="button commonButton">Continue Shopping</a>
+	</div>
+
+	<div class="emptycart" ng-if="order_fstatus==2">
+			<img ng-src="img/fail.png">
+			<p>Payment process failed. Please try again.</p>
+			<a ng-click="$ionicGoBack()" class="button commonButton">Try Again</a><br/><br/>
+			<a ng-href="#/app/dashboard" class="button commonButton">Continue Shopping</a>
+	</div>
+
+	<div class="emptycart" ng-if="order_fstatus==3">
+			<img ng-src="img/fail.png">
+			<p>You have payment process could not complete.</p>
+			<a ng-click="$ionicGoBack()" class="button commonButton">Try Again</a><br/><br/>
+			<a ng-href="#/app/dashboard" class="button commonButton">Continue Shopping</a>
+	</div>
+
+  </ion-content>
+</ion-view>

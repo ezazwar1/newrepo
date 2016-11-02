@@ -1,0 +1,89 @@
+
+/*------------------------------------*\
+    #TYPOGRAPHY
+         * Fonts
+\*------------------------------------*/
+
+@font-face {
+    @include webFont (
+        $fontName: open_sanslight,
+        $fontURL: os-light/OpenSans-Light-webfont,
+        $fontWeight: 300)
+}
+
+@font-face {
+    @include webFont (
+        $fontName: open_sansregular,
+        $fontURL: os-regular/OpenSans-Regular-webfont,
+        $fontWeight: 400)
+}
+
+@font-face {
+    @include webFont (
+        $fontName: open_sanssemibold,
+        $fontURL: os-semibold/OpenSans-Semibold-webfont,
+        $fontWeight: 500)
+}
+
+@font-face {
+    @include webFont (
+        $fontName: open_sansbold,
+        $fontURL: os-bold/OpenSans-Bold-webfont,
+        $fontWeight: 600)
+}
+
+
+
+/*------------------------------------*\
+    #TYPOGRAPHY
+         * General settings
+\*------------------------------------*/
+
+body {
+    @include fontRegular;
+    background-color:$baseBgColor; 
+    text-align:left;
+    color:$baseFontColor;
+}
+
+h1, h2, h3, h4, h5, h6{
+    @include fontRegular;
+}
+
+h2 {
+    .item & {
+        @extend %title;
+        margin-bottom: $vSpaceTight;
+    } 
+}
+
+p {
+    @extend %title;
+
+    .item & {
+        @extend %title;
+    }
+    
+}
+
+a {
+    @include animation;
+
+    &::after {
+        @include animation;
+    }
+
+    &:link, &:visited, &:focus {
+        color:$baseLinkColor; 
+        text-decoration:none;
+    }
+
+    &:active {
+        color:$baseLinkColor;
+    }
+}
+
+input, button, select, textarea {
+    @include fontRegular;
+}
+

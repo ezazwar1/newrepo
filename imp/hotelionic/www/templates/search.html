@@ -1,0 +1,150 @@
+<ion-view title="{{navTitle}}" >
+
+  <ion-nav-buttons side="left">
+    <img class="menu-icon" src="img/menu.png" menu-toggle="left"></img>
+  </ion-nav-buttons>
+  
+  <ion-nav-buttons side="right">   
+    <img style="width: 20px;height:20px;margin-top: 7px;margin-right: 5px;" src="img/direction.png"></img>
+  </ion-nav-buttons>
+  
+  <style>
+.main{
+	background-image:url(img/country3.jpg);
+	background-size: 100% 100%;
+	height: 250px;
+}
+
+.ion-ios-search-strong::before {
+    content: "";
+    color: white;
+    margin-right: 10px;
+}
+::-webkit-input-placeholder {
+    color:#fff !important;
+	font-size: 11px;
+	font-weight: bold;
+}
+:-moz-placeholder {
+    color:#fff !important;
+	font-size: 11px;
+	font-weight: bold;
+}
+::-moz-placeholder {
+    color:#fff !important;
+	font-size: 11px;
+	font-weight: bold;
+}
+:-ms-input-placeholder {
+    color:#fff !important;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+		.no-show {
+			display: none;
+		}
+
+		
+
+		.datepickers-cont td.part:hover h2 a {
+			display: inline;
+		}
+		.datepickers-cont {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+
+
+
+
+		/* clearfix short For modern browsers */
+		.cf:before,
+		.cf:after { content:""; display:table; }
+		.cf:after { clear:both; }
+		/* For IE 6/7 (trigger hasLayout) */
+		.cf { zoom:1; }
+.button.back-button.buttons.button-clear.button-clear.header-item {
+    display: none;
+}
+.ll-skin-melon .ui-datepicker .ui-datepicker-next span,
+.ll-skin-melon .ui-datepicker .ui-datepicker-prev span {
+	background-image: url(img/icon.png);
+	background-position: -32px 0;
+	margin-top: 0;
+	top: 0;
+	font-weight: normal;
+}
+.ll-skin-melon .ui-datepicker .ui-datepicker-prev span {
+    background-position: -96px 0;
+}
+.button.button-positive {
+    border-color: transparent;
+	background: #33d29c;
+	color: #fff;
+	font-size: 14px;
+	min-height: 35px;
+	line-height: 35px;
+}
+.button.button-block, .button.button-full {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+a{
+	text-decoration:none;
+}
+  </style>
+  
+    <ion-content style="margin-top:-2px;">
+	
+	<div class="row main">
+		
+		<div style="padding: 0px;margin: -4px;background-color: rgba(0, 0, 0, 0.33);" class="col">
+			<center><img style="padding-top: 50px;width: 50px;" src="img/pin.png"></img>
+			<h5 style="padding-top: 13px;margin:0px;color:#fff;">Berlin, Germany</h5>
+			<p style="margin:0px;color:#fff;font-size: 12px;">Tap to change</p></center>
+		<div style="background-color: rgba(0, 0, 0, 0.54);margin-top: 35px;" class="row">
+			<div class="col col-35">
+				<p style="margin:0px;float: left;color: rgb(255, 255, 255);">THU <br />Jul 15</p>
+				<p style="margin:0px;float: right;color: rgb(255, 255, 255);font-size: 25px;padding-top: 10px;">11</p>
+			</div>
+			<div class="col col-25">
+				<center><img style="width: 30px;padding-top: 5px;" src="img/calender.png"></img></center>
+			</div>
+			<div class="col col-35">
+				<p style="margin:0px;float:right;color: rgb(255, 255, 255);">THU <br />Jul 15</p>
+				<p style="margin:0px;float:left;color: rgb(255, 255, 255);font-size: 25px;padding-top: 10px;">13</p>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+			<article>
+				<table class="datepickers-cont">
+					<tr>
+						<td class="part">
+							<div class="datepicker ll-skin-melon"></div>
+						</td>	
+					</tr>
+				</table>
+			</article>
+			
+			<div style="border-bottom: 1px solid rgb(216, 216, 216);" class="row">
+				<div style="text-align: center; font-weight: bold; font-size: 16px;" class="col">
+					<button style="background-color: white;border: medium none;font-size:25px;float:left;" ng-click="decrement()">-</button><img style="width: 17px;margin-right: 10px;margin-top:7px;" src="img/two.png"></img>{{count}} GUESTS<button style="float:right;background-color: white;border: medium none;font-size:25px;" ng-click="increment()">+</button>
+				</div>
+			</div>
+			<div style="border-bottom: 1px solid rgb(216, 216, 216);" class="row">
+				<div style="text-align: center; font-weight: bold; font-size: 16px;" class="col">
+					<button style="background-color: white;border: medium none;font-size:25px;float:left;" ng-click="decrement2()">-</button><img style="width: 17px;margin-right: 10px;margin-top:7px;" src="img/room.png"></img>{{room}} ROOM<button style="float:right;background-color: white;border: medium none;font-size:25px;" ng-click="increment2()">+</button>
+				</div>
+			</div>
+			
+			<a href="#/app/discover"><button class="button button-full button-positive">
+			  SEARCH
+			</button></a>
+		
+    </ion-content>
+    
+</ion-view>

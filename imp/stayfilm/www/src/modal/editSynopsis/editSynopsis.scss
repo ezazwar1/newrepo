@@ -1,0 +1,46 @@
+@import "variables";
+
+.modal-editSynopsis {
+	font-family: HelveticaNeueMD, sans-serif;
+	color: #666;
+	height: 290px;
+
+	.close-bar {
+		background: #ddd;
+
+		button {
+			img {
+				width: 20px;
+				height: 20px;
+				margin: 5px;
+			}
+		}
+	}
+
+	.container {
+		padding: 20px;
+
+		h2 {
+			font-size: 16px;
+		}
+
+		.causes {
+			margin: 10px 0;
+
+			label {
+				display: block;
+				padding: 10px;
+				background: lighten(#9aa7b2, 30%);
+				border-bottom: 1px solid #fff;
+			}
+		}
+
+		textarea {
+			width: 100%;
+			height: 100px;
+			margin: 20px 0;
+		}
+		
+	}
+
+}

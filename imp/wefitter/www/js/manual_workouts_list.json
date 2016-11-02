@@ -1,0 +1,50 @@
+{
+	"content": {
+
+		"sports": [
+
+			{
+				"id": "1",
+				"status": "0",
+				"name": "Running 15 min",
+				"sport_type_image": "img/act/running.svg"
+			}, {
+				"id": "2",
+				"status": "1",
+				"name": "Running 30 min",
+				"sport_type_image": "img/act/running.svg"
+			}, {
+				"id": "3",
+				"status": "0",
+				"name": "Walking 15 min",
+				"sport_type_image": "img/act/walking.svg"
+			}, {
+				"id": "4",
+				"status": "0",
+				"name": "Walking 30 min",
+				"sport_type_image": "img/act/walking.svg"
+			}, {
+				"id": "3",
+				"status": "1",
+				"name": "Cycling 15 min",
+				"sport_type_image": "img/act/cycling.svg"
+			}, {
+				"id": "4",
+				"status": "0",
+				"name": "Cycling 30 min",
+				"sport_type_image": "img/act/cycling.svg"
+			}, {
+				"id": "5",
+				"status": "1",
+				"name": "Swimming 30 min",
+				"sport_type_image": "img/act/swimming.svg"
+			}, {
+				"id": "6",
+				"status": "1",
+				"name": "Gym",
+				"sport_type_image": "img/act/other sports.svg"
+			}
+		]
+
+	}
+}

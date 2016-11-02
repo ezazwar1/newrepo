@@ -1,0 +1,41 @@
+/* line 5, userItem-jellybean.scss */
+.platform-android4_1 .user-list .user-item, .platform-android4_2 .user-list .user-item, .platform-android4_3 .user-list .user-item, .platform-ios6 .user-list .user-item {
+  display: block;
+}
+/* line 15, ../../bourbon/addons/_clearfix.scss */
+.platform-android4_1 .user-list .user-item:after, .platform-android4_2 .user-list .user-item:after, .platform-android4_3 .user-list .user-item:after, .platform-ios6 .user-list .user-item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 12, userItem-jellybean.scss */
+.platform-android4_1 .user-list .user-item .thumb, .platform-android4_2 .user-list .user-item .thumb, .platform-android4_3 .user-list .user-item .thumb, .platform-ios6 .user-list .user-item .thumb {
+  float: left;
+}
+/* line 18, userItem-jellybean.scss */
+.platform-android4_1 .user-list .user-item .user-info, .platform-android4_2 .user-list .user-item .user-info, .platform-android4_3 .user-list .user-item .user-info, .platform-ios6 .user-list .user-item .user-info {
+  float: left;
+  width: 100px;
+}
+@media (min-width: 250px) {
+  /* line 18, userItem-jellybean.scss */
+  .platform-android4_1 .user-list .user-item .user-info, .platform-android4_2 .user-list .user-item .user-info, .platform-android4_3 .user-list .user-item .user-info, .platform-ios6 .user-list .user-item .user-info {
+    width: 120px;
+  }
+}
+@media (min-width: 321px) {
+  /* line 18, userItem-jellybean.scss */
+  .platform-android4_1 .user-list .user-item .user-info, .platform-android4_2 .user-list .user-item .user-info, .platform-android4_3 .user-list .user-item .user-info, .platform-ios6 .user-list .user-item .user-info {
+    width: 170px;
+  }
+}
+@media (min-width: 500px) {
+  /* line 18, userItem-jellybean.scss */
+  .platform-android4_1 .user-list .user-item .user-info, .platform-android4_2 .user-list .user-item .user-info, .platform-android4_3 .user-list .user-item .user-info, .platform-ios6 .user-list .user-item .user-info {
+    width: 250px;
+  }
+}
+/* line 37, userItem-jellybean.scss */
+.platform-android4_1 .user-list .user-item .actions, .platform-android4_2 .user-list .user-item .actions, .platform-android4_3 .user-list .user-item .actions, .platform-ios6 .user-list .user-item .actions {
+  float: right;
+}

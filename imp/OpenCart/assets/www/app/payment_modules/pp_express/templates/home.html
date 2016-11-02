@@ -1,0 +1,11 @@
+<ion-view view-title="Payment">
+    <ion-content>
+        <div class="padding vmiddle">
+            <center>
+                <p>Pay securely with Paypal Express</p>
+                <img src="app/payment_modules/pp_express/cards.png" width="220" />
+                <button ng-click="pay()" ng-disabled="payment_initiated" class="button button-positive ergized button-block">Pay {{total_amount}}</button>
+            </center>
+        </div>
+    </ion-content>
+</ion-view>

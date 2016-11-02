@@ -1,0 +1,28 @@
+<ion-view cache-view="false" view-title="Notifications">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left" style="color:white" ng-click="go('app/main/home')"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon" style="color:#2695f9" ng-click="markReadAll()">Clear</button>
+    </ion-nav-buttons>
+    <ion-content scroll="true">
+        <ion-list class="list-notification-events">
+            <ion-item class="item-avatar" ng-class="{'not-viewed':!event.isViewed}" ng-click="goToEventTarget(event.id, event.url, event.url_params)" ng-repeat="event in notificationEvents">
+                <img image-size ng-src="{{event.avatarSrc}}" style="min-height:40px;" />
+                <span class="item-note">{{event.datetime | customShortDate}}</span>
+                <h2>{{event.username | limitName}}</h2>
+                <p>{{event.message}}</p>
+            </ion-item>
+            <ion-item class="item-avatar" ng-show="!notificationEvents.length && !isMoreLoadingAllowed">
+                <h2>Empty</h2>
+                <p>No events for you yet</p>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+            on-infinite="loadMoreNotificationEvents()"
+            ng-if="isMoreLoadingAllowed"
+            icon="ion-loading-c"
+            distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

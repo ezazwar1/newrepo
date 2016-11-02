@@ -1,0 +1,500 @@
+
+// Animation setting shorthand
+@mixin animationShorthand ($name, $duration, $function, $delay, $iteration, $direction) {
+    -webkit-animation: $name $duration $function $delay $iteration $direction;
+       -moz-animation: $name $duration $function $delay $iteration $direction;
+        -ms-animation: $name $duration $function $delay $iteration $direction;
+         -o-animation: $name $duration $function $delay $iteration $direction;
+            animation: $name $duration $function $delay $iteration $direction;
+}
+
+@mixin aniShorthand-v2 ($name, $duration, $function, $iteration) {
+    -webkit-animation: $name $duration $function $iteration;
+       -moz-animation: $name $duration $function $iteration;
+        -ms-animation: $name $duration $function $iteration;
+         -o-animation: $name $duration $function $iteration;
+            animation: $name $duration $function $iteration;
+}
+
+@mixin animationFillMode ($mode) {
+    -webkit-animation-fill-mode: $mode;
+       -moz-animation-fill-mode: $mode;
+        -ms-animation-fill-mode: $mode;
+         -o-animation-fill-mode: $mode;
+            animation-fill-mode: $mode;
+}
+
+
+// General animation setting for buttons hover and click status
+@mixin animation (
+	$property: all,
+	$duration: 0.3s,
+	$function: linear) {
+	-webkit-transition:$property $duration $function;
+	   -moz-transition:$property $duration $function;
+	    -ms-transition:$property $duration $function;
+	     -o-transition:$property $duration $function;
+	        transition:$property $duration $function;
+}
+
+
+
+// Flashing animation for notification of updates
+@mixin flash (
+    $t: 3.5s, 
+    $startOpacity: .1, 
+    $endOpacity: 1) {
+    @-webkit-keyframes flash {
+        0% { opacity: $startOpacity; }
+        50% { opacity: $endOpacity; }
+        100% { opacity: $startOpacity; }
+    }
+    @-moz-keyframes flash {
+        0% { opacity: $startOpacity; }
+        50% { opacity: $endOpacity; }
+        100% { opacity: $startOpacity; }
+    }
+    @-ms-keyframes flash {
+        0% { opacity: $startOpacity; }
+        50% { opacity: $endOpacity; }
+        100% { opacity: $startOpacity; }
+    }
+    @-o-keyframes flash {
+        0% { opacity: $startOpacity; }
+        50% { opacity: $endOpacity; }
+        100% { opacity: $startOpacity; }
+    }
+    @keyframes flash {
+        0% { opacity: $startOpacity; }
+        50% { opacity: $endOpacity; }
+        100% { opacity: $startOpacity; }
+    }
+
+    @include aniShorthand-v2 (
+        $name: flash,
+        $duration: $t,
+        $function: ease-in-out,
+        $iteration: infinite)
+}
+
+
+@mixin flashBorder (
+    $t: 3.5s, 
+    $borderWidth: 1px, 
+    $borderStyle: solid, 
+    $startOpacity: .1, 
+    $endOpacity: 1) {
+    @-webkit-keyframes flashBorder {
+        0% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+        50% { border: $borderWidth $borderStyle rgba(24, 229, 152, $endOpacity) }
+        100% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+    }
+    @-moz-keyframes flashBorder {
+        0% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+        50% { border: $borderWidth $borderStyle rgba(24, 229, 152, $endOpacity) }
+        100% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+    }
+    @-ms-keyframes flashBorder {
+        0% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+        50% { border: $borderWidth $borderStyle rgba(24, 229, 152, $endOpacity) }
+        100% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+    }
+    @-o-keyframes flashBorder {
+        0% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+        50% { border: $borderWidth $borderStyle rgba(24, 229, 152, $endOpacity) }
+        100% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+    }
+    @keyframes flashBorder {
+        0% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+        50% { border: $borderWidth $borderStyle rgba(24, 229, 152, $endOpacity) }
+        100% { border: $borderWidth $borderStyle rgba(24, 229, 152, $startOpacity) }
+    }
+
+    @include aniShorthand-v2 (
+        $name: flashBorder,
+        $duration: $t,
+        $function: ease-in-out,
+        $iteration: infinite)
+}
+
+
+
+
+// Bar status aniamtion for deal status, moving from start to the current status
+@mixin barMoveToRequest ($endWidth: 10%, $duration: 1.5s) {
+    @-webkit-keyframes moveReq {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-moz-keyframes moveReq {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-ms-keyframes moveReq {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-o-keyframes moveReq {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @keyframes moveReq {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+
+    @include aniShorthand-v2 (
+        $name: moveReq,
+        $duration: $duration,
+        $function: ease-in-out,
+        $iteration: 1);
+}
+
+@mixin barMoveToAccept ($endWidth: 50%, $duration: 2.5s) {
+    @-webkit-keyframes moveAccept {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-moz-keyframes moveAccept {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-ms-keyframes moveAccept {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-o-keyframes moveAccept {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @keyframes moveAccept {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+
+    @include aniShorthand-v2 (
+        $name: moveAccept,
+        $duration: $duration,
+        $function: ease-in-out,
+        $iteration: 1)
+}
+
+@mixin barMoveToReceive ($endWidth: 100%, $duration: 3s) {
+    @-webkit-keyframes moveRec {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-moz-keyframes moveRec {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-ms-keyframes moveRec {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @-o-keyframes moveRec {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+    @keyframes moveRec {
+        0% { width: 0; }
+        100% { width: $endWidth; }
+    }
+
+    @include aniShorthand-v2 (
+        $name: moveRec,
+        $duration: $duration,
+        $function: ease-in-out,
+        $iteration: 1)
+}
+
+// Set up the if status so it is easier to apply this animation in SCSS
+@mixin barMove ($endWidth, $duration: 2.6s) {
+    @if $endWidth == 10% {
+        @include barMoveToRequest;
+    } @else if $endWidth == 50% { 
+        @include barMoveToAccept;
+    } @else if $endWidth == 100% { 
+        @include barMoveToReceive;
+    }
+
+    @include animationFillMode ($mode: forwards)
+}
+
+
+
+
+// Move animation for a tip arrow
+@mixin tipArrowMove (
+    $x: 0,
+    $y: -4px,
+    $duration: 1s,
+    $delay: 1s) {
+    @-webkit-keyframes tipArrowMove {
+        0% { @include translate(0, 0) }
+        100% { @include translate($x, $y) }
+    }
+    @-moz-keyframes tipArrowMove {
+        0% { @include translate(0, 0) }
+        100% { @include translate($x, $y) }
+    }
+    @-ms-keyframes tipArrowMove {
+        0% { @include translate(0, 0) }
+        100% { @include translate($x, $y) }
+    }
+    @-o-keyframes tipArrowMove {
+        0% { @include translate(0, 0) }
+        100% { @include translate($x, $y) }
+    }
+    @keyframes tipArrowMove {
+        0% { @include translate(0, 0) }
+        100% { @include translate($x, $y) }
+    }
+
+    @include animationShorthand (
+        $name: tipArrowMove,
+        $duration: $duration,
+        $function: ease-in-out,
+        $delay: $delay,
+        $iteration: infinite,
+        $direction: alternate)
+}
+
+
+// Move animation for the appearance of the element
+@mixin moveInto (
+    $startOpacity: 0, $endOpacity: 1,
+    $startX: 0, $endX: 0,
+    $startY: 10px, $endY: 0,
+    $duration: 1s, $delay: 0) {
+    @-webkit-keyframes moveInto {
+        0% { 
+            opacity: $startOpacity;
+            @include translate ($startX, $startY); 
+        }
+        100% { 
+            opacity: $endOpacity;
+            @include translate ($endX, $endY); 
+        }
+    }
+    @-moz-keyframes moveInto {
+        0% { 
+            opacity: $startOpacity;
+            @include translate ($startX, $startY); 
+        }
+        100% { 
+            opacity: $endOpacity;
+            @include translate ($endX, $endY); 
+        }
+    }
+    @-ms-keyframes moveInto {
+        0% { 
+            opacity: $startOpacity;
+            @include translate ($startX, $startY); 
+        }
+        100% { 
+            opacity: $endOpacity;
+            @include translate ($endX, $endY); 
+        }
+    }
+    @-o-keyframes moveInto {
+        0% { 
+            opacity: $startOpacity;
+            @include translate ($startX, $startY); 
+        }
+        100% { 
+            opacity: $endOpacity;
+            @include translate ($endX, $endY); 
+        }
+    }
+    @keyframes moveInto {
+        0% { 
+            opacity: $startOpacity;
+            @include translate ($startX, $startY); 
+        }
+        100% { 
+            opacity: $endOpacity;
+            @include translate ($endX, $endY); 
+        }
+    }
+
+    @include animationShorthand (
+        $name: moveInto,
+        $duration: $duration,
+        $function: ease-in-out,
+        $delay: $delay,
+        $iteration: 1,
+        $direction: normal);
+
+    @include animationFillMode ($mode: forwards);
+}
+
+
+
+// Scale the icon to attract user's attention
+@mixin iconScale (
+    $startSize: $fontSizeSmall,
+    $endSize: 1rem,
+    $duration: 1s,
+    $delay: 0) {
+    @-webkit-keyframes iconScale {
+        0% { font-size: $startSize; }
+        100% { font-size: $endSize; }
+    }
+    @-moz-keyframes iconScale {
+        0% { font-size: $startSize; }
+        100% { font-size: $endSize; }
+    }
+    @-ms-keyframes iconScale {
+        0% { font-size: $startSize; }
+        100% { font-size: $endSize; }
+    }
+    @-o-keyframes iconScale {
+        0% { font-size: $startSize; }
+        100% { font-size: $endSize; }
+    }
+    @keyframes iconScale {
+        0% { font-size: $startSize; }
+        100% { font-size: $endSize; }
+    }
+
+    @include animationShorthand (
+        $name: iconScale,
+        $duration: $duration,
+        $function: ease-in-out,
+        $delay: $delay,
+        $iteration: 1,
+        $direction: normal)
+}
+
+
+
+// Rotate animation
+@mixin aniRotate (
+    $startDeg: 0deg, $endDeg: 360deg,
+    $duration: 14s) {
+    @-webkit-keyframes aniRotate {
+        100% {
+            -webkit-transform: rotate($endDeg);
+               -moz-transform: rotate($endDeg);
+                -ms-transform: rotate($endDeg);
+                 -o-transform: rotate($endDeg);
+                    transform: rotate($endDeg);
+        }
+    }
+    @-moz-keyframes aniRotate {
+        100% {
+            -webkit-transform: rotate($endDeg);
+               -moz-transform: rotate($endDeg);
+                -ms-transform: rotate($endDeg);
+                 -o-transform: rotate($endDeg);
+                    transform: rotate($endDeg);
+        }
+    }
+    @-ms-keyframes aniRotate {
+        100% {
+            -webkit-transform: rotate($endDeg);
+               -moz-transform: rotate($endDeg);
+                -ms-transform: rotate($endDeg);
+                 -o-transform: rotate($endDeg);
+                    transform: rotate($endDeg);
+        }
+    }
+    @-o-keyframes aniRotate {
+        100% {
+            -webkit-transform: rotate($endDeg);
+               -moz-transform: rotate($endDeg);
+                -ms-transform: rotate($endDeg);
+                 -o-transform: rotate($endDeg);
+                    transform: rotate($endDeg);
+        }
+    }
+    @keyframes aniRotate {
+        100% {
+            -webkit-transform: rotate($endDeg);
+               -moz-transform: rotate($endDeg);
+                -ms-transform: rotate($endDeg);
+                 -o-transform: rotate($endDeg);
+                    transform: rotate($endDeg);
+        }
+    }
+
+    @include aniShorthand-v2 (
+        $name: aniRotate,
+        $duration: $duration,
+        $function: linear,
+        $iteration: infinite);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

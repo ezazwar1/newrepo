@@ -1,0 +1,56 @@
+<ion-view title="{{category.name}}">
+    <ion-header-bar class="bar-subheader filter" ng-show="category.filter.length > 0" disable-side-menu ng-click="showModal()">
+        <div class="filter-label">
+            {{dict.filter}}
+            <div class="float-right">
+                <div ng-show="productsLoading" class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+                <span>{{totalCount}} {{dict.article}}</span>
+            </div>
+        </div>
+        <div>
+            <div class="arrow-container">
+                <i class="icon ion-ios7-arrow-down"></i>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content ng-class="{'has-header': category.filter.length === 0}">
+        <div class="card info" ng-show="products && !products.length"><p class="text-center">{{dict.noEntries}}</p></div>
+        <ion-nav-view name="productList"></ion-nav-view>
+        <ion-infinite-scroll
+                ng-if="category.has_more_items && category.has_more_items !== '0'"
+                on-infinite="loadProducts()">
+        </ion-infinite-scroll>
+    </ion-content>
+    <script id="categoryFilter.html" type="text/ng-template">
+        <div class="modal">
+            <ion-header-bar class="filter-header">
+                <button class="button button-clear button-dark" ng-click="deleteFilter()">{{dict.delete}}</button>
+                <h1 class="title dark">{{dict.filter}}</h1>
+                <button class="button button-clear button-dark" ng-click="closeModal()">{{dict.ready}}</button>
+            </ion-header-bar>
+            <ion-header-bar class="filter-subheader bar-subheader bar-dark">
+                <ion-scroll class="scroll-container" direction="x" scrollbar-x="false">
+                    <div class="button-bar transparent">
+                        <a class="button transparent" ng-repeat="filter in category.filter" ng-click="showFilter($index)"><span ng-class="{energized: activeFilters[filter.code]}">{{filter.name}}</span></a>
+                    </div>
+                </ion-scroll>
+            </ion-header-bar>
+            <ion-content>
+                <div class="filter-container">
+                    <label class="item item-radio transparent" ng-repeat="value in filter.values" ng-click="setFilter(filter.code, value.count)">
+                        <input type="radio" ng-model="filterSettings[filter.code]" ng-value="value.id">
+                        <div class="item-content">
+                            <i class="icon circle"></i>
+                            <div class="label">{{value.label}}</div>
+                        </div>
+                    </label>
+                </div>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>

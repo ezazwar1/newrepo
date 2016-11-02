@@ -1,0 +1,36 @@
+<div class="scroll-content scroll-content-zap" ng-class="{'loading-contacts': syncProcessing}"><div class="content" content-ios=""><div id="contactSearch" class="search-form-holder" sub-header-ios="" ng-if="isSearch"><form id="search-form" class="search-form-cancel"><label class="hide" for="search-txt">Search contacts</label><input id="search-txt" class="search-field contactInputField" type="text" name="search-txt" value="" placeholder="Search" ng-model="search.text" ng-click="seacrhClick($event)" ng-change="contactSearch()" auto-focus=""><input id="close-btn" type="button" name="close" value="close" ng-click="searchClear($event)"></form><a class="link-cancel" href="javascript:;" ng-click="serachDone($event)">Done</a></div><!-- / search --><ul class="buttons horizontal flat contact-ul-tab" ng-if="!isSearch"><li class="first"><a href="javascript:;" class="button-default flat" ng-class="{'selected': currentTab !== 'all'}" ng-click="!syncProcessing ? getContacts( false ) : ''">All Contacts</a></li><li class="last"><a href="javascript:;" class="button-default flat" ng-class="{'selected': currentTab !== 'app'}" ng-click="!syncProcessing ? getContacts( true ) : ''">App Users</a></li><!--
+      <li class="last three-tab">
+        <a href="javascript:;" class="button-default flat" ng-class="{'selected': currentTab !== 'search'}" ng-click="searchContacts($event)">
+          Search</a>
+      </li>
+--></ul><!--    <p class="letter">A</p>--><div class="help-text" ng-if="contacts && contacts.length == 0 && isOnAllContactsTab">Your contacts will show here.</div><div class="help-text" ng-if="contacts && contacts.length == 0 && !isOnAllContactsTab">Your contacts having RemindZapp will be shown here. Why don't you invite them?</div><!--
+    <ul class="buttons vertical people contacts-ul-height" ng-if="contacts && contacts.length">
+      <li ng-repeat="contact in contacts" ng-if="contact.emails || !contact.phoneNumbers">
+        <a href="javascript:;" ng-click="selectContact($index)" class="contact-anchor">
+
+          <div class="initials">
+            <p ng-if="contact.name && contact.name.firstLetter != null && contact.name.firstLetter != undefined" ng-bind="contact.name.firstLetter">A</p>
+          </div>
+
+          <span class="checkbox" ng-class="contact.isTick ? 'selected': ''">
+            <span></span>
+          </span>
+
+          <div ng-if="contact.displayName">
+            <h2 class="name contacts contact-name strip-long-name">
+              <span ng-if="contact.hasAccount">*</span>
+              <span>{{contact.displayName}}</span>
+            </h2>
+          </div>
+
+          <div ng-if="!contact.displayName">
+            <h2 class="name contacts contact-name strip-long-name" ng-if="contact.name && contact.name.formatted">{{contact.name.formatted}}</h2>
+            <h2 class="name contacts contact-name strip-long-name" ng-if="!contact.name.formatted && contact.phoneNumbers">{{contact.phoneNumbers[0].value}}</h2>
+            <h2 class="name contacts contact-name strip-long-name" ng-if="!contact.name.formatted && !contact.phoneNumbers && contact.emails">{{contact.emails[0].value}}</h2>
+          </div>
+
+          <span class="inner-border"></span>
+        </a>
+      </li>
+    </ul>
+--></div><ion-content class="has-contacts-subHeader"><div class="list-sub-div"><ul id="contactList" class="buttons vertical people contacts-ul-height" ng-class="{'adjust-contacts': isSearch}"></ul><a href="javascript:;" class="button-default list-more-btn" ng-if="contacts && contacts.length != 0 && hasMoreContacts" ng-click="loadMoreContacts()">More</a></div><!--    <div ng-react-component="ReactItemList" data="contacts" ></div>--><!--    <react-component name="ReactItemList" props="contacts" watch-depth="reference"/>--><!-- / buttons vertical people --></ion-content></div><!-- / scroll-content -->

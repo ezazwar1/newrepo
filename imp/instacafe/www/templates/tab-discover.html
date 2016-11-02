@@ -1,0 +1,33 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>Discover</ion-nav-title>
+<ion-content>
+<section id="cafe-discover">
+    <div class="item item-icon-right"
+         ui-sref="tab.select-country">
+        <h2 class="cafe-name">Search Cafes</h2>
+        <p class="cafe-address">Find cafes by location</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+    </div>
+    <section class="gallery">
+        <div class="row" ng-repeat="cafe in cafes" ng-if="$index % 3 === 0">
+            <div class="col col-33" ng-if="$index < cafes.length" ui-sref="tab.search-cafe-detail({ cafeId:cafes[$index].id })">
+                <img ng-src="{{ cafes[$index].image }}"
+                     width="100%"
+                     default-src="img/default.png">
+            </div>
+            <div class="col col-33" ng-if="$index + 1 < cafes.length" ui-sref="tab.search-cafe-detail({ cafeId:cafes[$index + 1].id })">
+                <img ng-src="{{ cafes[$index + 1].image }}"
+                     width="100%"
+                     default-src="img/default.png">
+            </div>
+            <div class="col col-33" ng-if="$index + 2 < cafes.length" ui-sref="tab.search-cafe-detail({ cafeId:cafes[$index + 2].id })">
+                <img ng-src="{{ cafes[$index + 2].image }}"
+                     width="100%"
+                     default-src="img/default.png">
+            </div>
+        </div>
+    </section>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="hasMore"></ion-infinite-scroll>
+</section>
+</ion-content>
+</ion-view>

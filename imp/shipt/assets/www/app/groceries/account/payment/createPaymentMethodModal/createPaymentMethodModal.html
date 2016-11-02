@@ -1,0 +1,57 @@
+
+<div class="modal" ng-controller="createPaymentMethodModalController as vm" >
+    <ion-header-bar class="bar-light">
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="vm.cancel()"><i class="icon ion-ios-close-empty"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header " scroll="true" has-bouncing="true" >
+        <div class="text-center" >
+            <div class="padding">
+                <h3 class="dark">Add Card</h3>
+            </div>
+        </div>
+        <form class="add-card-form" name="loginForm" novalidate="novalidate" ng-submit="vm.saveCard()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Card Number</span>
+                    <input type="tel" ng-model="vm.card.number"
+                           ng-minlength="15"
+                           ui-us-card-number
+                           ng-maxlength="20" name="number" placeholder="1234 5678 9012 3456" required="true">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Expiration Date</span>
+                    <input ng-model="vm.card.exp_date"
+                                          name="exp_date"
+                                          id="exp_date"
+                                          ui-us-exp-date
+                                          placeholder="01/19"
+                                          type="tel"/>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Security Code</span>
+                    <input ng-model="vm.card.cvc" name="cvc"
+                           ng-minlength="3"
+                           ng-maxlength="4" type="tel" placeholder="123" required="true">
+                </label>
+
+
+                <label class="item item-input">
+                    <span class="input-label">Billing Zip</span>
+                    <input ng-model="vm.card.address_zip" name="billing_zip"
+                           ng-maxlength="12"
+                           type="tel" placeholder="35233" required="true">
+                </label>
+            </div>
+
+            <button class="button button-positive button-clear button-full" type="submit">
+                Save Card
+            </button>
+        </form>
+    </ion-content>
+</div>

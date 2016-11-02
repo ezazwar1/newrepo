@@ -1,0 +1,129 @@
+@font-face{
+    font-family:"FrutigerLTW02-47LightCn";
+    src:url("../fonts/724821/16287d1e-35c2-48f5-8e23-53345e052ca7.eot?#iefix");
+    src:url("../fonts/724821/16287d1e-35c2-48f5-8e23-53345e052ca7.eot?#iefix") format("eot"),url("../fonts/724821/710ce708-2f2b-4530-a455-a161ccf7b3d2.woff2") format("woff2"),url("../fonts/724821/18e289e9-d1cf-49c2-9e2b-443f187c1f87.woff") format("woff"),url("../fonts/724821/23a04561-390f-4346-9287-d05ec4f6f542.ttf") format("truetype"),url("../fonts/724821/4f7e6038-e429-4d6d-b74f-43498d868495.svg#4f7e6038-e429-4d6d-b74f-43498d868495") format("svg");
+}
+@font-face{
+    font-family:"FrutigerLTW02-57Condens";
+    src:url("../fonts/724833/a267d8d4-3e11-4eb4-a4a8-f109ddc63706.eot?#iefix");
+    src:url("../fonts/724833/a267d8d4-3e11-4eb4-a4a8-f109ddc63706.eot?#iefix") format("eot"),url("../fonts/724833/6fe059b8-9cdc-4d35-ab14-8244f8ce6a90.woff2") format("woff2"),url("../fonts/724833/ef9a4f38-e55d-40e8-aa22-b4510adec541.woff") format("woff"),url("../fonts/724833/dbe27c12-f5c5-449d-88b8-330313bf5865.ttf") format("truetype"),url("../fonts/724833/720956b5-5e1e-47f5-a115-34296dc4cbf1.svg#720956b5-5e1e-47f5-a115-34296dc4cbf1") format("svg");
+}
+@font-face{
+    font-family:"FrutigerLTW02-67BoldCn";
+    src:url("../fonts/724845/70d83e26-5eda-46ec-95ba-643813861c3a.eot?#iefix");
+    src:url("../fonts/724845/70d83e26-5eda-46ec-95ba-643813861c3a.eot?#iefix") format("eot"),url("../fonts/724845/3e1d0933-63dd-4861-96b4-70061ecaa8b9.woff2") format("woff2"),url("../fonts/724845/2c61b2bd-b119-4f37-ba50-99d8159a29b7.woff") format("woff"),url("../fonts/724845/e48e72ec-22ed-4e7a-a891-62748411433f.ttf") format("truetype"),url("../fonts/724845/7dac69d8-812a-4c73-b79b-338e7813ed23.svg#7dac69d8-812a-4c73-b79b-338e7813ed23") format("svg");
+}
+
+/* override ionics variables
+********************************************* */
+//colors
+$light: #fff;
+$stable: #9d9d9d;
+$positive: #3b5998;
+$calm: #e8e8e8;
+$assertive: #e1122e;
+$dark: #000;
+$base-backdrop-color: rgba($dark, 0.5);
+
+// clothes colors
+$black: $dark;
+$white: $light;
+$grey: $stable;
+$brown: rgb(109, 76, 45);
+$beige: #d0bca4;
+$yellow: rgb(255, 242, 0);
+$orange: rgb(255, 87, 43);
+$red: rgb(227, 6, 19);
+$pink: rgb(255, 0, 128);
+$darkBlue: #144899;
+$lightBlue: #36a3dc;
+$green: #4eaf4f;
+$gold: rgb(243, 223, 124);
+$silver: rgb(213, 214, 218);
+$multiColored: #800080;
+
+
+// base
+$font-family-base: "FrutigerLTW02-47LightCn";
+$font-family-semibold: "FrutigerLTW02-57Condens";
+$font-family-bold: "FrutigerLTW02-67BoldCn";
+
+$font-size-base: 19px;
+$font-size-large: 21px;
+$font-size-small: 16px;
+
+$border-radius-base: 4px;
+
+// bars
+$bar-height: 45px;
+$bar-footer-height: 60px;
+
+$bar-light-border: $light;
+
+// buttons
+$button-block-margin: 0;
+$button-border-radius: $border-radius-base;
+$button-font-size: $font-size-base;
+$button-light-text: $light;
+$button-light-border: $light;
+$button-light-active-border:  $light;
+$button-positive-border: $positive;
+$button-assertive-border: $assertive;
+
+// forms
+$input-color-placeholder: $stable;
+
+// item
+$item-font-size: $font-size-base;
+$item-border-width: 0;
+$item-default-text: $dark;
+$item-default-active-bg: $light;
+
+// checkboxes
+$checkbox-width: 34px;
+$checkbox-height: 34px;
+$checkbox-check-width: 2px;
+$checkbox-off-border-light: $stable;
+$checkbox-on-bg-light: $light;
+$checkbox-off-border-assertive: $stable;
+$checkbox-on-bg-assertive: $light;
+
+// action Sheets
+$sheet-border-radius: $border-radius-base;
+$sheet-options-bg-color: $light;
+$sheet-options-bg-active-color: $light;
+$sheet-options-text-color: $dark;
+$sheet-options-border-color: $calm;
+
+// popups
+$popup-width: 100%;
+$popup-border-radius: $border-radius-base;
+$popup-button-border-radius: $border-radius-base;
+$popup-background-color: $light;
+
+$modal-backdrop-bg-active: $base-backdrop-color;
+$modal-backdrop-bg-inactive: $base-backdrop-color;
+
+// popovers
+$popover-bg-color: $light;
+$popover-backdrop-bg-active:  rgba($dark, 0.25);
+$popover-large-break-point: 2000px;
+$popover-height: 395px;
+$popover-bg-color-android: $light;
+$popover-border-radius-ios: 0;
+
+$z-index-modal: 15;
+$z-index-popover: 15;
+$z-index-action-sheet: 15;
+$z-index-backdrop: 16;
+$z-index-popup:  20;
+$z-index-loading: 25;
+
+// modals
+$modal-inset-mode-break-point: 2000px;
+
+$ios-statusbar-height: 0px;
+
+/* own variables
+********************************************* */
+$base-spacing: 15px;

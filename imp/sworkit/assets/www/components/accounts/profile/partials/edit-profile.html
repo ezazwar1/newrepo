@@ -1,0 +1,110 @@
+<ion-modal-view class="modal-view auth-view auth-outer edit-profile-modal">
+	<ion-header-bar>
+		<h1 class="title modal-title">{{'EDITACCT' | translate}}</h1>
+		<a class="button button-clear" ng-click="cancelEdit()">{{'CANCEL_SM' | translate}}</a>
+	</ion-header-bar>
+	<ion-content class="">
+	    <div class="row form-wrapper">
+	      <div class="col">
+		    <form name="editForm" novalidate ng-submit="saveProfileEdit(editForm)" >
+	          <div class="form-fields-outer list list-inset">
+				<div class="item item-avatar item-input" ng-click="changePhoto()">
+					<img ng-if="user.photo" ng-src="{{user.photo}}"/>
+				  <div ng-if="!user.photo" class="add-photo-outer fill-height-or-more">
+				    <i class="icon ion-camera flex-column flex-justify-center flex-align-center" style="color:#F5F5F5"></i>
+				  </div>
+				  <p class="avatar-text">{{'CHANGEPIC' | translate}}</p>
+				</div>
+	            <label ng-if="user.authType !== 'email' || user.authType == ''" class="item item-input">
+	              <input type="email" placeholder="{{'EMAIL' | translate}}" name="email" ng-model="user.email" required>
+	            </label>
+	            <label class="item item-input split-view-input">
+	              <input type="text" placeholder="{{'FIRSTNAME' | translate}}" name="firstName" ng-model="user.firstName" required>
+	            </label>
+	            <label class="item item-input split-view-input last-name">
+	              <input type="text" placeholder="{{'LASTNAME' | translate}}" name="lastName" ng-model="user.lastName" required>
+	            </label>
+	            <label class="item item-input item-select year-select">
+			    <div class="input-label item-input">
+			      <h2 class="small-label">{{'BIRTHYR' | translate}}</h2>
+			    </div>
+			    <select ng-options="n for n in [] | range:1900:2015" ng-model="user.birthYear">
+			    	<option value="" ng-if="!user.birthYear"></option>
+			    </select>
+			 	</label>
+	            <label class="item item-input item-select year-select">
+	              <div class="input-label item-input">
+	                <h2 class="small-label">{{'GENDER' | translate}}</h2>
+	              </div>
+	              <select ng-options="(n | translate) for n in ['MALE', 'FEMALE', 'OTHER']" ng-model="user.gender"><option value="" ng-if="!user.gender"></option></select>
+	            </label>
+				<a class="item item-icon-right padding-30" ng-click="toggle.showGoals = !toggle.showGoals">
+					<h2 class="small-label">{{'PERSGOALS' | translate}}</h2>
+					<i class="icon ion-chevron-right icon-accessory" ng-class="{'ion-chevron-right':!toggle.showGoals,'ion-chevron-down':toggle.showGoals}"></i>
+				</a>
+				<ion-checkbox ng-repeat="item in goalList"
+					ng-model="item.checked"
+					ng-checked="item.checked" ng-if="toggle.showGoals">
+					{{ item.short | translate }}
+				</ion-checkbox>
+	            <li class="item item-checkbox email-preference item-text-wrap">
+					<label class="checkbox">
+						<input type="checkbox" ng-model="user.emailPreference">
+					</label>
+					{{'RECEIVEEMAILS' | translate}}
+				</li>
+	          </div>
+	          <button type="submit" class="sign-up button button-block log-in" ng-class="{'pseudo-disabled':editForm.$invalid}">
+	          	{{'SAVECHANGES' | translate}}
+	          </button>
+	          <p ng-if="error" class="message error">{{error}}</p>
+	          <div class="error-container"
+	            ng-if="((user.authType !== 'email' && editForm.email.$invalid) || editForm.firstName.$invalid || editForm.lastName.$invalid) && editForm.submitted">
+	            <small class="message error"
+	                    ng-if="editForm.email.$error.required || editForm.email.$invalid" ng-if="user.authType !== 'email'">
+	                    {{'EMAILADDREQ' | translate}}
+	            </small>
+	            <small class="message error"
+	                    ng-if="editForm.firstName.$error.required">
+	                    {{'FIRSTREQ' | translate}}
+	            </small>
+	            <small class="message error"
+	                    ng-if="editForm.lastName.$error.required">
+	                    {{'LASTREQ' | translate}}
+	            </small>
+	          </div>
+	        </form>
+			<div class="alternative-action">
+				<a class=""  ng-click="logOut()" ng-if="authData">
+				  {{'LIKETO' | translate}} <span>{{'LOGOUT' | translate}}</span>
+				</a>
+			</div>
+			<div class="alternative-action" ng-if="user.authType == 'email'">
+				<a class="" ng-click="changeEmail()">
+				  {{'LIKETO' | translate}} <span>{{'CHANGEMYEMAIL' | translate}}</span>
+				</a>
+			</div>
+			<div class="alternative-action" ng-if="user.authType == 'email'">
+				<a class="" ng-click="changePassword()">
+				  {{'LIKETO' | translate}} <span>{{'CHANGEMYPASS' | translate}}</span>
+				</a>
+			</div>
+			<div class="alternative-action" ng-if="!user.groupCode">
+				<a class="range-text" ng-click="enterGroupCode()">
+				    {{'GROUPCODE' | translate}}
+				</a>
+				<p ng-class="groupClass" ng-show="groupMessage">{{ groupMessage }}</p>
+			</div>
+			<div class="alternative-action" ng-if="user.groupCode">
+				<p>{{'MEMBEROF' | translate}} {{ group.organization }}</p>
+				<a class="orange-text" ng-click="enterGroupCode()">
+                    {{'CHANGEGRP' | translate}}
+				</a> |
+				<a class="orange-text needs-translation" ng-click="leaveGroup()">
+					Leave Group
+				</a>
+			</div>
+		</div>
+	  </div>
+	</ion-content>
+</ion-modal-view>

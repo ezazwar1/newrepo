@@ -1,0 +1,27 @@
+<ion-view cache-view="false" view-title="Account">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon ion-chevron-left" style="color:white" ng-click="go('app/settings')"></button>
+    </ion-nav-buttons>
+    <ion-content scroll="false" >
+        <div class="account_wrapper">
+          <div class="list list-inset list-profile">
+            <label class="item item-title">
+              <span>Account</span>
+            </label>
+            <label class="item item-input" style="border-bottom:none">
+              <i class="icon ion-android-phone-portrait"></i>&nbsp;
+              613 555 55555
+            </label>
+          </div>
+          <br>
+          <div class="list list-inset list-account" >
+            <label class="item" ng-click="go('app/change_number')">
+              <span >Change Number</span>
+            </label>
+            <label class="item" ng-click="go('app/delete_account')">
+              <span>Delete Account</span>
+            </label>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

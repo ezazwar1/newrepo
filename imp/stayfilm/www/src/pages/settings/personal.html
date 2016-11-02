@@ -1,0 +1,57 @@
+<ion-content class="personal">
+	<div class="error-box" ng-if="errorBoxPersonal.length">
+		<ul>
+			<li ng-repeat="message in errorBoxPersonal">{{ message }}</li>
+		</ul>
+	</div>
+	<form name="personalForm" ng-init="setPersonalFormScope(this)">
+		<label><span translate>nome</span>
+			<input maxlength="60" type="text" name="firstName" ng-model="data.firstName">
+		</label>
+
+		<label><span translate>sobrenome</span>
+			<input maxlength="60" type="text" name="lastName" ng-model="data.lastName">
+		</label>
+
+		<label><span translate>sexo</span>
+			<select name="gender" name="gender" ng-model="data.gender">
+				<option value="m" translate>Masculino</option>
+				<option value="f" translate>Feminino</option>
+				<option value="n" translate>Não especificado</option>
+			</select>
+		</label>
+
+		<label><span translate>nascimento (dd/mm/aaaa)</span></label>
+		<div class="birthday-field">
+			<input type="number" name="birthdayDay" placeholder="DD" ng-model="data.birthdayDay" maxlength="2" min="1" max="31" />
+			<input type="number" name="birthdayMonth" placeholder="MM" ng-model="data.birthdayMonth" maxlength="2" min="1" max="12" />
+			<input type="number" name="birthdayYear" placeholder="AAAA" ng-model="data.birthdayYear" maxlength="4" min="1900" max="{{thisYear}}" />
+		</div>
+
+		<label><span translate>status de relacionamento</span>
+			<select name="relationshipStatus" name="relationshipStatus" ng-model="data.relationshipStatus">
+				<option value="single" translate>Solteiro(a)</option>
+				<option value="dating" translate>Relacionamento Sério</option>
+				<option value="fiance" translate>Noivo(a)</option>
+				<option value="married" translate>Casado(a)</option>
+			</select>
+		</label>
+
+		<label><span translate>cidade atual</span>
+			<input maxlength="60" type="text" name="city" ng-model="data.city">
+		</label>
+
+		<button ng-click="savePersonalSettings()" class="kana-button btn-save-settings">
+			<img src="images/kana-lock.png" />
+			<span translate>Salvar informação</span>
+		</button>
+
+		<div class="or-separator"><span translate>configurações de e-mail</span></div>
+
+		<p translate>Quais e-mails deseja receber?</p>
+
+		<ion-toggle class="email-toggle" ng-repeat="emailConfig in emailConfigList" ng-model="data.emailConfigs[emailConfig.key]" ng-checked="data.emailConfigs[emailConfig.key]" ng-change="toggleConfig(emailConfig.key)">
+			{{ emailConfig.description }}
+		</ion-toggle>
+	</form>
+</ion-content>

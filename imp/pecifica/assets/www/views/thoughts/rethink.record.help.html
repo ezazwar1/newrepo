@@ -1,0 +1,24 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow">
+  <ion-content>
+
+    <go-back ng-if="!intro"></go-back>
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+      <ion-slide class="rethink-slide">
+        <div class="box box2">
+          <div class="slide-image"></div>
+          <h1>{{ 'THOUGHTS_RECORD_HELP_TITLE' | translate }}</h1>
+          <h2>{{ 'THOUGHTS_HELP_LINE_1' | translate }}</h2>
+          <p>
+            {{ 'THOUGHTS_RECORD_HELP_LINE_1' | translate}}<br><br>
+            {{ 'THOUGHTS_RECORD_HELP_LINE_2' | translate}}
+          </p><br>
+          
+          <button class="button-start" ng-click="confirm()" ng-if="intro">{{ 'OK_GOT_IT' | translate }}</button>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+
+  </ion-content>
+</ion-view>

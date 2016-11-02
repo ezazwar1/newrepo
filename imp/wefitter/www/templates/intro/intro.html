@@ -1,0 +1,31 @@
+<ion-view>
+	<ion-nav-title>
+      <wf-intro-dots max="isRefer && localData.referData ? '3' : '2'" active="isRefer ? '1' : '0'"></wf-intro-dots>
+    </ion-nav-title>
+
+    <ion-content padding="true" class="intro-welcome bottom-0" scroll="false">
+		<div class="welcome-text">
+			<span class="on-ribbon" translate="INTRO.WELCOME_TEXT_NEW">Hi, seems you're new here! Let me show you how to gain some points ;)</span>
+		</div>
+    </ion-content>
+    <ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+	    <button ui-sref="intro.connect" ng-click="introStarted()" class="button button-big-sticky button-full floating-footer-button">{{ 'INTRO.GUIDE_ME' | translate }}</button>
+	  </ion-footer-bar>
+
+<!-- Facebook Conversion Code for WeFitter App SignUps -->
+<script>(function() {
+ var _fbq = window._fbq || (window._fbq = []);
+ if (!_fbq.loaded) {
+   var fbds = document.createElement('script');
+   fbds.async = true;
+   fbds.src = 'https://connect.facebook.net/en_US/fbds.js';
+   var s = document.getElementsByTagName('script')[0];
+   s.parentNode.insertBefore(fbds, s);
+   _fbq.loaded = true;
+ }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6042983429932', {'value':'0.01','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6042983429932&amp;cd[value]=0.01&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+</ion-view>

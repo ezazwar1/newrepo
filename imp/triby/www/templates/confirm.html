@@ -1,0 +1,22 @@
+<ion-view cache-view="false" view-title="Sign Up" ng-controller="UserCtrlConfirm">
+    <ion-content scroll="false">
+        <div class="center phone-number">
+            {{mobilenumber}}
+        </div>
+        <br>
+        <p align="center">
+            We sent you sms to confirm phone number
+        </p>
+        <br>
+        <div class="list" style="padding-top:10px;padding-bottom:10px;">
+            <label class="item item-input">
+                <input type="text" class="phone-number" placeholder="|" ng-model="formData.code">
+            </label>
+        </div>
+        <p align="center">
+            <a class="button button-signup" ng-click="confirm()">
+                ok
+            </a>
+        </p>
+    </ion-content>
+</ion-view>

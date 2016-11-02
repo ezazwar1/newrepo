@@ -1,0 +1,29 @@
+<ion-view>
+    <ion-content class="dashboard" scroll="false">
+        <div class="row first" ng-style="{'height': sizes.first.height + 'px'}">
+            <div class="col display-flex align-center">
+                <div class="light full-width">
+                    <button class="button button-outline button-light center" ng-click="showActionSheet()">{{dict.record}}</button>
+                    <p ng-if="sizes.first.height >= 100" class="text-center">{{dict.slogan}}</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row display-flex align-center second image imageonload hide-image" imageonload image-src="resources/images/test.jpg" ng-style="{'background-image': 'url(resources/images/test.jpg)', 'width': sizes.second.width + 'px', 'height': sizes.second.height + 'px'}">
+            <div class="col">
+                <button class="button button-assertive center" ng-click="goToAndReset('styleDiscover.detail')">{{dict.discover}}</button>
+            </div>
+        </div>
+        <div class="row padding third" ng-style="{'height': sizes.third.height + 'px'}">
+            <div class="col display-flex align-center" ng-click="goTo('messages')">
+                <p class="text-center uppercase full-width">
+                    {{dict.notifications}}
+                    <span ng-if="newMessageCount" class="badge badge-assertive">{{newMessageCount}}</span>
+                </p>
+            </div>
+            <div class="col display-flex align-center border-dark-left"  ng-click="goTo('ranking')">
+                <p class="text-center uppercase full-width">{{dict.styleboard}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

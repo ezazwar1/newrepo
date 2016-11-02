@@ -1,0 +1,17 @@
+<div ng-controller="DynamicTermsController" class="modal modal-dynamic-terms">
+	<div class="bar bar-header white-close-bar">
+		<button class="button button-clear" ng-click="modal.hide()" >
+			<img src="images/ico-close.png" height="44">
+		</button>
+	</div>
+	<ion-content class="has-header">
+		<div class="terms">
+
+			<div class="pre-loader" ng-if=" ! htmlTerms">
+				<ion-spinner></ion-spinner>
+			</div>
+
+			<div ng-bind-html="htmlTerms"></div>
+		</div>
+	</ion-content>
+</div>

@@ -1,0 +1,165 @@
+/* line 5, friendship.scss */
+.page-friendship .scroll-refresher {
+  top: 10px;
+}
+/* line 9, friendship.scss */
+.page-friendship .scroll {
+  padding: 70px 20px;
+}
+/* line 13, friendship.scss */
+.page-friendship .fs-header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  width: 100%;
+  background: white;
+  z-index: 10;
+}
+/* line 24, friendship.scss */
+.page-friendship .fs-header .cursor {
+  position: absolute;
+  height: 3px;
+  background: #ad252a;
+  top: 67px;
+  z-index: 2;
+  width: 100%;
+  left: 0;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition: all 0.8s ease 0.5s;
+  -moz-transition: all 0.8s ease 0.5s;
+  transition: all 0.8s ease 0.5s;
+}
+/* line 37, friendship.scss */
+.page-friendship .fs-header .tab {
+  display: block;
+  color: #9aa7b2;
+  border-bottom: 3px solid #9aa7b2;
+  padding: 15px 0;
+  font-size: 17px;
+  width: 50%;
+  -webkit-transition: all 0.8s ease 0.5s;
+  -moz-transition: all 0.8s ease 0.5s;
+  transition: all 0.8s ease 0.5s;
+}
+/* line 48, friendship.scss */
+.page-friendship .fs-header .tab.active .label {
+  color: #ad252a;
+}
+/* line 55, friendship.scss */
+.page-friendship .fs-header.mate-active .cursor {
+  -webkit-transform: translateX(0%) scaleX(0.5);
+  -moz-transform: translateX(0%) scaleX(0.5);
+  -ms-transform: translateX(0%) scaleX(0.5);
+  -o-transform: translateX(0%) scaleX(0.5);
+  transform: translateX(0%) scaleX(0.5);
+}
+/* line 61, friendship.scss */
+.page-friendship .fs-header.request-active .cursor {
+  -webkit-transform: translateX(50%) scaleX(0.5);
+  -moz-transform: translateX(50%) scaleX(0.5);
+  -ms-transform: translateX(50%) scaleX(0.5);
+  -o-transform: translateX(50%) scaleX(0.5);
+  transform: translateX(50%) scaleX(0.5);
+}
+/* line 67, friendship.scss */
+.page-friendship .list-container {
+  margin-top: 20px;
+}
+/* line 71, friendship.scss */
+.page-friendship .user-list {
+  margin-top: 20px;
+}
+/* line 75, friendship.scss */
+.page-friendship .empty-list {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+}
+/* line 79, friendship.scss */
+.page-friendship .empty-list.ng-enter {
+  height: 0;
+  margin: 0;
+}
+/* line 84, friendship.scss */
+.page-friendship .empty-list.ng-enter-active {
+  height: 20;
+  margin: 50px;
+}
+/* line 89, friendship.scss */
+.page-friendship .request-item {
+  height: 90px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease;
+}
+/* line 93, friendship.scss */
+.page-friendship .request-item.ng-leave-active {
+  height: 0;
+  -webkit-transform: scaleY(0);
+  -moz-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -o-transform: scaleY(0);
+  transform: scaleY(0);
+}
+/* line 99, friendship.scss */
+.page-friendship .friendship-request {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 90px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: white;
+  overflow: hidden;
+}
+/* line 108, friendship.scss */
+.page-friendship .friendship-request .thumb {
+  height: 60px;
+  width: 60px;
+  vertical-align: top;
+  margin-right: 15px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #d2d2d2;
+}
+/* line 119, friendship.scss */
+.page-friendship .friendship-request .fullname {
+  width: 100%;
+}
+/* line 122, friendship.scss */
+.page-friendship .friendship-request .fullname .user-fullname, .page-friendship .friendship-request .fullname .action-accept, .page-friendship .friendship-request .fullname .action-reject {
+  color: #ad252a;
+}
+/* line 126, friendship.scss */
+.page-friendship .friendship-request .fullname .action-buttons {
+  width: 100%;
+}
+/* line 129, friendship.scss */
+.page-friendship .friendship-request .fullname .action-buttons .action-accept, .page-friendship .friendship-request .fullname .action-buttons .action-reject {
+  display: block;
+  padding: 10px 40px 10px 10px;
+  float: left;
+}
+/* line 137, friendship.scss */
+.page-friendship .friendship-request .ng-hide-add {
+  -webkit-animation: 1s flipOutX;
+  animation: 1s flipOutX;
+}

@@ -1,0 +1,89 @@
+<ion-view title="Mapa" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right"  >
+        <a style="top: 3px !important;" class="button icon-right button-icon" href="#/app/space/:37" animation="slide-in-up"><img src="img/listaNew.png"></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+
+    <!--    <content  has-header="true" has-subheader="false" has-tabs="false" padding="false" has-footer="true" scroll="true">
+
+            <div class="list">
+
+                <slide-box does-continue="true"  show-pager="true" disable-scroll="false" style="background-color:#FFFFFF;">
+
+
+                    <slide class="initialPage" >
+                        <div class="full-image item item-image">
+                            <img src="img/Plano1.png" usemap="#themapsecond" id="bg">
+                            <map name="themapsecond">
+                                <area shape="circle" coords="123, 341, 16" alt="Patio de Santa Isabel" ng-click="openModal(37)"   />
+                                <area id="area37" data-maphilight="{'strokeColor':'ff0000','strokeWidth':5,'fillColor':'f0b840','fillOpacity':0.6}" shape="poly" coords="42, 260, 39, 500, 201, 507, 205, 259" alt="Patio de Santa Isabel"/>
+
+                            </map>
+                        </div>
+                    </slide>
+
+
+                </slide-box>
+
+                <div id="output"></div>
+
+
+            </div>
+        </content>-->
+
+
+
+    <ion-content  has-header="true" padding="true" class="blurLayer">
+
+        <div id="wrap">
+            <img style="right: 0; bottom: 0;border: none;height: auto;max-width: 100%;width: auto;" src="img/Plano.jpg" usemap="#powerpuffgirls" alt="" />
+
+            <map id="map23" name="powerpuffgirls">
+
+                <area id="areaInfo" shape="circle" coords="1130, 589, 68" ng-click="openModal(0)"/>
+                <area id="area40" shape="poly" coords="430, 370, 172, 366, 172, 397, 166, 398, 165, 423, 171, 425, 171, 458, 177, 458, 176, 473, 202, 473, 202, 460, 244, 460, 242, 474, 363, 476, 363, 461, 402, 461, 402, 476, 424, 476, 424, 463, 431, 462"  ng-click="openModal(40)"/>
+                <area id="area39" shape="poly" coords="534, 482, 533, 500, 517, 499, 515, 540, 532, 540, 533, 567, 534, 573, 595, 576, 602, 566, 607, 571, 607, 579, 612, 590, 625, 590, 631, 584, 632, 572, 626, 563, 618, 563, 612, 555, 624, 549, 623, 506, 598, 482"  ng-click="openModal(39)"/>
+                <area id="area38" shape="poly" coords="89, 479, 87, 558, 98, 558, 97, 575, 88, 574, 86, 693, 149, 696, 148, 682, 163, 682, 163, 696, 221, 697, 221, 691, 237, 693, 236, 698, 294, 698, 292, 694, 307, 693, 309, 699, 362, 701, 362, 695, 377, 696, 377, 702, 430, 701, 427, 689, 447, 688, 445, 700, 513, 698, 513, 580, 500, 580, 500, 563, 512, 564, 514, 481, 449, 478, 443, 492, 436, 492, 433, 481, 170, 478, 169, 484, 162, 489, 156, 482, 156, 479" ng-click="openModal(38)" />
+                <area id="area37" shape="poly" coords="495, 1362, 511, 815, 527, 815, 528, 790, 511, 789, 514, 714, 443, 715, 443, 721, 147, 717, 148, 713, 88, 711, 87, 783, 79, 785, 78, 965, 70, 964, 70, 984, 78, 985, 76, 1057, 82, 1056, 75, 1352"  ng-click="openModal(37)"/>
+                <area id="area31" shape="poly" coords="1026, 473, 650, 484, 639, 734, 635, 740, 627, 737, 625, 810, 635, 813, 636, 840, 641, 844, 998, 842, 1012, 742, 995, 736, 1011, 598, 1048, 604, 1053, 564, 1017, 557"  ng-click="openModal(31)"/>
+            </map>
+        </div>
+
+
+        <!--        <slide-box does-continue="true"  show-pager="true" disable-scroll="true" style="background-color:#FFFFFF;">
+                    <slide class="initialPage">
+                        <div id="imagenMapa" class="map full-image item item-image" style="width: 100% !important;border:0px;">
+                            <img  src="img/Plano1.png" usemap="#themapsecond" data-maphilight="{'strokeColor':'ff0000','strokeWidth':5,'fillColor':'f0b840','fillOpacity':0.6}" >
+                            <map name="themapsecond" id="themapsecond" >
+                                <area shape="circle" coords="123, 341, 16" alt="Patio de Santa Isabel" ng-click="openModal(37)"   />
+                                <area id="area37" data-maphilight="{'strokeColor':'ff0000','strokeWidth':5,'fillColor':'f0b840','fillOpacity':0.6}" shape="poly" coords="42, 260, 39, 500, 201, 507, 205, 259" alt="Patio de Santa Isabel"/>
+
+
+                                &lt;!&ndash;                        <area  shape="rect" coords="514,1325,666,1475"  alt="Patio de Santa Isabel" ng-click="openModal(37)"   class="{fill:true,fillColor:'cd3333',fillOpacity:0.4,stroke:true,strokeColor:'003333',strokeOpacity:0.8,strokeWidth:1}"  />
+                                                <area  shape="rect" coords="515,609,667,759" alt="Salas del lado norte del palacio taifal" ng-click="openModal(38)"     />
+                                                <area  shape="rect" coords="885,525,1037,675" alt="Oratorio o Mezquita" ng-click="openModal(39)"     />
+                                                <area  shape="rect" coords="513,365,665,515" alt="Salon de los mármoles" ng-click="openModal(40)"  />
+                                                <area  shape="rect" coords="809,99,961,249" alt="Torre del Trovador" ng-click="openModal(42)"      />&ndash;&gt;
+                    </map>
+                </div>
+            </slide>
+        </slide-box>-->
+
+    </ion-content>
+
+
+    <script id="modal.html" type="text/ng-template">
+        <div class="modal" ng-controller="ModalCtrl">
+            <ion-content>
+                <div id="infoView" ng-bind-html="page.description" style="padding: 15px 15px;color:#FFFFFF;font-size: 1.2em;"></div>
+                <br/>
+            </ion-content>
+        </div>
+    </script>
+</ion-view>

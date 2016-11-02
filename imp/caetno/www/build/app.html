@@ -1,0 +1,15 @@
+<ion-menu [content]="content">
+
+  <ion-content>
+    <h1 class="logo">Caetano</h1>
+    <ion-list>
+      <button menuClose ion-item *ngFor="#page of pages" (click)="openPage(page)">
+        <ion-icon name="{{page.icon}}" item-left></ion-icon>
+        {{page.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,39 @@
+<div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+  <div class="welzen-popup__container">
+    <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+    <span class="welzen-popup__title">Coaching Session?</span>
+    <span class="welzen-popup__contents">We have developed coaching sessions to help you understand how mindfulness interacts with your brain and your every day life. Would you like to learn more?</span>
+    <div class="welzen-popup__separator"></div>
+    <div class="welzen-popup__double-btns">
+      <a  class="welzen-popup__btn" ng-click='togglePopUpActive()'>No</a>
+      <a  class="welzen-popup__cta" ng-click='togglePopUpActive()' ui-sref="mindfulness-coaching">Yes</a>
+    </div>
+  </div>
+</div>
+
+<div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+
+<ion-view class="bg-welzen rating" view-title="Rating">
+  <ion-header-bar align-title="center" class="header">
+    <h1 class="title">All Done!</h1>
+    <a class="header__close-button" ui-sref='main'><img src="img/btn-close.png"/></a>
+  </ion-header-bar>
+
+    <ion-content has-bouncing="true">
+      <div class="container">
+        <p class="paragraph">Please rate this content. Your feedback will help us create better content for you!</p>
+        <img class="characters" src="img/characters1.svg"/>
+
+        <ionic-ratings ratingsobj='ratingsObject'></ionic-ratings>
+
+      </div>
+    </ion-content>
+
+
+  <ion-footer-bar class="footer bg-clear">
+    <a class="button button-block button-clear" ui-sref="main">Submit and Continue</a>
+    <a class="button button-block button-clear" ng-click='togglePopUpActive()'>Rate The Welzen App</a>
+  </ion-footer-bar>
+
+</ion-view>

@@ -1,0 +1,61 @@
+<ion-view class="fbmessenger-mediastep">
+
+	<div class="bar bar-header">
+		<button class="button button-clear btn-back" ng-click="goTo('main.fbmessenger.titlestep', 'slide-right');">
+			<img src="images/ico-arrow-left.png">
+		</button>
+
+		<div class="title" translate>
+			{{ totalSelected }} selecionadas
+		</div>
+
+		<button class="button button-clear" ng-click="makeIt()" translate>
+			produzir
+		</button>
+
+	</div>
+
+	<ion-content class="album-list-container">
+
+		<div class="cf-wrapper clearfix">
+			<div class="doc" translate>
+				Selecione as fotos de seu dispositivo ou de seus álbuns do Facebook.
+			</div>
+			<button class="btn-refresh" ng-click="refresh()"><span class="ion-refresh"></span> <span translate>recarregar</span></button>
+
+		</div>
+
+		<input type="file" id="btn-upload" style="display: none" multiple accept="image/*|video/*" onchange="angular.element(this).scope().handleFiles(this.files)">
+
+		<div class="album-list">
+			<div class="album-list-item" collection-repeat="album in albumList" collection-item-width="getItemSize(album)" collection-item-height="getItemSize(album)">
+				<div class="btn-camera-roll album-cover" ng-if="album.iAmTheUploadButton" ng-click="openMediasOrUpload()">
+					<div class="frame">
+						<div class="cover-image" ng-style="{ 'background-image': 'url(images/album_CameraRoll.png)' }"></div>
+						<div class="selected-medias" ng-if="uploadInfo.totalCount">{{ uploadInfo.totalCount }}</div>
+					</div>
+					<div class="media-count" translate>Galeria</div>
+				</div>
+
+				<div class="refresh-list album-cover" ng-if="album.iAmTheRefreshButton" ng-click="refresh()">
+					<div class="frame">
+						<div class="cover-image" ng-style="{ 'background-image': 'url(images/album_Refresh.png)' }"></div>
+					</div>
+					<div class="media-count">
+						<span ng-if=" ! hasPendingJob"><span translate>recarregar</span></span>
+						<span ng-if="hasPendingJob"><ion-spinner></ion-spinner> <span translate>buscando mídias...</span></span>
+					</div>
+				</div>
+
+				<div class="album-cover" ng-if=" ! album.iAmTheRefreshButton && ! album.iAmTheUploadButton" ng-click="showAlbum(album.idAlbum)">
+					<div class="frame">
+						<div class="cover-image" ng-style="{ 'background-image': 'url(' + (album.cover || 'images/placeholder.png') + ')' }"></div>
+						<div class="selected-medias" ng-if="album.selectedMediaCount">{{ album.selectedMediaCount }}</div>
+					</div>
+					<div class="media-count">{{album.mediaCount}}</div>
+					<div class="album-name">{{album.name}}</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

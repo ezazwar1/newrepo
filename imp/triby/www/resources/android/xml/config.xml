@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.sygnium.TribyApp" version="1.1.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="Sms">
+        <param name="android-package" value="com.cordova.plugins.sms.Sms" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Toast">
+        <param name="android-package" value="nl.xservices.plugins.Toast" />
+    </feature>
+    <feature name="Contacts">
+        <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Globalization">
+        <param name="android-package" value="org.apache.cordova.globalization.Globalization" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="UniversalAnalytics">
+        <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
+    </feature>
+    <feature name="Badge">
+        <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="FileOpener">
+        <param name="android-package" value="fr.smile.cordova.fileopener.FileOpener" />
+    </feature>
+    <feature name="FilePath">
+        <param name="android-package" value="com.hiddentao.cordova.filepath.FilePath" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileOpener2">
+        <param name="android-package" value="io.github.pwlin.cordova.plugins.fileopener2.FileOpener2" />
+    </feature>
+    <feature name="PushNotification">
+        <param name="android-package" onload="true" value="com.pushwoosh.plugin.pushnotifications.PushNotifications" />
+    </feature>
+    <feature name="Capture">
+        <param name="android-package" value="org.apache.cordova.mediacapture.Capture" />
+    </feature>
+    <feature name="VideoPlayer">
+        <param name="android-package" value="com.dawsonloudon.videoplayer.VideoPlayer" />
+    </feature>
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <feature name="FullScreenImage">
+        <param name="android-package" value="es.keensoft.fullscreenimage.FullScreenImage" />
+    </feature>
+    <feature name="VideoEditor">
+        <param name="android-package" value="org.apache.cordova.videoeditor.VideoEditor" />
+    </feature>
+    <feature name="PKVideoThumbnail">
+        <param name="android-package" value="com.photokandy.PKVideoThumbnail.PKVideoThumbnail" />
+    </feature>
+    <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
+    <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
+    <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
+    <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
+    <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
+    <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
+    <splash density="port-ldpi" src="resources/android/splash/drawable-port-ldpi-screen.png" />
+    <splash density="port-mdpi" src="resources/android/splash/drawable-port-mdpi-screen.png" />
+    <splash density="port-hdpi" src="resources/android/splash/drawable-port-hdpi-screen.png" />
+    <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
+    <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
+    <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+    <name>Triby</name>
+    <description>
+    A Triby app.
+  </description>
+    <author email="andryos@triby.co" href="http://triby.co">
+    Andryos De Souza
+  </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access origin="*.pushwoosh.com" />
+    <access origin="*.google-analytics.com" />
+    <allow-navigation href="http://triby-dev.herokuapp.com/*" />
+    <allow-navigation href="https://ssl.google-analytics.com/*" />
+    <preference name="phonegap-version" value="cli-5.1.1" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="13000" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="orientation" value="portrait" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <!--<preference name="LoadingPageDialog" value="Loading..."/>-->
+
+    <gap:plugin name="com.ionic.keyboard" version="1.0.3" />
+    <gap:plugin name="nl.x-services.plugins.toast" version="2.0.2" />
+    <gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
+    <gap:plugin name="org.apache.cordova.console" version="0.2.11" />
+    <gap:plugin name="org.apache.cordova.contacts" version="0.2.13" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+    <gap:plugin name="org.apache.cordova.file" source="npm" version="1.3.3" />
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+    <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+    <gap:plugin name="com.cordova.plugins.sms" version="0.1.2" />
+    <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.4.2" />
+    <gap:plugin name="org.apache.cordova.globalization" version="0.3.1" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
+    <gap:plugin name="cordova-plugin-google-analytics" source="npm" version="0.7.1" />
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
+
+</widget>

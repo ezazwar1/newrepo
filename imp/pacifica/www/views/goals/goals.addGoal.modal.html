@@ -1,0 +1,28 @@
+<ion-modal-view class="touchpoint experiment-1 long-term popoverr">
+
+  <div class="popup-header-fixed">
+    <a href="javascript:;" ng-click="closeModifyGoalModal()" class="go-back">X</a>
+    <h1 class="main">{{ getModifyGoalHeader() }}</h1>
+    <div style="position: relative;" class="shadow">
+      <label ng-class="{error: viewData.error}">
+        <textarea id="subgoal-name" placeholder="{{ 'EXPERIMENTS_ADD_GOAL_PLACEHOLDER' | translate }}" ng-model="viewData.goal" pa-enter="selectGoal()" style="padding-right: 35px;"  maxlength="512"></textarea>
+      </label>
+      <span ng-click="clearGoal()" class="clear-goal" ng-show="viewData.goal.length > 0">X</span>
+    </div>
+  </div>
+
+  <ion-content class="goal-scroll">
+    <div class="goal-wrapper">
+      <div class="divider">{{ 'EXAMPLE_GOALS' | translate }}</div>
+      <div ng-click="setGoalText('NUX_GOAL_DEPRESSION')" class="sub-goal">{{ 'NUX_GOAL_DEPRESSION' | translate }}</div>
+      <div ng-click="setGoalText('NUX_GOAL_GAD')" class="sub-goal">{{ 'NUX_GOAL_GAD' | translate }}</div>
+      <div ng-click="setGoalText('NUX_GOAL_SOCIAL')" class="sub-goal">{{ 'NUX_GOAL_SOCIAL' | translate }}</div>
+      <div ng-click="setGoalText('NUX_GOAL_HEALTH')" class="sub-goal">{{ 'NUX_GOAL_HEALTH' | translate }}</div>
+    </div>
+  </ion-content>
+
+  <div class="bar bar-footer">
+     <button class="button button-start" ng-click="saveGoal()" ng-disabled="viewData.submitting || viewData.goal == ''">{{ 'EXPERIMENTS_SET_GOAL' | translate }}</button>
+  </div>
+
+</ion-modal-view>

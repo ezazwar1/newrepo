@@ -1,0 +1,85 @@
+<div class="page-friend page">
+
+	<div class="friend-header bar-retractile bar-retractile-up">
+		<div class="primary-header bar bar-header">
+			<button class="button button-clear button-light" ng-click="goTo(backButtonState, 'slide-down', prevStateParams)"><img src="images/ico-close-white.png" height="20" width="20"></button>
+			<h1 class="title"></h1>
+		</div>
+
+		<div class="secondary-header">
+			<div class="user-info">
+				<div class="user-thumb">
+					<img  ng-src="{{ user.photo || 'images/default-profile-photo.png'}}">
+				</div>
+
+				<div class="info">
+					<h3>{{ user.fullName }}</h3>
+					<div class="edit-box">
+						<!--
+							WATCH OUT! 
+							The inverted statuses are CORRECT, because the session user is the reference.
+							DO NOT INVERT until is really needed
+						-->
+						<div class="edit" ng-class="{'two-buttons': user.friendshipStatus === 'REQUEST_SENT'}">
+							<span ng-if="user.friendshipStatus === 'REQUEST_RECEIVED'">
+								<span translate>Solicitação enviada</span>
+							</span>
+							<span ng-if="user.friendshipStatus === 'SAME'">
+								<span translate>Sou eu</span>
+							</span>
+							<button ng-click="discardFriendship(user)" ng-if="user.friendshipStatus === 'FRIENDS'" ng-class="{'btn-disabled': working === 'discarding'}">
+								<span translate>Desfazer amizade</span>
+							</button>
+							<button ng-click="acceptFriendship(user)" ng-if="user.friendshipStatus === 'REQUEST_SENT'" ng-class="{'btn-disabled': working === 'accepting'}">
+								<span translate>Aceitar</span>
+							</button>
+							<button ng-click="rejectFriendship(user)" ng-if="user.friendshipStatus === 'REQUEST_SENT'" ng-class="{'btn-disabled': working === 'rejecting'}">
+								<span translate>Rejeitar</span>
+							</button>
+							<button ng-click="requestFriendship(user)" ng-if="user.friendshipStatus === 'NO_RELATIONSHIP' || user.friendshipStatus === 'REJECTED'"
+									ng-class="{'btn-disabled': working === 'requesting'}">
+								<span translate>Solicitar amizade</span>
+							</button>
+						</div>
+						<span class="location">{{ user.city }}</span>
+					</div>
+				</div>
+			</div>
+			<div class="title-tabs" ng-class="{
+				'movie-active': 
+					currentState === 'main.home.friend.movie', 
+					
+				'like-active': 
+					currentState === 'main.home.friend.like',
+					
+				'mate-active': 
+					currentState === 'main.home.friend.mate'
+			}">
+				<div class="cursor"></div>
+				
+				<a class="text-center my-films" ng-class="{active:currentState === 'main.home.friend.movie'}" ng-click="goTo('main.home.friend.movie')">
+					<div>
+						<span>{{ user.movieCount }}</span><br>
+						<strong>films</strong>
+					</div>
+				</a>
+				<a class="text-center yes" ng-class="{active:currentState=='main.home.friend.like'}" ng-click="goTo('main.home.friend.like')">
+					<div class="crown"></div>
+					<div>
+						<span>{{ user.likeCount }}</span><br>
+						<strong>YES!</strong>
+					</div>
+				</a>
+				<a class="text-center mate" ng-class="{active:currentState === 'main.home.friend.mate'}" ng-click="goTo('main.home.friend.mate')">
+					<div>
+						<span>{{ user.friendCount }}</span><br>
+						<strong>filmates</strong>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<ui-view class="main-home-friend"></ui-view>
+
+</div>

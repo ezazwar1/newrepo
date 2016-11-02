@@ -1,0 +1,56 @@
+<ion-view cache-view="false">
+    <ion-nav-buttons side="left">
+        <div class="button button-clear button-dark icon icon-back" ng-click="back()"></div>
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <div class="button button-menu circle" id="usermenu" ng-click="openPopover($event)">
+            <div class="circle empty display-flex align-center">
+                <span class="light uppercase menu-label">{{dict.menu}}</span>
+            </div>
+        </div>
+        </button>
+    </ion-nav-buttons>
+    <ion-content scroll="false" style="padding-left: 15px; padding-right: 15px;">
+        <div rate-style ng-if="showStyle && !showInfos && style" ng-class="{'do-not-fade': !fadeInStyle}"></div>
+        <div add-tag tag-style="style" show="showStyle" editing="false" ng-if="showStyle && showInfos"></div>
+    </ion-content>
+    <ion-footer-bar class="info-footer">
+        <div class="info-container">
+            <div class="row" ng-if="user._id !== style.user._id">
+                <div class="col display-flex align-center style-details" ng-click="showRegisterHint()">
+                    <div ng-if="style.user && style.user.thumbnail" class="circle thumbnail grayscale" style="background-image:url({{style.user.thumbnail}});"></div>
+                    <div ng-if="style.user && !style.user.thumbnail" class="circle thumbnail"></div>
+                    <div class="style-label">
+                        <div class="username uppercase truncate">{{style.user.username}}</div>
+                        <div class="category stable truncate" ng-if="showInfos">{{dict.categories[style.category]}}</div>
+                    </div>
+                </div>
+                <div class="col info-button-container" ng-class="{'assertive': showInfos}" ng-click="onInfoButtonClick()">
+                    <div class="info-button circle">
+                        <div class="progress-radial progress-{{style.averageRatingInPercent}}" ng-class="{'hide-progress': !showInfos}">
+                            <div class="overlay"><i class="icon icon-stylecheck"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col display-flex align-center button-container">
+                    <div class="uppercase assertive" ng-click="goToRegister()">{{dict.register}}</div>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>
+<script id="popover.html" type="text/ng-template">
+    <ion-popover-view class="popover-menu">
+        <ion-content scroll="false">
+            <ul class="list">
+                <li><button ng-click="onPopoverClick();" class="button button-dark icon ion-android-home circle"></button></li>
+                <li><button ng-click="onPopoverClick();" class="button button-dark icon icon-user circle"></button></li>
+                <li><button ng-click="onPopoverClick();" class="button button-dark icon icon-community circle"></button></li>
+                <li><button ng-click="onPopoverClick();" class="button button-dark icon icon-feed circle"></button></li>
+                <li><button ng-click="onPopoverClick();" class="button button-dark icon icon-favorite circle"></button></li>
+                <li><button ng-click="onPopoverClick();" class="button button-dark icon icon-settings circle"></button></li>
+            </ul>
+        </ion-content>
+    </ion-popover-view>
+</script>

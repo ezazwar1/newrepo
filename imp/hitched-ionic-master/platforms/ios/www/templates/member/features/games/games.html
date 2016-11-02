@@ -1,0 +1,43 @@
+<div class="row" id="GamesCtrl" ng-controller="GamesCtrl">
+    <div class="page-header text-center">
+        Games
+    </div>
+    <div class="col-md-12">
+        <section class="content">
+
+            <!-- Game Selection -->
+            <div class="row">
+                <div ng-repeat="item in gameTypes | orderBy:gameOrder" class="col-lg-6 col-xs-6" ng-hide="currGame != ''">
+                    <div class="small-box {{item.class}}">
+                        <div class="inner">
+                            <h3>{{item.title}}</h3>
+                            <p>{{item.info}}</p>
+                        </div>
+                        <span class="icon octicon {{item.octicon}}"></span>
+                        <!-- ng-click="addGame(item.template)" -->
+                        <a ng-click="selectGame(item.template)" class="small-box-footer">
+                            <span class="glyphicon glyphicon-plus"></span>Add Game
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div ng-include src="currGameSrc" ng-hide="currGame == ''" class="row"></div>
+
+            <!-- Existing Saved Games -->
+            <div ng-show="currGame == '' && userGames.length > 0" class="row well">
+                Existing Games
+                <div ng-repeat="item in userGames" style="margin: 10px 40px;">
+                    <ul class="game-sublist">
+                        <li class="list-header">
+                            <span class="octicon octicon-pencil" ng-click="editGame(item._id)"></span>
+                            <span class="octicon octicon-trashcan" ng-click="deleteGame(item._id)"></span>
+                            <span class="list-header-info">{{item.type}} - {{item._id}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+    </div>

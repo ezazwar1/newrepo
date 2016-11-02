@@ -1,0 +1,52 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center">
+        <button class="button button-clear button-dark icon icon-close" ng-click="closeModal('howTo')"></button>
+        <h1 class="title">
+            <span ng-if="allHelp">{{dict.howItWorks}}</span>
+            <span ng-if="rateHelp">{{dict.discoverStyles}}</span>
+            <span ng-if="tagHelp">{{dict.addAndEditTags}}</span>
+        </h1>
+    </ion-header-bar>
+    <ion-content scroll="false">
+        <div  ng-if="contentLoaded">
+            <ion-slide-box auto-play="false" show-pager="true" class="app-help">
+                <ion-slide ng-if="allHelp || rateHelp">
+                    <div class="padding">{{dict.appInstruction.styles1}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Bewerten/stylecheck_hilfe_1.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || rateHelp">
+                    <div class="padding">{{dict.appInstruction.styles2}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Bewerten/stylecheck_hilfe_2.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || rateHelp">
+                    <div class="padding">{{dict.appInstruction.styles3}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Bewerten/stylecheck_hilfe_3.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || rateHelp">
+                    <div class="padding">{{dict.appInstruction.styles4}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Bewerten/stylecheck_hilfe_4.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || rateHelp">
+                    <div class="padding">{{dict.appInstruction.styles5}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Bewerten/stylecheck_hilfe_5.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || tagHelp">
+                    <div class="padding">{{dict.appInstruction.tags1}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Tagen/stylecheck_hilfe_1.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || tagHelp">
+                    <div class="padding">{{dict.appInstruction.tags2}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Tagen/stylecheck_hilfe_2.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || tagHelp">
+                    <div class="padding">{{dict.appInstruction.tags3}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Tagen/stylecheck_hilfe_3.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+                <ion-slide ng-if="allHelp || tagHelp">
+                    <div class="padding">{{dict.appInstruction.tags4}}</div>
+                    <img class="imageonload hide-image" imageonload src="resources/images/howTo/Tagen/stylecheck_hilfe_4.jpg" ng-style="{'height': sizes.appInstruction.height + 'px'}">
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,24 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow">
+  <ion-content>
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+
+      <ion-slide class="relax-slide">
+        <div class="box7 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'MEDITATE_HELP_TITLE' | translate }}</h1>
+          <h2>{{ 'MEDITATE_HELP_LINE_1' | translate }}</h2>
+          <p>
+            {{ 'MEDITATE_HELP_LINE_2' | translate }}<br><br>
+            {{ 'MEDITATE_HELP_LINE_3' | translate }}
+          </p>
+        </div>
+      </ion-slide>
+
+
+    </ion-slide-box>
+  </ion-content>
+  <div class="bar bar-footer">
+    <button class="button-start" ng-click="confirm()">{{ (intro ? 'GET_STARTED' : 'OK_GOT_IT') | translate }}</button>
+  </div>
+</ion-view>

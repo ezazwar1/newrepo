@@ -1,0 +1,55 @@
+{
+  "featured_title": "Featured Products",
+  "latest_title": "Latest Products",
+  "off": "{percent}% OFF",
+
+  "title_shop_search": "Search",
+  "search_hint": "Start typing something to search",
+  "errors_search_no_results": "There is no product that matches the search criteria",
+
+  "title_list_page": "Shop",
+  "item_page_off": "{percent}% OFF",
+  "share_product_with_friends": "Share this product with your friends",
+  "special_price": "price for mobile registered users",
+  "item_description": "Description",
+  "item_view_all": "View All",
+  "item_view_less": "View Less",
+  "item_specification": "Specification",
+  "item_available_options": "Available Options",
+  "item_quantity": "Quantity",
+  "item_related_products": "Related Products",
+  "item_button_add_to_cart": "ADD TO CART",
+  "item_button_buy_now": "BUY NOW",
+  "categories": "Categories",
+
+  "item_tabs_details": "Details",
+  "item_tabs_photos": "Photos",
+  "item_tabs_reviews": "Reviews",
+  "item_tabs_share": "Share",
+
+  "item_rating_name": "Your Name",
+  "item_rating_comment": "Your Review",
+  "item_rating_load_more": "Load More",
+  "item_rating_author": "By {author} on {added}",
+  "item_rating_post_review": "Post Review",
+
+  "error_required_fields": "Please enter values for following fileds",
+  "error_not_connected_cache_failed": "Please connect to internet to load this item",
+  "error_not_connected_cache_success": "Item loaded from cache. Connect to internet to load live detials",
+
+  "wishlist_updated": "Wishlist updated",
+  "wishlist_item_added_to_list": "Item added to your wishlist",
+  "wishlist_item_added_to_list_login_to_save": "Item added to your wishlist. Please login or sign up to save your wishlist",
+  "wishlist_item_added_already": "Item already added to your wishlist",
+  "wishlist_go_to": "Go to Wishlist",
+
+  "item_view_button" :  "View",
+  "item_add_to_wishlist_button" :  "Add to Wishlist",
+  
+    "added_to_cart_title": "Added to Cart",
+  "added_to_cart_desc": "Item added to cart. What would you like to do?",
+  "button_shop_more": "Shop more",
+  "button_go_to_cart": "Go to cart",
+  "warning_options_missing": "Oops! Select following options",
+  "error_cant_add_to_cart" : "Error. Can't add to the cart"
+}

@@ -1,0 +1,29 @@
+<ion-view title="{{'REWARDS' | translate}}" class="rewards-view green-bar" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-and-drawer-toggle class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header width-control">
+    <div class="list card" ng-if="sessionmStatus">
+      <div class="item item-text-wrap">
+        <ion-toggle ng-model="rewardStatus.mPoints"
+                    ng-change="disableRewards('sessionm')" class="toggle-green">
+          mPOINTS*
+        </ion-toggle>
+          <p class="under-toggle">{{'EARN' | translate}}</p>
+          <p class="under-toggle no-margin-top">{{'SEE_FAQ' | translate}}</p>
+          <div class="padding-top padding-left padding-right" style="position:relative">
+            <span class="badge badge-assertive rewards-badge" ng-if="sessionMCount.count">{{sessionMCount.count}}</span>
+            <button class="button button-block button-balanced nexercise-green" ng-click="launchSessionM()">
+                {{'CLAIM' | translate}}
+            </button>     
+          </div>
+      </div>
+    </div>  
+    <div class="padding">
+      <button class="button button-block button-balanced nexercise-green" ng-click="rewardsFAQ()">
+          {{'FREQUENT' | translate}}
+      </button>     
+    </div>
+    <p class="diff-instructions padding" ng-if="!sessionmStatus">*{{'NOT_AVAILABLE' | translate}}</p>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,23 @@
+<div class="page-friendship page">
+
+	<div class="fs-header" ng-class="{'mate-active': currentState === 'main.home.friendship.mate', 'request-active': currentState === 'main.home.friendship.request'}">
+
+		<div class="cursor"></div>
+
+		<a class="tab" ng-class="{active: currentState === 'main.home.friendship.mate'}" ng-click="goTo('main.home.friendship.mate')">
+			<div>
+				<span>{{ me.friends || 0 }}</span><br>
+				<span class="label" translate>meus filmates</span>
+			</div>
+		</a>
+		<a class="tab" ng-class="{active: currentState === 'main.home.friendship.request'}"  ng-click="goTo('main.home.friendship.request')">
+			<div>
+				<span>{{ me.countFriendshipRequests || 0 }}</span><br>
+				<span class="label" translate>meus pedidos</span>
+			</div>
+		</a>
+	</div>
+
+	<ui-view class="main-home-friendship"></ui-view>
+
+</div>

@@ -1,0 +1,48 @@
+<ion-modal-view class="touchpoint premium popoverr">
+
+  <ion-content class="filter-popover">
+
+    <a href="javascript:;" ng-click="closePremiumModal()" class="go-back">X</a>
+
+    <div class="box">
+      <h1>{{ 'ACCOUNT_UPGRADE_POPUP_HEADER22' | translate }}</h1>
+      <ul class="feature-list">
+        <li>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_RELAX' | translate }}
+          <span>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_RELAX_DESC' | translate }}</span>
+        </li>
+        <li>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_THOUGHTS' | translate }}
+          <span>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_THOUGHTS_DESC' | translate }}</span>
+        </li>
+        <li>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_HEALTH' | translate }}
+          <span>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_HEALTH_DESC' | translate }}</span>
+        </li>
+        <li>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_THEME' | translate }}
+          <span>{{ 'ACCOUNT_UPGRADE_INFO_POPUP_FEATURE_THEME_DESC' | translate }}</span>
+        </li>
+      </ul>
+  <div class="button-wrap">
+    <button ng-click="purchaseYearly()" class="button-start">
+      {{ 'YEARLY' | translate }}<br>
+      <span>{{getYearlyProductPricePerMonth()}} / {{ 'MONTH' | translate }}</span><br>
+      <em>{{getYearlyProductPrice()}} {{ 'CHARGED_YEARLY' | translate }}</em>
+      <strong>{{ 'BEST_VALUE' | translate }}</strong>
+    </button>
+    <button ng-click="purchaseShortTerm()" class="button-start light">
+      {{ 'MONTHLY' | translate }}<br>
+      <span>{{getShortTermProductPrice()}} / {{ 'MONTH' | translate }}</span><br>
+      <em>{{getShortTermProductPrice()}} {{ 'CHARGED_MONTHLY' | translate }}</em>
+    </button>
+  </div>
+
+    <!-- Taking out as it violates Apple's guidelines.
+    <button ng-click="showReferralModal()" class="button-start invite-friend">
+      <strong ng-bind-html="getReferFriendText()"></strong>
+    </button>
+     -->
+    <!-- Debugging -->
+    <!--
+    <span ng-click="refreshStore()">Refresh</span>
+    -->
+    </div>
+  </ion-content>
+</ion-modal-view>

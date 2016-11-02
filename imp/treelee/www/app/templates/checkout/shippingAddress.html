@@ -1,0 +1,55 @@
+<ion-view title="{{dict.theCheckout}}">
+    <ion-header-bar class="bar-subheader bar-light bar-checkout">
+        <button class="button button-dark button-clear button-checkout-back icon ion-ios7-arrow-left" ng-click="goBack()"></button>
+        <h1 class="title">{{dict.shippingAddress}}</h1>
+    </ion-header-bar>
+    <ion-content class="has-checkout-footer">
+        <div class="card transparent">
+            <form id="shippingForm" name="shippingForm" ng-class="{'form-invalid': submitted}" ng-submit="shippingForm.$valid && saveShipping()">
+                <div class="list">
+                    <div ng-repeat="field in shippingFields" ng-init="fieldIndex = $index" ng-if="(field['@attributes'].id !== 'region' || showRegionTextField) && (field['@attributes'].id !== 'region_id' || (regions && regions.length > 0))">
+                        <ng-form name="userFieldForm">
+                            <label class="label">{{field['@attributes'].label}} <span ng-if="field['@attributes'].required === 'true'">*</span></label>
+                            <label class="item item-input" ng-class="{'input-invalid': userFieldForm.name.$error.required}" ng-if="field['@attributes'].type !== 'select' && field['@attributes'].type !== 'checkbox' && field['@attributes'].type !== 'radio' && (field['@attributes'].id !== 'region' || showRegionTextField)">
+                                <input
+                                    type="{{field['@attributes'].type}}"
+                                    name="name"
+                                    ng-model="shipping[field['@attributes'].name]"
+                                    ng-required="field['@attributes'].required === 'true'"
+                                    value="{{field['@attributes'].value}}">
+                            </label>
+                            <select
+                                    ng-if="field['@attributes'].type === 'select' && field['@attributes'].id !== 'region_id'"
+                                    ng-model="shipping[field['@attributes'].name]"
+                                    ng-required="field['@attributes'].required === 'true'"
+                                    ng-init="checkRelation(fieldIndex, shipping[field['@attributes'].name], 1)"
+                                    ng-change="checkRelation(fieldIndex, shipping[field['@attributes'].name])"
+                                    >
+                                <option value="">{{dict.pleaseChoose}}</option>
+                                <option ng-repeat="option in field.values" ng-selected="(shipping[field['@attributes'].name] && shipping[field['@attributes'].name] === option.value) || option.selected === '1'" value="{{option.value}}">
+                                    {{option.label}}
+                                </option>
+                            </select>
+
+                            <select
+                                    ng-if="field['@attributes'].id === 'region_id' && regions && regions.length > 0"
+                                    ng-model="shipping[field['@attributes'].name]"
+                                    ng-required="field['@attributes'].required === 'true'"
+                                    ng-options="option.value as option.label for option in regions"
+                                    >
+                            </select>
+                        </ng-form>
+                    </div>
+                </div>
+            </form>
+            <br><p ng-show="shippingFields">* {{dict.mandatoryField}}</p>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="checkout-footer transparent">
+        <button form="shippingForm" class="button button-large button-block button-clear button-dark button-checkout" ng-click="setSubmit()" ng-disabled="shippingForm.$invalid">
+            <div class="circle"><i class="icon ion-ios7-arrow-right light"></i></div>
+            {{dict.shippingMethod}}
+        </button>
+    </ion-footer-bar>
+</ion-view>
+

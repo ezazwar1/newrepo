@@ -1,0 +1,75 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <!--<link href="lib/ionic/css/ionicons.css" rel="stylesheet">-->
+    <link href="css/gbg-style.css" rel="stylesheet">
+    <link href="css/stylish.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <script type="text/javascript" src="js/stripe.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- google place related scripts (google map API dependency) -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/angular-ios9-uiwebview.patch.js"></script>
+
+    <script src="js/controllers/accountController.js"></script>
+    <script src="js/controllers/gameController.js"></script>
+    <script src="js/controllers/searchController.js"></script>
+    <script src="js/controllers/chatController.js"></script>
+    <script src="js/controllers/dealController.js"></script>
+    <script src="js/controllers/surveyController.js"></script>
+
+    <script src="js/services/pushService.js"></script>
+    <script src="js/services/accountService.js"></script>
+    <script src="js/services/gameService.js"></script>
+    <script src="js/services/chatService.js"></script>
+    <script src="js/services/dealService.js"></script>
+    <script src="js/services/surveyService.js"></script>
+    <script src="js/services/questionService.js"></script>
+    <script src="js/services/utilService.js"></script>
+
+    <!-- customized directive -->
+    <script src="js/directives/citytap.js"></script>
+    <script src="js/directives/googleplace.js"></script>
+    <script src="js/directives/elastictext.js"></script>
+
+    <!-- <script type="text/javascript" charset="utf-8" src="PushNotification.js"></script>
+    <script type="text/javascript" src="js/facebookConnectPlugin.js"></script>-->
+  </head>
+  <body ng-app="starter" animation="slide-left-right-ios7" class="platform-android platform-cordova platform-webview">
+    <!-- 
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <ion-nav-back-button class="button-icon icon  ion-ios7-arrow-back">
+        Back
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <!-- 
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+  </body>
+</html>

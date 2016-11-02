@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Welzen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+
+<!-- Enable all requests, inline styles, and eval() -->
+<meta http-equiv="Content-Security-Policy" content="default-src * blob: gap://ready file:; style-src &apos;self&apos; &apos;unsafe-inline&apos;; script-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; http:; img-src &apos;self&apos; https://*.googleusercontent.com https://fbcdn-profile-a.akamaihd.net https://*.fbcdn.net http://flightdiary.net/img/facebook-profile.png data: blob: filesystem:; font-src &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos; data:;">
+
+
+    
+
+    <!-- this is generated using gulp fonts by grabing the fonts inside the src/fonts directory -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- this is compiled from the sass folder in the src directory -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- These are all of the js libraries and plugins combined for the app add with bower/cordova and run gulp scripts -->
+    <script src="js/ionic.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
+
+    <!-- Now's the real turn of our app JS -->
+    <script src="js/welzen.js"></script>
+    <script src="js/services/MeditationOfflineService.js"></script>
+    <script src="js/services/InAppPurchaseService.js"></script>
+    <script src="js/services/PurchaseInfoService.js"></script>
+    <script src="js/services/userService.js"></script>
+    <script src="js/services/stateService.js"></script>
+    <script src="js/services/NaturalSoundService.js"></script>
+    <script src="js/entities/media.js"></script>
+    <script src="js/entities/meditation.js"></script>
+    <script src="js/utils/fileUtils.js"></script>
+    <script src="js/utils/filters.js"></script>
+    <script src="js/utils/versionFileService.js"></script>
+    <script src="js/utils/constants.js"></script>
+    <script src="js/utils/polyfills.js"></script>
+    <script src="views/login/login.js"></script>
+    <script src="views/main/main.js"></script>
+    <script src="views/player/player.js"></script>
+    <script src="views/rating/rating.js"></script>
+    <script src="views/guided-meditations/guided-meditationsSMCtrl.js"></script>
+    <script src="views/guided-meditations/guided-meditationsSMDetailCtrl.js"></script>
+    <script src="views/guided-meditations/program-seriesCtrl.js"></script>
+    <script src="views/mindfulness-coaching/mindfulness-coachingCtrl.js"></script>
+    <script src="views/downloads/downloads.js"></script>
+    <script src="views/reminders/reminders.js"></script>
+    <script src="views/language/language.js"></script>
+    <script src="views/5-days/5-daysCtrl.js"></script>
+    <script src="views/settings/settingsCtrl.js"></script>
+    <script src="views/unlock/unlockCtrl.js"></script>
+    <script src="js/services/LockService.js"></script>
+    <script src="views/subscriptions/already-subsCtrl.js"></script>
+    <script src="views/subscriptions/cancel-subsCtrl.js"></script>
+    
+    
+
+            <!-- Forage para preferencias -->
+        <script src="libjs/localforage-1.2.10.js"></script>
+
+
+  
+<script src="libjs/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script></head>
+  <body ng-app="welzen" class="platform-android platform-cordova platform-webview">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

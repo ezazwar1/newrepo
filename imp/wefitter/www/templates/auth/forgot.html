@@ -1,0 +1,32 @@
+<ion-view class="login-view" title="{{ 'FORGOT_PASSWORD.TITLE' | translate }}">
+    <ion-nav-bar class="bar bar-header bar-dark forgot-fix">
+        <ion-nav-buttons side="left">
+      <wf-back to="auth.login"></wf-back>
+  </ion-nav-buttons>
+      
+    </ion-nav-bar> 
+    <ion-content scroll="false">
+        <div wf-validation-msg show="errorForgot.show" type="alert-danger" msg="{{ errorMsg }}"></div>
+        <section class="login-screen">
+          <div class="row responsive-md">
+                <div class="col col-50 col-offset-25">
+                    <div class="forget-content">
+                        <form class="list" ng-submit="recoverPass()">
+                            <ion-list>
+                                  <div class="item item-input" wf-input-clear >
+                                        <input type="email" required ng-model="user.email" placeholder="{{ 'LOGIN.EMAIL_ID' | translate }}">
+                                  </div>
+                            </ion-list>
+                            
+                            <button type="submit" class="button button-stable button-block button-empty" translate="FORGOT_PASSWORD.RECOVER_PASSWORD_BUTTON">Recover Password</button>
+                        </form>
+                      </div>
+                </div>
+          </div>
+        </section>
+        <ion-footer-bar class="bar-clear txt-center">
+        <a ui-sref="auth.login" class="forgot-link align-center">{{ 'LOGIN.BACK_TO_LOGIN' | translate }}</a>
+    </ion-footer-bar>
+    </ion-content>
+    
+</ion-view>

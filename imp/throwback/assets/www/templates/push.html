@@ -1,0 +1,34 @@
+<ion-view class="opening-bg" title="Future" hide-nav-bar="true">
+  <ion-content scroll="false">
+    <div class="connect-container">
+
+      <h3 class="header">
+        We'll send you a daily push notification to remind you to check your Throwback.
+      </h3>
+       <p class="description" ng-if="!isAndroid">
+        If this is something you'd like, tap "OK" on the next popup.
+      </p>
+      <p class="description" ng-if="isAndroid">
+        Now, you can get your daily dose of nostalgia!
+      </p>  
+
+      
+      <div class="push-container">
+        <div class="phone">
+          <i class="icon ion-iphone"></i>
+        </div>
+        <div class="notification">
+          <p class="push">
+            You posted "Throwback is awesome!" and three other statuses on this day in history!
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </ion-content>
+  <div class="bar bar-footer bar-positive" ng-click="handleAskForPushPermissions()" ng-disabled="isSoundsGoodDisabled" ng-model="isSoundsGoodDisabled">
+    <div class="title">Sounds good!</div>
+  </div>  
+</ion-view>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' https://*.firebaseio.com http://localhost:35729 http://cdn.segment.com http://cdn.mxpnl.com http://connect.facebook.net/en_US/sdk.js https://connect.facebook.net/en_US/sdk.js https://graph.facebook.com 'unsafe-inline' 'unsafe-eval'">
+
+    <title>ZinkerZ</title>
+
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+    <!-- build:css({.tmp,app}) assets/css/main.css -->
+    <link href="assets/css/main-imports.css" rel="stylesheet" />
+    <!-- endbuild -->
+    <link rel='stylesheet'
+          media='screen and (max-width: 567px)'
+          href='assets/css/responsive-mobile.css' />
+    <link rel='stylesheet'
+          media='screen and (min-width: 568px)'
+          href='assets/css/main-imports-tablet.css'/>
+
+
+    <script type="text/javascript">
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+      analytics.load("W97Jtd2U4CRDGaV3gX89G3TshiRjbgMN");
+      analytics.page()
+      }}();
+    </script>
+
+</head>
+
+<body ng-strict-di class="platform-android platform-cordova platform-webview">
+
+    <div style="visibility: hidden;width: 0; height: 0">
+        <div class="pre-load-logo"></div>
+        <div class="pre-load-home-progress-bg"></div>
+        <div class="pre-load-loading-icon"></div>
+        <div class="pre-load-graph-icon"></div>
+        <div class="pre-load-trophy-icon"></div>
+        <div class="pre-load-happy-raccoon"></div>
+        <div class="pre-load-right-raccoon"></div>
+        <div class="pre-load-home-start"></div>
+        <div class="pre-load-correct-answer-white"></div>
+        <div class="pre-load-correct-answer"></div>
+        <div class="pre-load-graph"></div>
+        <div class="pre-load-level-icon"></div>
+        <div class="pre-load-star"></div>
+        <div class="pre-load-home-tricks-tips"></div>
+        <div class="pre-load-exp-points"></div>
+        <div class="pre-load-lock-item"></div>
+        <div class="pre-load-pink-sm"></div>
+        <div class="pre-load-yellow-sm"></div>
+        <div class="pre-load-blue-sm"></div>
+        <div class="pre-load-checkmark"></div>
+        <div class="pre-load-back-arrow"></div>
+        <div class="pre-load-correct-answer-yellow"></div>
+        <div class="pre-load-correct-answer-red"></div>
+        <div class="pre-load-correct-answer-blue"></div>
+        <div class="pre-load-home-exercise"></div>
+        <div class="pre-load-home-challenge"></div>
+        <div class="pre-load-drills"></div>
+        <div class="pre-load-tricks-tips"></div>
+        <div class="pre-load-settings"></div>
+        <div class="pre-load-drills-turquoise"></div>
+        <div class="pre-load-tricks-tips-turquoise"></div>
+        <div class="pre-load-settings-turquoise"></div>
+        <div class="pre-load-writing-pattern"></div>
+        <div class="pre-load-reading-pattern"></div>
+        <div class="pre-load-math-pattern"></div>
+        <div class="pre-load-clock"></div>
+        <div class="pre-load-welcome-poster"></div>
+        <div class="pre-load-main-bg-blur"></div>
+    </div>
+    <ion-nav-view animation="none"></ion-nav-view>
+
+    <script src="assets/js/facebookConnectPlugin.js"></script>
+
+    <!--
+      The nav bar that will be updated as we navigate between views
+      Additional attributes set its look, ion-nav-bar animation and icons
+      Icons provided by Ionicons: http://ionicons.com/
+    -->
+    <!--<ion-nav-bar class="bar-positive">
+      <ion-nav-back-button class="button-icon button-clear ion-ios7-arrow-back">
+      </ion-nav-back-button>
+    </ion-nav-bar>-->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="scripts/vendor.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="templates.js"></script>
+
+    <script src="znk/module.js"></script>
+    <script src="znk/run.js"></script>
+    <script src="znk/config.js"></script>
+    <script src="znk/constants.js"></script>
+    <script src="znk/angular-ios9-uiwebview.patch.js"></script>
+    <script src="znk/system/shared/directives/pngSequenceDrv.js"></script>
+    <script src="znk/system/shared/services/enumSrv.js"></script>
+    <script src="znk/system/shared/services/mediaSrv.js"></script>
+    <script src="znk/system/shared/services/networkSrv.js"></script>
+    <script src="znk/system/shared/services/gamificationSrv.js"></script>
+    <script src="znk/system/shared/services/userStorageSrv.js"></script>
+    <script src="znk/system/shared/services/errorHandlerSrv.js"></script>
+    <script src="znk/system/shared/services/tourSrv.js"></script>
+    <script src="znk/system/shared/services/popUpSrv.js"></script>
+    <script src="znk/system/shared/services/storeRateSrv.js"></script>
+    <script src="znk/system/shared/services/firebaseRefSrv.js"></script>
+    <script src="znk/system/shared/services/znkModalSrv.js"></script>
+    <script src="znk/system/shared/services/categorySrv.js"></script>
+    <script src="znk/system/shared/services/purchaseContentSrv.js"></script>
+    <script src="znk/system/shared/services/mobileSrv.js"></script>
+    <script src="znk/system/shared/services/storageSrv.js"></script>
+    <script src="znk/system/shared/services/localDatabaseSrv.js"></script>
+    <script src="znk/system/shared/services/keyboardSrv.js"></script>
+    <script src="znk/system/shared/services/statusBarSrv.js"></script>
+    <script src="znk/system/shared/services/hintSrv.js"></script>
+    <script src="znk/system/shared/services/goBackHardwareSrv.js"></script>
+    <script src="znk/system/shared/services/localNotificationSrv.js"></script>
+    <script src="znk/system/shared/services/sharedModalsSrv.js"></script>
+    <script src="znk/system/shared/services/userSettingsSrv.js"></script>
+    <script src="znk/system/shared/services/firebaseFacebookSrv.js"></script>
+    <script src="znk/system/shared/services/timelineSrv.js"></script>
+    <script src="znk/system/shared/services/generalCategoriesMockSrv.js"></script>
+    <script src="znk/system/shared/services/expansionSrcSrv.js"></script>
+
+    <script src="znk/system/shared/directives/compileDrv.js"></script>
+    <script src="znk/system/shared/directives/customNgIfDrv.js"></script>
+    <script src="znk/system/shared/directives/disableClickDrv.js"></script>
+    <script src="znk/system/shared/directives/selectDrv.js"></script>
+    <script src="znk/system/shared/directives/constTemplateDrv.js"></script>
+    <script src="znk/system/shared/directives/subjectIdToClassDrv.js"></script>
+    <script src="znk/system/shared/directives/slideRepeatDrv.js"></script>
+    <script src="znk/system/shared/directives/animatedRaccoonDrv.js"></script>
+    <script src="znk/system/shared/directives/keyboardDrv.js"></script>
+    <script src="znk/system/shared/directives/markupDrv.js"></script>
+    <script src="znk/system/shared/directives/znkBackButton.js"></script>
+    <script src="znk/system/shared/directives/triggerBlurDrv.js"></script>
+    <script src="znk/system/shared/directives/videoCtrlDrv.js"></script>
+    <script src="znk/system/shared/constants/subjectConst.js"></script>
+    <script src="znk/system/shared/filters/subStringFilter.js"></script>
+    <script src="znk/system/shared/controllers/iapModalCtrl.js"></script>
+    <script src="znk/system/shared/controllers/baseVideoTourHintModalCtrl.js"></script>
+    <script src="znk/system/shared/controllers/transparentCircleModalCtrl.js"></script>
+    <script src="znk/system/shared/directives/videoDimensionDrv.js"></script>
+    <script src="znk/system/shared/directives/masterLevelVideoDrv.js"></script>
+    <script src="znk/system/shared/directives/writtenSlnHintModalIconDrv.js"></script>
+    <script src="znk/system/shared/directives/subscriptionLockDrv.js"></script>
+    <script src="znk/system/shared/directives/triggerGestureDrv.js"></script>
+    <script src="znk/system/shared/directives/facebookShareBtnDrv.js"></script>
+    <script src="znk/system/shared/directives/znkProgressDrv.js"></script>
+    <script src="znk/system/shared/directives/estimatedScoreDrv.js"></script>
+    <script src="znk/system/shared/directives/gamificationProgressDrv.js"></script>
+    <script src="znk/system/shared/directives/testSlideDrv.js"></script>
+    <script src="znk/system/shared/directives/calcPositionDrv.js"></script>
+    <script src="znk/system/shared/directives/transparentCircleDrv.js"></script>
+    <script src="znk/system/shared/directives/znkTimelineDrv.js"></script>
+    <script src="znk/system/shared/directives/videoActivationButtonDrv.js"></script>
+    <script src="znk/system/shared/directives/horizontalScrollFixDrv.js"></script>
+
+    <script src="znk/system/shared/enums/homeItemStatusEnum.js"></script>
+    <script src="znk/system/shared/enums/exerciseTypeEnum.js"></script>
+    <script src="znk/system/shared/enums/subjectEnum.js"></script>
+    <script src="znk/system/shared/enums/examTypeEnum.js"></script>
+    <script src="znk/system/shared/enums/exerciseAnswerStatusEnum.js"></script>
+    <script src="znk/system/shared/enums/appRateStatusEnum.js"></script>
+
+    <script src="znk/auth/services/authSrv.js"></script>
+    <script src="znk/auth/services/authInterceptorSrv.js"></script>
+    <script src="znk/auth/controllers/loginCtrl.js"></script>
+    <script src="znk/auth/controllers/signupCtrl.js"></script>
+    <script src="znk/auth/controllers/logoutCtrl.js"></script>
+    <script src="znk/auth/controllers/forgotPasswordCtrl.js"></script>
+    <script src="znk/auth/controllers/changePasswordCtrl.js"></script>
+    <script src="znk/auth/controllers/welcomeCtrl.js"></script>
+    <script src="znk/auth/directives/facebookBtnDrv.js"></script>
+
+    <script src="znk/exercise/services/offlineContentSrv.js"></script>
+    <script src="znk/exercise/services/exerciseProgressSrv.js"></script>
+    <script src="znk/exercise/services/scoringSrv.js"></script>
+    <script src="znk/exercise/services/practiceInstructionsSrv.js"></script>
+    <script src="znk/exercise/services/exerciseHelperSrv.js"></script>
+    <script src="znk/exercise/services/gameRulesSrv.js"></script>
+    <script src="znk/exercise/services/exerciseResultSrv.js"></script>
+    <script src="znk/exercise/services/exerciseUtilsSrv.js"></script>
+    <script src="znk/exercise/services/questionUtilsSrv.js"></script>
+    <script src="znk/exercise/directives/calculator.js"></script>
+    <script src="znk/exercise/directives/timerDrv.js"></script>
+    <script src="znk/exercise/directives/blackboardDrv.js"></script>
+    <script src="znk/exercise/directives/in-elem-loader.js"></script>
+    <script src="znk/exercise/directives/tutorialIntroDrv.js"></script>
+    <script src="znk/exercise/directives/practiceIntroDrv.js"></script>
+    <script src="znk/exercise/directives/gameIntroDrv.js"></script>
+    <script src="znk/exercise/directives/timeProgressBarDrv.js"></script>
+    <script src="znk/exercise/directives/questionDrv.js"></script>
+    <script src="znk/exercise/directives/answersBuilderDrv.js"></script>
+    <script src="znk/exercise/directives/selectAnswerDrv.js"></script>
+    <script src="znk/exercise/directives/freeTextAnswerDrv.js"></script>
+    <script src="znk/exercise/directives/znkExerciseDrv.js"></script>
+    <script src="znk/exercise/directives/znkExercisePagerDrv.js"></script>
+    <script src="znk/exercise/directives/articleMaskControlDrv.js"></script>
+    <script src="znk/exercise/directives/articleDrv.js"></script>
+    <script src="znk/exercise/directives/questionHeightControlDrv.js"></script>
+    <script src="znk/exercise/directives/questionsHeightControlDrv.js"></script>
+    <script src="znk/exercise/controllers/dailyTutorialCtrl.js"></script>
+    <script src="znk/exercise/controllers/dailyPracticeCtrl.js"></script>
+    <script src="znk/exercise/controllers/dailyGameCtrl.js"></script>
+    <script src="znk/exercise/controllers/examExerciseCtrl.js"></script>
+    <script src="znk/exercise/controllers/drillExerciseCtrl.js"></script>
+    <script src="znk/exercise/controllers/summaryCtrl.js"></script>
+    <script src="znk/system/shared/controllers/transparentCircleHintCtrl.js"></script>
+    <script src="znk/exercise/controllers/znkExerciseToolBoxModalCtrl.js"></script>
+    <script src="znk/exercise/controllers/loadingCtrl.js"></script>
+    <script src="znk/exercise/filters/expression-style.js"></script>
+    <script src="znk/exercise/constants/exerciseEventsConst.js"></script>
+    <script src="znk/exercise/constants/znkExerciseEventsConst.js"></script>
+    <script src="znk/exercise/directives/freeTextAnswerGridDrv.js"></script>
+    <script src="znk/home/directives/homePathDrv.js"></script>
+
+    <script src="znk/home/controllers/homeCtrl.js"></script>
+    <script src="znk/home/controllers/homeDailyDetailsModalCtrl.js"></script>
+    <script src="znk/home/controllers/homeBonusSkillsDetailsModalCtrl.js"></script>
+    <script src="znk/home/services/homeSrv.js"></script>
+    <script src="znk/home/directives/homeBonusSkillsItemDrv.js"></script>
+    <script src="znk/home/directives/homeDailyItemDrv.js"></script>
+    <script src="znk/home/directives/homeExamItemDrv.js"></script>
+    <script src="znk/home/directives/homePngSequenceDrv.js"></script>
+    <script src="znk/home/services/homePngSeqSrv.js"></script>
+
+    <script src="znk/daily/services/dailyResultSrv.js"></script>
+    <script src="znk/daily/services/dailyOrderSrv.js"></script>
+    <script src="znk/daily/services/tutorialSrv.js"></script>
+    <script src="znk/daily/services/practiceSrv.js"></script>
+    <script src="znk/daily/services/gameSrv.js"></script>
+    <script src="znk/daily/services/dailySrv.js"></script>
+    <script src="znk/daily/services/dailyHelperSrv.js"></script>
+
+    <script src="znk/drill/services/drillSrv.js"></script>
+    <script src="znk/drill/constants/drillEventsConst.js"></script>
+
+    <script src="znk/exam/controllers/examPageCtrl.js"></script>
+    <script src="znk/exam/services/examSrv.js"></script>
+    <script src="znk/exam/services/examResultSrv.js"></script>
+    <script src="znk/exam/constants/examEventsConst.js"></script>
+
+    <script src="znk/userProfile/services/userProfileSrv.js"></script>
+    <script src="znk/userProfile/controllers/userProfileCtrl.js"></script>
+
+    <script src="znk/settings/controllers/settingsCtrl.js"></script>
+    <script src="znk/settings/controllers/supportCtrl.js"></script>
+    <script src="znk/settings/controllers/aboutUsCtrl.js"></script>
+
+
+
+    <script src="znk/gamification/exp/services/expSrv.js"></script>
+    <script src="znk/gamification/exp/services/expEventsHandlerSrv.js"></script>
+    <script src="znk/gamification/exp/services/levelSrv.js"></script>
+    <script src="znk/gamification/exp/constants/expRulesConst.js"></script>
+    <script src="znk/gamification/exp/constants/levelsConst.js"></script>
+    <script src="znk/gamification/constants/xpLineConst.js"></script>
+    <script src="znk/gamification/services/gamificationXpLineSrv.js"></script>
+    <script src="znk/gamification/controllers/gamificationCtrl.js"></script>
+    <script src="znk/gamification/directives/gamificationXpLineDrv.js"></script>
+
+    <script src="znk/flashcard/services/flashcardSrv.js"></script>
+    <script src="znk/flashcard/services/flashcardHelperSrv.js"></script>
+    <script src="znk/flashcard/directives/flashcardItemDrv.js"></script>
+    <script src="znk/flashcard/directives/flashcardModalCtrl.js"></script>
+    <script src="znk/flashcard/directives/flashcardSwipeDrv.js"></script>
+    <script src="znk/flashcard/directives/swipeCardOnClickDrv.js"></script>
+
+    <script src="znk/bonusSkill/services/bonusSkillSrv.js"></script>
+    <script src="znk/bonusSkill/services/bonusSkillHelperSrv.js"></script>
+
+    <script src="znk/personalization/services/dailyPersonalizationSrv.js"></script>
+    <script src="znk/personalization/services/dailyPersonalizationHelperSrv.js"></script>
+    <script src="znk/personalization/services/personalizationStatsSrv.js"></script>
+    <script src="znk/personalization/services/personalizationStatsEventsHandlerSrv.js"></script>
+
+    <script src="znk/estimatedScore/services/estimatedScoreSrv.js"></script>
+    <script src="znk/estimatedScore/services/estimatedScoreEventsHandlerSrv.js"></script>
+    <script src="znk/estimatedScore/services/estimatedScoreHelperSrv.js"></script>
+    <script src="znk/estimatedScore/constants/estimationScorePointsConst.js"></script>
+    <script src="znk/estimatedScore/directives/esExerciseTimeDrv.js"></script>
+
+    <script src="znk/performance/controllers/performanceCtrl.js"></script>
+
+    <script src="znk/diagnostic/config.js"></script>
+    <script src="znk/diagnostic/constants/diagnosticConst.js"></script>
+    <script src="znk/diagnostic/services/diagnosticSrv.js"></script>
+    <script src="znk/diagnostic/controllers/diagnosticCtrl.js"></script>
+    <script src="znk/diagnostic/controllers/diagnosticIntroCtrl.js"></script>
+    <script src="znk/diagnostic/controllers/diagnosticExerciseCtrl.js"></script>
+    <script src="znk/diagnostic/controllers/diagnosticSummaryCtrl.js"></script>
+
+    <script src="znk/appBootstrap.js"></script>
+
+    <!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+<ion-view class="black myprofile">
+    <ion-content has-bouncing="true" delegate-handle=" 'scrollList' ">
+        <div id="profile-header" >
+            <div class="banner" ng-style="{ 'background-image': 'url(' + user.image__thumbnail + ')' }"></div>
+            <div class="profile-avatar" ng-click="changeAvatar()">
+                <div id="avatar-image" ng-style="{ 'background-image': 'url(' + user.img_avatar__thumbnail + ')' }"></div>
+            </div>
+        </div>
+        <div class="border-image"></div>
+        <div class="profile-content element form">
+            <div class="list">
+               <label class="item item-input item-stacked-label">
+                    <span class="input-label">About</span>
+                    <textarea ng-model="user.about">{{ user.about }}</textarea>
+                </label>
+                <label class="item item-select item-stacked-label">
+                    <span class="input-label">Civility</span>
+                    <select required="true" ng-model="user.civ_id" ng-options="c.id as c.label for c in civilities">
+                    </select>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" ng-model="user.last_name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">First Name</span>
+                    <input type="text" ng-model="user.first_name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">City</span>
+                    <input type="text" ng-model="user.city">
+                </label>
+                <label class="item item-select item-stacked-label">
+                    <span class="input-label">Country</span>
+                    <select required="true" ng-model="user.country.id" ng-options="country.id as country.title for country in countries">
+                    </select>
+                </label>
+                <label class="item item-select item-stacked-label">
+                    <span class="input-label">Job</span>
+                    <select required="true" ng-model="user.profession.id" ng-options="type.id as type.title for type in types">
+                    </select>
+                </label>
+                <button class="button button-block" ng-click="update(user)" type="submit">Save</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+

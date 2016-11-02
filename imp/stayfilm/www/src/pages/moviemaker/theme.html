@@ -1,0 +1,48 @@
+<ion-view class="moviemaker-step moviemaker-theme">
+	<div  class="bar bar-header">
+
+		<button class="button button-clear" ng-click="goTo('main.moviemaker.genre', 'slide-right')"><img src="images/ico-arrow-left.png"></button>
+
+		<div class="title" translate>
+			faça um filme
+		</div>
+
+		<button ng-click="refine()" ng-if="isAdmin()" class="button button-clear refine-content"><span translate>refinar</span></button>
+	</div>
+
+	<ion-content class="has-sf-header has-big-button-footer">
+		<div class="circles">
+			<div class="step-circle">1</div>
+			<div class="step-circle">2</div>
+			<div class="step-circle active">3</div>
+		</div>
+
+		<div class="main-title" translate>
+			Sobre o que <br />é seu filme?
+		</div>
+		<div class="all-content">
+			<button ng-click="allContent()" ng-class="{selected: data.allContentSelected }" class="kana-button"><img ng-src="images/moviemaker/button_allcontent{{ data.allContentSelected ? '_red' : '' }}.png" /><span translate>Todo meu conteúdo</span>
+			</button>
+		</div>
+
+		<div class="or-separator"><span translate>ou</span></div>
+
+		<div class="moviemaker-wrapper">
+			<ul class="theme-list" ng-repeat="theme in themes">
+				<li class="theme-item">
+					<div class="theme-name">
+						<img ng-src="images/moviemaker/icon-{{ theme.slug }}.png" /> <span>{{ theme['name_' + lang] || theme.name }}</span>
+					</div>
+					<ul class="subtheme-list">
+						<li ng-repeat="subtheme in theme.subthemes" ng-class="{'selected': !data.allContentSelected && (data.subtheme.idsubtheme === subtheme.idsubtheme) }" ng-click="selectTheme(theme, subtheme)">
+							{{ subtheme['name_' + lang] || subtheme.name }}
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+	<ion-footer-bar class="big-button-footer">
+		<button ng-click="makeIt()" class="make-it kana-button png-fix"><img src="images/kana-check.png" /><span translate>Produzir filme</span></button>
+	</ion-footer-bar>
+</ion-view>

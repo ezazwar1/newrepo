@@ -1,0 +1,131 @@
+<ion-view class="progress-view">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon ion-arrow-graph-up-right" ng-click="toggleSimpleMode()" ng-class="{active: isSimpleMode()}" ng-show="showingHistory"></button>
+    <button class="button button-clear icon ion-ios-help-outline" ng-show="!showingHistory" ng-click="showSkillsHelp()"></button>   
+  </ion-nav-buttons>
+
+  <ion-nav-title class="progress-header">
+    <span ng-click="showHistory()" ng-class="{active: showingHistory}">{{ getActivityTitle() }}&nbsp;</span>
+    <span ng-click="showSkills()" ng-class="{active: !showingHistory}" ng-show="!isUMNUser()">&nbsp;{{ 'SKILLS' | translate }}</span>
+  </ion-nav-title>
+
+  <div class="back"></div> 
+  <ion-content>
+    
+    <div ng-show="showingHistory">
+      <canvas id="moodHistory"></canvas>
+
+      <div class="progress-header day {{getTodaysMoodClass()}} item item-divider item-icon-left item-icon-right">
+        <strong>{{getTodaysMood()}}</strong><span class="{{getTodaysMoodClass()}} smiley">&nbsp;</span>
+        <i class="icon ion-arrow-left-b" ng-click="previousDay()" ng-class="{disabled: !canGoToPreviousDay()}"></i>
+        <i class="icon ion-arrow-right-b" ng-click="nextDay()" ng-class="{disabled: !canGoToNextDay()}"></i>
+      </div>
+
+      <ion-scroll zooming="false" delegate-handle="scrollList" direction="y">
+
+        <h2 class="quote" ng-if="isTodayActive() && (getActiveDaysData().length == 0)">{{ 'PROGRESS_EMPTY_TODAY' | translate }}<br>
+        </h2>
+        <h2 class="quote" ng-if="!isTodayActive() && (getActiveDaysData().length == 0)">{{ 'PROGRESS_EMPTY' | translate }}<br>
+        </h2>
+
+        <div class="list action-list" id="scrollContainer">
+          
+          <div ng-repeat="action in getActiveDaysData()" class="action item dragContainer hideRemove {{getActionClass(action)}} {{getSubClass(action)}} {{ hasNotes(action) ? 'note' : '' }}" ng-class="{active: isItemActive(action)}" ng-click="displayItemNotes(action)">
+            <!-- the action will hold the class for the icon. -->
+            <i class="icon"></i>
+            <span class="action-title">{{getActionTitle(action)}}<em>{{getActionSubTitle(action)}}</em><span class="note-icon"></span></span><br>
+            <span class="action-timestamp">{{getActionTimeDisplay(action)}}</span>
+
+            <div class="feeling-container">
+              <span ng-repeat="subValue in action.data.habitSubValueIds" class="feeling">
+                {{getHabitSubValue(subValue)}}
+              </span>
+            </div>
+            <div class="edit" ng-click="editItemNotes(action)" ng-if="canEditItem(action)"></div> <!-- Stress is in here now too. -->
+            <div class="remove" ng-click="deleteItem(action)" ng-if="canDeleteItem(action)"></div>
+          </div>
+          <h2 class="quote add-mood" ng-click="addMoodEntry()" ng-show="canAddMoodEntry()">{{ 'ADD_MOOD_ENTRY' | translate }}</h2>
+          <div ng-show="showProgressTooltip()" class="hint-tooltip relax-tip progress-tip">
+            <span ng-click="hideProgressTooltip()" class="close">X</span>
+            <h1>{{ 'PROGRESS_TOOLTIP_HEADER' | translate }}</h1>
+            <h2>{{ 'PROGRESS_TOOLTIP_BODY' | translate }}</h2>
+          </div>
+        </div>
+
+      </ion-scroll>
+
+      <div ng-click="rotateHealthData()" class="health-progress" ng-class="{'no-health-data-bar': !displayingHealthData && !displayingActivityData}"> 
+        <span ng-if="!displayingHealthData && !displayingActivityData" class="item no-health-data">{{ 'PROGRESS_TAP_TO_VIEW_HEALTH' | translate }}</span>
+        <div ng-if="displayingHealthData || displayingActivityData" class="item item-icon-left item-icon-right">
+          <!--<span class="{{getActiveHealthName()}}"></span>-->
+          <span class="{{getActiveHealthName()}} icon ion-ios-eye-outline"></span>
+          {{ getActiveHealthType() }}: <em style="text-transform: none; letter-spacing: normal;">{{ getActiveHealthValue() }}</em>
+          <i class="icon ion-ios-arrow-right"></i> 
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="!showingHistory">
+      <div class="skill-chart">
+        <canvas id="skillsDisplay"></canvas>
+        <i class="icon ion-ios-flame"></i>
+        <i class="icon ion-ios-lightbulb"></i>
+        <i class="icon ion-ios-bolt"></i>
+        <i class="icon ion-heart"></i>
+        <i class="icon ion-ios-people"></i>
+      </div>
+
+      <div class="list skill-levels">
+
+        <div class="item level relaxation">
+          <i class="icon ion-ios-flame"></i>
+          <span class="title">{{ 'RELAXATION' | translate }}</span> 
+          <em class="level">{{ 'LEVEL' | translate }} {{ getSkillLevel('relax') }}/7</em><span class="desc">- {{ getSkillByline('relax') }}</span>
+          <div class="track">
+            <div class="complete" style="width: {{ getSkillPercentage('relax') }}%;"></div>
+          </div> 
+        </div>
+
+        <div class="item level journaling">
+          <i class="icon ion-ios-lightbulb"></i>
+          <span class="title">{{ 'JOURNALING' | translate }}</span>
+          <em class="level">{{ 'LEVEL' | translate }} {{ getSkillLevel('thoughts') }}/7</em><span class="desc">- {{ getSkillByline('thoughts') }}</span>
+          <div class="track">
+            <div class="complete" style="width: {{ getSkillPercentage('thoughts') }}%;"></div>
+          </div>
+        </div>
+
+        <div class="item level growth">
+          <i class="icon ion-ios-bolt"></i>
+          <span class="title">{{ 'GROWTH' | translate }}</span>
+          <em class="level">{{ 'LEVEL' | translate }} {{ getSkillLevel('goals') }}/7</em><span class="desc">- {{ getSkillByline('goals') }}</span>
+          <div class="track">
+            <div class="complete" style="width: {{ getSkillPercentage('goals') }}%;"></div>
+          </div>
+        </div>
+
+        <div class="item level care">
+          <i class="icon ion-heart"></i> 
+          <span class="title">{{ 'SELF_CARE' | translate }}</span>
+          <em class="level">{{ 'LEVEL' | translate }} {{ getSkillLevel('habits') }}/7</em><span class="desc">- {{ getSkillByline('habits') }}</span>
+          <div class="track">
+            <div class="complete" style="width: {{ getSkillPercentage('habits') }}%;"></div>
+          </div>
+        </div>
+
+        <div class="item level social">
+          <i class="icon ion-ios-people"></i>
+          <span class="title">{{ 'SOCIAL' | translate }}</span>
+          <em class="level">{{ 'LEVEL' | translate }} {{ getSkillLevel('social') }}/7</em><span class="desc">- {{ getSkillByline('social') }}</span>
+          <div class="track">
+            <div class="complete" style="width: {{ getSkillPercentage('social') }}%;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

@@ -1,0 +1,23 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>Favorite</ion-nav-title>
+<ion-content>
+<section id="cafe-favorite">
+<div class="message padding" ng-if="favoriteCafeIds.length == 0">
+    <p class="symbol"><i class="icon ion-ios-heart"></i></p>
+    <p>Your favorite cafes will be here.</p>
+</div>
+<ion-list can-swipe="true">
+    <ion-item ng-repeat="cafe in cafes track by $index"
+              class="item item-avatar item-icon-right"
+              ui-sref="tab.favorite-cafe-detail({ cafeId:cafe.id })">
+        <img ng-src="{{ cafe.image }}" default-src="img/default.png">
+        <h2 class="cafe-name">{{ ::cafe.name }}</h2>
+        <p>{{ ::cafe.address }}, {{ ::cafe.city }}, {{ ::cafe.country }}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-balanced" ng-click="deleteFavorite(cafe.id, $index)">delete</ion-option-button>
+    </ion-item>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="hasMore"></ion-infinite-scroll>
+</ion-list>
+</section>
+</ion-content>
+</ion-view>

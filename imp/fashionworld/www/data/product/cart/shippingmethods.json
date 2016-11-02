@@ -1,0 +1,2 @@
+{"error_warning":"",
+"shipping_methods":{"extendfree":{"title":"Extend Free Shipping","quote":{"extendfree":{"code":"extendfree.extendfree","title":"Extend Free Shipping","cost":"50","tax_class_id":0,"text":"<span class=\"fa fa-inr\">&nbsp;<\/span>50.00"}},"sort_order":"","error":false},"pickup":{"title":"Pickup","quote":{"pickup":{"code":"pickup.pickup","title":"Pickup From Store","cost":0,"tax_class_id":0,"text":"<span class=\"fa fa-inr\">&nbsp;<\/span>0.00"}},"sort_order":"","error":false}},"code":"","comment":""}

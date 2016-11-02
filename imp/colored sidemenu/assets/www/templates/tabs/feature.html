@@ -1,0 +1,35 @@
+<ion-view view-title="Feature">
+    <ion-content>
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div ng-repeat="item in data.videos">
+            <div class="title-categories">
+                <i class="ion ion-easel"></i> {{item.name}} <i class="ion ion-more pull-right"></i>
+            </div>
+
+            <div class="list custom-list">
+
+                <a class="item item-thumbnail-left" ng-repeat="v in item.videos" ng-click="viewVideo(v)">
+                    <div class="img-item">
+                        <div class="thumnail-video">
+                            <img ng-src="{{v.img}}">
+                            <div class="time-video" ng-if="!v.ep">{{v.time}}</div>
+                            <div class="list-video" ng-if="v.ep">
+                                <div class="text-center">{{v.ep}}</div>
+                                <i class="ion ion-android-playstore"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>{{v.name}}</h3>
+                    <p>{{v.Author}}</p>
+                    <p>{{v.views}} views</p>
+                </a>
+
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

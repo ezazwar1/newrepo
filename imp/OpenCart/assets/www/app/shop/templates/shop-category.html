@@ -1,0 +1,26 @@
+<ion-view view-title="{{::category_name}}">
+    <ion-nav-buttons side="right">
+        <a class="button button-outline button-positive" href="#/app/menu/shop/search"><i class="icon ion-ios-search"></i></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshUI()"></ion-refresher>
+
+        <div class="item item-divider item-button-right">
+            <span ng-bind-html="category_name"></span>
+            <button class="button button-stable button-outline button-no-outline" ng-click="grid_mode = !grid_mode">
+                <i class="icon" ng-class="{'ion-ios-grid-view-outline' : grid_mode, 'ion-ios-list-outline': !grid_mode}"></i>
+            </button>
+        </div>
+		
+		<category-list thumbnail="false" mode="vertical" category="id"></category-list>
+		
+        <div class="recent-items-list" ng-class="{'row grid_mode' : grid_mode, 'list': !grid_mode}">
+            <div class="item" ng-repeat="item in items" ng-class="{'col-50' : grid_mode}">
+                <item-template item="item" mode="3"></item-template>
+            </div>
+            <ion-item ng-if="items.length < 1">{{text_empty}}</ion-item>
+            <ion-infinite-scroll ng-if="!endOfItems" on-infinite="loadNextPage()" distance="1%"></ion-infinite-scroll>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,61 @@
+<ion-view title="{{ 'REWARDS.TITLE' | translate }}">
+  <ion-content class="has-header padding">
+
+        <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh()">
+        </ion-refresher>
+       <!--<div ng-if="rewards">-->
+        <div class="card-wf featured-main-wrapper" ng-repeat="reward in rewards track by $index" ng-click="goToReward(reward.id, url)">
+        <div class="img-holder img-wrap">
+            <div ng-if="reward.stock == '0'" class="card-wf-overylay assertive-overlay">
+                <h3 class="unlock-text">{{ 'REWARDS.OUT_OF_STOCK_MSG' | translate }}</h3>
+            </div>
+
+            <div ng-if="(reward.stock | num) > 0 && totalPoints() < (reward.goal | num)" class="card-wf-overylay assertive-overlay">
+                <h3 class="unlock-text">{{ 'REWARDS.LOCKED_MSG' | translate }} <br>
+                <i class="wf-coins"></i> {{ reward.goal | shortNumber }} {{ 'UNIT.POINTS' | translate}}</h3>
+            </div>
+            <img class="img-responsive" preload-image ng-src="{{ reward.image_url }}" default-image="img/placeholder-broken.svg" alt="{{ reward.title }}">
+            <div class="row top-btns">
+                <div class="col text-left">
+                    <!-- {{ reward.merchant }} -->
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer-wf">
+            <div class="row">
+                <div class="col">
+                    <h4 class="card-title-wf">{{ reward.title }}</h4>
+                </div>
+            </div>
+
+            <div class="row assertive" ng-show="url == 'rewards'">
+                <div class="col col-center">
+                    <wf-meter color="assertive-bg" value="totalPoints()" limit="reward.goal"></wf-meter>
+                </div>
+            </div>
+            <div class="row assertive" ng-show="url == 'rewards'">
+                <div class="col text-left dark">
+                    <i class="wf wf-coins"></i> {{ (reward.goal - totalPoints()) | max }} {{ 'UNIT.POINTS' | translate}} {{ 'REWARDS.ALMOSOT_LEFT' | translate }}
+                </div>
+                <div class="col text-right row-no-padding">
+                    <i class="wf wf-coins"></i> {{ reward.goal }} {{ 'UNIT.POINTS' | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="featured-wrapper" ng-if="currentState == 'app.rewards.all' && reward.featured == '1'"><i class="ion-ios-star"></i>{{ 'REWARDS.FEATURED' | translate }}</div>
+    </div> <!-- end of reward -->
+
+
+    <div wf-pager params="params" offset="10"  distance="10" dataset="rewards" url="url"></div>
+      <!--</div>-->
+  </ion-content>
+  <div class="bar-clear bar-soft-shadow"></div>
+  <button ng-show="showFilter" ng-click="openFilter(params)" class="button button-assertive button-round button-righ-bottom-sticky">
+            <i class="wf wf-filters"></i>
+    </button>
+
+</ion-view>

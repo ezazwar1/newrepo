@@ -1,0 +1,3 @@
+﻿<select ng-model="currency" name="currency" required>
+    <option value="{{::cur.code}}" ng-selected="cur.code == currency" ng-repeat="cur in currencies">{{::cur.title}}</option>
+</select>

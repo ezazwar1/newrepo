@@ -1,0 +1,26 @@
+
+<div class="modal simple-modal share-modal" ng-controller="ShareModalController as viewModel">
+    <ion-header-bar class="bar-stable ignore-platform">
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="viewModel.cancelShare()" role="button" aria-label="Close icon in Top Right"><i class="icon ion-ios-close-empty" aria-hidden="true"></i></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header ignore-platform" ng-init="viewModel.loadCode()" has-bouncing="true" >
+        <div class="padding text-center" ng-if="!viewModel.code">
+            <ion-spinner></ion-spinner>
+        </div>
+        <div class="padding text-center" style="padding-top: 0;" ng-if="viewModel.code">
+            <h2 class="text-positive">
+                {{viewModel.code.urls[0].name}}
+            </h2>
+            <h5 class="dark">
+                {{viewModel.code.urls[0].description}}
+                <br>
+            </h5>
+            <button ng-click="viewModel.shareOrder()" class="button share-button">
+                Share
+            </button>
+        </div>
+    </ion-content>
+</div>

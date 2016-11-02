@@ -1,0 +1,20 @@
+@media only screen and (orientation: portrait) {
+  /* line 5, popup-style-jellybean.scss */
+  .platform-android4_1 .popup-container .popup .popup-body img, .platform-android4_2 .popup-container .popup .popup-body img, .platform-android4_3 .popup-container .popup .popup-body img {
+    -webkit-transform: scaleX(0.5) scaleY(2.3);
+    -moz-transform: scaleX(0.5) scaleY(2.3);
+    -ms-transform: scaleX(0.5) scaleY(2.3);
+    -o-transform: scaleX(0.5) scaleY(2.3);
+    transform: scaleX(0.5) scaleY(2.3);
+  }
+}
+@media only screen and (orientation: landscape) {
+  /* line 13, popup-style-jellybean.scss */
+  .platform-android4_1 .popup-container .popup .popup-body img, .platform-android4_2 .popup-container .popup .popup-body img, .platform-android4_3 .popup-container .popup .popup-body img {
+    -webkit-transform: scaleX(0.5) scaleY(1.6);
+    -moz-transform: scaleX(0.5) scaleY(1.6);
+    -ms-transform: scaleX(0.5) scaleY(1.6);
+    -o-transform: scaleX(0.5) scaleY(1.6);
+    transform: scaleX(0.5) scaleY(1.6);
+  }
+}

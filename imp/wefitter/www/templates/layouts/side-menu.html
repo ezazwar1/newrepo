@@ -1,0 +1,122 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <!-- header bar -->
+    <ion-nav-bar align-title="left" class="bar-dark">
+
+      <!-- right button header -->
+      <ion-nav-buttons side="right">
+        <button enable-menu-with-back-views="false" class="button button-clear top-coins" ng-click="pointsExplanation()">
+          <span class="my-points value-{{totalPoints() | number}}"><i class="wf wf-coins"></i> {{ totalPoints() | number }}</span>
+        </button>
+      </ion-nav-buttons>
+      <!-- left button header -->
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon button-hamburguer" menu-toggle="left" ng-click="closeSubMenu()">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <!-- main content view -->
+    <div wf-validation-msg show="netwokState.offline" hidein="7000" type="alert-energized no-internet" msg="{{ 'ACTION.NO_INTERNET_MSG' | translate}}"></div>
+
+    <ion-nav-view animation="slide-left-right" name="main"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- side menu -->
+  <ion-side-menu side="left" class="dark-bg side-menu" ng-class="{'dark-menu': showAccountMenu}" width="220">
+
+    <ion-content scroll="false" has-header="false">
+      <div class="main-menu">
+        <div class="profile-wrapper dark-bg">
+        <button ng-hide="showAccountMenu" menu-close class="button ion-close button-clear pull-right"></button>
+        <div class="row" menu-close ui-sref="app.userProfile">
+          <div class="col col-40">
+            <!-- <a href="" class="round-icon">
+			      	<img ng-src="{{me.image_url ? me.image_url : 'img/avatar.svg'}}">
+		      	</a> -->
+            <div class="profile-user-image side-menu-img" style="background-image: url({{profileImage ? profileImage : 'img/avatar.svg'}})"></div>
+          </div>
+          <div class="col pad-top-15 light">
+            <div>
+             <span>{{ me.first_name ? me.first_name : 'DASHBOARD.YOUR_NAME' | translate }}</span>
+             <!-- <i class="wf wf-settings" menu-close ui-sref="app.settings"></i> -->
+           </div>
+           <!-- <div class="noti-wrapper">
+             <span class="badge badge-assertive">1</span>
+             <span>{{'ACTION.NEW_NOTIFICATION' | translate}}</span>
+           </div> -->
+          </div>
+        </div>
+      </div>
+        <ion-list class="side-menu-item">
+
+          <ion-item style="width: 100%;" menu-close ui-sref="app.dashboard">
+            <i class="wf wf-home"></i>
+            <span class="padding-left-15" translate="NAV.HOME">Home</span>
+          </ion-item>
+          <ion-item menu-close ui-sref="app.entities">
+            <i class="wf wf-people"></i>
+            <span class="padding-left-15" translate="NAV.GROUPS">Groups</span>
+          </ion-item>
+          <!--<ion-item menu-close ui-sref="">
+            <span translate="NAV.FRIENDS">Friends</span>
+          </ion-item>-->
+          <ion-item menu-close ui-sref="app.challenges.all">
+            <i class="wf wf-challenges"></i>
+            <span class="padding-left-15" translate="NAV.CHALLENGES">Challenges</span>
+          </ion-item>
+          <ion-item menu-close ui-sref="app.rewards.all">
+            <i class="wf wf-rewards"></i>
+            <span class="padding-left-15" translate="NAV.REWARDS">Rewards</span>
+          </ion-item>
+          <ion-item menu-close ui-sref="app.leaderboard">
+            <i class="wf wf-leaderboard"></i>
+            <span class="padding-left-15" translate="NAV.LEADERBOARD">Leaderboard</span>
+          </ion-item>
+          <ion-item menu-close ui-sref="app.addFriend">
+            <i class="wf wf-attend"></i>
+            <span class="padding-left-15" translate="NAV.ADD_FRIENDS">Add Friends</span>
+          </ion-item>
+          <!-- <ion-item href="#" ng-click="toggleAccountMenu($event)">
+            <i class="wf wf-settings"></i>
+            <span class="padding-left-5" translate="NAV.ACCOUNT">Account</span>
+          </ion-item> -->
+          <ion-item menu-close ui-sref="app.help">
+            <i class="wf wf-help"></i>
+            <span class="padding-left-15" translate="NAV.HELP">Help</span>
+          </ion-item>
+          <ion-item menu-close ui-sref="app.settings">
+            <i class="wf wf-settings"></i>
+            <span class="padding-left-15" translate="NAV.SETTINGS">Settings</span>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <!-- <div class="sub-menu">
+        <ion-list class="account-list" ng-class="{show: showAccountMenu}">
+              <button ng-show="showAccountMenu" ng-click="toggleAccountMenu($event)" class="button ion-close button-clear pull-right top-close-btn"></button>
+
+              <ion-item>&nbsp;</ion-item>
+
+              <ion-item ng-click="toggleAccountMenu($event)" class="item-devider">
+                <span translate="NAV.ACCOUNT">Account</span>
+              </ion-item>
+              <ion-item menu-close ui-sref="app.profile">
+                <span translate="NAV.PROFILE">Profile{{showAccountMenu}}</span>
+              </ion-item>
+              <ion-item menu-close ui-sref="app.activities">
+                <span translate="NAV.ACTIVITIES">Activities</span>
+              </ion-item>
+              <ion-item menu-close ui-sref="app.achievements.progress">
+                <span translate="NAV.ACHIEVEMENTS">Achievements</span>
+              </ion-item>
+              <ion-item menu-close ui-sref="app.connect">
+                <span translate="NAV.CONNECTIONS">Connections</span>
+              </ion-item>
+              <ion-item menu-close ui-sref="app.settings">
+                <span translate="NAV.SETTINGS">Settings</span>
+              </ion-item>
+          </ion-list>
+        </div> -->
+      </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

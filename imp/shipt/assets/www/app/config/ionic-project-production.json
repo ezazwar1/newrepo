@@ -1,0 +1,27 @@
+{
+  "name": "Shipt",
+  "app_id": "49144f00",
+  "gulpStartupTasks": [
+    "sass",
+    "babel",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "proxies": [
+    {
+      "path": "/authapi",
+      "proxyUrl": "https://app.shipt.com/api/v1/sessions.json"
+    },
+    {
+      "path": "/api",
+      "proxyUrl": "https://app.shipt.com/"
+    },
+    {
+      "path": "/googleapis",
+      "proxyUrl": "https://maps.googleapis.com/"
+    }
+  ]
+}

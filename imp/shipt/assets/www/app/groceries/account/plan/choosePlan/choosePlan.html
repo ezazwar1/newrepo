@@ -1,0 +1,53 @@
+<div class="modal" ng-controller="choosePlanController as vm" >
+    <ion-header-bar class="bar-stable">
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="vm.cancel()" aria-label="close icon top right"><i class="icon ion-ios-close-empty" aria-hidden="true"></i></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="has-header darker-content" scroll="true" has-bouncing="true" >
+        <div class="text-center" >
+            <div class="padding">
+                <h2 class="text-positive">Select A Membership Plan!</h2>
+                <p class="dark">Choose a plan that’s perfect for you.</p>
+                <p class="dark" ng-if="!vm.selectedPlanInPlans">
+                    Your current plan is <strong>{{vm.selectedPlan.name}}</strong>. If you choose a new one you will not be able to move back to this one.
+                </p>
+            </div>
+        </div>
+        <div class="padding text-center" ng-if="!vm.plans">
+            <ion-spinner></ion-spinner>
+        </div>
+        <!-- <div ng-if="vm.plans" ng-click="vm.addPayment()" class="add-payment padding-text-center">
+            <button class="button button-positive">Add a Payment Method</button>
+        </div> -->
+        <ion-list class="delivery-time-radio">
+            <label class="item item-radio"
+                   ng-click="vm.clickSource(plan)"
+                   ng-repeat="plan in vm.plans" >
+                <input type="radio"
+                       ng-value="plan" ng-model="vm.selectedPlan" name="group">
+                <div class="item-content">
+                    <h2 class="dark">
+                        <h2 >
+                            {{plan.name}}
+                        </h2>
+                        <p class="dark">
+                            {{vm.planPrice(plan) | currency}} per {{plan.interval}}
+                        </p>
+                        <p class="wrap" ng-if="plan.metadata.description">
+                            {{plan.metadata.description}}
+                        </p>
+                    </h3>
+                </div>
+                <i class="radio-icon ion-ios-checkmark" aria-hidden="true"></i>
+            </label>
+        </ion-list>
+        <div class="padding text-center">
+            <p class="dark" style="padding-top: 10px;">
+                {{vm.plans[0].metadata.cancellation_instructions}}
+            </p>
+        </div>
+    </ion-content>
+</div>

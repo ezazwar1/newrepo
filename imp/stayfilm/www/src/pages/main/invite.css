@@ -1,0 +1,222 @@
+/* line 4, invite.scss */
+.invite-page .bar.bar-header {
+  background: #efecec;
+}
+/* line 7, invite.scss */
+.invite-page .bar.bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 14, invite.scss */
+.invite-page .bar.bar-header .btn-close img {
+  height: 20px;
+  width: 20px;
+}
+/* line 20, invite.scss */
+.invite-page .bar.bar-header .btn-save {
+  width: 60px;
+  height: 0px;
+  color: #666;
+}
+/* line 27, invite.scss */
+.invite-page .media-header {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 38, invite.scss */
+.invite-page .media-header.retracted {
+  -webkit-transition: all 0.75s ease;
+  -moz-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+  height: 75px;
+}
+/* line 42, invite.scss */
+.invite-page .media-header.retracted .instructions-text {
+  -webkit-transition: margin 0.25s ease;
+  -moz-transition: margin 0.25s ease;
+  transition: margin 0.25s ease;
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+/* line 53, invite.scss */
+.invite-page .media-header.retracted .media-buttons .btn-upload span, .invite-page .media-header.retracted .media-buttons .btn-sourcezone span, .invite-page .media-header.retracted .media-buttons .btn-clearall span {
+  top: 12%;
+}
+/* line 60, invite.scss */
+.invite-page .media-header .instructions-text {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+  margin: 20px;
+  max-height: 300px;
+}
+/* line 69, invite.scss */
+.invite-page .media-header .progress-bar {
+  position: relative;
+  background: #dedde0;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 2px;
+  -moz-flex: 0 0 2px;
+  -ms-flex: 0 0 2px;
+  flex: 0 0 2px;
+  height: 2px;
+}
+/* line 75, invite.scss */
+.invite-page .media-header .progress-bar .progress-info {
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  transition: all 2s ease;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #ad252a;
+  height: 4px;
+}
+/* line 85, invite.scss */
+.invite-page .media-header .media-buttons {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  box-lines: single;
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  -o-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: start;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -ms-flex-align: stretch;
+}
+/* line 94, invite.scss */
+.invite-page .media-header .media-buttons .btn-upload, .invite-page .media-header .media-buttons .btn-sourcezone, .invite-page .media-header .media-buttons .btn-clearall {
+  position: relative;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  display: block;
+  width: 33.3333%;
+}
+/* line 104, invite.scss */
+.invite-page .media-header .media-buttons .btn-upload span, .invite-page .media-header .media-buttons .btn-sourcezone span, .invite-page .media-header .media-buttons .btn-clearall span {
+  position: absolute;
+  display: block;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  top: 20%;
+  left: 0;
+  width: 100%;
+}
+/* line 116, invite.scss */
+.invite-page .media-header .media-buttons .btn-upload {
+  background-color: #53bf72;
+  background-image: url("../images/albummanager/button_large_UPLOAD.png");
+}
+/* line 121, invite.scss */
+.invite-page .media-header .media-buttons .btn-sourcezone {
+  background-color: #60abc3;
+  background-image: url("../images/albummanager/button_large_SOCIAL.png");
+}
+/* line 126, invite.scss */
+.invite-page .media-header .media-buttons .btn-clearall {
+  background-color: #c3cbd1;
+  background-image: url("../images/albummanager/button_large_CLEAR.png");
+}
+/* line 134, invite.scss */
+.invite-page .friend-list {
+  top: 45px;
+  bottom: 61px;
+}
+/* line 138, invite.scss */
+.invite-page .friend-list .your-friends {
+  margin: 20px 20px 30px;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 145, invite.scss */
+.invite-page .friend-list .no-fb-friends {
+  text-align: center;
+  margin: 20px;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 152, invite.scss */
+.invite-page .friend-list .no-fb-friends a {
+  text-decoration: none;
+  color: #ad252a;
+}
+/* line 159, invite.scss */
+.invite-page .big-button-footer {
+  height: 60px;
+  padding: 10px 20px 17px;
+  background: #fff;
+  border: 0;
+}
+/* line 165, invite.scss */
+.invite-page .big-button-footer .add-all {
+  background: #12ad60;
+  color: #fff;
+}

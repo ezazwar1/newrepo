@@ -1,0 +1,16 @@
+<ion-view view-title="Categories">
+	<ion-pane>
+		<ion-content class="has-header">
+			<ion-list>
+				<div class="row row-wrap row-no-padding category-items">
+					<ion-item class="col col-50" data-ng-repeat="category in categoriesCtrl.categories track by $index" data-ui-sref="app.category({categoryId: category.id})">
+						<div class="item-image">
+              <img data-ng-if="category.img" data-ng-src="{{category.img}}" alt="{{category.name}}" />
+							<h3>{{category.name}}</h3>
+						</div>
+					</ion-item>
+				</div>
+			</ion-list>
+		</ion-content>
+	</ion-pane>
+</ion-view>

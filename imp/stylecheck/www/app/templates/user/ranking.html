@@ -1,0 +1,56 @@
+<ion-view class="ranking">
+    <ion-content>
+        <h2 class="padding-top padding-left">{{dict.styleboard}}</h2>
+        <div class="padding-left uppercase">{{dict.topUser}}</div>
+        <div class="list user-list">
+            <div class="item display-flex align-center uppercase" ng-repeat="user in users.entries" ng-click="goToUser(user._id)" ng-if="entered">
+                <div class="item-content-wrapper flex-1 display-flex align-center" ng-class="{'no-border': $last}">
+                    <div class="bold rank">{{$first || user.rank !== users.entries[$index - 1].rank ? user.rank + '.' : ''}}</div>
+                    <div ng-if="user && user.avatarPath" class="circle thumbnail grayscale" ng-style="{'background-image':'url(' + user.avatarPath + ')'}"></div>
+                    <div ng-if="user && !user.avatarPath" class="circle thumbnail" ></div>
+                    <div class="flex-1">
+                        <span class="bold truncate full-width">{{user.username}}</span>
+                        <span class="small">{{user.location}}</span>
+                    </div>
+                    <div>
+                        <span class="level bold truncate">{{user.level.name}}</span>
+                        <span class="stable small">{{dict.level}}</span>
+                    </div>
+                    <button ng-if="user._id !== me._id" class="button button-clear icon" ng-class="{'button-stable icon-follow-me': !user.isFav, 'button-assertive icon-follow': user.isFav}" ng-click="setFavorite(user, $index, $event)"></button>
+                    <div ng-if="user._id === me._id" class="button-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light">
+        <div ng-if="me" class="display-flex align-center user-list">
+            <div class="flex-1 padding-right">
+                <div class="display-flex align-center user-infos">
+                    <div>
+                        <span class="bold">{{me.rank}}</span><br>
+                        <span class="stable small">{{dict.rank}}</span>
+                    </div>
+                    <div ng-if="me && me.avatarPath" class="circle thumbnail grayscale" ng-style="{'background-image':'url(' + me.avatarPath + ')'}"></div>
+                    <div ng-if="me && !me.avatarPath" class="circle thumbnail" ></div>
+                    <div class="flex-1">
+                        <span class="bold truncate">{{me.username}}</span>
+                        <span class="small truncate">{{me.location}}</span>
+                    </div>
+                </div>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar-background">
+                        <div class="progress-bar" ng-style="{'width': me.fillLevel}"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="user-infos">
+                    <span class="bold">{{me.level.name}}</span><br>
+                    <span class="stable small">{{dict.level}}</span>
+                </div>
+                <div class="bold" ng-if="!me.nextLevel">{{dict.max}}</div>
+                <div class="bold" ng-if="me.nextLevel" ng-click="showInfo()">{{dict.info}}</div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

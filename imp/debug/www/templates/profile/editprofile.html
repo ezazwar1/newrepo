@@ -1,0 +1,52 @@
+<ion-view class="edit-profile" view-title="Edit Profile">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon icon ion-navicon-round"></button>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+		<button ng-click="updateProfile()" class="button">
+			Update
+		</button>
+	</ion-nav-buttons>
+	<ion-content class="padding" has-subheader="false">
+		<ion-list>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Fullname</span>
+				<input type="text" ng-model="data.fullname" placeholder="Fullname">
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Username</span>
+				<input type="text" ng-model="data.username" placeholder="Username">
+			</label>
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Email</span>
+				<input type="email" ng-model="data.email" placeholder="Email">
+			</label>
+			<div class="item row">
+				<div class="col col-50">
+					<ion-radio ng-model="data.choice" ng-value="'female'">Female</ion-radio> 
+				</div>
+				<div class="col col-50">
+					<ion-radio ng-model="data.choice" ng-value="'male'">Male</ion-radio>
+				</div>
+			</div>
+
+			<div class="item item-divider">
+				Social Networks
+			</div>
+			<div class="list list-inset">
+				<label class="item item-input">
+					<i class="icon ion-social-facebook placeholder-icon"></i>
+					<input type="text" ng-model="data.fbUrl" placeholder="Facebook Account Url">
+				</label>
+			</div>
+			<div class="list list-inset">
+				<label class="item item-input">
+					<i class="icon ion-social-twitter placeholder-icon"></i>
+					<input type="text" ng-model="data.twitterUrl" placeholder="Twitter Account Url">
+				</label>
+			</div>		
+
+			<!-- <button ng-click="updateProfile()" class="button button-block button-dark">Save</button> -->
+		</ion-list>
+	</ion-content>
+</ion-view>

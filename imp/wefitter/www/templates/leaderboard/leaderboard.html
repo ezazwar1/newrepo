@@ -1,0 +1,17 @@
+<ion-view title="{{ 'LEADERBOARD.TITLE' | translate }}">
+    <ion-content padding="false" class="has-header margin-top-1">
+
+    <ion-refresher
+        spinner="none"
+        pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+        on-refresh="pullRefresh()">
+    </ion-refresher>
+
+    <div ng-if="leaderboard">
+	    <div wf-leaderboard result="leaderboard" url="url" meta="resMeta" params="params" per-page="5" refresh="refresh"></div>
+    </div>
+    </ion-content>
+    <button ng-click="openFilter()" class="button button-blue-bg button-assertive button-round button-righ-bottom-sticky">
+            <i class="wf wf-filters"></i>
+    </button>
+</ion-view>

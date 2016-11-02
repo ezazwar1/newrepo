@@ -1,0 +1,26 @@
+<ion-view view-title="Warriors">
+  <ion-content class="padding scroll-bg">
+
+  <div class="transparent-back">
+  <ion-list>
+    <ion-item class="item-remove-animate item-thumbnail-left item-text-wrap" ng-repeat="chat in profiles | orderBy:'orderBy'" type="item-text-wrap" ng-click="director(chat._id)" >
+      <div class="profile-stats">
+        <h3 id="profile-name">{{chat.first}} {{chat.last}}</h3>
+
+        <!-- <span id="chat-stat-name">Age:</span><span class="profile-stats-detail">{{chat.age}}</span>
+        <span class=profile-stat-divider>|</span> -->
+        <span id="chat-stat-name">Hometown:</span><span class="profile-stats-detail">{{chat.hometown}}</span>
+        </div>
+      <img class=profile-main-image ng-src="{{chat.icon}}">
+      <div class="profile-main-content">
+        <span id="profile-description">{{chat.job}}</span></div>
+
+      <!-- <ion-option-button class="button-assertive" ng-click="remove(chat)">
+        Share
+      </ion-option-button> -->
+    </ion-item></div>
+  </ion-list>
+  </div>
+
+  </ion-content>
+</ion-view>

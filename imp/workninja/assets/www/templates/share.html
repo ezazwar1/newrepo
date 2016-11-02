@@ -1,0 +1,35 @@
+<ion-view title="Share" class="share-pane">
+  <ion-nav-buttons side="left">
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+    <a class="button button-clear" ng-click="goMain()">
+      <i class="icon ion-arrow-left-a"></i>
+    </a>
+  </ion-nav-buttons>
+
+  <ion-content class="share-content has-header">
+    <div class="share">
+      <div class="logo">
+        <img src="img/workninja.svg"/>
+      </div>
+      <div class="message">
+        Share the love<br/>with Work Ninja
+        <div class="heart" ng-click="share()">
+          <i class="ion-heart"></i>
+        </div>
+      </div>
+      <div class="social">
+        <button class="button button-clear button-facebook" ng-click="shareViaFacebook()"><i class="ion-social-facebook"></i></button>
+        <button class="button button-clear button-twitter" ng-click="shareViaTwitter()"><i class="ion-social-twitter"></i></button>
+        <button class="button button-clear button-email" ng-click="shareViaEmail()"><i class="ion-email"></i></button>
+        <button class="button button-clear button-message" ng-click="shareViaSms()"><i class="ion-chatbox-working"></i></button>
+
+        <!--<button class="button button-clear" ng-click="share()">-->
+          <!--<i class="ion-social-facebook"></i>-->
+          <!--<i class="ion-social-twitter"></i>-->
+          <!--&lt;!&ndash; <i class="ion-social-linkedin"></i> &ndash;&gt;-->
+          <!--<i class="ion-chatbox-working"></i>-->
+          <!--<i class="ion-email"></i>-->
+        <!--</button>-->
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,94 @@
+<ion-view view-title="Аккаунт">
+  <ion-nav-bar class="bar-light coll">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+
+    <div class="list">
+      <form name="registerForm" ng-submit="submitForm(registerForm.$valid)" novalidate>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Имя</span>
+
+
+          <input type="text" name="firstname" placeholder="Имя" ng-model="data.firstname" required ng-minlength="2">
+        </label>
+        <span ng-show="registerForm.firstname.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i> Укажите Ваше имя</span>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Фамилия</span>
+          <input type="text" name="lastname" placeholder="Фамилия" ng-model="data.lastname" ng-minlength="2" required>
+        </label>
+        <span ng-show="registerForm.lastname.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i> Укажите Вашу фамилию</span>
+        <label class="item item-input ">
+  <span class="input-label">Дата рождения</span>
+  <input  ng-model="data.birthday" name="birthday" placeholder="Дата рождения" type="date">
+</label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Мобильный телефон</span>
+          <input type="tel" name="telephone" placeholder="Мобильный телефон" ng-model="data.telephone" ng-minlength="11" required>
+        </label>
+
+          <span ng-show="registerForm.telephone.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i> Укажите Ваш телефон</span>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+          <input type="email" name="email" placeholder="Email" ng-model="data.email" required>
+        </label>
+          <span ng-show="registerForm.email.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i> Укажите Ваш email</span>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Номер дисконтной карты</span>
+          <input type="number" name="card"  placeholder="Номер дисконтной карты" ng-model="data.card">
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Регион
+          </div>
+          <select name="zone" ng-model="data.zone_id">
+
+            <option ng-init ="2761" ng-selected="zone.name == 'Москва'" ng-repeat="zone in zones" value="{{zone.zone_id}}">{{zone.name}}</option>
+
+          </select>
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Город</span>
+          <input type="text" name="city" placeholder="Город" ng-model="data.city" required>
+        </label>
+<span ng-show="registerForm.city.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i>Укажите Ваш город</span>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Улица</span>
+          <input type="text" name="address_1" placeholder="Улица" ng-model="data.address_1" required>
+        </label>
+  <span ng-show="registerForm.address_1.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i>Укажите Вашу улицу</span>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Дом, строение, квартира</span>
+          <input type="text" name="address_2" placeholder="Дом, строение, квартира" ng-model="data.address_2" required>
+        </label>
+  <span ng-show="registerForm.address_2.$invalid && submitted" class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i>Укажите Ваш дом, строение, квартиру</span>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Пароль</span>
+          <input type="password" name="password" placeholder="Пароль" ng-model="data.password" required ng-minlength="6">
+        </label>
+        <span ng-show="registerForm.password.$invalid && submitted"  class="assertive item item-icon-left" href="#"><i class="ion-alert-circled"></i>Укажите Ваш пароль длиной не мение 6 символов</span>
+
+
+
+
+        <div ng-show="error" class=" no_shadow card">
+                        <div class="item item-text-wrap">
+                          <b ng-bind="error"></b>
+                        </div>
+                    </div>
+        <input class="button button-block button-dark" type="submit" name="submit" value="{{error ? 'Попробовать еще раз' : 'Зарегистрироваться'}}" >
+
+      </form>
+
+      </div>
+
+
+
+  </ion-content>
+</ion-view>

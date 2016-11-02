@@ -1,0 +1,14 @@
+<div class="modal video-modal modal-colors">
+    <ion-header-bar class="bar bar-header bar-positive">
+        <button class="button button-clear button-primary left-button icon ion-android-close" ng-click="cancelVideoModal()"></button>
+    </ion-header-bar>
+    <ion-content has-bouncing="false">
+        <h3 style="text-align:center;color:white">{{(currentExercise.name | translate)}}</h3>
+        <div id='videoplayer' style="background-color:black">
+            <video ng-src="{{videoAddress}}" controls="" autoplay="" loop="" muted="" preload="" ng-if="showVideo && !androidPlatform">
+            </video>
+            <video id="videoplayerscreen" style="opacity:0.00001" loop muted ng-if="showVideo && androidPlatform">
+            </video>
+        </div>
+    </ion-content>
+</div>

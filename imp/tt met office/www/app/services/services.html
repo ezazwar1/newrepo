@@ -1,0 +1,14 @@
+    <ion-nav-bar class="bar no-border blue">
+        <ion-nav-back-button class="button-clear">
+            <!-- <i class="ion-arrow-left-c"></i> -->
+        </ion-nav-back-button>
+        <ion-nav-buttons side="left">
+            <button  menu-toggle="left" class="hamburger hamburger--spring" type="button" ng-class="$root.$ionicSideMenuDelegate.isOpen() ? 'is-active' : ''">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <!-- <button menu-toggle="left" class="button button-icon icon ion-navicon" ></button> -->
+        </ion-nav-buttons>
+    </ion-nav-bar>
+<ion-nav-view name="servicesContent" view-title="Services" animation="slide-left-right"></ion-nav-view>

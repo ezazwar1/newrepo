@@ -1,0 +1,72 @@
+<ion-modal-view>
+<ion-header-bar class="bar-stable">
+<button ng-click="AddressClose()" class="button back-button button-icon button-clear header-item ion-ios-arrow-back"></button>
+<h1 class="title ">Add New Address</h1>
+</ion-header-bar>
+<ion-content class="padding">
+	<form name="deliveryAddrForm" class="formStyle" ng-submit="saveAddress(deliveryAddrForm);" novalidate >
+			<div class="list" >
+
+			<!-- First and Last Name -->
+			<div class="row">
+			  <div class="col">
+					<label class="item item-input"  ng-class="{ 'has-errors' : deliveryAddrForm.firstname.$invalid, 'no-errors' : deliveryAddrForm.firstname.$valid}">
+					<input type="text" placeholder="First Name" name="firstname" ng-model="billshipAddress.firstname" ng-minlength="3" ng-maxlength="20" maxlength="20" required>
+					</label>
+			  </div>
+			  <div class="col">
+					<label class="item item-input"  ng-class="{ 'has-errors' : deliveryAddrForm.lastname.$invalid, 'no-errors' : deliveryAddrForm.lastname.$valid}">
+					<input type="text" placeholder="Last Name" name="lastname" ng-model="billshipAddress.lastname" ng-minlength="3" ng-maxlength="20" maxlength="20" required>
+					</label>
+			  </div>
+			</div>
+			<div class="error-container" ng-show="deliveryAddrForm.firstname.$error" ng-messages="deliveryAddrForm.firstname.$error">
+				<div ng-messages-include="error-list.html"></div>
+			</div>
+			<div class="error-container" ng-show="deliveryAddrForm.lastname.$error" ng-messages="deliveryAddrForm.lastname.$error">
+				<div ng-messages-include="error-list.html"></div>
+			</div>
+
+
+			<!-- Country -->
+			<label class="item item-input item-select"  ng-class="{ 'has-errors' : deliveryAddrForm.country_id.$invalid, 'no-errors' : deliveryAddrForm.country_id.$valid}">
+			<select  ng-model="billshipAddress.country_id" ng-options="cObj.country_id as cObj.name for cObj in cuntryData" required></select>
+			</label>
+			<div class="error-container" ng-show="deliveryAddrForm.country_id.$error" ng-messages="deliveryAddrForm.country_id.$error">
+			<div ng-messages-include="error-list.html"></div>
+			</div>
+
+			<!-- Address -->
+			<label class="item item-input"  ng-class="{ 'has-errors' : deliveryAddrForm.address_1.$invalid, 'no-errors' : deliveryAddrForm.address_1.$valid}">
+			<textarea name="address_1" placeholder="Address" ng-model="billshipAddress.address_1" ng-minlength="3" ng-maxlength="50" required></textarea>
+			</label>
+			<div class="error-container" ng-show="deliveryAddrForm.address_1.$error" ng-messages="deliveryAddrForm.address_1.$error">
+			<div ng-messages-include="error-list.html"></div>
+			</div>
+
+			<!-- City -->
+			<label class="item item-input"  ng-class="{ 'has-errors' : deliveryAddrForm.city.$invalid, 'no-errors' : deliveryAddrForm.city.$valid}">
+				<input type="text" placeholder="City" name="city" ng-model="billshipAddress.city" ng-minlength="3" ng-maxlength="20" maxlength="20" >
+			</label>
+			<div class="error-container" ng-show="deliveryAddrForm.city.$error" ng-messages="deliveryAddrForm.city.$error">
+			<div ng-messages-include="error-list.html"></div>
+			</div>
+
+			<!-- Zipcode -->
+			<label class="item item-input"  ng-class="{ 'has-errors' : deliveryAddrForm.postcode.$invalid, 'no-errors' : deliveryAddrForm.postcode.$valid}">
+			<input type="tel" placeholder="Post Code" name="postcode" ng-model="billshipAddress.postcode" maxlength="10" required>
+			</label>
+			<div class="error-container" ng-show="deliveryAddrForm.postcode.$error" ng-messages="deliveryAddrForm.postcode.$error">
+			<div ng-messages-include="error-list.html"></div>
+			</div>
+
+		    <button class="button button-block icon-left commonButton" ng-disabled="deliveryAddrForm.$invalid">Save</button>
+		</div>
+		</form>
+			<script id="error-list.html" type="text/ng-template">
+			<div class="error" ng-message="minlength">  Minimum length of this field is 3 characters! </div>
+			<div class="error" ng-message="maxlength">  Maximum length of this field is 20 characters!	</div>
+			</script>
+	</div>
+</ion-content>
+</ion-modal-view>

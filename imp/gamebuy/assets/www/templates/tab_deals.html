@@ -1,0 +1,109 @@
+<div class="iphone-status-bar"></div>
+<ion-view title="" hide-nav-bar="false">
+    <ion-nav-buttons side="primary">
+        <nav class="top-nav">
+            <button class="button button--tab-menu" ng-class={'button--current':data.deals_active} ng-click="decide_shown_list(2)">
+                <span>Active Trades</span>
+            </button>
+            <button class="button button--tab-menu" ng-class={'button--current':data.watches_active} ng-click="decide_shown_list(1)">
+                <span>Watch List</span>
+            </button>
+        </nav>
+    </ion-nav-buttons>
+
+    <ion-content scroll="true" padding="false" class="deals_wrapper">
+        <div class="tab-content">
+            <div ng-if="data.deals_active">
+                <div class="intro" ng-if="data.deals_placeholderpic_flag">
+                    <img class="intro_graphic" src="img/graphics/controllers/nds.svg" alt="Start trading video games on GBG">
+                    <p class="intro_tips">{{data.deals_message}}</p>
+                    <button class="button button-primary" ng-click="goto_nearme_tab()">
+                        click and check games for sale
+                    </button>
+                </div>
+                <ion-list>
+                    <ion-item class="deals-list" ng-click="goto_deal_profile_by_tab(deal.deal_id, 'deals')" ng-repeat="deal in data.deals | orderBy:'updated_on':true">
+                        <div class="deals-list_box" ng-class="deal.highlight == true ? 'deals-list-highlight' : ''">
+                            <div class="deals-list_top">
+                                <div class="deals-list_trader">
+                            <span class="deals-list_avatar-wrapper" ng-if="deal.my_role === 'seller'">
+                                <img class="deals-list_avatar" ng-if="!deal.buyer.profile_pic" ng-src="https://graph.facebook.com/{{deal.buyer.fb_id}}/picture?type=normal">
+                                <img class="deals-list_avatar" ng-if="deal.buyer.profile_pic" ng-src={{deal.buyer.profile_pic}}>
+                            </span>
+                            <span class="deals-list_avatar-wrapper" ng-if="deal.my_role === 'buyer'">
+                                <img class="deals-list_avatar" ng-if="!deal.seller.profile_pic" ng-src="https://graph.facebook.com/{{deal.seller.fb_id}}/picture?type=normal">
+                                <img class="deals-list_avatar" ng-if="deal.seller.profile_pic" ng-src={{deal.seller.profile_pic}}>
+                            </span>
+                                    <span ng-if="deal.my_role === 'seller'" class="deals-list_name">Buyer: {{deal.buyer.name}}</span>
+                                    <span ng-if="deal.my_role === 'buyer'" class="deals-list_name">Seller: {{deal.seller.name}}</span>
+                                </div>
+                                <div class="deals-list_update-time ion-android-time">{{deal.updated_on_ago}}</div>
+                            </div>
+                            <div class="deals-list_btm game-list">
+                                <div class="game-list-thumbnail">
+                                    <img class="deals-list_game-cover" ng-src="{{deal.collection.cover_pic}}">
+                                </div>
+                                <div class="game-list_game-info">
+                                    <p class="game-list_trade-type">{{deal.trade_type}}</p>
+                                    <p class="game-list_game-title">{{deal.collection.title}}</p>
+                                    <p class="game-list_game-platform" ng-if="deal.collection.collect_format != 'console'">{{deal.collection.platform}} | {{deal.collect_format_message}}</p>
+                                    <p class="game-list_game-platform" ng-if="deal.collection.collect_format == 'console'">{{deal.collection.platform}}</p>
+                                    <p class="game-list_game-deal">
+                                        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                                        <span class="game-list_game-price">
+                                            {{deal.listing_price}}
+                                            <span class="game-list_price-unit">{{deal.price_unit}}</span>
+                                        </span>
+                                    </p>
+                                    <p class="deals-list_status ion-ios-information-outline deals-list_update-alart">{{deal.status_message}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+            <div ng-if="data.watches_active">
+                <div class="intro" ng-if="data.watches_placeholderpic_flag">
+                    <img class="intro_graphic" src="img/graphics/controllers/atari.png" alt="Start watching video games on GBG">
+                    <p class="intro_tips">{{data.watches_message}}</p>
+                </div>
+                <ion-list>
+                    <ion-item class="deals-list" ng-click="goto_collection_profile_by_tab(watch.collection_id, 'deals')" ng-repeat="watch in data.watches | orderBy:'updated_on':true">
+                        <div class="deals-list_box">
+                            <div class="deals-list_top">
+                                <div class="deals-list_trader">
+                                    <span class="deals-list_avatar-wrapper">
+                                        <img class="deals-list_avatar" ng-if="!watch.profile_pic" ng-src="https://graph.facebook.com/{{watch.fb_id}}/picture?type=normal">
+                                        <img class="deals-list_avatar" ng-if="watch.profile_pic" ng-src={{watch.profile_pic}}>
+                                    </span>
+                                    <span class="deals-list_name">Seller: {{watch.name}}</span>
+                                </div>
+                            </div>
+                            <div class="deals-list_btm game-list">
+                                <div class="game-list-thumbnail">
+                                    <img class="deals-list_game-cover" ng-src="{{watch.picture}}">
+                                </div>
+                                <div class="game-list_game-info">
+                                    <p class="game-list_game-title">{{watch.title}}</p>
+                                    <p class="game-list_game-platform" ng-if="watch.collect_format != 'console'">{{watch.platform}} | {{watch.collect_format_message}}</p>
+                                    <p class="game-list_game-platform" ng-if="watch.collect_format == 'console'">{{watch.platform}}</p>
+                                    <p class="game-list_game-deal">
+                                        <i class="gbg-currency"><img src="img/icons/dollar.svg" alt="GBG Currency"></i>
+                                        <span class="game-list_game-price">
+                                            {{watch.price_sell}}
+                                            <span class="game-list_price-unit">{{watch.price_unit}}</span>
+                                        </span>
+                                    </p>
+                                    <p class="game-list_game-distance ion-location">{{watch.miles}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-modal-view class="touchpoint popoverr new-post">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeEmailValidationPopup()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'VALIDATE_EMAIL' | translate}}</h1>
+      
+      <p>{{ 'VALIDATED_EMAIL_REQUIRED' | translate}}</p>
+
+      <p>{{ 'VALIDATED_EMAIL_CONTACTS' | translate }}</p>
+
+      <div class="clearfix">
+        <button ng-click="resendValidationEmail()" class="button-start">
+          {{ 'RESEND_VALIDATION_EMAIL' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

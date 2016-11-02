@@ -1,0 +1,4 @@
+<a style="top: {{hotspot.Coordinates.Top}}%; left: {{hotspot.Coordinates.Left}}%;" ng-click="toggleHotspots();">
+    <i class="ion-android-radio-button-off"></i>
+    <span class="tooltip" ng-show="hotspot.isVisible" ng-click="visitLink(hotspot.DestinationUrl)">{{hotspot.Description}}</span>
+</a>

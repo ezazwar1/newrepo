@@ -1,0 +1,23 @@
+<ion-modal-view class="touchpoint popoverr new-post">
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeJoinGroupModal()" class="go-back">X</a>
+
+    <div class="box">
+
+      <h1>{{ 'JOIN_GROUP_TITLE' | translate}}</h1>
+        <label ng-if="showGroupCode">{{ 'GROUP_CODE_LABEL' | translate }}</label>
+        <input ng-if="showGroupCode" type="text" placeholder="{{ 'GROUP_CODE_PLACEHOLDER' | translate}}" name="inviteEmails" id="groupCode">
+         <p ng-if="groupCodeError" class="error">{{groupCodeError}}</p>
+
+        <label>{{ 'GROUP_NICKNAME_LABEL' | translate}}</label>
+        <input type="text" placeholder="{{ 'GROUP_NICKNAME' | translate }}" name="groupNickname" id="groupNickname" ng-model="joinGroupNickname">
+      <div ng-if="groupError" class="error">{{groupError}}</div>
+      <p class="no-indent">{{ 'JOIN_GROUP_COPY' | translate}}</p>
+      <div class="clearfix">
+        <button ng-click="joinGroup()" class="button-start" ng-disabled="joiningGroup">
+          {{ 'JOIN_GROUP' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

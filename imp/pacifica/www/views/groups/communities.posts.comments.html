@@ -1,0 +1,85 @@
+<ion-view id="groupPosts" class="community-board comments">
+
+  <!-- Because of the dynamic nature of loading communities, this cannot be in the title attribute. -->
+  <ion-nav-title>
+     {{ 'POST_COMMENTS' | translate }}
+  </ion-nav-title>
+
+  <div class="back is-white"></div>
+
+  <ion-content> 
+
+ 
+    <div class="post-text">
+      <div class="{{getPostAvatar(post)}} avatar" ng-click="viewUserProfile($event, post)"></div>
+      <div class="author"><span><strong ng-click="viewUserProfile($event, post)">{{getPostCreatorNickname(post)}}</strong><br>{{getPostDate(post)}}</span></div>
+      <div ng-bind-html="getCommentPostTitle(post)"></div>
+
+      <div class="community-actions-wrapper clearfix">
+
+        <a ng-if="!hasVote(post)" href="javascript:;" ng-click="voteUp($event, post)" class="row-options"><i class="icon ion-ios-heart-outline"></i><span class="tiny-label">{{post.score}}</span></a>
+        <a ng-if="hasVote(post)" href="javascript:;" ng-click="removeVote($event, post)" class="row-options"><i class="icon ion-ios-heart"></i><span class="tiny-label"><b>{{post.score}}</b></span></a>
+
+        <a href="javascript:;" class="row-options"><i class="icon ion-ios-chatbubble-outline"></i><span class="tiny-label">{{post.comments}}</span></a>
+
+        <a href="javascript:;" ng-click="sharePost($event, post)" class="row-options"><i class="icon ion-ios-redo-outline"></i><span class="tiny-label">{{ 'SHARE' | translate }}</span></a>
+
+        <a href="javascript:;" ng-click="showReportPost($event, post)" ng-if="!isPostOwner(post)" class="row-options"><i class="icon ion-ios-flag-outline"></i><span class="tiny-label">{{ 'REPORT' | translate }}</span></a>
+
+        <a href="javascript:;" ng-click="addExperiment($event, post)" ng-if="showAddExperiment(post)" class="row-options"><i class="icon ion-ios-bolt-outline"></i><span class="tiny-label">{{ 'COPY' | translate }}</span></a>
+
+        <a href="javascript:;" ng-click="deletePost($event, post)" ng-if="isPostOwner(post)" class="row-options"><i class="icon ion-ios-trash-outline"></i><span class="tiny-label">{{ 'DELETE' | translate }}</span></a>
+      </div>
+
+
+    </div>
+    <div class="item item-divider" style="margin-top: 0;">{{ 'COMMENTS' | translate }}</div>
+    <div class="community-tabs">
+        <a href="javascript:;" ng-click="showNew()" class="community-tab" ng-class="{active: order == 'date'}">{{ 'NEW' | translate }}</a>
+        <a href="javascript:;" ng-click="showAllTime()" class="community-tab" ng-class="{active: order == 'score'}">{{ 'TOP' | translate }}</a>
+    </div>  
+    <div ng-if="loadingComments" class="loading">
+      <ion-spinner class="icon-refreshing"></ion-spinner>
+    </div>
+
+    <div ng-if="!loadingComments" class="community-posts">
+
+      <div ng-if="!postComments || postComments.length == 0">
+        <h2 class="quote">{{ 'COMMENTS_EMPTY' | translate }}</h2>
+      </div>
+      <div ng-repeat="comment in postComments" ng-if="postComments && postComments.length > 0" class="post">
+        <div class="{{getPostAvatar(comment)}} avatar" ng-click="viewUserProfile($event, comment)"></div>
+          <div class="author">
+            <span><strong ng-click="viewUserProfile($event, comment)">{{getPostCreatorNickname(comment)}}</strong><br>{{getPostDate(comment)}}</span>
+          </div>
+          <div ng-bind-html="getPostTitle(comment, true)"></div>
+
+         <div class="community-actions-wrapper clearfix">
+
+        <a ng-if="!hasCommentVote(comment)" href="javascript:;" ng-click="voteCommentUp($event, comment)" class="row-options"><i class="icon ion-ios-heart-outline"></i><span class="tiny-label">{{comment.score}}</span></a>
+        <a ng-if="hasCommentVote(comment)" href="javascript:;" ng-click="removeCommentVote($event, comment)" class="row-options"><i class="icon ion-ios-heart"></i><span class="tiny-label"><b>{{comment.score}}</b></span></a>
+
+        <a href="javascript:;" ng-click="showReportComment($event, comment)" ng-if="!isPostOwner(comment)" class="row-options"><i class="icon ion-ios-flag-outline"></i><span class="tiny-label">{{ 'REPORT' | translate }}</span></a>
+
+        <a href="javascript:;" ng-click="deleteComment($event, comment)" ng-if="isPostOwner(comment)" class="row-options"><i class="icon ion-ios-trash-outline"></i><span class="tiny-label">{{ 'DELETE' | translate }}</span></a>
+      </div>
+
+      </div>
+
+    </div>
+
+
+    <div ng-show="canLoadMore && postComments && postComments.length > 0" class="load-more" style="padding-bottom:60px;">
+      <a href="javascript:;" ng-click="loadMorePostComments()">{{ 'LOAD_MORE' | translate }}</a>
+    </div>
+    <div ng-show="!canLoadMore && postComments && postComments.length > 0" class='load-more' style="padding-bottom:60px;">
+
+    </div>
+    
+  </ion-content>
+
+  <div class="write-message shadow" ng-class="{'is-focused': isInputFocused()}">
+    <textarea id="postText" placeholder="{{ 'GROUP_POST_PLACEHOLDER' | translate }}" maxlength="512" style="{{ getGroupRemainingPostCharacters() < 20 ? 'color:red' : ''}}" ng-focus="inputFocused()" ng-blur="inputBlurred()" ng-model="groupPostData.postText" ng-disabled="postingComment"></textarea>
+    <button ng-click="postComment($event)" ng-disabled="postingComment || !hasPostText()" class="post-button" ng-class="{'is-on': hasPostText()}">{{ 'POST' | translate }}</button>
+  </div>
+</ion-view>

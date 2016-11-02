@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="1047.000000pt"
+   height="1024.000000pt"
+   viewBox="0 0 1047.000000 1024.000000"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg2"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="gplus.svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview14"
+     showgrid="false"
+     inkscape:zoom="0.184375"
+     inkscape:cx="407.59534"
+     inkscape:cy="640"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="0,1"
+       position="1068.4746,1063.0508"
+       id="guide2985" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="254.91525,374.23729"
+       id="guide2987" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-878.64407,222.37288"
+       id="guide2989" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="1068.4746,1063.0508"
+       id="guide2991" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4">
+Created by potrace 1.11, written by Peter Selinger 2001-2013
+<rdf:RDF>
+  <cc:Work
+     rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+  </cc:Work>
+</rdf:RDF>
+</metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Camada">
+    <rect
+       style="fill:#ffffff;fill-opacity:1"
+       id="rect2993"
+       width="776.67798"
+       height="791.86438"
+       x="132.33896"
+       y="112.81359" />
+  </g>
+  <g
+     transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
+     id="g6"
+     stroke="none"
+     fill="#000000">
+    <path
+       d="M516 9900 c-63 -25 -138 -98 -168 -164 l-23 -51 0 -4550 0 -4550 33 -67 c37 -75 72 -110 152 -147 l55 -26 4660 0 4660 0 57 28 c70 34 131 101 158 174 l20 54 -2 4547 -3 4547 -21 46 c-31 67 -78 114 -146 149 l-61 30 -4661 0 c-4580 -1 -4662 -1 -4710 -20z m5848 -1479 c-5 -5 -132 -86 -281 -180 l-273 -171 -249 0 -250 0 147 -147 c243 -244 361 -456 418 -753 26 -140 24 -391 -5 -527 -70 -335 -238 -579 -597 -870 -144 -116 -246 -228 -291 -321 -36 -73 -38 -80 -38 -176 0 -91 3 -107 29 -160 39 -79 114 -152 331 -321 614 -477 810 -735 871 -1146 57 -389 -75 -791 -368 -1121 -258 -290 -693 -520 -1173 -622 -251 -52 -345 -61 -700 -61 -356 0 -447 9 -685 62 -567 126 -967 429 -1111 841 -48 137 -65 351 -39 494 42 228 163 458 333 631 365 372 958 577 1834 635 l111 7 -66 90 c-134 181 -182 310 -182 489 0 105 15 176 59 285 l22 53 -23 -5 c-13 -4 -84 -9 -158 -13 -609 -31 -1121 250 -1372 751 -158 316 -185 680 -76 1025 108 341 335 640 640 843 302 201 698 333 1143 382 144 15 2015 21 1999 6z m1266 -2321 l0 -430 435 0 435 0 0 -215 0 -215 -432 -2 -433 -3 -3 -432 -2 -433 -215 0 -215 0 0 435 0 435 -425 0 -425 0 0 215 0 215 425 0 425 0 0 430 0 430 215 0 215 0 0 -430z"
+       id="path8"
+       style="fill:#dc4a38;fill-opacity:1" />
+    <path
+       d="M3933 8089 c-65 -11 -201 -60 -262 -95 -206 -120 -330 -307 -376 -571 -21 -117 -21 -358 0 -498 87 -584 382 -1059 751 -1209 291 -118 644 -43 875 185 63 62 85 93 122 170 80 166 107 345 87 577 -54 652 -373 1224 -776 1392 -131 54 -283 72 -421 49z"
+       id="path10"
+       style="fill:#dc4a38;fill-opacity:1" />
+    <path
+       d="M4345 4264 c-836 -53 -1343 -325 -1471 -789 -24 -89 -30 -303 -10 -398 81 -394 415 -686 926 -810 389 -95 842 -83 1174 30 322 110 541 327 618 612 28 102 30 315 5 416 -41 164 -152 327 -338 494 -88 79 -365 293 -532 411 l-47 33 -133 2 c-72 2 -159 1 -192 -1z"
+       id="path12"
+       style="fill:#dc4a38;fill-opacity:1" />
+  </g>
+</svg>

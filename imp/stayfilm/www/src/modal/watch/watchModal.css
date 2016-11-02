@@ -1,0 +1,446 @@
+/* line 3, watchModal.scss */
+.modal-watch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+  min-height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+/* line 13, watchModal.scss */
+.modal-watch .has-comment-footer {
+  bottom: 60px;
+}
+/* line 17, watchModal.scss */
+.modal-watch .comment-footer {
+  height: 60px;
+  padding: 0;
+  background: #fff;
+  border: none;
+}
+/* line 23, watchModal.scss */
+.modal-watch .comment-footer .user-avatar {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 40px;
+  -moz-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+/* line 29, watchModal.scss */
+.modal-watch .comment-footer .user-avatar img {
+  object-fit: cover;
+}
+/* line 34, watchModal.scss */
+.modal-watch .comment-footer form {
+  width: 100%;
+  height: 100%;
+}
+/* line 38, watchModal.scss */
+.modal-watch .comment-footer form .input-wrapper {
+  padding: 8px;
+  border: none;
+  margin: 0;
+}
+/* line 43, watchModal.scss */
+.modal-watch .comment-footer form .input-wrapper .item-input-wrapper {
+  background: #dedee0;
+}
+/* line 46, watchModal.scss */
+.modal-watch .comment-footer form .input-wrapper .item-input-wrapper .comment-input {
+  padding: 22px 5px;
+  background: #dedee0;
+  color: #9aa7b2;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 14px;
+}
+/* line 56, watchModal.scss */
+.modal-watch .comment-footer form .input-wrapper:before {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  left: -12px;
+  position: absolute;
+  width: 0;
+  border-width: 10px;
+  border-right-color: #dedee0;
+  top: 20px;
+}
+/* line 69, watchModal.scss */
+.modal-watch .comment-footer form button {
+  background: #9aa7b2;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+/* line 78, watchModal.scss */
+.modal-watch .comment-footer .toggle-comment {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  background: #dedee0;
+  cursor: pointer;
+  height: 40px;
+  color: #9aa7b2;
+  border-radius: 5px;
+}
+/* line 89, watchModal.scss */
+.modal-watch .comment-footer .toggle-comment:before {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  left: -20px;
+  position: absolute;
+  width: 0;
+  border-width: 10px;
+  border-right-color: #dedee0;
+  top: 10px;
+}
+/* line 103, watchModal.scss */
+.modal-watch .jwplayer-container {
+  position: relative;
+  padding-bottom: 56%;
+  background: #8f8f96;
+}
+/* line 108, watchModal.scss */
+.modal-watch .jwplayer-container #movie-player {
+  position: absolute;
+}
+/* line 112, watchModal.scss */
+.modal-watch .jwplayer-container .manual-control {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80%;
+}
+/* line 121, watchModal.scss */
+.modal-watch .user-header-bar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: #fff;
+  border: none;
+  position: relative;
+}
+/* line 127, watchModal.scss */
+.modal-watch .user-header-bar .user-thumb {
+  -webkit-flex-basis: 30px;
+  -moz-flex-basis: 30px;
+  flex-basis: 30px;
+  -ms-flex-preferred-size: 30px;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+}
+/* line 132, watchModal.scss */
+.modal-watch .user-header-bar .user-thumb img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+/* line 139, watchModal.scss */
+.modal-watch .user-header-bar .username {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  display: block;
+  margin: 7px;
+  color: #ad252a;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+  margin-right: 44px;
+}
+/* line 153, watchModal.scss */
+.modal-watch .user-header-bar .buttons {
+  position: absolute;
+  right: 5px;
+}
+/* line 157, watchModal.scss */
+.modal-watch .user-header-bar .buttons button {
+  width: 44px;
+  height: 44px;
+}
+/* line 161, watchModal.scss */
+.modal-watch .user-header-bar .buttons button img {
+  width: 20px;
+  margin-top: -5px;
+}
+/* line 167, watchModal.scss */
+.modal-watch .user-header-bar .buttons .ellipsis-button {
+  padding-top: 12px;
+  margin-right: 15px;
+}
+/* line 171, watchModal.scss */
+.modal-watch .user-header-bar .buttons .ellipsis-button img {
+  width: 20px;
+  height: 20px;
+}
+/* line 179, watchModal.scss */
+.modal-watch .movie-actions {
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 183, watchModal.scss */
+.modal-watch .movie-actions img {
+  width: 44px;
+}
+/* line 187, watchModal.scss */
+.modal-watch .movie-actions .like-button {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  width: 50%;
+  text-align: center;
+}
+/* line 192, watchModal.scss */
+.modal-watch .movie-actions .like-button .crown {
+  position: relative;
+  width: 30px;
+  margin-right: 5px;
+}
+/* line 198, watchModal.scss */
+.modal-watch .movie-actions .like-button .yes {
+  width: 40px;
+  margin-right: 7px;
+}
+/* line 204, watchModal.scss */
+.modal-watch .movie-actions .share-button {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  width: 50%;
+  text-align: center;
+}
+/* line 209, watchModal.scss */
+.modal-watch .movie-actions .share-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+/* line 215, watchModal.scss */
+.modal-watch .movie-actions .share-button span {
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 14px;
+  color: #9aa7b2;
+}
+/* line 221, watchModal.scss */
+.modal-watch .movie-actions .share-button.shared {
+  opacity: 0.5;
+}
+/* line 223, watchModal.scss */
+.modal-watch .movie-actions .share-button.shared span {
+  color: #ad252a;
+}
+/* line 230, watchModal.scss */
+.modal-watch .secondary-actions {
+  margin: 20px 0 20px;
+}
+/* line 233, watchModal.scss */
+.modal-watch .secondary-actions button {
+  float: right;
+  width: auto;
+  border: 1px solid #d4d9de;
+  padding: 5px 10px;
+  margin: 10px 10px 0;
+  font-size: 12px;
+  color: #9aa7b2;
+}
+/* line 245, watchModal.scss */
+.modal-watch .movie-title {
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 22px;
+  margin: 10px 20px 20px 45px;
+}
+/* line 251, watchModal.scss */
+.modal-watch .movie-status {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 20px 20px 45px;
+}
+/* line 255, watchModal.scss */
+.modal-watch .movie-status .movie-icons {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 190px;
+  -moz-flex: 0 0 190px;
+  -ms-flex: 0 0 190px;
+  flex: 0 0 190px;
+}
+/* line 260, watchModal.scss */
+.modal-watch .movie-status img {
+  width: 20px;
+}
+/* line 264, watchModal.scss */
+.modal-watch .movie-status .yes, .modal-watch .movie-status .comments, .modal-watch .movie-status .views, .modal-watch .movie-status .created {
+  width: 100%;
+  color: #9aa7b2;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 12px;
+  margin-right: 10px;
+  min-width: 60px;
+}
+/* line 272, watchModal.scss */
+.modal-watch .movie-status .yes span, .modal-watch .movie-status .comments span, .modal-watch .movie-status .views span, .modal-watch .movie-status .created span {
+  position: relative;
+}
+/* line 277, watchModal.scss */
+.modal-watch .movie-status .yes {
+  position: relative;
+}
+/* line 280, watchModal.scss */
+.modal-watch .movie-status .yes img {
+  width: 35px;
+}
+/* line 285, watchModal.scss */
+.modal-watch .movie-status .comments {
+  margin-right: 0;
+}
+/* line 287, watchModal.scss */
+.modal-watch .movie-status .comments span {
+  top: -7px;
+}
+/* line 292, watchModal.scss */
+.modal-watch .movie-status .created {
+  position: relative;
+  text-align: right;
+  min-width: 60px;
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+}
+/* line 302, watchModal.scss */
+.modal-watch .movie-synopsis {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  margin: 20px 20px 20px 45px;
+  color: #7a7a7a;
+}
+/* line 310, watchModal.scss */
+.modal-watch .comment-list .comment-item {
+  border: none;
+}
+/* line 313, watchModal.scss */
+.modal-watch .comment-list .comment-item .item-content {
+  /* ionic auto-generated component */
+  padding: 0;
+}
+/* line 317, watchModal.scss */
+.modal-watch .comment-list .comment-item .avatar {
+  margin: 5px;
+  background: #eee;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  overflow: hidden;
+  padding: 0;
+}
+/* line 327, watchModal.scss */
+.modal-watch .comment-list .comment-item .content {
+  padding: 0 5px;
+}
+/* line 330, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-info {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
+}
+/* line 334, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-info .name {
+  -webkit-flex-grow: 1;
+  -moz-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-positive: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  color: #ad252a;
+  margin: 12px 0px 0;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 16px;
+}
+/* line 344, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-info .name .status {
+  margin-left: 5px;
+}
+/* line 347, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-info .name .status.ion-checkmark {
+  font-size: 12px;
+  color: #0b0;
+}
+/* line 352, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-info .name .status.ion-alert-circled {
+  color: #b00;
+}
+/* line 357, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-info .name ion-spinner svg {
+  width: 18px;
+  height: 18px;
+}
+/* line 363, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-info .comment-date {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 80px;
+  -moz-flex: 0 0 80px;
+  -ms-flex: 0 0 80px;
+  flex: 0 0 80px;
+  text-align: right;
+  margin: 12px 20px 0;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+/* line 374, watchModal.scss */
+.modal-watch .comment-list .comment-item .content .comment-body .comment {
+  white-space: normal;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 14px;
+  color: #7a7a7a;
+}

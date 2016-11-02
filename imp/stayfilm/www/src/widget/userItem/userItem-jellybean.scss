@@ -1,0 +1,42 @@
+@import 'variables';
+
+.user-list {
+	.user-item {
+		.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+			@include clearfix();
+			display: block;
+		}
+
+		.thumb
+		{
+			.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+				float: left;
+			}
+		}
+
+		.user-info {
+			.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+				float: left;
+				width: 100px;
+
+				@media (min-width: 250px) {
+					width: 120px;
+				}
+
+				@media (min-width: 321px) {
+					width: 170px;
+				}
+
+				@media (min-width: 500px) {
+					width: 250px;
+				}
+			}
+		}
+
+		.actions {
+			.platform-android4_1 &, .platform-android4_2 &, .platform-android4_3 &, .platform-ios6 & {
+				float: right;
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+<ion-nav-bar align-title="center" class="bar bar-triby"></ion-nav-bar>
+<ion-view cache-view="false">
+  <ion-tabs class="tabs-icon-top tabs-color-active-positive bottom-nav">
+    <!-- notification Tab -->
+    <ion-tab icon-off="ion-ios-bell-outline" hidden="true" icon-on="ion-ios-bell" ui-sref="app.main.home">
+      <ion-nav-view name="tab-home"></ion-nav-view>
+    </ion-tab>
+    <!-- notification Tab -->
+    <!--<ion-tab icon-off="ion-ios-bell-outline" badge="$root.notificationEventsCount" badge-style="badge-positive" icon-on="ion-ios-bell" ui-sref="app.noti">-->
+      <!--<ion-nav-view animation="none" name="tab-notification"></ion-nav-view>-->
+    <!--</ion-tab>-->
+    <!-- chats Tab -->
+    <ion-tab title="Chats" icon-off="ion-chatbubbles" icon-on="ion-chatbubbles" badge="unreadMessages" badge-style="badge-positive" ui-sref="app.chats">
+      <ion-nav-view name="tab-settings"></ion-nav-view>
+    </ion-tab>
+    <!-- add triby Tab -->
+    <ion-tab title="Groups" icon-off="ion-ios-people" on-click="" icon-on="ion-ios-people" class="create_new_tribys_icons events-none" badge="unreadGroupsNotifications" badge-style="badge-positive top15">
+      <ion-nav-view name="tab-home"></ion-nav-view>
+    </ion-tab>
+    <!-- add contacts Tab -->
+    <!--<ion-tab title="Contacts" icon-off="ion-ios-personadd-outline" icon-on="ion-ios-personadd" ui-sref="app.add_people({chatName: triby.name})"">-->
+    <ion-tab title="Contacts" icon-off="ion-ios-personadd-outline" icon-on="ion-ios-personadd" ui-sref="app.contacts_page"">
+      <ion-nav-view name="tab-settings"></ion-nav-view>
+    </ion-tab>
+    <!-- Setting Tab -->
+    <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" ng-click="go('app/settings/Groups')">
+      <ion-nav-view name="tab-settings"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>

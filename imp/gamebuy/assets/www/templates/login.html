@@ -1,0 +1,47 @@
+<ion-view title="Login" hide-nav-bar="true">
+    <ion-content>
+        <div class="login_wrapper">
+
+            <div class="login_logo">
+                <img class="login_logo-image" src="img/logos/gbg-gamebuygame-square-logo.svg" alt="GBG logo">
+            </div>
+
+            <div class="login_form">
+                <button class="button button-block button-primary ion-social-facebook" ng-click="fblogin()">Log In with Facebook</button>
+
+                <span class="login_divider-text">or</span>
+
+                <div class="form-group form-group-login">
+                    <i class="input-icon ion-ios-email"></i>
+                    <input class="form-input" type="email" name="email" ng-model="data.email" placeholder="Email" />
+                    <!-- <label class="form-label-login">Email address</label> -->
+                </div>
+                
+                <div class="form-group">
+                    <i class="input-icon ion-ios-locked"></i>
+                    <input class="form-input" type="password" name="password" ng-model="data.password" placeholder="Password" />
+                    <!-- <label class="form-label-login">Password</label> -->
+                </div>
+                <button class="button button-block button-primary" ng-disabled="login_disabled" ng-click="login()">Log In</button>
+            </div>
+
+            <div class="login_more-options">
+                <button class="button-link login_option-item" ui-sref="register">Sign up for GBG</button>
+                <button class="button-link login_option-item" ui-sref="forgot">Forgot your password?</button>
+            </div>
+        </div>
+
+<script>
+    $('.login_wrapper').css('height',$(window).height()+'px');
+
+    // $('.js-input-animation-trigger-password').on('click', function(e) {
+    //   $('.js-password').toggleClass("js-input-animation-play");
+    // });
+
+    // $('.js-input-animation-trigger-email').on('click', function(e) {
+    //   $('.js-email').toggleClass("js-input-animation-play");
+    // });
+</script>
+
+    </ion-content>
+</ion-view>

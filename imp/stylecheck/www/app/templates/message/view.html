@@ -1,0 +1,49 @@
+<ion-view>
+    <ion-content delegate-handle="messageScroller">
+        <ion-refresher
+                pulling-text="{{dict.pullToRefresh}}"
+                on-refresh="loadMore(true)"
+                spinner="crescent">
+        </ion-refresher>
+        <h2 class="padding-top padding-left">{{dict.notifications}}</h2>
+        <p ng-if="loaded && !messages.entries.length" class="padding-left padding-right">{{dict.noMessages}}</p>
+        <ion-list ng-show="messages.entries.length" class="list margin-top message-list">
+            <ion-item class="item" collection-repeat="message in messages.entries" item-height="100px" ng-class="{'new': message.new, 'no-border': $last}" ng-click="goTo(message.type, message)">
+                <div class="item-content-wrapper flex-1 display-flex align-center" ng-class="{'no-border': $last}">
+                    <div ng-if="message && message.imagePath" class="circle thumbnail no-background" style="background-image:url({{message.imagePath}});"></div>
+                    <div ng-if="message && !message.imagePath" class="circle assertive thumbnail" >
+                        <i ng-if="message.type === 'removedStyle'" class="icon icon-report light"></i>
+                        <i ng-if="message.type === 'levelUp'" class="icon ion-trophy light"></i>
+                    </div>
+                    <div class="flex-1 message">
+                        {{message.textToShow}}
+                        <span ng-if="message.type === 'levelUp' && message.data.level.price && message.data.level.price.length">
+                            {{message.data.level.price[0].text}}
+                        </span>
+                    </div>
+                    <div class="uppercase stable small text-right date">
+                        <span>{{getDate(message.creationDate)}}</span><br>
+                        <span>{{getDate(message.creationDate, true)}} {{dict.oClock}}</span>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+            on-infinite="loadMore()"
+            ng-if="entered && (!messages.pager.page || messages.pager.page < messages.pager.pages)"
+            distance="1%"
+            spinner="crescent">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>
+<script id="app/templates/priceDetailsModal.html" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar align-title="left">
+            <h1 class="title uppercase bold">{{dict.priceDetails}}</h1>
+            <button class="button button-clear button-dark icon icon-close" ng-click="closeModal()"></button>
+        </ion-header-bar>
+        <ion-content>
+           <p class="padding" ng-bind-html="trustAsHTML(priceDetails.text)"></p>
+        </ion-content>
+    </ion-modal-view>
+</script>

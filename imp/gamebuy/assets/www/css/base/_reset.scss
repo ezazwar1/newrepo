@@ -1,0 +1,68 @@
+
+
+/*------------------------------------*\
+    #RESET
+    
+    Reset the default setting for box-sizing and HTML5 elements
+\*------------------------------------*/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+* {
+ -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+      -o-font-smoothing: antialiased;
+           font-smoothing: antialiased;
+}
+
+
+// Placeholder in the form elements
+::-webkit-input-placeholder { color: #fff; }
+:-moz-placeholder { color: #fff; }
+::-moz-placeholder { color: #fff; }
+:-ms-input-placeholder {
+    color: #fff;
+}
+
+img {
+    box-sizing: content-box;
+}
+
+// HTML5 elements
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+    display: block;
+}
+
+
+
+
+// Scroll bar
+.grade-b .scroll-bar-indicator,
+.grade-c .scroll-bar-indicator {
+    background-color: $baseFontColor;
+}
+
+
+
+// Background color of all the list
+.pane {
+    background-color: $baseBgColor;
+}
+
+
+.item {
+
+    border-color: $dividerColor;
+    background-color: $baseBgColor;
+}
+
+
+
+

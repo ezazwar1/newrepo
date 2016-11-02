@@ -1,0 +1,38 @@
+<ion-view view-title="Дисконтная карта" cache-view="false">
+  <ion-content>
+    <div ng-show='noCard' style="text-align:center;">
+      <div class="card removeBorder">
+        <div class="item item-text-wrap ">
+          <h2>{{messageTitle}}</h2>
+          <br> {{message}}
+        </div>
+      </div>
+      <button ng-click="scan()" class="button button-block button-dark">Сканировать</button>
+    </div>
+    <div ng-show='!noCard'>
+
+      <div class="list card removeBorder">
+
+        <div class="item">
+          <h1>{{cardData.Sale.split('Скидка ').join('').split('%').join('')}}%</h1>
+          <h2>{{cardData.CardHolder}}</h2>
+          <p>Общая сумма покупок: {{cardData.Total | currency:"&#x20bd;":0}}</p>
+        </div>
+
+        <div class="item item-image" style="padding-top:20px; padding-bottom:20px;">
+          <barcode type="{{mycode.type}}" string="{{mycode.code}}" options="options"></barcode>
+        </div>
+
+        <a class="item item-icon-left item-icon-right" href="#/tab/customer/orderHistory">
+          <i class="icon ion-bag"></i> История покупок
+          <i class="icon ion-arrow-right-c"></i>
+        </a>
+
+      </div>
+      <button ng-click="delete()" class="button button-block button-stable">Удалить карту</button>
+    </div>
+
+
+
+  </ion-content>
+</ion-view>

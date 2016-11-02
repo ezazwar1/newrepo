@@ -1,0 +1,131 @@
+<div class="main">
+
+  <div class="drawer" ng-class="{'menu-active': isActive}">
+    <div class="drawer__container">
+      <div class="drawer__first-row">
+        <div class="logo"><img class="title-image" src="img/logo-app.png" /></div>
+        <div class="back-toggle" ng-click='toggleActive()'><div class="back"></div></div>
+      </div>
+
+      <a class="drawer__option" ng-click='goToUnlock()'>
+        <div class="icon">
+          <img src="img/ico-lock.png" />
+        </div>
+        Welzen Subscription
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <!-- <a ui-sref="stats" class="drawer__option" ng-click='toggleActive()'>
+        <div class="icon">
+          <img src="img/ico-nav-stats.png" />
+        </div>
+        View Your Stats
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a> -->
+
+     <!--  <a class="drawer__option" ng-click='toggleActive()' ui-sref='corporate'>
+        <div class="icon">
+          <img src="img/ico-nav-corporate.png" />
+        </div>
+        Corporate Connect
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a> -->
+
+      <a ui-sref="reminders" class="drawer__option" ng-click='toggleActive()'>
+        <div class="icon">
+          <img src="img/ico-nav-reminders.png" />
+        </div>
+        Mindful Reminders
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a ui-sref="mindfulness-coaching" class="drawer__option " ng-click='toggleActive()'>
+        <div class="icon">
+          <img src="img/ico-coaching.png" />
+        </div>
+        Mindful Coaching
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a ui-sref="science" class="drawer__option" ng-click='toggleActive()'>
+        <div class="icon">
+          <img src="img/ico-science.png" />
+        </div>
+        The Science
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a ui-sref="settings" class="drawer__option" ng-click='toggleActive()'>
+        <div class="icon">
+          <img src="img/ico-gear.png" />
+        </div>
+        App Settings
+        <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+      </a>
+
+      <a ng-if="isLogged();" class="drawer__cta" href='#/main' ng-click='toggleActive();logout();'>Log Out</a>
+      <a ng-if="!isLogged();" class="drawer__cta" href='#/login' ng-click='toggleActive()'>Sign In</a>
+
+    </div>
+  </div>
+
+  <div class="welzen-popup" ng-class="{'popup-active': popUpActive}">
+    <div class="welzen-popup__container">
+      <div class="welzen-popup__close" ng-click='togglePopUpActive()'><img src="img/ico-close.svg"></div>
+      <span class="welzen-popup__title">Unlock Welzen</span>
+      <span class="welzen-popup__contents">Receive access to all of Welzen’s premium Mindfulness tools. Deepen your practice with our category series, single meditations and fun coaching sessions.</span>
+      <div class="welzen-popup__separator"></div>
+      <a href="#/unlock" class="welzen-popup__cta" ng-click='togglePopUpActive()'>Subscribe</a>
+    </div>
+  </div>
+  <div class="welzen-popup__overlay" ng-class="{'popup-active': popUpActive}" ng-click='togglePopUpActive()'></div>
+
+  <div class="overlay" ng-class="{'menu-active': isActive}" ng-click='toggleActive()'></div>
+
+  <ion-view class="bg-welzen" view-title="Main">
+
+
+    <ion-header-bar align-title="center" class="header">
+      <div class="burger-toggle" ng-click='toggleActive()'><div class="burger"></div></div>
+      <div class="logo"><img class="title-image" src="img/logo-app.png" /></div>
+      <!--<a class="reminder"></a>-->
+        <a class="lock" ng-click='togglePopUpActive()' ng-show="!isPremium() && hasReminders()"></a>
+         <!--esto lo hago de burro porque no sé de css. Chino-->
+        <a style="width: 70px;" ng-show="isPremium() && hasReminders()"></a>
+        <a class="reminder" ui-sref="reminders" ng-show="!hasReminders();"></a>
+
+    </ion-header-bar>
+
+    <ion-content has-bouncing="true">
+
+      <div class="container">
+
+        <a class="info-box--purple" ng-click="mindfulnessDay();">
+          <div class="info-box__contents"><span class="info-box__header-title">Mindfulness Meditation of the day</span></div>
+          <div class="info-box__forward"><img src="img/btn-forward.svg"></div>
+        </a>
+
+        <a class="info-box--transparent" href="#/5-days">
+          <div class="rounded-icon"><img src="img/ico-five.png"></div>
+          <div class="info-box__contents">
+            <span class="info-box__title">5 Days of Welzen</span>
+            <span class="info-box__brief">Get started with meditation</span>
+          </div>
+          <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+        </a>
+
+        <a class="info-box--transparent" ng-repeat="category in categories" ui-sref="single-meditation({category:'{{category}}'})">
+          <div class="rounded-icon rounded-icon--large"><img ng-src="{{category.new_icon}}"></div>
+          <div class="info-box__contents info-box__contents--push-right">
+            <span class="info-box__title">{{category.title}}</span>
+            <span class="info-box__brief">{{category.description}}</span>
+          </div>
+          <div class="info-box__forward info-box__forward--push-left"><img src="img/btn-forward.svg"></div>
+        </a>
+
+      </div>
+    </ion-content>
+
+  </ion-view>
+
+</div>

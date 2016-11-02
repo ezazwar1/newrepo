@@ -1,0 +1,30 @@
+<ion-modal-view class="touchpoint popoverr mood">
+
+  <div class="back"></div>
+
+  <!-- IMPORTANT -->
+  <!-- THIS CONTENT IS COPIED TO habits.mood.html -->
+
+  <ion-content class="filter-popover">
+    <a href="javascript:;" ng-click="closeMoodModal()" class="go-back">X</a> 
+    <button ng-click="finishEditingMood($event)" ng-disabled="submittingData" class="nav-anchor done">{{ 'DONE' | translate}}</button>
+  
+    <graph-selector values="habit.habitValues" value-data="valueData" selectable="true" colors="colors" color-percentages="colorPercentages" show-ticks="true" goal-percentage="goalPercentage" segmented="true" class="{{noDataError ? 'error' : ''}}" break-words="true"></graph-selector>
+    <span ng-if="!getInteracted()" class="tooltip-default">{{ 'HABITS_MOOD_TOOLTIP' | translate }}</span>
+
+    <div class="note-wrapper" style="height: 100%" ng-if="getInteracted()">
+
+      <div ng-click="showFeelingPopup()">
+        <div ng-show="!hasFeelings()" class="feeling-input empty">
+          <div class="icon ion-android-happy"></div>{{ 'ADD_FEELINGS' | translate }}
+        </div>
+        <div ng-show="hasFeelings()" class="feeling-input">
+          <div class="icon ion-android-happy"></div>{{ getFeelingText() | translate }}
+        </div>
+      </div>
+
+      <textarea ng-model="habitNotes.notes" ng-change="notesChanged()" placeholder="{{ 'WHATS_GOING_ON' | translate }} {{ 'HASHTAGS_DESC' | translate }}" id="habitNote"></textarea>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

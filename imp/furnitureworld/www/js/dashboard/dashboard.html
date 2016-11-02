@@ -1,0 +1,94 @@
+<ion-view view-title="Dashboard">
+  <ion-nav-title class="logo" ui-sref="app.dashboard"></ion-nav-title>
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-buttons side="left"><button  ng-click="toggleLeftSideMenu();" class="button button-icon button-clear ion-navicon"></button></ion-nav-buttons>
+    <ion-nav-buttons side="right">
+    <button class="button button-icon  icon ion-ios-search" ui-sref="app.search"></button>
+     <button class="button button-icon  icon ion-bag" ui-sref="app.shopping-cart">
+       <span class="badge badge-assertive" ng-if="cartItems!=undefined && cartItems!=''">
+         {{cartItems}}
+       </span>
+     </button>
+     <button class="button button-icon  icon ion-android-notifications" ng-click="openNotifications($event)"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="dashboard has-header" overflow-scroll="" padding="">
+    <!-- category scroll in the header section-->
+    <div class="sliderBox">
+      <div class="slider-page-bg"></div>
+      <ion-slide-box auto-play="true" does-continue="true" slide-interval="2000" ng-if="bannerData.length" >
+        <ion-slide ng-repeat="img in bannerData"><img ng-src="{{img.banner_image}}" class="sliderImg" style="width:100%;"> </ion-slide>
+      </ion-slide-box>
+    </div>
+    <!-- end of category scroll in header section -->
+  	<div class="card top-card card_heading"><!--start of first card containing img avatar-->
+      <h3>SHOP FOR</h3>
+  		<div class="row">
+  			<div class="col">
+  				<div class="avatar">
+  					<a class="mens_avtar_img" ng-href="#/app/categories/1"></a>
+  					<p>ACCENT</p>
+  				</div>
+  			</div>
+  			<div class="col">
+  				<div class="avatar">
+  					<a class="womens_avtar_img" ng-href="#/app/categories/2"></a>
+  					<p>DINING</p>
+  				</div>
+  			</div>
+  			<div class="col">
+  				<div class="avatar">
+  					<a class="kids_avtar_img" ng-href="#/app/categories/3"></a>
+  					<p>LIVING</p>
+  				</div>
+  			</div>
+  			<div class="col">
+  				<div class="avatar">
+  					<a class="sale_avtar_img" ng-href="#/app/categories/4"></a>
+  					<p>OOFICE</p>
+  				</div>
+  			</div>
+  		</div><!--end of row for top card section-->
+  	</div><!--end of top card here-->
+
+  	<!--start of the first-card section containing images-->
+    <div class="card"><!--first banner-->
+  		<!-- <div class="item item-image">
+  			<a ng-href="#/app/categories/1"><img class="full-image" ng-src="http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/main-banner/banner1.jpg"></a>
+  		</div> -->
+       <div class="item item-image">
+        <a ng-href="#/app/categories/1"><img class="full-image" height="137" ng-src="img/banner/banner1.jpg"></a>
+      </div>  
+  	</div>
+
+  <!--   <div class="card"> --><!--first banner-->
+  		<!-- <div class="item item-image">
+  			<a ng-href="#/app/categories/2"><img class="full-image" ng-src="http://www.ostwork.com/ionic/themeimg/fashionworld/main-banner/main-banner/banner2.png"></a>
+  		</div> -->
+ <!-- <div class="item item-image">
+        <a ng-href="#/app/categories/2"><img class="full-image" height="137" ng-src="img/banner/banner2.jpg"></a>
+      </div> --> 
+
+
+
+  <!-- 	</div> -->
+  	<div class="card" ng-repeat="baner in bannerMainData"><!--first banner-->
+  		<div class="item item-image">
+  			<a ng-href="#/app/categories/{{baner.banner_cat_id}}"><img class="full-image"  height="137" ng-src="{{baner.banner_image}}"></a>
+  		</div>
+  	</div>
+  	<!--end of first card section containing images-->
+
+    <!--start of trending now section from here-->
+    <div class="card card_heading">
+      <h3>TREANDING NOW</h3>
+    </div>
+    <ion-scroll direction="x" class="catScroll dashboard-scroll" >
+    {{baner.banner_cat_id}}
+      <div class="image-modal" ng-repeat="baner in bannerAdsData">
+        <img class="full-image"  ng-src="{{baner.banner_image}}" ng-click="showProductSpecific(baner.banner_cat_id,baner.b_cat)">
+      </div>
+    </ion-scroll>
+    <!--end of trending now section-->
+  </ion-content>
+</ion-view>

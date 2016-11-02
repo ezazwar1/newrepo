@@ -1,0 +1,172 @@
+@import 'variables';
+
+.sf-movie-mosaic {
+	padding-bottom: 20px;
+	background-color: #fff;
+
+	.mm-header {
+		padding: 11px 18px 8px 12px;
+		@include display(flex);
+		position: relative;
+
+		.user-thumb {
+			display: block;
+			@include flex-basis(30px);
+
+			@include flex-shrink(0);
+			overflow: hidden;
+			margin-right: 10px;
+
+			img {
+				height: 30px;
+			}
+		}
+
+		div.name {
+			@include flex-grow(1);
+			display: block;
+			margin-top: 4px;
+			font-size: 14px;
+			color: $stayfilmColor;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-right: 10px;
+		}
+
+		div.created {
+			@include flex-shrink(0);
+			@include flex-basis(70px);
+			text-align: right;
+
+			margin-top: 4px;
+			color: #7a7a7a;
+			white-space: nowrap;
+		}
+	}
+
+	.mm-subheader {
+		padding: 0 10px 10px 55px;
+		@include display(flex);
+		position: relative;
+		margin-top: -10px;
+
+		.subheader-action {
+			color: #35434d;
+			font-family: HelveticaNeueLT;
+			font-size: 14px;
+			@include flex-shrink(0);
+			white-space: nowrap;
+		}
+
+		.name {
+			font-size: 14px;
+			color: $stayfilmColor;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-right: 10px;
+			margin-left: 7px;
+		}
+	}
+
+	.mm-thumb {
+		position: relative;
+		padding-bottom: 56%;
+		background: #eee;
+		@include transition(all 10s ease);
+
+		img {
+			position: absolute;
+		}
+
+		.mm-play {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			cursor: pointer;
+		}
+	}
+
+	.mm-title {
+		font-size: 20px;
+		font-family: HelveticaNeueTH;
+		color: #35434d;
+		padding: 12px 20px 9px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	.mm-misc {
+		@include display(flex);
+
+		margin: 15px;
+		@include justify-content(space-between);
+
+		.misc-item {
+
+			@include display(flex);
+			@include align-items(center);
+
+			.nb {
+				color: #7a7a7a;
+				font-size: 20px;
+				line-height: 25px;
+				margin-right: 15px;
+				font-family: HelveticaNeueLT, sans-serif;
+				//font-size: 20px;
+			}
+
+			&.active {
+				.nb {
+					color: $stayfilmColor;
+				}
+			}
+
+			img {
+				height: 25px;
+				width: 25px;
+			}
+
+			span {
+				margin: 0 5px;
+				color: #9aa7b2;
+				font-family: HelveticaNeueMD, sans-serif;
+				font-size: 16px;
+			}
+
+			&.permission {
+				span {
+					display: flex;
+					@include align-items(center);
+				}
+			}
+		}
+	}
+
+	.mm-synopsis {
+		margin: 0 20px;
+		font-size: 15px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		color: #7a7a7a;
+		font-family: HelveticaNeueLT, sans-serif;
+		font-size: 14px;
+	}
+
+	.mm-sep {
+		display: block;
+		margin: 20px auto 0;
+		width: 25%;
+	}
+}

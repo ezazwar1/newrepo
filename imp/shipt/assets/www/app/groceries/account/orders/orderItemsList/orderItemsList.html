@@ -1,0 +1,88 @@
+<div class="order-items-list">
+    <p>
+        {{order.id}}
+    </p>
+    <ion-item class="item item-divider slim">
+        Order Details:
+    </ion-item>
+
+
+    <ion-list ng-if="!order.editable">
+        <ion-item class="item item-divider slim no-padding-bottom" >
+            Order Details:
+        </ion-item>
+
+        <div ng-if="order.report_problem_able" class="text-center padding">
+            <button ng-if="showSomethingWrongButton()"
+                    ng-click="somethingWrongWithOrderClick()"
+                    class="button button-assertive button-small button-outline">
+                Something Wrong With An Item?
+            </button>
+            <p class="report-issue-text" ng-if="somethingWrongWithOrder">
+                Click on the "Issue" button on the item that is not correct to report the issue.
+            </p>
+        </div>
+        <ion-item class="item product-item item-button-right"
+                  ng-repeat="order_line in order.order_lines"
+                  ng-init="order_line.current_product = getDisplayProductForOrderLine(order_line)"
+                  ng-class="getClassForItem(order_line)">
+            <img ng-if="order_line.current_product.image_url" ng-src="{{order_line.current_product.image_url}}" alt=""/>
+            <small style=""
+                   class="button button-clear button-dark disabled center center-content qty-item requested" >
+                <small class="black">Requested Qty: {{order_line.requested_qty | number:1}}</small>
+            </small>
+            <small ng-if="order_line.actual_qty"
+                   style=""
+                   class="button button-clear button-dark disabled center center-content qty-item received" >
+                <small class="black">Received Qty: {{order_line.actual_qty | number:1}}</small>
+            </small>
+            <h2>
+                {{getDisplayNameForProduct(order_line.current_product)}}
+            </h2>
+            <p>
+                {{order_line.current_product.price | currency}}
+            </p>
+            <p>
+                {{order_line.current_product.size}}
+            </p>
+            <p class="item-feedback-confirmation"
+                   ng-if="order_line.customer_order_line_feedback">
+                Feedback Saved
+            </p>
+            <p ng-if="order.editable">
+                <button ng-click="addEditNote(order_line)"  class="button button-small button-clear button-positive">
+                    <span class="icon ion-ios-paper-outline"></span>
+                    <span ng-if="!order_line.notes">
+                        Add Note
+                    </span>
+                    <span ng-if="order_line.notes">
+                        Edit Note
+                    </span>
+                </button>
+            </p>
+            <p>{{order_line.notes}}</p>
+            <br/>
+            <div class="sub-item-info" ng-if="orderLineHasSub(order_line)">
+                <i class="icon ion-arrow-swap"></i>
+                <img ng-src="{{order_line.requested_product.image_url}}" alt=""/>
+                <p>Substituted For:</p>
+                <p><small>{{getDisplayNameForProduct(order_line.requested_product)}}</small></p>
+                <p><small>{{order_line.requested_product.price | currency}}</small> - <small>{{order_line.requested_product.size}}</small></p>
+                <p></p>
+            </div>
+            <div class="item-reconcile-area" ng-if="somethingWrongWithOrder" ng-if="showReconciliation()">
+                <div>
+                    <button ng-disabled="order_line.customer_order_line_feedback" class="button button-assertive button-outline button-small button-item-reconcile"
+                            ng-click="itemBadClick(order_line)">
+                        <i class="icon " ng-class="order_line.customer_order_line_feedback ? 'ion-ios-checkmark-outline':'ion-android-alert' "></i> {{order_line.customer_order_line_feedback ? 'Saved':'Issue'}}
+                    </button>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
+
+
+
+</div>

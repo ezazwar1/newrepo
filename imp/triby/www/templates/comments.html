@@ -1,0 +1,235 @@
+<ion-view class="comments-title" cache-view="false" title="Comments">
+  <!-- Header -->
+  <ion-header-bar class="bar bar-header black-header-bar">
+    <ion-nav-bar>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon ion-chevron-left client-positive"
+
+                ng-bind-html="::escapeHTML(title)" ng-click="goBack()"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+  </ion-header-bar>
+
+  <!-- Content -->
+  <ion-content align="center" style="border:none" scroll="true" delegate-handle="commentsScroll"
+               ng-click="onContentClick($event)">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      ng-if="isMoreLoadingAllowed"
+      on-refresh="loadMoreComments()">
+    </ion-refresher>
+    <div class="list list-chat" style="padding-bottom: 30px;">
+      <div class="item item-text" ng-if="isFirstLoadingDone && !comments.length">
+        <div class="comment_text_row">
+          <div class="row">
+            <div class="col col-50 col-bottom chat-text-name">
+              <span>&nbsp;</span>
+            </div>
+            <div class="col col-50"></div>
+          </div>
+
+          <div class="chat-bubble chat-bubble-blue">
+            <span>Hey! Start Chatting.</span>
+
+            <div class="chat-text-date">
+              {{::'' | chatDate:'MMM dd, yyyy @ h:mma'}}
+            </div>
+          </div>
+
+          <div class="chat_detail_box">
+            <div class="left_comment_area chat">
+              <div class="col col-10 col-pic comment-pic">
+                <img class="feed-img" image-size ng-src="img/triby_comment_icon.png"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item item-text can-activate" id="comment_{{::comment._id}}"
+           ng-repeat="comment in comments | orderBy:'datetime':false">
+        <div class="comment_text_row" ng-if="::!comment.pic && !comment.thumb">
+          <div class="row">
+            <div class="col col-50 col-bottom chat-text-name">
+              <span>{{::comment.user.username | limitName}}</span>
+            </div>
+            <div class="col col-50"></div>
+          </div>
+
+          <div class="chat-bubble"
+               ng-class="{'chat-bubble-green': comment.user._id==currentUser._id,'chat-bubble-blue': comment.user._id!=currentUser._id}">
+            <span ng-bind-html="::escapeHTML(comment.comment) | processHTML"></span>
+
+            <div class="chat-text-date">
+              {{::comment.datetime | chatDate:'MMM dd, yyyy @ h:mma'}}
+            </div>
+          </div>
+
+          <div class="chat_detail_box">
+            <div class="left_comment_area chat">
+              <div class="col col-10 col-pic comment-pic">
+                <img class="feed-img" image-size ng-src="{{::getAvatar(comment) }}"/>
+              </div>
+
+              <i ng-if="::comment.user._id === currentUser._id" class="ion-android-more-horizontal"
+                 ng-click="showDeleteContextMenu($event, comment)"></i>
+            </div>
+            <div class="col chat-icons right_comment_area">
+              <div class="heart text-12-gray" on-hold="showHearts(comment)" ng-click="setHeart(comment, $event)">
+                <a>
+                  <img ng-if="!comment.hearts.length" src="img/heart-grey.png"/>
+                  <img ng-if="comment.hearts.length" src="img/heart.png"/>
+                  <span class="text-heart" ng-bind="comment.hearts.length || ''"></span>
+                </a>
+              </div>
+              <div class="grey-hand-down text-12-gray" on-hold="showDislikes(comment)"
+                   ng-click="setDislike(comment, $event)">
+                <a href="javascript:void 0">
+                  <img ng-if="!comment.dislikes.length" src="img/hand-down-grey.png"/>
+                  <img ng-if="comment.dislikes.length" src="img/hand-down.png"/>
+                  <span ng-bind="comment.dislikes.length || ''"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment_pic_row" ng-if="::comment.pic">
+          <div class="chat_detail_box">
+            <div class="left_comment_area row image_row chat">
+              <div class="col col-20 col-pic col-bottom" style="margin-top:5px;">
+                <img class="feed-img" image-size ng-src="{{::getAvatar(comment) }}"/>
+              </div>
+
+              <div class="col chat-icons" style="margin-left:5px; margin-top:5px;">
+                <div class="row" style="margin-bottom: 5px !important;">
+                  <div class="col col-bottom chat-text-name image-row">
+                    <div class="row">
+                      <div class="col width45"><span ng-bind="::(comment.user.username | limitName)"></span></div>
+                      <div class="chat-text-date col col-bottom">
+                        {{::comment.time | chatDate:'MMM dd, yyyy @ h:mma'}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div ng-if="::comment.pic" class="news_feed_img_box" style="border-radius:15px">
+                  <img image-loaded data-just-posted-image={{::comment.justPostedImage}} class="news_feed_post_image"
+                       ng-src="{{::comment.pic}}" ng-click="openImage(comment, $event)">
+                </div>
+              </div>
+            </div>
+
+            <div class="col chat-icons right_comment_area image_row">
+              <div class="heart text-12-gray" on-hold="showHearts(comment)" ng-click="setHeart(comment, $event)">
+                <a>
+                  <img ng-if="!comment.hearts.length" src="img/heart-grey.png"/>
+                  <img ng-if="comment.hearts.length" src="img/heart.png"/>
+                  <span class="text-heart" ng-bind="comment.hearts.length || ''"></span>
+                </a>
+              </div>
+              <div class="grey-hand-down text-12-gray" on-hold="showDislikes(comment)"
+                   ng-click="setDislike(comment, $event)">
+                <a href="javascript:void 0">
+                  <img ng-if="!comment.dislikes.length" src="img/hand-down-grey.png"/>
+                  <img ng-if="comment.dislikes.length" src="img/hand-down.png"/>
+                  <span ng-bind="comment.dislikes.length || ''"></span>
+                </a>
+              </div>
+            </div>
+
+            <i ng-if="::comment.user._id === currentUser._id" class="ion-android-more-horizontal"
+               ng-click="showDeleteContextMenu($event, comment)"></i>
+          </div>
+        </div>
+
+        <div class="comment_pic_row video-box" ng-if="::comment.thumb">
+          <div class="chat_detail_box">
+            <div class="left_comment_area row image_row">
+              <div class="col col-20 col-pic col-bottom" style="margin-top:5px;">
+                <img class="feed-img" image-size ng-src="{{::getAvatar(comment) }}"/>
+              </div>
+
+              <div class="col chat-icons" style="margin-left:5px; margin-top:5px;">
+                <div class="row" style="margin-bottom: 5px !important;">
+                  <div class="col col-bottom chat-text-name image-row">
+                    <div class="row">
+                      <div class="col width45"><span ng-bind="::(comment.user.username | limitName)"></span></div>
+                      <div class="chat-text-date col col-bottom">
+                        {{::comment.time | chatDate:'MMM dd, yyyy @ h:mma'}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="news_feed_img_box video" data-tap-disable="true">
+                  <img image-loaded data-just-posted-image={{::comment.justPostedImage}} class="news_feed_post_image"
+                       style="max-height: 250px;min-height: 150px;border-radius:15px" ng-src="{{::comment.thumb}}"/>
+
+                  <p class="video-control">
+                    <button ng-click="playVideo(comment.video, $event)">
+                      <i class="ion-play"></i>
+                    </button>
+
+                    <video style="height:0.0001px; width:0.0001px;" controls="true">
+                      <source ng-src="{{::comment.video}}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col chat-icons right_comment_area image_row">
+              <div class="heart text-12-gray" ng-click="setHeart(comment, $event)" on-hold="showHearts(comment)">
+                <a>
+                  <img ng-if="!comment.hearts.length" src="img/heart-grey.png"/>
+                  <img ng-if="comment.hearts.length" src="img/heart.png"/>
+                  <span class="text-heart" ng-bind="comment.hearts.length || ''"></span>
+                </a>
+              </div>
+              <div class="grey-hand-down text-12-gray" on-hold="showDislikes(comment)"
+                   ng-click="setDislike(comment, $event)">
+                <a href="javascript:void 0">
+                  <img ng-if="!comment.dislikes.length" src="img/hand-down-grey.png"/>
+                  <img ng-if="comment.dislikes.length" src="img/hand-down.png"/>
+                  <span ng-bind="comment.dislikes.length || ''"></span>
+                </a>
+              </div>
+            </div>
+
+            <i ng-if="::comment.user._id === currentUser._id" class="ion-android-more-horizontal"
+               ng-click="showDeleteContextMenu($event, comment)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar keyboard-attach class="bar bar-footer bar-stable comment_footer_wrapper">
+    <form name="sendMessageForm">
+      <div class="list list-feed bottom_top-border">
+        <div class="item item-send-text">
+          <div class="row">
+            <div class="col col-10 col-center image_upload_icon" ng-click="showUploadPopover($event)">
+              <img src="img/image_upload.png"/>
+            </div>
+            <div class="col col-75 col-center comment_input_box">
+              <!--<textarea constant-focus ng-focus="onTextAreaFocus()" id="comment-add-textarea" name="comment" class="inputForm" ng-model="currentComment.comment"ng-model="currentComment.comment" placeholder="Say Something..."></textarea>-->
+              <textarea constant-focus ng-focus="onTextAreaFocus()" id="comment-add-textarea" name="comment"
+                        class="inputForm" placeholder="Say Something..."></textarea>
+            </div>
+            <div class="col col-15 col-center comment_send_box ng-hide" send-btn action="initInputWatcher" no-animate
+                 id="sendBtn" ng-click="addComment()">
+              <span class="send-msg-btn">Send</span>
+            </div>
+            <div class="col col-15 col-center camera_icon" no-animate id="cameraBtn"
+                 ng-click="showCameraPopover($event)">
+              <i class="icon ion-ios-camera"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ion-footer-bar>
+</ion-view>

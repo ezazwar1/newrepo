@@ -1,0 +1,77 @@
+<ion-view>
+    <ion-content class="profile" padding="15">
+        <h2 ng-if="!first">{{dict.editMyProfile}}</h2>
+        <h2 ng-if="first">{{dict.createMyProfile}}</h2>
+        <div class="content-wrapper center">
+            <div class="row">
+                <div class="col thumbnail-container center margin-top">
+                    <div ng-if="userData && avatar" class="circle thumbnail grayscale imageonload hide-image" imageonload image-src="{{avatar}}"  ng-click="showActionSheet()" ng-style="{'background-image':'url(' + avatar + ')'}"></div>
+                    <div ng-if="userData && !avatar" class="circle thumbnail upload display-flex align-center"  ng-click="showActionSheet()">
+                        <i class="icon icon-camera center light"></i>
+                    </div>
+                </div>
+            </div>
+            <form id="form.userData" name="form.userData" ng-submit="form.userData.$valid && save()">
+                <div class="row">
+                    <div class="col margin-top">
+                        <div ng-if="userData.username" class="uppercase margin-bottom">{{userData.username}}</div>
+                        <label class="item item-input" ng-if="!userData.username">
+                            <input type="text" placeholder="{{dict.username}} ({{dict.usernameMinMaxLength}})" ng-minlength="4" ng-maxlength="20" ng-model="temp.username" ng-blur="checkUserName()" ng-required="!userData.username">
+                        </label>
+                    </div>
+                </div>
+                <div class="row" ng-if="!first">
+                    <div class="col">
+                        <label class="item item-input">
+                            <input type="text" placeholder="{{dict.aboutMe}} ({{dict.optional}}, {{dict.infoMaxLength}})" ng-model="userData.info" ng-maxlength="140">
+                        </label>
+                    </div>
+                </div>
+                <div class="row gender-selection">
+                    <input type="hidden" ng-model="userData.gender" required>
+                    <div class="col margin-right">
+                        <button type="button" class="button button-block" ng-click="userData.gender = 'female'" ng-class="{'button-assertive': userData.gender === 'female', 'button-outline button-dark': userData.gender === 'male' || !userData.gender}">{{dict.female}}</button>
+                    </div>
+                    <div class="col margin-left">
+                        <button type="button" class="button button-block " ng-click="userData.gender = 'male'" ng-class="{'button-assertive': userData.gender === 'male', 'button-outline button-dark': userData.gender === 'female' || !userData.gender}">{{dict.male}}</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col margin-top">
+                        <div>
+                            <div class="uppercase">{{dict.age}}</div>
+                            <div class="text-center full-width assertive bold age">{{userData.age === "60" || userData.age === 60 ? "60+" : userData.age}}</div>
+                        </div>
+                        <div class="item range range-assertive">
+                            14
+                            <input type="range" name="age" min="14" max="60" ng-model="userData.age" required>
+                            60+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label class="item item-input">
+                            <input type="text" placeholder="{{dict.location}} ({{dict.optional}})" ng-model="userData.location">
+                        </label>
+                    </div>
+                </div>
+                <div class="row" ng-if="!first">
+                    <div class="col">
+                        <label class="item item-input">
+                            <input type="text" placeholder="{{dict.name}} ({{dict.optional}})" ng-model="userData.firstName">
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" ng-disabled="form.userData.$invalid || !valid.name" style="visibility: hidden; height: 0; width: 0;"></button>
+            </form>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar-light hide-on-keyboard-open">
+        <div class="row">
+            <div class="col">
+                <button form="form.userData" type="submit" class="button button-outline button-assertive center" ng-disabled="form.userData.$invalid || !valid.name">{{dict.save}}</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,150 @@
+{
+  "general": {
+    "appSlogan": "Discover brilliant Dating Ideas",
+    "by": "by",
+    "cancel": "Cancel",
+    "new": "new",
+    "promotion": "",
+    "tellAFriend": "Check out {appName} App: {appUrl}"
+  },
+  "about": {
+    "title": "About",
+    "allRightsReserved": "All rights reserved.",
+    "disclaimer": "All photos published within this app are carefully hand-picked and licensed under Creative Commons Zero (CC0). If you think a photo is used by mistake and should be removed, please send us a short description with the issue.",
+    "inSwitzerland": "in Switzerland",
+    "madeWith": "Made with",
+    "releaseNotes": "Release Notes",
+    "sendFeedbackViaEmail": "Feel free to give us any suggestions for future updates via"
+  },
+  "account": {
+    "email": "Email",
+    "login": "Login",
+    "logout": "Logout",
+    "logoutQuestion": "Do you really want to logout and delete all app related data?",
+    "password": "Password"
+  },
+  "browse": {
+    "discover": "Discover",
+    "notificationDescription": "Get notified tomorrow about another awesome idea for your next trip.",
+    "notifyMe": "Notify me",
+    "successfulSubmit": "Hooray! Thanks for this awesome idea.",
+    "title": "Browse"
+  },
+  "detail": {
+    "getIt": "Go for it",
+    "insights": "Insights",
+    "insightsFemale": "Ladies",
+    "insightsMale": "Gents",
+    "likes": "{likesCount, plural, one{Like} other{Likes}}",
+    "locationServiceError": "Whoop-Whoop! Please enable Location services.",
+    "nearPlaces": "Places near you",
+    "photo": "Photo",
+    "sendInvitation": "Send Invitation",
+    "thanksForFeedback": "Thanks a lot for your feedback.",
+    "views": "{viewsCount, plural, one{View} other{Views}}"
+  },
+  "error": {
+    "noInternetTitle": "No Internet connection",
+    "noInternetMessage": "Unable to connect to the Internet. Please connect and try again.",
+    "retry": "Retry",
+    "somethingWentWrong": "Oops, something went wrong.",
+    "tryAgainLater": "Please try again later.",
+    "unknownError": "Unknown error"
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "emptyState": "Ideas you like appear here",
+    "emptyStateLink": "Like your favorites now"
+  },
+  "invitation": {
+    "closingWords": {
+      "alright": "Alright?",
+      "areYouIn?": "Are you in?",
+      "hmmkay": "Hmmkay?",
+      "huhOhhhhTalkToMe!": "Huh?? ohhhh....talk to me!",
+      "ok": "Ok?",
+      "okay": "Okay?",
+      "readyForIt?": "Ready for it? 😊",
+      "rockNRoll": "Rock’n’Roll?",
+      "talkToMe": "Talk to me..."
+    },
+    "hereAndNow": "here and now",
+    "inALittleWhile": "in a little while",
+    "inASecond": "in a second",
+    "nextWeek": "next week",
+    "nextWeekend": "next weekend",
+    "salutation": {
+      "aloha": "Aloha",
+      "bonjour": "Bonjour",
+      "buenosDias": "Buenos Días",
+      "hello": "Hello",
+      "hey": "Hey",
+      "hi": "Hi",
+      "hiya": "Hiya",
+      "hola": "Hola",
+      "salut": "Salut",
+      "saluti": "Saluti",
+      "whatsUp": "What’s up",
+      "yo": "Yo"
+    },
+    "theseDays": "these days",
+    "thisEvening": "this evening",
+    "thisTime": "this time",
+    "today": "today",
+    "todayEvening": "today evening",
+    "tomorrow": "tomorrow",
+    "tomorrowNight": "tomorrow night",
+    "tonight": "tonight",
+    "tonightAtEight": "tonight at 8:03"
+  },
+  "notifications": {
+    "weMissYou": "We miss you! Tap to get your special idea today."
+  },
+  "onboarding": {
+    "gender": {
+      "title": "Who are you?",
+      "subTitle": "Just one step away from customized ideas.",
+      "selectMale": "I’m a Gentleman",
+      "selectFemale": "I’m a Lady"
+    },
+    "disclaimer": "Eligible for couples and singles",
+    "getStarted": "Get started"
+  },
+  "popular": {
+    "title": "Popular Ideas",
+    "allTimeTab": "All Time",
+    "trendingTab": "Trending"
+  },
+  "search": {
+    "applyFilters": "Let’s go",
+    "day": "Day",
+    "indoors": "Indoors",
+    "introduction": "Hey {gender, select, male{bro} female{Lady} other{there}}, when do you start out?",
+    "night": "Night",
+    "outdoors": "Outdoors",
+    "reset": "Reset",
+    "someday": "Plan ahead",
+    "title": "Find Ideas",
+    "today": "Today",
+    "when": "What time?",
+    "where": "Where?"
+  },
+  "settings": {
+    "title": "Settings",
+    "dailyInspiration": "Daily Inspiration",
+    "general": "General",
+    "language": "Language",
+    "notifications": "Notifications"
+  },
+  "version": {
+    "update": "Update now",
+    "updateMessage": "Hello, we’ve got a new version for you. Update now to make it yours.",
+    "updateTitle": "New version available"
+  },
+  "walkthrough": {
+    "finalize": "Find Ideas",
+    "slide0": "Swipe this Card to get inspired.",
+    "slide1": "Discover one Activity, every day.",
+    "slide2": "Find your perfect Date Idea now."
+  }
+}

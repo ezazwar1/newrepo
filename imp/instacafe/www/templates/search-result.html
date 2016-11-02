@@ -1,0 +1,18 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>Search Result</ion-nav-title>
+<ion-content>
+    <ion-spinner icon="ios" ng-show="cafes.length == 0" ng-hide="message"></ion-spinner>
+    <section ng-include="'templates/include/error-message.html'"></section>
+    <ion-list>
+        <ion-item ng-repeat="cafe in cafes track by $index"
+                  class="item item-avatar item-icon-right"
+                  ui-sref="tab.search-cafe-detail({ cafeId:cafe.id })">
+            <img ng-src="{{ cafe.image }}" default-src="img/default.png">
+            <h2 class="cafe-name">{{ ::cafe.name }}</h2>
+            <p>{{ ::cafe.address }}, {{ ::cafe.city }}</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="hasMore"></ion-infinite-scroll>
+</ion-content>
+</ion-view>

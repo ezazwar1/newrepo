@@ -1,0 +1,67 @@
+<ion-view title="{{title}}" class="home-title" hide-back-button="true" ng-class="{'loaded' : homeLoaded}">
+    <ion-nav-buttons side="left">
+        <button menu-and-drawer-toggle class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header home-view" has-bouncing="true">
+        <div class="category-view">
+            <div class="inner-category-view">
+                <div class="category-card category-strength card-a" id="strength-box">
+                    <a href="#/app/home/0">
+                        <div class="category-flex">
+                            <h3>{{'STRENGTH' | translate}}</h3>
+                        </div>
+                        <div custom-brand-home class="custom-brand-home" ng-if="isCustomBrandRunning"
+                             is-premium-user="isPremiumUser" workout-category="strength">
+                        </div>
+                    </a>
+                </div>
+                <div class="category-card category-cardio card-b" id="cardio-box">
+                    <a href="#/app/home/1">
+                        <div class="category-flex">
+                            <h3>{{'CARDIO' | translate}}</h3>
+                        </div>
+                        <div custom-brand-home class="custom-brand-home" ng-if="isCustomBrandRunning"
+                             is-premium-user="isPremiumUser" workout-category="cardio">
+                        </div>
+                    </a>
+                </div>
+                <div class="category-card category-yoga card-c" id="yoga-box">
+                    <a href="#/app/home/2">
+                        <div class="category-flex">
+                            <h3>{{'YOGA' | translate}}</h3>
+                            <div custom-brand-home class="custom-brand-home" ng-if="isCustomBrandRunning"
+                                 is-premium-user="isPremiumUser" workout-category="yoga">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="category-card category-stretch card-d" id="stretch-box">
+                    <a href="#/app/home/3">
+                        <div class="category-flex">
+                            <h3>{{'STRETCHING' | translate}}</h3>
+                            <div custom-brand-home class="custom-brand-home" ng-if="isCustomBrandRunning"
+                                 is-premium-user="isPremiumUser" workout-category="stetching">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="category-custom" id="custom-box">
+                <a href="#/app/custom">
+                    <div class="category-flex">
+                        <h3 ng-class="{'custom-promo-live' : customPromoText}"><i
+                                class="icon ion-plus plus-feature"></i>{{'MORE_WORKOUTS' | translate}}
+                            <span class="custom-promo-text" ng-if="customPromoText"><br>{{customPromoText}}</span>
+                        </h3>
+
+                    </div>
+                </a>
+            </div>
+            <div class="circle circle-border circle-solid quick-five">
+                <a href="#/app/home/0/quickFive/5/workout" class="quick-inner">
+                    <img ng-src="img/quick-{{('LANGUAGE'|translate)}}.png"/>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

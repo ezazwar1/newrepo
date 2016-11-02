@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Купон</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeCoupon()">Закрыть</button>
+    </div>
+  </ion-header-bar>
+  <ion-content  has-header="true"  >
+<form ng-submit="applyCoupon()">
+    <ion-list>
+      <label class="item item-input">
+    <input type="text" ng-model="couponCode.code"  placeholder="Код купона на скидку">
+  </label>
+
+    <label class="item">
+      <button class="button button-block button-dark" type="submit">Применить</button>
+    </label>
+
+    </ion-list>
+    <!--    <pre> {{userFilter}}</pre>
+      <p>Другие фильтры</p>
+    <pre>{{filters }}</pre>-->
+
+  <!-- <pre>{{userFilter | json}}</pre>
+   <pre>{{products | json}}</pre>-->
+  </ion-content>
+</ion-modal-view>

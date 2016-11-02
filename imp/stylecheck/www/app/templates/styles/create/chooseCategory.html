@@ -1,0 +1,14 @@
+<ion-view cache-view="false">
+    <ion-content>
+        <div class="margin-top">
+            <h2 class="margin">{{dict.chooseCategory}}</h2>
+        </div>
+        <div class="list">
+            <label class="item item-radio" ng-repeat="category in categories">
+                <input type="radio" name="group" ng-model="categories" ng-change="setCategory($index)">
+                <div class="item-content">{{dict.categories[category]}}</div>
+                <i class="radio-icon icon icon-check assertive"></i>
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

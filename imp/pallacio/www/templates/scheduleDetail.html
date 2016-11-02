@@ -1,0 +1,44 @@
+<ion-view title="{{news.title}}" hide-back-button="false">
+
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <a id="shareButton" class="button ion-android-share button-icon" ng-click="shareNews(news.link,news.title,news.description,news.enclosure)"></a>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header">
+            <ion-list class="card">
+
+                <div class="item item-avatar">
+
+
+                <img ng-src="{{news.enclosure}}" ng-show="news.enclosure">
+                <h2 style="font-size:5.5vw;line-height: 5vw;">{{news.title}}</h2>
+                <p style="font-size:2.5vw;line-height: 5vw;">{{news.publishedDate}}</p>
+            </div>
+
+            <div class="item item-body">
+                     <a id="shareButton" class="button icon-right ion-calendar button-clear icon-energized" ng-click="addToCalendar(news.publishedDate,news.title,news.subtitle)" style="font-size: 5.5vw !important;right:4%;position: absolute;z-index:9999;top:10px;color:#f0b840;"></a>
+                    <img class="full-image" ng-src="{{news.enclosure}}" ng-show="news.enclosure">
+                    <h4>{{news.subtitle}}</h4>
+
+                <h2 style="font-size:5.5vw;">{{ news.title}}</h2>
+                <p ng-bind-html="news.description" style="font-size:4.5vw;line-height: 5vw;"></p>
+
+            </div>
+
+
+        </ion-list>
+
+       <!--
+        <ion-list ng-show="pages">
+            <ion-item ng-repeat="item in pages | filter:{timeId:categoryPalace} | orderBy:'orderGuide'" href="" ng-click="goToSpace(item.Id)" style="background-image:url('img/homeImages/{{item.headerImage}}');" class="eventListPicture">
+                <h2>{{item.title}}</h2>
+
+            </ion-item>
+        </ion-list>-->
+    </ion-content>
+</ion-view>
+

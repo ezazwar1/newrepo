@@ -1,0 +1,26 @@
+<ion-view can-swipe-back="false">
+<ion-nav-title>Select City</ion-nav-title>
+<ion-content>
+<section id="select-city">
+<ion-list>
+    <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="Search" ng-model="location.name">
+        </label>
+    </div>
+    <ion-item class="item-text-wrap item-icon-right"
+              ui-sref="tab.search-result({ countryId:country_id, country_name: country_name, city_name: 'All' })">
+        All
+        <span class="badge badge-stable">{{ ::total_count }}</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+    <ion-item class="item-text-wrap item-icon-right"
+              ng-repeat="city in cities|filter:location.name"
+              ui-sref="tab.search-result({ countryId:country_id , cityId:city.id, country_name: country_name, city_name: city.name })">
+        {{ ::city.name }}
+        <span class="badge badge-stable">{{ ::city.cafe_count }}</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+    </ion-item>
+</ion-content>
+</section>
+</ion-view>

@@ -1,0 +1,26 @@
+@import "base";
+
+button.nav-button, button.nav-button:before {
+	color: #fff;
+	font-size: 1.3em !important;
+}
+
+div.settings-list {
+
+	i.ion-social-facebook {
+		color: $facebook-color;
+	}
+
+	i.ion-social-twitter {
+		color: $twitter-color;
+	}
+
+	i.ion-social-instagram {
+		color: $instagram-color;
+	}
+
+	a.connected {
+		color: $off-text-color;
+	}
+
+}

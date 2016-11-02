@@ -1,0 +1,62 @@
+<ion-view title="{{'REWARDS.PURCHASE' | translate }}">
+    <ion-nav-buttons side="left">
+      <wf-back></wf-back>
+    </ion-nav-buttons>
+
+		<ion-content class="has-header no-border">
+        <ion-refresher
+          spinner="none"
+          pulling-text="{{ 'ACTION.PULL_REFRESH' | translate }}"
+          on-refresh="pullRefresh()">
+        </ion-refresher>
+        <div ng-if="reward">
+        <div class="img-cover item item-image">
+            <!-- <img class="img-responsive" hires="{{ reward.image_url }}" src="img/loader-anim.svg"> -->
+            <img class="img-responsive" ng-src="{{ reward.image_url }}" default-image="img/placeholder-broken.svg" preload-image>      
+            <div class="row top-btns">
+              <div class="col text-left">
+                <!-- {{ reward.merchant }} -->
+              </div>
+            </div>
+        </div>
+
+        <div class="parallax-content">
+          <div class="desc-card padding-bottom">
+            <h3>{{ reward.title }}</h3>
+          </div>
+
+          <section class="white-bg">
+                <div ext-links class="content-box big-padding">
+
+                          <div class="vcode padding-bottom" ng-if="reward.voucher_type !== '3'">
+                            <div style="height:auto" class="button selectable-text big-button button-block button-assertive padding margin-bottom" >{{ reward.voucher }}</div>
+                            <p class="text-dark text-center"><em translate="ACTION.TAP_TO_COPY">tap to copy your promo code</em></p>
+                          </div>
+
+                          <div class="vcode padding-bottom" ng-if="reward.voucher_type == '3'">
+                            <div style="height:auto" class="button selectable-text big-button button-block button-assertive padding margin-bottom" ng-click="openVoucher(reward.voucher)" >{{ 'REWARDS.TAP' | translate }}</div>
+                          </div>
+
+                          <div ng-bind-html="reward.instructions"></div>
+
+                          <div ng-bind-html="reward.conditions" class="bottom-spacer-40"></div>
+
+                          <div ng-bind-html="reward.description"></div>
+
+                          <div><p><strong>{{ 'REWARDS.ACQUIRED' | translate }}</strong> {{ reward.created_date | amDateFormat:'DD/MM/YYYY HH:mm:ss' }}</div>
+
+                          <div class="text-center padding-top" style="position:relative">
+                            <a ng-click="shareIt(share)" class="button button-assertive button-round">
+                              <i class="wf wf-shared"></i>
+                            </a>
+
+                            <span class="share-ribbon"><span> <i class="wf-coins"></i> +20</span></span>
+                          </div>
+
+                        </div>
+          </section>
+        </div>
+      </div>
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,491 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+$font-family-sans-serif:          'Open Sans', sans-serif !default; //"Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-light-sans-serif:    'Open Sans', sans-serif !default; //"HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+$font-family-serif:               'Open Sans', sans-serif !default;
+$font-family-monospace:           'Open Sans', sans-serif !default;
+$font-family-logo:                'Orbitron', sans-serif !default;
+
+$gcolor1: rgba(255,255,255,1) !default;
+$gcolor2: rgba(0,217,255,1) !default;
+$gcolor3: rgba(15,0,102,1) !default;
+$gcolor4: rgba(0,0,0,1) !default;
+
+$positive:                        rgba(0,215,255,1) !default;
+$assertive:                       $positive !default;
+$light:                           rgba(0,0,0,1) !default;
+$energized:                       #ef473a !default;
+
+$base-background-color:           #000 !default;
+$base-color:                      #fff !default;
+
+.icon-custom {
+    font-size: 32px !important;
+}
+
+// -----------------------------------------------------------------------------
+// 
+// LOGO
+//
+// -----------------------------------------------------------------------------
+
+.logo-large {
+    font-family: $font-family-logo !important;
+    font-size: 22px !important;
+}
+
+// -----------------------------------------------------------------------------
+// 
+// BODY / BACKGROUND
+//
+// -----------------------------------------------------------------------------
+
+//    background: #000 !important;
+//    background: -webkit-linear-gradient(45deg, $gcolor1, $gcolor2, $gcolor3, $gcolor4); /* For Safari 5.1 to 6.0 */
+//    background: -o-linear-gradient(45deg, $gcolor1, $gcolor2, $gcolor3, $gcolor4); /* For Opera 11.1 to 12.0 */
+//    background: -moz-linear-gradient(45deg, $gcolor1, $gcolor2, $gcolor3, $gcolor4); /* For Firefox 3.6 to 15 */
+//    background: linear-gradient(45deg, $gcolor1, $gcolor2, $gcolor3, $gcolor4); /* Standard syntax */
+
+//    background-repeat: no-repeat;
+//    -webkit-background-size: cover;
+//    -moz-background-size: cover;
+//    -o-background-size: cover;
+//    background-size: cover;
+
+// body { 
+//     background: #000 url("../img/deep_space.jpg") !important;
+//     background-attachment: fixed !important;
+//     background-position: center !important;
+//     background-size: 100vw 100vh !important;
+// }
+
+// background: #000 url("../img/deep_space.jpg") !important;
+    
+body { 
+    background: #000 !important;
+}
+
+body .view-container.tab-content {
+  background-color: transparent;
+}
+
+body .pane, .menu, .view, .list, .item       {
+    background: transparent;
+}
+
+// -----------------------------------------------------------------------------
+// 
+// BUTTONS (MAIN) 
+//
+// -----------------------------------------------------------------------------
+
+// transparent
+$button-light-bg:                 rgba(0,0,0,0) !default;
+$button-light-text:               $base-color !default;
+$button-light-border:             rgba(0,0,0,0) !default;
+$button-light-active-bg:          rgba(0,0,0,0.5) !default;
+$button-light-active-border:      rgba(0,0,0,0) !default;
+
+// 50% black
+$button-stable-bg:                 rgba(0,0,0,0.5) !default;
+$button-stable-text:               $base-color !default;
+$button-stable-border:             rgba(0,0,0,0) !default;
+$button-stable-active-bg:          rgba(0,215,255,0.5) !default;
+$button-stable-active-border:      rgba(0,0,0,0) !default;
+
+// 50% black blue color
+$button-positive-bg:                 $positive !default;
+$button-positive-text:               #000 !default;
+$button-positive-border:             rgba(0,0,0,0) !default;
+$button-positive-active-bg:          darken($positive, 10%) !default;
+$button-positive-active-border:      rgba(0,0,0,0) !default;
+
+.button-positive {
+    color: 000 !important;
+}
+.button-positive.activated {
+    color: #fff !important;
+}
+
+// -----------------------------------------------------------------------------
+// 
+// BARS 
+//
+// -----------------------------------------------------------------------------
+
+
+$bar-light-bg:                    rgba(0,0,0,0) !default;
+$bar-light-text:                  $button-light-text !default;
+$bar-light-border:                $button-light-border !default;
+$bar-light-active-bg:             $button-light-active-bg !default;
+$bar-light-active-border:         $button-light-active-border !default;
+
+.bar {
+    border: none !important;
+    background: transparent !important;
+}
+
+// -----------------------------------------------------------------------------
+// 
+// TABS 
+//
+// -----------------------------------------------------------------------------
+
+$tabs-height:                     49px !default;
+$tabs-text-font-size:             14px !default;
+$tabs-text-font-size-side-icon:   10px !default;
+$tabs-icon-size:                  32px !default;
+$tabs-badge-padding:              1px 6px !default;
+$tabs-badge-font-size:            12px !default;
+
+$tabs-default-bg:                 $button-light-bg !default;
+$tabs-default-border:             $button-light-border !default;
+$tabs-default-text:               $button-light-text !default;
+
+$tab-item-max-width:              150px !default;
+
+$tabs-off-opacity:                0.4 !default;
+$tabs-striped-off-opacity:        $tabs-off-opacity !default;
+$tabs-striped-off-color:          #fff !default;
+$tabs-striped-border-width:       2px !default;
+
+.tabs {
+  border: none !important;
+  background: transparent !important;
+  background-color: rgba(0,0,0,0.5) !important; /* or transparent, or background:none */
+}
+
+.tabs-top {
+  border: none !important;
+  background: transparent !important;
+  background-color: rgba(0,0,0,0) !important; /* or transparent, or background:none */
+}
+
+.tab-item {
+    color: #fff !important;
+}
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color: #fff !important;
+}
+
+
+// -----------------------------------------------------------------------------
+// 
+// BADGE 
+//
+// -----------------------------------------------------------------------------
+
+$badge-font-size:                 14px !default;
+$badge-line-height:               16px !default;
+$badge-font-weight:               bold !default;
+$badge-border-radius:             10px !default;
+
+$badge-positive-bg:               $positive !default;
+$badge-positive-text:             $base-color !default;
+
+
+// -----------------------------------------------------------------------------
+// 
+// ITEMS 
+//
+// -----------------------------------------------------------------------------
+
+
+$item-divider-bg:                 rgba(0,0,0,0.5) !default;
+$item-divider-color:              $base-color !default;
+$item-divider-padding:            5px 15px !default;
+
+$item-light-bg:                   rgba(255,255,255,0.75) !default;
+$item-light-border:               rgba(255,255,255,0) !default;
+$item-light-text:                 $button-light-text !default;
+$item-light-active-bg:            $button-light-active-bg !default;
+$item-light-active-border:        $button-light-active-border !default;
+
+
+$item-default-bg:                 $item-light-bg !default;
+$item-default-border:             $item-light-border !default;
+$item-default-text:               $base-background-color !default;
+$item-default-active-bg:          $positive !default;
+$item-default-active-border:      $positive !default;
+
+
+
+
+
+
+
+
+
+// -----------------------------------------------------------------------------
+// 
+// TIME TRAVEL WRAPPER 
+//
+// -----------------------------------------------------------------------------
+
+// ** not used
+.timetravel-transmode {
+    text-align: center !important;
+    border-radius: 50% !important;
+    height: 80px !important;
+    width: 80px !important;
+}
+
+.timetravel-parent {
+    line-height: 10vh !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background: rgba(0,0,0,0.5) !important;
+    margin: 0 auto !important;
+    //margin: 0 auto !important;
+    //width: 90vw !important;
+    //border-radius: 40px !important;
+    
+    border-radius: 50% !important;
+    height: 47vh !important;
+    width: 47vh !important;
+    max-width: 100vw !important;
+    max-height: 100vw !important;
+
+    border: none !important;
+    -webkit-box-shadow: 0px 0px 40px 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 40px 5px rgba(255,255,255,1);
+    box-shadow: 0px 0px 40px 5px rgba(255,255,255,1);
+}
+
+.timetravel-parent.activated {
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.back-stable {
+    background: rgba(0,0,0,0.5) !important;
+
+}
+.back-positive {
+    background: rgba(0,215,255,0.10) !important;
+}
+
+
+.button.button-light.timetravel-parent:active {
+    box-shadow: none !important;
+}
+
+
+
+// -----------------------------------------------------------------------------
+// 
+// TIME TRAVEL FONTS 
+//
+// -----------------------------------------------------------------------------
+
+.timetravel-metric {
+    color: $positive !important;
+    font-size: 18px !important;
+}
+.timetravel-text {
+    color: #fff !important;
+    font-size: 18px !important;
+}
+.timetravel-value {
+    font-size: 12vh !important;
+    color: $positive !important;
+}
+.timetravel-value-half {
+    font-size: 6vh !important;
+    color: $positive !important;
+}
+
+.timetravel-spacing {
+    height: 10px !important;
+}
+.timetravel-history {
+    font-size: 20px !important;
+    color: $positive !important;
+}
+
+
+
+
+
+// -----------------------------------------------------------------------------
+// 
+// POPUP
+//
+// -----------------------------------------------------------------------------
+
+$popup-border-radius:             20px !default;
+$popup-background-color:          rgba(0,0,0,0.75) !default;
+
+.popup {
+    border: none !important;
+    -webkit-box-shadow: 0px 0px 40px 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 40px 5px rgba(255,255,255,1);
+    box-shadow: 0px 0px 40px 5px rgba(255,255,255,1);
+}
+
+.popup-title  {
+    color: $base-color !important;
+}
+
+.popup-head {
+    border: none !important;
+}
+
+.popup-input {
+    background: rgba(255,255,255,0) !important;
+    color: $positive !important;
+    border-bottom: 1px solid !important;
+    border-color: $base-color !important;
+    padding: 10px !important;
+    width: 100% !important;
+}
+
+
+// -----------------------------------------------------------------------------
+// 
+// MODAL
+//
+// -----------------------------------------------------------------------------
+
+.modal-positive {
+    background: transparent !important;
+    background: rgba(0,0,0,0.80) !important;
+    text-align: center !important;
+    padding: 10px !important;
+    padding-top: 20px !important;
+}
+
+
+
+.textarea-share {
+    background: rgba(255,255,255,0) !important;
+    color: $positive !important;
+    padding: 10px !important;
+    width: 100% !important;
+    height: 100% !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin: auto !important;
+    line-height: 25px !important;
+}
+
+.customspeed-description-box {
+    line-height: 15px !important;
+    height: 65px !important;
+    font-size: 12px !important;
+    padding: 10px !important;
+}
+
+// not used
+.customspeed-selection-box {
+    line-height: 40px !important;
+    width: 90vw !important;
+    text-align: center !important;
+
+}
+
+.customspeed {
+    color: #fff !important;
+}
+.customspeed-active {
+    color: $positive !important;
+}
+
+.section-divider {
+    height: 20px !important;
+}
+
+// -----------------------------------------------------------------------------
+// 
+// MISC
+//
+// -----------------------------------------------------------------------------
+
+
+//.scroll-content {
+//  display: table;
+//  width: 100% !important;
+//  height: 100% !important;
+//}
+//.scroll {
+//  display: table-cell;
+//  vertical-align: middle;
+//  text-align: center;
+//}
+
+.row {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0 !important;
+}
+
+.col {
+    width: 100% !important;
+    text-align: center !important;
+    margin: auto !important;
+    padding: 0 !important;
+}
+
+.rounded {
+    border-radius: 50% !important;
+    height: 50px !important;
+    width: 50px !important;
+}
+
+.cornered {
+    border-radius: 20px !important;
+}
+
+span.tab{
+    padding: 0 5px; /* Or desired space*/
+}
+
+
+
+.button-outline-white {
+    border: 1px solid !important;
+    border-color: #fff !important;
+}
+
+.icon-positive {
+    color: $positive !important;
+}
+
+
+
+
+// -----------------------------------------------------------------------------
+// 
+// DESIGN
+//
+// -----------------------------------------------------------------------------
+
+.design-text {
+    font-family: $font-family-logo !important;
+    font-size: 500px !important;
+    color: #fff !important;
+}
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+

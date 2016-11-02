@@ -1,0 +1,54 @@
+<ion-modal-view class="login-modal-view">
+	<ion-header-bar class="bar-calm">
+		<h1 class="title">{{formTitle}}</h1>
+		<div class="buttons">
+			<button class="button button-clear close-button" ng-click="closeLogin()"><i class="icon ion-ios-close"></i></button>
+		</div>
+	</ion-header-bar>
+	<ion-content class="home-bg">
+
+		<div class="loging-wrap">
+
+			
+			<div class = "col header text-center">
+				<img src="./img/logo.png" class = "logo" />
+			</div>
+
+			<div ng-if="IsSignIn==='signin'" class="input-section">
+				<div class="list">
+					<label class="item item-input">
+						<input type="email" ng-model="user.email" placeholder="Email">
+					</label>
+					<label class="item item-input">
+						<input ng-model="user.password" type="password" placeholder="Password">
+					</label>
+					<div class="padding-top">
+						<button ng-click="login()" ng-disabled="!user.email || !user.password" class="button button-calm button-block">
+							Sign in
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div ng-if="IsSignIn==='register'" class="input-section">
+				<div class="list">
+					<label class="item item-input">
+						<input type="text" ng-model="user.name" placeholder="Fullname">
+					</label>
+					<label class="item item-input">
+						<input type="email" ng-model="user.email" placeholder="Email">
+					</label>
+					<label class="item item-input">
+						<input ng-model="user.password" type="password" placeholder="Password">
+					</label>
+					<div class="padding-top">
+						<button ng-click="register()" ng-disabled="!user.email || !user.password || !user.name" class="button button-calm button-block">
+							Sign up
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</ion-content>
+</ion-modal-view>

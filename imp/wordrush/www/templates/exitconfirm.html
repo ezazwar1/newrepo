@@ -1,0 +1,32 @@
+<ion-modal-view >
+
+
+  <ion-content class="allview center" scroll="false">
+  <div>
+  
+    <div class="exitconfirmcontainer innerviewjey" >
+           
+           <h2 class="padding-bottom">Exit Game?</h2>
+           
+           
+            <div class="col progress-wrapper"  ng-click=finishTheGame()>
+                <div class="progress ng-cloak" ng-style="getStyle()">
+                   <span class="exitConfirmLabel">YES</span>
+                </div>                
+                <div class="round-progress" round-progress max="max" current="max" color="#01DF01" bgcolor="{{ bgColor }}" radius="{{ radius }}" semi="isSemi" rounded="rounded" stroke="{{ stroke }}" clockwise="clockwise" responsive="responsive" animation="{{ currentAnimation }}"
+                offset="{{ offset }}" >
+                </div>
+            </div>
+            <div class="col progress-wrapper" ng-click=closeExitGameModal()>
+                <div class="progress ng-cloak" ng-style="getStyle()">
+                   <span class="exitConfirmLabel">NO</span>
+                </div>                
+                <div class="round-progress" round-progress max="max" current="max" color="#01DF01" bgcolor="{{ bgColor }}" radius="{{ radius }}" semi="isSemi" rounded="rounded" stroke="{{ stroke }}" clockwise="clockwise" responsive="responsive" animation="{{ currentAnimation }}"
+                offset="{{ offset }}" >
+                </div>
+            </div>
+          
+    </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

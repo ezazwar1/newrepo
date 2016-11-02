@@ -1,0 +1,40 @@
+<div ng-controller="PopupCtrl">
+  <loading-bar ng-class="{ 'hidden': !syncLoading }"></loading-bar>
+  <ul class="list">
+    <a class="item" ng-click="loadApp(app.appId)">
+      <img ng-src="{{ app.loaded ? 'img/preview-icon.png' : 'img/download-icon.png' }}">
+      <span status active="{{viewDefault}}" class="status fade">View app</span>
+      <span status active="{{viewError}}" class="status fade error">{{viewErrorText}}</span>
+    </a>
+    <a class="item" ng-click="clearAppData()" ng-class="{ 'disabled': !app.loaded && clearDisabled }">
+      <img src="img/clear-icon.png">
+      <span status active="{{clearDefault}}" class="status fade fade-active">Clear app data</span>
+      <span status active="{{clearSuccess}}"class="status fade success">Clear successful</span>
+      <span status active="{{clearError}}" class="status fade error">{{clearErrorText}}</span>
+    </a>
+    <a class="item sync" ng-click="sync()" ng-class="{'disabled': !app.loaded && !syncLoading && !syncError }">
+      <img status active="{{!syncLoading}}" src="img/sync-icon.png" class="fade">
+      <img status active="{{syncLoading}}" src="img/blank-icon.png" class="fade blank">
+      <div status active="{{syncLoading}}" class="status fade sync-loading-icon">
+        <div class="loading-icon">
+          <view-spinner class="preloader"></view-spinner>
+        </div>
+        <span>Syncing...</span>
+      </div>
+      <span status active="{{syncDefault}}" class="status fade fade-active">Sync to latest</span>
+
+      <span status active="{{syncSuccess}}"class="status fade success">{{syncSuccessText}} </span>
+      <span status active="{{syncError}}" class="status fade error">{{syncErrorText}}</span>
+    </a>
+    <a class="item" ng-click="confirmDelete(app.appId)">
+      <img src="img/delete-icon.png">
+      <span status active="{{deleteDefault}}" class="status fade fade-active error">Delete app</span>
+      <span status active="{{deleteInProgress}}" class="status fade error">Deleting app ...</span>
+      <span status active="{{deleteError}}" class="status fade error">{{deleteErrorText}}</span>
+    </a>
+    <a class="item done-button" ng-click="loadAppPopup.close()">
+      <img src="img/done-icon.png">
+      <span class="status">Done</span>
+    </a>
+  </ul>
+</div>

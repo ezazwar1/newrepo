@@ -1,0 +1,35 @@
+<div class="invite-page page">
+	<div class="bar bar-header">
+		<div class="title">
+			<span translate>Adicionar conhecidos</span>
+		</div>
+		<button class="button button-clear btn-close" ng-click="closeOrMakeMovie()">
+			<img src="images/ico-close.png">
+		</button>
+	</div>
+
+	<ion-content class="friend-list">
+
+		<p class="your-friends" ng-if=" ! networks.facebook"><span translate>Você não está conectado com o Facebook</span></p>
+
+		<div ng-if="networks.facebook">
+			<p class="your-friends" ng-if="bag.length"><span translate>Seus amigos já estão aqui!</span></p>
+
+			<div ng-if="( ! bag.length) && loading" style="text-align: center; margin-top: 50px;">
+				<ion-spinner></ion-spinner> <span class="your-friends" translate>Procurando conhecidos...</span>
+			</div>
+
+			<div ng-if="( ! bag.length) && ( ! loading)" class="no-fb-friends">
+				<span translate>Você não tem amigos do Facebook usando a Stayfilm.</span><br><a href="javascript:;" ng-click="appInvite()" translate>Clique aqui para convidá-los.</a>
+			</div>
+
+			<div class="list user-list" ng-if="networks.facebook">
+				<sf-user-item user="user" ng-repeat="user in bag" ng-if="user.friendshipStatus === 'NO_RELATIONSHIP'"></sf-user-item>
+			</div>
+		</div>
+	</ion-content>
+
+	<ion-footer-bar class="big-button-footer">
+		<button ng-click="addAll()" class="add-all kana-button" ng-class="{'btn-disabled': ! bag.length }"><img src="images/kana-check.png" /><span translate>Adicionar todos</span></button>
+	</ion-footer-bar>
+</div>

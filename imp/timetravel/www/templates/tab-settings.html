@@ -1,0 +1,25 @@
+<ion-view view-title="<i class='ion-ios-more icon-custom'></i>">
+  <ion-content class="padding" has-bouncing="true">
+    <ion-list>
+      
+      <ion-item class="item-stable item-remove-animate item-icon-right" type="item-text-wrap" style="border: none !important;" href="#/tab/settings/tutorial">
+        Time dilation
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <ion-item class="item-stable  item-remove-animate item-icon-right" type="item-text-wrap" style="border: none !important;"  href="#/tab/settings/stars">
+        Enjoy the Nebula stars
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      
+      <ion-item class="item-divider" type="item-text-wrap" style="border: none !important; background: none !important;">
+        
+      </ion-item>
+      
+      <ion-item class="item-stable  item-remove-animate " type="item-text-wrap" style="border: none !important;" ng-click="changeMetric()">
+        Speed unit
+        <span class="badge badge-assertive">{{Metric.choice}}</span>
+      </ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-view>

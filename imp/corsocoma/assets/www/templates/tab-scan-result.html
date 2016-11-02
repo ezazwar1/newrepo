@@ -1,0 +1,13 @@
+<ion-view view-title="{{scanResult}}">
+  <ion-content >
+
+  <div ng-show="error == true" class="card">
+  <div class="item item-text-wrap">
+   {{scanError}}
+  </div>
+</div>
+<div ng-show="showbtn == true">  <a href="#/tab/scan" class="button button-full button-dark">
+  Сканировать
+  </a> </div>
+  </ion-content>
+</ion-view>

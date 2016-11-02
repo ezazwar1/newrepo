@@ -1,0 +1,43 @@
+
+.intro {
+    width: 100%;
+    text-align: center;
+    margin: 125px auto 0;
+
+    .platform-ios & {
+        margin-top: 160px;
+    }
+}
+
+.intro_graphic {
+    width: 100px;
+}
+
+.intro_tips {
+    @extend %title;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.tips-icon {
+    @extend %icon-attached;
+    color: $baseLinkColor;
+    padding-left: 2px;
+}
+
+.intro-small {
+    margin-top: 70px;
+
+    .platform-ios & {
+        margin-top: 70px;
+    }
+
+    .intro_graphic {
+        width: 84px;
+    }
+
+    .intro_tips {
+        margin-top: 15px;
+    }
+
+}

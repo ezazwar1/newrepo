@@ -1,0 +1,28 @@
+<div class="iphone-status-bar"></div>
+<ion-view title="Notifications" class="notification-list">
+    <ion-content scroll="true" padding="false" class="">
+
+        <div class="chats-intro" ng-if="data.notification_placeholderpic_flag">
+            <img class="chats-graphic" src="img/graphics/happy-chat.svg" alt="Start trading video games on GBG">
+
+            <p class="chats-tips">{{data.NotificationListCtrl_message}}</p>
+        </div>
+
+        <ion-list>
+            <ion-item class="item notification-item"
+                      ng-repeat="notification in data.notifications | orderBy:'created_on':true"
+                      ng-click="goto_router(notification.notification_id)">
+                <div class="chat-content_chat-line-wrapper icon-arrow-right ion-ios-arrow-right">
+                    <div class="chat-content_chat-line">
+                        <span class="chat-content_content">{{notification.message}}</span>
+                        <span class="chat-content_time">{{notification.created_on|date:'MM/dd/yyyy @ h:mma'}}</span>
+                    </div>
+
+                    <ion-option-button class="button-assertive"
+                                       ng-click="notification_delete(notification.notification_id)">Delete
+                    </ion-option-button>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

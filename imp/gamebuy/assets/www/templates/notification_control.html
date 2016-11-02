@@ -1,0 +1,35 @@
+<ion-view title="Notification Control">
+    <ion-content scroll="true" padding="false">
+        <div class="list toggle-list">
+            <ion-toggle ng-model="data.notification_control.deal_enable"
+                        ng-checked="data.notification_control.deal_enable"
+                        class="toggle-item">
+                Trade Update Notification
+            </ion-toggle>
+            <ion-toggle ng-model="data.notification_control.match_enable"
+                        ng-checked="data.notification_control.match_enable"
+                        class="toggle-item">
+                Match Found Notification
+            </ion-toggle>
+            <ion-toggle ng-model="data.notification_control.watch_enable"
+                        ng-checked="data.notification_control.watch_enable"
+                        class="toggle-item">
+                Watch Update Notification
+            </ion-toggle>
+            <ion-toggle ng-model="data.notification_control.reminder_enable"
+                        ng-checked="data.notification_control.reminder_enable"
+                        class="toggle-item">
+                Review Reminder Notification
+            </ion-toggle>
+
+            <div class="padding">
+                <div class="form-group">
+                    <button class="button button-block button-primary ng-binding" type="submit"
+                            ng-click="notification_control_submit()">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

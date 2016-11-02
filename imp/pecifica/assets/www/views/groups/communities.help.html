@@ -1,0 +1,43 @@
+<ion-view title="" hide-nav-bar="true" class="popoverr slideshow comm-help">
+  <ion-content>
+
+    <go-back ng-if="!intro"></go-back>
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+
+      <ion-slide class="groups-slide">
+        <div class="box1 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'COMMUNITIES_HELP_TITLE_1' | translate}}</h1>
+          <p ng-bind-html="getHelpSlide(1)"></p>
+        </div>
+      </ion-slide>
+
+      <ion-slide class="groups-slide">
+        <div class="box2 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'COMMUNITIES_HELP_TITLE_2' | translate}}</h1>
+          <p ng-bind-html="getHelpSlide(2)"></p>
+        </div>
+      </ion-slide>
+
+      <ion-slide class="groups-slide">
+        <div class="box3 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'COMMUNITIES_HELP_TITLE_3' | translate}}</h1>
+          <p ng-bind-html="getHelpSlide(3)"></p>
+        </div>
+      </ion-slide>
+
+      <ion-slide class="groups-slide">
+        <div class="box4 box">
+          <div class="slide-image"></div>
+          <h1>{{ 'COMMUNITIES_HELP_TITLE_4' | translate}}</h1>
+          <p ng-bind-html="getHelpSlide(4)"></p><br>
+          <button class="button-start" ng-click="confirm()" ng-if="intro">{{ 'OK_GOT_IT' | translate }}</button>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,40 @@
+<ion-view class="feeds-view" view-title="{{theCirlce.name}}">
+	<ion-nav-buttons side="left">
+		<button menu-and-drawer-toggle class="button button-icon icon ion-navicon-round"></button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div ng-if="isLoaded==1" ng-repeat="post in posts" class="list card">
+			<a href="#/app/profile/{{post.user_id._id}}" class="item item-avatar">
+				<img img-preload class="preloadFade" ng-src="{{post.user_id.avatar}}">
+				<h2>{{post.user_id.fullname}}</h2>
+				
+			</a>
+
+			<div class="item item-body">	
+				<!-- 			 -->
+				<img ng-click="zoomImage('{{post.image_url}}')" img-preload class="full-image preloadFade"
+				ng-src="{{post.image_url}}" alt="">
+				<div class="post-caption">
+					<p>
+						{{post.description}}
+					</p>
+					<p class="actions">
+						<a ng-click="likePost('{{post}}')" class="subdued">{{post.likes}} <i class="icon ion-android-favorite-outline"></i></a>
+						<a ng-click="showCommentModal('{{post._id}}')" class="subdued">{{post.comment_count}} <i class="icon ion-ios-chatbubble-outline"></i></a>
+					</p></div>
+				</div>
+			</div>
+
+			<div ng-if="isLoaded==0" class="row no-post">
+				<div class="col col-center">
+					<div class="info-details">
+						<i class="icon ion-images"></i>
+						<h2 class="info-text">No photos</h2>
+					</div>
+				</div>				
+			</div>
+		</ion-content>
+		<a ng-click="addNewPost()" class="f-button">
+			<i class="icon ion-paper-airplane"> </i>
+		</a>
+	</ion-view>

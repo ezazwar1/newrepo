@@ -1,0 +1,73 @@
+<div class="iphone-status-bar"></div>
+<ion-view title="" hide-nav-bar="false">
+    <ion-nav-buttons side="primary">
+        <nav class="top-nav">
+            <button class="button button--tab-menu" ng-class={'button--current':data.threads_active} ng-click="decide_shown_list(1)">
+                <span>Chats</span>
+            </button>
+            <button class="button button--tab-menu" ng-class={'button--current':data.notifications_active} ng-click="decide_shown_list(2)">
+                <span>Notifications</span>
+            </button>
+        </nav>
+    </ion-nav-buttons>
+
+    <ion-content padding="false" class="deals_wrapper">
+        <div class="tab-content">
+            <div ng-if="data.threads_active" scroll="true">
+                <ion-list>
+                    <div class="chats-intro" ng-if="data.chats_placeholderpic_flag">
+                        <img class="chats-graphic" src="img/graphics/happy-chat.svg" alt="Start trading video games on GBG">
+                        <p class="chats-tips">{{data.ThreadListCtrl_message}}</p>
+                    </div>
+
+                    <ion-item
+                        class="item gamer-list-with-a" ng-repeat="thread in data.threads | orderBy:'updated_on':true"
+                        ui-sref="chat({ thread_id: thread.thread_id, partner_id:thread.partner_id, unread_count:thread.unread_count})">
+
+                        <div class="gamer-list_thumbnail">
+                            <img class="gamer-list_thumbnail-clip" ng-if="!thread.partner_profile_pic" ng-src="https://graph.facebook.com/{{thread.partner_fb_id}}/picture?type=normal">
+                            <img class="gamer-list_thumbnail-clip" ng-if="thread.partner_profile_pic" ng-src={{thread.partner_profile_pic}}>
+                            <p class="chats-list_unread-count" ng-if="thread.unread_count > 0">
+                                <span class="chats-list_unread-count_num">{{thread.unread_count}}</span>
+                            </p>
+                        </div>
+
+                        <div class="gamer-list_gamer-info">
+                            <p class="gamer-list_gamer-name">{{thread.partner_name}}</p>
+                            <p class="chats-list_last-chat">{{thread.last_chat}}</p>
+                            <p class="chats-list_upated-on">{{thread.updated_on|date:'MM/dd/yyyy @ h:mma'}}</p>
+                        </div>
+
+                        <ion-option-button class="button-assertive" ng-click="goto_chat_thread_delete(thread.thread_id)">Delete</ion-option-button>
+
+                    </ion-item>
+                </ion-list>
+            </div>
+            <div ng-if="data.notifications_active" scroll="true">
+                <div class="chats-intro" ng-if="data.notification_placeholderpic_flag">
+                    <img class="chats-graphic" src="img/graphics/happy-chat.svg" alt="Start trading video games on GBG">
+
+                    <p class="chats-tips">{{data.NotificationListCtrl_message}}</p>
+                </div>
+
+                <ion-list>
+                    <ion-item class="item notification-item"
+                              ng-repeat="notification in data.notifications | orderBy:'created_on':true"
+                              ng-click="goto_router(notification.notification_id)">
+                        <div class="chat-content_chat-line-wrapper icon-arrow-right ion-ios-arrow-right">
+                            <div class="chat-content_chat-line">
+                                <span class="chat-content_content">{{notification.message}}</span>
+                                <span class="chat-content_time">{{notification.created_on|date:'MM/dd/yyyy @ h:mma'}}</span>
+                            </div>
+
+                            <ion-option-button class="button-assertive"
+                                               ng-click="notification_delete(notification.notification_id)">Delete
+                            </ion-option-button>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

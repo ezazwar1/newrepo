@@ -1,0 +1,33 @@
+<div>
+	<div class="row" ng-hide="data.length">
+		<div class="col">
+		<p class="text-center text-gray">{{ emptyMsg }}</p>
+		</div>
+	</div>
+
+	<div ng-click="openActivityModal()" class="row activity-list" ng-if="manualLog">
+		<div class="col col-20">
+			<a href="" class="round-icon background-assertive">
+				<i class="ion-android-add add-icon"></i>
+			</a>
+		</div>
+		<div class="col col-60 padding-left margin-top-10">
+			<h5 class="text-transform-upper">{{ 'ACTIVITY.ADD_LOG_ACTIVITY' | translate }}</h5>
+		</div>
+	</div>
+
+	<div ng-click="manualLog || showDetail ? goActivity(item.id) : '' " class="row activity-list" ng-repeat="item in data track by $index">
+		<div class="col col-20">
+			<a href="" class="round-icon">
+				<img ng-src="{{ item.sport_type_image }}" alt="{{item.sport_type}}">
+			</a>
+		</div>
+		<div class="col col-60 padding-left">
+			<h5>{{ item.distance | number }} {{ 'UNIT.KM' | translate }} {{ 'ACTIVITY.IN' | translate }} {{ item.duration }} {{ 'UNIT.MIN' | translate }}</h5>
+			<p><span>{{item.start_time | amDateFormat:'L'}}</span>, <i class="wf wf-calorie"></i>{{ item.kcal }} {{ 'UNIT.KCAL' | translate }}</p>
+		</div>
+		<div class="col col-25 col-center act-points">
+			<i class="wf text-dark wf-coins"></i> +{{ item.points }}
+		</div>
+	</div>
+</div>

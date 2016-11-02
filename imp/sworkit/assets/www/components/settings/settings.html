@@ -1,0 +1,142 @@
+<ion-view title="{{'SETTINGS_MENU' | translate}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-and-drawer-toggle class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header settings-page width-control">
+        <div class="list help-list">
+            <div class="item item-divider">
+                <h5>LANGUAGE</h5>
+            </div>
+            <label class="item item-input item-select">
+                <div class="input-label" style="z-index: 2;">
+                    <h2>{{'CHANGE_LANG' | translate}}</h2>
+                </div>
+                <select ng-model="selectedLanguage.data" ng-change="changeLanguage(selectedLanguage.data)"
+                        ng-options="language.title for language in languages">
+                </select>
+            </label>
+            <div class="item item-divider">
+                <h5>{{'CALORIE_TR' | translate}}</h5>
+            </div>
+            <div class="item item-input settings-padding">
+                <div class="input-label">
+                    <h2>{{'WEIGHT' | translate}}</h2>
+                </div>
+                <input class="settings-input" type="tel" ng-model="displayWeight.data" integer>
+            </div>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    <h2>{{'UNITS' | translate}}</h2>
+                </div>
+                <select ng-model="selectedType.data"
+                        ng-options="(weightType.title | translate) for weightType in weightTypes">
+                </select>
+            </label>
+            <div class="item item-divider">
+                <h5>{{'PERSONAL_GOALS' | translate}}</h5>
+            </div>
+            <div class="item item-input settings-padding">
+                <div class="input-label">
+                    <h2>{{'DAILY_SM' | translate}}</h2>
+                </div>
+                <input class="settings-input" type="tel" ng-model="goalSettings.dailyGoal" integer>
+            </div>
+            <div class="item item-input settings-padding">
+                <div class="input-label">
+                    <span id="weekly-label"><h2>{{'WEEKLY_SM' | translate}}</h2><p>{{'WEEK_RANGE' |
+                        translate}}</p></span>
+                </div>
+                <input class="settings-input" type="tel" ng-model="goalSettings.weeklyGoal" integer>
+            </div>
+            <div class="item item-divider">
+                <h5>{{'CONNECTIONS' | translate}}</h5>
+            </div>
+            <div ng-if="healthKitAvailable">
+                <div class="connect-mfp item-icon-right item">
+                    <div ng-if="!userSettings.healthKit" ng-click="connectHealthKit()">
+                        <img src="img/healthkit.png"/>
+                        {{'CONNECT_HEALTH' | translate}}<span ng-if="userSettings.healthKit">{{'ENABLED_SM' | translate}}</span><span
+                            ng-if="!userSettings.healthKit">{{'DISABLED_SM' | translate}}</span>
+                    </div>
+                    <div ng-if="userSettings.healthKit" ng-click="reconnectHealthKit()">
+                        <img src="img/healthkit.png"/>
+                        {{'CONNECT_HEALTH' | translate}}<span
+                            ng-if="userSettings.healthKit">{{'ENABLED_SM' | translate}}</span>
+                    </div>
+                    <i class="icon ion-chevron-right icon-accessory mfp-arrow"></i>
+                </div>
+            </div>
+            <div ng-if="androidPlatform && !kindleDevice" ng-click="connectedGoogleFit()">
+                <div class="connect-mfp item-icon-right item">
+                    <div>
+                        <img src="img/googleFit.png"/>
+                        {{'GOOGLE_FIT' | translate}}<span ng-if="googleFitSettings.enabled">{{'ENABLED_SM' | translate}}</span><span
+                            ng-if="!googleFitSettings.enabled">{{'DISABLED_SM' | translate}}</span>
+                    </div>
+                    <i class="icon ion-chevron-right icon-accessory mfp-arrow"></i>
+                </div>
+            </div>
+            <div class="connect-mfp item-icon-right item">
+                <div ng-if="!userSettings.mfpStatus" ng-click="connectMFP()">
+                    <img src="img/myfitnesspal.png"/>
+                    {{'CONNECT_MFP' | translate}}<span
+                        ng-if="userSettings.mfpStatus">{{'ENABLED_SM' | translate}}</span><span
+                        ng-if="!userSettings.mfpStatus">{{'DISABLED_SM' | translate}}</span>
+                </div>
+                <div ng-if="userSettings.mfpStatus" ng-click="reconnectMFP()">
+                    <img src="img/myfitnesspal.png"/>
+                    {{'CONNECT_MFP' | translate}}<span ng-if="userSettings.mfpStatus">{{'ENABLED_SM' | translate}}</span><span
+                        ng-if="!userSettings.mfpStatus">{{'DISABLED_SM' | translate}}</span>
+                </div>
+                <i class="icon ion-chevron-right icon-accessory mfp-arrow"></i>
+            </div>
+            <div class="mfp-status">
+                <ion-toggle ng-model="mfpWeightStatus.data"
+                            ng-change="syncWeight()" class="toggle-blue" ng-if="userSettings.mfpStatus">
+                    <h2>{{'MFP_WEIGHT' | translate}}</h2>
+                    <p class="under-toggle">{{'SYNC_WEEK' | translate}}.</p>
+                </ion-toggle>
+            </div>
+            <div ng-click="connectHuman()">
+                <div class="connect-mfp item-icon-right item">
+                    <div>
+                        <img src="img/partners.png"/>
+                        {{'CONNECTMORE' | translate}}
+                    </div>
+                    <i class="icon ion-chevron-right icon-accessory mfp-arrow"></i>
+                </div>
+            </div>
+            <div class="item item-divider">
+                <h5>{{'VIDEO' | translate}}<span><i class="icon ion-ios-help-outline"
+                                                    ng-click="data.showInfo = !data.showInfo"></i></span></h5>
+            </div>
+            <ion-toggle ng-model="timeSettings.autoPlay" class="toggle-energized">
+                <h2>{{'AUTOPLAY' | translate}}</h2>
+                <p ng-if="data.showInfo">{{'PICS' | translate}}</p>
+            </ion-toggle>
+            <div class="item item-divider">
+                <h5>{{'ADV_AUDIO' | translate}}</h5>
+            </div>
+            <a class="item item-icon-right padding-25" href="#/app/settings/audio">
+                {{'ADV_AUDIO_SET' | translate}}
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+            <div class="item item-divider">
+                <h5>{{'START' | translate}}<span><i class="icon ion-ios-help-outline"
+                                                    ng-click="data.showInfo = !data.showInfo"></i></span></h5>
+            </div>
+            <ion-toggle ng-model="timeSettings.autoStart" class="toggle-energized">
+                <h2>{{'AUTOSTART' | translate}}</h2>
+                <p ng-if="data.showInfo">{{'AUTOSTART_SUB' | translate}}</p>
+            </ion-toggle>
+            <div class="item item-divider">
+                <h5>{{'ENJOY_SW' | translate}}</h5>
+            </div>
+            <a class="item" ng-click="rateSworkit()">
+                {{'RATE_APP' | translate}}
+            </a>
+        </div>
+        <!-- Ensures quick-five image is loaded for language change on Home screen -->
+        <img ng-src="img/quick-{{('LANGUAGE'|translate)}}.png" style="width:0px;height:0px;opacity:0.0001"/>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,25 @@
+<div class="profile-header" ng-controller="ProfileHeaderController">
+	<div class="user-info">
+		<img ng-src="{{ user.photo }}" width="60" height="60">
+		<div>
+			<h3>{{ user.name }}</h3>
+			<span class="edit">edit <a href="#">profile</a></span>
+			<span class="location">{{ user.location }}</span>
+		</div>
+	</div>
+	<div class="title-tabs">
+		<a class="text-center my-films" ng-class="{active:currentState=='main.home.profile.movie'}" ng-click="goTo('main.home.profile.movie')">
+			<span>{{ user.films }}</span><br>
+			<strong>my films</strong>
+		</a>
+		<a class="text-center yes" ng-class="{active:currentState=='main.home.profile.like'}" ng-click="goTo('main.home.profile.like')">
+			<div><img src="images/ico-crown.png" /></div>
+			<span>{{ user.likes }}</span><br>
+			<strong>YES!</strong>
+		</a>
+		<a class="text-center pending" ng-class="{active:currentState=='main.home.profile.pending'}" ng-click="goTo('main.home.profile.pending')">
+			<span>{{ user.pending }}</span><br>
+			<strong>pending films</strong>
+		</a>
+	</div>
+</div>

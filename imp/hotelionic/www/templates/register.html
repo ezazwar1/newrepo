@@ -1,0 +1,147 @@
+ <ion-view title="Register" >
+
+  <ion-nav-buttons side="left">
+    
+  </ion-nav-buttons>
+  
+  <ion-nav-buttons side="right">   
+    <button class="button button-icon1 button-icon icon ion-ios-cart" style="color: #FFFFFF;"></button>
+	
+	
+		
+  </ion-nav-buttons>
+     <style>
+.bg{
+	background: url(img/bgmenu.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+
+
+  .item .item-content.activated{
+	background-color: #5E87B0;
+	color: #000;
+	} 
+	.form{
+  float:left;
+  height:86%;
+  width:100%;
+  box-sizing:border-box;
+  padding: 20px;
+}
+
+.textbox{
+  height:50px;
+  width:100%;
+  border-radius:3px;
+  box-sizing:border-box;
+  padding:10px;
+}
+
+.textbox:focus{
+  outline:none;
+   color: #000;
+}
+select#xyz {
+    border: none;
+}
+</style>
+
+
+
+  <ion-content class="bg">
+<div class="">
+	<form method="post" style="color:#fff;" class="form" ng-submit="doSignup()">
+		
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i style="margin-top: -7px;"  class="ion-person"></i>
+            <input style="padding-left: 10px;border: 1px solid #fff; " type="text" placeholder="First Name"  class="textbox" ng-model="signupData.fname"/>
+          </label>
+        </div>		
+		
+		
+	<div class="list list-inset">
+          <label class="item item-input">
+            <i style="margin-top: -7px;" class="ion-person"></i>
+             <input style="padding-left: 10px;border: 1px solid #fff; " type="text" placeholder="Last Name"  ng-model="signupData.lname" />
+          </label>
+        </div>		
+		
+		
+	<div class="list list-inset">
+          <label class="item item-input">
+            <i  class="ion-iphone"></i>
+           <input style="padding-left: 10px;border: 1px solid #fff; " type="text" placeholder="Mobile No"  ng-model="signupData.mobile" />
+          </label>
+        </div>		
+     
+		
+     
+      <div class="list list-inset">
+          <label class="item item-input">
+            <i style="margin-top: -7px;" class="ion-android-calendar"></i>
+           <input style="padding-left: 10px;border: 1px solid #fff;" type="date" placeholder="Date of Birth" class="textbox" ng-model="signupData.dob" />
+          </label>
+        </div>	
+        
+        
+        <div class="list list-inset">
+          <label class="item item-input" style=" height: 39px;">
+            <i style="margin-top: -7px;" class="ion-person-stalker"></i>
+                  <select id="xyz" style="padding-left:15px;width: 100%; border-radius: 3px;background-color: white;" ng-model="signupData.gender">
+                                <option selected value="">Select Gender</option>
+			        <option value="male">male</option>
+			        <option value="female">female</option>
+			
+		</select>
+          </label>
+        </div>	
+      
+
+      <div class="list list-inset">
+          <label class="item item-input">
+            <i  class="ion-ios-telephone"></i>
+           <input style="padding-left: 10px;border: 1px solid #fff; " type="text" placeholder="Telephone No"  ng-model="signupData.telephone" />
+          </label>
+        </div>	
+      
+      
+       
+	<div class="list list-inset">
+          <label class="item item-input">
+            <i  class="ion-email"></i>
+           <input style="padding-left: 10px;border: 1px solid #fff; " type="email" placeholder="Email" class="ion-email" ng-model="signupData.email" />
+          </label>
+        </div>
+	  	
+     
+	  <div class="list list-inset">
+          <label class="item item-input">
+            <i  class="ion-locked"></i>
+           <input style="padding-left: 10px;border: 1px solid #fff; " type="password" placeholder="Password" class="ion-email" ng-model="signupData.pass"  />
+          </label>
+        </div>	
+    
+	  
+	   
+	    
+   <!--   <input style="padding-left: 10px;border: 1px solid #fff; margin-top:20px;height:40px;" type="password"  placeholder="Re-enter Password" class="textbox" ng-model="signupData.reenterpass" /> -->
+      
+      
+      
+      <button style="margin-top: 20px;width:100%;background-color:#33D29C;border-color:#33D29C;color: #fff;" class="button button-positive">
+  Next
+</button>
+      
+    </form>
+<!--<a href="#/app/playlists"><button style="width: 160px; border-color: #fff;background-color: #fff;color: #000; " class="button button-positive">
+  Cancel
+</button></a>-->
+</div>
+    
+  
+  </ion-content>
+</ion-view>

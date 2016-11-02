@@ -1,0 +1,119 @@
+/* line 5, mediaAlbum.scss */
+.album-page .bar.bar-header {
+  padding: 0;
+  background: #efecec;
+}
+/* line 9, mediaAlbum.scss */
+.album-page .bar.bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  color: #9aa7b2;
+}
+/* line 15, mediaAlbum.scss */
+.album-page .bar.bar-header button.button {
+  color: #63c199;
+  height: 44px;
+  padding: 0 20px;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-weight: normal;
+  display: block;
+  top: 0;
+  right: 0;
+}
+/* line 27, mediaAlbum.scss */
+.album-page .bar.bar-header .btn-back img {
+  height: 22px;
+  margin-top: 10px;
+}
+/* line 34, mediaAlbum.scss */
+.album-page .album-info {
+  font: normal 16px HelveticaNeueLT, sans-serif;
+  position: relative;
+  margin: 10px;
+  margin-top: 20px;
+}
+/* line 40, mediaAlbum.scss */
+.album-page .album-info .btn-refresh {
+  text-align: center;
+  width: auto;
+  float: right;
+  color: #98a6b1;
+  width: 40%;
+}
+/* line 48, mediaAlbum.scss */
+.album-page .album-info .btn-select-all {
+  float: left;
+  font: normal 16px HelveticaNeueMD, sans-serif;
+  color: #9aa7b2;
+  text-align: left;
+}
+/* line 54, mediaAlbum.scss */
+.album-page .album-info .btn-select-all.disabled {
+  opacity: 0.5;
+}
+/* line 58, mediaAlbum.scss */
+.album-page .album-info .btn-select-all .select-box {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #9aa7b2;
+  border-radius: 3px;
+}
+/* line 68, mediaAlbum.scss */
+.album-page .album-info .btn-select-all.all-selected .select-box {
+  background-image: url("../images/albummanager/check-green.svg");
+}
+/* line 76, mediaAlbum.scss */
+.album-page .grid-item .grid-item-inner {
+  background-color: #e5e5e5;
+  background-position: center center;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #fff;
+}
+/* line 85, mediaAlbum.scss */
+.album-page .grid-item .status {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+  font-size: 40px;
+  color: #fff;
+  background-color: #12ad60;
+  background-size: cover;
+}
+/* line 97, mediaAlbum.scss */
+.album-page .grid-item .status.selected {
+  background-image: url("../images/albummanager/check-green.svg");
+}
+/* line 103, mediaAlbum.scss */
+.album-page .big-button-footer {
+  height: 60px;
+  padding: 10px 20px 17px;
+  background: #fff;
+  border: 0;
+}
+/* line 109, mediaAlbum.scss */
+.album-page .big-button-footer .make-it {
+  position: relative;
+  background: #12ad60;
+  text-align: center;
+  padding: 12px;
+  color: #fff;
+  font-family: HelveticaNeueBD, sans-serif;
+  font-size: 16px;
+  border-radius: 3px;
+  line-height: 10px;
+}
+/* line 120, mediaAlbum.scss */
+.album-page .big-button-footer .make-it img {
+  height: 35px;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}

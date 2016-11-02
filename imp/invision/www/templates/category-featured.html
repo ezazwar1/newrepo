@@ -1,0 +1,31 @@
+<ion-view>
+	<ion-nav-title>{{categoryCtrl.category.name}}</ion-nav-title>
+	<ion-pane>
+		<ion-content>
+			<ion-list>
+				<ion-item class="category-ion-item" data-ui-sref="app.item({itemId: item.id})" data-ng-repeat="item in categoryCtrl.items track by $index" data-ng-class="{'featured': item.featured}">
+					<div class="row row-wrap category-items">
+						<div class="col">
+							<div class="item-image featured-article" data-ng-if="item.featured">
+								<img data-ng-src="{{item.img}}">
+								<h1 data-ng-bind-html="item.title|trustHtml"></h1>
+								<div class="row item-tools">
+									<div class="col col-40"><i class="icon ion-radio-waves"></i>{{item.source}}</div>
+									<div class="col col-60 right-align item-category"><i class="icon ion-clock"></i>{{item.date | date:'MMM d, y'}}</div>
+								</div>
+							</div>
+							<div class="category-item-tools" data-ng-if="!item.featured">
+								<h3 data-ng-bind-html="item.title|trustHtml"></h3>
+								<div class="row">
+									<div class="col col-40"><i class="icon ion-radio-waves"></i>{{item.source}}</div>
+									<div class="col col-60 right-align item-category"><i class="icon ion-clock"></i>{{item.date | date:'MMM d, y'}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ion-item>
+			</ion-list>
+			<ion-infinite-scroll ng-if="!categoryCtrl.noMoreItemsAvailable" on-infinite="categoryCtrl.loadData()" distance="10%"></ion-infinite-scroll>
+		</ion-content>
+	</ion-pane>
+</ion-view>

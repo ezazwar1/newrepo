@@ -1,0 +1,88 @@
+@import 'variables';
+
+.user-list {
+	.user-item {
+		@include display(flex);
+		//@include justify-content(space-between);
+		height: 30px;
+		margin-bottom: 25px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		align-items: center;
+
+		font-size: 14px;
+		font-family: HelveticaNeue, 'sans-serif';
+
+		width: 100%;
+		overflow: hidden;
+
+		.thumb
+		{
+			margin-right: 10px;
+			margin-left: 10px;
+			overflow: hidden;
+			height: 30px;
+			width: 30px;
+			display: block;
+
+			@include flex-shrink(0);
+			@include flex-basis(30px);
+
+			img {
+				height: 30px;
+			}
+		}
+
+		.user-info {
+			height: 30px;
+			@include flex-grow(1);
+			@include flex-shrink(0);
+
+			.fullName {
+				line-height: 15px;
+				color: $stayfilmColor;
+				margin-bottom: 3px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				text-align: left;
+			}
+
+			.city {
+				line-height: 15px;
+				color: #9aa7b2;
+				font-size: 12px;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				text-align: left;
+			}
+		}
+
+		.actions {
+			@include flex-shrink(0);
+			display: block;
+			padding-right: 10px;
+
+			&.two-buttons {
+				button {
+					display: inline;
+					width: 50%;
+					text-align: left;
+					padding: 5px;
+				}
+			}
+
+			button {
+				color: #9aa7b2;
+				padding: 0;
+			}
+
+			&.shake  {
+				@include animation-duration(1s);
+				@include animation-iteration-count(infinite);
+			}
+		}
+	}
+}
+

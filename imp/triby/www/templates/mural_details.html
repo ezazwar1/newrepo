@@ -1,0 +1,65 @@
+<ion-view cache-view="false">
+  <!-- Header -->
+  <div class="bar mural-detail-header bar-header disable-user-behavior" ng-show="isShowDetails">
+    <div class="buttons buttons-left">
+      <span class="left-buttons">
+        <button class="button button-icon ion-chevron-left client-positive" ng-click="closeModal()">{{getTribyName()}}</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <ion-content scroll="false" style="width: 100%; height: 100%; background-color:#2b2b2b" class="modal image-modal accelerated">
+    <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" has-bouncing="false"
+                zooming="true" style="width: 100%; height: 100%;min-width: 100px; min-height: 100px" min-zoom="1" class="modal-image accelerated">
+
+      <div class="image accelerated" ng-click="toggleDetails()">
+        <img class="accelerated" ng-src="{{post.pic}}">
+
+      </div>
+
+    </ion-scroll>
+  </ion-content>
+
+  <!-- Footer -->
+  <div class="bar bar-footer mural-detail-footer" ng-slide-down="open" ng-attr-duration="0.2" style="display: none">
+    <div class=" flex" id="flex-1">
+      <div class="col  col-center" id="table-name-center">
+        <img class="mural_detail_profile_img" ng-src="{{post.createdBy.pic || 'img/default_avatar.jpg'}}" />
+        <span style="color: #ffffff" class="feed-text-name-block profile-name-centered">{{post.createdBy.username | limitName}}</span>
+
+      </div>
+      <div  class="col feed-text-name col-center mural-details" id="mural-content-wrapper">
+        <span style="color: #ffffff" class="feed-text-name-content" ng-bind-html="escapeHTML(post.content) | processHTML"></span>
+      </div>
+      <div class="col col-33 mural-date">
+        {{post.date | customDate}}
+      </div>
+    </div>
+    <div class="news_feed_icon_wrapper flex" style="border-top: 1px solid #ffffff">
+      <div class="left_chat_icon">
+        <div class="heart text-12-gray" style=" width: 71.875px; " ng-click="setHeart(post, true)">
+          <a href="javascript:void 0">
+            <img id="m_heartImg_{{post._id}}" ng-src={{getHeartImgSrc(post.hearts)}} />
+          </a>
+          <span id="m_heartsSpan_{{post._id}}" class="text-heart" ng-bind="post.hearts.length == 0 ? '' : post.hearts.length"></span>
+        </div>
+        <div class="hand-down text-12-gray" ng-click="setDislike(post, true)">
+          <a href="javascript:void 0">
+            <img id="m_dislikeImg_{{::post._id}}" ng-src={{getDislikeImgSrc(post.dislikes)}} />
+          </a>
+          <span id="m_dislikesSpan_{{::post._id}}" ng-bind="post.dislikes.length == 0 ? '' : post.dislikes.length"></span>
+        </div>
+      </div>
+      <div class="right_chat_icon" style=" height: 41px; ">
+        <div class="comments_area text-12-gray" ng-click="goComment(post, {name: triby.name, _id: triby._id})">
+          <img id="m_imgComment_{{post._id}}" ng-src={{getImgSrc(post)}} />
+          <span>
+            Comments
+            <span class="text-comment" id="m_comCount_{{post._id}}" ng-bind="post.comments_count == 0 ? '' : post.comments_count"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-view>

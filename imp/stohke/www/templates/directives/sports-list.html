@@ -1,0 +1,10 @@
+<div ng-repeat="section in sports" class="sports-grouping">
+    <div class="spaced"></div>
+    <a ng-href="#/explore/category/{{sport}}" ng-repeat="sport in section track by $index">
+        <div class="discover-media">
+            <span class="sport-title">{{sport}}</span>
+            <span class="discover-media-background" style="background-image: url('http://www.stohke.com/Content/Images/Sports/{{sport}}.jpg');"></span>
+        </div>
+    </a>
+
+</div>

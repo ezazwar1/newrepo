@@ -1,0 +1,51 @@
+<ion-view>
+
+    <ion-slide-box active-slide="activeSlide">
+    <ion-slide>
+        <ion-content class="slides-start" scroll="false" ng-class="{'has-footer': false}">
+            <div class="welcome-text">
+                <span class="on-ribbon" translate="SLIDES.WELCOME_TEXT"></span>
+            </div>
+        </ion-content>
+        <!-- <ion-footer-bar class="bar-transparent slide-footer-height">
+          <span><i class="icon ion-ios-arrow-back"></i>  {{'SLIDES.SLIDE' | translate }}</span>
+			<div class="initial-auth-wrapper">
+				<button class="button button-fb button-block initial-auth-loginBtn" translate="INTRO.LOGIN" ng-click="skipIntro('login')">Log in</button>
+                <button class="button button-fb button-block initial-auth-signupBtn" translate="INTRO.SIGNUP_SINGLE" ng-click="skipIntro('signup')">Signup</button>
+			</div>
+        </ion-footer-bar> -->
+    </ion-slide>
+
+    <ion-slide>
+        <ion-content class="slides-middle" scroll="false" ng-class="{'has-footer': false}">
+            <div class="welcome-text">
+                <span class="on-ribbon" translate="SLIDES.CONNECT"></span>
+            </div>
+        </ion-content>
+        <!-- <ion-footer-bar class="bar-transparent slide-footer-height">
+            <div class="initial-auth-wrapper">
+                <button class="button button-fb button-block initial-auth-loginBtn" translate="INTRO.LOGIN" ng-click="skipIntro('login')">Log in</button>
+                <button class="button button-fb button-block initial-auth-signupBtn" translate="INTRO.SIGNUP_SINGLE" ng-click="skipIntro('signup')">Signup</button>
+            </div>
+        </ion-footer-bar> -->
+    </ion-slide>
+
+    <ion-slide>
+        <ion-content class="slides-end" scroll="false" ng-class="{'has-footer': false}">
+            <div class="welcome-text">
+                <span class="on-ribbon" translate="SLIDES.REWARD"></span>
+            </div>
+        </ion-content>
+        <!-- <ion-footer-bar class="bar-positive floating-footer floating-footer-button">
+            <button ui-sref="auth.login" ng-click="logFirstAccess();" class="button button-big-sticky button-full floating-footer-button">{{ 'SLIDES.LETS_START' | translate }}</button>
+        </ion-footer-bar> -->
+    </ion-slide>
+  </ion-slide-box>
+  <ion-footer-bar class="bar-transparent slide-footer-height fade-img">
+    <span ng-if="activeSlide == 0"><i class="icon ion-ios-arrow-back"></i>  {{'SLIDES.SLIDE' | translate }}</span>
+<div class="initial-auth-wrapper">
+    <button class="button button-fb button-block initial-auth-loginBtn" translate="INTRO.LOGIN" ng-click="skipIntro('login')">Log in</button>
+    <button class="button button-fb button-block initial-auth-signupBtn" translate="INTRO.SIGNUP_SINGLE" ng-click="skipIntro('signup')">Signup</button>
+</div>
+  </ion-footer-bar>
+</ion-view>

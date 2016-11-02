@@ -1,0 +1,41 @@
+<div class="modal modal-popup feedback-modal" ng-controller="FeedbackModalController">
+  <ion-header-bar class="bar-dark ninja-header-bar">
+    <h1 class="title">Feedback</h1>
+    <!-- <div class="buttons">
+      <a class="button" ng-click="submit()" ng-disabled="!canSubmit()">Submit</a>
+    </div> -->
+  </ion-header-bar>
+
+  <ion-content class="has-header ninja-padding" scroll="false">
+    <div class="feedback-page">
+      <div class="feedback">
+        <div class="wave-t"></div>
+
+        <div class="rating" ng-class="{'rating-wobble':run_wobble}">
+          <angular-ratings class="rating-stars" ng-model="job.rate"></angular-ratings>
+        </div>
+
+        <div class="group">
+          <div class="legend" style="padding-bottom:38px"></div>
+          <textarea class="comments" rows="3" ng-model="job.comment" placeholder="Provide some comments ..." ng-focus="taFocus()" ng-blur="taBlur()"></textarea>
+          <!-- <input type="text" ng-model="job.comment" placeholder="Provide some comments ..."></input> -->
+        </div>
+
+        <div class="group">
+          <div class="legend"><span>Share The Love</span></div>
+          <div class="social">
+            <button class="button button-clear" ng-click="shareViaTwitter()"><i class="fa fa-twitter-square"></i></button>
+            <button class="button button-clear" ng-click="shareViaFacebook()"><i class="fa fa-facebook-square"></i></button>
+            <button class="button button-clear" ng-click="shareViaEmail()"><i class="fa fa-envelope-square"></i></button>
+            </button>
+          </div>
+        </div>
+
+        <div class="wave-b"></div>
+      </div>
+    </div>
+    <div class="ninja-footer-bar">
+      <button class="button button-block button-uppercase button-square button-balanced"    style="margin-bottom: 5px;z-index: 10000;position: absolute;width: calc(100% - 20px);bottom: 20px; right: 10px; left: 10px" ng-disabled="!canSubmit()" ng-click="submit()">SUBMIT</button>
+  </div>
+  </ion-content>
+</div>

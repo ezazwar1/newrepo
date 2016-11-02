@@ -1,0 +1,16 @@
+<div class="humburger-menu animate" ng-show="showMenu" ng-click="toggleMenu()" ng-swipe-left="hideMenu()"><div class="humburger-menu-functional"><div class="profie-container"><div class="profile-image-burger"><img ng-src="{{getUser().picture ? getUser().picture : ((user.email || getUser().email) | avatarLink)}}"></div><h3 class="username light-border">{{(getUser().name ? getUser().name :( user.email || getUser().email))}}</h3></div><ul><li class="reminder-new" ng-click="goToView('/dashboard', $event)"><span class="dashboard-border"></span><div class="menu-item"><img src="images/common/color_scheme_light/6f46a768.reminder.png" alt="stats-icon"><div>Dashboard</div></div><span class="dashboard-border"></span></li><li class="groups" ng-if="isApp" ng-click="goToView('/contacts/menu', $event)"><div class="menu-item"><img src="images/common/0901eec2.groups.png" alt="group-icon"><div>Contacts</div></div><span class="dashboard-border"></span></li><!--
+      <li class="reminder-stats" ng-click="goToView('/reminderStats')">
+        <div class="menu-item">
+          <img src="images/common/e35a5ae7.stats@2x.png" alt="stats-icon" />
+          <div>Stats</div>
+        </div>
+        <span class="dashboard-border"></span>
+      </li>
+      <li class="reminder-stats" ng-click="goToView('/groups')">
+        <div class="menu-item">
+          <img src="images/common/6bf39850.group-icon.png" alt="group-icon" />
+          <div>Groups</div>
+        </div>
+        <span class="dashboard-border"></span>
+
+      </li>--><li class="groups" ng-click="goToView('/settings', $event)"><div class="menu-item"><img src="images/common/e536f58e.profile.png" alt="group-icon"><div>Profile</div></div><span class="dashboard-border"></span></li><li class="groups" ng-click="goToView('/feedback', $event)"><div class="menu-item"><img src="images/common/ff4f72f2.send-feedback.png" alt="group-icon"><div>Feedback</div></div><span class="dashboard-border"></span></li><li class="groups" ng-click="logout($event)"><div class="menu-item"><img src="images/common/793c9824.logout.png" alt="group-icon"><div>Logout</div></div><span class="dashboard-border"></span></li></ul></div></div>

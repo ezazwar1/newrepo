@@ -1,0 +1,55 @@
+<ion-view view-title="{{user.FirstName + ' ' + user.LastName}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-icon button-clear ion-ios-upload-outline" ng-click="share()"></button>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="true" has-padding="true" lazy-scroll data-image-lazy-distance-from-bottom-to-load="100">
+        <a class="button button-dark button-block button-manage-profile padded" href="#/profile/edit">Manage profile</a>
+        <div class="featured">
+
+            <img ng-src="{{ user.AvatarUrl200x200 || user.data.UrlPic}}" class="profile-image round bordered" ng-click="changeProfilePicture()"/>
+            <img ng-src="{{userMedia.images[0].ImageUrl540X304 || 'img/placeholder.jpg'}}" alt="" class="bg-img" />
+            <div class="profile-quote-wrapper">
+                <div class="profile-quote">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="profile-details">
+            <p class="profile-name">{{user.FirstName + ' ' + user.LastName || user.data.UserName}} 
+                <!-- <a href=""><i class="ion-ios-information-outline"></i></a> -->
+            </p>
+            <p ng-show="user.Sports.length" class="sports">
+                <span data-ng-repeat="sport in user.Sports">{{($index > 0 ? ', ' : '') + sport}}</span>
+            </p>
+            <p ng-hide="!!!user.HomeTown || !!!user.HomeState">{{user.HomeTown}}{{(user.HomeTown ? ', ' : '')}} {{user.HomeState}} {{user.HomeCountry}}</p>
+
+            <stohke-total data-user-id="user.UserId" data-user-type="'user'"></stohke-total>
+
+            <p ng-if="user.NickName" class="profile-quote">"{{user.NickName}}"</p>
+
+            <div class="bio" ng-class="{true: 'expand', false: ''}[expandSummary]" ng-click="toggleSummaryCollapse()" ng-if="!!user.About">
+                <p>{{user.About}}</p>
+            </div>
+            <div class="bio text-center" ng-hide="user.About">No bio yet.</div>
+        </div>
+        <div class="profile-gallery clearfix" ng-if="hasProfile" >
+            <span class="add-media video" ng-click="uploadToGallery()">
+                <i class="ion-android-add-circle"></i><span>Photos</span>
+            </span>
+            <img src="img/empty.png" alt="" data-image-lazy-src="{{media.ImageUrl270x152}}" ng-repeat="media in userMedia.images" class="" on-tap="showImage($index)" on-hold="mediaActions(media)">
+        </div>
+        <a ng-click="getImages()" class="load-more-link" ng-show="canLoadMore.images">more photos</a>
+        <ion-list ng-if="hasProfile" class="clearfix">
+            <a ng-click="addVideo()" class="add-media video"><i class="ion-android-add-circle"></i><span>Videos</span></a>
+            <ion-item ng-repeat="media in userMedia.videos" class="item-dark item-black no-pad" on-tap="showVideo($index)" on-hold="mediaActions(media)">
+                <img ng-src="{{media.ThumbnailSmallUrl|| media.ThumbnailLargeUrl}}" class="profile-video-thumb">
+                <i class="ion-android-arrow-dropright-circle play-button"></i>
+                <p class="video-description" data-ng-if="media.Caption">{{::media.Caption}}</p>
+            </ion-item>
+        </ion-list>
+            <a ng-click="getVideos()" class="load-more-link" ng-show="canLoadMore.videos">more videos</a>
+
+            <hr>
+            <a class="button button-text button-block button-clear padded text-center" ng-click="showTutorial()">How to manage your profile</a>
+    </ion-content>
+</ion-view>

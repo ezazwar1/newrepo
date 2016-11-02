@@ -1,0 +1,22 @@
+<ion-view title="{{page.title}}" hide-back-button="false" >
+
+    <ion-nav-buttons side="right">
+        <a class="button icon-right button-icon" ng-click="scan()" animation="slide-right-left-ios7"><img src="img/qrcode.png"></a>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header" has-bouncing="false">
+        <ion-list >
+            <ion-item id="homeItem" href="" ng-click="goToSpace(item.Id)"  ng-repeat="item in pages | filter:{timeId:categoryPalace} | orderBy:'orderGuide'" >
+                <div id="bg" style="background-image:url(img/homeImages/{{item.headerImage}});background-size: cover; " ng-style="style()">
+
+
+                    <h2 style="top:0px !important;; position:relative !important;font-size:8.5vw !important;padding-left:10px !important;padding-right:10px !important;">{{item.title}}</h2>
+                </div>
+
+
+            </ion-item>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

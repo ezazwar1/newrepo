@@ -1,0 +1,22 @@
+<ion-modal-view>
+
+  <ion-content class="filter-popover replace-negative" scroll="{{isAndroid()}}">
+  	<span ng-click="closeReplaceModal()" class="go-back">X</span>
+
+    <h1 class="title">{{ 'THOUGHTS_REPLACE_HEADER' | translate }}
+
+    <span ng-if="replaceError">{{ 'THOUGHTS_REPLACE_ERROR' | translate}}</span></h1>
+
+    <div class="negativeThought">
+      {{ thoughtToReplace }}
+    </div>
+
+    <textarea ng-model="replaceWrapper.thoughtReplacement" placeholder="{{ 'THOUGHTS_REPLACE_PLACEHOLDER' | translate }}" style="-moz-user-select:text !important; -webkit-user-select: text !important; overflow:scroll !important;">
+
+    </textarea>
+
+  </ion-content>
+    <div class="bar bar-footer replace-pop" style="z-index:100">
+      <button ng-click="replacethought()" class="button button-start" ng-disabled="!hasReplacementText()">{{ 'SAVE' | translate }}</button>
+    </div>
+</ion-modal-view>

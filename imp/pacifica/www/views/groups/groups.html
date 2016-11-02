@@ -1,0 +1,124 @@
+<ion-view id="groups" class="public-view" hide-back-button="true">
+<ion-nav-bar class="pa-header" ng-class="{'level-header': !isUMNUser(), 'off': activeTab !== 'communities'}"> 
+  <ion-nav-title>
+    <div>{{ getActiveTabTitle() }}<span ng-show="!isUMNUser() && activeTab == 'communities'" ng-click="goToSkills()">{{ 'LEVEL' | translate }} {{ getSocialLevel()}}</span></div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <a href="javascript:;" ng-click="showHelp()"><button class="button button-clear icon ion-ios-help-outline"></button></a>
+  </ion-nav-buttons>
+</ion-nav-bar>
+  <div class="back"></div>
+  <ion-content> 
+    
+    <div ng-if="showGroups()">
+      
+      <div ng-if="loadingGroups" class="loading">
+        <ion-spinner class="icon-refreshing"></ion-spinner><br>
+        {{ 'GROUPS_LOADING' | translate }}
+      </div>
+
+      <div ng-if="!loadingGroups" class="list habits-menu">
+
+         <!--<div class="item item-divider">{{ 'GROUP_REQUESTS' | translate }}</div>-->
+
+          <div style="position: relative;">   
+          
+          <div style="position: relative;" class="search-group-wrapper shadow">
+          <input type="text" placeholder="{{ 'SEARCH_GROUPS' | translate }}" name="searchgroups" id="searchGroups" maxlength="32" ng-model="searchQuery.query" ng-change="searchGroups()">
+          <span ng-click="clearGroupSearch()" class="clear-goal" ng-show="searchQuery.query.length > 0">X</span>
+        </div>
+          <div style="overflow: hidden;">
+          <a href="javascript:;" ng-click="showJoinGroupByCode()" class="item group-code">
+            {{ 'GOT_GROUP_CODE' | translate }}
+          </a>
+          <a href="javascript:;" ng-click="browseCuratedGroups()" class="item browse-groups">
+            {{ 'BROWSE_GROUPS' | translate }}
+          </a>
+          </div>
+          <div ng-show="hasSearchEntry" class="hasSearchEntry">
+            <div class="item item-divider">{{ 'AVAILABLE_GROUPS' | translate }} <span ng-show="searchableGroups.length > 0">({{searchableGroups.length}})</span></div>
+              <div ng-show="isSearching" class="item empty-search">
+                {{ 'SEARCHING' | translate }}...
+              </div>
+              <div ng-repeat="group in searchableGroups" ng-if="!isSearching && searchableGroups && searchableGroups.length > 0" ng-click="showJoinGroup(group.id, group.code)" class="item">
+              <span>{{group.name}}</span><br>
+              <em ng-show="group.description">{{group.description}}<br></em> 
+              <em>{{group.members}} {{ (group.members == 1 ? 'MEMBER' : 'MEMBERS') | translate }}</em>
+              </div>
+              <div ng-show="!isSearching && (!searchableGroups || searchableGroups.length == 0)" class="item empty-search">
+              {{ 'NO_SEARCHABLE_GROUPS' | translate }}
+              </div>
+           </div>
+          </div>
+          <div ng-repeat="invite in pendingInvites" class="pending-invites"> 
+            <div class="item item-icon-left">
+              <span><i class="icon ion-ios-chatboxes-outline"></i>{{invite.userGroup.name}}</span><br>
+              <em>{{invite.userGroup.nickname}}</em>
+              <a href="javascript:;" class="approve" ng-click="showJoinGroup(invite.userGroup.id)"></a>
+              <a href="javascript:;" class="remove" ng-click="deleteInvite(invite.userGroup.id)"></a>
+            </div>
+          </div>
+
+          <!--<div class="item item-divider">{{ 'PRIVATE_GROUPS' | translate }}</div>-->
+          <div ng-repeat="group in userGroups" ng-if="userGroups && userGroups.length > 0">
+            <a href="javascript:;" ng-click="goToGroup(group)" class="item item-icon-left hideRemove is-block">
+              <i class="{{getGroupAvatar(group)}} avatar"></i>
+              <span>{{group.name}}</span>
+              <em>{{group.members}} {{ (group.members == 1 ? 'MEMBER' : 'MEMBERS') | translate }}</em>
+              <!--<div class="edit" ng-click="showEditGroup($event, group)" ng-if="isOwner(group)"></div>-->
+              <div class="remove" ng-click="archiveGroup($event, group)"></div>
+              <div class="badge-notif" ng-show="hasGroupNotification(group.id)">{{ getGroupNotificationCount(group.id) }}</div>
+            </a>
+          </div>
+          <div ng-if="userGroups && userGroups.length == 0">
+            <h2 class="quote group-empty"><span>{{ 'NO_GROUPS_1' | translate }}<br>
+              {{ 'NO_GROUPS_2' | translate }}</span>
+            </h2>
+          </div>
+
+          </div>
+    </div>
+
+    <div ng-if="showCommunities()" class="communities-tab">
+
+      <div ng-if="loadingCommunities" class="loading">
+        <ion-spinner class="icon-refreshing"></ion-spinner><br>
+        {{ 'LOADING_COMMUNITIES' | translate }}
+      </div>
+      <div ng-if="!loadingCommunities" class="list habits-menu">
+        <div class="item item-divider" ng-if="hasUserNickname()">{{ 'PROFILE' | translate }}</div>
+        <div class="item item-divider" id="comm-account" ng-if="hasUserNickname()" ng-click="goToProfile()">
+          <div class="{{getUserAvatar()}} avatar"></div>
+          {{getUserNickname()}}
+          <div class="point-cointainer">
+            <span>{{getUserLikes()}}<br><em>{{ 'LIKES' | translate }}</em></span>
+            <span>{{getUserShares()}}<br><em>{{ 'POSTS' | translate }}</em></span>
+          </div>
+          <div class="badge-notif" ng-show="hasAnyPostNotification()">{{ getPostNotificationCount() }}</div> 
+        </div>
+        <div class="item item-divider">{{ 'PUBLIC_COMMUNITIES' | translate }}</div>
+        <div ng-repeat="group in communities" ng-if="communities && communities.length > 0">
+          <a href="javascript:;" ng-click="goToGroup(group)" class="item item-icon-left thick-border">
+            <span><i class="icon ion-ios-people"></i>{{getCommunityName(group)}}</span><br>
+            <em>{{getCommunityDescription(group)}}</em>
+            <div class="badge-notif" style="display: none;">3</div>
+          </a>
+        </div>
+
+        <div ng-if="communities && communities.length == 0">
+          <h2 class="quote">{{ 'PUBLIC_COMMUNITIES_EMPTY' | translate }}</h2>
+        </div>
+
+      </div>
+
+    </div>
+
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+  <a href="javascript:;" ng-click="createOrJoinRandomGroup()" ng-if="showGroups() && !hasSearchEntry" class="circle-button item-icon-left">
+    <i class="icon ion-ios-plus-empty"></i>
+    <span ng-if="userGroups && userGroups.length < 1 && !loadingGroups" class="tooltip">{{ 'NEW_GROUP' | translate }}</span>
+  </a>
+
+</ion-view>

@@ -1,0 +1,716 @@
+/* line 9, moviemaker.scss */
+.moviemaker #btn-upload {
+  position: absolute;
+  visibility: hidden;
+  left: -1000px;
+}
+/* line 15, moviemaker.scss */
+.moviemaker .bar-header {
+  background: white;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-align-content: flex-start;
+  -moz-align-content: flex-start;
+  align-content: flex-start;
+  -ms-flex-line-pack: start;
+  color: #dedcdf;
+  font-size: 20px;
+  font-family: HelveticaNeueLT, sans-serif;
+  height: 50px;
+  border: none;
+}
+/* line 29, moviemaker.scss */
+.moviemaker .bar-header .button img {
+  height: 20px;
+}
+/* line 34, moviemaker.scss */
+.moviemaker .bar-header .button-text {
+  width: auto;
+}
+/* line 37, moviemaker.scss */
+.moviemaker .bar-header .button-text span {
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  color: #63c199;
+  float: left;
+  line-height: 0.8;
+  padding-right: 5px;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 17px;
+}
+/* line 49, moviemaker.scss */
+.moviemaker .bar-header .button-text img {
+  position: relative;
+  top: -2px;
+  float: left;
+}
+/* line 58, moviemaker.scss */
+.moviemaker .moviemaker-step .moviemaker-wrapper {
+  margin: 0 20px;
+}
+/* line 62, moviemaker.scss */
+.moviemaker .moviemaker-step h2 {
+  font-family: HelveticaNeueBLK, sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+/* line 72, moviemaker.scss */
+.moviemaker .moviemaker-step .circles {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+/* line 77, moviemaker.scss */
+.moviemaker .moviemaker-step .circles .step-circle {
+  color: #dedcdf;
+  border: 1px solid #dedcdf;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  line-height: 40px;
+  text-align: center;
+  margin-right: 10px;
+  font-family: HelveticaNeueTH;
+}
+/* line 79, moviemaker.scss */
+.moviemaker .moviemaker-step .circles .step-circle.active {
+  color: #fff;
+  background: #252525;
+}
+/* line 97, moviemaker.scss */
+.moviemaker .moviemaker-step .main-title {
+  margin: 10px 0;
+  font-size: 36px;
+  font-family: HelveticaNeueTH, sans-serif;
+  line-height: 1;
+  text-align: center;
+}
+/* line 105, moviemaker.scss */
+.moviemaker .moviemaker-step input {
+  width: 100%;
+  background: #dedcdf;
+  color: #948e91;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 20px;
+  margin: 0;
+}
+/* line 116, moviemaker.scss */
+.moviemaker .moviemaker-step .tags-button {
+  background: #dedcdf;
+  color: #948e91;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin: 0;
+  text-align: left;
+}
+/* line 129, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .tags {
+  clear: both;
+}
+/* line 133, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .tags h3 {
+  font-size: 15px;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-weight: normal;
+  color: #7a7a7a;
+}
+/* line 141, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content hr {
+  margin: 10px;
+  border: none;
+  border-top: 2px dashed #d0d0d0;
+  margin: 10px;
+}
+/* line 150, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .btn-pickup-media button {
+  position: relative;
+  background: #35434d;
+  text-align: center;
+  padding: 12px;
+  color: #fff;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 14px;
+  border-radius: 3px;
+  line-height: 10px;
+}
+/* line 161, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .btn-pickup-media button img {
+  height: 35px;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}
+/* line 171, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .selected {
+  margin: 7px;
+}
+/* line 176, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .media-instructions p {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 20px;
+  color: #7a7a7a;
+  margin: 0 0 5px;
+}
+/* line 185, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 188, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .add-media, .moviemaker .moviemaker-step.moviemaker-content .square-upload .upload-status, .moviemaker .moviemaker-step.moviemaker-content .square-upload .media-rotator {
+  background: #dedcdf;
+  color: #98a6b1;
+  height: 150px;
+  width: 33.333%;
+}
+/* line 195, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .add-media {
+  position: relative;
+}
+/* line 198, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .add-media .status {
+  position: absolute;
+  width: 100%;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 18px;
+  top: 40px;
+  text-align: center;
+}
+/* line 207, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .add-media .camera-icon {
+  position: absolute;
+  width: 100%;
+  top: 70px;
+  text-align: center;
+  transition: all 500ms ease;
+}
+/* line 214, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .add-media .camera-icon img {
+  margin-left: 18px;
+}
+/* line 220, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .add-media.zeroed .status {
+  display: none;
+}
+/* line 224, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .add-media.zeroed .camera-icon {
+  top: 55px;
+}
+/* line 230, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .upload-status {
+  position: relative;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+}
+/* line 235, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .upload-status .progress-bar {
+  position: absolute;
+  background: #12ad60;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+/* line 244, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .upload-status .percentage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #35434d;
+  font-family: HelveticaNeueTH, sans-serif;
+  font-size: 30px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  text-align: center;
+  line-height: 150px;
+}
+/* line 259, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .media-rotator {
+  position: relative;
+}
+/* line 262, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .media-rotator .rotator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+}
+/* line 272, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .media-rotator .instructions {
+  display: table;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 12px;
+}
+/* line 281, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-content .square-upload .media-rotator .instructions .bottom-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+/* line 292, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-instructions {
+  text-align: center;
+  font-size: 16px;
+  font-family: HelveticaNeueLT, sans-serif;
+  color: #7a7a7a;
+  margin: 20px;
+}
+/* line 302, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+  padding-bottom: 22.6%;
+}
+/* line 306, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item.selected {
+  -webkit-filter: invert(1) sepia(1) saturate(40) hue-rotate(360deg) drop-shadow(3px 3px 5px gray);
+  filter: invert(1) sepia(1) saturate(40) hue-rotate(360deg) drop-shadow(3px 3px 5px gray);
+}
+/* line 314, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item img {
+  position: absolute;
+  display: block;
+  width: 100%;
+}
+/* line 320, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item .genre-name {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  margin: auto;
+  top: 40%;
+  left: 30%;
+  font-size: 6vmin;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0 10px;
+}
+/* line 332, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item .icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 20px;
+  right: 15px;
+  color: #fff;
+  font-size: 20px;
+}
+/* line 343, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item.has-not-mini-template {
+  background-color: #666;
+}
+/* line 346, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item.has-not-mini-template.selected {
+  -webkit-filter: none;
+  filter: none;
+}
+/* line 350, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item.has-not-mini-template img {
+  opacity: 0.1;
+}
+/* line 354, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-genre .genre-list .genre-item.has-not-mini-template i {
+  opacity: 0;
+}
+/* line 363, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .has-big-button-footer {
+  bottom: 60px;
+}
+/* line 367, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .refine-content {
+  position: relative;
+  top: -5px;
+  color: #666;
+  width: auto;
+}
+/* line 374, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .all-content {
+  padding: 20px;
+}
+/* line 377, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .all-content .kana-button {
+  background: #35434d;
+  font-family: HelveticaNeueMD, sans-serif;
+}
+/* line 381, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .all-content .kana-button.selected {
+  background: #ac242a;
+}
+/* line 387, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .big-button-footer {
+  height: 60px;
+  padding: 10px 20px 17px;
+  background: #fff;
+  border: 0;
+}
+/* line 393, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .big-button-footer .make-it {
+  background: #12ad60;
+}
+/* line 398, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .or-separator {
+  position: relative;
+  border-top: 2px dashed #d0d0d0;
+  text-align: center;
+  margin: 20px;
+}
+/* line 404, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .or-separator span {
+  position: relative;
+  padding: 0 10px;
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 16px;
+  background: #fff;
+  top: -11px;
+  color: #7a7a7a;
+}
+/* line 416, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item {
+  margin-bottom: 32px;
+}
+/* line 419, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item .theme-name {
+  font-family: HelveticaNeueBLK, sans-serif;
+  font-size: 16px;
+  color: #35434d;
+}
+/* line 424, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item .theme-name img {
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+/* line 431, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item .theme-name span {
+  line-height: 30px;
+}
+/* line 436, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item .subtheme-list {
+  margin: 0 0 10px 60px;
+}
+/* line 439, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item .subtheme-list li {
+  margin: 0px;
+  padding: 15px;
+  color: #948e91;
+  font-family: HelveticaNeueROMAN, sans-serif;
+  font-size: 16px;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+/* line 448, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item .subtheme-list li.selected {
+  background: #ddd;
+  color: #35434d;
+}
+/* line 453, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .theme-list .theme-item .subtheme-list li.activated {
+  opacity: 1;
+}
+/* line 461, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme .item-divider {
+  background: #888;
+  color: #fff;
+}
+/* line 466, moviemaker.scss */
+.moviemaker .moviemaker-step.moviemaker-theme i.icon {
+  color: #fff;
+}
+/* line 477, moviemaker.scss */
+.moviemaker .social-step i.network-icon {
+  display: block;
+  float: left;
+  width: 38px;
+  height: 38px;
+  opacity: 0.5;
+  -webkit-filter: grayscale(1);
+}
+/* line 489, moviemaker.scss */
+.moviemaker .social-step i.network-icon.facebook {
+  background: #fff url("pages/moviemaker/img/facebook.png") center center no-repeat;
+}
+/* line 489, moviemaker.scss */
+.moviemaker .social-step i.network-icon.instagram {
+  background: #fff url("pages/moviemaker/img/instagram.png") center center no-repeat;
+}
+/* line 489, moviemaker.scss */
+.moviemaker .social-step i.network-icon.flickr {
+  background: #fff url("pages/moviemaker/img/flickr.png") center center no-repeat;
+}
+/* line 489, moviemaker.scss */
+.moviemaker .social-step i.network-icon.vimeo {
+  background: #fff url("pages/moviemaker/img/vimeo.png") center center no-repeat;
+}
+/* line 489, moviemaker.scss */
+.moviemaker .social-step i.network-icon.gplus {
+  background: #fff url("pages/moviemaker/img/gplus.png") center center no-repeat;
+}
+/* line 489, moviemaker.scss */
+.moviemaker .social-step i.network-icon.twitter {
+  background: #fff url("pages/moviemaker/img/twitter.png") center center no-repeat;
+}
+/* line 495, moviemaker.scss */
+.moviemaker .social-step i.network-icon.integrated {
+  opacity: 1;
+  -webkit-filter: grayscale(0);
+}
+/* line 501, moviemaker.scss */
+.moviemaker .social-step .network-name {
+  float: left;
+  display: block;
+  padding: 10px 0 0 10px;
+}
+/* line 507, moviemaker.scss */
+.moviemaker .social-step .item-toggle .toggle {
+  margin-top: 10px;
+}
+/* line 513, moviemaker.scss */
+.moviemaker .tag-step .tag-list .icon {
+  color: #aaa;
+}
+/* line 518, moviemaker.scss */
+.moviemaker .theme-step .item-divider {
+  background: #888;
+  color: #fff;
+}
+/* line 523, moviemaker.scss */
+.moviemaker .theme-step .selected {
+  background: #d3363c;
+  color: #fff;
+}
+/* line 528, moviemaker.scss */
+.moviemaker .theme-step i.icon {
+  color: #fff;
+}
+/* line 534, moviemaker.scss */
+.moviemaker .summary-step .none {
+  color: #aaa;
+}
+/* line 539, moviemaker.scss */
+.moviemaker .upload-progress {
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+/* line 543, moviemaker.scss */
+.moviemaker .upload-progress .progress-bar {
+  text-align: center;
+  float: left;
+  background: #ddd;
+  padding: 5px 0;
+  border-radius: 5px;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 556, moviemaker.scss */
+.moviemaker .upload-progress .progress-bar span {
+  margin: 5px;
+  white-space: nowrap;
+}
+/* line 561, moviemaker.scss */
+.moviemaker .upload-progress .progress-bar.progress-failed {
+  background: #faa;
+  font-size: 0.8em;
+}
+
+/* line 569, moviemaker.scss */
+.modal-zoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+  min-height: 100%;
+  width: 100%;
+  background-color: #444;
+}
+/* line 579, moviemaker.scss */
+.modal-zoom .bar-header {
+  background-color: #444;
+  border: 0;
+}
+/* line 583, moviemaker.scss */
+.modal-zoom .bar-header button {
+  width: auto;
+  height: auto;
+  margin: 0 10px;
+}
+/* line 588, moviemaker.scss */
+.modal-zoom .bar-header button span {
+  margin: 0 5px;
+}
+/* line 595, moviemaker.scss */
+.modal-zoom .img-container img {
+  width: 100%;
+}
+
+/* line 602, moviemaker.scss */
+.tag-list {
+  overflow: hidden;
+}
+/* line 605, moviemaker.scss */
+.tag-list .item {
+  margin: 0;
+}
+/* line 609, moviemaker.scss */
+.tag-list .bar-header {
+  background: #fff;
+}
+/* line 613, moviemaker.scss */
+.tag-list .content {
+  background: #fff;
+}
+/* line 617, moviemaker.scss */
+.tag-list .btn-close img {
+  height: 20px;
+}
+/* line 621, moviemaker.scss */
+.tag-list .add-tag {
+  width: 40px;
+}
+
+/* line 628, moviemaker.scss */
+.moviemaker-upload .scroll-content {
+  top: 110px;
+}
+/* line 632, moviemaker.scss */
+.moviemaker-upload .bar-header {
+  background: #fff;
+  color: #ccc;
+  z-index: 10;
+  border: 0;
+}
+/* line 638, moviemaker.scss */
+.moviemaker-upload .bar-header button.button:last-child {
+  color: #b2b2b2;
+  width: auto;
+  padding: 0 20px;
+  right: 0;
+  top: 0;
+}
+/* line 646, moviemaker.scss */
+.moviemaker-upload .bar-header .title {
+  font-family: HelveticaNeueLT, sans-serif;
+  font-size: 25px;
+  color: #dedcdf;
+}
+/* line 653, moviemaker.scss */
+.moviemaker-upload .btn-upload {
+  top: 50px;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  padding: 0 20px;
+}
+/* line 660, moviemaker.scss */
+.moviemaker-upload .btn-upload button {
+  position: relative;
+  background: #35434d;
+  text-align: center;
+  padding: 12px;
+  color: #fff;
+  font-family: HelveticaNeueMD, sans-serif;
+  font-size: 16px;
+  border-radius: 3px;
+  line-height: 10px;
+}
+/* line 671, moviemaker.scss */
+.moviemaker-upload .btn-upload button img {
+  height: 34px;
+  position: absolute;
+  top: 0px;
+  left: -1px;
+}
+/* line 682, moviemaker.scss */
+.moviemaker-upload .grid-item .grid-item-inner {
+  background-color: #e5e5e5;
+  background-position: center center;
+  background-size: cover;
+  border: 1px solid #fff;
+}
+/* line 689, moviemaker.scss */
+.moviemaker-upload .grid-item .status {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 3px;
+  font-size: 40px;
+  color: #fff;
+  background: #35434d;
+}
+/* line 698, moviemaker.scss */
+.moviemaker-upload .grid-item .status ion-spinner svg {
+  stroke: #fff;
+  fill: #fff;
+}

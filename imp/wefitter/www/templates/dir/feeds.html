@@ -1,0 +1,44 @@
+<div wf-validation-msg show="errorMessage" hidein="7000" type="alert-danger" msg="{{ 'ACTION.UNKNOWN_ERROR_MSG' | translate }}"></div>
+<div>
+<ion-scroll direction="y" style="height: {{wHeight}}px" delegate-handle="comments-scroll" overflow-scroll="false">
+  <ion-refresher
+      spinner="none"
+      pulling-text="{{ 'ACTION.PULL_REFRESH_COMMENT' | translate }}"
+      on-refresh="loadMore(true)">
+  </ion-refresher>
+      <div class="feeds-wrap">
+        <div ng-repeat="comment in comments track by $index">
+
+          <div class="row" ng-if="comment.is_mine == 0" ng-class="isPadding($index)">
+            <div class="col col-20 image-wrap">
+              <div ng-show="checkTimeDiff($index)" ng-click="checkTimeDiff($index) ? getUserProfile(comment.user_id) : '' " class="profile-user-image" style="background-image: url({{comment.user_image_url ?  comment.user_image_url : 'img/avatar.svg'}})"></div>
+            </div>
+            <div class="col col-80" ng-class="isPadding($index)">
+              <div class="msg-time" ng-show="checkTimeDiff($index)">{{comment.first_name ? comment.first_name : 'LEADERBOARD.ANONYMOUS' | translate}}  {{comment.last_name}} - {{comment.created | amDateFormat:'DD/MM/YYYY HH:mm'}}</div>
+              <div class="message-wrap"><span>{{comment.content}}</span></div>
+            </div>
+          </div>
+
+
+          <div class="row me" ng-if="comment.is_mine == 1" ng-class="isPadding($index)" on-hold="resend(comment)">
+            <div class="col col-20">
+            </div>
+            <div class="col col-80 detail-wrap" ng-class="isPadding($index)">
+              <div class="msg-time" ng-show="checkTimeDiff($index)">{{comment.created | amDateFormat:'DD/MM/YYYY HH:mm'}}</div>
+              <div class="message-wrap" ng-class="comment.isSend != 0 ? '' : 'fade-5' "><span>{{comment.content}}</span></div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+</ion-scroll>
+<div class="feed-footer-wrap" set-bottom>
+  <div class="item item-input-inset">
+     <textarea ng-model="data.comment" placeholder="{{'COMMENT.PLACEHOLDER' | translate }}" msd-elastic maxlength="500" ng-change="setHeight()"></textarea>
+     <button class="button button-assertive button-small" ng-click="sendComment()">
+        {{'COMMENT.SEND' | translate }}
+     </button>
+</div>
+</div>
+</div>

@@ -1,0 +1,140 @@
+<ion-view style="" id="" title="">
+	<ion-nav-title ui-sref="app.dashboard"></ion-nav-title>
+		<ion-nav-bar class="bar-stable">
+			<ion-nav-buttons side="left"><button ng-click="$ionicGoBack()" class="button button-icon icon ion-android-arrow-back"></button></ion-nav-buttons>
+			<ion-nav-buttons side="right">
+				<button class="button button-icon  icon ion-ios-search" ui-sref="app.search"></button>
+				<button class="button button-icon  icon ion-bag" ui-sref="app.shopping-cart">
+					<span class="badge badge-assertive" ng-if="cartItems!=undefined && cartItems!=''">
+						{{cartItems}}
+					</span>
+				</button>
+				<button class="button button-icon  icon ion-android-notifications" ng-click="openNotifications($event)"></button>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+    <ion-content class="product_detail_listing">
+		<ion-slide-box does-continue="true" ng-click = "openModal(2)"  ng-if="specificProducts.images.length">
+		  <ion-slide ng-repeat="image in specificProducts.images">
+				<div class="box"><img class="full-image" ng-src="{{image}}" /></div>
+		  </ion-slide>
+		</ion-slide-box>
+		<span class="more-info" ng-click = "openPopover($event)"><i class="icon ion-information-circled" ></i></span>
+		<div class="row first-row">
+			<div class="col col-75">
+				<p class="item-description">{{specificProducts.product_name}}</p>
+				<p class="item-brand">{{specificProducts.manufacturer}}</p>
+				<p class="item-price">
+					<span class="actual-price"><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{specificProducts.actual_price}}</span>
+					<span class="discount" ng-if="specificProducts.original_price!=0"><strike><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{specificProducts.original_price}}</strike></span>
+					<span class="discoun-per" ng-if="specificProducts.discount_percent!=0">{{specificProducts.discount_percent}}% Off</span>
+				</p>
+			</div><!--end of col 75-->
+			<div class="col col-25">
+				<p>
+					<span class="like-icon" style="font-size:17px;"><i class="icon ion-ios-heart"></i></span>
+					<span class="like-icon">{{specificProducts.likes}} Likes</span>
+				</p>
+			</div><!--end of col 25-->
+		</div><!--end of first row-->
+		<!-- <div class="row second-row">
+			<div class="col">
+				<p class="size">Size:</p>
+				<div class="size-image">
+					<div class="circular small">S</div><div class="circular medium">M</div><div class="circular large">L</div><div class="circular extralarge">XL</div
+					<ion-list class="radio-circular-list">
+					 <ion-radio  ng-model="choice" ng-repeat="size in sizes" ng-disabled="specificProducts.sizes.indexOf(size)==-1" ng-value="'{{size}}'">
+						 {{size}}
+					 </ion-radio>
+					</ion-list>
+				</div>end of the div for size image
+			</div> -->
+		</div><!--end of second row-->
+		<div class="row third-row">
+				<!-- <p class="button" ng-click="AddToCart(specificProducts)"><i class="icon ion-bag"></i>ADD TO BAG</p> -->
+				<div class="buttonContaining {{class}}">
+					<div class="addtocartButton front" ng-click="AddToCart(specificProducts);changeClass();">Add to cart</div>
+					<div class="addtocartButton back" >
+						<input type="text" placeholder="{{specificProducts.cartQnt}}" readonly>
+						<button class="button button-icon  icon ion-ios-minus-outline decButton" ng-click="decrement(specificProducts);"></button>
+						<button class="button button-icon  icon ion-ios-plus-outline incButton" ng-click="AddToCart(specificProducts);"></button>
+					</div>
+				</div>
+		</div><!--end of third row-->
+		<div class="row fourth-row">
+			<div class="col" ng-click = "openModal(1)"><p><i class="icon ion-ios-location"></i> Check delivery options</p></div>
+		</div><!--end of fourth row-->
+		<div class="card list product_des">
+		   <div class="item item-divider">Product details</div>
+		   <div class="item item-text-wrap">{{specificProducts.product_description}}</div>
+		</div><!--end of card-->
+		<div class="card list product_des">
+		   <div class="item item-divider">Product info</div>
+		   <div class="item item-text-wrap"><p ng-repeat="material in specificProducts.m_care">{{material}}</p></div>
+		</div><!--end of card-->
+	<!-- 	<div class="card list product_des">
+		   <div class="item item-divider">Style Note</div>
+		   <div class="item item-text-wrap">{{specificProducts.s_note}}</div>
+		</div>end of card--> 
+		<div class="card list similar-products">
+			<div class="item item-divider">Similar Products</div>
+			<div class="item item-text-wrap">
+				<ion-scroll direction="x" class="catScroll similar-scroll" >
+					<div class="image-modal" ng-repeat="similarimage in specificProducts.similar_products" ng-show="specificProducts.id!=products[$index].id" >
+						<a href="#/app/productdetail/{{products[$index].id}}/{{cat_id}}/{{cat_Name}}""><img class="full-image" ng-src="{{similarimage}}">
+						<p class="item-brand">{{products[$index].product_name}}</p>
+						<p class="item-price"><span class="actual-price"><i class="icon {{currencyIcon}}" aria-hidden="true"></i>{{products[$index].actual_price}}</span></p></a>
+					</div>
+				</ion-scroll>
+			</div>
+		</div>
+		<!-- <p class="quatation-text">"in difficult time fashion is always outrageous"</p>
+		<p class="quatation">Elassa Sechrapali</p> -->
+	</ion-content>
+
+	<script id = "popover.html" type = "text/ng-template">
+		<ion-popover-view>
+			<ion-content>
+				Dimension is(40.75"W x 17.25"D x 88.25")                                   
+		                                                       
+			</ion-content>
+		</ion-popover-view>
+	</script>
+
+	<script id = "delivery-option-modal.html" type = "text/ng-template">
+	   <ion-modal-view class="modal-half deliverymodal">
+			 <ion-header-bar class="bar-stable">
+				 <div class="buttons">
+					 <button class="button icon ion-android-close" ng-click="closeModal(1)"></button>
+				 </div>
+				 <h1 class = "title">CHECK DELIVERY OPTIONS</h1>
+			 </ion-header-bar>
+	      <ion-content>
+					<div style="text-align:center;font-size:17px;padding:10px;">Please enter your pincode here</div>
+					<div class="list">
+						<label class="item item-input item-floating-label">
+							<span class="input-label">Pincode</span>
+							<input type="text" placeholder="PINCODE">
+						</label>
+					</div>
+				</ion-content>
+	   </ion-modal-view>
+	</script>
+<!--slider image modal-->
+<script id = "image-slider-option-modal.html" type = "text/ng-template">
+   <ion-modal-view class="modal-slider">
+      <div class="modal transparent">
+						<button class="button icon ion-android-close" ng-click="closeModal(2)"></button>
+				<ion-content class="slider-image-inmodal">
+					<ion-slide-box on-slide-changed="">
+				  <ion-slide ng-repeat="modalimage in specificProducts.images">
+						<div class="box">
+				<img class="full-image" ng-src="{{modalimage}}" />
+							<a class="left-button" href="" ng-click="previousSlide()"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+							<a class="right-button" href="" ng-click="nextSlide()"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+						</div>
+				  </ion-slide>
+				</ion-slide-box>
+	  	</ion-content>
+   </ion-modal-view>
+</script>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view view-title="{{ currGroupName }}">
+
+  	<ion-content>
+		<ion-refresher pulling-text="Reload..." on-refresh="doReloadItemSaved()">
+		</ion-refresher>
+
+		<ion-item class="photo-grid-stream-holder">
+			<div class="row" ng-repeat="item in savedItems" ng-if="$index % 2 === 0">
+		        <div class="col col-50" ng-if="$index < savedItems.length" ng-click="goToZoomIn('{{ savedItems[$index].itemGroupId }}', '{{ savedItems[$index].item.itemId }}')">
+		            <img preload-image default-image="{{ savedItems[$index].item.itemImagePH }}" ng-src="{{ savedItems[$index].item.itemImage }}"/>
+		        </div>
+		        <div class="col col-50" ng-if="$index + 1 < savedItems.length" ng-click="goToZoomIn('{{ savedItems[$index + 1].itemGroupId }}', '{{ savedItems[$index + 1].item.itemId }}')">
+		            <img preload-image default-image="{{ savedItems[$index + 1].item.itemImagePH }}" ng-src="{{ savedItems[$index + 1].item.itemImage }}"/>
+		        </div>
+		    </div>
+		</ion-item>
+
+		<div class="loader-wrapper" ng-show="mediaFirstTimeLoader">
+			<ion-spinner class="spinner-android"></ion-spinner>
+		</div>
+
+		<div class="no-data-wrapper" ng-show="displayStyleEmpty">
+			<div class="title">
+				No style saved yet!
+			</div>
+		</div>
+
+		<ion-infinite-scroll ng-if="loadMore" on-infinite="doLoadMore()" distance="1%" class="ionic-load-more">
+		</ion-infinite-scroll>
+
+  	</ion-content>
+
+</ion-view>

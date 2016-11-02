@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- compiled css output -->
+    <link href="css/style-main.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <link href="lib/angular-localization/angular-localization.min.css" rel="stylesheet">
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+    <!--<script src="cordova.js"></script>--> 
+
+    <!--<script src="js/platformOverrides.js"></script>-->
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <!-- other JS libs from bower-->
+
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+    <script src="lib/ng-messages/angular-messages.min.js"></script>
+    <script src="lib/angular-stripe-checkout/angular-stripe-checkout.js"></script>
+    <!--<script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.js"></script>-->
+    <script src="lib/angular-localization/angular-localization.min.js"></script>
+    <script src="lib/angular-preload-image/angular-preload-image.min.js"></script>
+    <script src="lib/ionic-ratings/src/ionic-ratings.js"></script>
+
+    <!-- app's main js files -->
+    <script src="app/app.js"></script>
+    <script src="app/variables.js"></script>
+    <script src="app/controllers.js"></script>
+
+    <!-- common services -->
+    <script src="app/common/services/app.service.js"></script>
+    <script src="app/common/services/data.service.js"></script>
+    <script src="app/common/services/notification.service.js"></script>
+    <script src="app/common/services/update.service.js"></script>
+    <script src="app/common/services/analytics.service.js"></script>
+    <script src="app/common/services/i18n.service.js"></script>
+    <script src="app/common/services/intercom.service.js"></script>
+
+    <!-- common directives -->
+    <script src="app/common/widgets/analytics/analytics.directive.js"></script>
+    <script src="app/common/widgets/elastic-header/elastic-header.directive.js"></script>
+    <script src="app/common/widgets/string-to-number/string-to-number.directive.js"></script>
+    <script src="app/common/widgets/language-switch/language-switch.directive.js"></script>
+    <script src="app/common/widgets/contact-form/contact-form.directive.js"></script>
+	<script src="app/common/widgets/currency-switch/currency-switch.directive.js"></script>
+
+    <script src="app/offers/offers.module.js"></script>
+    <script src="app/offers/offers.config.js"></script>
+    <script src="app/offers/offers.controller.js"></script>
+    <script src="app/offers/offers.service.js"></script>
+
+    <script src="app/shop/shop.module.js"></script>
+    <script src="app/shop/shop.config.js"></script>
+    <script src="app/shop/shop.controller.js"></script>
+    <script src="app/shop/shop.service.js"></script>
+    <script src="app/shop/widgets/item-rating/item-rating.directive.js"></script>
+    <script src="app/shop/widgets/categories/categories.directive.js"></script>
+    <script src="app/shop/widgets/item-view/item.directive.js"></script>
+    <script src="app/shop/widgets/item-search/item-search.directive.js"></script>
+
+    <script src="app/payment_modules/payment_modules.module.js"></script>
+    <script src="app/payment_modules/payment_modules.config.js"></script>
+
+    <script src="app/payment_modules/advertikon_stripe/advertikon_stripe.module.js"></script>
+    <script src="app/payment_modules/advertikon_stripe/advertikon_stripe.config.js"></script>
+    <script src="app/payment_modules/advertikon_stripe/advertikon_stripe.controller.js"></script>
+    <script src="app/payment_modules/advertikon_stripe/advertikon_stripe.service.js"></script>
+
+    <script src="app/payment_modules/i2cs_alipay/i2cs_alipay.module.js"></script>
+    <script src="app/payment_modules/i2cs_alipay/i2cs_alipay.config.js"></script>
+    <script src="app/payment_modules/i2cs_alipay/i2cs_alipay.controller.js"></script>
+    <script src="app/payment_modules/i2cs_alipay/i2cs_alipay.service.js"></script>
+
+    <script src="app/payment_modules/pp_express/pp_express.module.js"></script>
+    <script src="app/payment_modules/pp_express/pp_express.config.js"></script>
+    <script src="app/payment_modules/pp_express/pp_express.controller.js"></script>
+    <script src="app/payment_modules/pp_express/pp_express.service.js"></script>
+
+    <script src="app/cart/cart.module.js"></script>
+    <script src="app/cart/cart.config.js"></script>
+    <script src="app/cart/cart.controller.js"></script>
+    <script src="app/cart/cart.service.js"></script>
+
+    <script src="app/info/info.module.js"></script>
+    <script src="app/info/info.config.js"></script>
+    <script src="app/info/info.controller.js"></script>
+    <script src="app/info/info.service.js"></script>
+
+    <script src="app/auth/auth.module.js"></script>
+    <script src="app/auth/auth.config.js"></script>
+    <script src="app/auth/auth.controller.js"></script>
+    <script src="app/auth/auth.service.js"></script>
+</head>
+<body ng-app="starter" dir="{{lang_dir}}" class="platform-android platform-cordova platform-webview">
+    <ion-nav-view></ion-nav-view>
+</body>
+</html>

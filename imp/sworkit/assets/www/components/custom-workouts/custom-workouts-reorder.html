@@ -1,0 +1,48 @@
+<div class="modal custom-modal reorder-modal">
+    <ion-header-bar class="bar bar-stable">
+        <button class="button button-clear button-primary"
+                ng-click="cancelReorderCustom()">{{ 'CANCEL_SM' | translate }}
+        </button>
+        <h1 class="title title-center">{{ 'REORDER_W' | translate }}</h1>
+        <button class="button button-icon icon ion-ios-minus-outline"
+                ng-click="data.showDelete = !data.showDelete"></button>
+    </ion-header-bar>
+    <ion-content class="padding-20">
+        <div class="margin-bottom-20">
+            <div class="button-bar padding">
+                <a class="button button-energized nexercise-orange"
+                   ng-click="saveReorder()">{{ 'SAVE_O' | translate }}</a>
+            </div>
+            <p class="page-instructions">{{ 'DRAG' | translate }}</p>
+            <ion-list class="padding" show-reorder="data.showReorder" show-delete="data.showDelete">
+                <ion-item ng-repeat="exerciseEls in reorderWorkout track by $index">
+                    <ion-delete-button class="ion-minus-circled"
+                                       ng-click="onItemDelete(exerciseEls)"></ion-delete-button>
+                    <h3>{{ possibleWorkouts[exerciseEls].name | translate }}</h3>
+                    <ion-reorder-button class="ion-navicon"
+                                        on-reorder="moveItem(exerciseEls, $fromIndex, $toIndex)">
+                    </ion-reorder-button>
+                </ion-item>
+            </ion-list>
+            <div>
+                <p class="page-instructions">{{ 'ADD_EX' | translate }}</p>
+
+                <div class="center" style="max-width: 360px;">
+                    <select class="ion-input-select" ng-model="selectedExerciseAdd.selected"
+                            ng-options="exerciseAdd | translate for exerciseAdd in allExercises">
+                    </select>
+                </div>
+                <div class="center padding-20">
+                    <button class="button nexercise-orange icon-left ion-ios-plus-outline nexercise-button"
+                            ng-click="addExercise()">{{ 'ADD_EX' | translate }}
+                    </button>
+                </div>
+            </div>
+            <div class="item item-divider item-text-wrap">
+                <h4>{{ 'WORKOUT_TIP' | translate }}</h4>
+            </div>
+            <div style="margin-top:20px;margin-bottom:40px">
+            </div>
+        </div>
+    </ion-content>
+</div>

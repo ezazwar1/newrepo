@@ -1,0 +1,27 @@
+<ion-view view-title="Account" ng-controller="EditAccountController as viewModel">
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content class="has-header stable-content" has-bouncing="true" >
+        <br/>
+
+        <form class="login-form large-padding" name="addressForm" ng-submit="viewModel.saveAccount()">
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Name</span>
+                    <input type="text" ng-model="viewModel.account.name" placeholder="Name" required="required">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Phone</span>
+                    <input type="tel" ng-model="viewModel.account.phone" ui-us-phone-number >
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Email</span>
+                    <input ng-model="viewModel.account.email" type="email" placeholder="email address" required="required">
+                </label>
+                <button class="button button-positive button-clear button-full" type="submit">
+                    Save
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

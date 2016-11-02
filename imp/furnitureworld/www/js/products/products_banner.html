@@ -1,0 +1,26 @@
+<ion-view>
+	<ion-nav-title class="logo" ui-sref="app.dashboard"></ion-nav-title>
+		<ion-nav-bar class="bar-stable">
+			<ion-nav-buttons side="left"><button ng-click="direction();" class="button button-icon icon ion-android-arrow-back"></button></ion-nav-buttons>
+			<ion-nav-buttons side="right">
+				<button class="button button-icon  icon ion-ios-search" ui-sref="app.search"></button>
+				<button class="button button-icon  icon ion-bag" ui-sref="app.shopping-cart">
+			    <span class="badge badge-assertive" ng-if="cartItems!=undefined && cartItems!=''">
+			      {{cartItems}}
+			    </span>
+			  </button>
+				<button class="button button-icon  icon ion-android-notifications" ng-click="openNotifications($event)"></button>
+			</ion-nav-buttons>
+			<div class="bar bar-subheader">
+			   <h4 class="title">{{bannerData.categoryName}} PRODUCTS</h4>
+			</div>
+		</ion-nav-bar>
+    <ion-content class="first-innerpage has-subheader">
+			<div class="card top_banner" ng-click="showProductSpecific(bannerData.categorySpecific_id,bannerData.categoryName);" ng-repeat="banners in bannerData.catbanner"><!--top banner-->
+				<div class="item item-image">
+			            
+					<img ng-src="{{banners.image}}" class="full-image" height="155" >
+				</div>
+			</div>
+		</ion-content>
+</ion-view>

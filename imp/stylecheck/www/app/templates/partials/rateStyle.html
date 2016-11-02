@@ -1,0 +1,20 @@
+<div style="height:100%;width:100%;position:relative">
+    <div class="image-container display-flex align-center" style-image="style.image">
+        <div class="image imageonload hide-image" imageonload image-src="{{styleImage.path}}" ng-style="{'background-image': 'url(' + styleImage.path + ')','height': image.height + 'px', 'width': image.width + 'px'}"></div>
+    </div>
+    <div ng-show="!style.rating && style.user._id !== user._id" class="rating-container" style="height:100%;width:100%;position: absolute;top:0;" ng-class="{'hightlight': rate, 'hightlight-1': rate === 1, 'hightlight-2': rate === 2, 'hightlight-3': rate === 3, 'hightlight-4': rate === 4}">
+        <div class="row" ng-style="{'height': '50%'}">
+            <div class="col display-flex align-center"><button class="button button-assertive button-2" ng-show="showRating">{{dict.rating.rating2}}</button></div>
+            <div class="col display-flex align-center"><button class="button button-assertive button-3" ng-show="showRating">{{dict.rating.rating3}}</button></div>
+        </div>
+        <div class="row" ng-style="{'height': '50%'}">
+            <div class="col display-flex align-center"><button class="button button-assertive button-1" ng-show="showRating">{{dict.rating.rating1}}</button></div>
+            <div class="col display-flex align-center"><button class="button button-assertive button-4" ng-show="showRating">{{dict.rating.rating4}}</button></div>
+        </div>
+    </div>
+    <div ng-show="style.rating" style="height:100%;width:100%;position: absolute;top:0;">
+        <div class="row" ng-style="{'height': '100%'}">
+            <div class="col display-flex align-center"><p class="already-rated text-center light" ng-show="showRating">{{dict.styleAlreadyRated}}</p></div>
+        </div>
+    </div>
+</div>

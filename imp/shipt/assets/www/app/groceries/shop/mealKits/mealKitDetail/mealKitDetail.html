@@ -1,0 +1,50 @@
+<ion-view title="{{vm.mealKit.title}}" class="meal-kit-detail-view" ng-controller="mealKitDetailController as vm">
+    <ion-nav-buttons side="right">
+        <button  class="button button-icon icon ion-ios-cart-outline" ng-click="vm.goToCart()"><span ng-if="vm.cartCount() > 0" class="badge badge-assertive cart-count if-bounce">{{vm.cartCount()}}</span></button>
+    </ion-nav-buttons>
+    <ion-content class="has-header darker-content meal-kit-detail " has-bouncing="true" >
+        <guest-account-callout ng-if="guest_account()"> </guest-account-callout>
+        <offline-message></offline-message>
+        <div class="large-padding">
+            <ion-list class="meal-kit-detail-list large-padding">
+                <ion-item class="item item-image meal-kit">
+                    <img ng-src="{{vm.mealKit.title_image}}">
+                </ion-item>
+            </ion-list>
+
+            <div class="text-center padding meal-kit-sub-title">
+                <p class="dark">
+                    {{vm.mealKit.sub_title}}
+                </p>
+            </div>
+            <div class="padding text-center">
+                <p class="wrap faded">
+                    {{vm.mealKit.serves_text}}
+                </p>
+            </div>
+
+            <div class="padding text-center">
+                <div class="card serving-card" ng-repeat="serving in vm.mealKit.servings">
+                    <h4 class="dark">
+                        {{serving.description}}
+                        </br>
+                        <small class="dark">
+                            ({{serving.per_meal}})
+                        </small>
+                    </h4>
+                    <div class="buy-mealkit-button-area padding"
+                         ng-class="vm.buyServingButtonText(serving) == 'Update Quantity' ? 'update-qty' : ''"
+                         ng-click="vm.buyServingButton(serving)">
+                        <span class="button button-positive button-price">
+                            {{serving.price | currency}}
+                        </span>
+                        <button class="button button-positive button-buy buy-mealkit-button"
+                                ng-class="vm.buyServingButtonText(serving) == 'Update Quantity' ? 'button-positive update-qty' : 'button-positive'">
+                            <i ng-if="vm.buyServingButtonText(serving) == 'In Cart'" class="icon ion-checkmark"></i> {{vm.buyServingButtonText(serving)}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view>
+    <ion-content padding="15" class="settings uppercase" ng-class="{'bottom': (screen.height - screen.header) > 580}">
+        <div class="settings-container" ng-if="showMenu">
+            <p class="assertive bold">{{dict.version}} 1.1.4</p>
+            <ul class="list settings-list">
+                <li class="item" ng-click="goTo('filterSettings')">{{dict.ratingSettings}}</li>
+                <li class="item" ng-click="goTo('accountSettings')">{{dict.accountSettings}}</li>
+                <li class="item" ng-click="goTo('brands')">{{dict.brandFavorites}}</li>
+                <li class="item" ng-click="showHowToModal()">{{dict.howItWorks}}</li>
+            </ul>
+            <ul class="list settings-list full-width" ng-class="{'bottom': (screen.height - screen.header) > 580}">
+                <li class="item item-icon-left" ng-click="goTo('page', 'faq')">
+                    <i class="icon icon-faq"></i>
+                    <div class="label">{{dict.faq}}</div>
+                </li>
+                <li class="item item-icon-left" ng-click="goTo('page', 'impress')">
+                    <i class="icon icon-imprint"></i>
+                    <div class="label">{{dict.contactAndImprint}}</div>
+                </li>
+                <li class="item item-icon-left" ng-click="goTo('page', 'tas')">
+                    <i class="icon icon-terms"></i>
+                    <div class="label">{{dict.terms}}</div>
+                </li>
+                <li class="item item-icon-left" ng-click="goTo('page', 'privacy')">
+                    <i class="icon icon-privacy-police"></i>
+                    <div class="label">{{dict.privacy}}</div>
+                </li>
+                <li class="item item-icon-left logout" ng-click="logout()">
+                    <i class="icon icon-logout"></i>
+                    <div class="label">{{dict.logout}}</div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

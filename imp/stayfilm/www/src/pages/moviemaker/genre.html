@@ -1,0 +1,40 @@
+<ion-view class="moviemaker-step moviemaker-genre">
+
+	<div  class="bar bar-header" >
+
+		<button class="button button button-clear" ng-click="goTo('main.moviemaker.content', 'slide-right')"><img src="images/ico-arrow-left.png"></button>
+
+		<div class="title" translate>
+			faça um filme
+		</div>
+
+		<button class="button button button-clear" ng-click="goToTheme()" ng-class="{disabled: ! data.genre}"><img src="images/ico-arrow-right.png"></button>
+	</div>
+
+	<ion-content class="has-sf-header">
+
+		<!-- a ng-click="openDynamicTerms({campaignslug:'stayfilm', genreslug:'on-the-go'})">OPEN DYNAMIC TERMS</a -->
+
+		<div>
+			<div class="circles">
+				<div class="step-circle">1</div>
+				<div class="step-circle active">2</div>
+				<div class="step-circle">3</div>
+			</div>
+
+			<div class="main-title" translate>
+				Escolha um estilo<br />para seu filme
+			</div>
+			<div class="genre-instructions" translate>
+				Para cada estilo existem diferentes versões
+			</div>
+
+			<div class="genre-list">
+				<button class="genre-item" ng-repeat="genre in genres" ng-class="{selected: data.genre.slug === genre.slug, 'has-not-mini-template': ( miniTemplateActivate && ! genre.config.has_mini_templates)}" ng-click="selectGenre(genre)">
+					<img ng-src="{{ genre.imageUrl }}">
+					<span ng-if=" ! genre.imageUrl" class="genre-name">{{ genre.name }}</span>
+					<i class="icon ion-ios7-arrow-right"></i>
+				</button>
+			</div>
+	</ion-content>
+</ion-view>

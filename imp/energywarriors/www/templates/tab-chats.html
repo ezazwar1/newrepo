@@ -1,0 +1,37 @@
+<!-- <ion-view view-title='Stories<img class="title-image" src="../img/ew.png" />' > -->
+<ion-view view-title='Stories' >
+
+  <ion-content class="padding scroll-bg">
+    <div class="transparent-back"><ion-list>
+
+      <!--NOTE I ADDED item-text-wrap to this css class, NOT SURE IF YOU WANT THAT?? -->
+      <!-- <ion-item class="item-remove-animate item-avatar item-icon-right item-text-wrap" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}"> -->
+      <ion-item class="item-remove-animate item-avatar item-icon-right item-text-wrap" ng-repeat="chat in chats | orderBy:'orderBy'" type="item-text-wrap" ng-click="direct(chat._id)">
+
+        <div class="chat-image">
+        <img class="chat-image-spec" ng-src="{{chat.thumbnail}}"></div>
+        <!-- <div class=icon-profile ><span data-type="{{chat.type}}">&nbsp;&nbsp;&nbsp;&nbsp;</span></div> -->
+
+        <!--CHANGED THE ICON TO LIVE INSIDE THE  <i> tag.Working now BUT NEEDS STYLE
+        DOnNT USE NEGATIVE NUMBERS IN CSS AS IT SEEMS TO MESS UP IOS ALSO USING angular ng-class directive-->
+        <div class="chat-icons">
+        <i ng-class="{
+          'ion-ios-videocam icon-profile': chat.type === 'video',
+          'ion-ios-paper icon-profile': chat.type === 'story',
+          'ion-help-circled icon-profile': chat.type === 'dyk',
+        }">
+        </i>
+        </div>
+
+        <div class="chat-content">
+        <h2 class="chat-title">{{chat.title}}</h2>
+        <p>{{chat.storyBlurb}}</p></div>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <!-- <ion-option-button class="button-assertive" ng-click="remove(chat)">
+        Delete
+      </ion-option-button> -->
+    </ion-item>
+  </ion-list></div>
+</ion-content>
+</ion-view>

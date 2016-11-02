@@ -1,0 +1,11 @@
+{
+  "ApiEndpoint": {
+    "authurl": "http://localhost:8100/authapi/",
+    "apiurl": "http://localhost:8100/api/",
+    "photoUploadUrl": "https://admin.shipt.com/api/v1/photos.json"
+  },
+  "IonicAppConfig" : {
+    "ionic_app_id": "49144f00",
+    "ionic_api_key": "d574e86313439ce2c24052615b794181b08b0149971493ed"
+  }
+}

@@ -1,0 +1,55 @@
+
+<ion-view>
+    <div class="page-layout">
+        <ion-content has-bouncing="true">
+            <div class="top" >
+                <h1>Infos</h1>
+            </div>
+            <div class="content">
+                <ul class="bts-tabs">
+                    <li id="tab1" ng-click="selectTab('1')"><span>Help</span></li>
+                    <li id="tab2" class="active" ng-click="selectTab('2')"><span>About us</span></li>
+                    <li id="tab3" ng-click="logout()"><span>Logout</span></li>
+                </ul>
+                <hr>
+                <div class="hide tab-content" id="zone1">
+                    <img class="full-w" src="./img/help.jpg">
+                </div>
+                <div class="tab-content" id="zone2">
+                    <div class="row">
+                        <div class="col social-about">
+                            <a href="#about" onClick="window.open('http://facebook.com/betoseeofficial', '_system')" ng-style=
+                            "{ 'background-image': 'url(./img/facebook-bts.png)' }"></a>
+                        </div>
+                        <div class="col social-about">
+                            <a href="#about" onClick="window.open('https://twitter.com/be_to_see', '_system')" ng-style=
+                            "{ 'background-image': 'url(./img/twitter-bts.png)' }"></a>
+                        </div>
+                        <div class="col social-about">
+                            <a href="#about" onClick="window.open('http://instagram.com/betosee', '_system')" ng-style=
+                            "{ 'background-image': 'url(./img/instagram-bts.png)' }"></a>
+                        </div>
+                        <div class="col social-about">
+                        </div>
+                        <div class="col social-about">
+                        </div>
+                    </div>
+                    
+                    <h2> Welcome to BETOSEE</h2>
+                    <br>
+                    The online community for all fashion lovers, promoting designers all around the world, a step ahead
+                    Where collections will be presented to you before it's in store. <br><br>
+                    Give direct Feedback to your favorite designers. <br><br>
+                    Do not miss this opportunity to share future trends from visionary people.<br><br>
+                    Connect, Discover, Inspire and Share with the community.
+                    <br><br>
+                    <strong>Don’t follow Fashion, Choose it !</strong>
+                    <br><br>
+                </div>
+                <div class="hide tab-content" id="zone3">
+                    
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</ion-view>

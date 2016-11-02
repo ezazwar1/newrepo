@@ -1,0 +1,123 @@
+<ion-view title="{{ title() }}" class="customer-payment-pane">
+  <ion-nav-buttons side="left">
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+    <a class="button button-clear button-icon" ng-click="goMain()">
+      <i class="icon ion-arrow-left-a"></i>
+    </a>
+  </ion-nav-buttons>
+
+  <!-- <ion-nav-buttons side="right">
+    <a class="button" ng-click="update()" ng-show="!hasPayment()" ng-disabled="!canUpdate()">Update</a>
+  </ion-nav-buttons> -->
+
+  <ion-content class="has-header" style="background-color: #fff">
+    <div class="payment-page" ng-show="payment !== undefined">
+
+      <div ng-show="hasPayment()">
+        <div class="list payment card-info">
+          <div class="item item-card-number">
+                <div class="cc-icon ng-hide" ng-show="payment.card.scheme === null">
+                    <img src="img/card_icon_visa.png" width="100%">
+                </div>
+                <div class="cc-icon ng-hide" ng-show="payment.card.scheme !== null">
+                    <img src="img/placeholder.png" ng-src="img/card_icon_{{ payment.card.scheme }}.png" width="100%">
+                </div>
+              <!--<i class="{{ payment.card_icon_class() }}"></i>-->
+
+            <div class="cc-number">
+              <span class="number">{{ payment.card.display_number}}</span>
+            </div>
+          </div>
+          <div class="item item-card-info">
+            <div class="item-title">Expiry</div>
+            {{ payment.card.expiry_month }} / {{ payment.card.expiry_year }}
+          </div>
+          <div class="item item-card-info">
+            <div class="item-title">Postcode</div>
+            {{ payment.card.address_postcode }}
+          </div>
+          <div class="item item-card-info" style="border-bottom: none">
+            <div class="item-title">Country</div>
+            {{ payment.card.address_country }}
+          </div>
+          <div class="item item-card-invalid" ng-show="!payment.card.verified" style="border:none">
+            Card Invalid
+          </div>
+        </div>
+
+        <!-- <button class="button button-balanced button-block button-uppercase" ng-click="deleteCard()">Change Card</button> -->
+        <button class="button border-no" ng-click="deleteCard()"  style="font-size:16px;font-weight: 500;float: right;background: white;color:#01be6e;margin-top: 15px">CHANGE CARD</button>
+      </div>
+
+      <div ng-show="!hasPayment()">
+        <div class="list payment new-card">
+          <div class="item item-input" style="border-top: none">
+            <div class="item-title">Number</div>
+            <input type="text" pattern="\d*" placeholder="XXXX XXXX XXXX XXXX" ui-mask="9999 9999 9999 9999" ng-model="card.number"/>
+          </div>
+
+          <div class="item item-input">
+            <div class="item-title">Name</div>
+            <input type="text" placeholder="First Last" ng-model="card.name"/>
+          </div>
+
+          <div class="item item-input">
+            <div class="item-title">Expiry month</div>
+            <input type="text" pattern="\d*" placeholder="MM" ui-mask="99" ng-model="card.expiry_month"/>
+          </div>
+
+          <div class="item item-input">
+            <div class="item-title">Expiry Year</div>
+            <input type="text" pattern="\d*" placeholder="YYYY" ui-mask="9999" ng-model="card.expiry_year"/>
+          </div>
+
+          <div class="item item-input">
+            <div class="item-title">CVC</div>
+            <input type="text" pattern="\d*" placeholder="XXX" ui-mask="999" ng-model="card.cvc"/>
+          </div>
+
+          <div class="item item-toggle">
+            <div class="item-title">Use business address</div>
+            <label class="toggle toggle-balanced">
+              <input type="checkbox" ng-checked="usingBusinessAddress" ng-click="toggleUseBusinessAddress()">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+
+          <div ng-show="!usingBusinessAddress">
+            <div class="item item-input">
+              <div class="item-title">Address 1</div>
+              <input type="text" ng-model="card.address_line1"/>
+            </div>
+
+            <div class="item item-input">
+              <div class="item-title">Address 2</div>
+              <input type="text" ng-model="card.address_line2"/>
+            </div>
+
+            <div class="item item-input">
+              <div class="item-title">City</div>
+              <input type="text" ng-model="card.address_city"/>
+            </div>
+
+            <div class="item item-select">
+              <div class="item-title" style="margin-top: 8px">State</div>
+              <select ng-model="card.address_state" ng-options='c.code as c.code for c in states'></select>
+            </div>
+
+            <div class="item item-input" style="border-bottom: none">
+              <div class="item-title">Postcode</div>
+              <input type="text" ng-model="card.address_postcode"/>
+            </div>
+          </div>
+        </div>
+        <!-- <button class="button button-balanced button-block button-uppercase" ng-click="deleteCard()" style="border-radius: 0; border:0;">Update</button> -->
+        <button class="button border-no" ng-click="deleteCard()"  style="font-size:16px;font-weight: 500;float: right;background: white;color:#01be6e;margin-top: 15px">UPDATE</button>
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-view>

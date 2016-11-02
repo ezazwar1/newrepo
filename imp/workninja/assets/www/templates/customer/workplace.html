@@ -1,0 +1,49 @@
+<ion-view title="{{ title() }}" class="staff-profile-pane" style="background-color: #fff">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear button-icon" ng-click="goMain()" >
+            <i class="icon ion-arrow-left-a"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="has-header height-100">
+        <div class="button-bar bar-dark">
+            <button class="button" ng-click="selectWorkplaces();" ng-class="(workplacesActive) ? 'bottom-green' : 'border-no'" style="font-size:12px">SWITCH WORKPLACE</button>
+            <button class="button" ng-click="selectProfile();" ng-class="(profileActive) ? 'bottom-green' : 'border-no'" style="font-size:12px">PROFILE</button>
+        </div>
+        <div class="profile-page" style="height: calc(100% - 46px)">
+            <div class="profile" style="height: calc(100% - 4px)">
+                <div ng-show="profileActive">
+                    <div style="padding-left: 15px; padding-right: 17px;padding-top: 30px;">
+                      <!-- <div class="picture" ng-click="editWorkplacePicture()">
+                        <div style="background: url('{{getProfilePic()}}') no-repeat;height:100%;background-position: 50% 50%"></div>
+                      </div> -->
+                        <div class="form-group" style="opacity: 0.4">
+                            <input id="first_name" type="text" ng-model="currentUser.first_name" wn-errors="errors.first_name" required="" placeholder="First Name" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input">
+                        </div>
+                        <div class="form-group" style="opacity: 0.4;padding-top:20px;">
+                            <input type="text" id="last_name" name="last_name" placeholder="Last Name" ng-model="currentUser.last_name" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                        </div>
+                        <div class="form-group" style="padding-top:20px;opacity: 0.4">
+                            <input type="text" id="mobile" name="mobile" placeholder="Mobile" ng-model="currentUser.mobile" required="required" class="form-control ng-pristine ng-invalid ng-invalid-required bottom-form-input" />
+                        </div>
+                        <button class="button border-no" ng-click="logout()" style="font-size:16px;font-weight: 500;float: left;background: white;color:#01be6e;margin-top: 15px">LOGOUT</button>
+                        <button class="button border-no" ng-show="{{is_admin}}" ng-click="update()"  style="font-size:16px;font-weight: 500;float: right;background: white;color:#01be6e;margin-top: 15px">UPDATE</button>
+                    </div>
+                </div>
+                <div ng-show="workplacesActive" style="margin-left:15px;margin-right:15px;">
+                    <ion-content>
+                        <a class="item">
+                            <p style="margin-left: 70px; float: left;opacity: 0.4">Name</p>
+                            <p style="float: right;opacity: 0.4">Suburb</p>
+                            <hr style="margin-left: 70px;margin-top:40px;opacity: 0.2">
+                        </a>
+                        <ion-item class="item item-avatar" style="border-width: 0;" ng-click="setActiveWorkplace(n);" ng-repeat="n in workplaceList track by $index">
+                            <img style="border-radius: 50%;width: 70px" src="{{n.picture_thumb_url}}" onerror="this.src = 'img/placeholder.png';">
+                            <h2 style="font-size:12px;margin-left: 70px; margin-top: 14px;float: left;opacity: 0.4">{{n.name}}</h2>
+                            <p style="font-size:12px;margin-top: 14px;float: right;opacity: 0.4">{{n.suburb}}</p>
+                        </ion-item>
+                    </ion-content>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view title="{{getHabitHeaderName()}}" class="popoverr {{habitClass}} health-rating pane">
+  
+  <ion-nav-bar class="pa-header">
+    <ion-nav-back-button class="button-clear hide-back button-cancel">
+      <span class="nav-anchor">Cancel</span>
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="right">
+    <button href="javascript:;" ng-click="submitData()" ng-disabled="submittingData" class="nav-anchor done-btn">{{ 'DONE' | translate}}</button>
+  </ion-nav-buttons>
+
+  </ion-nav-bar>
+
+  <div class="back"></div>
+  
+  <ion-content>
+  	<!--<go-back></go-back>-->
+
+    <!--<h1>{{ habitQuestionKey | translate }}</h1>-->
+
+    <h1>{{ getHabitValueDisplay() }}</h1>
+    
+    <graph-selector values="habit.habitValues" value-data="valueData" selectable="true" colors="colors" progress-colors="progressColors" color-percentages="colorPercentages" show-ticks="true" goal-percentage="goalPercentage" segmented="true" class="{{noDataError ? 'error' : ''}}"></graph-selector>
+
+    <div class="note-wrapper" style="height: 100%" ng-if="getInteracted()">
+
+      <textarea ng-if="getInteracted()" ng-model="habitNotes.notes" ng-change="notesChanged()" placeholder="{{ 'MY_NOTES' | translate }}" id="habitNote"></textarea>
+
+    </div>
+  	<!--<div class="bar bar-footer">
+    	<button class="button button-large" ng-click="submitData()" ng-disabled="submittingData">{{ 'CONFIRM' | translate}}</button>
+  	</div>-->
+  </ion-content>
+  <div class="top-videos-bar-fake"></div>
+</ion-view>

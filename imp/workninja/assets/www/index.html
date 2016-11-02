@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>WorkNinja</title>
+
+    <!-- vendor css -->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/AngularJS-Toaster/toaster.css" rel="stylesheet">
+    <link href="lib/ng-mfb/mfb/dist/mfb.css" rel="stylesheet">
+
+    <!-- app css -->
+    <link href="css/app.css" rel="stylesheet">
+
+
+    <!-- Google maps -->
+    <script src="http://maps.googleapis.com/maps/api/js?v=3.17&amp;key=AIzaSyDP0omKGwsDzaipJR6A7VcX5jejw8bvtYU&amp;libraries=places&amp;sensor=false"></script>
+    <!-- Pin payments-->
+    <script src="https://cdn.pin.net.au/pin.v2.js"></script>
+
+    <!-- vendor js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="cordova.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-http-auth/src/http-auth-interceptor.js"></script>
+    <script src="lib/pubnub/web/pubnub.js"></script>
+    <script src="lib/pubnub-angular/lib/pubnub-angular.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/underscore.string/lib/underscore.string.js"></script>
+    <script src="lib/angular-ratings/angular.ratings.js"></script>
+    <script src="lib/AngularJS-Toaster/toaster.js"></script>
+    <script src="lib/angular-ui-utils/ui-utils.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+    <script src="lib/ng-mfb/src/mfb-directive.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-touch/angular-touch.min.js"></script>
+
+    <!-- app js -->
+    <script src="js/app.js"></script>
+    <script src="js/app/config.js"></script>
+    <script src="js/app/constants.js"></script>
+    <script src="js/app/interceptors.js"></script>
+    <script src="js/app/routing.js"></script>
+    <script src="js/app/routing_customer.js"></script>
+    <script src="js/app/routing_staff.js"></script>
+    <script src="js/app/run.js"></script>
+    <script src="js/interceptors/request_config_interceptor.js"></script>
+    <script src="js/interceptors/auth_interceptor.js"></script>
+    <script src="js/interceptors/error_interceptor.js"></script>
+    <script src="js/interceptors/loading_progress_interceptor.js"></script>
+    <script src="js/providers/resource_cache.js"></script>
+    <script src="js/controllers/splash_controller.js"></script>
+      <script src="js/controllers/first_controller.js"></script>
+    <script src="js/controllers/login_controller.js"></script>
+      <script src="js/controllers/signup_controller.js"></script>
+    <script src="js/controllers/app_controller.js"></script>
+    <script src="js/controllers/feedback_modal_controller.js"></script>
+    <script src="js/controllers/customer/customer_controller.js"></script>
+    <script src="js/controllers/customer/customer_onboard_controller.js"></script>
+    <script src="js/controllers/customer/customer_organisation_controller.js"></script>
+    <script src="js/controllers/customer/customer_workplace_controller.js"></script>
+    <script src="js/controllers/customer/customer_payment_controller.js"></script>
+    <script src="js/controllers/customer/customer_share_controller.js"></script>
+    <script src="js/controllers/customer/request_ninja_modal_controller.js"></script>
+    <script src="js/controllers/customer/searching_for_ninjas_modal_controller.js"></script>
+    <script src="js/controllers/customer/customer_add_staff_controller.js"></script>
+    <script src="js/controllers/customer/customer_add_manager_controller.js"></script>
+    <script src="js/controllers/customer/customer_add_workplace_controller.js"></script>
+    <script src="js/controllers/staff/staff_controller.js"></script>
+    <script src="js/controllers/staff/staff_onboard_controller.js"></script>
+    <script src="js/controllers/staff/staff_profile_controller.js"></script>
+    <script src="js/controllers/staff/staff_profile_transport_controller.js"></script>
+    <script src="js/controllers/staff/staff_availability_controller.js"></script>
+    <script src="js/controllers/staff/staff_availability_wday_controller.js"></script>
+    <script src="js/controllers/staff/job_opened_modal_controller.js"></script>
+    <script src="js/controllers/share_controller.js"></script>
+    <script src="js/controllers/about_controller.js"></script>
+    <script src="js/services/session.js"></script>
+    <script src="js/services/auth.js"></script>
+    <script src="js/services/event.js"></script>
+    <script src="js/services/settings.js"></script>
+    <script src="js/services/staff.js"></script>
+    <script src="js/services/user.js"></script>
+    <script src="js/services/customer.js"></script>
+    <script src="js/services/customer-staff.js"></script>
+    <script src="js/services/customer-manager.js"></script>
+    <script src="js/services/customer-workplace.js"></script>
+    <script src="js/services/workplace.js"></script>
+    <script src="js/services/location.js"></script>
+    <script src="js/services/role.js"></script>
+    <script src="js/services/job.js"></script>
+    <script src="js/services/pin.js"></script>
+    <script src="js/services/state.js"></script>
+    <script src="js/services/country.js"></script>
+    <script src="js/services/tracker.js"></script>
+    <script src="js/services/manager.js"></script>
+    <script src="js/directives/pulse.js"></script>
+    <script src="js/directives/imageonload.js"></script>
+    <script src="js/directives/compareto.js"></script>
+  </head>
+
+  <body ng-app="WorkNinja" class="platform-ios platform-cordova platform-webview platform-android platform-cordova platform-webview">
+    <script type="text/javascript">
+        window.onerror = function(message, url, lineNumber) {
+          var msg = "[JS]: " + message + " in " + url + " at line " + lineNumber;
+          console.log(msg);
+        }
+    </script>
+    <toaster-container toaster-options="{&apos;position-class&apos;: &apos;toast-top-full-width&apos;}"></toaster-container>
+    <!--<div class="launch-logo">-->
+      <!--<img src="img/workninja-launch-logo.png" alt=""/>-->
+    <!--</div>-->
+    <ui-view></ui-view>
+  </body>
+</html>

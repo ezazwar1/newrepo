@@ -1,0 +1,51 @@
+<div class="popup-gamecode-add">
+    <div class="form-group">
+        <label class="form-label">Game Name<em>*</em></label>
+        <input class="form-input" type="text" placeholder="Enter the game name" ng-model="data.title" autofocus />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" for="console">Console<em>*</em></label>
+
+        <div class="form-select-wrapper ion-arrow-down-b">
+            <select class="form-select" name="console" ng-model="data.platform">
+                <option value="" >Choose a platform...</option>
+                <option value="playstation-4">PS4</option>
+                <option value="playstation-3">PS3</option>
+                <option value="playstation-2">PS2</option>
+                <option value="playstation-1">PS1</option>
+                <option value="playstation-vita">Playstation-vita</option>
+                <option value="psp">PSP</option>
+
+                <option value="xbox-one">Xbox One</option>
+                <option value="xbox-360">Xbox 360</option>
+                <option value="xbox">Xbox</option>
+
+                <option value="wii-u">Wii U</option>
+                <option value="wii">Wii</option>
+                <option value="gamecube">Game Cube</option>
+                <option value="nintendo-64">Nintendo 64</option>
+                <option value="super-nintendo">Super Nintendo</option>
+                <option value="nes">NES</option>
+                <option value="nintendo-3ds">Nintendo 3DS</option>
+                <option value="nintendo-ds">Nintendo DS</option>
+                <option value="gameboy-advance">Gameboy Advance</option>
+                <option value="gameboy-color">Gameboy Color</option>
+                <option value="gameboy">Gameboy</option>
+
+                <option value="sega-master-system">SEGA Master System</option>
+                <option value="sega-genesis">SEGA Genesis</option>
+                <option value="sega-cd">SEGA CD</option>
+                <option value="sega-32x">SEGA 32X</option>
+                <option value="sega-saturn">SEGA Saturn</option>
+                <option value="sega-dreamcast">SEGA Dreamcast</option>
+                <option value="sega-game-gear">SEGA Game Gear</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="button-multi">
+        <button class="button button-block button-primary button-multi_item-uneven" ng-click="cancel_button()">Cancel</button>
+        <button class="button button-block button-primary button-multi_item-uneven" ng-click="submit_game_missing_thank()">Confirm</button>
+    </div>
+</div>
